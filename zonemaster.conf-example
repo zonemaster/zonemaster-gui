@@ -1,0 +1,18 @@
+<VirtualHost *:80>
+	DocumentRoot /var/www/html/zonemaster-web-gui/dist
+	DirectoryIndex index.html
+	ServerAdmin example@example.net
+
+	<Directory "/var/www/html/zonemaster-web-gui/dist">
+		Options Indexes MultiViews FollowSymlinks Includes
+		AllowOverride All
+		Require all granted
+	</Directory>
+
+	ProxyPass /api http://localhost:5000/
+  ProxyPassReverse /api http://localhost:5000/
+  ProxyPreserveHost On
+
+	ErrorLog  /var/log/zonemaster/zonemaster-web-gui-error.log
+	CustomLog /var/log/zonemaster/zonemaster-web-gui-access_log common
+</VirtualHost>

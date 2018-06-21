@@ -1,0 +1,48 @@
+  <app-header>
+    <div class="row" *ngIf="preDelegated">
+      <div class="text-center m-auto">
+        <div class="alert alert-info">
+          {{'Notice! This is an undelegated test'|translate}}
+          <br>
+          <a routerLink="/faq" fragment="undelegated">{{'What is an undelegated domain test?'|translate}}</a>
+        </div>
+      </div>
+    </div>
+    <app-form [is_advanced_options_enabled]="is_advanced_options_enabled"
+              [preDelegated]="preDelegated"
+              [domain_check_progression]="domain_check_progression"
+              [showProgressBar]="showProgressBar"
+              [parentData]="parentData"
+              (onDomainCheck)="domainCheck($event)"
+              (onfetchFromParent)="fetchFromParent($event)"
+    ></app-form>
+  </app-header>
+
+  <div class="container-fluid">
+    <section class="row d-block result" *ngIf="showResult">
+      <app-result [resultID]="resultID"></app-result>
+    </section>
+
+    <section class="row about" *ngIf="!showResult && !preDelegated">
+      <div class="container">
+      <h4>{{'About ZoneMaster'|translate}}</h4>
+        <p>        <span class="flag-icon flag-icon-gb"></span>
+          <span class="flag-icon flag-icon-sv"></span>
+          {{'About ZoneMaster Text'|translate}}
+        </p>
+      </div>
+    </section>
+
+    <section class="row about bg-light pt-2" *ngIf="!showResult && !preDelegated">
+      <div class="container">
+        <h4>{{'About domain name system, DNS'|translate}}</h4>
+        <p>
+          {{'About DNS Text'|translate}}
+        </p>
+      </div>
+    </section>
+
+    <section class="row" *ngIf="!showResult && !preDelegated">
+    </section>
+
+  </div>

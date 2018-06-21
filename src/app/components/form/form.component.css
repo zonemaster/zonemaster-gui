@@ -1,0 +1,148 @@
+.fa-play-circle-o:hover {
+  color: #fff;
+}
+
+.fa-play-circle-o {
+  color: #9ad;
+}
+
+.input-group {
+  width: 100%;
+}
+
+#domain_check_name {
+  font-size:16px;
+  height:64px;
+  color:#6F787E;
+  border-radius:3px
+}
+
+.checkboxForm {
+  width: 100%;
+}
+
+
+button.launch {
+  background-color: #FF5A5F;
+}
+button.launch:hover {
+  background-color: #ff3c3a;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.advanced input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.advanced input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.advanced input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.advanced {
+  margin-left: 6.7rem;
+  text-align: left;
+}
+
+.progress-result {
+  position: relative;
+  width: 100%;
+}
+
+.progress-value {
+  display: block;
+  color: #000;
+  position: absolute;
+  right: 10px;
+}
+
+@media(min-width:576px){
+  .progress-result {
+    position: absolute;
+    z-index: 20;
+    width: 20.1rem;
+  }
+  .progress-value {
+    display: block;
+    color: #000;
+    position: absolute;
+    right: 10px;
+    font-size: 30px;
+  }
+  .checkboxForm {
+    width: inherit;
+  }
+
+}
+@media(min-width:768px){
+  .progress-result {
+    width: 29.5rem;
+  }
+}
+@media(min-width:992px){
+  .progress-result {
+    width: 42rem;
+  }
+}
+@media(min-width:1200px){
+  .progress-result {
+    width: 51.4rem;
+  }
+}
+
+.nsForm {
+  margin-bottom: 5px;
+}
+
+.has-error {
+  color: red;
+}

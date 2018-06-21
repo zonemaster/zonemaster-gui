@@ -1,0 +1,42 @@
+<footer class="pb-0 pt-2 bg-light">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-md-4">
+          <span placement="top" [ngbTooltip]="tipContent">Version used</span>
+      </div>
+      <div class="col-md-5 pull-right">
+        <div class="row">
+          <div class="col-md-6">
+            <i class="fa fa-envelope-o black-icon" aria-hidden="true"></i>
+            <a class="text-dark" href="mailto:{{contactAddress}}">{{contactAddress}}</a>
+          </div>
+          <div class="col-md-4">
+            <i class="fa fa-github black-icon" aria-hidden="true"></i>
+            <a class="text-dark" href="https://github.com/dotse/zonemaster">Github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="copyright text-muted small">Copyright &copy; AFNIC & IIS 2018. All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<ng-template #tipContent>
+  <table>
+    <tbody>
+    <tr *ngFor="let item of versions">
+      <td  align="left">
+        {{item[0]}}
+      </td>
+      <td  align="right">
+        {{item[1]}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</ng-template>

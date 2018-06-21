@@ -1,0 +1,97 @@
+.result {
+  border-radius: 5px;
+  width     : 100%;
+  min-width : 500px;
+  min-height: 150px;
+  color     : black;
+  padding   : 2em;
+  margin-bottom: 20px;
+}
+
+#link_location {
+  width: 100%;
+}
+
+.modal-title {
+  color: #000;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+.ipvX {
+  position: absolute;
+  right:0;
+  bottom: 0;
+}
+
+.btn-collapsible {
+  overflow: hidden;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+  max-width: 40px;
+}
+.btn-collapsible.btn-xs {
+  max-width: 25px;
+}
+.btn-collapsible.btn-sm {
+  max-width: 34px;
+}
+.btn-collapsible.btn-lg {
+  max-width: 50px;
+}
+.btn-collapsible span {
+  opacity: 0;
+  text-indent: -6px;
+  display: inline-block;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+}
+.btn-collapsible:hover {
+  max-width: 300px;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.btn-collapsible:hover span {
+  opacity: 1;
+  text-indent: 0px;
+  -webkit-transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.active.info, .result.INFO {
+  background-color: #007bff;
+}
+.active.notice, .result.NOTICE {
+  background-color: #fff638;
+}
+.active.warning, .result.WARNING {
+  background-color: #ff9019;
+}
+.active.error, .result.ERROR {
+  background-color: #dc3545;
+}
+.active.critical, .result.CRITICAL {
+  background-color: #dc3545;
+}
+
+
+
