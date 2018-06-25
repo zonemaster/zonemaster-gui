@@ -5,9 +5,10 @@ v2.0.0 2018-06-25
   * This is the first release version of this code.
   * Old Zonemaster-GUI has been replaced by a entirely new code with
     new architecture.
-  * New Zonemaster-GUI is in Javascript only, and it talks directly
-    with the Zonemaster-Backend API, in the default installation
-    through a web server proxy.
+  * New Zonemaster-GUI is in Javascript only with no Perl, and it talks 
+    directly with the Zonemaster-Backend API, in the default installation
+    through a web server proxy, e.g. Apache http server.
   * The old Zonemaster-GUI is deprecated, and can, for the time being, 
-    still be found in the old repository, https://github.com/dotse/zonemaster-gui
+    still be found in the old repository, 
+    https://github.com/dotse/zonemaster-gui
 
