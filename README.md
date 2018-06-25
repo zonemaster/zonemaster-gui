@@ -40,14 +40,6 @@ The script also change the FAQ markdown files to html files.
 ##### Create a release zip file
 Run 'npm run release' to create a zip file with dist folder and zonemaster.conf file. Then upload it in github.
 
-##### Running unit tests
-Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-For the moment, none tests are implemented.
-
-##### Running end-to-end tests
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-For the moment, none tests are implemented.
-
 ### Documentation
 
 Basically, the GUI is a serverless Angular application which use the Backend JSONRC API.
