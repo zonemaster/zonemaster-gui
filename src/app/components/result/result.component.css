@@ -8,6 +8,10 @@
   margin-bottom: 20px;
 }
 
+.expand.result {
+  cursor: pointer;
+}
+
 #link_location {
   width: 100%;
 }
