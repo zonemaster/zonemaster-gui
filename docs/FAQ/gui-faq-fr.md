@@ -39,7 +39,7 @@ service. Ce qui inclut, des tests de connectivité, de validité des adresses
 IP, de contrôle de validité des signatures DNSSEC...
 
 L'ensemble des tests réalisés par Zonemaster est décrit au sein du document
-[Test Requirements document](https://github.com/dotse/zonemaster/blob/master/docs/requirements/TestRequirements.md).
+[Test Requirements document](https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md).
 
 #### 2. Qui se cache derrière Zonemaster ? <a name="q2"></a>
 

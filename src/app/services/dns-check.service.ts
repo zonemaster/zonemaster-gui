@@ -48,7 +48,7 @@ export class DnsCheckService {
     });
   }
 
-  // API Implementation from https://github.com/dotse/zonemaster-backend/blob/master/docs/API.md
+  // API Implementation from https://github.com/zonemaster/zonemaster-backend/blob/master/docs/API.md
   public versionInfo() {
     return this.RPCRequest('version_info', {}, false);
   }

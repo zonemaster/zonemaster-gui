@@ -121,16 +121,16 @@ And when the mouse over this text, it display all version of the zonemaster stac
 
 -------
 
-[Declaration of prerequisites]: https://github.com/dotse/zonemaster/blob/master/README.md#prerequisites
-[JSON-RPC API]: https://github.com/dotse/zonemaster-backend/blob/master/docs/API.md
-[Main Zonemaster repository]: https://github.com/dotse/zonemaster/blob/master/README.md
-[Zonemaster::Backend installation]: https://github.com/dotse/zonemaster-backend/blob/master/docs/Installation.md
-[Zonemaster::Backend]: https://github.com/dotse/zonemaster-backend/blob/master/README.md
-[Zonemaster::CLI installation]: https://github.com/dotse/zonemaster-cli/blob/master/docs/Installation.md
+[Declaration of prerequisites]: https://github.com/zonemaster/zonemaster/blob/master/README.md#prerequisites
+[JSON-RPC API]: https://github.com/zonemaster/zonemaster-backend/blob/master/docs/API.md
+[Main Zonemaster repository]: https://github.com/zonemaster/zonemaster/blob/master/README.md
+[Zonemaster::Backend installation]: https://github.com/zonemaster/zonemaster-backend/blob/master/docs/Installation.md
+[Zonemaster::Backend]: https://github.com/zonemaster/zonemaster-backend/blob/master/README.md
+[Zonemaster::CLI installation]: https://github.com/zonemaster/zonemaster-cli/blob/master/docs/Installation.md
 [Zonemaster::Engine API]: http://search.cpan.org/%7Eznmstr/Zonemaster-Engine/lib/Zonemaster/Engine/Overview.pod
-[Zonemaster::Engine installation]: https://github.com/dotse/zonemaster-engine/blob/master/docs/Installation.md
-[Zonemaster::Engine]: https://github.com/dotse/zonemaster-engine/blob/master/README.md
-[Zonemaster::LDNS]: https://github.com/dotse/zonemaster-ldns/blob/master/README.md
+[Zonemaster::Engine installation]: https://github.com/zonemaster/zonemaster-engine/blob/master/docs/Installation.md
+[Zonemaster::Engine]: https://github.com/zonemaster/zonemaster-engine/blob/master/README.md
+[Zonemaster::LDNS]: https://github.com/zonemaster/zonemaster-ldns/blob/master/README.md
 
 Copyright (c) 2013 - 2018, IIS (The Internet Foundation in Sweden) \
 Copyright (c) 2013 - 2018, AFNIC \
