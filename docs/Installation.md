@@ -68,6 +68,8 @@ sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```
 
+
+
 * Install Zonemaster Web GUI
 ```sh
 wget https://github.com/zonemaster/zonemaster-gui/releases/download/v2.0.0/zonemaster_web_gui.zip -O temp.zip
@@ -75,6 +77,12 @@ sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
 sudo unzip temp.zip -d /var/www/html/zonemaster-web-gui
 rm temp.zip
+```
+
+If `unzip` is not already installed, then install it with the following command 
+and go back and run it again above:
+```sh
+sudo apt-get install unzip
 ```
 
 * Basic apache2 configuration:
@@ -85,9 +93,18 @@ sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apach
 cd /etc/apache2/sites-available
 sudo a2ensite zonemaster #Activate the website
 ```
-Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
+Then update the zonemaster.conf file with your own ServerName, ServerAlias and ServerAdmin.
+For testing on a local machine, you can edit zonemaster.conf and change the "*:80" part of 
+to the host's IP or using localhost as ServerName if that is appropriate.
+
 
 * Reload apache
+For Ubuntu 14.04 use the following command:
+```sh
+sudo service enable apache2
+sudo service reload apache2
+```
+For Debian and higher versions of Ubuntu use the following command:
 ```sh
 sudo systemctl enable apache2
 sudo systemctl reload apache2
@@ -95,7 +112,7 @@ sudo systemctl reload apache2
 
 ### 4. FreeBSD
 
-TODO
+> Instructions are currently missing.
 
 ### 5. Ubuntu
 
