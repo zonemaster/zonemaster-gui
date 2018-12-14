@@ -17,10 +17,12 @@ export class DomainComponent implements OnInit {
   public preDelegated;
   public parentData: object;
   public resultID = '';
+  public profiles = [];
 
   constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService, route: ActivatedRoute) {
     this.preDelegated = route.snapshot.data[0]['preDelegated'];
     this.is_advanced_options_enabled = this.preDelegated;
+    this.profiles = this.dnsCheckService.getProfilesNames();
   }
 
   ngOnInit() {}

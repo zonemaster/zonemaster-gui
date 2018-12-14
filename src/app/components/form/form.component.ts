@@ -17,6 +17,7 @@ export class FormComponent implements OnInit {
   @Input() preDelegated;
   @Input() domain_check_progression;
   @Input() showProgressBar;
+  @Input() profiles;
 
   @Output() onDomainCheck = new EventEmitter<object>();
   @Output() onfetchFromParent = new EventEmitter<string>();
@@ -37,7 +38,7 @@ export class FormComponent implements OnInit {
   public ds_list;
   public history = {};
   public test = {};
-  public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
+  public form = {ipv4: true, ipv6: true, profile: 'default', domain: ''};
   public checkboxForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private alertService: AlertService) {}
