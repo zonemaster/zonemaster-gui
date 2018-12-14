@@ -53,8 +53,8 @@ export class DnsCheckService {
     return this.RPCRequest('version_info', {}, false);
   }
 
-  public getNSIps(domain) {
-    return this.RPCRequest('get_ns_ips', domain, false);
+  public getHostByName(domain) {
+    return this.RPCRequest('get_host_by_name', domain, false);
   }
 
   public getDataFromParentZone(domain) {
@@ -78,10 +78,6 @@ export class DnsCheckService {
       offset,
       limit,
       'frontend_params': data}, false);
-  }
-
-  public validateSyntax(data) {
-    return this.RPCRequest('validate_syntax', data);
   }
 
   public fetchFromParent(domain) {
