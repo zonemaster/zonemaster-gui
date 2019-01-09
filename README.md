@@ -7,10 +7,10 @@ This module is the Web Interface part of the Zonemaster project.
 ### Prerequisites
 Before you install the Zonemaster Web GUI module, you need the
 Zonemaster Engine test framework installed. Please see the
-[Zonemaster Engine installation instructions](https://github.com/dotse/zonemaster-engine/blob/master/docs/Installation.md)
+[Zonemaster Engine installation instructions](https://github.com/zonemaster/zonemaster-engine/blob/master/docs/Installation.md)
 
 And also the the zonemaster-backend module installed. Please see the [Zonemaster
-Backend installation](https://github.com/dotse/zonemaster-backend/blob/master/docs/Installation.md)
+Backend installation](https://github.com/zonemaster/zonemaster-backend/blob/master/docs/Installation.md)
 
 ### Installation
 
@@ -39,14 +39,6 @@ The script also change the FAQ markdown files to html files.
 
 ##### Create a release zip file
 Run 'npm run release' to create a zip file with dist folder and zonemaster.conf file. Then upload it in github.
-
-##### Running unit tests
-Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-For the moment, none tests are implemented.
-
-##### Running end-to-end tests
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-For the moment, none tests are implemented.
 
 ### Documentation
 

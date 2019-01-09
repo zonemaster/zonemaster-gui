@@ -51,7 +51,7 @@ export class DnsCheckService {
     });
   }
 
-  // API Implementation from https://github.com/dotse/zonemaster-backend/blob/master/docs/API.md
+  // API Implementation from https://github.com/zonemaster/zonemaster-backend/blob/master/docs/API.md
   public versionInfo() {
     return this.RPCRequest('version_info', {}, false);
   }
@@ -85,10 +85,6 @@ export class DnsCheckService {
       offset,
       limit,
       'frontend_params': data}, false);
-  }
-
-  public validateSyntax(data) {
-    return this.RPCRequest('validate_syntax', data);
   }
 
   public fetchFromParent(domain) {

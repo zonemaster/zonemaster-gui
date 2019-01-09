@@ -42,35 +42,27 @@ export class DomainComponent implements OnInit {
 
     const self = this;
 
-    this.dnsCheckService.validateSyntax(data).then(
-      result => {
-        if (result['status'] === 'ok') {
-          this.dnsCheckService.startDomainTest(data).then(id => {
-            domainCheckId = id as string;
-            this.showProgressBar = true;
-            const handle = setInterval(() => {
-              self.dnsCheckService.testProgress(domainCheckId).then(res => {
+    this.dnsCheckService.startDomainTest(data).then(id => {
+      domainCheckId = id as string;
+      this.showProgressBar = true;
+      const handle = setInterval(() => {
+        self.dnsCheckService.testProgress(domainCheckId).then(res => {
 
-                self.domain_check_progression = parseInt(res as string, 10) as number;
+          self.domain_check_progression = parseInt(res as string, 10) as number;
 
-                if (self.domain_check_progression === 100) {
-                  clearInterval(handle);
-                  this.alertService.success(`Domain ${data['domain']} checked with success`);
-                  self.resultID = domainCheckId;
-                  self.is_advanced_options_enabled = false;
-                  self.showResult = true;
-                  self.showProgressBar = false;
-                  self.domain_check_progression = 0;
-                }
-              });
-            }, this.intervalTime);
-          });
-        } else {
-          this.alertService.error(result['message']);
-        }
-      }, error => {
-        this.alertService.error(`Internal server error`);
-      }
-    );
+          if (self.domain_check_progression === 100) {
+            clearInterval(handle);
+            this.alertService.success(`Domain ${data['domain']} checked with success`);
+            self.resultID = domainCheckId;
+            self.is_advanced_options_enabled = false;
+            self.showResult = true;
+            self.showProgressBar = false;
+            self.domain_check_progression = 0;
+          }
+        });
+      }, this.intervalTime);
+    }, error => {
+      this.alertService.error(`Internal server error`);
+    });
   }
 }

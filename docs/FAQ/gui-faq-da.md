@@ -31,7 +31,7 @@ Når et domænenavn (som eksempelvis "zonemaster.dk") afleveres til Zonemaster (
 Webinterface) vil Zonemaster undersøge domænenavnets generelle sundhed ved at gennemløbe
 DNS fra roden (.) til TLD (Top Level Domæne, eksempelvis .dk) og navneservere, der indeholder
 informationer om det specifikke domænenavn ("zonemaster.dk"). De forskellige sundhedstjek
-foretaget af Zonemaster er dokumenteret i [Test Requirements document](https://github.com/dotse/zonemaster/blob/master/docs/requirements/TestRequirements.md)
+foretaget af Zonemaster er dokumenteret i [Test Requirements document](https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md)
 
 #### 2. Hvem står bag Zonemaster? <a name="q2"></a>
 Zonemaster er et fælles projekt mellem IIS (administrator af .se og .nu) og Afnic
