@@ -7,6 +7,7 @@ import {AppService} from './app.service';
 export class DnsCheckService {
   private backendUrl: string;
   private clientInfo: object;
+  private _profiles: string[];
 
   constructor(private alertService: AlertService, private http: HttpClient) {
     this.backendUrl = AppService.apiEndpoint();
@@ -15,6 +16,8 @@ export class DnsCheckService {
     if (this.backendUrl) {
       console.error('Please set the api endpoint');
     }
+
+    this.profilesNames().then( (res: string[]) => this.setProfilesNames(res));
   }
 
   private RPCRequest(method, params = {}, guiInfo = true) {
@@ -53,8 +56,12 @@ export class DnsCheckService {
     return this.RPCRequest('version_info', {}, false);
   }
 
-  public getHostByName(domain) {
-    return this.RPCRequest('get_host_by_name', domain, false);
+  public profilesNames() {
+    return this.RPCRequest('profiles_names', {}, false);
+  }
+
+  public getNSIps(domain) {
+    return this.RPCRequest('get_ns_ips', domain, false);
   }
 
   public getDataFromParentZone(domain) {
@@ -82,6 +89,14 @@ export class DnsCheckService {
 
   public fetchFromParent(domain) {
     return this.RPCRequest('get_data_from_parent_zone', domain, false);
+  }
+
+  public getProfilesNames(): string[] {
+    return this._profiles;
+  }
+
+  public setProfilesNames(profiles: string[]): void {
+    this._profiles = profiles;
   }
 
 }
