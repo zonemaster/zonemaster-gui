@@ -16,8 +16,6 @@ export class DnsCheckService {
     if (this.backendUrl) {
       console.error('Please set the api endpoint');
     }
-
-    this.profilesNames().then( (res: string[]) => this.setProfilesNames(res));
   }
 
   private RPCRequest(method, params = {}, guiInfo = true) {
@@ -56,8 +54,8 @@ export class DnsCheckService {
     return this.RPCRequest('version_info', {}, false);
   }
 
-  public profilesNames() {
-    return this.RPCRequest('profiles_names', {}, false);
+  public profileNames() {
+    return this.RPCRequest('profile_names', {}, false);
   }
 
   public getNSIps(domain) {
@@ -73,7 +71,7 @@ export class DnsCheckService {
   }
 
   public testProgress(testId) {
-    return this.RPCRequest('test_progress', testId, false);
+    return this.RPCRequest('test_progress', {'test_id': testId}, false);
   }
 
   public getTestResults(data) {
@@ -88,15 +86,16 @@ export class DnsCheckService {
   }
 
   public fetchFromParent(domain) {
-    return this.RPCRequest('get_data_from_parent_zone', domain, false);
+    return this.RPCRequest('get_data_from_parent_zone', {domain}, false);
   }
 
-  public getProfilesNames(): string[] {
+  public getProfileNames(): string[] {
+    console.log('getProfiles')
     return this._profiles;
   }
 
-  public setProfilesNames(profiles: string[]): void {
+  public setProfileNames(profiles: string[]): void {
+    console.log('setProfil')
     this._profiles = profiles;
   }
-
 }
