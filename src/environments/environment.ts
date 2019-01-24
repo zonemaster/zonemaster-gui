@@ -8,5 +8,5 @@ export const environment = {
   apiEndpoint: 'https://zonemaster.fr/api',
   contactAddress: 'contact@zonemaster.net',
   logoUrl: 'assets/images/zonemaster_logo.svg',
-  clientInfo: {version: '2.0.0', id: 'Zonemaster GUI'}
+  clientInfo: {version: '2.1.0', id: 'Zonemaster GUI'}
 };

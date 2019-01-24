@@ -22,10 +22,11 @@ export class DomainComponent implements OnInit {
   constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService, route: ActivatedRoute) {
     this.preDelegated = route.snapshot.data[0]['preDelegated'];
     this.is_advanced_options_enabled = this.preDelegated;
-    this.profiles = this.dnsCheckService.getProfilesNames();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.dnsCheckService.profileNames().then( (res: string[]) => this.profiles = res );
+  }
 
   public fetchFromParent(domain) {
     this.dnsCheckService.fetchFromParent(domain).then(result => {
