@@ -79,10 +79,12 @@ export class DnsCheckService {
   }
 
   public getTestHistory(data, offset = 0, limit = 100) {
+    const domain = data["domain"];
     return this.RPCRequest('get_test_history', {
       offset,
       limit,
-      'frontend_params': data}, false);
+      'filter': 'all',
+      'frontend_params': {domain}}, false);
   }
 
   public fetchFromParent(domain) {
