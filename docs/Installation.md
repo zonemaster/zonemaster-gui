@@ -35,7 +35,7 @@ sudo yum install httpd
 
 * Install Zonemaster Web GUI
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v2.1.0/zonemaster_web_gui.zip -O temp.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.0/zonemaster_web_gui.zip -O temp.zip
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
 sudo unzip temp.zip -d /var/www/html/zonemaster-web-gui
@@ -72,7 +72,7 @@ sudo systemctl restart apache2
 
 * Install Zonemaster Web GUI
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v2.1.0/zonemaster_web_gui.zip -O temp.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.0/zonemaster_web_gui.zip -O temp.zip
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
 sudo unzip temp.zip -d /var/www/html/zonemaster-web-gui

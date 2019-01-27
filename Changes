@@ -1,14 +1,40 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
+v3.0.0 2019-01-27 (pre-release version)
+
+ - Status
+   - This is a pre-release version not fully tested on all supported
+     OS's and Perl versions. This version will not be available on
+     CPAN.
+ - API change
+   - As of version 3.0.0 of Zonemaster-Backend its API has changed and
+     this version of Zonemaster-GUI does not work with earlier versions
+     of Zonemaster-Backend.
+ - Features
+   - Adaption new profile model and API changes in Zonemaster-Backend
+     - Dynamically get avaiable profiles from the backend #10
+     - Changed HTML DS types from String to Int as expected in the API #12
+     - Removed validate_syntax and rename getNSips to getHostByName. #13
+     - Changed two api call #16
+ - Fixes
+   - Updated result CSS: set a cursor pointer on expandable results #7
+   - Various fixes #3
+   - All link references on Github now to zonemaster/zonemaster instead
+     of old dotse/zonemaster #4
+   - Updated of installation document #5
+   - Removed debug log for routing #11
+   - Fixed display profile name (async problem) #16
+
+
 v2.0.0 2018-06-25
 
-  * This is the first release version of this code.
-  * Old Zonemaster-GUI has been replaced by a entirely new code with
-    new architecture.
-  * New Zonemaster-GUI is in Javascript only with no Perl, and it talks 
-    directly with the Zonemaster-Backend API, in the default installation
-    through a web server proxy, e.g. Apache http server.
-  * The old Zonemaster-GUI is deprecated, and can, for the time being, 
-    still be found in the old repository, 
-    https://github.com/dotse/zonemaster-gui
+ - This is the first release version of this code.
+ - Old Zonemaster-GUI has been replaced by a entirely new code with
+   new architecture.
+ - New Zonemaster-GUI is in Javascript only with no Perl, and it talks 
+   directly with the Zonemaster-Backend API, in the default installation
+   through a web server proxy, e.g. Apache http server.
+ - The old Zonemaster-GUI is deprecated, and can, for the time being, 
+   still be found in the old repository, 
+   https://github.com/dotse/zonemaster-gui
 
