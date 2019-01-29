@@ -58,9 +58,7 @@
           </div>
           </form>
           <select [(ngModel)]="form.profile" class="form-control" name="form.profile">
-            <option value="default_profile">Default</option>
-            <option value="test_profile_1">IANA profile</option>
-            <!-- <option value="test_profile_2">Test profile 2</option> -->
+            <option *ngFor="let profile of profiles" [value]="profile" [selected]="form.profile == profile">{{profile}}</option>
           </select>
         </form>
 
@@ -109,21 +107,21 @@
               <div class="nsForm" *ngFor="let itemrow of digestForm.controls.itemRows.controls; let i=index" [formGroupName]="i">
                 <input formControlName="keytag" class="form-control" name="form.keytag" placeholder="Key tag">
                 <select formControlName="algorithm" class="form-control" name="form.algorithm">
-                  <option value="3">DSA/SHA1</option>
-                  <option value="5">RSA/SHA1</option>
-                  <option value="6">DSA-NSEC3-SHA1</option>
-                  <option value="7">RSASHA1-NSEC3-SHA1</option>
-                  <option value="8">RSA/SHA-256</option>
-                  <option value="10">RSA/SHA-512</option>
-                  <option value="12">ECC-GOST</option>
-                  <option value="13">ECDSAP256SHA256</option>
-                  <option value="14">ECDSAP384SHA384</option>
+                  <option [value]="3">DSA/SHA1</option>
+                  <option [value]="5">RSA/SHA1</option>
+                  <option [value]="6">DSA-NSEC3-SHA1</option>
+                  <option [value]="7">RSASHA1-NSEC3-SHA1</option>
+                  <option [value]="8">RSA/SHA-256</option>
+                  <option [value]="10">RSA/SHA-512</option>
+                  <option [value]="12">ECC-GOST</option>
+                  <option [value]="13">ECDSAP256SHA256</option>
+                  <option [value]="14">ECDSAP384SHA384</option>
                 </select>
                 <select formControlName="digtype" class="form-control" name="form.digtype">
-                  <option value="1">SHA-1</option>
-                  <option value="2">SHA-256</option>
-                  <option value="3">GOST R 34.11-94</option>
-                  <option value="4">SHA-384</option>
+                  <option [value]="1">SHA-1</option>
+                  <option [value]="2">SHA-256</option>
+                  <option [value]="3">GOST R 34.11-94</option>
+                  <option [value]="4">SHA-384</option>
                 </select>
                 <input formControlName="digest" class="form-control" name="digest" placeholder="Digest">
                 <button *ngIf="digestForm.controls.itemRows.controls.length > 1"

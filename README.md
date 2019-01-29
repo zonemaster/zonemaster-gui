@@ -7,10 +7,10 @@ This module is the Web Interface part of the Zonemaster project.
 ### Prerequisites
 Before you install the Zonemaster Web GUI module, you need the
 Zonemaster Engine test framework installed. Please see the
-[Zonemaster Engine installation instructions](https://github.com/dotse/zonemaster-engine/blob/master/docs/Installation.md)
+[Zonemaster Engine installation instructions](https://github.com/zonemaster/zonemaster-engine/blob/master/docs/Installation.md)
 
 And also the the zonemaster-backend module installed. Please see the [Zonemaster
-Backend installation](https://github.com/dotse/zonemaster-backend/blob/master/docs/Installation.md)
+Backend installation](https://github.com/zonemaster/zonemaster-backend/blob/master/docs/Installation.md)
 
 ### Installation
 

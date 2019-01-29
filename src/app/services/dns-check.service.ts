@@ -7,6 +7,7 @@ import {AppService} from './app.service';
 export class DnsCheckService {
   private backendUrl: string;
   private clientInfo: object;
+  private _profiles: string[];
 
   constructor(private alertService: AlertService, private http: HttpClient) {
     this.backendUrl = AppService.apiEndpoint();
@@ -48,9 +49,13 @@ export class DnsCheckService {
     });
   }
 
-  // API Implementation from https://github.com/dotse/zonemaster-backend/blob/master/docs/API.md
+  // API Implementation from https://github.com/zonemaster/zonemaster-backend/blob/master/docs/API.md
   public versionInfo() {
     return this.RPCRequest('version_info', {}, false);
+  }
+
+  public profileNames() {
+    return this.RPCRequest('profile_names', {}, false);
   }
 
   public getNSIps(domain) {
@@ -66,7 +71,7 @@ export class DnsCheckService {
   }
 
   public testProgress(testId) {
-    return this.RPCRequest('test_progress', testId, false);
+    return this.RPCRequest('test_progress', {'test_id': testId}, false);
   }
 
   public getTestResults(data) {
@@ -80,12 +85,17 @@ export class DnsCheckService {
       'frontend_params': data}, false);
   }
 
-  public validateSyntax(data) {
-    return this.RPCRequest('validate_syntax', data);
-  }
-
   public fetchFromParent(domain) {
-    return this.RPCRequest('get_data_from_parent_zone', domain, false);
+    return this.RPCRequest('get_data_from_parent_zone', {domain}, false);
   }
 
+  public getProfileNames(): string[] {
+    console.log('getProfiles')
+    return this._profiles;
+  }
+
+  public setProfileNames(profiles: string[]): void {
+    console.log('setProfil')
+    this._profiles = profiles;
+  }
 }

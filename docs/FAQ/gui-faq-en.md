@@ -30,7 +30,7 @@ Web) it will investigate the domain’s general health by traversing the DNS fro
 (.) to the TLD (Top Level Domain, like .net) to eventually the nameserver(s) that holds 
 the information about the specified domain (zonemaster.net). The different sanity checks 
 conducted by the zonemaster tool is documented in the [Test Requirements
-document](https://github.com/dotse/zonemaster/blob/master/docs/requirements/TestRequirements.md)
+document](https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md)
 
 #### 2. Who is behind Zonemaster? <a name="q2"></a>
 Zonemaster is a joint project between IIS (registry operator of .se and .nu TLD) and Afnic 
