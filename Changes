@@ -2,6 +2,10 @@ Release history for Zonemaster component Zonemaster-GUI
 
 v3.0.1 2019-01-31 (pre-release version)
  
+ - Status
+   - This is a pre-release version not fully tested on all supported
+     OS's and Perl versions. This version will not be available on
+     CPAN.
  - Fixes
    - Corrected link in installation document to point at correct
      git tag (correct release).
