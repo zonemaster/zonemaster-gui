@@ -1,5 +1,12 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
+v3.0.1 2019-01-31 (pre-release version)
+ 
+ - Fixes
+   - Corrected flag in installation document that pointed at wrong
+     git tag.
+
+
 v3.0.0 2019-01-27 (pre-release version)
 
  - Status
