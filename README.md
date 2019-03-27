@@ -22,13 +22,8 @@ Text for configuring the backend are found in the [installation
 instructions](docs/Installation.md).
 
 ### Contribution
-In order to contribute
-* Install [Nodejs](https://nodejs.org) 
-* Fork then Clone your repo 
-* Go to the folder and install project dependencies `npm install`
-* Update environment files in `/src/environments/` to add a backend api endpoint
 
-You are now ready to develop 
+Read the [contributing file](docs/contributing.md).
 
 ##### Development server
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
