@@ -25,6 +25,7 @@ Zonemaster består af tre grundlæggende moduler:
 
   - Motor (Koden der udfører alle DNS-tests)
   - Kommandolinjeinterface (CLI)
+  - En server, der giver dig mulighed for at køre zonemaster-test og gemme resultater ved hjælp af en JSON-RPC API
   - Webinterface 
 
 Når et domænenavn (som eksempelvis "zonemaster.dk") afleveres til Zonemaster (CLI eller

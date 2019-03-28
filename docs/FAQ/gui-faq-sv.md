@@ -20,7 +20,13 @@ Zonemaster
 
 #### 1. Vad är Zonemaster? <a name="q1"></a>
 
-Zonemaster är ett program designat för att hjälpa människor att kontrollera, mäta och förhoppningsvis också bättre förstå hur DNS, domain name system, fungerar. Zonemaster består av 3 huvuddelar: 1. Motorn (all kod som genomför alla tester), 2. Kommandoradsinterfacet (CLI) samt 3. webbgränssnittet. När en domän (även kallad zon) skickas till Zonemaster så kommer programmet att undersöka domänens hälsotillstånd genom att gå igenom DNS från roten (.) till TLD:n (toppdomänen, till exempel .NET) och till slut de DNS-servrar som innehåller information om den specificerade domänen (till exempel zonemaster.net). Zonemaster utför även en hel del andra tester och alla dessa är dokumenterade här: [Test Requirements document](https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md)
+Zonemaster är ett program designat för att hjälpa människor att kontrollera, mäta och förhoppningsvis också bättre förstå hur DNS, domain name system, fungerar. Zonemaster består av 3 huvuddelar: 
+1. Motorn (all kod som genomför alla tester), 
+2. Kommandoradsinterfacet (CLI) samt 
+3. En server som låter dig köra zonmastertester och spara resultat med ett JSON-RPC API,
+3. Webbgränssnittet. 
+
+När en domän (även kallad zon) skickas till Zonemaster så kommer programmet att undersöka domänens hälsotillstånd genom att gå igenom DNS från roten (.) till TLD:n (toppdomänen, till exempel .NET) och till slut de DNS-servrar som innehåller information om den specificerade domänen (till exempel zonemaster.net). Zonemaster utför även en hel del andra tester och alla dessa är dokumenterade här: [Test Requirements document](https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md)
 
 #### 2. Vem har utvecklat Zonemaster? <a name="q2"></a>
 

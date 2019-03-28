@@ -23,7 +23,9 @@ hopefully also understand the workings of the DNS (Domain Name System).
 It consists of three basic modules: 
   - Engine (a test framework that supports all functionality to perform DNS tests)
   - The CLI interface and 
+  - A server that allows you to run zonemaster tests and save results using a JSON-RPC API
   - The web interface 
+
 
 When a domain (such as "zonemaster.net") is submitted to Zonemaster interfaces (CLI or
 Web) it will investigate the domain’s general health by traversing the DNS from root 

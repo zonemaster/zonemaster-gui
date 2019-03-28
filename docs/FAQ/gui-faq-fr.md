@@ -27,7 +27,9 @@ de 3 éléments qui sont:
     à réaliser lors de l'analyse d'une zone.
  2. Une interface en ligne de commande (CLI) plus particulièrement dédiée
     aux utilisateurs les plus expérimentés.
- 3. Une interface Web permettant un accès rapide à l'outil.
+ 3. Un serveur permettant l'execution des tests zonemaster, 
+    et l'historisation des resultats, au travers d'une API JSON-RPC.
+ 4. Une interface Web permettant un accès rapide à l'outil.
 
 Lorsqu'un nom de domaine (et conséquemment la zone à laquelle il fait 
 référence) est soumis à Zonemaster, ce dernier va réaliser une analyse 
