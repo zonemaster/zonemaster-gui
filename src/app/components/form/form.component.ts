@@ -14,7 +14,6 @@ import {AlertService} from '../../services/alert.service';
 })
 export class FormComponent implements OnInit {
   @Input() is_advanced_options_enabled;
-  @Input() preDelegated;
   @Input() domain_check_progression;
   @Input() showProgressBar;
   @Input() profiles;
@@ -122,7 +121,7 @@ export class FormComponent implements OnInit {
   }
 
   public runDomainCheck() {
-    if (this.preDelegated) {
+    if (this.is_advanced_options_enabled) {
       this.form['nameservers'] = (this.NSForm.value.itemRows[0].ip !== '' ? this.NSForm.value.itemRows : []);
       this.form['ds_info'] = (this.digestForm.value.itemRows[0].keytag !== '' ? this.digestForm.value.itemRows : []);
     }

@@ -40,8 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 const appRoutes: Routes = [
-  { path: 'domain_check', component: DomainComponent, data: [{preDelegated: false}] },
-  { path: 'pre_delegated_domain_check', component: DomainComponent, data: [{preDelegated: true}] },
+  { path: 'domain_check', component: DomainComponent },
   { path: 'result/:resultID', component: ResultComponent, data: [{directAccess: true}]},
   { path: 'history', component: HistoryComponent},
   { path: 'faq', component: FaqComponent },

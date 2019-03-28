@@ -43,42 +43,45 @@
               <span class="progress-value">{{domain_check_progression}}%</span>
             </ngb-progressbar>
           </p>
-          <form [formGroup]="checkboxForm" class="checkboxForm">
-          <div class="options d-flex" [formArrayName]="'items'" [class.invalid]="!checkboxForm['controls'].selectedItems.valid">
-            <div *ngFor="let protocol of checkboxForm['controls'].items['controls']; let i = index;"
-                 [formGroup]="protocol"
-                 [ngClass]="{'has-error': !checkboxForm['controls'].selectedItems.valid}"
-                 class="form-check form-check-inline">
-
-              <input type="checkbox" class="form-check-input" type="checkbox" formControlName="checked" id="protocol_{{ protocol.controls.key.value }}">
-              <label class="custom-control custom-checkbox form-check-label" attr.for="protocol_{{ protocol.controls.key.value }}">
-                {{ protocol.controls.value.value }}
-              </label>
-            </div>
-          </div>
-          </form>
-          <select [(ngModel)]="form.profile" class="form-control" name="form.profile">
-            <option *ngFor="let profile of profiles" [value]="profile" [selected]="form.profile == profile">{{profile}}</option>
-          </select>
         </form>
-
-        <div class="alert alert-danger" role="alert" [class.invalid]="!checkboxForm.controls.selectedItems.valid" *ngIf="!checkboxForm.controls.selectedItems.valid">
-          {{"Choose at least one protocol" | translate}}
-        </div>
       </div>
     </div>
   </div>
-  <div class="row" *ngIf="preDelegated">
+  <div class="row">
     <div class="advanced">
       <label class="d-flex" for="advanced_checkbox">
       <span class="switch">
           <input type="checkbox" name="advanced_checkbox" id="advanced_checkbox" [(ngModel)]="is_advanced_options_enabled">
           <span class="slider round"></span>
         </span>
-        <p class="ml-1 pt-1">{{'Advanced options'|translate}}</p>
+        <p class="ml-1 pt-1">{{'Options'|translate}}</p>
       </label>
 
       <div *ngIf="is_advanced_options_enabled">
+             <span [formGroup]="checkboxForm" class=" half-with">
+              <span class="options d-flex" [formArrayName]="'items'" [class.invalid]="!checkboxForm['controls'].selectedItems.valid">
+                <span *ngFor="let protocol of checkboxForm['controls'].items['controls']; let i = index;"
+                     [formGroup]="protocol"
+                     [ngClass]="{'has-error': !checkboxForm['controls'].selectedItems.valid}"
+                     class="form-check form-check-inline">
+
+                  <input type="checkbox" class="form-check-input" type="checkbox" formControlName="checked" id="protocol_{{ protocol.controls.key.value }}">
+                  <label class="custom-control custom-checkbox form-check-label" attr.for="protocol_{{ protocol.controls.key.value }}">
+                    {{ protocol.controls.value.value }}
+                  </label>
+                </span>
+              </span>
+            </span>
+          <div class="alert alert-danger" role="alert" [class.invalid]="!checkboxForm.controls.selectedItems.valid" *ngIf="!checkboxForm.controls.selectedItems.valid">
+            {{"Choose at least one protocol" | translate}}
+          </div>
+          <hr>
+          <h4 class="d-inline">Profil</h4>
+            <select [(ngModel)]="form.profile" class="form-control half-with" name="form.profile">
+              <option *ngFor="let profile of profiles" [value]="profile" [selected]="form.profile == profile">{{profile}}</option>
+            </select>
+          <hr>
+
           <h4 class="d-inline">{{'Nameservers'|translate}}</h4>
           <form [formGroup]="NSForm" class="form-inline">
             <div formArrayName="itemRows">
@@ -138,7 +141,6 @@
               </div>
             </div>
           </form>
-
           <br>
           <button class="btn btn-default fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
       </div>

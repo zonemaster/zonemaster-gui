@@ -1,15 +1,14 @@
   <app-header>
-    <div class="row" *ngIf="preDelegated">
+    <div class="row" *ngIf="is_advanced_options_enabled">
       <div class="text-center m-auto">
         <div class="alert alert-info">
-          {{'Notice! This is an undelegated test'|translate}}
+          {{'Notice! More info on undelegated test'|translate}}
           <br>
           <a routerLink="/faq" fragment="undelegated">{{'What is an undelegated domain test?'|translate}}</a>
         </div>
       </div>
     </div>
     <app-form [is_advanced_options_enabled]="is_advanced_options_enabled"
-              [preDelegated]="preDelegated"
               [domain_check_progression]="domain_check_progression"
               [showProgressBar]="showProgressBar"
               [parentData]="parentData"
@@ -24,7 +23,7 @@
       <app-result [resultID]="resultID"></app-result>
     </section>
 
-    <section class="row about" *ngIf="!showResult && !preDelegated">
+    <section class="row about" *ngIf="!showResult">
       <div class="container">
       <h4>{{'About ZoneMaster'|translate}}</h4>
         <p>        <span class="flag-icon flag-icon-gb"></span>
@@ -34,7 +33,7 @@
       </div>
     </section>
 
-    <section class="row about bg-light pt-2" *ngIf="!showResult && !preDelegated">
+    <section class="row about bg-light pt-2" *ngIf="!showResult">
       <div class="container">
         <h4>{{'About domain name system, DNS'|translate}}</h4>
         <p>
@@ -43,7 +42,7 @@
       </div>
     </section>
 
-    <section class="row" *ngIf="!showResult && !preDelegated">
+    <section class="row" *ngIf="!showResult">
     </section>
 
   </div>
