@@ -15,9 +15,9 @@
               [profiles]="profiles"
               (onDomainCheck)="domainCheck($event)"
               (onfetchFromParent)="fetchFromParent($event)"
+              (onOpenOptions)="openOptions($event)"
     ></app-form>
   </app-header>
-
   <div class="container-fluid">
     <section class="row d-block result" *ngIf="showResult">
       <app-result [resultID]="resultID"></app-result>

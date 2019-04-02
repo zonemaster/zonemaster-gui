@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output, SimpleChanges, OnChanges} from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -20,6 +20,7 @@ export class FormComponent implements OnInit {
 
   @Output() onDomainCheck = new EventEmitter<object>();
   @Output() onfetchFromParent = new EventEmitter<string>();
+  @Output() onOpenOptions = new EventEmitter<boolean>();
 
   private NSFormConfig = {
     ns: [''],
@@ -141,5 +142,10 @@ export class FormComponent implements OnInit {
     }
 
     this.onDomainCheck.emit(this.form);
+  }
+
+  public toggleOptions() {
+    this.is_advanced_options_enabled = !this.is_advanced_options_enabled
+    this.onOpenOptions.emit(this.is_advanced_options_enabled);
   }
 }

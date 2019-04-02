@@ -34,6 +34,10 @@ export class DomainComponent implements OnInit {
   });
   }
 
+  public openOptions(value) {
+    this.is_advanced_options_enabled = value;
+  }
+
   public domainCheck(data: object) {
     let domainCheckId: string;
 
@@ -54,7 +58,7 @@ export class DomainComponent implements OnInit {
             self.is_advanced_options_enabled = false;
             self.showResult = true;
             self.showProgressBar = false;
-            self.domain_check_progression = 0;
+            self.domain_check_progression = 5;
           }
         });
       }, this.intervalTime);

@@ -51,7 +51,7 @@
     <div class="advanced">
       <label class="d-flex" for="advanced_checkbox">
       <span class="switch">
-          <input type="checkbox" name="advanced_checkbox" id="advanced_checkbox" [(ngModel)]="is_advanced_options_enabled">
+          <input type="checkbox" name="advanced_checkbox" id="advanced_checkbox" (change)="toggleOptions()" [ngModel]="is_advanced_options_enabled">
           <span class="slider round"></span>
         </span>
         <p class="ml-1 pt-1">{{'Options'|translate}}</p>
