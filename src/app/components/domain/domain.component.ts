@@ -14,15 +14,11 @@ export class DomainComponent implements OnInit {
   public domain_check_progression = 0;
   public showResult = false;
   public showProgressBar = false;
-  public preDelegated;
   public parentData: object;
   public resultID = '';
   public profiles = [];
 
-  constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService, route: ActivatedRoute) {
-    this.preDelegated = route.snapshot.data[0]['preDelegated'];
-    this.is_advanced_options_enabled = this.preDelegated;
-  }
+  constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService) {}
 
   ngOnInit() {
     this.dnsCheckService.profileNames().then( (res: string[]) => this.profiles = res );
@@ -36,6 +32,10 @@ export class DomainComponent implements OnInit {
       console.log(error);
       this.alertService.error('Error during parent data fetching');
   });
+  }
+
+  public openOptions(value) {
+    this.is_advanced_options_enabled = value;
   }
 
   public domainCheck(data: object) {
@@ -58,7 +58,7 @@ export class DomainComponent implements OnInit {
             self.is_advanced_options_enabled = false;
             self.showResult = true;
             self.showProgressBar = false;
-            self.domain_check_progression = 0;
+            self.domain_check_progression = 5;
           }
         });
       }, this.intervalTime);

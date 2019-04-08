@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output, SimpleChanges, OnChanges} from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -14,13 +14,13 @@ import {AlertService} from '../../services/alert.service';
 })
 export class FormComponent implements OnInit {
   @Input() is_advanced_options_enabled;
-  @Input() preDelegated;
   @Input() domain_check_progression;
   @Input() showProgressBar;
   @Input() profiles;
 
   @Output() onDomainCheck = new EventEmitter<object>();
   @Output() onfetchFromParent = new EventEmitter<string>();
+  @Output() onOpenOptions = new EventEmitter<boolean>();
 
   private NSFormConfig = {
     ns: [''],
@@ -122,7 +122,7 @@ export class FormComponent implements OnInit {
   }
 
   public runDomainCheck() {
-    if (this.preDelegated) {
+    if (this.is_advanced_options_enabled) {
       this.form['nameservers'] = (this.NSForm.value.itemRows[0].ip !== '' ? this.NSForm.value.itemRows : []);
       this.form['ds_info'] = (this.digestForm.value.itemRows[0].keytag !== '' ? this.digestForm.value.itemRows : []);
     }
@@ -142,5 +142,10 @@ export class FormComponent implements OnInit {
     }
 
     this.onDomainCheck.emit(this.form);
+  }
+
+  public toggleOptions() {
+    this.is_advanced_options_enabled = !this.is_advanced_options_enabled
+    this.onOpenOptions.emit(this.is_advanced_options_enabled);
   }
 }
