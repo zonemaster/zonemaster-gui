@@ -109,11 +109,12 @@ sudo systemctl reload apache2
 ```
 
 ### 4. FreeBSD
-
+For all commands below, acquire privileges, i.e. become root:
+``su -l``
 
 * Install Apache ([source](https://www.digitalocean.com/community/tutorials/how-to-install-an-apache-mysql-and-php-famp-stack-on-freebsd-10-1)):
 
-``sudo pkg install apache24``
+``pkg install apache24``
 
 Enter ``y`` at the confirmation prompt.
 
@@ -125,35 +126,34 @@ We will use this sysrc command to do just that:
  
 Now start Apache:
  
-``sudo service apache24 start``
+``service apache24 start``
 
 * Install Wget :
 
 ```sh
-sudo pkg install wget
+pkg install wget
 ```
 
 * Install Zonemaster Web GUI
 ```sh
 wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O temp.zip
-sudo mkdir -p  /var/www/html/zonemaster-web-gui
-sudo mkdir -p /var/log/zonemaster
-sudo unzip temp.zip -d /var/www/html/zonemaster-web-gui
+mkdir -p  /var/www/html/zonemaster-web-gui
+mkdir -p /var/log/zonemaster
+unzip temp.zip -d /var/www/html/zonemaster-web-gui
 rm temp.zip
 ```
 
 * Basic Apache configuration:
 
 ```sh
-sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
+install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
 ```
 Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
 
 * Reload Apache
 ```sh
-sudo service apache24 restart
+service apache24 restart
 ```
-
 
 ### 5. Ubuntu
 
