@@ -110,6 +110,7 @@ sudo systemctl reload apache2
 
 ### 4. FreeBSD
 For all commands below, acquire privileges, i.e. become root:
+
 ``su -l``
 
 * Install Apache ([source](https://www.digitalocean.com/community/tutorials/how-to-install-an-apache-mysql-and-php-famp-stack-on-freebsd-10-1)):
@@ -122,7 +123,8 @@ This installs Apache and its dependencies.
 
 To enable Apache as a service, add ``apache24_enable="YES"`` to the ``/etc/rc.conf`` file. 
 We will use this sysrc command to do just that:
-``sudo sysrc apache24_enable=yes``
+
+``sysrc apache24_enable=yes``
  
 Now start Apache:
  
