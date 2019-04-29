@@ -26,8 +26,12 @@ export class DomainComponent implements OnInit {
 
   public fetchFromParent(domain) {
     this.dnsCheckService.fetchFromParent(domain).then(result => {
-      this.parentData = result;
-      this.alertService.success('Parent data fetched with success');
+      if (result['ds_list'].length === 0 && result['ns_list'].length === 0) {
+        this.alertService.warn('There is no delegation for the zone');
+      } else {
+        this.parentData = result;
+        this.alertService.success('Parent data fetched with success');
+      }
     }, error => {
       console.log(error);
       this.alertService.error('Error during parent data fetching');
