@@ -122,9 +122,22 @@ export class FormComponent implements OnInit {
   }
 
   public runDomainCheck() {
-    if (this.is_advanced_options_enabled) {
-      this.form['nameservers'] = (this.NSForm.value.itemRows[0].ip !== '' ? this.NSForm.value.itemRows : []);
-      this.form['ds_info'] = (this.digestForm.value.itemRows[0].keytag !== '' ? this.digestForm.value.itemRows : []);
+
+    this.form['ds_info'] = [];
+    this.form['nameservers'] = [];
+
+    if (this.NSForm.value.itemRows[0].name) {
+      this.form['nameservers'] = (this.NSForm.value.itemRows[0].name !== '' ? this.NSForm.value.itemRows : []);
+    }
+
+    if (this.digestForm.value.itemRows[0].keytag !== '' ) {
+      if (this.digestForm.value.itemRows[0].digest !== '' ) {
+        this.form['ds_info'] = this.digestForm.value.itemRows;
+      } else {
+        this.alertService.error('Digest required');
+      }
+    } else if (this.digestForm.value.itemRows[0].digest !== '') {
+      this.alertService.error('Keytag required');
     }
 
     let atLeastOneChecked = false;
