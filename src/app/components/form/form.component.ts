@@ -103,10 +103,6 @@ export class FormComponent implements OnInit {
     }
   }
 
-  private displayDataFromParent() {
-    this.onfetchFromParent.emit(this.form['domain']);
-  }
-
   public deleteRow(form, index: number) {
     const control = <FormArray>this[form].controls['itemRows'];
     control.removeAt(index);
@@ -119,6 +115,16 @@ export class FormComponent implements OnInit {
   private mapItems(items) {
     const selectedItems = items.filter((l) => l.checked).map((l) => l.key);
     return selectedItems.length ? selectedItems : null;
+  }
+
+  private displayDataFromParent() {
+
+    if (this.form['domain'] === '') {
+      this.alertService.error('Domain name required');
+      return false;
+    }
+
+    this.onfetchFromParent.emit(this.form['domain']);
   }
 
   public runDomainCheck() {
