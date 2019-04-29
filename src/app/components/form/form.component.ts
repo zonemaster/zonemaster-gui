@@ -70,11 +70,11 @@ export class FormComponent implements OnInit {
     });
 
     this.NSForm = this.formBuilder.group({
-      itemRows: this.formBuilder.array([this.initItemRows(this.NSFormConfig)]) // here
+      itemRows: this.formBuilder.array([this.initItemRows(this.NSFormConfig)])
     });
 
     this.digestForm = this.formBuilder.group({
-      itemRows: this.formBuilder.array([this.initItemRows(this.digestFormConfig)]) // here
+      itemRows: this.formBuilder.array([this.initItemRows(this.digestFormConfig)])
     });
   }
 
@@ -82,20 +82,21 @@ export class FormComponent implements OnInit {
   set parentData(data: object) {
     this.disable_check_button = false;
     if (this.NSForm) {
-      this.deleteRow('NSForm', 0);
+      this.deleteRow('NSForm', -1);
       data['ns_list'].map(ns => {
         this.addNewRow('NSForm', ns);
       });
 
-      this.deleteRow('digestForm', 0);
+      this.deleteRow('digestForm', -1);
       data['ds_list'].map(digest => {
         this.addNewRow('digestForm', digest);
       });
     }
   }
 
-  public addNewRow(form, value= null) {
+  public addNewRow(form, value = null) {
     const control = <FormArray>this[form].controls['itemRows'];
+
     if (value !== null) {
       control.push(this.initItemRows(value));
     } else if (form === 'NSForm') {
@@ -112,7 +113,14 @@ export class FormComponent implements OnInit {
 
   public deleteRow(form, index: number) {
     const control = <FormArray>this[form].controls['itemRows'];
-    control.removeAt(index);
+    if (index === -1) {
+      console.log(control.length);
+      for ( let i = control.length - 1; i >= 0; i--) {
+        control.removeAt(i);
+      }
+    } else {
+      control.removeAt(index);
+    }
   }
 
   public initItemRows(value) {
@@ -129,8 +137,8 @@ export class FormComponent implements OnInit {
     this.form['ds_info'] = [];
     this.form['nameservers'] = [];
 
-    if (this.NSForm.value.itemRows.length > 0 && this.NSForm.value.itemRows[0].name) {
-      this.form['nameservers'] = (this.NSForm.value.itemRows[0].name !== '' ? this.NSForm.value.itemRows : []);
+    if (this.NSForm.value.itemRows.length > 0 && this.NSForm.value.itemRows[0].name !== '') {
+      this.form['nameservers'] = this.NSForm.value.itemRows;
     }
 
     if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].keytag !== '' ) {
