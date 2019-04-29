@@ -40,6 +40,7 @@ export class FormComponent implements OnInit {
   public test = {};
   public form = {ipv4: true, ipv6: true, profile: 'default', domain: ''};
   public checkboxForm: FormGroup;
+  public disable_check_button = false;
 
   constructor(private formBuilder: FormBuilder, private alertService: AlertService) {}
 
@@ -79,6 +80,7 @@ export class FormComponent implements OnInit {
 
   @Input()
   set parentData(data: object) {
+    this.disable_check_button = false;
     if (this.NSForm) {
       this.deleteRow('NSForm', 0);
       data['ns_list'].map(ns => {
@@ -104,6 +106,7 @@ export class FormComponent implements OnInit {
   }
 
   private displayDataFromParent() {
+    this.disable_check_button = true;
     this.onfetchFromParent.emit(this.form['domain']);
   }
 
@@ -126,17 +129,17 @@ export class FormComponent implements OnInit {
     this.form['ds_info'] = [];
     this.form['nameservers'] = [];
 
-    if (this.NSForm.value.itemRows[0].name) {
+    if (this.NSForm.value.itemRows.length > 0 && this.NSForm.value.itemRows[0].name) {
       this.form['nameservers'] = (this.NSForm.value.itemRows[0].name !== '' ? this.NSForm.value.itemRows : []);
     }
 
-    if (this.digestForm.value.itemRows[0].keytag !== '' ) {
+    if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].keytag !== '' ) {
       if (this.digestForm.value.itemRows[0].digest !== '' ) {
         this.form['ds_info'] = this.digestForm.value.itemRows;
       } else {
         this.alertService.error('Digest required');
       }
-    } else if (this.digestForm.value.itemRows[0].digest !== '') {
+    } else if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].digest !== '') {
       this.alertService.error('Keytag required');
     }
 
