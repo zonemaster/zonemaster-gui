@@ -37,5 +37,5 @@
 ,"Choose at least one protocol":"Choisissez au moins un protocole."
 ,"Zonemaster Backend is not available":"Zonemaster Backend n'est pas disponible"
 
-,"":""
+,"There is no delegation for the zone":"Aucune délégation trouvée pour cette zone"
 }

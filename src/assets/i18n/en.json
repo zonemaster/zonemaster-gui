@@ -28,5 +28,5 @@
   ,"Domain name required":"Domain name required"
   ,"Choose at least one protocol":"Choose at least one protocol"
   ,"Zonemaster Backend is not available":"Zonemaster Backend is not available"
-,"":""
+,"There is no delegation for the zone":"There is no delegation for the zone"
 }
