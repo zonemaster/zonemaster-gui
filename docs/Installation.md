@@ -68,8 +68,6 @@ sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```
 
-
-
 * Install Zonemaster Web GUI
 ```sh
 wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O temp.zip
@@ -101,8 +99,8 @@ to the host's IP or using localhost as ServerName if that is appropriate.
 * Reload apache
 For Ubuntu 14.04 use the following command:
 ```sh
-sudo service enable apache2
-sudo service reload apache2
+sudo service apache2 enable
+sudo service apache2 reload
 ```
 For Debian and higher versions of Ubuntu use the following command:
 ```sh
@@ -111,8 +109,53 @@ sudo systemctl reload apache2
 ```
 
 ### 4. FreeBSD
+For all commands below, acquire privileges, i.e. become root:
 
-> Instructions are currently missing.
+``su -l``
+
+* Install Apache ([source](https://www.digitalocean.com/community/tutorials/how-to-install-an-apache-mysql-and-php-famp-stack-on-freebsd-10-1)):
+
+``pkg install apache24``
+
+Enter ``y`` at the confirmation prompt.
+
+This installs Apache and its dependencies.
+
+To enable Apache as a service, add ``apache24_enable="YES"`` to the ``/etc/rc.conf`` file. 
+We will use this sysrc command to do just that:
+
+``sysrc apache24_enable=yes``
+ 
+Now start Apache:
+ 
+``service apache24 start``
+
+* Install Wget :
+
+```sh
+pkg install wget
+```
+
+* Install Zonemaster Web GUI
+```sh
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O temp.zip
+mkdir -p  /var/www/html/zonemaster-web-gui
+mkdir -p /var/log/zonemaster
+unzip temp.zip -d /var/www/html/zonemaster-web-gui
+rm temp.zip
+```
+
+* Basic Apache configuration:
+
+```sh
+install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
+```
+Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
+
+* Reload Apache
+```sh
+service apache24 restart
+```
 
 ### 5. Ubuntu
 
