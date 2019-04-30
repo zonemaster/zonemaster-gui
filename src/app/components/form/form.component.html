@@ -83,7 +83,7 @@
           <hr>
 
           <h4 class="d-inline">{{'Nameservers'|translate}}</h4>
-          <form [formGroup]="NSForm" class="form-inline">
+          <form [formGroup]="NSForm" class="form-inline nameservers">
             <div formArrayName="itemRows">
               <div class="nsForm" *ngFor="let itemrow of NSForm.controls.itemRows.controls; let i=index" [formGroupName]="i">
                 <input formControlName="ns" name='form.ns' class="form-control" placeholder="NS">
@@ -105,7 +105,7 @@
           <hr>
 
           <h4 class="d-inline">{{'Digests'|translate}}</h4>
-          <form [formGroup]="digestForm" class="form-inline">
+          <form [formGroup]="digestForm" class="form-inline digests">
             <div formArrayName="itemRows">
               <div class="nsForm" *ngFor="let itemrow of digestForm.controls.itemRows.controls; let i=index" [formGroupName]="i">
                 <input formControlName="keytag" class="form-control" name="form.keytag" placeholder="Key tag">
