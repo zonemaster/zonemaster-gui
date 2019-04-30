@@ -133,7 +133,7 @@ export class FormComponent implements OnInit {
       this.alertService.error('Domain name required');
       return false;
     }
-    
+
     this.disable_check_button = true;
     this.onfetchFromParent.emit(this.form['domain']);
   }
