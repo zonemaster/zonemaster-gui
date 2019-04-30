@@ -47,27 +47,30 @@ The ``app`` folder is structured as follow :
 +-- app.*
 ```
 
-The ``components`` folder is composed by subfolder that represent main components.
-Each folder of component contain four files :
-  - ``*.component.css``   : The component style 
-  - ``*.component.html``   : The component html 
-  - ``*.component.*.ts``   : The component typescript 
+The ``components`` folder is composed of subfolders that represent the main components.
+Each folder of component contain three files :
+  - ``*.component.css``       : The component's style 
+  - ``*.component.html``      : The component's html 
+  - ``*.component.*.ts``      : The component's typescript 
     
 All assets are available in ``src/assets`` folder. 
-It's split by concern, all the javascript is in the ``js`` folder, the style in the ``css``, etc.
+It's split by concern, all translation files are in the ``i18n`` folder, the style in the ``css``, 
+images are in the ``images`` folder, etc.
 
 The configurations files of the application are in the ``src/environments`` folder.
 ``environment.ts`` is use for development purpose, and the ``environment.prod.ts`` for production.
-
     
 In order to contribute
 * Install [Nodejs](https://nodejs.org) 
-* Fork and Clone the repo 
+* Fork the Zonemaster GUI repository on Github into your own user on Github.
+* Clone your fork to your working environment.
 * Go to the folder and install project dependencies with `npm install`
 * Update environment files in `/src/environments/` to add a backend api endpoint (or leave the default)
-* Make your change, test it and create a Pull Request
-
-You are now ready to contribute !
+* Make your changes, test them and push them to your fork on Github
+* From your fork, make a Pull Request against the zonemaster/zonemaster-gui repository. 
+Please always make the Pull Request against the develop branch.
+    
+* Thank you for your contribution!
 
 ##### Development server
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
