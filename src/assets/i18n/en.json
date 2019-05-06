@@ -19,7 +19,7 @@
 ,"About DNS Text": "Most people who use the internet have never reflected over what actually happens when one types an address in their web browser and then clicks the enter button. To simplify, the domain name system, (DNS) is a database that associates domain names to IP addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the internet. It’s similar to the way every telephone has its own number in the telephone network. A long series of numbers works fine for computers, but it’s difficult for people to memorize. Therefore, DNS has been developed an extra system for us when we want to reach a web server on a specific site or an email server we want to send an email to. "
 ,"No data for this test": "No data for this test"
 ,"The domain name contains unauthorized character(s)": "The domain name contains unauthorized character(s)"
-,"Domain checked with success":"Domain checked with success"
+,"Domain checked completed":"Domain checked completed"
 ,"Internal server error":"Internal server error"
 ,"Parent data fetched with success":"Parent data fetched with success"
 ,"Error during parent data fetching":"Error during parent data fetching"

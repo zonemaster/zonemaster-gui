@@ -28,7 +28,7 @@
 ,"About DNS Text": "De fleste mennesker, der bruger internettet, har aldrig reflekteret over, hvad der rent faktisk sker, når man skriver en adresse i deres webbrowser og derefter klikker på Enter-knappen. For at forenkle er domænenavnssystemet (DNS) en database, der associerer domænenavne til IP-adresser, ligesom en telefonbog associerer navne til telefonnumre. En IP-adresse er en unik række tal, der identificerer hver computer, der er forbundet til internettet. Det ligner den måde, at hver telefon har sit eget nummer i telefonnetværket. En lang række tal fungerer fint for computere, men det er svært for folk at huske. Derfor er DNS blevet udviklet et ekstra system til os, når vi ønsker at nå en webserver på et bestemt websted eller en e-mail-server, vi ønsker at sende en mail til."
 ,"No data for this test": "No data for this test"
 ,"The domain name contains unauthorized character(s)": "The domain name contains unauthorized character(s)"
-,"Domain checked with success":"Domain checked with success"
+,"Domain checked completed":"Domain checked completed"
 ,"Internal server error":"Internal server error"
 ,"Parent data fetched with success":"Parent data fetched with success"
 ,"Error during parent data fetching":"Error during parent data fetching"

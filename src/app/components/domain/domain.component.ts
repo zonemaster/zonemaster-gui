@@ -57,7 +57,7 @@ export class DomainComponent implements OnInit {
 
           if (self.domain_check_progression === 100) {
             clearInterval(handle);
-            this.alertService.success(`Domain ${data['domain']} checked with success`);
+            this.alertService.success(`Domain checked completed`);
             self.resultID = domainCheckId;
             self.is_advanced_options_enabled = false;
             self.showResult = true;
