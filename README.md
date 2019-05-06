@@ -51,7 +51,7 @@ The ``components`` folder is composed of subfolders that represent the main comp
 Each folder of component contain three files :
   - ``*.component.css``       : The component's style 
   - ``*.component.html``      : The component's html 
-  - ``*.component.*.ts``      : The component's typescript 
+  - ``*.component.ts``      : The component's typescript 
     
 All assets are available in ``src/assets`` folder. 
 It's split by concern, all translation files are in the ``i18n`` folder, the style in the ``css``, 
