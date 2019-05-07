@@ -61,7 +61,7 @@ Install apache2:
 
 ```sh
 sudo apt-get update && sudo apt-get upgrade -y 
-sudp apt-get install apache2
+sudo apt-get install apache2
 sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod rewrite
