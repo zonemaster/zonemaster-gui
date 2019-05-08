@@ -28,7 +28,7 @@
 ,"About DNS Text": "La plupart des gens qui utilisent Internet n'ont jamais réfléchi à ce qui se passe réellement quand on tape une adresse dans leur navigateur Web, puis clique sur le bouton Entrée. Pour simplifier, le système de noms de domaine (DNS) est une base de données qui associe des noms de domaine à des adresses IP, de la même manière qu'un annuaire téléphonique associe des noms à des numéros de téléphone. Une adresse IP est une série unique de chiffres qui identifie chaque ordinateur connecté à Internet. C'est semblable à la façon dont chaque téléphone a son propre numéro dans le réseau téléphonique. Une longue série de chiffres fonctionne bien pour les ordinateurs, mais il est difficile pour les gens de mémoriser. Par conséquent, DNS a été développé afin de permettre d'atteindre le serveur web d'un domaine spécifique ou un serveur de messagerie auquel nous voulons envoyer un email."
 ,"No data for this test": "Il n'y a pas de donnée pour ce test"
 ,"The domain name contains unauthorized character(s)": "Le nom de domaine contient des caractères non autorisés"
-,"Domain checked with success":"Le nom de domaine a été vérifié avec succès."
+,"Domain checked completed":"Vérification du nom de domaine terminée."
 ,"Internal server error":"Erreur interne du serveur"
 ,"Parent data fetched with success":"Les données parent ont été récupérées avec succès."
 ,"Error during parent data fetching":"Erreur lors de la récupération des données parentes."
@@ -37,5 +37,5 @@
 ,"Choose at least one protocol":"Choisissez au moins un protocole."
 ,"Zonemaster Backend is not available":"Zonemaster Backend n'est pas disponible"
 
-,"":""
+,"There is no delegation for the zone":"Aucune délégation trouvée pour cette zone"
 }
