@@ -4,7 +4,11 @@ Zonemaster Web GUI
 ### Purpose
 This module is the Web Interface part of the Zonemaster project. 
 
-### Prerequisites
+### Installation
+
+Follow the detailed [installation instructions](docs/Installation.md).
+
+##### Prerequisites
 Before you install the Zonemaster Web GUI module, you need the
 Zonemaster Engine test framework installed. Please see the
 [Zonemaster Engine installation instructions](https://github.com/zonemaster/zonemaster-engine/blob/master/docs/Installation.md)
@@ -12,23 +16,61 @@ Zonemaster Engine test framework installed. Please see the
 And also the the zonemaster-backend module installed. Please see the [Zonemaster
 Backend installation](https://github.com/zonemaster/zonemaster-backend/blob/master/docs/Installation.md)
 
-### Installation
 
-Follow the detailed [installation instructions](docs/Installation.md).
-
-### Configuration 
+##### Configuration 
 
 Text for configuring the backend are found in the [installation
 instructions](docs/Installation.md).
 
+
 ### Contribution
+
+This project was generate with Angular-CLI 1.6.8 and then updating.
+It use the Angular 2+ framework with all its tools.
+
+The source code of the application is available in ``./src/app`` folder.
+The ``app`` folder is structured as follow : 
+```
++-- components
++-- models
+|   +-- alter.ts            : Alert model (level, message)
+|   +-- index.ts            : module export
++-- pipes
+|   +-- filer.pipe.*                : Filter a list based on a string
+|   +-- filer-by-categories.pipe.*  : Filter the list of result by categories
+|   +-- romanize.pipe.*             : Transform latin number to roman number (1 -> I, 2 -> II)
+|   +-- safe-html.pipe.*            : Sanitize text to HTML
++-- services
+|   +-- alert.service.*     : to display alert messages
+|   +-- app.service.*       : to manage app configuration (api url, etc.)
+|   +-- dns-check.service.* : to communicate with the Zonemaster Backend API 
++-- app.*
+```
+
+The ``components`` folder is composed of subfolders that represent the main components.
+Each folder of component contain three files :
+  - ``*.component.css``       : The component's style 
+  - ``*.component.html``      : The component's html 
+  - ``*.component.ts``      : The component's typescript 
+    
+All assets are available in ``src/assets`` folder. 
+It's split by concern, all translation files are in the ``i18n`` folder, the style in the ``css``, 
+images are in the ``images`` folder, etc.
+
+The configurations files of the application are in the ``src/environments`` folder.
+``environment.ts`` is use for development purpose, and the ``environment.prod.ts`` for production.
+    
 In order to contribute
 * Install [Nodejs](https://nodejs.org) 
-* Fork then Clone your repo 
-* Go to the folder and install project dependencies `npm install`
-* Update environment files in `/src/environments/` to add a backend api endpoint
-
-You are now ready to develop 
+* Fork the Zonemaster GUI repository on Github into your own user on Github.
+* Clone your fork to your working environment.
+* Go to the folder and install project dependencies with `npm install`
+* Update environment files in `/src/environments/` to add a backend api endpoint (or leave the default)
+* Make your changes, test them and push them to your fork on Github
+* From your fork, make a Pull Request against the zonemaster/zonemaster-gui repository. 
+Please always make the Pull Request against the develop branch.
+    
+* Thank you for your contribution!
 
 ##### Development server
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
