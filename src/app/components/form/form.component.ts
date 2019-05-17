@@ -143,7 +143,7 @@ export class FormComponent implements OnInit {
     this.form['ds_info'] = [];
     this.form['nameservers'] = [];
 
-    if (this.NSForm.value.itemRows.length > 0 && this.NSForm.value.itemRows[0].name !== '') {
+    if (this.NSForm.value.itemRows.length > 0 && this.NSForm.value.itemRows[0].ns !== '') {
       this.form['nameservers'] = this.NSForm.value.itemRows;
     }
 
