@@ -33,7 +33,9 @@ const getFaq = (lang) => {
 
 fs.readdir('./src/assets/i18n', (err, files) => {
   files.forEach(filename => {
-    getFaq(filename.split('.')[0]);
+    if(filename !== 'ru.json') {
+      getFaq(filename.split('.')[0]);
+    }
   });
 });
 
