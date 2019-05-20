@@ -35,11 +35,11 @@ sudo yum install httpd
 
 * Install Zonemaster Web GUI
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O temp.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
-sudo unzip temp.zip -d /var/www/html/zonemaster-web-gui
-rm temp.zip
+sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
+rm zonemaster_web_gui.zip
 ```
 
 * Basic httpd configuration:
@@ -70,11 +70,11 @@ sudo systemctl restart apache2
 
 * Install Zonemaster Web GUI
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O temp.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
-sudo unzip temp.zip -d /var/www/html/zonemaster-web-gui
-rm temp.zip
+sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
+rm zonemaster_web_gui.zip
 ```
 
 If `unzip` is not already installed, then install it with the following command 
@@ -138,11 +138,11 @@ pkg install wget
 
 * Install Zonemaster Web GUI
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O temp.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 mkdir -p  /var/www/html/zonemaster-web-gui
 mkdir -p /var/log/zonemaster
-unzip temp.zip -d /var/www/html/zonemaster-web-gui
-rm temp.zip
+unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
+rm zonemaster_web_gui.zip
 ```
 
 * Basic Apache configuration:
