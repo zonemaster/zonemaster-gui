@@ -101,12 +101,7 @@ to the host's IP or using localhost as ServerName if that is appropriate.
 
 
 * Reload apache
-For Ubuntu 14.04 use the following command:
-```sh
-sudo service apache2 enable
-sudo service apache2 reload
-```
-For Debian and higher versions of Ubuntu use the following command:
+
 ```sh
 sudo systemctl enable apache2
 sudo systemctl reload apache2
