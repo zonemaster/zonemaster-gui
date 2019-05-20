@@ -72,8 +72,8 @@ Please always make the Pull Request against the develop branch.
     
 * Thank you for your contribution!
 
-> In development mode, you will certainly have to enable [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) on your browser.
-> The Cross-origin resource sharing of browsers block every AJAX request that not match the exact host, protocol, and port of your site. 
+> In development mode, you probably have to enable [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) on your browser.
+> The Cross-Origin Resource Sharing (CORS) performed by the browser blocks every AJAX request that does not match the exact host, protocol, and port of your site.
 
 ##### Development server
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
