@@ -14,15 +14,11 @@ export class DomainComponent implements OnInit {
   public domain_check_progression = 0;
   public showResult = false;
   public showProgressBar = false;
-  public preDelegated;
   public parentData: object;
   public resultID = '';
   public profiles = [];
 
-  constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService, route: ActivatedRoute) {
-    this.preDelegated = route.snapshot.data[0]['preDelegated'];
-    this.is_advanced_options_enabled = this.preDelegated;
-  }
+  constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService) {}
 
   ngOnInit() {
     this.dnsCheckService.profileNames().then( (res: string[]) => this.profiles = res );
@@ -30,12 +26,20 @@ export class DomainComponent implements OnInit {
 
   public fetchFromParent(domain) {
     this.dnsCheckService.fetchFromParent(domain).then(result => {
-      this.parentData = result;
-      this.alertService.success('Parent data fetched with success');
+      if (result['ds_list'].length === 0 && result['ns_list'].length === 0) {
+        this.alertService.warn('There is no delegation for the zone');
+      } else {
+        this.parentData = result;
+        this.alertService.success('Parent data fetched with success');
+      }
     }, error => {
       console.log(error);
       this.alertService.error('Error during parent data fetching');
   });
+  }
+
+  public openOptions(value) {
+    this.is_advanced_options_enabled = value;
   }
 
   public domainCheck(data: object) {
@@ -53,12 +57,12 @@ export class DomainComponent implements OnInit {
 
           if (self.domain_check_progression === 100) {
             clearInterval(handle);
-            this.alertService.success(`Domain ${data['domain']} checked with success`);
+            this.alertService.success(`Domain checked completed`);
             self.resultID = domainCheckId;
             self.is_advanced_options_enabled = false;
             self.showResult = true;
             self.showProgressBar = false;
-            self.domain_check_progression = 0;
+            self.domain_check_progression = 5;
           }
         });
       }, this.intervalTime);

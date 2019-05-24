@@ -14,6 +14,10 @@ Before installing Zonemaster Web GUI, you should [install Zonemaster::Engine][
 Zonemaster::Engine installation] and [Zonemaster::Backend][Zonemaster::Backend
 installation].
 
+Prerequisite for FreeBSD is that the package system is upadated and activated,
+see FreeBSD section of [install Zonemaster::Engine].
+
+
 ## Installation
 
 This instruction covers the following operating systems:
@@ -35,11 +39,11 @@ sudo yum install httpd
 
 * Install Zonemaster Web GUI
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O temp.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.1.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
-sudo unzip temp.zip -d /var/www/html/zonemaster-web-gui
-rm temp.zip
+sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
+rm zonemaster_web_gui.zip
 ```
 
 * Basic httpd configuration:
@@ -61,22 +65,20 @@ Install apache2:
 
 ```sh
 sudo apt-get update && sudo apt-get upgrade -y 
-sudp apt-get install apache2
+sudo apt-get install apache2
 sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```
 
-
-
 * Install Zonemaster Web GUI
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.0.1/zonemaster_web_gui.zip -O temp.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.1.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
-sudo unzip temp.zip -d /var/www/html/zonemaster-web-gui
-rm temp.zip
+sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
+rm zonemaster_web_gui.zip
 ```
 
 If `unzip` is not already installed, then install it with the following command 
@@ -99,12 +101,7 @@ to the host's IP or using localhost as ServerName if that is appropriate.
 
 
 * Reload apache
-For Ubuntu 14.04 use the following command:
-```sh
-sudo service enable apache2
-sudo service reload apache2
-```
-For Debian and higher versions of Ubuntu use the following command:
+
 ```sh
 sudo systemctl enable apache2
 sudo systemctl reload apache2
@@ -112,7 +109,49 @@ sudo systemctl reload apache2
 
 ### 4. FreeBSD
 
-> Instructions are currently missing.
+* For all commands below become root:
+
+``su -l``
+
+* Install Apache (see [tutorial on Apache on FreeBSD]) and its dependencies:
+
+``pkg install apache24``
+
+Enter ``y`` at the confirmation prompt.
+
+* Enable Apache as a service:
+
+``sysrc apache24_enable=yes``
+ 
+* Enable three apache modules in Apache configuration file:
+
+``perl -pi -e 's/^#(LoadModule (proxy_module|proxy_http_module|rewrite_module) libexec)/$1/' /usr/local/etc/apache24/httpd.conf``
+
+* Start Apache:
+ 
+``service apache24 start``
+
+* Install Zonemaster Web GUI
+```sh
+fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.1.0/zonemaster_web_gui.zip
+mkdir -p /var/www/html/zonemaster-web-gui
+mkdir -p /var/log/zonemaster
+unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip 
+rm zonemaster_web_gui.zip 
+```
+
+* Basic Apache configuration:
+
+```sh
+install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /usr/local/etc/apache24/Includes/zonemaster.conf
+```
+Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
+
+
+* Restart Apache
+```sh
+service apache24 restart
+```
 
 ### 5. Ubuntu
 
@@ -138,6 +177,7 @@ And when the mouse over this text, it display all version of the zonemaster stac
 
 -------
 
+[tutorial on Apache on FreeBSD]: https://www.digitalocean.com/community/tutorials/how-to-install-an-apache-mysql-and-php-famp-stack-on-freebsd-10-1
 [Declaration of prerequisites]: https://github.com/zonemaster/zonemaster/blob/master/README.md#prerequisites
 [JSON-RPC API]: https://github.com/zonemaster/zonemaster-backend/blob/master/docs/API.md
 [Main Zonemaster repository]: https://github.com/zonemaster/zonemaster/blob/master/README.md
@@ -149,9 +189,3 @@ And when the mouse over this text, it display all version of the zonemaster stac
 [Zonemaster::Engine]: https://github.com/zonemaster/zonemaster-engine/blob/master/README.md
 [Zonemaster::LDNS]: https://github.com/zonemaster/zonemaster-ldns/blob/master/README.md
 
-Copyright (c) 2013 - 2018, IIS (The Internet Foundation in Sweden) \
-Copyright (c) 2013 - 2018, AFNIC \
-Creative Commons Attribution 4.0 International License
-
-You should have received a copy of the license along with this
-work.  If not, see <https://creativecommons.org/licenses/by/4.0/>.

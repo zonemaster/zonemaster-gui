@@ -1,5 +1,29 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
+v3.1.0 2019-05-22 (public release version)
+
+ [Status]
+ - This a public release fully tested before release. This version
+   will be available on CPAN.
+
+ [Fixes]
+ - Updated installation instructions (#62, #53, #54, #45, #31)
+ - Fixed sending empty ns when the advanced options are not open (#47)
+ - Add Warning message for domain that not exist (#40, #42)
+ - Add a tests before fetching information about parent zone (#41)
+ - Fixed broken undelegated test (#38, #43)
+ - Fix french typos in translations (#30, #17)
+ - Fix history call (#18)
+ - Add no-cache for index.html (#22, #23)
+ 
+ [Features]
+ - Added documentation for contributers (#32)
+ - Add some e2e test with selenium (only works on local) (#37, #26)
+ - Expand the collapsed action buttons of the result page (#34, #33)
+ - Improve zonemaster description in FAQ (#35, #28)
+ - Remove predelegated test page and merge all form options (#36, #6)
+
+
 v3.0.1 2019-01-31 (pre-release version)
  
  - Status
