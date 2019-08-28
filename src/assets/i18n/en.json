@@ -8,7 +8,7 @@
   ,"History"                                  : "History"
   ,"Download"                                 : "Download"
   ,"Nameservers"                              : "Nameservers"
-  ,"Digests"                                  : "Digests"
+  ,"Digests"                                  : "Delegation Signers (DS records)"
   ,"Fetch data from parent zone"              : "Fetch data from parent zone"
   ,"Advanced options"                         : "Advanced options"
   ,"Notice! This is an undelegated test"      : "Notice! This is an undelegated test"
