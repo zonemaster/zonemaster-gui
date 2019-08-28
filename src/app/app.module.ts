@@ -42,6 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 const appRoutes: Routes = [
   { path: 'domain_check', component: DomainComponent },
   { path: 'result/:resultID', component: ResultComponent, data: [{directAccess: true}]},
+  { path: 'test/:resultID', component: ResultComponent, data: [{directAccess: true}]},
   { path: 'history', component: HistoryComponent},
   { path: 'faq', component: FaqComponent },
   { path: '',
