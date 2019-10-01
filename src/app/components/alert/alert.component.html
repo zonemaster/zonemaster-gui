@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [ngClass]="{'sticky-top': isShrunk}" >
   <div class="row alert-area">
     <div *ngFor="let alert of alerts" class="{{ cssClass(alert) }} alert-dismissable w-100">
       {{alert.message | translate}}
