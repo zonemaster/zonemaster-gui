@@ -9,7 +9,7 @@
 ,"Download"                                 : "Download"
 ,"Download HTML"                            : "Download in HTML format"
 ,"Nameservers"                              : "Navneservere"
-,"Digests"                                  : "Delegation Signers (DS records)"
+,"Digests"                                  : "Delegation Signers (DS-records)"
 ,"Fetch data from parent zone"              : "Hent data fra forældrezonen"
 ,"Advanced options"                         : "Avancerede indstillinger"
 ,"Notice! This is an undelegated test"      : "Bemærk! Dette er en ikke-delegeret test"

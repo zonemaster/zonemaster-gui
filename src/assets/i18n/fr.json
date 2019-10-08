@@ -9,7 +9,7 @@
 ,"Download"                                 :"Télécharger"
 ,"Download HTML"                            :"Télécharger au format HTML"
 ,"Nameservers"                              :"Serveurs DNS"
-,"Digests"                                  :"Delegation Signers (DS records)"
+,"Digests"                                  :"Délégation du Signataire (enregistrement DS)"
 ,"Fetch data from parent zone"              :"Obtenir les données de la zone parente"
 ,"Advanced options"                         :"Options avancées"
 ,"Notice! This is an undelegated test"      :"Test d'un nom de domaine non délégué"
