@@ -14,7 +14,7 @@ export class DomainComponent implements OnInit {
   public domain_check_progression = 0;
   public showResult = false;
   public showProgressBar = false;
-  public parentData: object;
+  public parentData: any;
   public resultID = '';
   public profiles = [];
 

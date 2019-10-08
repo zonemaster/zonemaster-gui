@@ -6,7 +6,6 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MarkdownModule } from 'angular2-markdown';
 
 import { AppComponent } from './app.component';
 import { DomainComponent } from './components/domain/domain.component';
@@ -71,11 +70,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot(),
+    NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    MarkdownModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
