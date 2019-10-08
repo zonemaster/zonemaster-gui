@@ -47,3 +47,7 @@ Thumbs.db
 *.zip
 
 gui-faq-*
+src/assets/faqs/gui-faq-*
+
+*.log
+tests_output/
