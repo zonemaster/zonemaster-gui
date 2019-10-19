@@ -61,7 +61,7 @@ sudo systemctl reload httpd
 
 ### 2. Debian
 
-Install apache2:
+Install apache2 and disable default site:
 
 ```sh
 sudo apt-get update && sudo apt-get upgrade -y 
@@ -69,6 +69,7 @@ sudo apt-get install apache2
 sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod rewrite
+sudo a2dissite 000-default
 sudo systemctl restart apache2
 ```
 
