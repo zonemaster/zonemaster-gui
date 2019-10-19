@@ -91,6 +91,11 @@ Basically, the GUI is a serverless Angular application which use the Backend JSO
 
 Other than the installation file, the [docs directory](docs/), contains a translation guide for the GUI
 
+#### Security of our dependencies
+Based on the output of [david](https://david-dm.org/) and [npm audit](https://docs.npmjs.com/cli/audit), we reguraly 
+update our dependencies with the latest secure version. Notice that we can't follow the rythm of new versions, so you could 
+get security warning during the installation of development dependencies.
+
 #### Acknowledge
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
 
