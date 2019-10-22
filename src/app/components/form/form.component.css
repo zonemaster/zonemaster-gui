@@ -96,10 +96,6 @@ button.launch:hover {
   text-align: left;
 }
 
-.progress-result {
-  position: relative;
-  width: 100%;
-}
 
 .form-ckeck-group {
   width: 85%;
@@ -129,6 +125,9 @@ button.launch:hover {
   right: 10px;
 }
 
+.progress-result {
+  position: relative;
+}
 @media(min-width:576px){
   .progress-result {
     position: absolute;
@@ -149,17 +148,7 @@ button.launch:hover {
 }
 @media(min-width:768px){
   .progress-result {
-    width: 29.5rem;
-  }
-}
-@media(min-width:992px){
-  .progress-result {
-    width: 42rem;
-  }
-}
-@media(min-width:1200px){
-  .progress-result {
-    width: 51.4rem;
+    width: 85%;
   }
 }
 

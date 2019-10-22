@@ -13,9 +13,11 @@
               [showProgressBar]="showProgressBar"
               [parentData]="parentData"
               [profiles]="profiles"
+              [toggleFinished]="toggleFinished"
               (onDomainCheck)="domainCheck($event)"
               (onfetchFromParent)="fetchFromParent($event)"
               (onOpenOptions)="openOptions($event)"
+
     ></app-form>
   </app-header>
   <div class="container-fluid">

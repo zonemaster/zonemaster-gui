@@ -15,7 +15,7 @@
                    placeholder="{{'Domain name'|translate}}"
                    required>
 
-              <p class="reset-form d-none d-sm-block" *ngIf="form.domain.length > 0" >
+              <p class="reset-form d-none d-sm-block" *ngIf="form.domain.length > 0 && !showProgressBar" >
                 <button
                   (click)="resetDomainForm();"
                   type="button"
@@ -152,7 +152,9 @@
             </div>
           </form>
           <br>
-          <button class="btn btn-default fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
+        <button class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
+        <button class="btn btn-danger resetFullForm" (click)="resetFullForm()">{{'Reset'|translate}}</button>
+
       </div>
     </div>
   </div>
