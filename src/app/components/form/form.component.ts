@@ -109,13 +109,16 @@ export class FormComponent implements OnInit {
   public deleteRow(form, index: number) {
     const control = <FormArray>this[form].controls['itemRows'];
     if (index === -1) {
-      console.log(control.length);
       for ( let i = control.length - 1; i >= 0; i--) {
         control.removeAt(i);
       }
     } else {
       control.removeAt(index);
+      if (control.length === 0) {
+        this.addNewRow(form);
+      }
     }
+
   }
 
   public initItemRows(value) {
