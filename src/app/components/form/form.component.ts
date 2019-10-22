@@ -94,6 +94,10 @@ export class FormComponent implements OnInit {
     }
   }
 
+  public resetDomainForm() {
+    this.form['domain'] = '';
+  }
+
   public addNewRow(form, value = null) {
     const control = <FormArray>this[form].controls['itemRows'];
 

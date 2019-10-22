@@ -101,6 +101,27 @@ button.launch:hover {
   width: 100%;
 }
 
+.form-ckeck-group {
+  width: 85%;
+}
+
+.reset-form {
+  position: absolute;
+  right: 0;
+  top: 15%;
+  opacity: 0.5;
+  z-index: 100;
+}
+
+.reset-form:hover {
+  opacity: 1;
+}
+
+.grey {
+  color: grey;
+}
+
+
 .progress-value {
   display: block;
   color: #000;
