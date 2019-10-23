@@ -88,8 +88,7 @@
               <div class="nsForm" *ngFor="let itemrow of NSForm.controls.itemRows.controls; let i=index" [formGroupName]="i">
                 <input formControlName="ns" name='form.ns' class="form-control" placeholder="NS">
                 <input formControlName="ip" name='form.ip' class="form-control" placeholder="IP">
-                <button *ngIf="NSForm.controls.itemRows.controls.length > 1"
-                        (click)="deleteRow('NSForm', i)"
+                <button (click)="deleteRow('NSForm', i)"
                         class="btn btn-danger ">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
@@ -127,7 +126,7 @@
                   <option [value]="4">SHA-384</option>
                 </select>
                 <input formControlName="digest" class="form-control" name="digest" placeholder="Digest">
-                <button *ngIf="digestForm.controls.itemRows.controls.length > 1"
+                <button
                         (click)="deleteRow('digestForm',i)"
                         class="btn btn-danger ">
                   <i class="fa fa-trash" aria-hidden="true"></i>
