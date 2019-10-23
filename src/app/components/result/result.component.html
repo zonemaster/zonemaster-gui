@@ -19,17 +19,17 @@
         </a>
         <a class="btn btn-success" (click)="openModal(shareLinkModal)">
           <i class="fa fa-share text-white"></i>
-          <span class="text-white">Share</span>
+          <span class="text-white">{{'Share'|translate}}</span>
         </a>
 
         <div ngbDropdown class="d-inline-block">
           <button class="btn btn-secondary" id="settingsDropdownResult" ngbDropdownToggle>
             <i class="fa fa-wrench text-white"></i>
-            <span class="text-white">Settings</span>
+            <span class="text-white">{{'Settings'|translate}}</span>
           </button>
           <div ngbDropdownMenu aria-labelledby="settingsDropdownResult">
             <label class="dropdown-item" ngbButtonLabel>
-              <input type="checkbox" ngbButton [(ngModel)]="resutlCollapsed"> Group by modules
+              <input type="checkbox" ngbButton [(ngModel)]="resutlCollapsed"> {{'Group by modules'|translate}}
             </label>
           </div>
         </div>
@@ -52,7 +52,7 @@
 
     <ul class="nav nav-pills vertical-align filter">
       <li class="nav-item">
-        <span class="ml-3 mr-2">Show:</span>
+        <span class="ml-3 mr-2">{{'Filter'|translate}}:</span>
       </li>
       <li class="nav-item ml-1">
         <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active text-white': result_filter.all}"
