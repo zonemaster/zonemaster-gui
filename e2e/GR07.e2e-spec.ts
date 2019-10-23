@@ -7,7 +7,7 @@ describe('Zonemaster test GR07 - [The advanced view should support the possibili
   beforeAll(() => {
     utils.goToHome();
     utils.setLang('en');
-    utils.activeAdvancedOptions();
+    utils.activeOptions();
   });
 
   it('should have [IPv4 checkbox] visible and are enable', () => {
@@ -41,6 +41,6 @@ describe('Zonemaster test GR07 - [The advanced view should support the possibili
     element(by.css('#protocol_ipv6')).click();
     expect(element(by.css('.alert.alert-danger')).isPresent()).toBe(true);
     expect(element(by.css('.alert.alert-danger')).getText())
-      .toEqual('At least one protocol (IPv4 or IPv6) is required in advanced options!');
+      .toEqual('Choose at least one protocol');
   });
 });

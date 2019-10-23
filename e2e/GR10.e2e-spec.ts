@@ -2,16 +2,26 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test GR10 - [The preDelegatedDomainCheck view should have a shortcut to undelegated view and FAQ]', () => {
+describe('Zonemaster test GR13 - [The undelegated view should have a text describing what undelegated means?]', () => {
   const utils = new Utils();
   beforeAll(() => {
-    utils.goTo('preDelegatedDomainCheck');
+    utils.goToHome();
+    utils.setLang('en');
+    utils.activeOptions();
   });
 
-  it('should have a link to the inactive domain check page', () => {
-    expect(element(by.css('a.nav-link[routerlink="/preDelegatedDomainCheck"]')).isPresent()).toBe(true);
+  it('should have a link to the proper faq answer', () => {
+    expect(element(by.css('.alert.alert-info')).isPresent()).toBe(true);
+    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('routerlink')).toBe('/faq');
+    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('fragment')).toBe('undelegated');
   });
-  it('should have a link to the FAQ page', () => {
-    expect(element(by.css('a.nav-link[routerlink="/faq"]')).isPresent()).toBe(true);
+
+  it('should have a description text in multi languages', () => {
+    utils.setLang('en');
+    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('undelegated');
+    utils.setLang('fr');
+    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('non délégué');
+    utils.setLang('sv');
+    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('odelegerat domäntest');
   });
 });

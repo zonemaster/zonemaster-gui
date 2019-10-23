@@ -13,7 +13,7 @@ export class Utils {
     element(by.xpath('//a[@lang="' + lang + '"]')).click();
   }
 
-  activeAdvancedOptions() {
+  activeOptions() {
     element(by.css('.switch')).click();
   }
 

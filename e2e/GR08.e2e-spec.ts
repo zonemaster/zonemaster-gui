@@ -2,23 +2,18 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test GR08 - [The advanced view should support the possibility of choosing a profile from multiple profiles]', () => {
+describe('Zonemaster test GR09 - [The advanced view should look the same in latest version of different browsers]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();
-    utils.setLang('en');
-    utils.activeAdvancedOptions();
+    element(by.css('.switch')).click();
   });
 
-  it('should be able to select Default profile', () => {
-    expect(element(by.css('select[name="form.profile"]')).getAttribute('ng-reflect-model')).toEqual('default_profile');
+  it('should match the domain page with options on', () => {
+    expect(browser.imageComparison.checkFullPageScreen('domain_with_options')).toBeLessThan(1);
   });
-  it('should be able to select IANA profile', () => {
-    element(by.cssContainingText('option', 'IANA profile')).click();
-    expect(element(by.css('select[name="form.profile"]')).getAttribute('ng-reflect-model')).toEqual('test_profile_1');
-  });
-  it('should be able to select Test profile 2', () => {
-    element(by.cssContainingText('option', 'Test profile 2')).click();
-    expect(element(by.css('select[name="form.profile"]')).getAttribute('ng-reflect-model')).toEqual('test_profile_2');
+  it('should not match the domain page with options off', () => {
+    element(by.css('.switch')).click(); // switch off options
+    expect(browser.imageComparison.checkFullPageScreen('domain_with_options')).toBeGreaterThan(1);
   });
 });

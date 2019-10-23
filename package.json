@@ -9,8 +9,7 @@
     "release": "npm run build && node scripts/create_release.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "parallel_local": "BROWSERSTACK_USERNAME=  BROWSERSTACK_ACCESS_KEY=  node scripts/selenium/local.runner.js -c scripts/selenium/parallel_local.conf.js -e chrome,firefox"
+    "e2e": "ng e2e --port=4201"
   },
   "private": false,
   "dependencies": {

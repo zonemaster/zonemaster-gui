@@ -2,24 +2,23 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test GR13 - [The undelegated view should have a text describing what undelegated means?]', () => {
+describe('Zonemaster test GR18 - [All appropriate fields should be writable]', () => {
   const utils = new Utils();
   beforeAll(() => {
-    utils.goTo('preDelegatedDomainCheck');
+    utils.goToHome();
   });
 
-  it('should have a link to the proper faq answer', () => {
-    expect(element(by.css('.alert.alert-info')).isPresent()).toBe(true);
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('routerlink')).toBe('/faq');
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('fragment')).toBe('undelegated');
-  });
+  it('should be able to write in the main input', () => {
+    element(by.css('#domain_check_name')).sendKeys('afnic.fr');
+    expect(element(by.css('#domain_check_name')).getAttribute('value')).toBe('afnic.fr');
 
-  it('should have a description text in multi languages', () => {
-    utils.setLang('en');
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('undelegated');
-    utils.setLang('fr');
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('non délégué');
-    utils.setLang('sv');
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('odelegerat domäntest');
+    utils.activeOptions();
+    expect(element(by.css('#domain_check_name')).getAttribute('value')).toBe('afnic.fr');
+
+    element(by.css('input[name="form.ns"]')).sendKeys('afnic.fr');
+    expect(element(by.css('input[name="form.ns"]')).getAttribute('value')).toBe('afnic.fr');
+
+    element(by.css('input[name="form.keytag"]')).sendKeys('afnic.fr');
+    expect(element(by.css('input[name="form.keytag"]')).getAttribute('value')).toBe('afnic.fr');
   });
 });
