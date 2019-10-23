@@ -5,14 +5,24 @@
       <div class="info-form">
         <form class="form-inline domain mb-2">
           <div class="input-group mb-2">
-            <input type="text"
-                 class="form-control form-control-lg"
-                 id="domain_check_name"
-                 name="domain_check_name"
-                 [(ngModel)]="form.domain"
-                 (keypress)="($event.which === 13)? runDomainCheck() : 0"
-                 placeholder="{{'Domain name'|translate}}"
-                 required>
+            <span class="form-ckeck-group input-group">
+              <input type="text"
+                   class="form-control form-control-lg"
+                   id="domain_check_name"
+                   name="domain_check_name"
+                   [(ngModel)]="form.domain"
+                   (keypress)="($event.which === 13)? runDomainCheck() : 0"
+                   placeholder="{{'Domain name'|translate}}"
+                   required>
+
+              <p class="reset-form d-none d-sm-block" *ngIf="form.domain.length > 0 && !showProgressBar" >
+                <button
+                  (click)="resetDomainForm();"
+                  type="button"
+                  class="btn grey"><i class="fa fa-2x fa-times-circle"></i></button>
+              </p>
+
+            </span>
             <p class="progress-result d-none d-sm-block" *ngIf="showProgressBar">
               <ngb-progressbar
                 type="info"
@@ -141,7 +151,9 @@
             </div>
           </form>
           <br>
-          <button class="btn btn-default fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
+        <button class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
+        <button class="btn btn-danger resetFullForm" (click)="resetFullForm()">{{'Reset'|translate}}</button>
+
       </div>
     </div>
   </div>
