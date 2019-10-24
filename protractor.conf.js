@@ -10,17 +10,17 @@ exports.config = {
     './e2e/**/*.e2e-spec.ts'
   ],
   multiCapabilities: [
-  /*//  {
-    'browserName': 'firefox',
+    {
+      'browserName': 'firefox',
 
-    'moz:firefoxOptions': {
-      args: [
-        '-headless',
-        '--width=1920',
-        '--height=1080'
-      ]
-    }
-  }, //*/
+      'moz:firefoxOptions': {
+        args: [
+          '-headless',
+          '--width=1920',
+          '--height=1080'
+        ]
+      }
+    },
     {
     'browserName': 'chrome',
     'chromeOptions': {
