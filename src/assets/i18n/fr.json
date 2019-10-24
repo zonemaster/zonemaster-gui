@@ -42,13 +42,13 @@
   ,"Keytag required"                       : "Identifiant obligatoire"
   ,"Digest required"                       : "Drapeaux (Digest) obligatoire"
   ,"No result for this query"               : "Il n'y a pas de résultat pour ce test"
-  ,"Version used"                           : "Version utilisées"
-  ,"No historical data available yet"       : "Aucune données historiques disponibles"
-  ,"Sorry, this is the void."               : "Désolé, il n'y a rien ici!"
+  ,"Program versions"                       : "Versions du programme"
+  ,"Results from previous tests are not available"       : "Les résultats des tests précédents ne sont pas disponibles"
+  ,"Sorry, there is nothing here!"               : "Désolé, il n'y a rien ici!"
   ,"Page Not Found"                         : "Page introuvable"
   ,"Share"                                  : "Partager"
   ,"Settings"                               : "Paramètres"
-  ,"Group by modules"                       : "Grouper par modules"
-  ,"Filter"                                 : "Filtrer"
+  ,"Group by test module"                   : "Grouper par module de test"
+  ,"Filter text"                            : "Filtrer"
 
 }

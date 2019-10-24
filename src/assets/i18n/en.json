@@ -32,13 +32,13 @@
   ,"Keytag required"                        : "Keytag required"
   ,"Digest required"                        : "Digest required"
   ,"No result for this query"               : "No result for this query"
-  ,"Version used"                           : "Version used"
-  ,"No historical data available yet"       : "No historical data available yet"
-  ,"Sorry, this is the void."               : "Sorry, this is the void."
+  ,"Program versions"                       : "Program versions"
+  ,"Results from previous tests are not available"       : "Results from previous tests are not available"
+  ,"Sorry, there is nothing here!"               : "Sorry, there is nothing here!"
   ,"Page Not Found"                         : "Page Not Found"
   ,"Share"                                  : "Share"
   ,"Settings"                               : "Settings"
-  ,"Group by modules"                       : "Group by modules"
-  ,"Filter"                                 : "Filter"
+  ,"Group by test module"                   : "Group by test module"
+  ,"Filter text"                            : "Filter text"
 
 }

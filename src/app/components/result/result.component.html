@@ -51,9 +51,6 @@
   <div class="row d-block">
 
     <ul class="nav nav-pills vertical-align filter">
-      <li class="nav-item">
-        <span class="ml-3 mr-2">{{'Filter'|translate}}:</span>
-      </li>
       <li class="nav-item ml-1">
         <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active text-white': result_filter.all}"
            (click)="togglePillFilter('all')"
@@ -96,10 +93,12 @@
       </li>
       <li class="search ml-1">
         <div class="input-group">
-          <input type="text" [(ngModel)]="result_filter.search" class="form-control" placeholder="Filter text" aria-label="filter input" aria-describedby="basic-addon2">
-          <span class="input-group-addon" id="basic-addon2">
-                <i class="fa fa-filter" aria-hidden="true"></i>
-              </span>
+          <input type="text" [(ngModel)]="result_filter.search" class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-filter" aria-hidden="true"></i>
+            </span>
+          </div>
         </div>
       </li>
     </ul>

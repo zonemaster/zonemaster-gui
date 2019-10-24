@@ -39,14 +39,14 @@
 
   ,"Keytag required"                        : "Keytag krävs"
   ,"Digest required"                        : "Digest krävs"
-  ,"No result for this query"               : "Det finns inget resultat för detta test"
-  ,"Version used"                           : "Version används"
-  ,"No historical data available yet"       : "Inga historiska data tillgängliga än"
-  ,"Sorry, this is the void."               : "Tyvärr, detta är tomrummet."
-  ,"Page Not Found"                         : "Sidan hittas inte"
-  ,"Share"                                  : "Dela med sig"
-  ,"Settings"                               : "inställningar"
-  ,"Group by modules"                       : "Gruppera efter moduler"
-  ,"Filter"                                 : "Filtrera"
+  ,"No result for this query"               : "Detta test gav inget resultat"
+  ,"Program versions"                       : "Programversioner"
+  ,"Results from previous tests are not available"  : "Det finns inga resultat från tidigare test"
+  ,"Sorry, there is nothing here!"               : "Tyvärr, det finns ingenting här!"
+  ,"Page Not Found"                         : "Sidan hittades inte"
+  ,"Share"                                  : "Dela"
+  ,"Settings"                               : "Inställningar"
+  ,"Group by test module"                   : "Gruppera per testmodul"
+  ,"Filter text"                            : "Filtrera meddelanden"
 
 }
