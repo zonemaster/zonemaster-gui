@@ -9,11 +9,11 @@ describe('Zonemaster test GR05 - [The simple view should look the same in latest
   });
 
   it('should match the domain page', async() => {
-    expect(await browser.imageComparison.checkFullPageScreen('domain')).toBeLessThan(1);
+    expect(await browser.imageComparison.checkFullPageScreen('domain')).toBeLessThan(5);
   });
 
   it('should not match the domain page', async() => {
     element(by.css('.switch')).click();
-    expect( await browser.imageComparison.checkFullPageScreen('domain')).toBeGreaterThan(1);
+    expect( await browser.imageComparison.checkFullPageScreen('domain')).toBeGreaterThan(5);
   });
 });

@@ -10,10 +10,10 @@ describe('Zonemaster test GR09 - [The advanced view should look the same in late
   });
 
   it('should match the domain page with options on', () => {
-    expect(browser.imageComparison.checkFullPageScreen('domain_with_options')).toBeLessThan(1);
+    expect(browser.imageComparison.checkFullPageScreen('domain_with_options')).toBeLessThan(5);
   });
   it('should not match the domain page with options off', () => {
     element(by.css('.switch')).click(); // switch off options
-    expect(browser.imageComparison.checkFullPageScreen('domain_with_options')).toBeGreaterThan(1);
+    expect(browser.imageComparison.checkFullPageScreen('domain_with_options')).toBeGreaterThan(5);
   });
 });
