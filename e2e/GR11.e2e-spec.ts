@@ -2,7 +2,7 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test GR15 - [A Home button that sends the user to the default simple view]', () => {
+describe('Zonemaster test GR11 - [A Home button that sends the user to the default simple view]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();

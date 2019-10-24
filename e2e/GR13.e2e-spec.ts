@@ -2,7 +2,7 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test GR18 - [All appropriate fields should be writable]', () => {
+describe('Zonemaster test GR13 - [All appropriate fields should be writable]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();

@@ -5,7 +5,7 @@ import {protractor, by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test predelegated', () => {
+describe('Zonemaster predelegated test', () => {
   const utils = new Utils();
   const EC = protractor.ExpectedConditions;
   beforeAll(() => {
@@ -13,7 +13,7 @@ describe('Zonemaster test predelegated', () => {
     utils.activeOptions();
   });
 
-  it('should find a result for afNiC.Fr', async () => {
+  it('should test for afNiC.Fr and find at least one message', async () => {
     await element(by.css('#domain_check_name')).sendKeys('afNiC.Fr');
     await element(by.css('button.fetchDataFromParent')).click();
     await browser.sleep(60 * 1000);
@@ -22,7 +22,7 @@ describe('Zonemaster test predelegated', () => {
     await element(by.css('div button.launch')).click();
 
     await browser.wait(() => element(by.css('div.result.container')).isPresent(), 120 * 1000);
-    await expect(element(by.css('a.text-white > span.badge.badge-secondary:nth-child(1)')).getText()).toBeGreaterThanOrEqual(0);
+    await expect(element(by.css('a.text-white > span.badge.badge-secondary:nth-child(1)')).getText()).toBeGreaterThanOrEqual(1);
 
   });
 });

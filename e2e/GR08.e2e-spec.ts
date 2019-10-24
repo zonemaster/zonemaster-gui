@@ -2,7 +2,7 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test GR09 - [The advanced view should look the same in latest version of different browsers]', () => {
+describe('Zonemaster test GR08 - [The advanced view should look the same in latest version of different browsers]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();

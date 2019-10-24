@@ -2,7 +2,7 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test GR11 - [The undelegated view must have all options visible]', () => {
+describe('Zonemaster test GR09 - [The undelegated view must have all options visible]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();
