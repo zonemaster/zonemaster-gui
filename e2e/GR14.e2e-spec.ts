@@ -17,7 +17,7 @@ describe('Zonemaster test GR14 - [Able to specify delegation parameters]', () =>
   });
 
   it('should be have two ns and one digest form', () => {
-    element.all(by.css('div[formArrayName="itemRows"]')).get(0).element(by.css('.btn')).click();
+    element.all(by.css('div[formArrayName="itemRows"]')).get(0).element(by.css('.btn.btn-success.add')).click();
     expect(element.all(by.css('input[formControlName="ns"')).count()).toEqual(2);
     expect(element.all(by.css('input[formControlName="keytag"')).count()).toEqual(1);
   });

@@ -1,4 +1,4 @@
-import { element, browser, by, Key } from 'protractor';
+import { element, browser, by } from 'protractor';
 
 export class Utils {
   goToHome() {
