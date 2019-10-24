@@ -6,14 +6,13 @@ dist: trusty
 sudo: false
 
 addons:
-  chrome: "75"
-  firefox: "70"
+  chrome: latest
 
 cache:
   directories:
     - node_modules
 
 install:
-  - npm ci
+  - npm install
 script:
   - xvfb-run npm run e2e

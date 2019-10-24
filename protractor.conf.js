@@ -9,7 +9,7 @@ exports.config = {
   specs: [
     './e2e/**/*.e2e-spec.ts'
   ],
-  multiCapabilities: [
+  multiCapabilities: [ /*
     {
       'browserName': 'firefox',
 
@@ -20,7 +20,7 @@ exports.config = {
           '--height=1080'
         ]
       }
-    },
+    }, */
     {
     'browserName': 'chrome',
     'chromeOptions': {
