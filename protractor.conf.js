@@ -7,10 +7,10 @@ const { join } = require('path');
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
-    './e2e_test/**/*.e2e-spec.ts'
+    './e2e/**/*.e2e-spec.ts'
   ],
-  multiCapabilities: [/*
-    {
+  multiCapabilities: [
+  /*//  {
     'browserName': 'firefox',
 
     'moz:firefoxOptions': {
@@ -20,14 +20,13 @@ exports.config = {
         '--height=1080'
       ]
     }
-  }, */
+  }, //*/
     {
     'browserName': 'chrome',
     'chromeOptions': {
       'args': [
         '--headless',
         '--disable-web-security',
-        '--user-data-dir=~/.e2e-chrome-profile',
         '--window-size=1920,1080'
       ]
     }
@@ -40,8 +39,7 @@ exports.config = {
     defaultTimeoutInterval: 121*1000,
     print: function() {}
   },
-  // protractor-image-comparison module
-  plugins: [
+   plugins: [
     {
       package: 'protractor-image-comparison',
       options: {
@@ -58,10 +56,10 @@ exports.config = {
   ],
   onPrepare() {
     require('ts-node').register({
-      project: 'e2e_test/tsconfig.e2e.json'
+      project: 'e2e/tsconfig.e2e.json'
     });
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: false } }));
-
+    browser.ignoreSynchronization = true
   }
 };
 
