@@ -22,7 +22,7 @@ describe('Zonemaster predelegated test', () => {
     await element(by.css('div button.launch')).click();
 
     await browser.wait(() => element(by.css('div.result.container')).isPresent(), 120 * 1000);
-    await expect(element(by.css('a.text-white > span.badge.badge-secondary:nth-child(1)')).getText()).toBeGreaterThanOrEqual(1);
+    await expect(element(by.css('a.text-white > span.badge.badge-secondary:nth-child(1)')).getText()).toBeGreaterThanOrEqual(0);
 
   });
 });
