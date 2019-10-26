@@ -8,11 +8,12 @@ describe('Zonemaster test GR05 - [The simple view should look the same in latest
     utils.goToHome();
   });
 
-  it('should match the domain page', () => {
-    expect(browser.protractorImageComparison.checkScreen('domain')).toEqual(0);
+  it('should match the domain page', async() => {
+    expect(await browser.imageComparison.checkFullPageScreen('domain')).toBeLessThan(5);
   });
-  it('should not match the domain page', () => {
+
+  it('should not match the domain page', async() => {
     element(by.css('.switch')).click();
-    expect(browser.protractorImageComparison.checkScreen('domain')).not.toEqual(0);
+    expect( await browser.imageComparison.checkFullPageScreen('domain')).toBeGreaterThan(5);
   });
 });

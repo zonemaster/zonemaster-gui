@@ -9,8 +9,7 @@
     "release": "npm run build && node scripts/create_release.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "parallel_local": "BROWSERSTACK_USERNAME=  BROWSERSTACK_ACCESS_KEY=  node scripts/selenium/local.runner.js -c scripts/selenium/parallel_local.conf.js -e chrome,firefox"
+    "e2e": "ng e2e --port=4201"
   },
   "private": false,
   "dependencies": {
@@ -60,10 +59,11 @@
     "karma-jasmine-html-reporter": "^1.4.2",
     "nightwatch": "^1.0.19",
     "ntypescript": "^1.201706190042.1",
-    "protractor": "^5.2.0",
-    "protractor-image-comparison": "^3.5.0",
+    "protractor": "^5.4.2",
+    "protractor-image-comparison": "^3.6.0",
     "ts-node": "^8.4.1",
     "tslint": "^5.8.0",
-    "typescript": "3.5.3"
+    "typescript": "3.5.3",
+    "webdriver-manager": "^12.1.7"
   }
 }

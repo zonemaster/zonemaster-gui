@@ -1,4 +1,4 @@
-import { element, browser, by, Key } from 'protractor';
+import { element, browser, by } from 'protractor';
 
 export class Utils {
   goToHome() {
@@ -13,7 +13,7 @@ export class Utils {
     element(by.xpath('//a[@lang="' + lang + '"]')).click();
   }
 
-  activeAdvancedOptions() {
+  activeOptions() {
     element(by.css('.switch')).click();
   }
 

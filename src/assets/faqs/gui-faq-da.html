@@ -19,11 +19,13 @@
 <p>Zonemaster er et program, der er designet til at hjælpe med at tjekke, måle
 og forhåbentlig også forstå DNS (Domain Name System).</p>
 <p>Zonemaster består af tre grundlæggende moduler:</p>
-<ul>
-<li>Motor (Koden der udfører alle DNS-tests)</li>
-<li>Kommandolinjeinterface (CLI)</li>
-<li>Webinterface </li>
-</ul>
+<ol>
+<li>Motor (Koden der udfører alle DNS-tests),</li>
+<li>Kommandolinjeinterface (CLI),</li>
+<li>En server, der giver dig mulighed for at køre zonemaster-test og 
+gemme resultater ved hjælp af en JSON-RPC API,</li>
+<li>Webinterface.</li>
+</ol>
 <p>Når et domænenavn (som eksempelvis "zonemaster.dk") afleveres til Zonemaster (CLI eller
 Webinterface) vil Zonemaster undersøge domænenavnets generelle sundhed ved at gennemløbe
 DNS fra roden (.) til TLD (Top Level Domæne, eksempelvis .dk) og navneservere, der indeholder

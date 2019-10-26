@@ -5,23 +5,20 @@ import {protractor, by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test simple', () => {
+describe('Zonemaster simple test', () => {
   const utils = new Utils();
   const EC = protractor.ExpectedConditions;
   beforeAll(() => {
     utils.goToHome();
   });
 
-  it('should find a result for afNiC.Fr', () => {
-    element(by.css('#domain_check_name')).sendKeys('afNiC.Fr');
-    element(by.css('form.domain a')).click();
-    expect(element(by.tagName('app-result')).isPresent()).toBe(false);
-    /*
-    browser.wait(EC.visibilityOf(
-      element(by.tagName('app-result'))
-    ), 10000).then(() => {
-      expect(element(by.css('.badge.badge-secondary')).getText()).toBeGreaterThan(1);
-    });
-    */
+  it('should test afNiC.Fr and find at least one message', async() => {
+    await element(by.css('#domain_check_name')).sendKeys('afNiC.Fr');
+    await expect(element(by.css('div.result.container')).isPresent()).toBe(false);
+    await element(by.css('div button.launch')).click();
+
+    await browser.wait(() => element(by.css('div.result.container')).isPresent(), 120 * 1000);
+    await expect(element(by.css('a.text-white > span.badge.badge-secondary:nth-child(1)')).getText()).toBeGreaterThanOrEqual(0);
+
   });
 });

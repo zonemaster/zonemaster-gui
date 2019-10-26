@@ -6,7 +6,6 @@
 /release-builds
 /tmp
 /out-tsc
-/e2e/compare_image
 
 # dependencies
 /node_modules
@@ -39,6 +38,7 @@ testem.log
 # e2e
 /e2e/*.js
 /e2e/*.map
+.tmp
 
 # System Files
 .DS_Store

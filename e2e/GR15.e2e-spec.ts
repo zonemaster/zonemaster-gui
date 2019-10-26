@@ -2,15 +2,18 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test GR15 - [A Home button that sends the user to the default simple view]', () => {
-  const utils = new Utils();
-  beforeAll(() => {
-    utils.goTo('preDelegatedDomainCheck');
-  });
+describe('Zonemaster test GR15 - Valid title for the Web interface', () => {
+  const homePage = new Utils();
+  describe('home page should work fine', () => {
+    beforeAll(() => {
+      homePage.goToHome();
+    });
 
-  it('should have a link to go to home page', () => {
-    expect(element(by.css('a.navbar-brand')).getAttribute('routerLink')).toBe('/');
-    expect(element(by.css('a.navbar-brand')).getAttribute('href')).toBe(browser.baseUrl + '/');
+    it('should have right title - Zonemaster', () => {
+      homePage.getPageTitle()
+        .then((title: string) => {
+          expect(title).toEqual('Zonemaster');
+        });
+    });
   });
-
 });

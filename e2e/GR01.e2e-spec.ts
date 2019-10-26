@@ -17,3 +17,4 @@ describe('Zonemaster test GR01 - [Supports Swedish language]', () => {
     expect(element(by.xpath('//h1[.="Domännamn"]')).isPresent()).toBe(true);
   });
 });
+

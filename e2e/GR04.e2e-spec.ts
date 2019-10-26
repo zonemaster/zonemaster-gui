@@ -12,8 +12,8 @@ describe('Zonemaster test GR04 - [On launching the URL opens with a default simp
   it('should have [Domain name] label visible', () => {
     expect(element(by.xpath('//h1[(.="Domain name")]')).isPresent()).toBe(true);
   });
-  it('should have [Advanced options] label visible', () => {
-    expect(element(by.xpath('//label[contains(., "Advanced options")]')).isPresent()).toBe(true);
+  it('should have [Options] label visible', () => {
+    expect(element(by.xpath('//label[contains(., "Options")]')).isPresent()).toBe(true);
   });
   it('should have [Nameservers label] NOT visible', () => {
     expect(element(by.xpath('//legend[contains(., "Nameservers")]')).isPresent()).toBe(false);

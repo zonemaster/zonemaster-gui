@@ -2,16 +2,23 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './pages/app.utils';
 
-describe('Zonemaster test GR10 - [The undelegated view should have a shortcut to simple view and FAQ]', () => {
+describe('Zonemaster test GR14 - [Able to specify delegation parameters]', () => {
   const utils = new Utils();
   beforeAll(() => {
-    utils.goTo('preDelegatedDomainCheck');
+    utils.goToHome();
+    utils.setLang('en');
+    utils.activeOptions();
   });
 
-  it('should have a link to the domain check page', () => {
-    expect(element(by.css('a.nav-link[routerlink="/domainCheck"]')).isPresent()).toBe(true);
+  it('should be have one ns and digest form', () => {
+    expect(element.all(by.css('div[formArrayName="itemRows"]')).count()).toEqual(2);
+    expect(element.all(by.css('input[formControlName="keytag"')).count()).toEqual(1);
+    expect(element.all(by.css('input[formControlName="ns"')).count()).toEqual(1);
   });
-  it('should have a link to the FAQ page', () => {
-    expect(element(by.css('a.nav-link[routerlink="/faq"]')).isPresent()).toBe(true);
+
+  it('should be have two ns and one digest form', () => {
+    element.all(by.css('div[formArrayName="itemRows"]')).get(0).element(by.css('.btn.btn-success.add')).click();
+    expect(element.all(by.css('input[formControlName="ns"')).count()).toEqual(2);
+    expect(element.all(by.css('input[formControlName="keytag"')).count()).toEqual(1);
   });
 });
