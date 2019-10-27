@@ -3,13 +3,14 @@
  */
 import {protractor, by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
 describe('Zonemaster predelegated test', () => {
   const utils = new Utils();
   const EC = protractor.ExpectedConditions;
   beforeAll(() => {
     utils.goToHome();
+    utils.setLang('en');
     utils.activeOptions();
   });
 

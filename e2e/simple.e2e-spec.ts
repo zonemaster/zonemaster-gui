@@ -3,13 +3,14 @@
  */
 import {protractor, by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
 describe('Zonemaster simple test', () => {
   const utils = new Utils();
   const EC = protractor.ExpectedConditions;
   beforeAll(() => {
     utils.goToHome();
+    utils.setLang('en');
   });
 
   it('should test afNiC.Fr and find at least one message', async() => {

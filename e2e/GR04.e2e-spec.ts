@@ -1,12 +1,12 @@
 import { by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test GR04 - [On launching the URL opens with a default simple view]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();
-    element(by.xpath('//a[@lang="en"]')).click();
+    utils.setLang('en');
   });
 
   it('should have [Domain name] label visible', () => {

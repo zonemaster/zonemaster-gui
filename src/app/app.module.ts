@@ -6,6 +6,7 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { DomainComponent } from './components/domain/domain.component';
@@ -32,6 +33,11 @@ import { MomentModule } from 'ngx-moment';
 import 'moment/locale/fr';
 import 'moment/locale/sv';
 import 'moment/locale/da';
+
+import { HttpRequestInterceptor } from './interceptors/request.interceptor';
+import { HttpMockRequestInterceptor } from './interceptors/mock.interceptor';
+
+export const isMock = environment.mock;
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -91,7 +97,12 @@ const appRoutes: Routes = [
   providers: [
     AppService,
     DnsCheckService,
-    AlertService
+    AlertService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: isMock ? HttpMockRequestInterceptor : HttpRequestInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

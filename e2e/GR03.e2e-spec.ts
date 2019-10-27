@@ -1,6 +1,6 @@
 import { by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test GR03 - [Supports English language]', () => {
   const utils = new Utils();
@@ -13,7 +13,7 @@ describe('Zonemaster test GR03 - [Supports English language]', () => {
   });
 
   it('should switch to English', () => {
-    element(by.xpath('//a[@lang="en"]')).click();
+    utils.setLang('en');
     expect(element(by.xpath('//h1[.="Domain name"]')).isPresent()).toBe(true);
   });
 });

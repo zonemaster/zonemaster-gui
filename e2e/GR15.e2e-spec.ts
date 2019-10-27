@@ -1,16 +1,17 @@
 import { by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test GR15 - Valid title for the Web interface', () => {
-  const homePage = new Utils();
+  const utils = new Utils();
   describe('home page should work fine', () => {
     beforeAll(() => {
-      homePage.goToHome();
+      utils.goToHome();
+      utils.setLang('en');
     });
 
     it('should have right title - Zonemaster', () => {
-      homePage.getPageTitle()
+      utils.getPageTitle()
         .then((title: string) => {
           expect(title).toEqual('Zonemaster');
         });

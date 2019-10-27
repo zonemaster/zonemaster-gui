@@ -1,11 +1,12 @@
 import { by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test GR06 - [The simple view should support an advanced view expanding when the checkbox is enabled]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();
+    utils.setLang('en');
   });
 
   it('should have [IPv4 checkbox] && [IPv6 checkbox] NOT visible', () => {
