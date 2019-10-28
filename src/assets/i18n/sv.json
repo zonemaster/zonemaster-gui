@@ -32,10 +32,21 @@
   ,"Parent data fetched with success":"Data hämtades från moderzonen utan problem"
   ,"Error during parent data fetching":"Fel när data skulle hämtas från moderzonen"
   ,"History information request is in progress":"Begäran om att hämta tidigare testdata pågår"
-  ,"No result for this query":"Det finns inget resultat för detta test"
   ,"Domain name required":"Domännamn måste anges"
   ,"Choose at least one protocol":"Välj åtminstone en av IPv4 och IPv6"
   ,"Zonemaster Backend is not available":"Zonemaster Backend är inte åtkomlig"
   ,"There is no delegation for the zone":"Det finns ingen delegering av zonen (domänen)"
-  ,"":""
+
+  ,"Keytag required"                        : "Keytag krävs"
+  ,"Digest required"                        : "Digest krävs"
+  ,"No result for this query"               : "Detta test gav inget resultat"
+  ,"Program versions"                       : "Programversioner"
+  ,"Results from previous tests are not available"  : "Det finns inga resultat från tidigare test"
+  ,"Sorry, there is nothing here!"               : "Tyvärr, det finns ingenting här!"
+  ,"Page Not Found"                         : "Sidan hittades inte"
+  ,"Share"                                  : "Dela"
+  ,"Settings"                               : "Inställningar"
+  ,"Group by test module"                   : "Gruppera per testmodul"
+  ,"Filter text"                            : "Filtrera meddelanden"
+
 }
