@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 
 
 @Injectable()
-export class HttpMockRequestInterceptor implements HttpInterceptor {
+export class HttpRequestInterceptor implements HttpInterceptor {
   constructor(private injector: Injector) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
