@@ -23,23 +23,22 @@ describe('Zonemaster test FR21 - [Able to provide a summarized result of the tes
     await browser.wait(() => element(by.css('div.result.container')).isPresent(), 120 * 1000);
 
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).count()).toEqual(6);
-    await browser.wait(() => expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(0).getText())
-      .toBe('All 123'), 10 * 1000);
+    await browser.sleep(10);
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(0).getText()).toBe('All 123');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(1).getText()).toBe('Info 119');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(2).getText()).toBe('Notice 4');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(3).getText()).toBe('Warning 0');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(4).getText()).toBe('Error 1');
+    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(4).getText()).toBe('Error 0');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(5).getText()).toBe('Critical 0');
   });
 
 
   it('should display number of each level',  async() => {
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(0).getText()).toBe('123');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(1).getText()).toBe('118');
+    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(1).getText()).toBe('119');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(2).getText()).toBe('4');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(3).getText()).toBe('0');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(4).getText()).toBe('1');
+    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(4).getText()).toBe('0');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(5).getText()).toBe('0');
   });
 
