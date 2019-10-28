@@ -23,6 +23,8 @@ describe('Zonemaster test FR21 - [Able to provide a summarized result of the tes
     await browser.wait(() => element(by.css('div.result.container')).isPresent(), 120 * 1000);
 
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).count()).toEqual(6);
+    await browser.wait(() => expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(0).getText())
+      .toBe('All 123'), 10 * 1000);
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(0).getText()).toBe('All 123');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(1).getText()).toBe('Info 119');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(2).getText()).toBe('Notice 4');

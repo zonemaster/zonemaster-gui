@@ -18,8 +18,7 @@ describe('Zonemaster test FR24 - [The list of previous runs should contain links
     await expect(element(by.css('a.btn.history')).getText()).toEqual('History');
     await element(by.css('a.btn.history')).click();
 
-    const modal = element(by.css('.modal.fade.show'));
-    await browser.wait(() => modal.isDisplayed(), 10 * 1000);
+    await browser.wait(() => element(by.css('.modal.fade.show')).isDisplayed(), 10 * 1000);
 
     await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-success > a')).get(0)
       .getAttribute('href')).toEqual('http://localhost:4201/result/84bfac6ae74d0e62');
