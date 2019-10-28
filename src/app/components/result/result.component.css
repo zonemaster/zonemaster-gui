@@ -25,6 +25,10 @@
   align-items: center;
 }
 
+.search {
+  flex: 1
+}
+
 .nav-link {
   cursor: pointer;
 }
