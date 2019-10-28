@@ -2,7 +2,7 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './utils/app.utils';
 
-describe('Zonemaster test GR03 - [Supports English language]', () => {
+describe('Zonemaster test FR07 - [Supports English language]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();

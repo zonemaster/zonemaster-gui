@@ -90,7 +90,7 @@
                 <input formControlName="ip" name='form.ip' class="form-control" placeholder="IP">
                 <button *ngIf="NSForm.controls.itemRows.controls.length > 1"
                         (click)="deleteRow('NSForm', i)"
-                        class="btn btn-danger ">
+                        class="btn btn-danger delete">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
                 <button *ngIf="NSForm.controls.itemRows.controls.length <= 1 || i == NSForm.controls.itemRows.controls.length - 1"
@@ -129,7 +129,7 @@
                 <input formControlName="digest" class="form-control" name="digest" placeholder="Digest">
                 <button *ngIf="digestForm.controls.itemRows.controls.length > 1"
                         (click)="deleteRow('digestForm',i)"
-                        class="btn btn-danger ">
+                        class="btn btn-danger delete">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
                 <button *ngIf="digestForm.controls.itemRows.controls.length <= 1 || i == digestForm.controls.itemRows.controls.length - 1"

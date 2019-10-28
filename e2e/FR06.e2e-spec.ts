@@ -2,7 +2,7 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './utils/app.utils';
 
-describe('Zonemaster test GR02 - [Supports French language]', () => {
+describe('Zonemaster test FR06 - [Supports French language]', () => {
 
   const utils = new Utils();
 

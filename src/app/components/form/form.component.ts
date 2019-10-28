@@ -149,7 +149,12 @@ export class FormComponent implements OnInit {
 
     if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].keytag !== '' ) {
       if (this.digestForm.value.itemRows[0].digest !== '' ) {
-        this.form['ds_info'] = this.digestForm.value.itemRows;
+        this.form['ds_info'] = this.digestForm.value.itemRows.map(x => {
+          x['keytag'] = Number(x['keytag']);
+          x['algorithm'] = Number(x['algorithm']);
+          x['digtype'] = Number(x['digtype']);
+          return x;
+        });
       } else {
         this.alertService.error('Digest required');
       }

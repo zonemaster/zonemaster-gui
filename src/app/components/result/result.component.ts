@@ -56,7 +56,8 @@ export class ResultComponent implements OnInit, OnChanges {
               private alertService: AlertService,
               private translateService: TranslateService,
               private dnsCheckService: DnsCheckService) {
-     this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false : this.activatedRoute.snapshot.data[0]['directAccess'];
+     this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
+       this.activatedRoute.snapshot.data[0]['directAccess'];
   }
 
   ngOnInit() {

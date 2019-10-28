@@ -2,7 +2,7 @@ import { by, browser, element } from 'protractor';
 
 import { Utils } from './utils/app.utils';
 
-describe('Zonemaster test GR06 - [The simple view should support an advanced view expanding when the checkbox is enabled]', () => {
+describe('Zonemaster test FR12 - [The simple view should support an advanced view expanding when the checkbox is enabled]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();

@@ -26,8 +26,10 @@ exports.config = {
     'chromeOptions': {
       'args': [
         '--headless',
+        '--disk-cache-dir=/dev/null',
         '--disable-web-security',
-        '--window-size=1920,1080'
+        '--window-size=1920,1080',
+        'lang=es-AR'
       ]
     }
   }],
