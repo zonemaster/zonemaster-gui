@@ -19,7 +19,7 @@ describe('Zonemaster test FR23 - [Provide a list of previous runs for the domain
     await expect(element(by.css('a.btn.history')).getText()).toEqual('History');
     await element(by.css('a.btn.history')).click();
 
-    await browser.wait(EC.visibilityOf($('ngb-modal-window')), 5000);
+    expect(await $('ngb-modal-window').isPresent()).toBe(true);
 
     await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-success')).count())
       .toEqual(9);
