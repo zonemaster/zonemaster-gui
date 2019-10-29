@@ -14,10 +14,12 @@ describe('Zonemaster test FR23 - [Provide a list of previous runs for the domain
   });
 
   it('should display previous tests',  async() => {
+    await browser.sleep(1000);
     await browser.wait(() => element(by.css('a.btn.history')).isPresent(), 120 * 1000);
 
     await expect(element(by.css('a.btn.history')).getText()).toEqual('History');
     await element(by.css('a.btn.history')).click();
+    await browser.sleep(1000);
 
     expect(await $('ngb-modal-window').isPresent()).toBe(true);
 
