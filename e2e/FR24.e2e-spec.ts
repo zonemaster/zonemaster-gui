@@ -14,12 +14,14 @@ describe('Zonemaster test FR24 - [The list of previous runs should contain links
   });
 
   it('should display previous run link',  async() => {
+    await browser.sleep(1000);
     await browser.wait(() => element(by.css('a.btn.history')).isPresent(), 120 * 1000);
 
     await expect(element(by.css('a.btn.history')).getText()).toEqual('History');
     await element(by.css('a.btn.history')).click();
+    await browser.sleep(1000);
 
-    await browser.wait(EC.visibilityOf($('ngb-modal-window')), 5000);
+    expect(await $('ngb-modal-window').isPresent()).toBe(true);
 
     await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-success > a')).get(0)
       .getAttribute('href')).toEqual('http://localhost:4201/result/84bfac6ae74d0e62');
