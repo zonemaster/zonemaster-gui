@@ -1,12 +1,13 @@
 /**
  * Created by pamasse on 05/11/2017.
  */
-import {protractor, by, browser, element } from 'protractor';
+import {$, protractor, by, browser, element } from 'protractor';
 
 import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR23 - [Provide a list of previous runs for the domain and should be paginated]', () => {
   const utils = new Utils();
+  const EC = protractor.ExpectedConditions;
   beforeAll(() => {
     utils.goTo('result/2005cf23e9fb24b6');
     utils.setLang('en');
@@ -17,8 +18,8 @@ describe('Zonemaster test FR23 - [Provide a list of previous runs for the domain
 
     await expect(element(by.css('a.btn.history')).getText()).toEqual('History');
     await element(by.css('a.btn.history')).click();
-await element(by.css('a.btn.history')).click();
-    await browser.wait(() => element(by.css('.modal-dialog')).isPresent(), 10 * 1000);
+
+    await browser.wait(EC.visibilityOf($('ngb-modal-window')), 5000);
 
     await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-success')).count())
       .toEqual(9);
