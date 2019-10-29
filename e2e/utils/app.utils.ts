@@ -21,4 +21,10 @@ export class Utils {
     return browser.getTitle();
   }
 
+  clearBrowserCache() {
+    browser.executeScript('window.localStorage.clear();');
+    browser.executeScript('window.sessionStorage.clear();');
+    browser.driver.manage().deleteAllCookies();
+  }
+
 }

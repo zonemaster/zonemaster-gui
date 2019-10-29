@@ -1,8 +1,8 @@
 import { by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
-describe('Zonemaster test GR10 - [The undelegated view should have a text describing what undelegated means?]', () => {
+describe('Zonemaster test FR16 - [The advanced view should have a text describing what undelegated means?]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();

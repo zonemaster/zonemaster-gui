@@ -1,12 +1,13 @@
 import { by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
-describe('Zonemaster test GR08 - [The advanced view should look the same in latest version of different browsers]', () => {
+describe('Zonemaster test FR15 - [The advanced view should look the same in latest version of different browsers]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();
-    element(by.css('.switch')).click();
+    utils.setLang('en');
+    utils.activeOptions();
   });
 
   it('should match the domain page with options on', () => {

@@ -9,21 +9,21 @@
     </div>
     <div class="col-md-6">
       <div class="pull-right actions_btn" >
-        <a class="btn btn-warning" (click)="getHistory()">
+        <a class="btn btn-warning history" (click)="getHistory()">
           <i class="fa fa-history text-white" aria-hidden="true"></i>
           <span class="text-white">{{'History'|translate}}</span>
         </a>
-        <a class="btn btn-info" (click)="openModal(exportModal)">
+        <a class="btn btn-info export" (click)="openModal(exportModal)">
           <i class="fa fa-cloud-download text-white"></i>
           <span class="text-white">{{'Export'|translate}}</span>
         </a>
-        <a class="btn btn-success" (click)="openModal(shareLinkModal)">
+        <a class="btn btn-success share" (click)="openModal(shareLinkModal)">
           <i class="fa fa-share text-white"></i>
           <span class="text-white">{{'Share'|translate}}</span>
         </a>
 
         <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-secondary" id="settingsDropdownResult" ngbDropdownToggle>
+          <button class="btn btn-secondary settings" id="settingsDropdownResult" ngbDropdownToggle>
             <i class="fa fa-wrench text-white"></i>
             <span class="text-white">{{'Settings'|translate}}</span>
           </button>

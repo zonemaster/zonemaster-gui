@@ -1,8 +1,8 @@
 import { by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
-describe('Zonemaster test GR07 - [The advanced view should support the possibility of enabling or disabling IPv4 or IPv6]', () => {
+describe('Zonemaster test FR13 - [The advanced view should support the possibility of enabling or disabling IPv4 or IPv6]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();

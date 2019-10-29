@@ -1,4 +1,4 @@
-Zonemaster Web GUI
+Zonemaster Web GUI [![Build Status](https://travis-ci.org/zonemaster/zonemaster-gui.svg?branch=master)](https://travis-ci.org/zonemaster/zonemaster-gui)
 ==========
 
 ### Purpose

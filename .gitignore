@@ -51,3 +51,5 @@ src/assets/faqs/gui-faq-*
 
 *.log
 tests_output/
+.e2e-chrome-profile/
+

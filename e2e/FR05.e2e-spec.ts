@@ -1,8 +1,8 @@
 import { by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
-describe('Zonemaster test GR01 - [Supports Swedish language]', () => {
+describe('Zonemaster test FR05 - [Supports Swedish language]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();
@@ -13,7 +13,7 @@ describe('Zonemaster test GR01 - [Supports Swedish language]', () => {
   });
 
   it('should switch to Swedish', () => {
-    element(by.xpath('//a[@lang="sv"]')).click();
+    utils.setLang('sv');
     expect(element(by.xpath('//h1[.="Domännamn"]')).isPresent()).toBe(true);
   });
 });

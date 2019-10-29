@@ -101,5 +101,10 @@
   background-color: #dc3545;
 }
 
+.export, .share, .settings {
+  margin-left: 5px;
+}
 
-
+.history > i, .export > i, .share > i, .settings > i {
+  margin-right: 4px;
+}

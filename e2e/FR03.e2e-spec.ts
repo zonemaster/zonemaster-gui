@@ -1,11 +1,12 @@
 import { by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
-describe('Zonemaster test GR13 - [All appropriate fields should be writable]', () => {
+describe('Zonemaster test FR03 - [All appropriate fields should be writable]', () => {
   const utils = new Utils();
   beforeAll(() => {
     utils.goToHome();
+    utils.setLang('en');
   });
 
   it('should be able to write in the main input', () => {

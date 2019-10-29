@@ -1,9 +1,11 @@
 import { by, browser, element } from 'protractor';
 
-import { Utils } from './pages/app.utils';
+import { Utils } from './utils/app.utils';
 
-describe('Zonemaster test GR02 - [Supports French language]', () => {
+describe('Zonemaster test FR06 - [Supports French language]', () => {
+
   const utils = new Utils();
+
   beforeAll(() => {
     utils.goToHome();
   });
@@ -13,8 +15,7 @@ describe('Zonemaster test GR02 - [Supports French language]', () => {
   });
 
   it('should switch to French', () => {
-    element(by.xpath('//a[@lang="fr"]')).click();
+    utils.setLang('fr');
     expect(element(by.xpath('//h1[.="Nom de domaine"]')).isPresent()).toBe(true);
-    // expect(element(by.css('a.nav-link.active'))).toEqual('Test d\'un domaine');
   });
 });
