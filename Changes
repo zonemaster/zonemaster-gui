@@ -1,5 +1,26 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
+v3.2.0 2019-11-15
+
+ [Fixes]
+ - Fixed domain test cannot be reset (#58, #79)
+ - Fixed pre-populated cannot be emtied (#59, #80)
+ - Fixed warnings when creating zip file (#56, #64)
+ - Fixed redirect all history call from test to result (#73, #71)
+ - Added how to disable default site in apache on debian. (#69, #74)
+ - Change "Digest" to "Delegation Signers (DS records)" (#75, #60)
+ - Update dependencies (Angular and co) (#76, #56)
+ - Translation into Danish (#72, #70)
+ - Add handler for scroll event to alert message (#49, #39, #40)
+ - Explain CORS in Readme (#63, #52)
+
+ [Features]
+ - Improved testing (#84)
+ - Improved translations (#81, #44, #61)
+ - Automated testing with protractor and travis (#82, 68)
+ 
+
+
 v3.1.0 2019-05-22 (public release version)
 
  [Status]
