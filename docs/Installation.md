@@ -117,7 +117,9 @@ For all commands below become root:
 
 ``su -l``
 
-#### Install Apache (see [tutorial on Apache on FreeBSD]) and its dependencies
+#### Install Apache and its dependencies
+
+See [tutorial on Apache on FreeBSD].
 
 ``pkg install apache24``
 
