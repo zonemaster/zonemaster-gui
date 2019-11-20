@@ -182,11 +182,11 @@ And when the mouse over this text, it display all version of the zonemaster stac
 
 -------
 
-[tutorial on Apache on FreeBSD]: https://www.digitalocean.com/community/tutorials/how-to-install-an-apache-mysql-and-php-famp-stack-on-freebsd-10-1
 [Declaration of prerequisites]: https://github.com/zonemaster/zonemaster/blob/master/README.md#prerequisites
 [JSON-RPC API]: https://github.com/zonemaster/zonemaster-backend/blob/master/docs/API.md
 [Let's Encrypt / Certbot]: https://certbot.eff.org/all-instructions/
 [Main Zonemaster repository]: https://github.com/zonemaster/zonemaster/blob/master/README.md
+[Tutorial on Apache on FreeBSD]: https://www.digitalocean.com/community/tutorials/how-to-install-an-apache-mysql-and-php-famp-stack-on-freebsd-10-1
 [Zonemaster::Backend installation]: https://github.com/zonemaster/zonemaster-backend/blob/master/docs/Installation.md
 [Zonemaster::Backend]: https://github.com/zonemaster/zonemaster-backend/blob/master/README.md
 [Zonemaster::CLI installation]: https://github.com/zonemaster/zonemaster-cli/blob/master/docs/Installation.md
