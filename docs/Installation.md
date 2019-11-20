@@ -30,14 +30,15 @@ This instruction covers the following operating systems:
 
 ### 1. CentOS
 
-* Install Httpd (Apache):
+#### Install Httpd (Apache)
 
 ```sh
 sudo yum update
 sudo yum install httpd
 ```
 
-* Install Zonemaster Web GUI
+#### Install Zonemaster Web GUI
+
 ```sh
 wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.1.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
@@ -46,14 +47,15 @@ sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 rm zonemaster_web_gui.zip
 ```
 
-* Basic httpd configuration:
+#### Basic httpd configuration
 
 ```sh
 sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
 ```
 Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
 
-* Reload httpd
+#### Reload httpd
+
 ```sh
 sudo systemctl enable httpd
 sudo systemctl reload httpd
@@ -61,7 +63,7 @@ sudo systemctl reload httpd
 
 ### 2. Debian
 
-Install apache2 and disable default site:
+#### Install apache2 and disable default site
 
 ```sh
 sudo apt-get update && sudo apt-get upgrade -y 
@@ -73,7 +75,8 @@ sudo a2dissite 000-default
 sudo systemctl restart apache2
 ```
 
-* Install Zonemaster Web GUI
+#### Install Zonemaster Web GUI
+
 ```sh
 wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.1.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
@@ -88,7 +91,7 @@ and go back and run it again above:
 sudo apt-get install unzip
 ```
 
-* Basic apache2 configuration:
+#### Basic apache2 configuration
 
 ```sh
 sudo chown -R www-data:www-data /var/www #Change owner of the directory 
@@ -101,7 +104,7 @@ For testing on a local machine, you can edit zonemaster.conf and change the "*:8
 to the host's IP or using localhost as ServerName if that is appropriate.
 
 
-* Reload apache
+#### Reload apache
 
 ```sh
 sudo systemctl enable apache2
@@ -110,29 +113,30 @@ sudo systemctl reload apache2
 
 ### 3. FreeBSD
 
-* For all commands below become root:
+For all commands below become root:
 
 ``su -l``
 
-* Install Apache (see [tutorial on Apache on FreeBSD]) and its dependencies:
+#### Install Apache (see [tutorial on Apache on FreeBSD]) and its dependencies
 
 ``pkg install apache24``
 
 Enter ``y`` at the confirmation prompt.
 
-* Enable Apache as a service:
+#### Enable Apache as a service
 
 ``sysrc apache24_enable=yes``
  
-* Enable three apache modules in Apache configuration file:
+#### Enable three apache modules in Apache configuration file
 
 ``perl -pi -e 's/^#(LoadModule (proxy_module|proxy_http_module|rewrite_module) libexec)/$1/' /usr/local/etc/apache24/httpd.conf``
 
-* Start Apache:
+#### Start Apache
  
 ``service apache24 start``
 
-* Install Zonemaster Web GUI
+#### Install Zonemaster Web GUI
+
 ```sh
 fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.1.0/zonemaster_web_gui.zip
 mkdir -p /var/www/html/zonemaster-web-gui
@@ -141,7 +145,7 @@ unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 rm zonemaster_web_gui.zip 
 ```
 
-* Basic Apache configuration:
+#### Basic Apache configuration
 
 ```sh
 install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /usr/local/etc/apache24/Includes/zonemaster.conf
