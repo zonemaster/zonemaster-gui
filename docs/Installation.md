@@ -24,8 +24,8 @@ This instruction covers the following operating systems:
 
  1. [CentOS](#1-centos)
  2. [Debian](#2-debian)
- 4. [FreeBSD](#4-freebsd)
- 5. [Ubuntu](#5-ubuntu)
+ 3. [FreeBSD](#3-freebsd)
+ 4. [Ubuntu](#4-ubuntu)
 
 
 ### 1. CentOS
@@ -108,7 +108,7 @@ sudo systemctl enable apache2
 sudo systemctl reload apache2
 ```
 
-### 4. FreeBSD
+### 3. FreeBSD
 
 * For all commands below become root:
 
@@ -149,12 +149,12 @@ install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /usr/local/etc/
 Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
 
 
-* Restart Apache
+#### Restart Apache
 ```sh
 service apache24 restart
 ```
 
-### 5. Ubuntu
+### 4. Ubuntu
 
 Use the procedure for installation on [Debian](#2-debian).
 
