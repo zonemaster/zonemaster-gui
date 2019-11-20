@@ -178,13 +178,14 @@ And when the mouse over this text, it display all version of the zonemaster stac
  * For a JSON-RPC API, see the Zonemaster::Backend [JSON-RPC API] documentation.
  * For a command line interface, follow the [Zonemaster::CLI installation] instruction.
  * For a Perl API, see the [Zonemaster::Engine API] documentation.
- * For Https, see [Let's Encrypt / Certbot](https://certbot.eff.org/all-instructions/)
+ * For Https, see [Let's Encrypt / Certbot].
 
 -------
 
 [tutorial on Apache on FreeBSD]: https://www.digitalocean.com/community/tutorials/how-to-install-an-apache-mysql-and-php-famp-stack-on-freebsd-10-1
 [Declaration of prerequisites]: https://github.com/zonemaster/zonemaster/blob/master/README.md#prerequisites
 [JSON-RPC API]: https://github.com/zonemaster/zonemaster-backend/blob/master/docs/API.md
+[Let's Encrypt / Certbot]: https://certbot.eff.org/all-instructions/
 [Main Zonemaster repository]: https://github.com/zonemaster/zonemaster/blob/master/README.md
 [Zonemaster::Backend installation]: https://github.com/zonemaster/zonemaster-backend/blob/master/docs/Installation.md
 [Zonemaster::Backend]: https://github.com/zonemaster/zonemaster-backend/blob/master/README.md
