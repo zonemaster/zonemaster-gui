@@ -112,22 +112,26 @@
             </div>
           </form>
           <hr>
-
+          
           <h4 class="d-inline">{{'Digests'|translate}}</h4>
           <form [formGroup]="digestForm" class="form-inline digests">
             <div formArrayName="itemRows">
               <div class="nsForm" *ngFor="let itemrow of digestForm.controls.itemRows.controls; let i=index" [formGroupName]="i">
                 <input formControlName="keytag" class="form-control" name="form.keytag" placeholder="Key tag">
                 <select formControlName="algorithm" class="form-control" name="form.algorithm">
-                  <option [value]="3">3 - DSA/SHA1</option>
-                  <option [value]="5">5 - RSA/SHA1</option>
+                  <option [value]="1">1 - RSAMD5</option>
+                  <option [value]="3">3 - DSA</option>
+                  <option [value]="5">5 - RSASHA1</option>
                   <option [value]="6">6 - DSA-NSEC3-SHA1</option>
                   <option [value]="7">7 - RSASHA1-NSEC3-SHA1</option>
-                  <option [value]="8">8 - RSA/SHA-256</option>
-                  <option [value]="10">10 - RSA/SHA-512</option>
+                  <option [value]="8">8 - RSASHA256</option>
+                  <option [value]="10">10 - RSASHA512</option>
                   <option [value]="12">12 - ECC-GOST</option>
                   <option [value]="13">13 - ECDSAP256SHA256</option>
                   <option [value]="14">14 - ECDSAP384SHA384</option>
+                  <option [value]="15">15 - ED25519</option>
+                  <option [value]="16">16 - ED448</option>
+
                 </select>
                 <select formControlName="digtype" class="form-control" name="form.digtype">
                   <option [value]="1">1 - SHA-1</option>
