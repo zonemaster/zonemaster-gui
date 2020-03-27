@@ -1,4 +1,4 @@
-Zonemaster Web GUI
+Zonemaster Web GUI [![Build Status](https://travis-ci.org/zonemaster/zonemaster-gui.svg?branch=master)](https://travis-ci.org/zonemaster/zonemaster-gui)
 ==========
 
 ### Purpose
@@ -72,6 +72,9 @@ Please always make the Pull Request against the develop branch.
     
 * Thank you for your contribution!
 
+> In development mode, you probably have to enable [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) on your browser.
+> The Cross-Origin Resource Sharing (CORS) performed by the browser blocks every AJAX request that does not match the exact host, protocol, and port of your site.
+
 ##### Development server
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -87,6 +90,11 @@ Run 'npm run release' to create a zip file with dist folder and zonemaster.conf 
 Basically, the GUI is a serverless Angular application which use the Backend JSONRC API.
 
 Other than the installation file, the [docs directory](docs/), contains a translation guide for the GUI
+
+#### Security of our dependencies
+Based on the output of [david](https://david-dm.org/) and [npm audit](https://docs.npmjs.com/cli/audit), we reguraly 
+update our dependencies with the latest secure version. Notice that we can't follow the rythm of new versions, so you could 
+get security warning during the installation of development dependencies.
 
 #### Acknowledge
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.

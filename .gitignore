@@ -6,7 +6,6 @@
 /release-builds
 /tmp
 /out-tsc
-/e2e/compare_image
 
 # dependencies
 /node_modules
@@ -39,6 +38,7 @@ testem.log
 # e2e
 /e2e/*.js
 /e2e/*.map
+.tmp
 
 # System Files
 .DS_Store
@@ -47,3 +47,9 @@ Thumbs.db
 *.zip
 
 gui-faq-*
+src/assets/faqs/gui-faq-*
+
+*.log
+tests_output/
+.e2e-chrome-profile/
+

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Input, Output, SimpleChanges, OnChanges} from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output, SimpleChanges, OnChanges, SimpleChange} from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -12,10 +12,11 @@ import {AlertService} from '../../services/alert.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnChanges {
   @Input() is_advanced_options_enabled;
   @Input() domain_check_progression;
   @Input() showProgressBar;
+  @Input() toggleFinished;
   @Input() profiles;
 
   @Output() onDomainCheck = new EventEmitter<object>();
@@ -45,6 +46,17 @@ export class FormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private alertService: AlertService) {}
 
   ngOnInit() {
+    this.generate_form();
+  }
+
+  ngOnChanges(changes: { [property: string]: SimpleChange }) {
+    if ('toggleFinished' in changes) {
+      this.resetFullForm();
+    }
+  }
+
+  public generate_form() {
+
     const group = [];
 
     group.push(new FormGroup({
@@ -94,6 +106,16 @@ export class FormComponent implements OnInit {
     }
   }
 
+  public resetDomainForm() {
+    this.form['domain'] = '';
+  }
+
+  public resetFullForm() {
+    this.resetDomainForm();
+    this.generate_form();
+  }
+
+
   public addNewRow(form, value = null) {
     const control = <FormArray>this[form].controls['itemRows'];
 
@@ -109,13 +131,16 @@ export class FormComponent implements OnInit {
   public deleteRow(form, index: number) {
     const control = <FormArray>this[form].controls['itemRows'];
     if (index === -1) {
-      console.log(control.length);
       for ( let i = control.length - 1; i >= 0; i--) {
         control.removeAt(i);
       }
     } else {
       control.removeAt(index);
+      if (control.length === 0) {
+        this.addNewRow(form);
+      }
     }
+
   }
 
   public initItemRows(value) {
@@ -149,7 +174,12 @@ export class FormComponent implements OnInit {
 
     if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].keytag !== '' ) {
       if (this.digestForm.value.itemRows[0].digest !== '' ) {
-        this.form['ds_info'] = this.digestForm.value.itemRows;
+        this.form['ds_info'] = this.digestForm.value.itemRows.map(x => {
+          x['keytag'] = Number(x['keytag']);
+          x['algorithm'] = Number(x['algorithm']);
+          x['digtype'] = Number(x['digtype']);
+          return x;
+        });
       } else {
         this.alertService.error('Digest required');
       }

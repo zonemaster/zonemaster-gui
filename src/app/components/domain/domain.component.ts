@@ -14,9 +14,10 @@ export class DomainComponent implements OnInit {
   public domain_check_progression = 0;
   public showResult = false;
   public showProgressBar = false;
-  public parentData: object;
+  public parentData: any;
   public resultID = '';
   public profiles = [];
+  public toggleFinished = false;
 
   constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService) {}
 
@@ -63,6 +64,7 @@ export class DomainComponent implements OnInit {
             self.showResult = true;
             self.showProgressBar = false;
             self.domain_check_progression = 5;
+            self.toggleFinished = !self.toggleFinished;
           }
         });
       }, this.intervalTime);

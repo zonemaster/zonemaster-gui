@@ -5,14 +5,24 @@
       <div class="info-form">
         <form class="form-inline domain mb-2">
           <div class="input-group mb-2">
-            <input type="text"
-                 class="form-control form-control-lg"
-                 id="domain_check_name"
-                 name="domain_check_name"
-                 [(ngModel)]="form.domain"
-                 (keypress)="($event.which === 13)? runDomainCheck() : 0"
-                 placeholder="{{'Domain name'|translate}}"
-                 required>
+            <span class="form-ckeck-group input-group">
+              <input type="text"
+                   class="form-control form-control-lg"
+                   id="domain_check_name"
+                   name="domain_check_name"
+                   [(ngModel)]="form.domain"
+                   (keypress)="($event.which === 13)? runDomainCheck() : 0"
+                   placeholder="{{'Domain name'|translate}}"
+                   required>
+
+              <p class="reset-form d-none d-sm-block" *ngIf="form.domain.length > 0 && !showProgressBar" >
+                <button
+                  (click)="resetDomainForm();"
+                  type="button"
+                  class="btn grey"><i class="fa fa-2x fa-times-circle"></i></button>
+              </p>
+
+            </span>
             <p class="progress-result d-none d-sm-block" *ngIf="showProgressBar">
               <ngb-progressbar
                 type="info"
@@ -88,15 +98,14 @@
               <div class="nsForm" *ngFor="let itemrow of NSForm.controls.itemRows.controls; let i=index" [formGroupName]="i">
                 <input formControlName="ns" name='form.ns' class="form-control" placeholder="NS">
                 <input formControlName="ip" name='form.ip' class="form-control" placeholder="IP">
-                <button *ngIf="NSForm.controls.itemRows.controls.length > 1"
-                        (click)="deleteRow('NSForm', i)"
-                        class="btn btn-danger ">
+                <button (click)="deleteRow('NSForm', i)"
+                        class="btn btn-danger delete">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
                 <button *ngIf="NSForm.controls.itemRows.controls.length <= 1 || i == NSForm.controls.itemRows.controls.length - 1"
                         type="button"
                         (click)="addNewRow('NSForm')"
-                        class="btn btn-success">
+                        class="btn btn-success add">
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
               </div>
@@ -127,22 +136,24 @@
                   <option [value]="4">SHA-384</option>
                 </select>
                 <input formControlName="digest" class="form-control" name="digest" placeholder="Digest">
-                <button *ngIf="digestForm.controls.itemRows.controls.length > 1"
+                <button
                         (click)="deleteRow('digestForm',i)"
-                        class="btn btn-danger ">
+                        class="btn btn-danger delete">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
                 <button *ngIf="digestForm.controls.itemRows.controls.length <= 1 || i == digestForm.controls.itemRows.controls.length - 1"
                         type="button"
                         (click)="addNewRow('digestForm')"
-                        class="btn btn-success">
+                        class="btn btn-success add">
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
           </form>
           <br>
-          <button class="btn btn-default fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
+        <button class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
+        <button class="btn btn-danger resetFullForm" (click)="resetFullForm()">{{'Reset'|translate}}</button>
+
       </div>
     </div>
   </div>
