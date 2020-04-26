@@ -1,37 +1,37 @@
 .logo {
-  width: 250px;
+    width: 250px;
 }
 
 .lang > div > a {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 nav {
-  box-shadow: 0px 7px 5px -9px rgba(0,0,0,0.75);
-  -webkit-transition:0.5s linear all;
-  -moz-transition:0.5s linear all;
-  -o-transition:0.5s linear all;
-  transition:0.5s linear all;
+    box-shadow: 0px 7px 5px -9px rgba(0, 0, 0, 0.75);
+    -webkit-transition: 0.5s linear all;
+    -moz-transition: 0.5s linear all;
+    -o-transition: 0.5s linear all;
+    transition: 0.5s linear all;
 }
 
 .github {
-  width: 100px;
-  height: 100px;
+    width: 100px;
+    height: 100px;
 }
 
-@media(min-width:992px){
-  .shrink {
-    height: 60px;
-  }
+@media (min-width: 992px) {
+    .shrink {
+        height: 60px;
+    }
 
-  .shrink .logo {
-    width: 200px;
-  }
+    .shrink .logo {
+        width: 200px;
+    }
 
-  .shrink .github {
-    width: 60px;
-    height: 60px;
-  }
+    .shrink .github {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 @media(max-width: 1300px) {
@@ -41,8 +41,8 @@ nav {
 		  }
 
 .back-to-top {
-  cursor: pointer;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
