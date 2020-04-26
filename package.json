@@ -11,10 +11,23 @@
     "lint": "ng lint",
     "e2e": "ng e2e --port=4201"
   },
-  "hooks": {
-    "commit-msg": "commitlint --config commitlint.config.js -E HUSKY_GIT_PARAMS",
-    "pre-commit": "lint-staged && ng lint",
-    "post-merge": "post-npm-install"
+  "lint-staged": {
+    "*.{ts,js,json,md,scss,html}": [
+      "prettier --config .prettierrc --write"
+    ],
+    "*.ts": [
+      "tslint --fix"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint --config commitlint.config.js -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged",
+      "post-merge": "post-npm-install"
+    }
   },
   "private": false,
   "dependencies": {
