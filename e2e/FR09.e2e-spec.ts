@@ -20,6 +20,6 @@ describe('Zonemaster test FR09 - [Once a language is chosen, all other links sho
         );
         await expect(
             element(by.css('a.nav-link[routerlink="/domain_check"]')).getText()
-        ).toBe("Test d'un domaine");
+        ).toBe('Test d\'un domaine');
     });
 });
