@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {AlertService} from './alert.service';
 import {AppService} from './app.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class DnsCheckService {
@@ -9,12 +10,14 @@ export class DnsCheckService {
   private clientInfo: object;
   private _profiles: string[];
 
-  constructor(private alertService: AlertService, private http: HttpClient) {
+  constructor(private alertService: AlertService, 
+    private http: HttpClient,
+    private translateService: TranslateService) {
     this.backendUrl = AppService.apiEndpoint();
     this.clientInfo = AppService.getClientInfo();
 
     if (this.backendUrl) {
-      console.error('Please set the api endpoint');
+      console.error(this.translateService.get('Please set the api endpoint'));
     }
   }
 
