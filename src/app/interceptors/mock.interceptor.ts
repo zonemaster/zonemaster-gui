@@ -78,7 +78,7 @@ const urls = [
                     {
                         level: 'ERROR',
                         message:
-                            "Une zone parente 'fr' a pu être trouvée pour le nom de domaine testé.\n",
+                            'Une zone parente \'fr\' a pu être trouvée pour le nom de domaine testé.\n',
                         module: 'BASIC',
                     },
                     {
@@ -108,7 +108,8 @@ const urls = [
                     {
                         level: 'INFO',
                         message:
-                            'IPv4 est activé,  il est possible de réaliser une requête de type "NS" sur le serveur ns2.nic.fr/192.93.0.4.\n',
+                            'IPv4 est activé,  il est possible de réaliser une requête de ' +
+                            'type "NS" sur le serveur ns2.nic.fr/192.93.0.4.\n',
                         module: 'BASIC',
                     },
                     {
@@ -162,7 +163,7 @@ const urls = [
                     {
                         level: 'INFO',
                         message:
-                            "Toutes les adresses IP des serveurs de noms sont dans l'espace d'adresses publiques routables.\n",
+                            'Toutes les adresses IP des serveurs de noms sont dans l\'espace d\'adresses publiques routables.\n',
                         module: 'ADDRESS',
                     },
                     {
@@ -282,7 +283,8 @@ const urls = [
                     {
                         level: 'INFO',
                         message:
-                            'Le numéro de série 2019102803 a été récupérée sur les serveurs suivants : ns1.nic.fr/192.134.4.1; ns1.nic.fr/2001:67c:2218:2::4:1; ns2.nic.fr/192.93.0.4; ns2.nic.fr/2001:660:3005:1::1:2; ns3.nic.fr/192.134.0.49; ns3.nic.fr/2001:660:3006:1::1:1.\n',
+                            'Le numéro de série 2019102803 a été récupérée sur les serveurs suivants : ns1.nic.fr/192.134.4.1; ns1.nic.fr/2001:67c:2218:2::4:1; ' +
+                            'ns2.nic.fr/192.93.0.4; ns2.nic.fr/2001:660:3005:1::1:2; ns3.nic.fr/192.134.0.49; ns3.nic.fr/2001:660:3006:1::1:1.\n',
                         module: 'CONSISTENCY',
                     },
                     {
@@ -360,73 +362,73 @@ const urls = [
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 37610 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 52935 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 52935 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 37610 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 37610 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 52935 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 37610 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 52935 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 37610 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 52935 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 37610 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n",
+                            'La clé (DNSKEY) avec le tag 52935 utilise un numéro d\'algorithme correct 8/(RSASHA256).\n',
                         module: 'DNSSEC',
                     },
                     {
@@ -444,7 +446,7 @@ const urls = [
                     {
                         level: 'INFO',
                         message:
-                            "L'enregistrement DS dans la zone parente est correctement signé.\n",
+                            'L\'enregistrement DS dans la zone parente est correctement signé.\n',
                         module: 'DNSSEC',
                     },
                     {
@@ -504,7 +506,7 @@ const urls = [
                     {
                         level: 'INFO',
                         message:
-                            "La plus petite taille d'un paquet légal contenant une référence (referral) est inférieure à 513 octets (elle est de 373).\n",
+                            'La plus petite taille d\'un paquet légal contenant une référence (referral) est inférieure à 513 octets (elle est de 373).\n',
                         module: 'DELEGATION',
                     },
                     {
@@ -528,98 +530,100 @@ const urls = [
                     {
                         level: 'INFO',
                         message:
-                            'Tous les serveurs de noms de la zone font partie de la liste des serveurs de noms retournés par les serveurs de noms de la zone parente ainsi que par les serveurs de noms de la zone elle-même.\n',
+                            'Tous les serveurs de noms de la zone font partie de la liste des serveurs de noms retournés par les serveurs de noms de la zone parente ainsi que par les serveurs de ' +
+                            'noms de la zone elle-même.\n',
                         module: 'DELEGATION',
                     },
                     {
                         ns: 'ns2.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2 n'est pas un récurseur.\n",
+                            'Le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2 n\'est pas un récurseur.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns2.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns2.nic.fr/192.93.0.4 n'est pas un récurseur.\n",
+                            'Le serveur de noms ns2.nic.fr/192.93.0.4 n\'est pas un récurseur.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns1.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1 n'est pas un récurseur.\n",
+                            'Le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1 n\'est pas un récurseur.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns3.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns3.nic.fr/192.134.0.49 n'est pas un récurseur.\n",
+                            'Le serveur de noms ns3.nic.fr/192.134.0.49 n\'est pas un récurseur.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns1.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns1.nic.fr/192.134.4.1 n'est pas un récurseur.\n",
+                            'Le serveur de noms ns1.nic.fr/192.134.4.1 n\'est pas un récurseur.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns3.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1 n'est pas un récurseur.\n",
+                            'Le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1 n\'est pas un récurseur.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'All',
                         level: 'INFO',
                         message:
-                            'Les serveurs de noms suivants supportent EDNS0 : ns2.nic.fr/2001:660:3005:1::1:2, ns2.nic.fr/192.93.0.4, ns1.nic.fr/2001:67c:2218:2::4:1, ns3.nic.fr/192.134.0.49, ns1.nic.fr/192.134.4.1, ns3.nic.fr/2001:660:3006:1::1:1.\n',
+                            'Les serveurs de noms suivants supportent EDNS0 : ns2.nic.fr/2001:660:3005:1::1:2, ns2.nic.fr/192.93.0.4, ' +
+                            'ns1.nic.fr/2001:67c:2218:2::4:1, ns3.nic.fr/192.134.0.49, ns1.nic.fr/192.134.4.1, ns3.nic.fr/2001:660:3006:1::1:1.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns1.nic.fr',
                         level: 'INFO',
                         message:
-                            "Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns1.nic.fr/192.134.4.1.\n",
+                            'Il n\'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns1.nic.fr/192.134.4.1.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns1.nic.fr',
                         level: 'INFO',
                         message:
-                            "Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1.\n",
+                            'Il n\'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns2.nic.fr',
                         level: 'INFO',
                         message:
-                            "Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns2.nic.fr/192.93.0.4.\n",
+                            'Il n\'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns2.nic.fr/192.93.0.4.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns2.nic.fr',
                         level: 'INFO',
                         message:
-                            "Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2.\n",
+                            'Il n\'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns3.nic.fr',
                         level: 'INFO',
                         message:
-                            "Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns3.nic.fr/192.134.0.49.\n",
+                            'Il n\'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns3.nic.fr/192.134.0.49.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns3.nic.fr',
                         level: 'INFO',
                         message:
-                            "Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1.\n",
+                            'Il n\'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1.\n',
                         module: 'NAMESERVER',
                     },
                     {
@@ -633,7 +637,8 @@ const urls = [
                         ns: 'All',
                         level: 'INFO',
                         message:
-                            'Les serveurs de noms suivants répondent correctement aux requêtes de type "AAAA" : ns2.nic.fr/2001:660:3005:1::1:2, ns2.nic.fr/192.93.0.4, ns1.nic.fr/2001:67c:2218:2::4:1, ns3.nic.fr/192.134.0.49, ns1.nic.fr/192.134.4.1, ns3.nic.fr/2001:660:3006:1::1:1.\n',
+                            'Les serveurs de noms suivants répondent correctement aux requêtes de type "AAAA" : ns2.nic.fr/2001:660:3005:1::1:2, ns2.nic.fr/192.93.0.4, ns1.nic.fr/2001:67c:2218:2::4:1, ' +
+                            'ns3.nic.fr/192.134.0.49, ns1.nic.fr/192.134.4.1, ns3.nic.fr/2001:660:3006:1::1:1.\n',
                         module: 'NAMESERVER',
                     },
                     {
@@ -654,42 +659,42 @@ const urls = [
                         ns: 'ns1.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns1.nic.fr/192.134.4.1 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n",
+                            'Le serveur de noms ns1.nic.fr/192.134.4.1 conserve la casse des noms requêtés dans les réponses \'wWW.afNic.Fr\'.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns1.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n",
+                            'Le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1 conserve la casse des noms requêtés dans les réponses \'wWW.afNic.Fr\'.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns2.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns2.nic.fr/192.93.0.4 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n",
+                            'Le serveur de noms ns2.nic.fr/192.93.0.4 conserve la casse des noms requêtés dans les réponses \'wWW.afNic.Fr\'.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns2.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n",
+                            'Le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2 conserve la casse des noms requêtés dans les réponses \'wWW.afNic.Fr\'.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns3.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns3.nic.fr/192.134.0.49 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n",
+                            'Le serveur de noms ns3.nic.fr/192.134.0.49 conserve la casse des noms requêtés dans les réponses \'wWW.afNic.Fr\'.\n',
                         module: 'NAMESERVER',
                     },
                     {
                         ns: 'ns3.nic.fr',
                         level: 'INFO',
                         message:
-                            "Le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n",
+                            'Le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1 conserve la casse des noms requêtés dans les réponses \'wWW.afNic.Fr\'.\n',
                         module: 'NAMESERVER',
                     },
                     {
@@ -702,19 +707,19 @@ const urls = [
                     {
                         level: 'INFO',
                         message:
-                            "Le nom de domaine 'afNiC.Fr' ne contient aucun caractère interdit.\n",
+                            'Le nom de domaine \'afNiC.Fr\' ne contient aucun caractère interdit.\n',
                         module: 'SYNTAX',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "Aucune des extrémités des labels du nom de domain 'afNiC.Fr' n'est un tiret '-'.\n",
+                            'Aucune des extrémités des labels du nom de domain \'afNiC.Fr\' n\'est un tiret \'-\'.\n',
                         module: 'SYNTAX',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "Le nom de domaine 'afNiC.Fr' n'a aucun label contenant un double tiret ('--') en positions 3 et 4 (avec un préfixe différent de 'xn--').\n",
+                            'Le nom de domaine \'afNiC.Fr\' n\'a aucun label contenant un double tiret (\'--\') en positions 3 et 4 (avec un préfixe différent de \'xn--\').\n',
                         module: 'SYNTAX',
                     },
                     {
@@ -738,7 +743,7 @@ const urls = [
                     {
                         level: 'INFO',
                         message:
-                            "Il n'y a aucun caractère '@' dans le champ RNAME (hostmaster.nic.fr.) du SOA.\n",
+                            'Il n\'y a aucun caractère \'@\' dans le champ RNAME (hostmaster.nic.fr.) du SOA.\n',
                         module: 'SYNTAX',
                     },
                     {
@@ -750,7 +755,7 @@ const urls = [
                     {
                         level: 'INFO',
                         message:
-                            "La syntaxe du nom du serveur maître défini dans le SOA,  'mname' (dnsmaster.nic.fr) est valide.\n",
+                            'La syntaxe du nom du serveur maître défini dans le SOA,  \'mname\' (dnsmaster.nic.fr) est valide.\n',
                         module: 'SYNTAX',
                     },
                     {
@@ -768,55 +773,58 @@ const urls = [
                     {
                         level: 'NOTICE',
                         message:
-                            "Le serveur maître défini dans le SOA,  'mname' dnsmaster.nic.fr/192.134.4.2,  ne répond pas.\n",
+                            'Le serveur maître défini dans le SOA,  \'mname\' dnsmaster.nic.fr/192.134.4.2,  ne répond pas.\n',
                         module: 'ZONE',
                     },
                     {
                         level: 'NOTICE',
                         message:
-                            'Le serveur maître défini dans le SOA,  \'mname\' (dnsmaster.nic.fr),  ne fait pas partie des enregistrements de type "NS" listés par la zone parente (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr).\n',
+                            'Le serveur maître défini dans le SOA,  \'mname\' (dnsmaster.nic.fr),  ne fait pas partie des enregistrements de type "NS" ' +
+                            'listés par la zone parente (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr).\n',
                         module: 'ZONE',
                     },
                     {
                         level: 'NOTICE',
                         message:
-                            "Dans le SOA,  la valeur du champ 'refresh' (7200) est plus petite que la valeur recommandée (14400).\n",
+                            'Dans le SOA,  la valeur du champ \'refresh\' (7200) est plus petite que la valeur recommandée (14400).\n',
                         module: 'ZONE',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "Dans le SOA,  la valeur du champ 'refresh' (7200) est plus grande que la valeur du champ 'retry' (1800).\n",
+                            'Dans le SOA,  la valeur du champ \'refresh\' (7200) est plus grande ' +
+                            'que la valeur du champ \'retry\' (1800).\n',
                         module: 'ZONE',
                     },
                     {
                         level: 'NOTICE',
                         message:
-                            "Dans le SOA,  la valeur du champ 'retry' (1800) est plus petite que la valeur recommandée (3600).\n",
+                            'Dans le SOA,  la valeur du champ \'retry\' (1800) est plus petite que la valeur recommandée (3600).\n',
                         module: 'ZONE',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "Dans le SOA,  la valeur du champ 'expire' (2419200) est plus grande que la valeur minimale recommandée (604800) et pas plus petite que la valeur du champ 'refresh' (7200).\n",
+                            'Dans le SOA,  la valeur du champ \'expire\' (2419200) est plus grande que la valeur minimale recommandée (604800) et pas plus ' +
+                            'petite que la valeur du champ \'refresh\' (7200).\n',
                         module: 'ZONE',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "Dans le SOA,  la valeur du champ 'minimum' (5400) est comprise dans l'interval de valeurs recommandées (300/86400).\n",
+                            'Dans le SOA,  la valeur du champ \'minimum\' (5400) est comprise dans l\'interval de valeurs recommandées (300/86400).\n',
                         module: 'ZONE',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "Le serveur maître défini dans le SOA,  'mname' (dnsmaster.nic.fr),  fait référence à un serveur de noms qui n'est pas un alias (CNAME).\n",
+                            'Le serveur maître défini dans le SOA,  \'mname\' (dnsmaster.nic.fr),  fait référence à un serveur de noms qui n\'est pas un alias (CNAME).\n',
                         module: 'ZONE',
                     },
                     {
                         level: 'INFO',
                         message:
-                            "Le serveur maître défini dans le SOA,  'mname' (dnsmaster.nic.fr),  fait référence à un serveur de noms qui n'est pas un alias (CNAME).\n",
+                            'Le serveur maître défini dans le SOA, \'mname\' (dnsmaster.nic.fr),  fait référence à un serveur de noms qui n\'est pas un alias (CNAME).\n',
                         module: 'ZONE',
                     },
                     {
