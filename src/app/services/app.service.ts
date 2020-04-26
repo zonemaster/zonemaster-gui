@@ -3,23 +3,21 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AppService {
+    constructor() {}
 
-  constructor() { }
+    public static apiEndpoint(): string {
+        return environment.apiEndpoint;
+    }
 
-  public static apiEndpoint(): string {
-    return environment.apiEndpoint;
-  }
+    public static getContactAddress(): string {
+        return environment.contactAddress;
+    }
 
-  public static getContactAddress(): string {
-    return environment.contactAddress;
-  }
+    public static getLogoUrl(): string {
+        return environment.logoUrl;
+    }
 
-  public static getLogoUrl(): string {
-    return environment.logoUrl;
-  }
-
-  public static getClientInfo(): object {
-    return environment.clientInfo;
-  }
-
+    public static getClientInfo(): object {
+        return environment.clientInfo;
+    }
 }

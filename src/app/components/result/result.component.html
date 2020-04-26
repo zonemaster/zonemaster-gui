@@ -1,186 +1,363 @@
 <app-header *ngIf="directAccess">
-  <h1>Result</h1>
+    <h1>Result</h1>
 </app-header>
 <div class="result container" #resultView>
-  <div class="row">
-    <div class="col-md-6">
-      <h2>{{'Test #'|translate}}{{ test.id }}<small> - {{form.domain}}</small></h2>
-      <i>{{ test.creation_time  | amFromUtc | amLocal | amLocale: language | amDateFormat:'LLL'}}</i>
-    </div>
-    <div class="col-md-6">
-      <div class="pull-right actions_btn" >
-        <a class="btn btn-warning history" (click)="getHistory()">
-          <i class="fa fa-history text-white" aria-hidden="true"></i>
-          <span class="text-white">{{'History'|translate}}</span>
-        </a>
-        <a class="btn btn-info export" (click)="openModal(exportModal)">
-          <i class="fa fa-cloud-download text-white"></i>
-          <span class="text-white">{{'Export'|translate}}</span>
-        </a>
-        <a class="btn btn-success share" (click)="openModal(shareLinkModal)">
-          <i class="fa fa-share text-white"></i>
-          <span class="text-white">{{'Share'|translate}}</span>
-        </a>
-
-        <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-secondary settings" id="settingsDropdownResult" ngbDropdownToggle>
-            <i class="fa fa-wrench text-white"></i>
-            <span class="text-white">{{'Settings'|translate}}</span>
-          </button>
-          <div ngbDropdownMenu aria-labelledby="settingsDropdownResult">
-            <label class="dropdown-item" ngbButtonLabel>
-              <input type="checkbox" ngbButton [(ngModel)]="resutlCollapsed"> {{'Group by modules'|translate}}
-            </label>
-          </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>
+                {{ 'Test #' | translate }}{{ test.id
+                }}<small> - {{ form.domain }}</small>
+            </h2>
+            <i>{{
+                test.creation_time
+                    | amFromUtc
+                    | amLocal
+                    | amLocale: language
+                    | amDateFormat: 'LLL'
+            }}</i>
         </div>
-      </div>
-      <div class="pull-right ipvX">
-          <span class="m-1">
-            <i [ngClass]="{'fa-check-circle text-success': form['ipv4'], 'fa-times-circle text-danger': !form['ipv4']}" class="fa" aria-hidden="true"></i>
-            IPv4
-          </span>
-        <span class="m-1 mr-3">
-            <i [ngClass]="{'fa-check-circle text-success': form['ipv6'], 'fa-times-circle text-danger': !form['ipv6']}" class="fa" aria-hidden="true"></i>
-            IPv6
-          </span>
-      </div>
-    </div>
-  </div>
+        <div class="col-md-6">
+            <div class="pull-right actions_btn">
+                <a class="btn btn-warning history" (click)="getHistory()">
+                    <i class="fa fa-history text-white" aria-hidden="true"></i>
+                    <span class="text-white">{{ 'History' | translate }}</span>
+                </a>
+                <a class="btn btn-info export" (click)="openModal(exportModal)">
+                    <i class="fa fa-cloud-download text-white"></i>
+                    <span class="text-white">{{ 'Export' | translate }}</span>
+                </a>
+                <a
+                    class="btn btn-success share"
+                    (click)="openModal(shareLinkModal)"
+                >
+                    <i class="fa fa-share text-white"></i>
+                    <span class="text-white">{{ 'Share' | translate }}</span>
+                </a>
 
-  <br>
-  <div class="row d-block">
-
-    <ul class="nav nav-pills vertical-align filter">
-      <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active text-white': result_filter.all}"
-           (click)="togglePillFilter('all')"
-           [(ngModel)]="result_filter.all" ngDefaultControl>
-          All <span class="badge badge-pill badge-secondary">{{result.length}}</span></a>
-      </li>
-      <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem."
-           class="nav-link" [ngClass]="{'active info text-white': result_filter.info}"
-           (click)="togglePillFilter('info')"
-           [(ngModel)]="result_filter.info" ngDefaultControl>
-          Info
-          <span class="badge badge-pill badge-secondary">{{level_items['info'].length}}</span></a>
-      </li>
-      <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all"
-           class="nav-link" [ngClass]="{'active notice text-white': result_filter.notice}"
-           (click)="togglePillFilter('notice')"
-           [(ngModel)]="result_filter.notice" ngDefaultControl>
-          Notice <span class="badge badge-pill badge-secondary">{{level_items['notice'].length}}</span></a>
-      </li>
-      <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user."
-           class="nav-link" [ngClass]="{'active warning text-white': result_filter.warning}"
-           (click)="togglePillFilter('warning')"
-           [(ngModel)]="result_filter.warning" ngDefaultControl>
-          Warning <span class="badge badge-pill badge-secondary">{{level_items['warning'].length}}</span></a>
-      </li>
-      <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable"
-           class="nav-link" [ngClass]="{'active error text-white': result_filter.error}"
-           (click)="togglePillFilter('error')"
-           [(ngModel)]="result_filter.error" ngDefaultControl>
-          Error <span class="badge badge-pill badge-secondary">{{level_items['error'].length}}</span></a>
-      </li>
-      <li class="nav-item ml-1">
-        <a  placement="top" ngbTooltip="Critical - means a very serious error." class="nav-link" [ngClass]="{'active critical text-white': result_filter.critical}"
-           (click)="togglePillFilter('critical')"
-           [(ngModel)]="result_filter.critical" ngDefaultControl>Critical <span class="badge badge-pill badge-secondary">0</span></a>
-      </li>
-      <li class="search ml-1">
-        <div class="input-group">
-          <input type="text" [(ngModel)]="result_filter.search" class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <span class="input-group-text">
-              <i class="fa fa-filter" aria-hidden="true"></i>
-            </span>
-          </div>
+                <div ngbDropdown class="d-inline-block">
+                    <button
+                        class="btn btn-secondary settings"
+                        id="settingsDropdownResult"
+                        ngbDropdownToggle
+                    >
+                        <i class="fa fa-wrench text-white"></i>
+                        <span class="text-white">{{
+                            'Settings' | translate
+                        }}</span>
+                    </button>
+                    <div
+                        ngbDropdownMenu
+                        aria-labelledby="settingsDropdownResult"
+                    >
+                        <label class="dropdown-item" ngbButtonLabel>
+                            <input
+                                type="checkbox"
+                                ngbButton
+                                [(ngModel)]="resutlCollapsed"
+                            />
+                            {{ 'Group by modules' | translate }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="pull-right ipvX">
+                <span class="m-1">
+                    <i
+                        [ngClass]="{
+                            'fa-check-circle text-success': form['ipv4'],
+                            'fa-times-circle text-danger': !form['ipv4']
+                        }"
+                        class="fa"
+                        aria-hidden="true"
+                    ></i>
+                    IPv4
+                </span>
+                <span class="m-1 mr-3">
+                    <i
+                        [ngClass]="{
+                            'fa-check-circle text-success': form['ipv6'],
+                            'fa-times-circle text-danger': !form['ipv6']
+                        }"
+                        class="fa"
+                        aria-hidden="true"
+                    ></i>
+                    IPv6
+                </span>
+            </div>
         </div>
-      </li>
-    </ul>
-  </div>
-  <div class="row mt-3">
-    <table class="table table-striped">
-      <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Module</th>
-        <th scope="col">Level</th>
-        <th scope="col">Message</th>
-      </tr>
-      </thead>
-      <tbody *ngIf="!resutlCollapsed;else resutlCollapsedTemplate">
-      <tr *ngFor="let item of result | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
-        <th scope="row">{{i}}</th>
-        <td>{{item.module|translate}}</td>
-        <td>{{item.level}}</td>
-        <td>{{item.message|translate}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+    </div>
+
+    <br />
+    <div class="row d-block">
+        <ul class="nav nav-pills vertical-align filter">
+            <li class="nav-item ml-1">
+                <a
+                    placement="top"
+                    ngbTooltip="Display all results"
+                    class="nav-link"
+                    [ngClass]="{ 'active text-white': result_filter.all }"
+                    (click)="togglePillFilter('all')"
+                    [(ngModel)]="result_filter.all"
+                    ngDefaultControl
+                >
+                    All
+                    <span class="badge badge-pill badge-secondary">{{
+                        result.length
+                    }}</span></a
+                >
+            </li>
+            <li class="nav-item ml-1">
+                <a
+                    placement="top"
+                    ngbTooltip="Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem."
+                    class="nav-link"
+                    [ngClass]="{ 'active info text-white': result_filter.info }"
+                    (click)="togglePillFilter('info')"
+                    [(ngModel)]="result_filter.info"
+                    ngDefaultControl
+                >
+                    Info
+                    <span class="badge badge-pill badge-secondary">{{
+                        level_items['info'].length
+                    }}</span></a
+                >
+            </li>
+            <li class="nav-item ml-1">
+                <a
+                    placement="top"
+                    ngbTooltip="Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all"
+                    class="nav-link"
+                    [ngClass]="{
+                        'active notice text-white': result_filter.notice
+                    }"
+                    (click)="togglePillFilter('notice')"
+                    [(ngModel)]="result_filter.notice"
+                    ngDefaultControl
+                >
+                    Notice
+                    <span class="badge badge-pill badge-secondary">{{
+                        level_items['notice'].length
+                    }}</span></a
+                >
+            </li>
+            <li class="nav-item ml-1">
+                <a
+                    placement="top"
+                    ngbTooltip="Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user."
+                    class="nav-link"
+                    [ngClass]="{
+                        'active warning text-white': result_filter.warning
+                    }"
+                    (click)="togglePillFilter('warning')"
+                    [(ngModel)]="result_filter.warning"
+                    ngDefaultControl
+                >
+                    Warning
+                    <span class="badge badge-pill badge-secondary">{{
+                        level_items['warning'].length
+                    }}</span></a
+                >
+            </li>
+            <li class="nav-item ml-1">
+                <a
+                    placement="top"
+                    ngbTooltip="Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable"
+                    class="nav-link"
+                    [ngClass]="{
+                        'active error text-white': result_filter.error
+                    }"
+                    (click)="togglePillFilter('error')"
+                    [(ngModel)]="result_filter.error"
+                    ngDefaultControl
+                >
+                    Error
+                    <span class="badge badge-pill badge-secondary">{{
+                        level_items['error'].length
+                    }}</span></a
+                >
+            </li>
+            <li class="nav-item ml-1">
+                <a
+                    placement="top"
+                    ngbTooltip="Critical - means a very serious error."
+                    class="nav-link"
+                    [ngClass]="{
+                        'active critical text-white': result_filter.critical
+                    }"
+                    (click)="togglePillFilter('critical')"
+                    [(ngModel)]="result_filter.critical"
+                    ngDefaultControl
+                    >Critical
+                    <span class="badge badge-pill badge-secondary">0</span></a
+                >
+            </li>
+            <li class="search ml-1">
+                <div class="input-group">
+                    <input
+                        type="text"
+                        [(ngModel)]="result_filter.search"
+                        class="form-control"
+                        placeholder="{{ 'Filter text' | translate }}"
+                        aria-label="filter input"
+                        aria-describedby="basic-addon2"
+                    />
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+                            <i class="fa fa-filter" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="row mt-3">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Module</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Message</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="!resutlCollapsed; else resutlCollapsedTemplate">
+                <tr
+                    *ngFor="
+                        let item of result
+                            | filter: result_filter['search']
+                            | filterByCategories
+                                : result_filter
+                                : searchQueryLength
+                                : 'level';
+                        let i = index
+                    "
+                    class="result {{ item.level }}"
+                >
+                    <th scope="row">{{ i }}</th>
+                    <td>{{ item.module | translate }}</td>
+                    <td>{{ item.level }}</td>
+                    <td>{{ item.message | translate }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <ng-template #shareLinkModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">{{'Link'|translate}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <input type="text" id="link_location" name="link_location" class="form-inline" value="{{test.location}}">
-  </div>
+    <div class="modal-header">
+        <h4 class="modal-title">{{ 'Link' | translate }}</h4>
+        <button
+            type="button"
+            class="close"
+            aria-label="Close"
+            (click)="d('Cross click')"
+        >
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <input
+            type="text"
+            id="link_location"
+            name="link_location"
+            class="form-inline"
+            value="{{ test.location }}"
+        />
+    </div>
 </ng-template>
 
 <ng-template #exportModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">{{'Export'|translate}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <button class="btn" (click)="exportJson()"> JSON </button>
-    <button class="btn" (click)="exportCSV()"> CSV </button>
-    <button class="btn" (click)="exportHTML()"> HTML </button>
-    <button class="btn" (click)="exportText()"> TEXT </button>
-  </div>
+    <div class="modal-header">
+        <h4 class="modal-title">{{ 'Export' | translate }}</h4>
+        <button
+            type="button"
+            class="close"
+            aria-label="Close"
+            (click)="d('Cross click')"
+        >
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <button class="btn" (click)="exportJson()">JSON</button>
+        <button class="btn" (click)="exportCSV()">CSV</button>
+        <button class="btn" (click)="exportHTML()">HTML</button>
+        <button class="btn" (click)="exportText()">TEXT</button>
+    </div>
 </ng-template>
 
 <ng-template #historyModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-  <h4 class="modal-title">{{'History'|translate}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <app-history [history]="history"></app-history>
-  </div>
+    <div class="modal-header">
+        <h4 class="modal-title">{{ 'History' | translate }}</h4>
+        <button
+            type="button"
+            class="close"
+            aria-label="Close"
+            (click)="d('Cross click')"
+        >
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-history [history]="history"></app-history>
+    </div>
 </ng-template>
 
-
 <ng-template #resutlCollapsedTemplate>
-  <tbody *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items; let a = index" id="collapsed_module_{{a}}">
-  <tr (click)="isCollapsed[a] = !isCollapsed[a]"
-      [attr.aria-expanded]="!isCollapsed[a]" aria-controls="collapseExample" class="expand result {{modules[moduleKey]}}" >
-    <th scope="row" >
-      <a placement="top" ngbTooltip="{{(isCollapsed[a] ? 'Expand': 'Collapse')}}">
-        <i class="fa" [ngClass]="{'fa-plus': isCollapsed[a],'fa-minus': !isCollapsed[a]}" aria-hidden="true"></i>
-      </a>
-    </th>
-    <td colspan="3">{{moduleKey|translate}}</td>
-  </tr>
-  <tr [ngbCollapse]="isCollapsed[a]" *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
-    <th scope="row">{{i}}</th>
-    <td>{{item.module|translate}}</td>
-    <td>{{item.level}}</td>
-    <td>{{item.message|translate}}</td>
-  </tr>
-  </tbody>
+    <tbody
+        *ngFor="
+            let moduleKey of modulesKeys
+                | filter: result_filter['search']:true:module_items
+                | filterByCategories
+                    : result_filter
+                    : searchQueryLength
+                    : 'level'
+                    : true
+                    : module_items;
+            let a = index
+        "
+        id="collapsed_module_{{ a }}"
+    >
+        <tr
+            (click)="isCollapsed[a] = !isCollapsed[a]"
+            [attr.aria-expanded]="!isCollapsed[a]"
+            aria-controls="collapseExample"
+            class="expand result {{ modules[moduleKey] }}"
+        >
+            <th scope="row">
+                <a
+                    placement="top"
+                    ngbTooltip="{{ isCollapsed[a] ? 'Expand' : 'Collapse' }}"
+                >
+                    <i
+                        class="fa"
+                        [ngClass]="{
+                            'fa-plus': isCollapsed[a],
+                            'fa-minus': !isCollapsed[a]
+                        }"
+                        aria-hidden="true"
+                    ></i>
+                </a>
+            </th>
+            <td colspan="3">{{ moduleKey | translate }}</td>
+        </tr>
+        <tr
+            [ngbCollapse]="isCollapsed[a]"
+            *ngFor="
+                let item of module_items[moduleKey]
+                    | filter: result_filter['search']
+                    | filterByCategories
+                        : result_filter
+                        : searchQueryLength
+                        : 'level';
+                let i = index
+            "
+            class="result {{ item.level }}"
+        >
+            <th scope="row">{{ i }}</th>
+            <td>{{ item.module | translate }}</td>
+            <td>{{ item.level }}</td>
+            <td>{{ item.message | translate }}</td>
+        </tr>
+    </tbody>
 </ng-template>

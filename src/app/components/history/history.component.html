@@ -1,25 +1,38 @@
 <div class="container-fluid">
-  <div class="row">
-    <div *ngIf="history.length > 0;else noHistory" class="list-group w-100">
-      <div *ngFor="let item of historyItems" class="list-group-item list-group-item-action list-group-item-{{item.color}}">
-        <a routerLink="/result/{{item.id}}"> {{ item.creation_time | date:'M/d/yy, h:mm a z' }} </a>
-
-      </div>
+    <div class="row">
+        <div
+            *ngIf="history.length > 0; else noHistory"
+            class="list-group w-100"
+        >
+            <div
+                *ngFor="let item of historyItems"
+                class="list-group-item list-group-item-action list-group-item-{{
+                    item.color
+                }}"
+            >
+                <a routerLink="/result/{{ item.id }}">
+                    {{ item.creation_time | date: 'M/d/yy, h:mm a z' }}
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="row mt-1">
-    <ngb-pagination class="m-auto"
-                    *ngIf="history.length > 1"
-                    [collectionSize]="history.length"
-                    [(page)]="page"
-                    [rotate]="true"
-                    [maxSize]="3"
-                    [boundaryLinks]="true"
-                    (pageChange)="setItemsByPage(page)">
-    </ngb-pagination>
-  </div>
+    <div class="row mt-1">
+        <ngb-pagination
+            class="m-auto"
+            *ngIf="history.length > 1"
+            [collectionSize]="history.length"
+            [(page)]="page"
+            [rotate]="true"
+            [maxSize]="3"
+            [boundaryLinks]="true"
+            (pageChange)="setItemsByPage(page)"
+        >
+        </ngb-pagination>
+    </div>
 </div>
 
 <ng-template #noHistory>
-  <p class="text-dark">{{"Results from previous tests are not available"|translate}}</p>
+    <p class="text-dark">
+        {{ 'Results from previous tests are not available' | translate }}
+    </p>
 </ng-template>

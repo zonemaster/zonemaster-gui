@@ -1,50 +1,51 @@
-  <app-header>
+<app-header>
     <div class="row" *ngIf="is_advanced_options_enabled">
-      <div class="text-center m-auto">
-        <div class="alert alert-info">
-          {{'Notice! More info on undelegated test'|translate}}
-          <br>
-          <a routerLink="/faq" fragment="undelegated">{{'What is an undelegated domain test?'|translate}}</a>
+        <div class="text-center m-auto">
+            <div class="alert alert-info">
+                {{ 'Notice! More info on undelegated test' | translate }}
+                <br />
+                <a routerLink="/faq" fragment="undelegated">{{
+                    'What is an undelegated domain test?' | translate
+                }}</a>
+            </div>
         </div>
-      </div>
     </div>
-    <app-form [is_advanced_options_enabled]="is_advanced_options_enabled"
-              [domain_check_progression]="domain_check_progression"
-              [showProgressBar]="showProgressBar"
-              [parentData]="parentData"
-              [profiles]="profiles"
-              [toggleFinished]="toggleFinished"
-              (onDomainCheck)="domainCheck($event)"
-              (onfetchFromParent)="fetchFromParent($event)"
-              (onOpenOptions)="openOptions($event)"
-
+    <app-form
+        [is_advanced_options_enabled]="is_advanced_options_enabled"
+        [domain_check_progression]="domain_check_progression"
+        [showProgressBar]="showProgressBar"
+        [parentData]="parentData"
+        [profiles]="profiles"
+        [toggleFinished]="toggleFinished"
+        (onDomainCheck)="domainCheck($event)"
+        (onfetchFromParent)="fetchFromParent($event)"
+        (onOpenOptions)="openOptions($event)"
     ></app-form>
-  </app-header>
-  <div class="container-fluid">
+</app-header>
+<div class="container-fluid">
     <section class="row d-block result" *ngIf="showResult">
-      <app-result [resultID]="resultID"></app-result>
+        <app-result [resultID]="resultID"></app-result>
     </section>
 
     <section class="row about" *ngIf="!showResult">
-      <div class="container">
-      <h4>{{'About ZoneMaster'|translate}}</h4>
-        <p>        <span class="flag-icon flag-icon-gb"></span>
-          <span class="flag-icon flag-icon-sv"></span>
-          {{'About ZoneMaster Text'|translate}}
-        </p>
-      </div>
+        <div class="container">
+            <h4>{{ 'About ZoneMaster' | translate }}</h4>
+            <p>
+                <span class="flag-icon flag-icon-gb"></span>
+                <span class="flag-icon flag-icon-sv"></span>
+                {{ 'About ZoneMaster Text' | translate }}
+            </p>
+        </div>
     </section>
 
     <section class="row about bg-light pt-2" *ngIf="!showResult">
-      <div class="container">
-        <h4>{{'About domain name system, DNS'|translate}}</h4>
-        <p>
-          {{'About DNS Text'|translate}}
-        </p>
-      </div>
+        <div class="container">
+            <h4>{{ 'About domain name system, DNS' | translate }}</h4>
+            <p>
+                {{ 'About DNS Text' | translate }}
+            </p>
+        </div>
     </section>
 
-    <section class="row" *ngIf="!showResult">
-    </section>
-
-  </div>
+    <section class="row" *ngIf="!showResult"></section>
+</div>

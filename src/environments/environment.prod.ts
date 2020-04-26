@@ -5,4 +5,4 @@ export const environment = {
   logoUrl: 'assets/images/zonemaster_logo_2020_color.svg',
   clientInfo: {version: '3.1.0', id: 'Zonemaster GUI'},
   mock: false
-};
+}
