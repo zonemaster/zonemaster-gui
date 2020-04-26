@@ -14,6 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit, OnChanges {
+<<<<<<< bb5caba10031bf7219d844076d50f5bd48eac8e4
   @Input() is_advanced_options_enabled;
   @Input() domain_check_progression;
   @Input() showProgressBar;
@@ -54,6 +55,45 @@ export class FormComponent implements OnInit, OnChanges {
   ngOnChanges(changes: { [property: string]: SimpleChange }) {
     if ('toggleFinished' in changes) {
       this.resetFullForm();
+=======
+    @Input() is_advanced_options_enabled;
+    @Input() domain_check_progression;
+    @Input() showProgressBar;
+    @Input() toggleFinished;
+    @Input() profiles;
+
+    @Output() eventDomainCheck = new EventEmitter<object>();
+    @Output() eventFetchFromParent = new EventEmitter<string>();
+    @Output() eventOpenOptions = new EventEmitter<boolean>();
+
+    private NSFormConfig = {
+        ns: [''],
+        ip: [''],
+    };
+    private digestFormConfig = {
+        keytag: [''],
+        algorithm: [''],
+        digtype: [''],
+        digest: [''],
+    };
+    public NSForm: FormGroup;
+    public digestForm: FormGroup;
+    public ns_list;
+    public ds_list;
+    public history = {};
+    public test = {};
+    public form = { ipv4: true, ipv6: true, profile: 'default', domain: '' };
+    public checkboxForm: FormGroup;
+    public disable_check_button = false;
+
+    constructor(
+        private formBuilder: FormBuilder,
+        private alertService: AlertService
+    ) {}
+
+    ngOnInit() {
+        this.generate_form();
+>>>>>>> fix(linter): align code with linters rules
     }
   }
 
@@ -145,16 +185,37 @@ export class FormComponent implements OnInit, OnChanges {
 
   }
 
+<<<<<<< bb5caba10031bf7219d844076d50f5bd48eac8e4
   public initItemRows(value) {
     return this.formBuilder.group(value);
   }
+=======
+    public addNewRow(form, value = null) {
+        const control = this[form].controls['itemRows'] as FormArray;
+>>>>>>> fix(linter): align code with linters rules
 
   private mapItems(items) {
     const selectedItems = items.filter((l) => l.checked).map((l) => l.key);
     return selectedItems.length ? selectedItems : null;
   }
 
+<<<<<<< bb5caba10031bf7219d844076d50f5bd48eac8e4
   private displayDataFromParent() {
+=======
+    public deleteRow(form, index: number) {
+        const control = this[form].controls['itemRows'] as FormArray;
+        if (index === -1) {
+            for (let i = control.length - 1; i >= 0; i--) {
+                control.removeAt(i);
+            }
+        } else {
+            control.removeAt(index);
+            if (control.length === 0) {
+                this.addNewRow(form);
+            }
+        }
+    }
+>>>>>>> fix(linter): align code with linters rules
 
     if (this.form['domain'] === '') {
       this.translateService.get('Domain name required').subscribe((res: string) => {
@@ -172,6 +233,7 @@ export class FormComponent implements OnInit, OnChanges {
     this.form['ds_info'] = [];
     this.form['nameservers'] = [];
 
+<<<<<<< bb5caba10031bf7219d844076d50f5bd48eac8e4
     if (this.NSForm.value.itemRows.length > 0 && this.NSForm.value.itemRows[0].ns !== '') {
       this.form['nameservers'] = this.NSForm.value.itemRows;
     }
@@ -200,6 +262,66 @@ export class FormComponent implements OnInit, OnChanges {
     for (const el of protocols) {
       this.form[el.key] = el.checked;
       atLeastOneChecked += el.checked;
+=======
+        this.disable_check_button = true;
+        this.eventFetchFromParent.emit(this.form['domain']);
+    }
+
+    public runDomainCheck() {
+        this.form['ds_info'] = [];
+        this.form['nameservers'] = [];
+
+        if (
+            this.NSForm.value.itemRows.length > 0 &&
+            this.NSForm.value.itemRows[0].ns !== ''
+        ) {
+            this.form['nameservers'] = this.NSForm.value.itemRows;
+        }
+
+        if (
+            this.digestForm.value.itemRows.length > 0 &&
+            this.digestForm.value.itemRows[0].keytag !== ''
+        ) {
+            if (this.digestForm.value.itemRows[0].digest !== '') {
+                this.form['ds_info'] = this.digestForm.value.itemRows.map(
+                    (x) => {
+                        x['keytag'] = Number(x['keytag']);
+                        x['algorithm'] = Number(x['algorithm']);
+                        x['digtype'] = Number(x['digtype']);
+                        return x;
+                    }
+                );
+            } else {
+                this.alertService.error('Digest required');
+            }
+        } else if (
+            this.digestForm.value.itemRows.length > 0 &&
+            this.digestForm.value.itemRows[0].digest !== ''
+        ) {
+            this.alertService.error('Keytag required');
+        }
+
+        let atLeastOneChecked = false;
+        const protocols = this.checkboxForm.value.items;
+        for (const el of protocols) {
+            this.form[el.key] = el.checked;
+            atLeastOneChecked += el.checked;
+        }
+
+        if (this.form['domain'] === '') {
+            this.alertService.error('Domain name required');
+            return false;
+        } else if (!atLeastOneChecked) {
+            this.alertService.error('Choose at least one protocol');
+        }
+
+        this.eventDomainCheck.emit(this.form);
+    }
+
+    public toggleOptions() {
+        this.is_advanced_options_enabled = !this.is_advanced_options_enabled;
+        this.eventOpenOptions.emit(this.is_advanced_options_enabled);
+>>>>>>> fix(linter): align code with linters rules
     }
 
     if (this.form['domain'] === '') {

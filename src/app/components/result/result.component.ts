@@ -12,6 +12,7 @@ import {AlertService} from '../../services/alert.service';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit, OnChanges {
+<<<<<<< bb5caba10031bf7219d844076d50f5bd48eac8e4
 
   @Input('resultID') resultID: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
@@ -128,6 +129,31 @@ $
       }
 
       this.level_items = {
+=======
+    @Input() resultID: string;
+    @ViewChild('resultView', { static: false }) resultView: ElementRef;
+    @ViewChild('historyModal', { static: false }) historyModal: ElementRef;
+
+    private closeResult: string;
+    public directAccess = false;
+    public form = {
+        ipv4: true,
+        ipv6: true,
+        profile: 'default_profile',
+        domain: '',
+    };
+    public result = [];
+    public modules: any;
+    public module_items: any = {};
+    public modulesKeys;
+    public searchQueryLength = 0;
+    public resutlCollapsed = true;
+    public test: any = { params: { ipv4: false, ipv6: false } };
+    public isCollapsed = [];
+    public ns_list;
+    public ds_list;
+    public level_items = {
+>>>>>>> fix(linter): align code with linters rules
         info: [],
         notice: [],
         warning: [],
