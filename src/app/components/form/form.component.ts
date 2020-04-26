@@ -6,6 +6,7 @@ import {
   FormBuilder,
   Validators } from '@angular/forms';
 import {AlertService} from '../../services/alert.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-form',
@@ -43,7 +44,8 @@ export class FormComponent implements OnInit, OnChanges {
   public checkboxForm: FormGroup;
   public disable_check_button = false;
 
-  constructor(private formBuilder: FormBuilder, private alertService: AlertService) {}
+  constructor(private formBuilder: FormBuilder, private alertService: AlertService,
+    private translateService: TranslateService) {}
 
   ngOnInit() {
     this.generate_form();
@@ -155,7 +157,9 @@ export class FormComponent implements OnInit, OnChanges {
   private displayDataFromParent() {
 
     if (this.form['domain'] === '') {
-      this.alertService.error('Domain name required');
+      this.translateService.get('Domain name required').subscribe((res: string) => {
+        this.alertService.error(res);
+      });
       return false;
     }
 
@@ -181,10 +185,14 @@ export class FormComponent implements OnInit, OnChanges {
           return x;
         });
       } else {
-        this.alertService.error('Digest required');
+        this.translateService.get('Digest required').subscribe((res: string) => {
+          this.alertService.error(res);
+        });
       }
     } else if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].digest !== '') {
-      this.alertService.error('Keytag required');
+      this.translateService.get('Keytag required').subscribe((res: string) => {
+        this.alertService.error(res);
+      });
     }
 
     let atLeastOneChecked = false;
@@ -195,10 +203,14 @@ export class FormComponent implements OnInit, OnChanges {
     }
 
     if (this.form['domain'] === '') {
-      this.alertService.error('Domain name required');
+      this.translateService.get('Domain name required').subscribe((res: string) => {
+        this.alertService.error(res);
+      });
       return false;
     } else if (!atLeastOneChecked) {
-      this.alertService.error('Choose at least one protocol');
+      this.translateService.get('Choose at least one protocol').subscribe((res: string) => {
+        this.alertService.error(res);
+      });
     }
 
     this.onDomainCheck.emit(this.form);

@@ -17,7 +17,6 @@ export class ResultComponent implements OnInit, OnChanges {
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
 
-  private closeResult: string;
   public directAccess = false;
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
   public result = [];
@@ -50,11 +49,12 @@ export class ResultComponent implements OnInit, OnChanges {
   public history: any[];
   public language: string;
   private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
+  private header = ['Module', 'Level', 'Message'];
 
   constructor(private activatedRoute: ActivatedRoute,
               private modalService: NgbModal,
               private alertService: AlertService,
-              private translateService: TranslateService,
+              public translateService: TranslateService,
               private dnsCheckService: DnsCheckService) {
      this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
        this.activatedRoute.snapshot.data[0]['directAccess'];
@@ -92,21 +92,12 @@ export class ResultComponent implements OnInit, OnChanges {
 
   public openModal(content) {
     this.modalService.open(content).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
+      console.log(result)
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      console.log(reason);
     });
   }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }
+$
 
    private displayResult(domainCheckId: string, language: string) {
      this.dnsCheckService.getTestResults({id: domainCheckId, language}).then(data => {
@@ -126,6 +117,7 @@ export class ResultComponent implements OnInit, OnChanges {
       this.setModulesColors(data['results']);
 
       this.modulesKeys = Object.keys(this.modules);
+      
       for (let i = 0; i < this.modulesKeys.length; i++) {
         this.isCollapsed[i] = true;
         this.module_items[this.modulesKeys[i]] = [];
@@ -150,18 +142,25 @@ export class ResultComponent implements OnInit, OnChanges {
       this.ns_list = data['ns_list'];
       this.ds_list = data['ds_list'];
     }, error => {
-      this.alertService.error('No data for this test');
+      this.translateService.get('No data for this test').subscribe((res: string) => {
+        this.alertService.error(res)
+      });
     });
   }
 
   public getHistory() {
 
     if (!this.history) {
-      this.alertService.info('History information request is in progress');
+      this.translateService.get('History information request is in progress').subscribe((res: string) => {
+        this.alertService.info(res);
+      });
+      
       this.dnsCheckService.getTestHistory(this.historyQuery).then(data => {
         this.history = data as any[];
         if (this.history.length === 0) {
-          this.alertService.info('No result for this query');
+          this.translateService.get('No result for this query').subscribe((res: string) => {
+            this.alertService.info(res);
+          });
         } else {
           this.openModal(this.historyModal);
         }
@@ -224,13 +223,13 @@ export class ResultComponent implements OnInit, OnChanges {
     });
     saveAs(blob, `zonemaster_result_${this.test['location']}.csv`);
   }
+
   ConvertTo(objArray, extension: string) {
     const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
     let row = '';
-    const header = ['Module', 'Level', 'Message'];
 
-    for (const indexObj of header) {
+    for (const indexObj of this.header) {
       if (extension === 'csv') {
         row += indexObj + ';';
       } else {
@@ -242,7 +241,7 @@ export class ResultComponent implements OnInit, OnChanges {
 
     for (let i = 1; i < array.length; i++) {
       let line = '';
-      for (const index of header) {
+      for (const index of this.header) {
         if (line !== '') {
           if (extension === 'csv') {
             line += ';';
