@@ -142,6 +142,11 @@ Enter ``y`` at the confirmation prompt.
  
 ``service apache24 start``
 
+If you want Apache to listen to an external IP address and it says that it only
+listens to localhost (127.0.0.1/::1) then you have to set `ServerName` in
+`/usr/local/etc/apache24/httpd.conf`, e.g.
+``ServerName 192.0.2.246:80``
+
 #### Install Zonemaster Web GUI
 
 ```sh
@@ -157,7 +162,9 @@ rm zonemaster_web_gui.zip
 ```sh
 install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /usr/local/etc/apache24/Includes/zonemaster.conf
 ```
-Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
+Then update `/usr/local/etc/apache24/Includes/zonemaster.conf` with your own ServerAdmin.
+If Zonemaster-Backend RPCAPI runs on another server or on another port (not port 5000)
+then update IP address or port in the same file.
 
 
 #### Restart Apache
