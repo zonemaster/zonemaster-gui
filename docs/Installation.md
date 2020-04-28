@@ -30,7 +30,7 @@ This instruction covers the following operating systems:
 
 ### 1. CentOS
 
-#### Install Httpd (Apache)
+* Install Httpd (Apache), if it is not installed:
 
 ```sh
 sudo yum update
@@ -54,8 +54,13 @@ sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd
 ```
 Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
 
-#### Reload httpd
+* Start  httpd if it is newly installed
+```sh
+sudo systemctl enable httpd
+sudo systemctl start httpd
+```
 
+* Else, Reload httpd
 ```sh
 sudo systemctl enable httpd
 sudo systemctl reload httpd
