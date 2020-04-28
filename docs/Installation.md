@@ -30,7 +30,7 @@ This instruction covers the following operating systems:
 
 ### 1. CentOS
 
-* Install Httpd (Apache):
+* Install Httpd (Apache), if it is not installed:
 
 ```sh
 sudo yum update
