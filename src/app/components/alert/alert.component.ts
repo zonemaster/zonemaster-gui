@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone} from '@angular/core';
 
 import { Alert, AlertType } from '../../models/index';
 import { AlertService } from '../../services/alert.service';
@@ -11,8 +11,19 @@ import { AlertService } from '../../services/alert.service';
 export class AlertComponent implements OnInit {
 
   alerts: Alert[] = [];
+  public isShrunk = false;
 
-  constructor(private alertService: AlertService) { }
+  constructor(private alertService: AlertService, zone: NgZone) {
+    window.onscroll = () => {
+      zone.run(() => {
+        if (window.pageYOffset > 1) {
+          this.isShrunk = true;
+        } else {
+          this.isShrunk = false;
+        }
+      });
+    };
+  }
 
   ngOnInit() {
     this.alertService.getAlert().subscribe((alert: Alert) => {

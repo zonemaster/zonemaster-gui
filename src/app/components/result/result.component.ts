@@ -14,8 +14,8 @@ import {AlertService} from '../../services/alert.service';
 export class ResultComponent implements OnInit, OnChanges {
 
   @Input('resultID') resultID: string;
-  @ViewChild('resultView') resultView: ElementRef;
-  @ViewChild('historyModal') historyModal: ElementRef;
+  @ViewChild('resultView', {static: false}) resultView: ElementRef;
+  @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
 
   private closeResult: string;
   public directAccess = false;
@@ -56,7 +56,8 @@ export class ResultComponent implements OnInit, OnChanges {
               private alertService: AlertService,
               private translateService: TranslateService,
               private dnsCheckService: DnsCheckService) {
-     this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false : this.activatedRoute.snapshot.data[0]['directAccess'];
+     this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
+       this.activatedRoute.snapshot.data[0]['directAccess'];
   }
 
   ngOnInit() {
