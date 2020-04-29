@@ -90,12 +90,6 @@ sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 rm zonemaster_web_gui.zip
 ```
 
-If `unzip` is not already installed, then install it with the following command 
-and go back and run it again above:
-```sh
-sudo apt-get install unzip
-```
-
 #### Basic apache2 configuration
 
 ```sh
