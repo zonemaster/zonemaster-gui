@@ -1,8 +1,26 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
-v3.2.0 2019-11-15
+v3.2.0 2020-04-30
 
+ [Features]
+ - New logotype for Zonemaster (#120)
+ - Improved testing (#84, #83)
+ - Improved translations (#81, #44, #61)
+ 
  [Fixes]
+ - Language switch goes to Github instead (#114, #124)
+ - Translated untranslated phrases (#116)
+ - Added space after string (#117)
+ - update tsconfig for ivy engine (#112)
+ - Update dependencies (#111, #108, #109)
+ - Create empty dir for faqs generation (#110)
+ - Removed temporary files that should not be in git (#103, 92)
+ - Updated DNSSEC algorithms in drop-down list (#102, #95)
+ - Update of Swedish FAQ (#101)
+ - Adding numbers of algorithm and digest (#100, #94)
+ - Updated to correct brand name (#91)
+ - Updated installation instruction (#87, #126, #128, #129)
+ - Updated English FAQ (#88)
  - Fixed domain test cannot be reset (#58, #79)
  - Fixed pre-populated cannot be emtied (#59, #80)
  - Fixed warnings when creating zip file (#56, #64)
@@ -13,12 +31,6 @@ v3.2.0 2019-11-15
  - Translation into Danish (#72, #70)
  - Add handler for scroll event to alert message (#49, #39, #40)
  - Explain CORS in Readme (#63, #52)
-
- [Features]
- - Improved testing (#84, #83)
- - Improved translations (#81, #44, #61)
- - Automated testing with protractor and travis (#82, 68)
- 
 
 
 v3.1.0 2019-05-22 (public release version)
