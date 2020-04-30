@@ -72,7 +72,7 @@ sudo systemctl reload httpd
 
 ```sh
 sudo apt-get update && sudo apt-get upgrade -y 
-sudo apt-get install apache2
+sudo apt-get install apache2 unzip
 sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod rewrite
@@ -88,12 +88,6 @@ sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 rm zonemaster_web_gui.zip
-```
-
-If `unzip` is not already installed, then install it with the following command 
-and go back and run it again above:
-```sh
-sudo apt-get install unzip
 ```
 
 #### Basic apache2 configuration
