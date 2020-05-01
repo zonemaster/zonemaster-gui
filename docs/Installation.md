@@ -40,7 +40,7 @@ sudo yum install httpd
 #### Install Zonemaster Web GUI
 
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.1.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
@@ -72,7 +72,7 @@ sudo systemctl reload httpd
 
 ```sh
 sudo apt-get update && sudo apt-get upgrade -y 
-sudo apt-get install apache2
+sudo apt-get install apache2 unzip
 sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod rewrite
@@ -83,17 +83,11 @@ sudo systemctl restart apache2
 #### Install Zonemaster Web GUI
 
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.1.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 rm zonemaster_web_gui.zip
-```
-
-If `unzip` is not already installed, then install it with the following command 
-and go back and run it again above:
-```sh
-sudo apt-get install unzip
 ```
 
 #### Basic apache2 configuration
@@ -142,10 +136,15 @@ Enter ``y`` at the confirmation prompt.
  
 ``service apache24 start``
 
+If you want Apache to listen to an external IP address and it says that it only
+listens to localhost (127.0.0.1/::1) then you have to set `ServerName` in
+`/usr/local/etc/apache24/httpd.conf`, e.g.
+``ServerName 192.0.2.246:80``
+
 #### Install Zonemaster Web GUI
 
 ```sh
-fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.1.0/zonemaster_web_gui.zip
+fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.0/zonemaster_web_gui.zip
 mkdir -p /var/www/html/zonemaster-web-gui
 mkdir -p /var/log/zonemaster
 unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip 
@@ -157,7 +156,9 @@ rm zonemaster_web_gui.zip
 ```sh
 install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /usr/local/etc/apache24/Includes/zonemaster.conf
 ```
-Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
+Then update `/usr/local/etc/apache24/Includes/zonemaster.conf` with your own ServerAdmin.
+If Zonemaster-Backend RPCAPI runs on another server or on another port (not port 5000)
+then update IP address or port in the same file.
 
 
 #### Restart Apache
