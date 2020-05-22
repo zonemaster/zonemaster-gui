@@ -53,3 +53,4 @@ src/assets/faqs/gui-faq-*
 tests_output/
 .e2e-chrome-profile/
 
+.env
