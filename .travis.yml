@@ -18,5 +18,10 @@ before_install:
 
 install:
   - npm install
+
+before_script:
+  - npx webdriver-manager update
+  - npx webdriver-manager status
+
 script:
   - xvfb-run npm run e2e
