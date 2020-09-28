@@ -1,6 +1,9 @@
 dist: bionic
 
 language: node_js
+node_js:
+  - 14
+
 sudo: false
 
 addons:
