@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - 12
 
-dist: trusty
+dist: xenial
 sudo: false
 
 addons:
@@ -16,7 +16,8 @@ install:
   - npm install
 
 before_script:
-  - webdriver-manager update --versions.chrome=84.0.4147.30
+  - webdriver-manager update 
+  #--versions.chrome=84.0.4147.30
 
 script:
   - xvfb-run npm run e2e
