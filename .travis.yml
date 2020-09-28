@@ -2,16 +2,29 @@ dist: bionic
 
 language: node_js
 node_js:
+<<<<<<< HEAD
   - 14
+=======
+    - 12
+>>>>>>> 8affa5bbcc1f2dffd9ecdbe77f247d20dfa99e53
 
 sudo: false
 
 addons:
-  chrome: stable
+    chrome: stable
 
+<<<<<<< HEAD
 
 install:
   - npm install
 
+=======
+cache:
+    directories:
+        - node_modules
+
+install:
+    - npm install
+>>>>>>> 8affa5bbcc1f2dffd9ecdbe77f247d20dfa99e53
 script:
-  - xvfb-run npm run e2e
+    - xvfb-run npm run e2e
