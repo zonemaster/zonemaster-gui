@@ -108,9 +108,9 @@
       <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Module</th>
-        <th scope="col">Level</th>
-        <th scope="col">Message</th>
+        <th scope="col">{{ 'Module' | translate }}</th>
+        <th scope="col">{{ 'Level' | translate }}</th>
+        <th scope="col">{{ 'Message' | translate }}</th>
       </tr>
       </thead>
       <tbody *ngIf="!resutlCollapsed;else resutlCollapsedTemplate">
@@ -174,7 +174,7 @@
         <i class="fa" [ngClass]="{'fa-plus': isCollapsed[a],'fa-minus': !isCollapsed[a]}" aria-hidden="true"></i>
       </a>
     </th>
-    <td colspan="3">{{moduleKey|translate}}</td>
+    <td colspan="3">{{moduleKey}}</td>
   </tr>
   <tr [ngbCollapse]="isCollapsed[a]" *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
     <th scope="row">{{i}}</th>

@@ -1,44 +1,51 @@
 {
-  "Domain check"                              : "Domain check"
-  ,"Pre-delegated domain"                     : "Pre-delegated domain"
-  ,"Domain name"                              : "Domain name"
-  ,"Basic"                                    : "Basic"
-  ,"Advanced"                                 : "Advanced"
-  ,"Export"                                   : "Export"
-  ,"History"                                  : "History"
-  ,"Download"                                 : "Download"
-  ,"Nameservers"                              : "Nameservers"
-  ,"Digests"                                  : "Delegation Signers (DS records)"
-  ,"Fetch data from parent zone"              : "Fetch data from parent zone"
-  ,"Advanced options"                         : "Advanced options"
-  ,"Notice! This is an undelegated test"      : "Notice! This is an undelegated test"
-  ,"What is an undelegated domain test?"		  : "What is an undelegated domain test?"
-  ,"About ZoneMaster"                         : "About Zonemaster"
-  ,"About ZoneMaster Text"                    :"Give your domain a complete physical! Zonemaster helps you to control how your website is doing. As a bonus, you also get a better understanding of how the domain name system, DNS, works. When a domain (also called zone) is sent to Zonemaster, the program investigates the state of the domain from beginning to end. This is done through Zonemaster examining DNS from the root (.) to the TLD (top-level domain, for example, .se), and then finally through the DNS servers that contain information about the specified domain (for example, zonemaster.se). Zonemaster is also able to perform many other tests, for example, checking the DNSSEC signatures, that different hosts can be accessed and that the IP addresses are valid. This is all to make sure that your domain runs as good as possible"
-  ,"About domain name system, DNS"            : "About domain name system, DNS"
-  ,"About DNS Text"                           : "Most people who use the internet have never reflected over what actually happens when one types an address in their web browser and then clicks the enter button. To simplify, the domain name system, (DNS) is a database that associates domain names to IP addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the internet. It’s similar to the way every telephone has its own number in the telephone network. A long series of numbers works fine for computers, but it’s difficult for people to memorize. Therefore, DNS has been developed an extra system for us when we want to reach a web server on a specific site or an email server we want to send an email to. "
-  ,"No data for this test"                    : "No data for this test"
-  ,"The domain name contains unauthorized character(s)": "The domain name contains unauthorized character(s)"
-  ,"Domain checked completed"                 :"Domain checked completed"
-  ,"Internal server error"                    :"Internal server error"
-  ,"Parent data fetched with success"         :"Parent data fetched with success"
-  ,"Error during parent data fetching"        :"Error during parent data fetching"
-  ,"History information request is in progress":"History information request is in progress"
-  ,"Domain name required"                     :"Domain name required"
-  ,"Choose at least one protocol"             :"Choose at least one protocol"
-  ,"Zonemaster Backend is not available"      :"Zonemaster Backend is not available"
-  ,"There is no delegation for the zone"      :"There is no delegation for the zone"
-
-  ,"Keytag required"                        : "Keytag required"
-  ,"Digest required"                        : "Digest required"
-  ,"No result for this query"               : "No result for this query"
-  ,"Program versions"                       : "Program versions"
-  ,"Results from previous tests are not available"       : "Results from previous tests are not available"
-  ,"Sorry, there is nothing here!"               : "Sorry, there is nothing here!"
-  ,"Page Not Found"                         : "Page Not Found"
-  ,"Share"                                  : "Share"
-  ,"Settings"                               : "Settings"
-  ,"Group by test module"                   : "Group by test module"
-  ,"Filter text"                            : "Filter text"
+	"About DNS Text": "Most people who use the internet have never reflected over what actually happens when one types an address in their web browser and then clicks the enter button. To simplify, the domain name system, (DNS) is a database that associates domain names to IP addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the internet. It’s similar to the way every telephone has its own number in the telephone network. A long series of numbers works fine for computers, but it’s difficult for people to memorize. Therefore, DNS has been developed an extra system for us when we want to reach a web server on a specific site or an email server we want to send an email to. ",
+	"About ZoneMaster": "About Zonemaster",
+	"About ZoneMaster Text": "Give your domain a complete physical! Zonemaster helps you to control how your website is doing. As a bonus, you also get a better understanding of how the domain name system, DNS, works. When a domain (also called zone) is sent to Zonemaster, the program investigates the state of the domain from beginning to end. This is done through Zonemaster examining DNS from the root (.) to the TLD (top-level domain, for example, .se), and then finally through the DNS servers that contain information about the specified domain (for example, zonemaster.se). Zonemaster is also able to perform many other tests, for example, checking the DNSSEC signatures, that different hosts can be accessed and that the IP addresses are valid. This is all to make sure that your domain runs as good as possible",
+	"About domain name system, DNS": "About domain name system, DNS",
+	"Algorithm": "Algorithm",
+	"Choose at least one protocol": "Choose at least one protocol",
+	"Digest": "Digest",
+	"Digest required": "Digest required",
+	"Digest type": "Digest type",
+	"Digests": "Delegation Signers (DS records)",
+	"Domain check": "Domain check",
+	"Domain checked completed": "Domain checked completed",
+	"Domain name": "Domain name",
+	"Domain name required": "Domain name required",
+	"Error during parent data fetching": "Error during parent data fetching",
+	"Export": "Export",
+	"FAQ": "FAQ",
+	"Fetch data from parent zone": "Fetch data from parent zone",
+	"Filter text": "Filter text",
+	"Group by modules": "Group by modules",
+	"History": "History",
+	"History information request is in progress": "History information request is in progress",
+	"Internal server error": "Internal server error",
+	"Key Tag": "Key Tag",
+	"Keytag required": "Keytag required",
+	"Level": "Level",
+	"Link": "Link",
+	"Message": "Message",
+	"Module": "Module",
+	"Nameservers": "Nameservers",
+	"No data for this test": "No data for this test",
+	"No result for this query": "No result for this query",
+	"Notice! More info on undelegated test": "Notice! More info on undelegated test",
+	"Options": "Options",
+	"Page Not Found": "Page Not Found",
+	"Parent data fetched with success": "Parent data fetched with success",
+	"Please set the api endpoint": "Please set the api endpoint",
+	"Program versions": "Program versions",
+	"Reset": "Reset",
+	"Results from previous tests are not available": "Results from previous tests are not available",
+	"Run test": "Run test",
+	"Settings": "Settings",
+	"Share": "Share",
+	"Sorry, there is nothing here!": "Sorry, there is nothing here!",
+	"Test #": "Test #",
+	"There is no delegation for the zone": "There is no delegation for the zone",
+	"What is an undelegated domain test?": "What is an undelegated domain test?",
+	"Zonemaster Backend is not available": "Zonemaster Backend is not available"
   ,"Profile"                                : "Profile"
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {ActivatedRoute} from '@angular/router';
 import {AlertService} from '../../services/alert.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-domain',
@@ -19,7 +20,9 @@ export class DomainComponent implements OnInit {
   public profiles = [];
   public toggleFinished = false;
 
-  constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService) {}
+  constructor(private alertService: AlertService, 
+    private dnsCheckService: DnsCheckService,
+    private translateService: TranslateService) {}
 
   ngOnInit() {
     this.dnsCheckService.profileNames().then( (res: string[]) => this.profiles = res );
@@ -28,14 +31,20 @@ export class DomainComponent implements OnInit {
   public fetchFromParent(domain) {
     this.dnsCheckService.fetchFromParent(domain).then(result => {
       if (result['ds_list'].length === 0 && result['ns_list'].length === 0) {
-        this.alertService.warn('There is no delegation for the zone');
+        this.translateService.get('There is no delegation for the zone').subscribe((res: string) => {
+          this.alertService.warn(res);
+        });
       } else {
         this.parentData = result;
-        this.alertService.success('Parent data fetched with success');
+        this.translateService.get('Parent data fetched with success').subscribe((res: string) => {
+          this.alertService.success(res);
+        });
       }
     }, error => {
       console.log(error);
-      this.alertService.error('Error during parent data fetching');
+      this.translateService.get('Error during parent data fetching').subscribe((res: string) => {
+        this.alertService.error(res);
+      });
   });
   }
 
@@ -58,7 +67,9 @@ export class DomainComponent implements OnInit {
 
           if (self.domain_check_progression === 100) {
             clearInterval(handle);
-            this.alertService.success(`Domain checked completed`);
+            this.translateService.get(`Domain checked completed`).subscribe((res: string) => {
+              this.alertService.success(res);
+            });
             self.resultID = domainCheckId;
             self.is_advanced_options_enabled = false;
             self.showResult = true;
@@ -68,8 +79,9 @@ export class DomainComponent implements OnInit {
           }
         });
       }, this.intervalTime);
-    }, error => {
-      this.alertService.error(`Internal server error`);
+    }, error => {this.translateService.get(`Internal server error`).subscribe((res: string) => {
+        this.alertService.error(res);
+      });
     });
   }
 }
