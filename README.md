@@ -48,7 +48,7 @@ The `app` folder is structured as follow :
 ```
 
 The `components` folder is composed of subfolders that represent the main components.
-Each folder of component contain three files :
+Each folder of component contains three files :
 
 -   `*.component.css` : The component's style
 -   `*.component.html` : The component's html
@@ -58,8 +58,8 @@ All assets are available in `src/assets` folder.
 It's split by concern, all translation files are in the `i18n` folder, the style in the `css`,
 images are in the `images` folder, etc.
 
-The configurations files of the application are in the `src/environments` folder.
-`environment.ts` is use for development purpose, and the `environment.prod.ts` for production.
+The configuration files of the application are in the `src/environments` folder.
+`environment.ts` is used for development purpose, and the `environment.prod.ts` for production.
 
 In order to contribute
 
@@ -97,7 +97,7 @@ Other than the installation file, the [docs directory](docs/), contains a transl
 
 #### Security of our dependencies
 
-Based on the output of [david](https://david-dm.org/) and [npm audit](https://docs.npmjs.com/cli/audit), we reguraly
+Based on the output of [david](https://david-dm.org/) and [npm audit](https://docs.npmjs.com/cli/audit), we regularly
 update our dependencies with the latest secure version. Notice that we can't follow the rythm of new versions, so you could
 get security warning during the installation of development dependencies.
 
