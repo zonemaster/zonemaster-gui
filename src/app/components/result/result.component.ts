@@ -13,7 +13,7 @@ import {AlertService} from '../../services/alert.service';
 })
 export class ResultComponent implements OnInit, OnChanges {
 
-  @Input('resultID') resultID: string;
+  @Input() resultID: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
 

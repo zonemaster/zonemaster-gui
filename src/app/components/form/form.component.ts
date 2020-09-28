@@ -20,9 +20,9 @@ export class FormComponent implements OnInit, OnChanges {
   @Input() toggleFinished;
   @Input() profiles;
 
-  @Output() onDomainCheck = new EventEmitter<object>();
-  @Output() onfetchFromParent = new EventEmitter<string>();
-  @Output() onOpenOptions = new EventEmitter<boolean>();
+  @Output() eventDomainCheck = new EventEmitter<object>();
+  @Output() eventFetchFromParent = new EventEmitter<string>();
+  @Output() eventOpenOptions = new EventEmitter<boolean>();
 
   private NSFormConfig = {
     ns: [''],
@@ -119,7 +119,7 @@ export class FormComponent implements OnInit, OnChanges {
 
 
   public addNewRow(form, value = null) {
-    const control = <FormArray>this[form].controls['itemRows'];
+      const control = this[form].controls['itemRows'] as FormArray;
 
     if (value !== null) {
       control.push(this.initItemRows(value));
@@ -131,7 +131,7 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   public deleteRow(form, index: number) {
-    const control = <FormArray>this[form].controls['itemRows'];
+    const control = this[form].controls['itemRows'] as FormArray;
     if (index === -1) {
       for ( let i = control.length - 1; i >= 0; i--) {
         control.removeAt(i);
@@ -164,7 +164,7 @@ export class FormComponent implements OnInit, OnChanges {
     }
 
     this.disable_check_button = true;
-    this.onfetchFromParent.emit(this.form['domain']);
+    this.eventFetchFromParent.emit(this.form['domain']);
   }
 
   public runDomainCheck() {
@@ -213,11 +213,11 @@ export class FormComponent implements OnInit, OnChanges {
       });
     }
 
-    this.onDomainCheck.emit(this.form);
+    this.eventDomainCheck.emit(this.form);
   }
 
   public toggleOptions() {
     this.is_advanced_options_enabled = !this.is_advanced_options_enabled
-    this.onOpenOptions.emit(this.is_advanced_options_enabled);
+    this.eventOpenOptions.emit(this.is_advanced_options_enabled);
   }
 }
