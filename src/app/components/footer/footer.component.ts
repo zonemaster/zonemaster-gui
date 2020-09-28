@@ -31,7 +31,7 @@ export class FooterComponent implements OnInit {
     }, err => {
       this.translateService.get('Zonemaster Backend is not available').subscribe((res: string) => {
         this.alertService.error(res);
-      })
+      });
       console.error(err);
     });
   }
