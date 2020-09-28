@@ -9,7 +9,7 @@
     "release": "npm run build && node scripts/create_release.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e --port=4201"
+    "e2e": "ng e2e --port=4201 --webdriverUpdate=false"
   },
   "private": false,
   "dependencies": {
