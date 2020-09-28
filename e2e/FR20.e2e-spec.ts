@@ -22,6 +22,7 @@ describe('Zonemaster test FR20 - [The user must be able to submit one or more DS
     await element(by.cssContainingText('select[name="form.digtype"] > option', 'SHA-256')).click();
     await element(by.css('div button.launch')).click();
     await element(by.css('div button.launch')).click();
+    await browser.wait(() => element(by.css('.progress-bar')).isPresent(), 2 * 1000);
     await expect(element.all(by.css('.progress-result')).isPresent()).toBe(true);
   });
 });

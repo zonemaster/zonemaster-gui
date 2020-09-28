@@ -13,9 +13,5 @@ addons:
 install:
   - npm install
 
-before_script:
-  - webdriver-manager update 
-  #--versions.chrome=84.0.4147.30
-
 script:
   - xvfb-run npm run e2e
