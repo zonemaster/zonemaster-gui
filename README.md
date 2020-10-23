@@ -85,6 +85,24 @@ The script also change the FAQ markdown files to html files.
 ##### Create a release zip file
 Run 'npm run release' to create a zip file with dist folder and zonemaster.conf file. Then upload it in github.
 
+#### Code Quality
+This repo use (Husky)[https://www.npmjs.com/package/husky] as a git hook manager which run commands when a git command is executed. 
+Two git hook are used:
+  - git commit: ["commitlint"](https://www.npmjs.com/package/@commitlint/cli) (config: commitlint.config.js) blocks the commit process if the message doesn't respond to the convention enabled.
+    We use the "@commitlint/config-conventional" convention and you can find the rules directly on the [npm page](https://www.npmjs.com/package/@commitlint/config-conventional).
+    The commit message must start with the type (fix, feat, build, perf, refactor, etc.) and explain what was done in lowercase.
+    For example: 
+    ```
+      "foo: some message" #fails 
+      "fix: some message" #passes 
+    ```
+
+    then BEFORE the actual commit, we run linter for Typescript, we use ["tslint"](https://www.npmjs.com/package/tslint) (config: tslint.json), for css style we use ["stylelint"](https://www.npmjs.com/package/stylelint) (config by default) and for all the rest (Html, Js, etc.) ["prettier"](https://www.npmjs.com/package/prettier) (config: .prettierc). All this linter are on the "fix" mode which will allow to modify directly files.
+    For example, if a file use one tab and not 4 spaces ,prettier will update the file before the commit and commit the modified file.
+
+   - git merge or rebase: when you make a merge on your pc, typically in the case of a sweater. 
+	  We run "[npm-post-install](https://www.npmjs.com/package/post-npm-install)" to check if it's not necessary to update your "node_modules" dependencies.
+   
 ### Documentation
 
 Basically, the GUI is a serverless Angular application which use the Backend JSONRC API.
