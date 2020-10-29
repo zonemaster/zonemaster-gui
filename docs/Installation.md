@@ -90,11 +90,11 @@ sudo systemctl restart apache2
 
 ```sh
 wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
-sudo mkdir -p  /var/www/html/zonemaster-web-gui
-sudo mkdir -p /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
+sudo install -vd /var/www/html/zonemaster-web-gui
+sudo install -vd /var/log/zonemaster
+sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
 rm -f zonemaster_web_gui.zip
-sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
 ```
 
 #### Configure Zonemaster Web GUI
