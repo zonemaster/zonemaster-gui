@@ -15,7 +15,8 @@ Zonemaster::Engine installation] and [Zonemaster::Backend][Zonemaster::Backend
 installation].
 
 Prerequisite for FreeBSD is that the package system is updated and activated,
-see FreeBSD section of [install Zonemaster::Engine].
+see FreeBSD section of [install Zonemaster::Engine][Zonemaster::Engine
+installation].
 
 
 ## Installation
