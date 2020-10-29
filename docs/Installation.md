@@ -72,7 +72,7 @@ sudo systemctl reload httpd
 
 ```sh
 sudo apt-get update && sudo apt-get upgrade -y 
-sudo apt-get install apache2 unzip
+sudo apt-get install -y apache2 unzip
 sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod rewrite
@@ -87,7 +87,7 @@ wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.0/zonem
 sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
-rm zonemaster_web_gui.zip
+rm -f zonemaster_web_gui.zip
 ```
 
 #### Basic apache2 configuration
