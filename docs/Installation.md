@@ -68,11 +68,16 @@ sudo systemctl reload httpd
 
 ### 2. Debian
 
-#### Install apache2 and disable default site
+#### Install Apache
 
 ```sh
 sudo apt-get update && sudo apt-get upgrade -y 
 sudo apt-get install -y apache2 unzip
+```
+
+#### Basic Apache configuration
+
+```sh
 sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod rewrite
@@ -88,12 +93,12 @@ sudo mkdir -p  /var/www/html/zonemaster-web-gui
 sudo mkdir -p /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 rm -f zonemaster_web_gui.zip
+sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
 ```
 
-#### Basic apache2 configuration
+#### Configure Zonemaster Web GUI
 
 ```sh
-sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
 sudo a2ensite zonemaster #Activate the website
 ```
 Then update the zonemaster.conf file with your own ServerName, ServerAlias and ServerAdmin.
@@ -101,7 +106,7 @@ For testing on a local machine, you can edit zonemaster.conf and change the "*:8
 to the host's IP or using localhost as ServerName if that is appropriate.
 
 
-#### Reload apache
+#### Reload Apache
 
 ```sh
 sudo systemctl enable apache2
