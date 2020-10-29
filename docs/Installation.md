@@ -94,7 +94,6 @@ rm -f zonemaster_web_gui.zip
 
 ```sh
 sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
-cd /etc/apache2/sites-available
 sudo a2ensite zonemaster #Activate the website
 ```
 Then update the zonemaster.conf file with your own ServerName, ServerAlias and ServerAdmin.
