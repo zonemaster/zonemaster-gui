@@ -82,6 +82,7 @@ sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod rewrite
 sudo a2dissite 000-default
+sudo systemctl enable apache2
 sudo systemctl restart apache2
 ```
 
@@ -109,7 +110,6 @@ to the host's IP or using localhost as ServerName if that is appropriate.
 #### Reload Apache
 
 ```sh
-sudo systemctl enable apache2
 sudo systemctl reload apache2
 ```
 
