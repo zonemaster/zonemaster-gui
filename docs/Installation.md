@@ -78,9 +78,7 @@ sudo apt-get install -y apache2 unzip
 #### Basic Apache configuration
 
 ```sh
-sudo a2enmod proxy
-sudo a2enmod proxy_http
-sudo a2enmod rewrite
+sudo a2enmod proxy proxy_http rewrite
 sudo a2dissite 000-default
 sudo systemctl enable apache2
 sudo systemctl restart apache2
@@ -91,7 +89,6 @@ sudo systemctl restart apache2
 ```sh
 wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
-sudo install -vd /var/www/html/zonemaster-web-gui
 sudo install -vd /var/log/zonemaster
 sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
 rm -f zonemaster_web_gui.zip
