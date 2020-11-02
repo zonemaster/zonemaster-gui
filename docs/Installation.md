@@ -69,15 +69,19 @@ sudo systemctl reload httpd
 
 ### 2. Debian
 
-#### Install apache2 and disable default site
+#### Install Apache
 
 ```sh
 sudo apt-get update && sudo apt-get upgrade -y 
-sudo apt-get install apache2 unzip
-sudo a2enmod proxy
-sudo a2enmod proxy_http
-sudo a2enmod rewrite
+sudo apt-get install -y apache2 unzip
+```
+
+#### Basic Apache configuration
+
+```sh
+sudo a2enmod proxy proxy_http rewrite
 sudo a2dissite 000-default
+sudo systemctl enable apache2
 sudo systemctl restart apache2
 ```
 
@@ -85,18 +89,15 @@ sudo systemctl restart apache2
 
 ```sh
 wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
-sudo mkdir -p  /var/www/html/zonemaster-web-gui
-sudo mkdir -p /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
-rm zonemaster_web_gui.zip
+sudo install -vd /var/log/zonemaster
+sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
+rm -f zonemaster_web_gui.zip
 ```
 
-#### Basic apache2 configuration
+#### Configure Zonemaster Web GUI
 
 ```sh
-sudo chown -R www-data:www-data /var/www #Change owner of the directory 
-sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
-cd /etc/apache2/sites-available
 sudo a2ensite zonemaster #Activate the website
 ```
 Then update the zonemaster.conf file with your own ServerName, ServerAlias and ServerAdmin.
@@ -104,10 +105,9 @@ For testing on a local machine, you can edit zonemaster.conf and change the "*:8
 to the host's IP or using localhost as ServerName if that is appropriate.
 
 
-#### Reload apache
+#### Reload Apache
 
 ```sh
-sudo systemctl enable apache2
 sudo systemctl reload apache2
 ```
 
