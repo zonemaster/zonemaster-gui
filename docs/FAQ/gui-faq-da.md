@@ -12,7 +12,7 @@ Zonemaster
 9. [Zonemaster og privatliv](#q9)
 10. [Hvorfor kan jeg ikke teste mit domænenavn?](#q10)
 11. [Hvilke typer af forespørgsler genererer Zonemaster?](#q11)
-12. [Hvad er en "ikke-delegeret" test?](#undelegated)
+12. [Hvad er en "ikke-delegeret" test?](#q12)
 13. [Hvordan tester jeg en "reverse" zone med Zonemaster?](#q13)
 
 Zonemaster
@@ -119,7 +119,7 @@ er det muligt at få indblik i samtlige forespørgsler, der sendes fra Zonemaste
 Bemærk venligst, at informationerne fra kommandolinjeværktøjet er meget tekniske,
 og kræver en høj viden indenfor DNS.
 
-#### 12. Hvad er en "ikke-delegeret" test? <a name="undelegated"></a>
+#### 12. Hvad er en "ikke-delegeret" test? <a name="q12"></a>
 En "ikke-delegeret" test af et domænenavn betyder, at testen udføres på et
 domænenavn, der måske eller måske ikke er offentliggjort i DNS. Dette kan være
 ganske nyttigt, såfremt man ønsker at udskifte navneservere bag et domænenavn
