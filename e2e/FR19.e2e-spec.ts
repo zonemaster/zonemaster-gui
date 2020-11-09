@@ -19,6 +19,7 @@ describe('Zonemaster test FR19 - [The GUI should be able to run the test with at
     await element(by.css('#domain_check_name')).sendKeys('afNiC.Fr');
     await element(by.css('input[name="form.ip"]')).sendKeys('192.134.4.1');
     await element(by.css('div button.launch')).click();
+    await browser.wait(() => element(by.css('.progress-bar')).isPresent(), 2 * 1000);
     await expect(element.all(by.css('.progress-result')).isPresent()).toBe(true);
   });
 

@@ -1,51 +1,51 @@
 {
-  "Domain check"                              : "Domænetjek"
-  ,"Pre-delegated domain"                     : "Præ-delegeret domænenavn"
-  ,"Domain name"                              : "Domænenavn"
-  ,"Basic"                                    : "Simpel"
-  ,"Advanced"                                 : "Avanceret"
-  ,"Export"                                   : "Eksporter"
-  ,"History"                                  : "Historik"
-  ,"Download"                                 : "Download"
-  ,"Download HTML"                            : "Download i HTML format"
-  ,"Nameservers"                              : "Navneservere"
-  ,"Digests"                                  : "Delegation Signers (DS-records)"
-  ,"Fetch data from parent zone"              : "Hent data fra forældrezonen"
-  ,"Advanced options"                         : "Avancerede indstillinger"
-  ,"Notice! This is an undelegated test"      : "Bemærk! Dette er en ikke-delegeret test"
-  ,"Test #"                                   : "Test nummer "
-  ,"Executed at"                              : "Eksekveret: "
-  ,"Link"                                     : "Link"
-  ,"What is an undelegated domain test?"      : "Hvad er en ikke-delegeret test?"
-  ,"Non-Javascript Interface"                 : "Interface uden javsascript"
-  ,"Key Tag"                                  : "Key tag"
-  ,"Algorithm"                                : "Algorithm"
-  ,"Digest type"                              : "Digest type"
-  ,"Digest"                                   : "Digeset"
-  ,"About ZoneMaster": "Om ZoneMaster"
-  ,"About ZoneMaster Text":"Giv dit domæne en helbredsundersøgelse! Zonemaster hjælper dig med at kontrollere, hvordan din webside har det. Som en bonus får du også en bedre forståelse af, hvordan domænenavnssystemet, DNS, fungerer. Når et domæne (også kaldet zone) sendes til Zonemaster, undersøger programmet tilstanden af domænet fra start til slut. Dette gøres gennem Zonemaster, der undersøger DNS fra root (.) til TLD (top-level domæne, for eksempel .dk) og til sidst navneserverne, der indeholder oplysninger om det angivne domæne (for eksempel zonemaster.dk). Zonemaster kan også udføre mange andre test, for eksempel kontrol af DNSSEC-signaturerne, om forskellige servere kan nås, og om IP-adresserne er gyldige. Dette udføres for at sikre, at dit domæne fungerer så stabilt som muligt."
-  ,"About domain name system, DNS": "Om domænenavnesystemet, DNS"
-  ,"About DNS Text": "De fleste mennesker, der bruger internettet, har aldrig reflekteret over, hvad der rent faktisk sker, når man skriver en adresse i sin webbrowser og derefter klikker på Enter-knappen. Domænenavnssystemet (DNS) er en database, der associerer domænenavne til IP-adresser på samme måde som en telefonbog associerer navne til telefonnumre. En IP-adresse er en unik række tal, der identificerer hver computer, der er forbundet til internettet. Det kan sammenlignes med, at enhver telefon har sit eget nummer i telenetværket. En lang række tal fungerer fint for computere, men det er svært for folk at huske. Derfor er DNS blevet udviklet som et ekstra system til os, når vi ønsker at tilgå en bestemt webside eller en vi ønsker at sende en mail til en bestemt e-mail-adresse."
-  ,"No data for this test": "Ingen data til denne test"
-  ,"The domain name contains unauthorized character(s)": "Domnænavnet indeholder ugyldige tegn"
-  ,"Domain checked completed":"Testen af domænenavnet er fuldført"
-  ,"Internal server error":"Intern serverfejl"
-  ,"Parent data fetched with success":"Data fra forælder er hentet med succes"
-  ,"Error during parent data fetching":"Data fra forælder kunne ikke hentes"
-  ,"History information request is in progress":"Hitorisk information er undervejs"
-  ,"Domain name required":"Domænenavn skal angives"
-  ,"Choose at least one protocol":"Mindst en protokol er valgt"
-  ,"Zonemaster Backend is not available":"Zonemaster Backend er ikke tilgængelig"
-
-  ,"Keytag required"                        : "Keytag kræves"
-  ,"Digest required"                        : "Digest kræves"
-  ,"No result for this query"               : "Intet resultat på denne forespørgsel"
-  ,"Program versions"                       : "Programversioner"
-  ,"Results from previous tests are not available"       : "Resultater fra tidligere test er ikke tilgængelige"
-  ,"Sorry, there is nothing here!"               : "Beklager, der er intet her!"
-  ,"Page Not Found"                         : "Siden blev ikke fundet"
-  ,"Share"                                  : "Dele"
-  ,"Settings"                               : "Indstillinger"
-  ,"Group by test module"                   : "Gruppere per testmodul"
-  ,"Filter text"                            : "Filtrer tekst"
+	"About DNS Text": "De fleste mennesker, der bruger internettet, har aldrig reflekteret over, hvad der rent faktisk sker, når man skriver en adresse i sin webbrowser og derefter klikker på Enter-knappen. Domænenavnssystemet (DNS) er en database, der associerer domænenavne til IP-adresser på samme måde som en telefonbog associerer navne til telefonnumre. En IP-adresse er en unik række tal, der identificerer hver computer, der er forbundet til internettet. Det kan sammenlignes med, at enhver telefon har sit eget nummer i telenetværket. En lang række tal fungerer fint for computere, men det er svært for folk at huske. Derfor er DNS blevet udviklet som et ekstra system til os, når vi ønsker at tilgå en bestemt webside eller en vi ønsker at sende en mail til en bestemt e-mail-adresse.",
+	"About ZoneMaster": "Om ZoneMaster",
+	"About ZoneMaster Text": "Giv dit domæne en helbredsundersøgelse! Zonemaster hjælper dig med at kontrollere, hvordan din webside har det. Som en bonus får du også en bedre forståelse af, hvordan domænenavnssystemet, DNS, fungerer. Når et domæne (også kaldet zone) sendes til Zonemaster, undersøger programmet tilstanden af domænet fra start til slut. Dette gøres gennem Zonemaster, der undersøger DNS fra root (.) til TLD (top-level domæne, for eksempel .dk) og til sidst navneserverne, der indeholder oplysninger om det angivne domæne (for eksempel zonemaster.dk). Zonemaster kan også udføre mange andre test, for eksempel kontrol af DNSSEC-signaturerne, om forskellige servere kan nås, og om IP-adresserne er gyldige. Dette udføres for at sikre, at dit domæne fungerer så stabilt som muligt.",
+	"About domain name system, DNS": "Om domænenavnesystemet, DNS",
+	"Algorithm": "Algorithm",
+	"Choose at least one protocol": "Mindst en protokol er valgt",
+	"Digest": "Digeset",
+	"Digest required": "Digest kræves",
+	"Digest type": "Digest type",
+	"Digests": "Delegation Signers (DS-records)",
+	"Domain check": "Domænetjek",
+	"Domain checked completed": "Testen af domænenavnet er fuldført",
+	"Domain name": "Domænenavn",
+	"Domain name required": "Domænenavn skal angives",
+	"Error during parent data fetching": "Data fra forælder kunne ikke hentes",
+	"Export": "Eksporter",
+	"FAQ": "FAQ",
+	"Fetch data from parent zone": "Hent data fra forældrezonen",
+	"Filter text": "Filtrer tekst",
+	"Group by modules": "Group by modules",
+	"History": "Historik",
+	"History information request is in progress": "Hitorisk information er undervejs",
+	"Internal server error": "Intern serverfejl",
+	"Key Tag": "Key tag",
+	"Keytag required": "Keytag kræves",
+	"Level": "Level",
+	"Link": "Link",
+	"Message": "Message",
+	"Module": "Module",
+	"Nameservers": "Navneservere",
+	"No data for this test": "Ingen data til denne test",
+	"No result for this query": "Intet resultat på denne forespørgsel",
+	"Notice! More info on undelegated test": "Notice! More info on undelegated test",
+	"Options": "Options",
+	"Page Not Found": "Siden blev ikke fundet",
+	"Parent data fetched with success": "Data fra forælder er hentet med succes",
+	"Please set the api endpoint": "Please set the api endpoint",
+	"Program versions": "Programversioner",
+	"Reset": "Reset",
+	"Results from previous tests are not available": "Resultater fra tidligere test er ikke tilgængelige",
+	"Run test": "Run test",
+	"Settings": "Indstillinger",
+	"Share": "Dele",
+	"Sorry, there is nothing here!": "Beklager, der er intet her!",
+	"Test #": "Test nummer ",
+	"There is no delegation for the zone": "There is no delegation for the zone",
+	"What is an undelegated domain test?": "Hvad er en ikke-delegeret test?",
+	"Zonemaster Backend is not available": "Zonemaster Backend er ikke tilgængelig"
+  ,"Profile"                                : "Profil"
 }

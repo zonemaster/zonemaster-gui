@@ -13,7 +13,7 @@ describe('Zonemaster test FR16 - [The advanced view should have a text describin
   it('should have a link to the proper faq answer', () => {
     expect(element(by.css('.alert.alert-info')).isPresent()).toBe(true);
     expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('routerlink')).toBe('/faq');
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('fragment')).toBe('undelegated');
+    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('fragment')).toBe('q12');
   });
 
   it('should have a description text in multi languages', () => {
