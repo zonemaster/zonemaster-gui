@@ -12,7 +12,7 @@ Zonemaster
 9. [Zonemaster et confidentialité](#q9)
 10. [Comment se fait-il que je ne puisse pas tester mon nom de domaine ?](#q10)
 11. [Quels genres de requêtes Zonemaster génère t-il ?](#q11)
-12. [C'est quoi un test sur un domaine non délégué?](#undelegated)
+12. [C'est quoi un test sur un domaine non délégué?](#q12)
 13. [Comment tester une zone "reverse" avec Zonemaster ?](#q13)
 
 
@@ -171,7 +171,7 @@ de manipuler des données liées au DNS quotidiennement, ce niveau de détail
 pourra être considéré trop technique et réservé à un public averti, les autres 
 pourront se contenter de l'interface "classique".
 
-#### 12. C'est quoi un test sur un nom de domaine non délégué ? <a name="undelegated"></a>
+#### 12. C'est quoi un test sur un nom de domaine non délégué ? <a name="q12"></a>
 
 On va appeler, test sur un nom de domaine non délégué, un test réalisé sur
 une zone non complètement publiée dans le DNS. Cela est particulièrement

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AppService} from '../../services/app.service';
 import {AlertService} from '../../services/alert.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
@@ -14,7 +15,7 @@ export class FooterComponent implements OnInit {
   public contactAddress: string;
   public clientInfo: object;
 
-  constructor(private dnsCheckService: DnsCheckService, private alertService: AlertService) {
+  constructor(private dnsCheckService: DnsCheckService, private alertService: AlertService, private translateService: TranslateService) {
     this.contactAddress = AppService.getContactAddress();
     this.clientInfo = AppService.getClientInfo();
   }
@@ -28,7 +29,9 @@ export class FooterComponent implements OnInit {
     this.dnsCheckService.versionInfo().then( res => {
       self.versions = this.setVersionsText(res as any[]);
     }, err => {
-      this.alertService.error('Zonemaster Backend is not available');
+      this.translateService.get('Zonemaster Backend is not available').subscribe((res: string) => {
+        this.alertService.error(res);
+      });
       console.error(err);
     });
   }
