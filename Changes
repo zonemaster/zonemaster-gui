@@ -1,5 +1,14 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
+v3.2.1 2020-11-06 (public release version)
+
+ [Fixes]
+ - Correct fragment in links to FAQ (#148, #147)
+ - Updated/improved installation instruction (#154, #152)
+ - Improved internationalization (i18n) (#121, #139)
+ - Corrected language value (#140, #138)
+ 
+
 v3.2.0 2020-04-30
 
  [Features]
