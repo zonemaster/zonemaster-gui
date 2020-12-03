@@ -3,5 +3,14 @@
 }
 
 footer {
-  box-shadow: inset -1px 7px 5px -9px rgba(0,0,0,0.75);
+  background-color: #414044;
+  color:#fff;
+}
+.copyright{ 
+  font-size: 0.75rem;
+}
+footer .fa{ 
+  margin-right: 5px;
+  position: relative;
+  top: 1px;
 }

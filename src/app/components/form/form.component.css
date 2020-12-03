@@ -1,5 +1,68 @@
+.progress-bar {
+  border-radius: 30px;
+  box-shadow: none;
+}
+
+.main-form-container{
+  background-color: #fff;
+  box-shadow: 0 10px 15px rgba(0,0,0,.3);
+  border-radius: 10px;
+  margin: 0 auto;
+  max-width: 895px;
+  padding: 40px; 
+  position: relative;
+  z-index: 2;
+
+}
+.main-form-container #domain_check_name {
+  background-color: #fff;
+  border: 2px solid #db6b1a;
+  border-radius: 30px;   
+  font-weight: 300; 
+  overflow: hidden;
+  height: 50px;
+  width: 100%;
+  padding-right: 45px;
+}
+.main-form-container #domain_check_name input.form-control{
+  border: none;
+  color:#000;
+  font-size: 18px;
+  font-weight: 300;
+}
+.advance-option{ 
+  justify-content: flex-end;
+  padding-top: 10px;
+  margin-bottom: 0;
+}
+.advance-option p{ margin-bottom: 0;}
+.custom-row{
+  margin-bottom: 20px;
+}
+.custom-row h4{
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.custom-row .form-control{
+  margin-left: 10px;
+}
+.custom-row .form-control:first-child{
+  margin-left: 0;
+}
+.custom-row .btn-danger-custom {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .fa-play-circle-o:hover {
   color: #fff;
+}
+.four-component input,
+.four-component select {
+  max-width: 165px;
+}
+.resetFullForm{
+   margin-left: 10px;
 }
 
 .fa-play-circle-o {
@@ -8,13 +71,6 @@
 
 .input-group {
   width: 100%;
-}
-
-#domain_check_name {
-  font-size:16px;
-  height:64px;
-  color:#6F787E;
-  border-radius:3px
 }
 
 .checkboxForm {
@@ -26,10 +82,12 @@
 }
 
 button.launch {
-  background-color: #FF5A5F;
+  background-color: #db6b1a;
+  border-radius: 30px;
+  width: 135px;
 }
 button.launch:hover {
-  background-color: #ff3c3a;
+  background-color: #b9550c;
 }
 
 /* The switch - the box around the slider */
@@ -91,22 +149,30 @@ button.launch:hover {
   border-radius: 50%;
 }
 
-.advanced {
-  margin-left: 6.7rem;
+.advanced { 
   text-align: left;
 }
-
-
-.form-ckeck-group {
-  width: 85%;
+.main-form-container .form-ckeck-group {
+  flex:1;
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
 }
 
 .reset-form {
   position: absolute;
-  right: 0;
-  top: 15%;
+  right: 10px;
+  top: 8px;
   opacity: 0.5;
   z-index: 100;
+}
+.reset-form button{
+  padding: 0;
+}
+.reset-form button:focus{
+  outline: none;
+  box-shadow: none;
+  
 }
 
 .reset-form:hover {
@@ -126,13 +192,18 @@ button.launch:hover {
 }
 
 .progress-result {
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
 }
+
 @media(min-width:576px){
   .progress-result {
     position: absolute;
-    z-index: 20;
-    width: 20.1rem;
+    z-index: 20;   
   }
   .progress-value {
     display: block;
@@ -146,12 +217,12 @@ button.launch:hover {
   }
 
 }
-@media(min-width:768px){
-  .progress-result {
-    width: 85%;
-  }
-}
 
+@media(min-width:768px){
+  /* .progress-result {
+    width: 85%;
+  } */
+}
 .nsForm {
   margin-bottom: 5px;
 }

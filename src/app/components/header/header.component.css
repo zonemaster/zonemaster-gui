@@ -1,10 +1,49 @@
 .main {
-  padding-top: 10rem;
-  padding-bottom: 5rem;
+  padding-top: 12.5rem;
+  padding-bottom: 3.5rem;
   padding-left: 0;
   padding-right: 0;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   text-align: center;
-  color: #efefef;
-  background: linear-gradient(135deg, #1b294a, #f8f9fa);
+  color: #000000;
+  background-color: #db6b1a;
+  background-image: url(assets\images\header-pattern.png);
+  background-repeat: repeat;
+  background-position: 0 0;  
+  position: relative;
+}
+.main:before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4rem;
+  width: 138px;
+  height: 100%;
+  background:  url(assets\images\main-bg1.png) repeat-y left center;
+  pointer-events: none;
+}
+.main:after{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 4rem;
+  width: 113px;
+  height: 100%;
+  background:  url(assets\images\main-bg2.png) repeat-y right center;
+  background-repeat: repeat-y;  
+  background-position: 0 0;
+  pointer-events: none;
+}
+
+@media (max-width:767px){
+  .main{
+    padding-top: 10rem;
+    padding-bottom: 1rem;
+  }
+}
+@media (max-width:414px){
+  .main{
+    padding-top: 7.5rem;
+    padding-bottom: 1.25rem;
+  }
 }

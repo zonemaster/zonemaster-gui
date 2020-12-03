@@ -1,26 +1,21 @@
-<footer class="pb-0 pt-2 bg-light">
+<footer class="pb-0 pt-2">
   <div class="container">
     <div class="row justify-content-between">
-      <div class="col-md-4">
+      <div class="col-md-5 text-md-left text-center">
           <span placement="top" [ngbTooltip]="tipContent">{{"Program versions"|translate}}</span>
+          <p class="copyright">Copyright &copy; AFNIC and The Swedish Internet Foundation, 2018-2020. All Rights Reserved</p>
       </div>
-      <div class="col-md-5 pull-right">
+      <div class="col-md-7 pull-right">
         <div class="row">
-          <div class="col-md-6">
-            <i class="fa fa-envelope-o black-icon" aria-hidden="true"></i>
-            <a class="text-dark" href="mailto:{{contactAddress}}">{{contactAddress}}</a>
+          <div class="col-md-12 text-md-right text-center">
+            <i class="fa fa-envelope-o white-icon" aria-hidden="true"></i>
+            <a class="text-light" href="mailto:{{contactAddress}}">{{contactAddress}}</a>
           </div>
-          <div class="col-md-4">
-            <i class="fa fa-github black-icon" aria-hidden="true"></i>
-            <a class="text-dark" href="https://github.com/zonemaster/zonemaster">Github</a>
-          </div>
+          <!--div class="col-md-4">
+            <i class="fa fa-github white-icon" aria-hidden="true"></i>
+            <a class="text-light" href="https://github.com/zonemaster/zonemaster">Github</a>
+          </div-->
         </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <p class="copyright text-muted small">Copyright &copy; AFNIC and The Swedish Internet Foundation, 2018-2020. All Rights Reserved</p>
       </div>
     </div>
   </div>

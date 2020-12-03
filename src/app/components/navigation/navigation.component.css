@@ -18,6 +18,11 @@ nav {
   width: 100px;
   height: 100px;
 }
+.top-band{
+  background-color: #717073;
+  padding: 10px 0;
+  color:#fff;
+}
 
 @media(min-width:992px){
   .shrink {

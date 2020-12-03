@@ -3,18 +3,102 @@
 html, body {
   margin:0;
   padding:0;
+  font-family: 'Lato', sans-serif;
 }
 
 .main h1 {
-  margin: 0;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
-  font-size: 3em;
+  color: #db6b1a;
+  margin: 0; 
+  font-size: 2.25rem;
+  font-weight: 300;
+  position: relative;  
+  padding-bottom: 10px;
+  margin-bottom: 40px;
 }
+.main h1:after{
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 185px;
+  background-color: #db6b1a;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 0;
+}
+.custom-checkbox {
+  position: relative;
+  overflow: hidden;
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.custom-checkbox .form-check-input {
+  position: absolute;
+  left: -500px;
+}
+.custom-checkbox .checkmark {
+  margin-right: 5px;
+  height: 20px;
+  width: 20px;
+  background: #6d6e76;
+}
+.custom-checkbox input:checked ~ .checkmark{
+  background: #6d6e76 url(assets\images\checkmark.png) no-repeat center center;
+}
+.form-control{
+  border: 2px solid #6d6e76;
+  border-radius: 0;
+}
+select.form-control{
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  padding-right: 25px;
+  background: #fff url(assets\images\down-arrow.png) no-repeat  calc(100% - 10px) center;
+}
+.btn-danger-custom-without-icon {
+  background: #c0392b;
+  color: #fff;
+}
+.btn-danger-custom-without-icon:hover{
+  color: #fff;
+}
+.btn-danger-custom {
+  background: #c0392b url(assets\images\delete-icon.png) no-repeat center center;
+}
+.btn-success-custom{
+  background: #68ad54 url(assets\images\plus-icon.png) no-repeat center center;
+}
+.custom-icon-btn{
+  height: 38px;
+  width: 38px;  
+  border-radius: 50%;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+}
+.custom-icon-btn:focus{
+  outline: 0;
+}
+
 
 @media(min-width:576px){
   .progress {
-    height: 64px !important;
+    height: 100% !important;
     opacity: .3;
+    position: absolute;
+    width: 100%;
+
   }
 }
 
+@media (max-width:414px){
+  .main h1{
+    font-size: 1.6rem;
+  }
+}
