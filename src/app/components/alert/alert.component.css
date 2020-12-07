@@ -1,8 +1,11 @@
 .alert-area {
   z-index: 999;
   position: absolute;
-  margin-top: 110px;
+  left: 0;
+  right: 0;
+  margin: -20px auto 0;  
   max-width: inherit;
   width: 100%;
+  max-width: 600px !important;
 }
 

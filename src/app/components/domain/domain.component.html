@@ -1,4 +1,5 @@
   <app-header>
+    <app-alert></app-alert>
     <div class="row" *ngIf="is_advanced_options_enabled">
       <div class="text-center m-auto">
         <div class="alert alert-info">
@@ -21,7 +22,7 @@
     ></app-form>
   </app-header>
   <div class="container-fluid">
-    <section class="row d-block result" *ngIf="showResult">
+    <section class="row d-block result" *ngIf="showResult">    
       <app-result [resultID]="resultID"></app-result>
     </section>
 
