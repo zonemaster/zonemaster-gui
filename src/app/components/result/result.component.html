@@ -3,21 +3,21 @@
 </app-header>
 <div class="result container" #resultView>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-lg-6">
       <h2>{{'Test #'|translate}}{{ test.id }}<small> - {{form.domain}}</small></h2>
       <i>{{ test.creation_time  | amFromUtc | amLocal | amLocale: language | amDateFormat:'LLL'}}</i>
     </div>
-    <div class="col-md-6">
-      <div class="pull-right actions_btn" >
-        <a class="btn btn-warning history" (click)="getHistory()">
+    <div class="col-lg-6">
+      <div class="float-lg-right actions_btn" >
+        <a class="btn btn-secondary history" (click)="getHistory()">
           <i class="fa fa-history text-white" aria-hidden="true"></i>
           <span class="text-white">{{'History'|translate}}</span>
         </a>
-        <a class="btn btn-info export" (click)="openModal(exportModal)">
+        <a class="btn btn-secondary export" (click)="openModal(exportModal)">
           <i class="fa fa-cloud-download text-white"></i>
           <span class="text-white">{{'Export'|translate}}</span>
         </a>
-        <a class="btn btn-success share" (click)="openModal(shareLinkModal)">
+        <a class="btn btn-secondary share" (click)="openModal(shareLinkModal)">
           <i class="fa fa-share text-white"></i>
           <span class="text-white">{{'Share'|translate}}</span>
         </a>
@@ -49,7 +49,7 @@
 
   <br>
   <div class="row d-block">
-
+    <div class="col-sm-12"> 
     <ul class="nav nav-pills vertical-align filter">
       <li class="nav-item ml-1">
         <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active text-white': result_filter.all}"
@@ -103,7 +103,11 @@
       </li>
     </ul>
   </div>
+  </div>
   <div class="row mt-3">
+    <div class="col-sm-12">
+    <div class="result-table">
+    <div class="table-responsive">
     <table class="table">
       <thead class="thead-dark">
       <tr>
@@ -122,6 +126,9 @@
       </tr>
       </tbody>
     </table>
+  </div>
+</div>
+</div>
   </div>
 </div>
 

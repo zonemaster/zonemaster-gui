@@ -96,6 +96,10 @@ select.form-control{
 
   }
 }
+@media (max-width:500px){
+  div.progress{height: 50px !important; border-radius: 30px  !important;}
+  .info-form{ position: relative;}  
+}
 
 @media (max-width:414px){
   .main h1{

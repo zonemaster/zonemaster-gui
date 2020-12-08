@@ -23,6 +23,7 @@ nav {
   padding: 10px 0;
   color:#fff;
 }
+.top-band a:not(:first-child){ margin-left: 10px;}
 
 @media(min-width:992px){
   .shrink {

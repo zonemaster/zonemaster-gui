@@ -218,15 +218,47 @@ button.launch:hover {
 
 }
 
+@media (min-width:768px) and (max-width:1023px){
+  .advance-last-row input,
+  .advance-last-row select{
+    min-width: 49%;
+    margin-bottom: 10px;
+  }
+  .advance-last-row .sm-full-width { display: flex; flex-wrap: wrap;}
+  .custom-row select.form-control[formControlName="digtype"]{
+    margin-left: 0;
+  }
+  .advance-last-row .btn-danger-custom{
+    margin-left: auto;
+  }
+  .resetFullForm{ float: right;}
+
+}
 @media(min-width:768px){
   /* .progress-result {
     width: 85%;
   } */
 }
+@media (max-width:767px){
+  .main-form-container{ padding: 20px;}
+  .main-form-container .form-ckeck-group { flex: inherit; width: 100%;margin-bottom: 15px;}
+  button.launch{width: 100%; margin-left: 0 !important;}  
+  .custom-row input,
+  .custom-row select,
+  .sm-full-width{ width:100%;}
+  .custom-row .form-control{ margin-left: 0; margin-bottom: 10px;}
+  .four-component input,
+  .four-component select {max-width: 100%;}
+  .sm-full-width .btn-danger-custom{ margin: 0;}
+  .sm-full-width .btn-success-custom,
+  .resetFullForm{ float: right;} 
+
+}
+
+
 .nsForm {
   margin-bottom: 5px;
 }
-
 .has-error {
   color: red;
 }
