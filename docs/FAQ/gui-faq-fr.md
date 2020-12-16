@@ -59,8 +59,7 @@ nom de domaine, qu'un problème de configuration est en cours en leur
 fournissant le lien généré par Zonemaster qui se trouve à la fin de chaque 
 analyse. Ainsi, si vous avez demandé une analyse et que vous souhaitez
 montrer à quelqu'un le résultat de celle-ci vous pouvez juste copier le lien
-fourni sur la page des résultats de tests. Le lien suivant, par exemple, 
-renvoie sur les résultats de la dernière analyse de "afnic.fr": [https://zonemaster.net/test/18281](https://zonemaster.net/test/18281).
+fourni sur la page des résultats de tests.
 
 #### 4. Zonemaster indique des "Erreurs"/"Avertissements" sur ma zone, qu'est ce que cela signifie ? <a name="q4"></a>
 
