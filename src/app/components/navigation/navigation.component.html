@@ -23,24 +23,28 @@
 
       <div class="lang">
         <div class="d-none d-sm-block">
+          <a lang='da' (click)="setLanguage('da')">Da</a> |
           <a lang='en' (click)="setLanguage('en')">En</a> |
           <a lang='fr' (click)="setLanguage('fr')">Fr</a> |
-          <a lang='sv' (click)="setLanguage('sv')">Sv</a> |
-          <a lang='da' (click)="setLanguage('da')">Da</a> &nbsp;
+          <a lang='nb' (click)="setLanguage('nb')">Nb</a> |
+          <a lang='sv' (click)="setLanguage('sv')">Sv</a> &nbsp;
         </div>
         <div class="d-sm-none">
           <select name="lang" [(ngModel)]="lang" (change)="setLanguage(lang)" class="form-control" id="languageSelection">
+            <option lang='da' value='da' [selected]="lang === 'da'">
+              Dansk
+            </option>
             <option lang='en' value='en' [selected]="lang === 'en'">
               English
             </option>
             <option lang='fr' value='fr' [selected]="lang === 'fr'">
               Français
             </option>
+            <option lang='nb' value='nb' [selected]="lang === 'nb'">
+              Norsk (bokmål)
+            </option>
             <option lang='sv' value='sv' [selected]="lang === 'sv'">
               Svenska
-            </option>
-            <option lang='da' value='da' [selected]="lang === 'da'">
-              Danish
             </option>
           </select>
         </div>

@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e --port=4201",
     "i18n:init": "ngx-translate-extract --input ./src --output ./src/assets/i18n/template.json --key-as-default-value --replace --sort --format json",
-    "i18n:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{en,da,fr,sv}.json --key-as-default-value --clean --sort --format json"
+    "i18n:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{da,en,fr,nb,sv}.json --key-as-default-value --clean --sort --format json"
   },
   "private": false,
   "dependencies": {
