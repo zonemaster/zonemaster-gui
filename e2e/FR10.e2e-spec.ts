@@ -18,7 +18,7 @@ describe('Zonemaster test FR10 - [On launching the URL opens with a default simp
   it('should have [Nameservers label] NOT visible', () => {
     expect(element(by.xpath('//legend[contains(., "Nameservers")]')).isPresent()).toBe(false);
   });
-  it('should have [Digests] NOT visible', () => {
-    expect(element(by.xpath('//legend[contains(., "Digests")]')).isPresent()).toBe(false);
+  it('should have [DS_RECORDS] NOT visible', () => {
+    expect(element(by.xpath('//legend[contains(., "DS_RECORDS")]')).isPresent()).toBe(false);
   });
 });

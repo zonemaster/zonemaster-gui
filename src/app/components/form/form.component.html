@@ -113,7 +113,7 @@
           </form>
           <hr>
           
-          <h4 class="d-inline">{{'Digests'|translate}}</h4>
+          <h4 class="d-inline">{{'DS_RECORDS'|translate}}</h4>
           <form [formGroup]="digestForm" class="form-inline digests">
             <div formArrayName="itemRows">
               <div class="nsForm" *ngFor="let itemrow of digestForm.controls.itemRows.controls; let i=index" [formGroupName]="i">
