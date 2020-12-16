@@ -4,7 +4,7 @@ Zonemaster
 1. [Zonemaster, c'est quoi ?](#q1)
 2. [Qui se cache derrière Zonemaster ?](#q2)
 3. [Qu'est-ce que Zonemaster peut faire pour moi?](#q3)
-4. [Zonemaster indique des "Erreurs"/"Avertissements" sur ma zone, qu'est ce que cela signifie ?](#q4)
+4. [Zonemaster indique des "Erreurs" ou "Avertissements" sur ma zone. Qu'est ce que cela signifie ?](#q4)
 5. [Comment Zonemaster peut décider ce qui est correct de ce qui ne l'est pas?](#q5)
 6. [Est-ce que Zonemaster supporte IPv6 ?](#q6)
 7. [Est-ce que Zonemaster supporte DNSSEC ?](#q7)
@@ -62,7 +62,7 @@ analyse. Ainsi, si vous avez demandé une analyse et que vous souhaitez
 montrer à quelqu'un le résultat de celle-ci vous pouvez juste copier le lien
 fourni sur la page des résultats de tests.
 
-#### 4. Zonemaster indique des "Erreurs"/"Avertissements" sur ma zone, qu'est ce que cela signifie ? <a name="q4"></a>
+#### 4. Zonemaster indique des "Erreurs" ou "Avertissements" sur ma zone. Qu'est ce que cela signifie ? <a name="q4"></a>
 
 Bien évidemment, cela dépend du type des tests qui ont échoué lors de l'analyse
 de la zone. Dans la plupart des cas, vous pouvez cliquer sur le message d'erreur
