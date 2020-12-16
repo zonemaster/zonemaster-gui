@@ -21,8 +21,8 @@ Zonemaster
 
 Zonemaster est un outil qui a été créé dans le but d'aider au diagnostic,
 de mesurer et aussi permettre à ses utilisateurs de mieux comprendre le
-fonctionnement du DNS (Domain Name System). Il est principalement constitué
-de 3 éléments qui sont:
+fonctionnement du DNS (Domain Name System). Il est constitué de 4 éléments
+qui sont:
 
  1. Un moteur de tests qui contient tout le code nécessaire aux traitements
     à réaliser lors de l'analyse d'une zone.
