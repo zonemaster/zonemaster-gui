@@ -47,7 +47,8 @@ L'ensemble des tests réalisés par Zonemaster est décrit au sein du document
 
 Zonemaster est un projet conjoint entre l'Afnic (multi-registre français de 
 ccTLDs .fr, .re, .pm, .tf, .wf, .yt et de gTLDs .paris, ...) d'une part et
-le IIS (registre suédois des ccTLDs .se et .nu) d'autre part.
+[The Swedish Internet Foundation](https://internetstiftelsen.se/en/)
+(registre suédois des ccTLDs .se et .nu) d'autre part.
 
 #### 3. Qu'est-ce que Zonemaster peut faire pour moi ? <a name="q3"></a>
 
@@ -185,7 +186,7 @@ effectué. Un résultat d'analyse positif (toutes les catégories de résultat
 aparaissent en vert) vous permet d'être à peu près certain que le nouveau 
 serveur est correctement configuré. 
 
-#### 13. Comment tester une zone "reverse" avec ZoneMaster ? <a name="q13"></a>
+#### 13. Comment tester une zone "reverse" avec Zonemaster ? <a name="q13"></a>
 
 Zonemaster peut être utilisé pour valider un certain nombre d'éléments lors
 de la configuration d'une zone. Parmi ces éléments, il y a les vérifications
