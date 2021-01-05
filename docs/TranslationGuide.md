@@ -12,7 +12,7 @@ sure you have the latest version.
 
 ## Language code
 
-Zonemaster uses [ISO 639-1] two-letter language codes, normally in 
+Zonemaster uses [ISO 639-1] two-letter language codes, normally in
 lower case, but in GUI sometimes with first letter in upper case
 to make the display nicer. GUI is currently available in the
 following languages with the attached language code:
@@ -26,9 +26,9 @@ following languages with the attached language code:
 
 ## Submitting changes
 
-Below are instructions for how to add or modify files. Preferably, 
-submit the new or updated file as a pull request to Github (see 
-[translators guide for Engine]). Contact the Zonemaster Group if 
+Below are instructions for how to add or modify files. Preferably,
+submit the new or updated file as a pull request to Github (see
+[translators guide for Engine]). Contact the Zonemaster Group if
 that does not work.
 
 
@@ -41,7 +41,7 @@ The files are located in the [src/assets/i18n] folder, one file for each
 supported language.
 
 Each language file contains a hash structure with the English message
-(default messages) as the key and the translated messges as the value. In 
+(default messages) as the key and the translated messages as the value. In
 a few cases, when the value is long, the key is a KEY_STRING.
 
 When creating a new language file, make a copy of `en.json` with the new
@@ -49,7 +49,7 @@ language code instead of `en`. The code must be in lower case. Then
 translate the file using English as the model.
 
 
-## gui-faq-LANG.md 
+## gui-faq-LANG.md
 
 The FAQ documents holds questions and answers on Zonemaster, and there
 is one document per language, e.g. `gui-faq-en.md`.
@@ -57,7 +57,7 @@ is one document per language, e.g. `gui-faq-en.md`.
 The files are located in the [docs/FAQ] folder, one file for each supported
 language.
 
-When creating a new FAQ file, make a copy of `gui-faq-en.md` with new
+When creating a new FAQ file, make a copy of `gui-faq-en.md` with the new
 language code instead of `en`. The code must be in lower case. Then
 translate the file using English as the model.
 
@@ -83,15 +83,15 @@ In `navigation.component.html` :
   * Add the language where `xx` is the language code in lower case, e.g.
     `en` and `Yy` is the same language code with first letter in upper
     case, e.g. `En`:
-  
+
 ```
 <a lang='xx' (click)="setLanguage('xx')">Yy</a> |
 ```
-  * Add the language a second time where `xx` is the language code in 
-    lower case and `Yyyyy` is the name of the same language in that
-    language, e.g. `Svenska`:
+  * Add the language a second time where `xx` is the language code in
+    lower case, e.g. `sv`, and `Yyyyy` is the name of the same language
+    in that language, e.g. `Svenska`:
 
-``` 
+```
  <option lang='xx' value='xx' [selected]="lang === 'xx'">
   Yyyyy
  </option>
@@ -131,7 +131,7 @@ Optionally, to change the default language update
 In `navigation.component.ts` update the following code:
 ```
 public lang = 'en'
-``` 
+```
 by setting another language code instead of `en`. Such a change
 **must not** be submitted to the Zonemaster repository. Instead it
 should be done in the local installation. Also, it will be
