@@ -31,12 +31,13 @@ This instruction covers the following operating systems:
 
 ### 1. CentOS
 
-* Install Httpd (Apache), if it is not installed:
+#### Install Apache
 
 ```sh
 sudo yum update
 sudo yum install httpd
 ```
+
 
 #### Install Zonemaster Web GUI
 
@@ -48,7 +49,8 @@ sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 rm -f zonemaster_web_gui.zip
 ```
 
-#### Basic httpd configuration
+
+#### Configure Apache site
 
 ```sh
 sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
@@ -56,17 +58,14 @@ sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/ht
 
 Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
 
-* Start  httpd if it is newly installed
+
+#### Start Apache
+
 ```sh
 sudo systemctl enable httpd
 sudo systemctl start httpd
 ```
 
-* Else, Reload httpd
-```sh
-sudo systemctl enable httpd
-sudo systemctl reload httpd
-```
 
 ### 2. Debian
 
