@@ -59,7 +59,14 @@ sudo setsebool -P httpd_can_network_connect=1
 sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
 ```
 
-Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
+Optionally update the zonemaster.conf.
+E.g. if Zonemaster-Backend RPCAPI runs on another server or on another port (not
+port 5000), update ProxyPass and ProxyPassReserve.
+Or if you want provide your own settings for ServerName, ServerAlias and ServerAdmin.
+
+```sh
+sudoedit /etc/httpd/conf.d/zonemaster.conf
+```
 
 
 #### Start Apache and allow remote access
