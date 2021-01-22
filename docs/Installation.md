@@ -59,11 +59,13 @@ sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/ht
 Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
 
 
-#### Start Apache
+#### Start Apache and allow remote access
 
 ```sh
 sudo systemctl enable httpd
 sudo systemctl start httpd
+sudo firewall-cmd --add-service http --permanent
+sudo firewall-cmd --reload
 ```
 
 
