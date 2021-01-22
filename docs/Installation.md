@@ -42,17 +42,18 @@ sudo yum install httpd
 
 ```sh
 wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.1/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
-sudo mkdir -p  /var/www/html/zonemaster-web-gui
-sudo mkdir -p /var/log/zonemaster
+sudo install -vd /var/www/html/zonemaster-web-gui
+sudo install -vd /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
-rm zonemaster_web_gui.zip
+rm -f zonemaster_web_gui.zip
 ```
 
 #### Basic httpd configuration
 
 ```sh
-sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
+sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
 ```
+
 Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
 
 * Start  httpd if it is newly installed
