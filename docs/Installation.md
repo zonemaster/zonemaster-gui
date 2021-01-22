@@ -53,6 +53,9 @@ rm -f zonemaster_web_gui.zip
 #### Configure Apache site
 
 ```sh
+sudo chcon -R -t httpd_sys_content_t /var/www/html/zonemaster-web-gui/dist
+sudo chcon -R -t httpd_sys_rw_content_t /var/log/zonemaster
+sudo setsebool -P httpd_can_network_connect=1
 sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
 ```
 
