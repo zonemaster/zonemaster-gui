@@ -42,7 +42,7 @@ sudo yum install httpd
 #### Install Zonemaster Web GUI
 
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.1/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
+curl -O https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.1/zonemaster_web_gui.zip
 sudo install -vd /var/www/html/zonemaster-web-gui
 sudo install -vd /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
