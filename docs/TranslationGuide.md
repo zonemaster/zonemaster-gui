@@ -30,9 +30,9 @@ submit the new or updated file as a pull request to Github (see
 [translators guide for Engine]). Contact the Zonemaster Group if
 that does not work.
 
-The changes in or addition of *LANG.json* and *gui-faq-LANG.md* must
-be completed by a translator. The other changes are only done when
-a language is added and can be completed by the Zonemaster Group.
+The translator must always create or update the *LANG.json* and 
+the *gui-faq-LANG.md*. The other changes are only done when
+a language is added and will be completed by the Zonemaster Group.
 
 
 ## LANG.json
@@ -54,7 +54,7 @@ translate the file using English as the model.
 
 ## gui-faq-LANG.md
 
-The FAQ documents holds questions and answers on Zonemaster, and there
+The FAQ document holds questions and answers on Zonemaster, and there
 is one document per language, e.g. `gui-faq-en.md`.
 
 The files are located in the [docs/FAQ] folder, one file for each supported
@@ -115,7 +115,7 @@ The new language must be added to the following files:
 In `package.json` locate
 
 ```
-    "i18n:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{en,da,fr,sv}.json --key-as-default-value --clean --sort --format json"
+    "i18n:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{da,en,fr,sv}.json --key-as-default-value --clean --sort --format json"
 ```
 and add the two-letter language code of the new language. Preserve
 the alphabetical order of the language codes.
