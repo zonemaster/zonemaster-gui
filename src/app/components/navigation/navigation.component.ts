@@ -13,11 +13,16 @@ export class NavigationComponent implements OnInit {
   public isShrunk = false;
   public activeBackToTop = false;
   public lang = 'en';
+  private lang_default = 'en';
 
   constructor(private translateService: TranslateService, zone: NgZone) {
-    this.translateService.setDefaultLang(this.lang);
+    this.translateService.setDefaultLang(this.lang_default);
     this.lang = this.translateService.getBrowserLang();
-    this.translateService.use(this.lang);
+    if (this.isValidLanguage(this.lang)) {
+      this.setLanguage(this.lang);
+    } else {
+      this.setLanguage(this.lang_default);
+    }
     this.logoUrl = AppService.getLogoUrl();
     window.onscroll = () => {
       zone.run(() => {
@@ -44,5 +49,10 @@ export class NavigationComponent implements OnInit {
 
   public setLanguage(lang: string) {
     this.translateService.use(lang);
+  }
+
+  private isValidLanguage(lang: string) {
+    const validLanguages = [ 'da', 'en', 'fr', 'sv' ];
+    return validLanguages.includes(lang);
   }
 }

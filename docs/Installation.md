@@ -31,41 +31,53 @@ This instruction covers the following operating systems:
 
 ### 1. CentOS
 
-* Install Httpd (Apache), if it is not installed:
+#### Install Apache
 
 ```sh
 sudo yum update
 sudo yum install httpd
 ```
 
+
 #### Install Zonemaster Web GUI
 
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.1/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
-sudo mkdir -p  /var/www/html/zonemaster-web-gui
-sudo mkdir -p /var/log/zonemaster
+curl -O https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.2/zonemaster_web_gui.zip
+sudo install -vd /var/www/html/zonemaster-web-gui
+sudo install -vd /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
-rm zonemaster_web_gui.zip
+rm -f zonemaster_web_gui.zip
 ```
 
-#### Basic httpd configuration
+
+#### Configure Apache site
 
 ```sh
-sudo install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
+sudo chcon -R -t httpd_sys_content_t /var/www/html/zonemaster-web-gui/dist
+sudo chcon -R -t httpd_sys_rw_content_t /var/log/zonemaster
+sudo setsebool -P httpd_can_network_connect=1
+sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
 ```
-Then update the zonemaster.conf file with your own ServerName, ServerAlias, ServerAdmin
 
-* Start  httpd if it is newly installed
+Optionally update the zonemaster.conf.
+E.g. if Zonemaster-Backend RPCAPI runs on another server or on another port (not
+port 5000), update ProxyPass and ProxyPassReserve.
+Or if you want provide your own settings for ServerName, ServerAlias and ServerAdmin.
+
+```sh
+sudoedit /etc/httpd/conf.d/zonemaster.conf
+```
+
+
+#### Start Apache and allow remote access
+
 ```sh
 sudo systemctl enable httpd
 sudo systemctl start httpd
+sudo firewall-cmd --add-service http --permanent
+sudo firewall-cmd --reload
 ```
 
-* Else, Reload httpd
-```sh
-sudo systemctl enable httpd
-sudo systemctl reload httpd
-```
 
 ### 2. Debian
 
@@ -88,7 +100,7 @@ sudo systemctl restart apache2
 #### Install Zonemaster Web GUI
 
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.1/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.2/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 sudo install -vd /var/log/zonemaster
 sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
@@ -145,7 +157,7 @@ listens to localhost (127.0.0.1/::1) then you have to set `ServerName` in
 #### Install Zonemaster Web GUI
 
 ```sh
-fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.1/zonemaster_web_gui.zip
+fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.2/zonemaster_web_gui.zip
 mkdir -p /var/www/html/zonemaster-web-gui
 mkdir -p /var/log/zonemaster
 unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip 

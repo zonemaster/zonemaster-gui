@@ -4,7 +4,7 @@ Zonemaster
 1. [Zonemaster, c'est quoi ?](#q1)
 2. [Qui se cache derrière Zonemaster ?](#q2)
 3. [Qu'est-ce que Zonemaster peut faire pour moi?](#q3)
-4. [Zonemaster indique des "Erreurs"/"Avertissements" sur ma zone, qu'est ce que cela signifie ?](#q4)
+4. [Zonemaster indique des "Erreurs" ou "Avertissements" sur ma zone. Qu'est ce que cela signifie ?](#q4)
 5. [Comment Zonemaster peut décider ce qui est correct de ce qui ne l'est pas?](#q5)
 6. [Est-ce que Zonemaster supporte IPv6 ?](#q6)
 7. [Est-ce que Zonemaster supporte DNSSEC ?](#q7)
@@ -15,13 +15,14 @@ Zonemaster
 12. [C'est quoi un test sur un domaine non délégué?](#q12)
 13. [Comment tester une zone "reverse" avec Zonemaster ?](#q13)
 
-
+Zonemaster
+----------
 #### 1. Zonemaster c'est quoi ? <a name="q1"></a>
 
 Zonemaster est un outil qui a été créé dans le but d'aider au diagnostic,
 de mesurer et aussi permettre à ses utilisateurs de mieux comprendre le
-fonctionnement du DNS (Domain Name System). Il est principalement constitué
-de 3 éléments qui sont:
+fonctionnement du DNS (Domain Name System). Il est constitué de 4 éléments
+qui sont:
 
  1. Un moteur de tests qui contient tout le code nécessaire aux traitements
     à réaliser lors de l'analyse d'une zone.
@@ -47,7 +48,8 @@ L'ensemble des tests réalisés par Zonemaster est décrit au sein du document
 
 Zonemaster est un projet conjoint entre l'Afnic (multi-registre français de 
 ccTLDs .fr, .re, .pm, .tf, .wf, .yt et de gTLDs .paris, ...) d'une part et
-le IIS (registre suédois des ccTLDs .se et .nu) d'autre part.
+[The Swedish Internet Foundation](https://internetstiftelsen.se/en/)
+(registre suédois des ccTLDs .se et .nu) d'autre part.
 
 #### 3. Qu'est-ce que Zonemaster peut faire pour moi ? <a name="q3"></a>
 
@@ -58,10 +60,9 @@ nom de domaine, qu'un problème de configuration est en cours en leur
 fournissant le lien généré par Zonemaster qui se trouve à la fin de chaque 
 analyse. Ainsi, si vous avez demandé une analyse et que vous souhaitez
 montrer à quelqu'un le résultat de celle-ci vous pouvez juste copier le lien
-fourni sur la page des résultats de tests. Le lien suivant, par exemple, 
-renvoie sur les résultats de la dernière analyse de "afnic.fr": [https://zonemaster.net/test/18281](https://zonemaster.net/test/18281).
+fourni sur la page des résultats de tests.
 
-#### 4. Zonemaster indique des "Erreurs"/"Avertissements" sur ma zone, qu'est ce que cela signifie ? <a name="q4"></a>
+#### 4. Zonemaster indique des "Erreurs" ou "Avertissements" sur ma zone. Qu'est ce que cela signifie ? <a name="q4"></a>
 
 Bien évidemment, cela dépend du type des tests qui ont échoué lors de l'analyse
 de la zone. Dans la plupart des cas, vous pouvez cliquer sur le message d'erreur
@@ -185,7 +186,7 @@ effectué. Un résultat d'analyse positif (toutes les catégories de résultat
 aparaissent en vert) vous permet d'être à peu près certain que le nouveau 
 serveur est correctement configuré. 
 
-#### 13. Comment tester une zone "reverse" avec ZoneMaster ? <a name="q13"></a>
+#### 13. Comment tester une zone "reverse" avec Zonemaster ? <a name="q13"></a>
 
 Zonemaster peut être utilisé pour valider un certain nombre d'éléments lors
 de la configuration d'une zone. Parmi ces éléments, il y a les vérifications
