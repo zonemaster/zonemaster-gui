@@ -30,9 +30,10 @@ import { HeaderComponent } from './components/header/header.component';
 import {SafeHtmlPipe} from './pipes/safe-html.pipe';
 import { MomentModule } from 'ngx-moment';
 
+import 'moment/locale/da';
+import 'moment/locale/fi';
 import 'moment/locale/fr';
 import 'moment/locale/sv';
-import 'moment/locale/da';
 
 import { HttpRequestInterceptor } from './interceptors/request.interceptor';
 import { HttpMockRequestInterceptor } from './interceptors/mock.interceptor';
