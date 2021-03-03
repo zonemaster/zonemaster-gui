@@ -46,6 +46,6 @@
 	"Test #": "Testinumero ",
 	"There is no delegation for the zone": "Verkkotunnuksessa ei ole delegointia",
 	"What is an undelegated domain test?": "Mikä on delegoimaton verkkotunnustesti? ",
-	"Zonemaster Backend is not available": "Zonemaster Backend ei ole käytettävissä"
-  ,"Profile"                                : "Profiili"
+	"Zonemaster Backend is not available": "Zonemaster Backend ei ole käytettävissä",
+	"Profile": "Profiili"
 }
