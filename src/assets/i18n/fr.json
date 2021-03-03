@@ -46,6 +46,6 @@
 	"Test #": "Test N°",
 	"There is no delegation for the zone": "Aucune délégation trouvée pour cette zone",
 	"What is an undelegated domain test?": "C'est quoi un test sur un nom de domaine non délégué?",
-	"Zonemaster Backend is not available": "Zonemaster Backend n'est pas disponible"
-  ,"Profile"                                : "Profil"
+	"Zonemaster Backend is not available": "Zonemaster Backend n'est pas disponible",
+	"Profile": "Profil"
 }
