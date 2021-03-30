@@ -99,19 +99,19 @@
 }
 
 .active.info {
-  background-color: #007bff;
+  background-color: #66ad54;
 }
 .active.notice {
-  background-color: #fff638;
+  background-color: #007bff;
 }
 .active.warning {
   background-color: #ff9019;
 }
 .active.error {
-  background-color: #dc3545;
+  background-color: #ec3545;
 }
 .active.critical {
-  background-color: #dc3545;
+    background-color: #ec3545;
 }
 
 .export, .share, .settings {
