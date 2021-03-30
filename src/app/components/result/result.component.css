@@ -98,19 +98,19 @@
   width: 12%;
 }
 
-.active.info, .result.INFO {
+.active.info {
   background-color: #007bff;
 }
-.active.notice, .result.NOTICE {
+.active.notice {
   background-color: #fff638;
 }
-.active.warning, .result.WARNING {
+.active.warning {
   background-color: #ff9019;
 }
-.active.error, .result.ERROR {
+.active.error {
   background-color: #dc3545;
 }
-.active.critical, .result.CRITICAL {
+.active.critical {
   background-color: #dc3545;
 }
 
