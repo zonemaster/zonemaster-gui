@@ -85,6 +85,19 @@
   transition: all 300ms ease-in-out;
 }
 
+
+.thead-dark tr th:first-child {
+  width: 40px;
+}
+
+.thead-dark tr th:nth-child(2) {
+  width: 15%;
+}
+
+.thead-dark tr th:nth-child(3) {
+  width: 12%;
+}
+
 .active.info, .result.INFO {
   background-color: #007bff;
 }
