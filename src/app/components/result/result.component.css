@@ -98,21 +98,67 @@
   width: 12%;
 }
 
-.active.info {
+tr.collapse > th {
+    background-color: #fff;
+    border-top: 0 !important;
+}
+
+.result.INFO:not(.expand) th:first-of-type,
+.result.NOTICE:not(.expand) th:first-of-type,
+.result.WARNING:not(.expand) th:first-of-type,
+.result.ERROR:not(.expand) th:first-of-type,
+.result.CRITICAL:not(.expand) th:first-of-type,
+tbody tr:first-child th {
+    position: relative;
+}
+
+tbody[id^=collapsed_module] tr:first-child th::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.result.INFO:not(.expand) th::after,
+.result.NOTICE:not(.expand) th::after,
+.result.WARNING:not(.expand) th::after,
+.result.ERROR:not(.expand) th::after,
+.result.CRITICAL:not(.expand) th::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+
+.active.info,
+.result.INFO:not(.expand) th::after,
+tbody[id^=collapsed_module] tr.INFO th::before {
   background-color: #66ad54;
 }
-.active.notice {
+.active.notice,
+.result.NOTICE:not(.expand) th::after,
+tbody[id^=collapsed_module] tr.NOTICE th::before {
   background-color: #007bff;
 }
-.active.warning {
+.active.warning,
+.result.WARNING:not(.expand) th::after,
+tbody[id^=collapsed_module] tr.WARNING th::before {
   background-color: #ff9019;
 }
-.active.error {
+.active.error,
+.result.ERROR:not(.expand) th::after,
+tbody[id^=collapsed_module] tr.ERROR th::before {
   background-color: #ec3545;
 }
-.active.critical {
-    background-color: #ec3545;
+.active.critical,
+.result.CRITICAL:not(.expand) th::after,
+tbody[id^=collapsed_module] tr.CRITICAL th::before {
+  background-color: #ec3545;
 }
+
 
 .export, .share, .settings {
   margin-left: 5px;
