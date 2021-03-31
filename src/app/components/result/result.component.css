@@ -167,6 +167,24 @@ tbody[id^=collapsed_module] tr.CRITICAL th::before {
   background-color: #ec3545;
 }
 
+.result td:nth-child(3) {
+    font-weight: 700;
+}
+.result.INFO td:nth-child(3) {
+    color: #66ad54;
+}
+.result.NOTICE td:nth-child(3) {
+    color: #007bff;
+}
+.result.WARNING td:nth-child(3) {
+    color: #ff9019;
+}
+.result.ERROR td:nth-child(3) {
+    color: #ec3545;
+}
+.result.CRITICAL td:nth-child(3) {
+    color: #ec3545;
+}
 
 .export, .share, .settings {
   margin-left: 5px;
