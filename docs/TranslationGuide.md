@@ -67,12 +67,13 @@ translate the file using English as the model.
 It is important to preserve the structure of the file. There must be a
 table of contents linking to the question plus answer below. The anchor
 names must be "q1" etc and nothing else. There are links in the code
-that assume this model.
+that assume this model, where the `<a>` tag is just before the heading.
 
 ```
 1. [What is Zonemaster?](#q1)
 
-#### 1. What is Zonemaster? <a name="q1"></a>
+<a name="q1"></a>
+#### 1. What is Zonemaster?
 ```
 
 ## Add the language to HTML code
