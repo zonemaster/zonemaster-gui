@@ -108,7 +108,7 @@
     <table class="table table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col"></th>
         <th scope="col">{{ 'Module' | translate }}</th>
         <th scope="col">{{ 'Level' | translate }}</th>
         <th scope="col">{{ 'Message' | translate }}</th>
@@ -116,7 +116,7 @@
       </thead>
       <tbody *ngIf="!resutlCollapsed;else resutlCollapsedTemplate">
       <tr *ngFor="let item of result | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
-        <th scope="row">{{i}}</th>
+        <th scope="row"></th>
         <td>{{item.module|translate}}</td>
         <td>{{item.level}}</td>
         <td>{{item.message|translate}}</td>
@@ -178,7 +178,7 @@
     <td colspan="3">{{moduleKey}}</td>
   </tr>
   <tr [ngbCollapse]="isCollapsed[moduleKey]" *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
-    <th scope="row">{{i}}</th>
+    <th scope="row"></th>
     <td>{{item.module|translate}}</td>
     <td>{{item.level}}</td>
     <td>{{item.message|translate}}</td>
