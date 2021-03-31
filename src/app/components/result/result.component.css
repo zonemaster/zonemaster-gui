@@ -129,8 +129,16 @@ tbody[id^=collapsed_module] tr:first-child th::before {
     position: absolute;
     width: 7px;
     height: 100%;
-    right: 0;
+    left: 0;
     top: 0;
+}
+.result.collapse.INFO:not(.expand) th:first-of-type::after,
+.result.collapse.NOTICE:not(.expand) th:first-of-type::after,
+.result.collapse.WARNING:not(.expand) th:first-of-type::after,
+.result.collapse.ERROR:not(.expand) th:first-of-type::after,
+.result.collapse.CRITICAL:not(.expand) th:first-of-type::after {
+    right: 0;
+    left: auto;
 }
 
 .active.info,
