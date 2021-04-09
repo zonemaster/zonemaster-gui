@@ -33,6 +33,7 @@ import { MomentModule } from 'ngx-moment';
 import 'moment/locale/da';
 import 'moment/locale/fi';
 import 'moment/locale/fr';
+import 'moment/locale/nb';
 import 'moment/locale/sv';
 
 import { HttpRequestInterceptor } from './interceptors/request.interceptor';

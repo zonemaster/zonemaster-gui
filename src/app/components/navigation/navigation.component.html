@@ -27,6 +27,7 @@
           <a lang='en' (click)="setLanguage('en')">En</a> |
           <a lang='fi' (click)="setLanguage('fi')">Fi</a> |
           <a lang='fr' (click)="setLanguage('fr')">Fr</a> |
+          <a lang='nb' (click)="setLanguage('nb')">Nb</a> |
           <a lang='sv' (click)="setLanguage('sv')">Sv</a> &nbsp;
         </div>
         <div class="d-sm-none">
@@ -42,6 +43,9 @@
             </option>
             <option lang='fr' value='fr' [selected]="lang === 'fr'">
               Français
+            </option>
+            <option lang='nb' value='nb' [selected]="lang === 'nb'">
+              Norsk (bokmål)
             </option>
             <option lang='sv' value='sv' [selected]="lang === 'sv'">
               Svenska
