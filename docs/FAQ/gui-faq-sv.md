@@ -18,7 +18,8 @@ Zonemaster
 Zonemaster
 ----------
 
-#### 1. Vad är Zonemaster? <a name="q1"></a>
+<a name="q1"></a>
+#### 1. Vad är Zonemaster?
 
 Zonemaster är ett program som är framtaget för att hjälpa människor att kontrollera, mäta och förhoppningsvis också bättre förstå hur DNS, domain name system, fungerar. Zonemaster består av 3 huvuddelar: 
 1. "Engine" - en testmotor som genomför alla DNS-tester. 
@@ -28,13 +29,15 @@ Zonemaster är ett program som är framtaget för att hjälpa människor att kon
 
 När en domän (även kallad zon) skickas till Zonemaster så kommer programmet att undersöka domänens hälsotillstånd genom att gå igenom DNS från roten (.) till TLD:n (toppdomänen, till exempel .NET) och till slut de DNS-servrar som innehåller information om den specificerade domänen (till exempel zonemaster.net). Zonemaster utför även en hel del andra tester och alla dessa är dokumenterade här: [Test Requirements document](https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md)
 
-#### 2. Vem står bakom Zonemaster? <a name="q2"></a>
+<a name="q2"></a>
+#### 2. Vem står bakom Zonemaster?
 
 Zonemaster är ett samarbetsprojekt mellan [Internetstiftelsen](https://internetstiftelsen.se/)
 (registry för .se och .nu) och [AFNIC](https://www.afnic.fr/en/)
 (registry för .fr och andra TLD:er som .re, .pm, .tf, .wf, .yt samt .paris).
 
-#### 3. Hur kan Zonemaster hjälpa mig? <a name="q3"></a>
+<a name="q3"></a>
+#### 3. Hur kan Zonemaster hjälpa mig?
 
 Zonemaster är framtaget för två kategorier av användare:
 
@@ -45,11 +48,13 @@ Zonemaster är framtaget för två kategorier av användare:
 Användare av den andra kategorin bör vända sig till sin DNS-operatör
 så fort något inte lyser "grönt" vid en test.
 
-#### 4. Zonemaster visar "Fel"/"Varning" när jag testar min domän, vad betyder det? <a name="q4"></a>
+<a name="q4"></a>
+#### 4. Zonemaster visar "Fel"/"Varning" när jag testar min domän, vad betyder det?
 
 Det beror på vilket test det gäller.
 
-#### 5. Hur kan Zonemaster bedömma vad som är rätt och fel? <a name="q5"></a>
+<a name="q5"></a>
+#### 5. Hur kan Zonemaster bedömma vad som är rätt och fel?
 
 Ingen kan ge ett definitivt, slutgiltigt utlåtande om en domäns hälsa. Detta är 
 viktigt att poängtera. Vi som står bakom Zonemaster påstår inte 
@@ -67,15 +72,18 @@ vi felbedömt, tveka då inte att kontakta oss på zonemaster-devel@lists.iis.se
 länk till ditt test och en förklaring av varför du anser att resultatet inte är
 korrekt. 
 
-#### 6. Kan Zonemaster hantera IPv6? <a name="q6"></a>
+<a name="q6"></a>
+#### 6. Kan Zonemaster hantera IPv6?
 
 Ja. Alla tester som körs över IPv4 kommer även köras över IPv6 om Zonemaster är konfigurerad att göra det.
 
-#### 7. Kan Zonemaster hantera DNSSEC? <a name="q7"></a>
+<a name="q7"></a>
+#### 7. Kan Zonemaster hantera DNSSEC?
 
 Ja. Om en domän som testas av Zonemaster har DNSSEC konfigurerat så kommer det testas automatiskt.
 
-#### 8. Vad skiljer Zonemaster från annan mjukvara som testar domäner? <a name="q8"></a>
+<a name="q8"></a>
+#### 8. Vad skiljer Zonemaster från annan mjukvara som testar domäner?
 För det första så sparar Zonemaster all testhistoria. Det innebär att du kan gå tillbaka och titta på ett test du gjorde för en vecka sedan och jämföra det med ett test du nyss gjorde.
 
 Alla test som Zonemaster kör är definierade i testfallsspecifikationer som
@@ -87,11 +95,13 @@ Zonemaster kan också testa icke-publicerade/odelegerade domäner (mer om detta 
 Zonemaster är dessutom öppen källkod och är modulärt uppbyggd. Du kan med andra ord återanvända
 hela eller delar av koden i dina egna system om du vill.
 
-#### 9. Zonemaster och integritet <a name="q9"></a>
+<a name="q9"></a>
+#### 9. Zonemaster och integritet
 
 Eftersom Zonemaster är tillgänglig för alla är det också möjligt för vem som helst att kontrollera din domän och också se testhistoria för din domän. Det finns dock inget sätt att se vem som har gjort ett test eftersom det enda som loggas är tidpunken då testet gjordes.
 
-#### 10. Varför kan jag inte testa min domän? <a name="q10"></a>
+<a name="q10"></a>
+#### 10. Varför kan jag inte testa min domän?
 
 Om vi utgår från att domänen du försöker testa faktiskt existerar så finns det två saker som kan orsaka detta:
 
@@ -101,7 +111,8 @@ Om vi utgår från att domänen du försöker testa faktiskt existerar så finns
 inte värdnamn i en zon eller domän (som www.zonemaster.net) så kommer Zonemaster att rapportera det som
 ett misslyckande om man försöker att testa ett domännamn som inte motsvarar en DNS-zon.
 
-#### 11. Vilken typ av DNS-frågor genererar Zonemaster? <a name="q11"></a>
+<a name="q11"></a>
+#### 11. Vilken typ av DNS-frågor genererar Zonemaster?
 
 Det här är en svår fråga att svara på eftersom Zonemaster kommer att generera olika typer av anrop
 beroende på hur dina DNS-servrar svarar.
@@ -110,7 +121,8 @@ Det enklaste sättet att se exakt vad Zonemaster testar är att köra ”zonemas
 (och för att göra det så måste du ladda ner och installera det) och välja full utskrift.
 Programmets utskrift ger grundlig information om vad som händer under testet, men är också tekniskt utmanande.
 
-#### 12. Vad är ett odelegerat domäntest? <a name="q12"></a>
+<a name="q12"></a>
+#### 12. Vad är ett odelegerat domäntest?
 
 Ett odelegerat domäntest är ett test som genomförs på en domän som inte nödvändigtvis
 måste vara publicerad i DNS.
@@ -125,7 +137,8 @@ domän fungerar som den ska.
 Det kan emellertid fortfarande finnas fel i zoninformationen som detta test inte känner
 till.
 
-#### 13. Hur kan jag testa en domän som är en baklängesuppslagningsdomän? <a name="q13"></a>
+<a name="q13"></a>
+#### 13. Hur kan jag testa en domän som är en baklängesuppslagningsdomän?
 För att kunna kontrolla en reverszon så måste du veta vilken den är. Om du vill kontrollera
 en reverszon så matar du in det format som används i DNS, t.ex.:
 
