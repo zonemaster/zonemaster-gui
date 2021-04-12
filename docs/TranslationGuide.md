@@ -19,7 +19,9 @@ following languages with the attached language code:
 
 * `da` for Danish language
 * `en` for English language
+* `fi` for Finnish language
 * `fr` for French language
+* `nb` for Norwegian language
 * `sv` for Swedish language
 
 
@@ -116,7 +118,7 @@ The new language must be added to the following files:
 In `package.json` locate
 
 ```
-    "i18n:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{da,en,fr,sv}.json --key-as-default-value --clean --sort --format json"
+    "i18n:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{da,en,fi,fr,nb,sv}.json --key-as-default-value --clean --sort --format json"
 ```
 and add the two-letter language code of the new language. Preserve
 the alphabetical order of the language codes.
@@ -141,10 +143,17 @@ In `navigation.component.ts` locate
 
 ```
   private isValidLanguage(lang: string) {
-    const validLanguages = [ 'da', 'en', 'fr', 'sv' ];
+    const validLanguages = [ 'da', 'en', 'fi', 'fr', 'nb', 'sv' ];
 ```
 and add the two-letter language code of the new language. Preserve
 the alphabetical order of the language codes.
+
+## Add e2e test script for the language
+
+Create a new `FR05-xx.e2e-spec.ts` e2e test script in the [e2e] folder
+where `xx` is the language code of the new language. Copy
+[FR05-en.e2e-spec.ts] and modify to create a correct test file for
+the new language.
 
 
 ## Change default language
@@ -166,6 +175,8 @@ is updated.
 
 [ISO 639-1]:                                               https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 [docs/FAQ]:                                                FAQ
+[e2e]:                                                     ../e2e
+[FR05-en.e2e-spec.ts]:                                     ../e2e/FR05-en.e2e-spec.ts
 [package.json]:                                            ../package.json
 [src/app/app.module.ts]:                                   ../src/app/app.module.ts
 [src/app/components/navigation/navigation.component.html]: ../src/app/components/navigation/navigation.component.html
