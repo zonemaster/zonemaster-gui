@@ -62,10 +62,10 @@ Ja, hvis DNSSEC er konfigurert for et domene blir det automatiskt testet av Zone
 For det første lagrer Zonemaster all historikk fra tidligere tester basert på det testede domenet. Det betyr at du kan gå tilbake til en test du gjorde for en uke siden og sammenligne den med testen du kjørte for et øyeblikk siden.
 
 Alle tester som Zonemaster kjører er definert i test-spesifikasjoner som
-er koblet til [Kravdokument for test] (https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md)
+er koblet til [Kravdokument for test](https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md)
 
 Zonemaster kan brukes til å teste udelegerte domener. Mer om udelegert
-domener i [Spørsmål 12] (# q12).
+domener i [Spørsmål 12](#q12).
 
 Til slutt ble denne open source-versjonen av Zonemaster bygget ved hjelp av modulkode som i utgangspunktet betyr at du kan bruke deler av den i systemene dine hvis du ønsker det. Det er ganske sjelden at du har et komplett program bare for å sjekke for eksempel omlegeringer.
 
@@ -99,8 +99,6 @@ Et reversoppslag kan brukes til å finne ut hvilket domenenavn som er knyttet ti
 
 For en IPv4-adresse må du først finne nettverksadressen til systemet. Denne ender oftest med en 0 (null). Du sletter siste 0 (null), deretter endrer du rekkefølgen på sifrene du har mottatt og legger til suffikset in-addr.arpa. Du gjør det samme med en IPv6-adresse, men legger til suffikset ip6.arpa.
 
-Eksempel 1 - reversoppslag for et IPv4-nett:
-Nettadressen er 194.98.30.0 og gir reversoppslagssonen 30.98.194.in-addr.arpa.
+Eksempel 1 - reversoppslag for et IPv4-nett: Nettadressen er 194.98.30.0 og gir reversoppslagssonen 30.98.194.in-addr.arpa.
 
-Eksempel 2 -reversoppslag for et IPv6-nett:
-Nettadressen er 2001:660:3003::0 og gir reversoppslagssonen 3.0.0.3.0.6.6.0.1.0.0.2.ip6.arpa.
+Eksempel 2 - reversoppslag for et IPv6-nett: Nettadressen er 2001:660:3003::0 og gir reversoppslagssonen 3.0.0.3.0.6.6.0.1.0.0.2.ip6.arpa.
