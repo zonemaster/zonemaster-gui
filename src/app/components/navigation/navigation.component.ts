@@ -52,7 +52,7 @@ export class NavigationComponent implements OnInit {
   }
 
   private isValidLanguage(lang: string) {
-    const validLanguages = [ 'da', 'en', 'fi', 'fr', 'sv' ];
+    const validLanguages = [ 'da', 'en', 'fi', 'fr', 'nb', 'sv' ];
     return validLanguages.includes(lang);
   }
 }
