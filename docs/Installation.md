@@ -189,8 +189,10 @@ Use the procedure for installation on [Debian](#2-debian).
 Point your browser at `http://localhost/` (or the address of the server where
 you installed Zonemaster Web GUI).
 
-Verify that the Zonemaster Web GUI is shown with the " Version used " in its page footer.
-And when the mouse over this text, it display all version of the zonemaster stack (Backend, Engine and GUI).
+Verify that the Zonemaster Web GUI is shown with the text "Program versions" in
+its page footer.
+Verify that when you mouse over this text the versions of the following
+Zonemaster components are shown: Backend, Engine and GUI.
 
 
 
