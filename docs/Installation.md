@@ -35,7 +35,7 @@ This instruction covers the following operating systems:
 
 ```sh
 sudo yum update
-sudo yum install httpd
+sudo yum -y install httpd unzip
 ```
 
 
