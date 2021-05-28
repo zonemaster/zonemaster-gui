@@ -35,7 +35,7 @@ This instruction covers the following operating systems:
 
 ```sh
 sudo yum update
-sudo yum install httpd
+sudo yum -y install httpd unzip
 ```
 
 
@@ -186,11 +186,16 @@ Use the procedure for installation on [Debian](#2-debian).
 
 ## Post-installation sanity check
 
-Point your browser at `http://localhost/` (or the address of the server where
-you installed Zonemaster Web GUI).
+Make sure Zonemaster-GUI is properly installed.
 
-Verify that the Zonemaster Web GUI is shown with the " Version used " in its page footer.
-And when the mouse over this text, it display all version of the zonemaster stack (Backend, Engine and GUI).
+1. Point your browser at `http://localhost/` (or the address of the server where
+   you installed Zonemaster Web GUI).
+
+2. Verify that the Zonemaster Web GUI is shown with the text "Program versions" in
+   its page footer.
+
+3. Verify that when you mouse over this text the versions of the following
+   Zonemaster components are shown: Backend, Engine and GUI.
 
 
 
