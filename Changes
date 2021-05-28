@@ -1,5 +1,21 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
+v3.3.0 2021-05-28 (public release version)
+
+ [Features]
+ - Adds Norwegian translation and language support (#174, #185
+ - Adds Finnish translation and language support (#184)
+
+ [Fixes]
+ - Updates installation instructions (#202)
+ - Updates e2e tests (#195, #174)
+ - Cleans-up (#196)
+ - Fixes translation file (#186)
+ - Corrects GUI (#192, #149)
+ - Makes date consistent (#191, #189)
+ - Resolves logo issue in Chrome (#187, #181)
+
+
 v3.2.2 2021-02-10 (public release version)
 
  [Features]
