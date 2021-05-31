@@ -42,7 +42,7 @@ sudo yum -y install httpd unzip
 #### Install Zonemaster Web GUI
 
 ```sh
-curl -O https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.2/zonemaster_web_gui.zip
+curl -O https://github.com/zonemaster/zonemaster-gui/releases/download/v3.3.0/zonemaster_web_gui.zip
 sudo install -vd /var/www/html/zonemaster-web-gui
 sudo install -vd /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
@@ -100,7 +100,7 @@ sudo systemctl restart apache2
 #### Install Zonemaster Web GUI
 
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.2/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.3.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 sudo install -vd /var/log/zonemaster
 sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
@@ -157,7 +157,7 @@ listens to localhost (127.0.0.1/::1) then you have to set `ServerName` in
 #### Install Zonemaster Web GUI
 
 ```sh
-fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.2.2/zonemaster_web_gui.zip
+fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.3.0/zonemaster_web_gui.zip
 mkdir -p /var/www/html/zonemaster-web-gui
 mkdir -p /var/log/zonemaster
 unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip 
