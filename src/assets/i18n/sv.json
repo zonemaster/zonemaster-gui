@@ -46,6 +46,6 @@
 	"Test #": "Test nummer ",
 	"There is no delegation for the zone": "Det finns ingen delegering av zonen (domänen)",
 	"What is an undelegated domain test?": "Vad är ett odelegerat domäntest? ",
-	"Zonemaster Backend is not available": "Zonemaster Backend är inte åtkomlig"
-  ,"Profile"                                : "Profil"
+	"Zonemaster Backend is not available": "Zonemaster Backend är inte åtkomlig",
+	"Profile": "Profil"
 }
