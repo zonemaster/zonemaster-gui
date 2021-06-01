@@ -46,10 +46,12 @@ Thumbs.db
 
 *.zip
 
-gui-faq-*
-src/assets/faqs/gui-faq-*
+# Generated FAQ files
+src/assets/faqs/gui-faq-*.html
 
 *.log
 tests_output/
 .e2e-chrome-profile/
 
+# Emacs backup files
+*~
