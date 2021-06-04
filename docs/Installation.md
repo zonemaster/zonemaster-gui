@@ -38,7 +38,6 @@ sudo yum update
 sudo yum -y install httpd unzip
 ```
 
-
 #### Install Zonemaster Web GUI
 
 ```sh
@@ -48,7 +47,6 @@ sudo install -vd /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 rm -f zonemaster_web_gui.zip
 ```
-
 
 #### Configure Apache site
 
@@ -68,7 +66,6 @@ Or if you want provide your own settings for ServerName, ServerAlias and ServerA
 sudoedit /etc/httpd/conf.d/zonemaster.conf
 ```
 
-
 #### Start Apache and allow remote access
 
 ```sh
@@ -77,7 +74,6 @@ sudo systemctl start httpd
 sudo firewall-cmd --add-service http --permanent
 sudo firewall-cmd --reload
 ```
-
 
 ### 2. Debian
 
@@ -127,32 +123,65 @@ sudo systemctl reload apache2
 
 For all commands below become root:
 
-``su -l``
+```sh
+su -l
+```
+
+#### Update list of package repositories
+Create the file `/usr/local/etc/pkg/repos/FreeBSD.conf` with the following
+content, unless it is already updated:
+
+```
+FreeBSD: {
+url: "pkg+http://pkg.FreeBSD.org/${ABI}/latest",
+}
+```
+
+#### Check or activate the package system
+
+Run the following command, and accept the installation of the `pkg` package
+if suggested.
+
+```
+pkg info -E pkg
+```
+
+Update local package repository:
+
+```
+pkg update -f
+```
 
 #### Install Apache and its dependencies
 
 See [tutorial on Apache on FreeBSD].
 
-``pkg install apache24``
-
-Enter ``y`` at the confirmation prompt.
+```sh
+pkg install apache24
+```
 
 #### Enable Apache as a service
 
-``sysrc apache24_enable=yes``
+```sh
+sysrc apache24_enable=yes
+```
  
 #### Enable three apache modules in Apache configuration file
 
-``perl -pi -e 's/^#(LoadModule (proxy_module|proxy_http_module|rewrite_module) libexec)/$1/' /usr/local/etc/apache24/httpd.conf``
+```sh
+perl -pi -e 's/^#(LoadModule (proxy_module|proxy_http_module|rewrite_module) libexec)/$1/' /usr/local/etc/apache24/httpd.conf
+```
 
 #### Start Apache
  
-``service apache24 start``
+```sh
+service apache24 start
+```
 
 If you want Apache to listen to an external IP address and it says that it only
 listens to localhost (127.0.0.1/::1) then you have to set `ServerName` in
-`/usr/local/etc/apache24/httpd.conf`, e.g.
-``ServerName 192.0.2.246:80``
+`/usr/local/etc/apache24/httpd.conf`, e.g. `ServerName 192.0.2.246:80`, and
+restart Apache.
 
 #### Install Zonemaster Web GUI
 
@@ -171,7 +200,8 @@ install /var/www/html/zonemaster-web-gui/zonemaster.conf-example /usr/local/etc/
 ```
 Then update `/usr/local/etc/apache24/Includes/zonemaster.conf` with your own ServerAdmin.
 If Zonemaster-Backend RPCAPI runs on another server or on another port (not port 5000)
-then update IP address or port in the same file.
+then update the URL for the `ProxyPass` and `ProxyPassReverse` keys in the same
+file so that it points to correct IP address or server name and correct port.
 
 
 #### Restart Apache
