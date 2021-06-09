@@ -47,5 +47,6 @@
 	"There is no delegation for the zone": "Det er ingen delegering for sonen",
 	"What is an undelegated domain test?": "Hva er en udelegert domenesjekk?",
 	"Zonemaster Backend is not available": "Zonemaster Backend er ikke tilgjengelig",
-	"Profile": "Profil"
+	"Profile": "Profil",
+        "Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved": "Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved"
 }
