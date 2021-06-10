@@ -40,7 +40,7 @@ export class FormComponent implements OnInit, OnChanges {
   public ds_list;
   public history = {};
   public test = {};
-  public form = {ipv4: true, ipv6: true, profile: 'default', domain: ''};
+  public form = {profile: 'default', domain: ''};
   public checkboxForm: FormGroup;
   public disable_check_button = false;
 
@@ -64,12 +64,12 @@ export class FormComponent implements OnInit, OnChanges {
     group.push(new FormGroup({
       key: new FormControl('ipv4'),
       value: new FormControl('IPv4'),
-      checked: new FormControl(true)
+      checked: new FormControl(null)
     }));
     group.push(new FormGroup({
       key: new FormControl('ipv6'),
       value: new FormControl('IPv6'),
-      checked: new FormControl(true)
+      checked: new FormControl(null)
     }));
 
     const formControlArray = new FormArray(group);
@@ -150,7 +150,7 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   private mapItems(items) {
-    const selectedItems = items.filter((l) => l.checked).map((l) => l.key);
+    const selectedItems = items.filter((l) => l.checked !== false).map((l) => l.key);
     return selectedItems.length ? selectedItems : null;
   }
 
@@ -198,8 +198,10 @@ export class FormComponent implements OnInit, OnChanges {
     let atLeastOneChecked = false;
     const protocols = this.checkboxForm.value.items;
     for (const el of protocols) {
-      this.form[el.key] = el.checked;
-      atLeastOneChecked += el.checked;
+      if (el.checked !== null) {
+        this.form[el.key] = el.checked;
+      }
+      atLeastOneChecked = atLeastOneChecked || (el.checked !== false);
     }
 
     if (this.form['domain'] === '') {

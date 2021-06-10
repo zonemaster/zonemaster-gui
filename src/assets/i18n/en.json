@@ -47,5 +47,8 @@
 	"There is no delegation for the zone": "There is no delegation for the zone",
 	"What is an undelegated domain test?": "What is an undelegated domain test?",
 	"Zonemaster Backend is not available": "Zonemaster Backend is not available",
-	"Profile": "Profile"
+	"Profile": "Profile",
+	"Default": "Default",
+	"Yes": "Yes",
+	"No": "No"
 }
