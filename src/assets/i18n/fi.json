@@ -1,4 +1,4 @@
-﻿{
+{
 	"ABOUT_DNS_TEXT": "Useimmat internetin käyttäjät eivät ole koskaan edes tulleet ajatelleeksi, mitä oikeastaan tapahtuu, kun selaimeen kirjoittaa osoitteen ja painaa enteriä. Hieman yksinkertaistaen voidaan sanoa, että nimipalvelujärjestelmä (DNS) on tietokanta, joka yhdistää verkkotunnukset IP-osoitteisiin samaan tapaan kuin puhelinluettelo yhdistää nimet puhelinnumeroihin. IP-osoite on ainutlaatuinen numerosarja, joka identifioi jokaisen internetiin yhdistetyn tietokoneen, aivan kuten jokaisella puhelimella on puhelinverkossa oma puhelinnumero. Tietokoneilla pitkät numerosarjat toimivat hyvin, mutta meidän ihmisten on vaikea muistaa niitä. Siksi on kehitetty erillinen nimipalvelujärjestelmä, joka tekee meille helpommaksi löytää tietyn verkkosivun palvelin tai lähettää sähköpostiviesti tietylle sähköpostipalvelimelle.",
 	"About Zonemaster": "Tietoja Zonemasterista",
 	"ABOUT_ZONEMASTER_TEXT": "Tee verkkotunnuksellesi perusteellinen kuntokartoitus! Zonemasterin avulla voit selvittää verkkosivusi kunnon. Kaupan päälle saat lisää tietoa nimipalvelujärjestelmän toiminnasta.\nKun verkkotunnus lähetetään Zonemasteriin, ohjelma tutkii sen kunnon alusta loppuun. Tämä tapahtuu siten, että Zonemaster käy nimipalvelujärjestelmän läpi juuresta (.) ylätason verkkotunnukseen (esimerkiksi .se) ja lopuksi DNS-palvelimiin, joissa on toisen asteen verkkotunnusta (esimerkiksi iis.se) koskeva informaatio.\nSamalla Zonemaster suorittaa muita testejä, esimerkiksi tarkistaa DNSSEC-allekirjoitukset ja sen, että eri isäntäkoneet ovat saavutettavissa ja että IP-osoitteet ovat oikein. Näin selvitämme, että verkkotunnuksesi on mahdollisimman hyvässä kunnossa.",
@@ -47,5 +47,6 @@
 	"There is no delegation for the zone": "Verkkotunnuksessa ei ole delegointia",
 	"What is an undelegated domain test?": "Mikä on delegoimaton verkkotunnustesti? ",
 	"Zonemaster Backend is not available": "Zonemaster Backend ei ole käytettävissä",
-	"Profile": "Profiili"
+	"Profile": "Profiili",
+	"Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved": "© AFNIC ja The Swedish Internet Foundation. Kaikki oikeudet pidätetään"
 }

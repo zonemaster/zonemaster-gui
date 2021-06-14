@@ -47,5 +47,6 @@
 	"There is no delegation for the zone": "Aucune délégation trouvée pour cette zone",
 	"What is an undelegated domain test?": "C'est quoi un test sur un nom de domaine non délégué?",
 	"Zonemaster Backend is not available": "Zonemaster Backend n'est pas disponible",
-	"Profile": "Profil"
+	"Profile": "Profil",
+	"Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved": "© AFNIC et The Swedish Internet Foundation. Tous droits réservés"
 }
