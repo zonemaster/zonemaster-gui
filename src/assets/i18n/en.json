@@ -48,7 +48,6 @@
 	"What is an undelegated domain test?": "What is an undelegated domain test?",
 	"Zonemaster Backend is not available": "Zonemaster Backend is not available",
 	"Profile": "Profile",
-	"Default": "Default",
-	"Yes": "Yes",
-	"No": "No"
+	"Disable IPv6": "Disable IPv6",
+	"Disable IPv4": "Disable IPv4"
 }

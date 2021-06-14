@@ -69,31 +69,16 @@
 
       <div *ngIf="is_advanced_options_enabled">
              <span [formGroup]="checkboxForm" class=" half-with">
-              <span class="options d-flex" [formArrayName]="'items'" [class.invalid]="!checkboxForm['controls'].selectedItems.valid" class="row">
-                <fieldset *ngFor="let protocol of checkboxForm['controls'].items['controls']; let i = index;"
+              <span class="options d-flex" [formArrayName]="'items'" [class.invalid]="!checkboxForm['controls'].selectedItems.valid">
+                <div *ngFor="let protocol of checkboxForm['controls'].items['controls']; let i = index;"
                      [formGroup]="protocol"
                      [ngClass]="{'has-error': !checkboxForm['controls'].selectedItems.valid}"
-                     class="form-group col-sm-6" >
-                    <legend class="col-form-label">{{ protocol.controls.value.value }}</legend>
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" [value]="null" class="custom-control-input" formControlName="checked" id="protocol_{{ protocol.controls.key.value }}_default">
-                      <label class="custom-control-label" attr.for="protocol_{{ protocol.controls.key.value }}_default">
-                        {{'Default'|translate}}
-                      </label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" [value]="true" class="custom-control-input" formControlName="checked" id="protocol_{{ protocol.controls.key.value }}_yes">
-                      <label class="custom-control-label" attr.for="protocol_{{ protocol.controls.key.value }}_yes">
-                        {{'Yes'|translate}}
-                      </label>
-                    </div>
-                    <div class="custom-control custom-radio custom-control-inline">
-                      <input type="radio" [value]="false" class="custom-control-input" formControlName="checked" id="protocol_{{ protocol.controls.key.value }}_no">
-                      <label class="custom-control-label" attr.for="protocol_{{ protocol.controls.key.value }}_no">
-                        {{'No'|translate}}
-                      </label>
-                    </div>
-                </fieldset>
+                     class="custom-control custom-checkbox custom-control-inline" >
+                  <input type="checkbox" class="custom-control-input" formControlName="checked" id="disable_protocol_{{ protocol.controls.key.value }}_default">
+                  <label class="custom-control-label" attr.for="disable_protocol_{{ protocol.controls.key.value }}_default">
+                    {{'Disable ' + protocol.controls.value.value |translate}}
+                  </label>
+                </div>
               </span>
             </span>
           <div class="alert alert-danger" role="alert" [class.invalid]="!checkboxForm.controls.selectedItems.valid" *ngIf="!checkboxForm.controls.selectedItems.valid">
