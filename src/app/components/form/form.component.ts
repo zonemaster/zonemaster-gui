@@ -196,12 +196,12 @@ export class FormComponent implements OnInit, OnChanges {
     }
 
     let atLeastOneChecked = false;
-    const protocols = this.checkboxForm.value.items;
-    for (const el of protocols) {
+    const disabledProtocols = this.checkboxForm.value.items;
+    for (const el of disabledProtocols) {
       if (el.checked) {
         this.form[el.key] = false;
       }
-      atLeastOneChecked = atLeastOneChecked || (el.checked !== false);
+      atLeastOneChecked = atLeastOneChecked || (!el.checked);
     }
 
     if (this.form['domain'] === '') {
@@ -213,6 +213,7 @@ export class FormComponent implements OnInit, OnChanges {
       this.translateService.get('Choose at least one protocol').subscribe((res: string) => {
         this.alertService.error(res);
       });
+      return false;
     }
 
     this.onDomainCheck.emit(this.form);

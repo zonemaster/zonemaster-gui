@@ -47,5 +47,7 @@
 	"There is no delegation for the zone": "Det finns ingen delegering av zonen (domänen)",
 	"What is an undelegated domain test?": "Vad är ett odelegerat domäntest? ",
 	"Zonemaster Backend is not available": "Zonemaster Backend är inte åtkomlig",
-	"Profile": "Profil"
+	"Profile": "Profil",
+	"Disable IPv6": "Inaktivera IPv6",
+	"Disable IPv4": "Inaktivera IPv4"
 }
