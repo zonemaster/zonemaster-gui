@@ -9,9 +9,9 @@ sudo: false
 addons:
   chrome: stable
 
-
 install:
   - npm install
+  - node ./node_modules/.bin/webdriver-manager update --versions.chrome=90.0.4430.24
 
 script:
-  - xvfb-run npm run e2e
+  - xvfb-run npm run ng e2e -- --webdriver-update=false
