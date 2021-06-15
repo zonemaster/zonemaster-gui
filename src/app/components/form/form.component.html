@@ -74,8 +74,8 @@
                      [formGroup]="protocol"
                      [ngClass]="{'has-error': !checkboxForm['controls'].selectedItems.valid}"
                      class="custom-control custom-checkbox custom-control-inline" >
-                  <input type="checkbox" class="custom-control-input" formControlName="checked" id="disable_protocol_{{ protocol.controls.key.value }}_default">
-                  <label class="custom-control-label" attr.for="disable_protocol_{{ protocol.controls.key.value }}_default">
+                  <input type="checkbox" class="custom-control-input" formControlName="checked" id="disable_protocol_{{ protocol.controls.key.value }}">
+                  <label class="custom-control-label" attr.for="disable_protocol_{{ protocol.controls.key.value }}">
                     {{'Disable ' + protocol.controls.value.value |translate}}
                   </label>
                 </div>
