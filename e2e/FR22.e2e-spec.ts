@@ -23,6 +23,6 @@ describe('Zonemaster test FR22 - [Provide the possibility to see more informatio
     await expect(element(by.css('#collapsed_module_1')).getText()).toEqual('BASIC');
     await expect(element.all(by.css('#collapsed_module_1 > tr.show')).count()).toBe(0);
     await element(by.css('#collapsed_module_1 > tr:nth-child(1)')).click();
-    await expect(element.all(by.css('#collapsed_module_1 > tr.show')).count()).toEqual(8);
+    await expect(element.all(by.css('#collapsed_module_1 > tr.show')).count()).toEqual(14);
   });
 });
