@@ -30,8 +30,8 @@ export class FormComponent implements OnInit, OnChanges {
   };
   private digestFormConfig = {
     keytag: [''],
-    algorithm: [''],
-    digtype: [''],
+    algorithm: [-1],
+    digtype: [-1],
     digest: ['']
   };
   public NSForm: FormGroup;
