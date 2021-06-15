@@ -8,7 +8,7 @@ const urls = [
     body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
         'ipv4': true, 'ipv6': true, 'profile': 'default', 'domain': 'afNiC.Fr',
-        'ds_info': [], 'nameservers': [], 'client_version': '3.1.0', 'client_id': 'Zonemaster GUI'
+        'ds_info': [], 'nameservers': [], 'client_version': '3.3.0', 'client_id': 'Zonemaster GUI'
       }
     },
     method: 'POST',
