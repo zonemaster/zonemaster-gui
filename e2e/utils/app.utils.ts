@@ -10,11 +10,11 @@ export class Utils {
   }
 
   setLang(lang) {
-    element(by.xpath('//a[@lang="' + lang + '"]')).click();
+    return element(by.xpath('//a[@lang="' + lang + '"]')).click();
   }
 
   activeOptions() {
-    element(by.css('.switch')).click();
+    return element(by.css('.switch')).click();
   }
 
   getPageTitle() {

@@ -16,12 +16,12 @@ describe('Zonemaster test FR16 - [The advanced view should have a text describin
     expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('fragment')).toBe('q12');
   });
 
-  it('should have a description text in multi languages', () => {
-    utils.setLang('en');
+  it('should have a description text in multi languages', async () => {
+    await utils.setLang('en');
     expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('undelegated');
-    utils.setLang('fr');
+    await utils.setLang('fr');
     expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('non délégué');
-    utils.setLang('sv');
+    await utils.setLang('sv');
     expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('odelegerat domäntest');
   });
 });
