@@ -48,7 +48,9 @@ export class NavigationComponent implements OnInit {
   }
 
   public setLanguage(lang: string) {
-    this.translateService.use(lang);
+    this.translateService.use(lang).subscribe(() => {
+      this.lang = lang;
+    });
   }
 
   private isValidLanguage(lang: string) {

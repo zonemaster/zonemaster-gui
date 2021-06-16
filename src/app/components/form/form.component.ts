@@ -30,8 +30,8 @@ export class FormComponent implements OnInit, OnChanges {
   };
   private digestFormConfig = {
     keytag: [''],
-    algorithm: [''],
-    digtype: [''],
+    algorithm: [-1],
+    digtype: [-1],
     digest: ['']
   };
   public NSForm: FormGroup;
@@ -174,7 +174,12 @@ export class FormComponent implements OnInit, OnChanges {
     this.form['nameservers'] = [];
 
     if (this.NSForm.value.itemRows.length > 0 && this.NSForm.value.itemRows[0].ns !== '') {
-      this.form['nameservers'] = this.NSForm.value.itemRows;
+      this.form['nameservers'] = this.NSForm.value.itemRows.map(x => {
+        if (!x["ip"]) {
+          delete x["ip"];
+        }
+        return x;
+      });
     }
 
     if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].keytag !== '' ) {

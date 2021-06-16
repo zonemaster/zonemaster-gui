@@ -4,10 +4,10 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR16 - [The advanced view should have a text describing what undelegated means?]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
-    utils.activeOptions();
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
+    await utils.activeOptions();
   });
 
   it('should have a link to the proper faq answer', () => {
@@ -16,12 +16,14 @@ describe('Zonemaster test FR16 - [The advanced view should have a text describin
     expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('fragment')).toBe('q12');
   });
 
-  it('should have a description text in multi languages', () => {
-    utils.setLang('en');
+  it('should have a description text in multi languages', async () => {
+    await utils.setLang('en');
     expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('undelegated');
-    utils.setLang('fr');
+
+    await utils.setLang('fr');
     expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('non délégué');
-    utils.setLang('sv');
+
+    await utils.setLang('sv');
     expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('odelegerat domäntest');
   });
 });

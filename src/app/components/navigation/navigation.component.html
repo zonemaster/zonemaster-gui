@@ -23,12 +23,12 @@
 
       <div class="lang">
         <div class="d-none d-sm-block">
-          <a lang='da' (click)="setLanguage('da')">Da</a> |
-          <a lang='en' (click)="setLanguage('en')">En</a> |
-          <a lang='fi' (click)="setLanguage('fi')">Fi</a> |
-          <a lang='fr' (click)="setLanguage('fr')">Fr</a> |
-          <a lang='nb' (click)="setLanguage('nb')">Nb</a> |
-          <a lang='sv' (click)="setLanguage('sv')">Sv</a> &nbsp;
+          <a lang='da' (click)="setLanguage('da')" title="Dansk" [class.selected]="lang==='da'">Da</a> |
+          <a lang='en' (click)="setLanguage('en')" title="English" [class.selected]="lang==='en'">En</a> |
+          <a lang='fi' (click)="setLanguage('fi')" title="Suomi" [class.selected]="lang==='fi'">Fi</a> |
+          <a lang='fr' (click)="setLanguage('fr')" title="Français" [class.selected]="lang==='fr'">Fr</a> |
+          <a lang='nb' (click)="setLanguage('nb')" title="Norsk (bokmål)" [class.selected]="lang==='nb'">Nb</a> |
+          <a lang='sv' (click)="setLanguage('sv')" title="Svenska" [class.selected]="lang==='sv'">Sv</a> &nbsp;
         </div>
         <div class="d-sm-none">
           <select name="lang" [(ngModel)]="lang" (change)="setLanguage(lang)" class="form-control" id="languageSelection">
@@ -59,4 +59,3 @@
 <button (click)="backToTop()" class="btn btn-primary btn-lg" [ngClass]="{'d-none': !activeBackToTop, 'back-to-top': activeBackToTop}" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
   <i class="fa fa-arrow-up" aria-hidden="true"></i>
 </button>
-
