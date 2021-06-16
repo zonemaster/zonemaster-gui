@@ -6,16 +6,19 @@ describe('Zonemaster test FR05-fr - [Supports French language]', () => {
 
   const utils = new Utils();
 
-  beforeAll(() => {
-    utils.goToHome();
+  beforeAll(async () => {
+    await utils.goToHome();
   });
 
   it('should have French language button', () => {
     expect(element(by.xpath('//a[@lang="fr"]')).isPresent()).toBe(true);
   });
 
-  it('should switch to French', () => {
-    utils.setLang('fr');
+  it('should switch to French', async () => {
+    await utils.setLang('fr');
     expect(element(by.xpath('//h1[.="Nom de domaine"]')).isPresent()).toBe(true);
+    const selectedLang = element.all(by.css('nav div.lang a.selected'));
+    expect(selectedLang.count()).toBe(1);
+    expect(selectedLang.first().getAttribute('lang')).toBe('fr');
   });
 });

@@ -4,6 +4,12 @@
 
 .lang > div > a {
   cursor: pointer;
+  color: inherit;
+}
+
+.lang > div > a.selected {
+  font-weight: bold;
+  text-decoration: underline solid 1px;
 }
 
 nav {
