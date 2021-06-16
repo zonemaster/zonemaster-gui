@@ -11,7 +11,7 @@ export class Utils {
 
   setLang(lang) {
     return element(by.xpath('//a[@lang="' + lang + '"]')).click()
-      .then(() => browser.wait(ExpectedConditions.presenceOf($(`.lang > div > a.selected[lang="${lang}"]`)), 10000))
+      .then(() => browser.wait(ExpectedConditions.presenceOf($(`.lang > div > a.selected[lang="${lang}"]`)), 10000));
   }
 
   activeOptions() {
