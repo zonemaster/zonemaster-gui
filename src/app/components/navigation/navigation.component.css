@@ -4,6 +4,7 @@
 
 .lang > div > a {
   cursor: pointer;
+  color: inherit;
 }
 
 .lang > div > a.selected {
