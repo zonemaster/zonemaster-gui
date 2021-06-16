@@ -40,7 +40,8 @@ export class FormComponent implements OnInit, OnChanges {
   public ds_list;
   public history = {};
   public test = {};
-  public form = {profile: 'default', domain: ''};
+  public form = {};
+  public default_form = {profile: 'default', domain: ''};
   public checkboxForm: FormGroup;
   public disable_check_button = false;
 
@@ -58,8 +59,8 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   public generate_form() {
-
     const group = [];
+    this.form = { ...this.default_form };
 
     group.push(new FormGroup({
       key: new FormControl('ipv4'),
