@@ -9,7 +9,7 @@ const urls = [
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
-        'profile': 'default', 'domain': 'afNiC.Fr',
+        'ipv4': true, 'ipv6': true, 'profile': 'default', 'domain': 'afNiC.Fr',
         'ds_info': [], 'nameservers': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
       }
     },
