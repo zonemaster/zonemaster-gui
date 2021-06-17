@@ -18,6 +18,10 @@
                 {{ 'Domain name required' | translate }}
               </div>
 
+              <div class="invalid-feedback" *ngIf="domain.errors?.serverError" >
+                {{ domain.errors.serverError }}
+              </div>
+
               <p class="reset-form d-none d-sm-block" *ngIf="domain.value.length > 0 && !showProgressBar" >
                 <button
                   (click)="resetDomainForm();"
@@ -121,7 +125,7 @@
 
           <h4 class="d-inline">{{'DS_RECORDS'|translate}}</h4>
           <div formArrayName="ds_info" class="form-inline digests">
-            <div class="nsForm" *ngFor="let itemrow of newForm.controls.ds_info.controls; let i=index" [formGroupName]="i">
+            <div class="nsForm" *ngFor="let ds_info of newForm.controls.ds_info.controls; let i=index" [formGroupName]="i">
               <input formControlName="keytag" class="form-control" name="form.keytag" placeholder="{{'Key Tag' | translate}}">
               <select formControlName="algorithm" class="form-control" name="form.algorithm">
                 <option [value]="-1" selected disabled hidden>{{'Algorithm' | translate}}</option>
@@ -145,7 +149,10 @@
                 <option [value]="3">3 - GOST R 34.11-94</option>
                 <option [value]="4">4 - SHA-384</option>
               </select>
-              <input formControlName="digest" class="form-control" name="digest" placeholder="{{'Digest' | translate}}">
+              <input formControlName="digest" class="form-control" name="digest" placeholder="{{'Digest' | translate}}" [class.is-invalid]="ds_info.controls.digest.invalid">
+              <div class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.serverError" >
+                {{ ds_info.controls.digest.errors.serverError }}
+              </div>
               <button
                       (click)="deleteRow('ds_info',i)"
                       class="btn btn-danger delete">

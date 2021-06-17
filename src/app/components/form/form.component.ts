@@ -58,14 +58,15 @@ export class FormComponent implements OnInit, OnChanges {
     }
   }
 
-  public generate_form() {
-    const atLeastOneProtocolValidator: ValidatorFn = (control: AbstractControl) => {
-      const ipv4_enabled = control.get('ipv4');
-      const ipv6_enabled = control.get('ipv6');
-      return (ipv4_enabled && ipv4_enabled.value === true) || (ipv6_enabled && ipv6_enabled.value === true) ? null : {
-        noProtocol: true
-      };
+  private static atLeastOneProtocolValidator(control: AbstractControl) {
+    const ipv4_enabled = control.get('ipv4');
+    const ipv6_enabled = control.get('ipv6');
+    return (ipv4_enabled && ipv4_enabled.value === true) || (ipv6_enabled && ipv6_enabled.value === true) ? null : {
+      noProtocol: true
     };
+  };
+
+  public generate_form() {
     this.newForm = new FormGroup({
       domain: new FormControl('', Validators.required),
       ipv4: new FormControl(true),
@@ -78,7 +79,7 @@ export class FormComponent implements OnInit, OnChanges {
         this.formBuilder.group(this.formConfig['ds_info'])
       ]),
     }, {
-      validators: atLeastOneProtocolValidator
+      validators: FormComponent.atLeastOneProtocolValidator
     });
   }
 
@@ -101,8 +102,22 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   @Input()
-  set formError(error: Object) {
-    console.log('FORM ERROR', error);
+  set formError(errors: Array<any>) {
+    console.log('FORM ERROR', errors);
+    if (!errors) {
+      return;
+    }
+    for (let error of errors) {
+      let path = error.path.split('/');
+      path.shift(); // First element is ""
+      console.log(path);
+      let currentForm: AbstractControl = this.newForm;
+      for (let segment of path) {
+        console.log(segment);
+        currentForm = currentForm.get(segment);
+      }
+      currentForm.setErrors({'serverError': error.message})
+    }
   }
 
   public resetDomainForm() {
