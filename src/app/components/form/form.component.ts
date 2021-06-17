@@ -40,8 +40,8 @@ export class FormComponent implements OnInit, OnChanges {
   public ds_list;
   public history = {};
   public test = {};
-  public form = {};
   public default_form = {profile: 'default', domain: ''};
+  public form = {...this.default_form};
   public checkboxForm: FormGroup;
   public disable_check_button = false;
 
