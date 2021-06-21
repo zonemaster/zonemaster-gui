@@ -20,7 +20,7 @@ import { throwError } from 'rxjs';
 export class FormComponent implements OnInit, OnChanges {
   @Input() is_advanced_options_enabled;
   @Input() domain_check_progression;
-  @Input() showProgressBar;
+  //@Input() showProgressBar;
   @Input() toggleFinished;
   @Input() profiles;
 
@@ -40,6 +40,8 @@ export class FormComponent implements OnInit, OnChanges {
       digest: ['']
     }
   }
+
+  private _showProgressBar: boolean;
 
   public history = {};
   public test = {};
@@ -121,6 +123,17 @@ export class FormComponent implements OnInit, OnChanges {
     }
   }
 
+  @Input()
+  set showProgressBar(show: boolean) {
+    this._showProgressBar = show;
+    if (!this.newForm) return;
+    this.disableForm(show);
+  }
+
+  get showProgressBar() {
+    return this._showProgressBar;
+  }
+
   public resetDomainForm() {
     this.newForm.controls.domain.reset('');
   }
@@ -175,6 +188,15 @@ export class FormComponent implements OnInit, OnChanges {
 
     this.disable_check_button = true;
     this.onfetchFromParent.emit(this.newForm.value.domain);
+  }
+
+  private disableForm(disable = true) {
+    this.disable_check_button = disable;
+    if (disable) {
+      this.domain.disable();
+    } else {
+      this.domain.enable();
+    }
   }
 
   public runDomainCheck() {

@@ -3,33 +3,31 @@
     <div class="row mb-1">
       <div class="col-sm-10 offset-sm-1 text-center">
         <h1>{{'Domain name'|translate}}</h1>
-        <div class="info-form">
-          <div class="input-group mb-2">
-            <span class="form-ckeck-group input-group">
-              <input type="text"
-                   class="form-control form-control-lg"
-                   [class.is-invalid]="domain.invalid && (domain.dirty || domain.touched)"
-                   id="domain_check_name"
-                   name="domain_check_name"
-                   formControlName="domain"
-                   placeholder="{{'Domain name'|translate}}"
-                   required>
-              <div class="invalid-feedback" *ngIf="domain.errors?.required" >
-                {{ 'Domain name required' | translate }}
-              </div>
+        <div class="form-row mb-2">
+          <div class="col-auto col-lg-10 flex-grow-1">
+            <input type="text"
+                class="form-control form-control-lg"
+                [class.is-invalid]="domain.invalid && (domain.dirty || domain.touched)"
+                id="domain_check_name"
+                name="domain_check_name"
+                formControlName="domain"
+                placeholder="{{'Domain name'|translate}}"
+                required>
+            <div class="invalid-feedback" *ngIf="domain.errors?.required" >
+              {{ 'Domain name required' | translate }}
+            </div>
 
-              <div class="invalid-feedback" *ngIf="domain.errors?.serverError" >
-                {{ domain.errors.serverError }}
-              </div>
+            <div class="invalid-feedback" *ngIf="domain.errors?.serverError" >
+              {{ domain.errors.serverError }}
+            </div>
 
-              <p class="reset-form d-none d-sm-block" *ngIf="domain.value.length > 0 && !showProgressBar" >
-                <button
-                  (click)="resetDomainForm();"
-                  type="button"
-                  class="btn grey"><i class="fa fa-2x fa-times-circle"></i></button>
-              </p>
+            <p class="reset-form d-none d-sm-block" *ngIf="domain.value.length > 0 && !showProgressBar" >
+              <button
+                (click)="resetDomainForm();"
+                type="button"
+                class="btn grey"><i class="fa fa-2x fa-times-circle"></i></button>
+            </p>
 
-            </span>
             <p class="progress-result d-none d-sm-block" *ngIf="showProgressBar">
               <ngb-progressbar
                 type="info"
@@ -40,32 +38,34 @@
                 <span class="progress-value">{{domain_check_progression}}%</span>
               </ngb-progressbar>
             </p>
-              <button title="{{'Run test'|translate}}"
-                      class="launch ml-2 btn btn-lg text-white"
-                      type="submit"
-                      [disabled]="showProgressBar || disable_check_button">
-                Check
-              </button>
           </div>
-
-          <p class="progress-result d-sm-none" *ngIf="showProgressBar">
-            <!-- Progress Bar for extra small devices -->
-            <ngb-progressbar
-              type="info"
-              [value]="domain_check_progression"
-              [striped]="true"
-              [animated]="true"
-            >
-              <span class="progress-value">{{domain_check_progression}}%</span>
-            </ngb-progressbar>
-          </p>
+          <div class="col-auto text-lef">
+            <button title="{{'Run test'|translate}}"
+                    class="launch btn btn-lg text-white"
+                    type="submit"
+                    [disabled]="disable_check_button">
+              Check
+            </button>
+          </div>
         </div>
+
+        <p class="progress-result d-sm-none" *ngIf="showProgressBar">
+          <!-- Progress Bar for extra small devices -->
+          <ngb-progressbar
+            type="info"
+            [value]="domain_check_progression"
+            [striped]="true"
+            [animated]="true"
+          >
+            <span class="progress-value">{{domain_check_progression}}%</span>
+          </ngb-progressbar>
+        </p>
       </div>
     </div>
     <div class="row">
       <div class="advanced col-sm-10 offset-sm-1">
         <label class="d-flex" for="advanced_checkbox">
-        <span class="switch">
+          <span class="switch">
             <input type="checkbox" name="advanced_checkbox" id="advanced_checkbox" (change)="toggleOptions()" [ngModel]="is_advanced_options_enabled" [ngModelOptions]="{standalone: true}">
             <span class="slider round"></span>
           </span>
@@ -73,7 +73,7 @@
         </label>
 
         <div *ngIf="is_advanced_options_enabled">
-          <span class="options d-flex is-invalid">
+          <span class="options d-flex is-invalid" [class.is-invalid]="newForm.errors?.noProtocol">
             <div class="custom-control custom-checkbox custom-control-inline">
               <input type="checkbox" class="custom-control-input" formControlName="ipv4" id="protocol_ipv4" [class.is-invalid]="newForm.errors?.noProtocol || newForm.controls.ipv4.invalid">
               <label class="custom-control-label" for="protocol_ipv4">
@@ -94,13 +94,16 @@
 
           <hr>
 
-          <h4>{{'Profile'|translate}}</h4>
-          <select class="form-control half-with" formControlName="profile" [class.is-invalid]="newForm.controls.profile.invalid">
-            <option *ngFor="let profile of profiles" [value]="profile">{{profile}}</option>
-            <option value="profile">Test</option>
-          </select>
-          <div class="invalid-feedback" *ngIf="newForm.controls.profile.errors?.serverError" >
-            {{ newForm.controls.profile.errors.serverError }}
+          <h4><label for="profile">{{'Profile'|translate}}</label></h4>
+          <div class="form-row">
+            <div class="col-md-10">
+              <select class="form-control" formControlName="profile" id="profile" [class.is-invalid]="newForm.controls.profile.invalid">
+                <option *ngFor="let profile of profiles" [value]="profile">{{profile}}</option>
+              </select>
+              <div class="invalid-feedback" *ngIf="newForm.controls.profile.errors?.serverError" >
+                {{ newForm.controls.profile.errors.serverError }}
+              </div>
+            </div>
           </div>
 
           <hr>
@@ -109,14 +112,14 @@
 
           <ng-container formArrayName="nameservers">
             <div class="mb-2 form-row" *ngFor="let ns of newForm.controls.nameservers.controls; let i=index" [formGroupName]="i">
-              <div class="col-auto">
+              <div class="col-5">
                 <input formControlName="ns" class="form-control" placeholder="NS" [class.is-invalid]="ns.controls.ns.invalid">
                 <div class="invalid-feedback" *ngIf="ns.controls.ns.errors?.serverError" >
                   {{ ns.controls.ns.errors.serverError }}
                 </div>
               </div>
 
-              <div class="col-auto">
+              <div class="col-5">
                 <input formControlName="ip" class="form-control" placeholder="IP" [class.is-invalid]="ns.controls.ip.invalid">
                 <div class="invalid-feedback" *ngIf="ns.controls.ip.errors?.serverError" >
                   {{ ns.controls.ip.errors.serverError }}
@@ -215,8 +218,8 @@
 
           <br>
 
-          <button class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
-          <button class="btn btn-danger resetFullForm" (click)="resetFullForm()">{{'Reset'|translate}}</button>
+          <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
+          <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()">{{'Reset'|translate}}</button>
 
         </div>
       </div>
