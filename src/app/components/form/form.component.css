@@ -127,9 +127,6 @@ button.launch:hover {
   right: 10px;
 }
 
-.progress-result {
-}
-
 @media(min-width:576px){
   .progress-result {
     position: absolute;

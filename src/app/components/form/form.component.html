@@ -73,23 +73,26 @@
         </label>
 
         <div *ngIf="is_advanced_options_enabled">
-          <span class="options d-flex is-invalid" [class.is-invalid]="newForm.errors?.noProtocol">
-            <div class="custom-control custom-checkbox custom-control-inline">
-              <input type="checkbox" class="custom-control-input" formControlName="ipv4" id="protocol_ipv4" [class.is-invalid]="newForm.errors?.noProtocol || newForm.controls.ipv4.invalid">
-              <label class="custom-control-label" for="protocol_ipv4">
-                IPv4
-              </label>
+          <div class="form-row">
+            <div class="col-md-10">
+              <div [class.is-invalid]="newForm.errors?.noProtocol">
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input type="checkbox" class="custom-control-input" formControlName="ipv4" id="protocol_ipv4" [class.is-invalid]="newForm.errors?.noProtocol || newForm.controls.ipv4.invalid">
+                  <label class="custom-control-label" for="protocol_ipv4">
+                    IPv4
+                  </label>
+                </div>
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input type="checkbox" class="custom-control-input" formControlName="ipv6" id="protocol_ipv6" [class.is-invalid]="newForm.errors?.noProtocol || newForm.controls.ipv6.invalid">
+                  <label class="custom-control-label" for="protocol_ipv6">
+                    IPv6
+                  </label>
+                </div>
+              </div>
+              <div class="invalid-feedback" *ngIf="newForm.errors?.noProtocol" >
+                {{"Choose at least one protocol" | translate}}
+              </div>
             </div>
-            <div class="custom-control custom-checkbox custom-control-inline">
-              <input type="checkbox" class="custom-control-input" formControlName="ipv6" id="protocol_ipv6" [class.is-invalid]="newForm.errors?.noProtocol || newForm.controls.ipv6.invalid">
-              <label class="custom-control-label" for="protocol_ipv6">
-                IPv6
-              </label>
-            </div>
-          </span>
-
-          <div class="invalid-feedback" *ngIf="newForm.errors?.noProtocol" >
-            {{"Choose at least one protocol" | translate}}
           </div>
 
           <hr>
