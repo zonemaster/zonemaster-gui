@@ -10,6 +10,7 @@ import {
 import {AlertService} from '../../services/alert.service';
 import { TranslateService } from '@ngx-translate/core';
 import { deepStrictEqual } from 'assert';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -177,6 +178,7 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   public runDomainCheck() {
+    this.newForm.markAllAsTouched();
     let param = this.newForm.value;
 
     param.nameservers = param.nameservers
@@ -197,7 +199,9 @@ export class FormComponent implements OnInit, OnChanges {
         digest: ds.digest
       }});
 
-    console.log(param);
+    if (this.newForm.valid) {
+      this.onDomainCheck.emit(param);
+    }
 
 /*
     this.form['ds_info'] = [];
@@ -249,8 +253,6 @@ export class FormComponent implements OnInit, OnChanges {
         this.alertService.error(res);
       });
     }*/
-
-    this.onDomainCheck.emit(param);
   }
 
   public toggleOptions() {

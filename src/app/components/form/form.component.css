@@ -92,8 +92,18 @@ button.launch:hover {
 }
 
 .advanced {
-  margin-left: 6.7rem;
   text-align: left;
+}
+
+.domain .invalid-feedback {
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #fff;
+  background-color: rgba(220, 53, 69, 0.9);
+  border-radius: 0.25rem;
 }
 
 
