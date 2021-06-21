@@ -9,8 +9,8 @@ const urls = [
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
-        'ipv4': true, 'ipv6': true, 'profile': 'default', 'domain': 'afNiC.Fr',
-        'ds_info': [], 'nameservers': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
+        'domain': 'afNiC.Fr', 'ipv4': true, 'ipv6': true, 'profile': 'default',
+        'nameservers': [], 'ds_info': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
       }
     },
     method: 'POST',
@@ -55,6 +55,7 @@ export class HttpMockRequestInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     for (const element of urls) {
+      console.log(JSON.stringify(request.body.params), JSON.stringify(element.body.params), JSON.stringify(request.body.params) === JSON.stringify(element.body.params), request, element)
       if (request.url === element.url
         && request.method === element.method
         && request.body.method === element.body.method

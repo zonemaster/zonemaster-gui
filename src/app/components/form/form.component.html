@@ -73,7 +73,7 @@
         </label>
 
         <div *ngIf="is_advanced_options_enabled">
-          <div class="form-row">
+          <div class="form-row protocol-form">
             <div class="col-md-10">
               <div [class.is-invalid]="newForm.errors?.noProtocol">
                 <div class="custom-control custom-checkbox custom-control-inline">
@@ -113,7 +113,7 @@
 
           <h4>{{'Nameservers'|translate}}</h4>
 
-          <ng-container formArrayName="nameservers">
+          <div formArrayName="nameservers">
             <div class="mb-2 form-row" *ngFor="let ns of newForm.controls.nameservers.controls; let i=index" [formGroupName]="i">
               <div class="col-5">
                 <input formControlName="ns" class="form-control" placeholder="NS" [class.is-invalid]="ns.controls.ns.invalid">
@@ -145,22 +145,22 @@
                 </button>
               </div>
             </div>
-          </ng-container>
+          </div>
 
           <hr>
 
           <h4>{{'DS_RECORDS'|translate}}</h4>
-          <div formArrayName="ds_info" class="digests">
+          <div formArrayName="ds_info">
             <div class="form-row mb-2" *ngFor="let ds_info of newForm.controls.ds_info.controls; let i=index" [formGroupName]="i">
               <div class="col-md-2">
-                <input formControlName="keytag" class="form-control" name="form.keytag" placeholder="{{'Key Tag' | translate}}" [class.is-invalid]="ds_info.controls.keytag.invalid">
+                <input formControlName="keytag" class="form-control" placeholder="{{'Key Tag' | translate}}" [class.is-invalid]="ds_info.controls.keytag.invalid">
                 <div class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
                   {{ ds_info.controls.keytag.errors.serverError }}
                 </div>
               </div>
 
               <div class="col-md-3">
-                <select formControlName="algorithm" class="form-control" name="form.algorithm" [class.is-invalid]="ds_info.controls.algorithm.invalid">
+                <select formControlName="algorithm" class="form-control" [class.is-invalid]="ds_info.controls.algorithm.invalid">
                   <option [value]="-1" selected disabled hidden>{{'Algorithm' | translate}}</option>
                   <option [value]="1">1 - RSAMD5</option>
                   <option [value]="3">3 - DSA</option>
@@ -181,7 +181,7 @@
               </div>
 
               <div class="col-md-2">
-                <select formControlName="digtype" class="form-control" name="form.digtype" [class.is-invalid]="ds_info.controls.digtype.invalid">
+                <select formControlName="digtype" class="form-control" [class.is-invalid]="ds_info.controls.digtype.invalid">
                   <option [value]="-1" selected disabled hidden> {{'Digest type' | translate}} </option>
                   <option [value]="1">1 - SHA-1</option>
                   <option [value]="2">2 - SHA-256</option>
@@ -194,7 +194,7 @@
               </div>
 
               <div class="col-md-3">
-                <input formControlName="digest" class="form-control" name="digest" placeholder="{{'Digest' | translate}}" [class.is-invalid]="ds_info.controls.digest.invalid">
+                <input formControlName="digest" class="form-control" placeholder="{{'Digest' | translate}}" [class.is-invalid]="ds_info.controls.digest.invalid">
                 <div class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.serverError" >
                   {{ ds_info.controls.digest.errors.serverError }}
                 </div>

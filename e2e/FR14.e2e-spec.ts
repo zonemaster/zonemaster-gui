@@ -10,8 +10,8 @@ describe('Zonemaster test FR14 - [The advanced view should support the possibili
     utils.activeOptions();
   });
 
-  it('should have an select form with at least one choose (default)', () => {
-    const selectFrom = element(by.css('select[name="form.profile"]'));
+  it('should have an select form with at least one choice (default)', () => {
+    const selectFrom = element(by.css('select#profile'));
     expect(selectFrom.isPresent()).toBe(true);
     expect(selectFrom.all(by.tagName('option')).count()).toBeGreaterThan(0);
     expect(selectFrom.all(by.tagName('option')).get(0).getAttribute('value')).toEqual('default');

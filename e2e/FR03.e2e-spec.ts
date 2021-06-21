@@ -17,9 +17,9 @@ describe('Zonemaster test FR03 - [All appropriate fields should be writable]', (
     expect(element(by.css('#domain_check_name')).getAttribute('value')).toBe('afnic.fr');
 
     element(by.css('input[name="form.ns"]')).sendKeys('afnic.fr');
-    expect(element(by.css('input[name="form.ns"]')).getAttribute('value')).toBe('afnic.fr');
+    expect(element(by.css('input[formControlName="ns"]')).getAttribute('value')).toBe('afnic.fr');
 
     element(by.css('input[name="form.keytag"]')).sendKeys('afnic.fr');
-    expect(element(by.css('input[name="form.keytag"]')).getAttribute('value')).toBe('afnic.fr');
+    expect(element(by.css('input[formControlName="keytag"]')).getAttribute('value')).toBe('afnic.fr');
   });
 });
