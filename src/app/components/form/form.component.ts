@@ -29,15 +29,21 @@ export class FormComponent implements OnInit, OnChanges {
   @Output() onOpenOptions = new EventEmitter<boolean>();
 
   private formConfig = {
-    'nameservers': {
-      ns: [''],
-      ip: ['']
+    'nameservers': () => {
+      return new FormGroup({
+        ns: new FormControl(''),
+        ip: new FormControl('')
+      })
     },
-    'ds_info': {
-      keytag: [''],
-      algorithm: [-1],
-      digtype: [-1],
-      digest: ['']
+    'ds_info': () => {
+      return new FormGroup({
+        keytag: new FormControl(''),
+        algorithm: new FormControl(-1),
+        digtype: new FormControl(-1),
+        digest: new FormControl('')
+      }, {
+        validators: FormComponent.allOrNoneDSFieldsValidator
+      })
     }
   }
 
@@ -69,6 +75,30 @@ export class FormComponent implements OnInit, OnChanges {
     };
   };
 
+  private static allOrNoneDSFieldsValidator(control: AbstractControl) {
+    const keytag = control.get('keytag');
+    const algorithm = control.get('algorithm');
+    const digest = control.get('digest');
+    const digtype = control.get('digtype');
+
+    if (keytag.value || digest.value || (algorithm.value > -1) || (digtype.value > -1)) {
+      if (!keytag.value) keytag.setErrors({required: true});
+      if (!digest.value) digest.setErrors({required: true});
+      if (algorithm.value <= 0) algorithm.setErrors({required: true});
+      if (digtype.value <= 0) digtype.setErrors({required: true});
+    } else { // reset errors on children
+      keytag.setErrors(null);
+      digest.setErrors(null);
+      algorithm.setErrors(null);
+      digtype.setErrors(null);
+      control.markAsUntouched();
+      control.markAsPristine();
+    }
+
+    return null;
+  };
+
+
   public generate_form() {
     this.newForm = new FormGroup({
       domain: new FormControl('', Validators.required),
@@ -76,10 +106,10 @@ export class FormComponent implements OnInit, OnChanges {
       ipv6: new FormControl(true),
       profile: new FormControl(this.profiles[0] || 'default'),
       nameservers: new FormArray([
-        this.formBuilder.group(this.formConfig['nameservers'])
+        this.formConfig['nameservers']()
       ]),
       ds_info: new FormArray([
-        this.formBuilder.group(this.formConfig['ds_info'])
+        this.formConfig['ds_info']()
       ]),
     }, {
       validators: FormComponent.atLeastOneProtocolValidator
@@ -147,9 +177,9 @@ export class FormComponent implements OnInit, OnChanges {
     const control = <FormArray>this.newForm.get(formName);
 
     if (value !== null) {
-      control.push(this.initItemRows(value));
+      control.push(this.formBuilder.group(value));
     } else {
-      control.push(this.initItemRows(this.formConfig[formName]));
+      control.push(this.formConfig[formName]());
     }
   }
 
