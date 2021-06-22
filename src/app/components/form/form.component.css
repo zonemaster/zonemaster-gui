@@ -101,6 +101,7 @@ button.launch:hover {
   color: #fff;
   background-color: rgba(220, 53, 69, 0.9);
   border-radius: 0.25rem;
+  text-align: left;
 }
 
 .reset-form {
