@@ -5,12 +5,10 @@ import {
   FormArray,
   FormBuilder,
   Validators,
-  AbstractControl,
-  ValidatorFn} from '@angular/forms';
+  AbstractControl} from '@angular/forms';
 import {AlertService} from '../../services/alert.service';
 import { TranslateService } from '@ngx-translate/core';
-import { deepStrictEqual } from 'assert';
-import { throwError } from 'rxjs';
+
 
 @Component({
   selector: 'app-form',
@@ -20,7 +18,6 @@ import { throwError } from 'rxjs';
 export class FormComponent implements OnInit, OnChanges {
   @Input() is_advanced_options_enabled;
   @Input() domain_check_progression;
-  //@Input() showProgressBar;
   @Input() toggleFinished;
   @Input() profiles;
 
@@ -202,11 +199,6 @@ export class FormComponent implements OnInit, OnChanges {
     return this.formBuilder.group(value);
   }
 
-  private mapItems(items) {
-    const selectedItems = items.filter((l) => l.checked).map((l) => l.key);
-    return selectedItems.length ? selectedItems : null;
-  }
-
   private displayDataFromParent() {
 
     if (this.newForm.value.domain === '') {
@@ -254,57 +246,6 @@ export class FormComponent implements OnInit, OnChanges {
     if (this.newForm.valid) {
       this.onDomainCheck.emit(param);
     }
-
-/*
-    this.form['ds_info'] = [];
-    this.form['nameservers'] = [];
-
-    if (this.NSForm.value.itemRows.length > 0 && this.NSForm.value.itemRows[0].ns !== '') {
-      this.form['nameservers'] = this.NSForm.value.itemRows.map(x => {
-        if (!x["ip"]) {
-          delete x["ip"];
-        }
-        return x;
-      });
-    }
-
-    if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].keytag !== '' ) {
-      if (this.digestForm.value.itemRows[0].digest !== '' ) {
-        this.form['ds_info'] = this.digestForm.value.itemRows.map(x => {
-          x['keytag'] = Number(x['keytag']);
-          x['algorithm'] = Number(x['algorithm']);
-          x['digtype'] = Number(x['digtype']);
-          return x;
-        });
-      } else {
-        this.translateService.get('Digest required').subscribe((res: string) => {
-          this.alertService.error(res);
-        });
-      }
-    } else if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].digest !== '') {
-      this.translateService.get('Keytag required').subscribe((res: string) => {
-        this.alertService.error(res);
-      });
-      return false;
-    }
-
-    let atLeastOneChecked = false;
-    const protocols = this.checkboxForm.value.items;
-    for (const el of protocols) {
-      this.form[el.key] = el.checked;
-      atLeastOneChecked += el.checked;
-    }
-
-    if (this.form['domain'] === '') {
-      this.translateService.get('Domain name required').subscribe((res: string) => {
-        this.alertService.error(res);
-      });
-      return false;
-    } else if (!atLeastOneChecked) {
-      this.translateService.get('Choose at least one protocol').subscribe((res: string) => {
-        this.alertService.error(res);
-      });
-    }*/
   }
 
   public toggleOptions() {
