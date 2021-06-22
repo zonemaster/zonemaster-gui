@@ -6,8 +6,6 @@ import {
   FormBuilder,
   Validators,
   AbstractControl} from '@angular/forms';
-import {AlertService} from '../../services/alert.service';
-import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -26,23 +24,23 @@ export class FormComponent implements OnInit, OnChanges {
   @Output() onOpenOptions = new EventEmitter<boolean>();
 
   private formConfig = {
-    'nameservers': () => {
-      return new FormGroup({
-        ns: new FormControl(''),
-        ip: new FormControl('')
-      })
+    'nameservers': {
+        ns: '',
+        ip: ''
     },
-    'ds_info': () => {
-      return new FormGroup({
-        keytag: new FormControl(''),
-        algorithm: new FormControl(-1),
-        digtype: new FormControl(-1),
-        digest: new FormControl('')
-      }, {
-        validators: FormComponent.allOrNoneDSFieldsValidator
-      })
+    'ds_info': {
+      keytag: '',
+      algorithm: -1,
+      digtype: -1,
+      digest: ''
     }
-  }
+  };
+
+  private formOpts = {
+    'ds_info': {
+      validators: FormComponent.allOrNoneDSFieldsValidator
+    }
+  };
 
   private _showProgressBar: boolean;
 
@@ -51,8 +49,7 @@ export class FormComponent implements OnInit, OnChanges {
   public disable_check_button = false;
   public newForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private alertService: AlertService,
-    private translateService: TranslateService) {}
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.generate_form();
@@ -102,15 +99,14 @@ export class FormComponent implements OnInit, OnChanges {
       ipv4: new FormControl(true),
       ipv6: new FormControl(true),
       profile: new FormControl(this.profiles[0] || 'default'),
-      nameservers: new FormArray([
-        this.formConfig['nameservers']()
-      ]),
-      ds_info: new FormArray([
-        this.formConfig['ds_info']()
-      ]),
+      nameservers: new FormArray([]),
+      ds_info: new FormArray([]),
     }, {
       validators: FormComponent.atLeastOneProtocolValidator
     });
+
+    this.addNewRow('nameservers');
+    this.addNewRow('ds_info');
   }
 
   get domain() { return this.newForm.get('domain'); }
@@ -169,14 +165,13 @@ export class FormComponent implements OnInit, OnChanges {
     this.generate_form();
   }
 
-
   public addNewRow(formName, value = null) {
     const control = <FormArray>this.newForm.get(formName);
 
     if (value !== null) {
-      control.push(this.formBuilder.group(value));
+      control.push(this.formBuilder.group(value, this.formOpts[formName]));
     } else {
-      control.push(this.formConfig[formName]());
+      control.push(this.formBuilder.group(this.formConfig[formName], this.formOpts[formName]));
     }
   }
 
@@ -192,19 +187,11 @@ export class FormComponent implements OnInit, OnChanges {
         this.addNewRow(formName);
       }
     }
-
-  }
-
-  public initItemRows(value) {
-    return this.formBuilder.group(value);
   }
 
   private displayDataFromParent() {
-
-    if (this.newForm.value.domain === '') {
-      this.translateService.get('Domain name required').subscribe((res: string) => {
-        this.alertService.error(res);
-      });
+    if (this.domain.value === '') {
+      this.domain.markAsTouched();
       return false;
     }
 

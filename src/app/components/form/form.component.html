@@ -158,6 +158,9 @@
                 <div class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
                   {{ ds_info.controls.keytag.errors.serverError }}
                 </div>
+                <div class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.required" >
+                  {{ 'Keytag required' | translate }}
+                </div>
               </div>
 
               <div class="col-md-3">
@@ -181,7 +184,7 @@
                   {{ ds_info.controls.algorithm.errors.serverError }}
                 </div>
                 <div class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.required" >
-                  {{ 'Algorithm is required' | translate }}
+                  {{ 'Algorithm required' | translate }}
                 </div>
               </div>
 
@@ -198,7 +201,7 @@
                   {{ ds_info.controls.digtype.errors.serverError }}
                 </div>
                 <div class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.required" >
-                  {{ 'Digest type is required' | translate }}
+                  {{ 'Digest type required' | translate }}
                 </div>
               </div>
 
@@ -209,7 +212,7 @@
                   {{ ds_info.controls.digest.errors.serverError }}
                 </div>
                 <div class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.required" >
-                  {{ 'Digest is required' | translate }}
+                  {{ 'Digest required' | translate }}
                 </div>
               </div>
 
