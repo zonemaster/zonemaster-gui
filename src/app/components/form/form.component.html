@@ -70,7 +70,7 @@
       <div *ngIf="is_advanced_options_enabled">
              <span [formGroup]="checkboxForm" class=" half-with">
               <span class="options d-flex" [formArrayName]="'items'" [class.invalid]="!checkboxForm['controls'].selectedItems.valid">
-                <div *ngFor="let protocol of checkboxForm['controls'].items['controls']; let i = index;"
+                <span *ngFor="let protocol of checkboxForm['controls'].items['controls']; let i = index;"
                      [formGroup]="protocol"
                      [ngClass]="{'has-error': !checkboxForm['controls'].selectedItems.valid}"
                      class="custom-control custom-checkbox custom-control-inline" >
@@ -78,7 +78,7 @@
                   <label class="custom-control-label" attr.for="disable_protocol_{{ protocol.controls.key.value }}">
                     {{'Disable ' + protocol.controls.value.value |translate}}
                   </label>
-                </div>
+                </span>
               </span>
             </span>
           <div class="alert alert-danger" role="alert" [class.invalid]="!checkboxForm.controls.selectedItems.valid" *ngIf="!checkboxForm.controls.selectedItems.valid">
