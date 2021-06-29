@@ -9,7 +9,7 @@ const urls = [
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
-        'domain': 'afNiC.Fr', 'ipv4': true, 'ipv6': true, 'profile': 'default',
+        'language':'en', 'domain': 'afNiC.Fr', 'ipv4': true, 'ipv6': true, 'profile': 'default',
         'nameservers': [], 'ds_info': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
       }
     },
@@ -24,7 +24,7 @@ const urls = [
   },
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254972327, 'method': 'get_test_results', 'params': {'id': '2005cf23e9fb24b6', 'language': 'fr'}},
+    body: {'jsonrpc': '2.0', 'id': 1572254972327, 'method': 'get_test_results', 'params': {'id': '2005cf23e9fb24b6', 'language': 'en'}},
     method: 'POST',
     json: {'jsonrpc': '2.0', 'id': 1572254972327, 'result': {
         'params': {'profile' : 'default', 'priority': 10, 'ipv6': true, 'ipv4': true, 'client_id': 'Zonemaster GUI',
@@ -55,6 +55,7 @@ export class HttpMockRequestInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     for (const element of urls) {
+      if (request.url === element.url) console.log(JSON.stringify(request.body.params), JSON.stringify(element.body.params));
       if (request.url === element.url
         && request.method === element.method
         && request.body.method === element.body.method
