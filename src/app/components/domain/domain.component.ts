@@ -42,10 +42,14 @@ export class DomainComponent implements OnInit {
         });
       }
     }, error => {
-      console.log(error);
-      this.translateService.get('Error during parent data fetching').subscribe((res: string) => {
-        this.alertService.error(res);
-      });
+      if (error.error.code === "-32602" && error.error.data.constructor === Array) {
+        this.requestError = error.error.data;
+      } else {
+        console.log(error);
+        this.translateService.get('Error during parent data fetching').subscribe((res: string) => {
+          this.alertService.error(res);
+        });
+      }
   });
   }
 

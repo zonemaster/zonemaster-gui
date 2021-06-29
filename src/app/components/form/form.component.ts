@@ -129,17 +129,14 @@ export class FormComponent implements OnInit, OnChanges {
 
   @Input()
   set formError(errors: Array<any>) {
-    console.log('FORM ERROR', errors);
     if (!errors) {
       return;
     }
     for (let error of errors) {
       let path = error.path.split('/');
       path.shift(); // First element is ""
-      console.log(path);
       let currentForm: AbstractControl = this.newForm;
       for (let segment of path) {
-        console.log(segment);
         currentForm = currentForm.get(segment);
       }
       currentForm.setErrors({'serverError': error.message})
