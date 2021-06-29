@@ -132,6 +132,7 @@ export class FormComponent implements OnInit, OnChanges {
     if (!errors) {
       return;
     }
+    this.disable_check_button = false;
     for (let error of errors) {
       let path = error.path.split('/');
       path.shift(); // First element is ""
@@ -187,8 +188,8 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   private displayDataFromParent() {
-    if (this.domain.value === '') {
-      this.domain.markAsTouched();
+    this.domain.markAsTouched();
+    if (this.domain.invalid) {
       return false;
     }
 
