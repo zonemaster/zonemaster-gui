@@ -18,6 +18,57 @@ const urls = [
   },
   {
     url: 'https://zonemaster.net/api',
+    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
+      {
+        'language':'en', 'domain': 'afNiC.Fr', 'ipv4': true, 'ipv6': true, 'profile': 'default',
+        'nameservers': [{"ns": "ns1.nic.fr"}], 'ds_info': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
+      }
+    },
+    method: 'POST',
+    json: {'jsonrpc': '2.0', 'id': 1572254767685, 'result': '2005cf23e9fb24b6'}
+  },
+  {
+    url: 'https://zonemaster.net/api',
+    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
+      {
+        'language':'en', 'domain': 'afNiC.Fr', 'ipv4': true, 'ipv6': true, 'profile': 'default',
+        'nameservers': [{"ns":"", "ip": "192.134.4.1"}], 'ds_info': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
+      }
+    },
+    method: 'POST',
+    json: {
+      "jsonrpc": "2.0",
+      "error": {
+        "message": "Invalid method parameter(s).",
+        "code": "-32602",
+        "data": [
+          {
+            "path": "/nameservers/0/ns",
+            "message": "The domain name character(s) are not supported"
+          }
+        ]
+      },
+      "id": 1572254767685
+    }
+  },
+  {
+    url: 'https://zonemaster.net/api',
+    body:{'jsonrpc': '2.0', 'id': 1572277567967, 'method': 'start_domain_test', 'params':
+      {
+        'language':'en', 'domain': 'afNiC.Fr', 'ipv4': true, 'ipv6': true, 'profile': 'default',
+        'nameservers': [], 'ds_info': [{
+          "keytag": 37610,
+          "algorithm":8,
+          "digtype":2,
+          "digest":"d2681e301f632bd76544e6d5b6631a12d97b5479ff07cd24efecd19203c77db3"
+        }], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
+      }
+    },
+    method: 'POST',
+    json: {'jsonrpc': '2.0', 'id': 1572277567967, 'result': '2005cf23e9fb24b6'}
+  },
+  {
+    url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254972236, 'method': 'test_progress', 'params': {'test_id': '2005cf23e9fb24b6'}},
     method: 'POST',
     json: {'jsonrpc': '2.0', 'id': 1572254972236, 'result': 100}
@@ -40,13 +91,6 @@ const urls = [
     method: 'POST',
     json: {'jsonrpc': '2.0', 'id': 1572271917712, 'result': [{'overall_result': 'error', 'creation_time': '2019-10-28 09:42:42.432378', 'id': '293f626579274f18'}, {'overall_result': 'ok', 'creation_time': '2019-10-28 09:24:57.395431', 'id': '84bfac6ae74d0e62'}, {'overall_result': 'ok', 'creation_time': '2019-10-24 07:49:48.079617', 'id': 'efe0931716b0068c'}, {'overall_result': 'ok', 'creation_time': '2019-10-24 07:49:16.271481', 'id': '46acbdcbc456db1d'}, {'overall_result': 'ok', 'creation_time': '2019-10-24 07:35:52.819536', 'id': 'fd5b10ae1a46ce5e'}, {'overall_result': 'ok', 'creation_time': '2019-10-24 07:35:21.309154', 'id': '1b29b0582a99d7ab'}, {'overall_result': 'ok', 'creation_time': '2019-10-24 06:51:22.373411', 'id': '8c4829b7f60edc25'}, {'overall_result': 'ok', 'creation_time': '2019-10-24 06:50:50.801272', 'id': '9b89a0988dbccfdb'}, {'overall_result': 'ok', 'creation_time': '2019-10-24 06:39:37.48699', 'id': '89c662ddd43a8b03'}, {'overall_result': 'ok', 'creation_time': '2019-10-24 06:39:05.851497', 'id': '2add42a68594b37a'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 20:59:41.594768', 'id': 'c334d7eb96af1d19'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 20:55:13.205118', 'id': 'b4146c79de8b3638'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 20:46:06.989113', 'id': '226f6d4f44ae3f80'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 20:40:46.272244', 'id': 'a509e33a41f28322'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 20:34:21.681947', 'id': '5d41c57fa24c76f5'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 20:28:25.518303', 'id': '298b4c53d5024f44'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 20:16:39.466781', 'id': 'f9c587426b885036'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 19:41:31.048622', 'id': 'bb2109eb54d9ef58'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 16:20:56.180064', 'id': '3ff7e65752a431e8'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 15:37:05.935049', 'id': 'e8a3507cce49392d'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 15:25:35.162808', 'id': '19f7773777cdad1a'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 15:09:54.801371', 'id': '61907eb87c8bb1d9'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 14:52:56.823486', 'id': '497ce5549e80d6d1'}, {'overall_result': 'ok', 'creation_time': '2019-10-23 14:39:25.259204', 'id': '470e62da84dcbd16'}, {'overall_result': 'error', 'creation_time': '2019-10-23 14:26:35.853106', 'id': '9b8e25c35dc365ac'}]}
   },
-  {
-    url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572277567967, 'method': 'start_domain_test', 'params': {"ipv4":true,"ipv6":true,"profile":"default","domain":"afNiC.Fr","ds_info":[{"keytag":37610,"algorithm":8,"digtype":2,"digest":"d2681e301f632bd76544e6d5b6631a12d97b5479ff07cd24efecd19203c77db3"}],"nameservers":[],"client_version":"3.1.0","client_id":"Zonemaster GUI"}},
-    method: 'POST',
-    json: {'jsonrpc': '2.0', 'id': 1572277567967, 'result': '2005cf23e9fb24b6'}
-  },
-
 ];
 
 @Injectable()

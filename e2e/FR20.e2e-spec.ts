@@ -13,7 +13,7 @@ describe('Zonemaster test FR20 - [The user must be able to submit one or more DS
     utils.activeOptions();
   });
 
-  it('should display progress bar when we add a NS ip and launch a test',  async() => {
+  it('should display progress bar when we add a DS entry and launch a test',  async() => {
     await expect(element.all(by.css('.progress-result')).isPresent()).toBe(false);
     await element(by.css('#domain_check_name')).sendKeys('afNiC.Fr');
     await element(by.css('input[formControlName="keytag"]')).sendKeys('37610');
