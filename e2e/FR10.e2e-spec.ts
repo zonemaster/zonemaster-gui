@@ -4,7 +4,8 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR10 - [On launching the URL opens with a default simple view]', () => {
   const utils = new Utils();
-  beforeAll(() => {
+  beforeAll(async () => {
+    await utils.clearBrowserCache();
     utils.goToHome();
   });
   it('should have [Domain name] label visible', () => {

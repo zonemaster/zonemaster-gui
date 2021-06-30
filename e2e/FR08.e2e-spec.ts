@@ -4,7 +4,8 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR08 - [Presence of a default fallback language - English]', () => {
   const utils = new Utils();
-  beforeAll(() => {
+  beforeAll(async () => {
+    await utils.clearBrowserCache();
     utils.goToHome();
   });
 

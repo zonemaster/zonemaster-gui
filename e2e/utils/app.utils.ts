@@ -23,9 +23,11 @@ export class Utils {
   }
 
   clearBrowserCache() {
-    browser.executeScript('window.localStorage.clear();');
-    browser.executeScript('window.sessionStorage.clear();');
-    browser.driver.manage().deleteAllCookies();
+    return Promise.all([
+      browser.executeScript('window.localStorage.clear();'),
+      browser.executeScript('window.sessionStorage.clear();'),
+      browser.driver.manage().deleteAllCookies(),
+    ])
   }
 
 }
