@@ -17,7 +17,7 @@ export class NavigationComponent implements OnInit {
 
   constructor(private translateService: TranslateService, zone: NgZone) {
     this.translateService.setDefaultLang(this.lang_default);
-    this.lang = this.translateService.getBrowserLang();
+    this.lang = localStorage.getItem('lang') || this.translateService.getBrowserLang();
     if (this.isValidLanguage(this.lang)) {
       this.setLanguage(this.lang);
     } else {
@@ -50,6 +50,7 @@ export class NavigationComponent implements OnInit {
   public setLanguage(lang: string) {
     this.translateService.use(lang).subscribe(() => {
       this.lang = lang;
+      localStorage.setItem('lang', this.lang);
     });
   }
 
