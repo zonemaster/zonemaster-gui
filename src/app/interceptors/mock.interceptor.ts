@@ -55,7 +55,6 @@ export class HttpMockRequestInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     for (const element of urls) {
-      if (request.url === element.url) console.log(JSON.stringify(request.body.params), JSON.stringify(element.body.params));
       if (request.url === element.url
         && request.method === element.method
         && request.body.method === element.body.method
