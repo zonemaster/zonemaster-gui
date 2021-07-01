@@ -98,6 +98,10 @@
   width: 12%;
 }
 
+.table-striped tbody tr.collapse {
+    background-color: inherit;
+}
+
 tr.collapse > th {
     background-color: #fff;
     border-top: 0 !important;
