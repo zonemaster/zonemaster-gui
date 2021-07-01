@@ -29,6 +29,7 @@
 	"Message": "Message",
 	"Module": "Module",
 	"Nameservers": "Serveurs DNS",
+	"NS required": "NS obligatoire",
 	"No data for this test": "Il n'y a pas de résultat pour ce test",
 	"No result for this query": "Il n'y a pas de résultat pour ce test",
 	"Notice! More info on undelegated test": "Plus d'information sur les test ",

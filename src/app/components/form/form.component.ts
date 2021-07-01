@@ -39,6 +39,9 @@ export class FormComponent implements OnInit, OnChanges {
   private formOpts = {
     'ds_info': {
       validators: FormComponent.allOrNoneDSFieldsValidator
+    },
+    'nameservers':  {
+      validators: FormComponent.nsRequiredValidator
     }
   };
 
@@ -92,6 +95,18 @@ export class FormComponent implements OnInit, OnChanges {
     return null;
   };
 
+  private static nsRequiredValidator(control: AbstractControl) {
+    const ns = control.get('ns');
+    const ip = control.get('ip');
+    if (ip.value && !ns.value)  {
+      return ns.setErrors({ required: true });
+    } else if (!ip.value && !ns.value) { // reset errros on children
+      ns.setErrors(null);
+      control.markAsUntouched();
+      control.markAsPristine();
+    }
+    return  null;
+  };
 
   public generate_form() {
     this.newForm = new FormGroup({

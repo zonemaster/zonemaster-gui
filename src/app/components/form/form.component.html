@@ -116,9 +116,12 @@
           <div formArrayName="nameservers">
             <div class="mb-2 form-row" *ngFor="let ns of newForm.controls.nameservers.controls; let i=index" [formGroupName]="i">
               <div class="col-5">
-                <input formControlName="ns" class="form-control" placeholder="NS" [class.is-invalid]="ns.controls.ns.invalid">
+                <input formControlName="ns" class="form-control" placeholder="NS" [class.is-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)">
                 <div class="invalid-feedback" *ngIf="ns.controls.ns.errors?.serverError" >
                   {{ ns.controls.ns.errors.serverError }}
+                </div>
+                <div class="invalid-feedback" *ngIf="ns.controls.ns.errors?.required" >
+                  {{ 'NS required' | translate }}
                 </div>
               </div>
 
