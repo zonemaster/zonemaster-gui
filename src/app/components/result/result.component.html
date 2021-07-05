@@ -89,7 +89,8 @@
       <li class="nav-item ml-1">
         <a  placement="top" ngbTooltip="Critical - means a very serious error." class="nav-link" [ngClass]="{'active critical text-white': result_filter.critical}"
            (click)="togglePillFilter('critical')"
-           [(ngModel)]="result_filter.critical" ngDefaultControl>Critical <span class="badge badge-pill badge-secondary">0</span></a>
+           [(ngModel)]="result_filter.critical" ngDefaultControl>
+          Critical <span class="badge badge-pill badge-secondary">{{level_items['critical'].length}}</span></a>
       </li>
       <li class="search ml-1">
         <div class="input-group">
