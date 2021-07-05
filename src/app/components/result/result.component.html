@@ -13,10 +13,21 @@
           <i class="fa fa-history text-white" aria-hidden="true"></i>
           <span class="text-white">{{'History'|translate}}</span>
         </a>
-        <a class="btn btn-secondary export" (click)="openModal(exportModal)">
-          <i class="fa fa-cloud-download text-white"></i>
-          <span class="text-white">{{'Export'|translate}}</span>
-        </a>
+
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-secondary export" id="shareDropdownResult" ngbDropdownToggle>
+            <i class="fa fa-cloud-download text-white"></i>
+            <span class="text-white">{{'Export'|translate}}</span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
+              <div class="modal-body">
+                <button class="btn" (click)="exportJson()"> JSON </button>
+                <button class="btn" (click)="exportCSV()"> CSV </button>
+                <button class="btn" (click)="exportHTML()"> HTML </button>
+                <button class="btn" (click)="exportText()"> TEXT </button>
+              </div>
+          </div>
+        </div>
 
         <div ngbDropdown class="d-inline-block">
           <button class="btn btn-secondary share" id="shareDropdownResult" ngbDropdownToggle>
@@ -131,21 +142,6 @@
     </table>
   </div>
 </div>
-
-<ng-template #exportModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">{{'Export'|translate}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <button class="btn" (click)="exportJson()"> JSON </button>
-    <button class="btn" (click)="exportCSV()"> CSV </button>
-    <button class="btn" (click)="exportHTML()"> HTML </button>
-    <button class="btn" (click)="exportText()"> TEXT </button>
-  </div>
-</ng-template>
 
 <ng-template #historyModal let-c="close" let-d="dismiss">
   <div class="modal-header">
