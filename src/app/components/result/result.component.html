@@ -17,10 +17,18 @@
           <i class="fa fa-cloud-download text-white"></i>
           <span class="text-white">{{'Export'|translate}}</span>
         </a>
-        <a class="btn btn-secondary share" (click)="openModal(shareLinkModal)">
-          <i class="fa fa-share text-white"></i>
-          <span class="text-white">{{'Share'|translate}}</span>
-        </a>
+
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-secondary share" id="shareDropdownResult" ngbDropdownToggle>
+            <i class="fa fa-share text-white"></i>
+            <span class="text-white">{{'Share'|translate}}</span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
+              <div class="modal-body">
+                <input readonly="" type="text" id="link_location" name="link_location" class="form-inline" value="{{test.location}}">
+              </div>
+          </div>
+        </div>
 
         <div ngbDropdown class="d-inline-block">
           <button class="btn btn-secondary settings" id="settingsDropdownResult" ngbDropdownToggle>
@@ -123,18 +131,6 @@
     </table>
   </div>
 </div>
-
-<ng-template #shareLinkModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">{{'Link'|translate}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <input type="text" id="link_location" name="link_location" class="form-inline" value="{{test.location}}">
-  </div>
-</ng-template>
 
 <ng-template #exportModal let-c="close" let-d="dismiss">
   <div class="modal-header">
