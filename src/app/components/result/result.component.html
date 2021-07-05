@@ -52,7 +52,7 @@
 
     <ul class="nav nav-pills vertical-align filter">
       <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active text-white': result_filter.all}"
+        <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active all text-white': result_filter.all}"
            (click)="togglePillFilter('all')"
            [(ngModel)]="result_filter.all" ngDefaultControl>
           All <span class="badge badge-pill badge-secondary">{{result.length}}</span></a>

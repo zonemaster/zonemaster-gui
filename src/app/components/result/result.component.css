@@ -29,6 +29,10 @@
   flex: 1
 }
 
+.nav-link.active.all {
+    background-color: #919191;
+}
+
 .nav-link {
   cursor: pointer;
 }
