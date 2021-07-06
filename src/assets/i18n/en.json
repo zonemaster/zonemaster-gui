@@ -46,6 +46,12 @@
     "Settings": "Settings",
     "Share": "Share",
     "Sorry, there is nothing here!": "Sorry, there is nothing here!",
+    "TOOLTIP_ALL": "Display all results",
+    "TOOLTIP_CRITICAL": "Critical - means a very serious error.",
+    "TOOLTIP_ERROR": "Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable",
+    "TOOLTIP_INFO": "Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem.",
+    "TOOLTIP_NOTICE": "Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all",
+    "TOOLTIP_WARNING": "Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.",
     "There is no delegation for the zone": "There is no delegation for the zone",
     "What is an undelegated domain test?": "What is an undelegated domain test?",
     "Zonemaster Backend is not available": "Zonemaster Backend is not available"

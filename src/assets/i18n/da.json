@@ -46,6 +46,12 @@
     "Settings": "Indstillinger",
     "Share": "Dele",
     "Sorry, there is nothing here!": "Beklager, der er intet her!",
+    "TOOLTIP_ALL": null,
+    "TOOLTIP_CRITICAL": null,
+    "TOOLTIP_ERROR": null,
+    "TOOLTIP_INFO": null,
+    "TOOLTIP_NOTICE": null,
+    "TOOLTIP_WARNING": null,
     "There is no delegation for the zone": "Der er ikke nogen delegation for zonen",
     "What is an undelegated domain test?": "Hvad er en ikke-delegeret test?",
     "Zonemaster Backend is not available": "Zonemaster Backend er ikke tilgængelig"

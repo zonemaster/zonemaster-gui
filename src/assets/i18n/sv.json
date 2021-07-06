@@ -46,6 +46,12 @@
     "Settings": "Inställningar",
     "Share": "Dela",
     "Sorry, there is nothing here!": "Tyvärr, det finns ingenting här!",
+    "TOOLTIP_ALL": null,
+    "TOOLTIP_CRITICAL": null,
+    "TOOLTIP_ERROR": null,
+    "TOOLTIP_INFO": null,
+    "TOOLTIP_NOTICE": null,
+    "TOOLTIP_WARNING": null,
     "There is no delegation for the zone": "Det finns ingen delegering av zonen (domänen)",
     "What is an undelegated domain test?": "Vad är ett odelegerat domäntest? ",
     "Zonemaster Backend is not available": "Zonemaster Backend är inte åtkomlig"

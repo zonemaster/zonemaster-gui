@@ -42,13 +42,16 @@
 
     <ul class="nav nav-pills vertical-align filter">
       <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active all text-white': result_filter.all}"
+        <ng-template #tooltipAll>{{ 'TOOLTIP_ALL' | translate }}</ng-template>
+        <a placement="top" [ngbTooltip]="tooltipAll"
+           class="nav-link" [ngClass]="{'active all text-white': result_filter.all}"
            (click)="togglePillFilter('all')"
            [(ngModel)]="result_filter.all" ngDefaultControl>
           All <span class="badge badge-pill badge-secondary">{{result.length}}</span></a>
       </li>
       <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem."
+        <ng-template #tooltipInfo>{{ 'TOOLTIP_INFO' | translate }}</ng-template>
+        <a placement="top" [ngbTooltip]="tooltipInfo"
            class="nav-link" [ngClass]="{'active info text-white': result_filter.info}"
            (click)="togglePillFilter('info')"
            [(ngModel)]="result_filter.info" ngDefaultControl>
@@ -56,28 +59,33 @@
           <span class="badge badge-pill badge-secondary">{{level_items['info'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all"
+        <ng-template #tooltipNotice>{{ 'TOOLTIP_NOTICE' | translate }}</ng-template>
+        <a placement="top" [ngbTooltip]="tooltipNotice"
            class="nav-link" [ngClass]="{'active notice text-white': result_filter.notice}"
            (click)="togglePillFilter('notice')"
            [(ngModel)]="result_filter.notice" ngDefaultControl>
           Notice <span class="badge badge-pill badge-secondary">{{level_items['notice'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user."
+        <ng-template #tooltipWarning>{{ 'TOOLTIP_WARNING' | translate }}</ng-template>
+        <a placement="top" [ngbTooltip]="tooltipWarning"
            class="nav-link" [ngClass]="{'active warning text-white': result_filter.warning}"
            (click)="togglePillFilter('warning')"
            [(ngModel)]="result_filter.warning" ngDefaultControl>
           Warning <span class="badge badge-pill badge-secondary">{{level_items['warning'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable"
+        <ng-template #tooltipError>{{ 'TOOLTIP_ERROR' | translate }}</ng-template>
+        <a placement="top" [ngbTooltip]="tooltipError"
            class="nav-link" [ngClass]="{'active error text-white': result_filter.error}"
            (click)="togglePillFilter('error')"
            [(ngModel)]="result_filter.error" ngDefaultControl>
           Error <span class="badge badge-pill badge-secondary">{{level_items['error'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
-        <a  placement="top" ngbTooltip="Critical - means a very serious error." class="nav-link" [ngClass]="{'active critical text-white': result_filter.critical}"
+        <ng-template #tooltipCritical>{{ 'TOOLTIP_CRITICAL' | translate }}</ng-template>
+        <a placement="top" [ngbTooltip]="tooltipCritical"
+           class="nav-link" [ngClass]="{'active critical text-white': result_filter.critical}"
            (click)="togglePillFilter('critical')"
            [(ngModel)]="result_filter.critical" ngDefaultControl>
           Critical <span class="badge badge-pill badge-secondary">{{level_items['critical'].length}}</span></a>
