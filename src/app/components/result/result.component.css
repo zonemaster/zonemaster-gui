@@ -44,6 +44,11 @@
 }
 button.share + .dropdown-menu .dropdown-body {
     min-width: 420px;
+    display: flex;
+}
+
+.dropdown-body > div.btn-clipboard:hover {
+    border: 1px solid #cdc7c2;
 }
 
 .ipvX {
