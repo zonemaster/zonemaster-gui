@@ -9,15 +9,15 @@
     </div>
     <div class="col-md-6">
       <div class="pull-right actions_btn" >
-        <a class="btn btn-warning history" (click)="getHistory()">
+        <a class="btn btn-secondary history" (click)="getHistory()">
           <i class="fa fa-history text-white" aria-hidden="true"></i>
           <span class="text-white">{{'History'|translate}}</span>
         </a>
-        <a class="btn btn-info export" (click)="openModal(exportModal)">
+        <a class="btn btn-secondary export" (click)="openModal(exportModal)">
           <i class="fa fa-cloud-download text-white"></i>
           <span class="text-white">{{'Export'|translate}}</span>
         </a>
-        <a class="btn btn-success share" (click)="openModal(shareLinkModal)">
+        <a class="btn btn-secondary share" (click)="openModal(shareLinkModal)">
           <i class="fa fa-share text-white"></i>
           <span class="text-white">{{'Share'|translate}}</span>
         </a>
@@ -52,7 +52,7 @@
 
     <ul class="nav nav-pills vertical-align filter">
       <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active text-white': result_filter.all}"
+        <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active all text-white': result_filter.all}"
            (click)="togglePillFilter('all')"
            [(ngModel)]="result_filter.all" ngDefaultControl>
           All <span class="badge badge-pill badge-secondary">{{result.length}}</span></a>
@@ -108,7 +108,7 @@
     <table class="table table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col"></th>
         <th scope="col">{{ 'Module' | translate }}</th>
         <th scope="col">{{ 'Level' | translate }}</th>
         <th scope="col">{{ 'Message' | translate }}</th>
@@ -116,7 +116,7 @@
       </thead>
       <tbody *ngIf="!resutlCollapsed;else resutlCollapsedTemplate">
       <tr *ngFor="let item of result | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
-        <th scope="row">{{i}}</th>
+        <th scope="row"></th>
         <td>{{item.module|translate}}</td>
         <td>{{item.level}}</td>
         <td>{{item.message|translate}}</td>
@@ -178,7 +178,7 @@
     <td colspan="3">{{moduleKey}}</td>
   </tr>
   <tr [ngbCollapse]="isCollapsed[moduleKey]" *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
-    <th scope="row">{{i}}</th>
+    <th scope="row"></th>
     <td>{{item.module|translate}}</td>
     <td>{{item.level}}</td>
     <td>{{item.message|translate}}</td>
