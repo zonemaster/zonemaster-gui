@@ -37,6 +37,15 @@
   cursor: pointer;
 }
 
+.dropdown-body {
+    position: relative;
+    padding: 1rem;
+    white-space: nowrap;
+}
+button.share + .dropdown-menu .dropdown-body {
+    min-width: 420px;
+}
+
 .ipvX {
   position: absolute;
   right:0;
