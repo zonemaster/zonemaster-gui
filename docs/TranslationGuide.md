@@ -135,7 +135,7 @@ The new language must be added to the following files:
 In `package.json` locate
 
 ```
-    "i18n:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{da,en,fi,fr,nb,sv}.json --key-as-default-value --clean --sort --format json"
+"i18n:extract": "ngx-translate-extract ... --output ./src/assets/i18n/{da,en,fi,fr,nb,sv}.json ...
 ```
 and add the two-letter language code of the new language. Preserve
 the alphabetical order of the language codes.
