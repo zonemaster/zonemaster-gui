@@ -73,11 +73,10 @@
                 <span *ngFor="let protocol of checkboxForm['controls'].items['controls']; let i = index;"
                      [formGroup]="protocol"
                      [ngClass]="{'has-error': !checkboxForm['controls'].selectedItems.valid}"
-                     class="form-check form-check-inline">
-
-                  <input type="checkbox" class="form-check-input" type="checkbox" formControlName="checked" id="protocol_{{ protocol.controls.key.value }}">
-                  <label class="custom-control custom-checkbox form-check-label" attr.for="protocol_{{ protocol.controls.key.value }}">
-                    {{ protocol.controls.value.value }}
+                     class="custom-control custom-checkbox custom-control-inline" >
+                  <input type="checkbox" class="custom-control-input" formControlName="checked" id="disable_protocol_{{ protocol.controls.key.value }}">
+                  <label class="custom-control-label" attr.for="disable_protocol_{{ protocol.controls.key.value }}">
+                    {{'Disable ' + protocol.controls.value.value |translate}}
                   </label>
                 </span>
               </span>
