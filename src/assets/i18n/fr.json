@@ -49,5 +49,7 @@
 	"What is an undelegated domain test?": "C'est quoi un test sur un nom de domaine non délégué?",
 	"Zonemaster Backend is not available": "Zonemaster Backend n'est pas disponible",
 	"Profile": "Profil",
-	"Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved": "© AFNIC et The Swedish Internet Foundation. Tous droits réservés"
+	"Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved": "© AFNIC et The Swedish Internet Foundation. Tous droits réservés",
+	"Disable IPv6": "Désactiver IPv6",
+	"Disable IPv4": "Désactiver IPv4"
 }

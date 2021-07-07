@@ -75,7 +75,7 @@ export class ResultComponent implements OnInit, OnChanges {
         if (notFirst) {
           notFirst = !notFirst;
         } else {
-          this.displayResult(this.resultID, event.lang);
+          this.displayResult(this.resultID, event.lang, false);
         }
         this.language = event.lang;
       });
@@ -85,7 +85,7 @@ export class ResultComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.displayResult(this.resultID, this.translateService.currentLang);
     this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.displayResult(this.resultID, event.lang);
+      this.displayResult(this.resultID, event.lang, false);
       this.language = event.lang;
     });
   }
@@ -97,9 +97,8 @@ export class ResultComponent implements OnInit, OnChanges {
       console.log(reason);
     });
   }
-$
 
-   private displayResult(domainCheckId: string, language: string) {
+   private displayResult(domainCheckId: string, language: string, resetCollapsed = true) {
      this.dnsCheckService.getTestResults({id: domainCheckId, language}).then(data => {
       // TODO clean
 
@@ -117,10 +116,12 @@ $
       this.setModulesColors(data['results']);
 
       this.modulesKeys = Object.keys(this.modules);
-      
-      for (let i = 0; i < this.modulesKeys.length; i++) {
-        this.isCollapsed[i] = true;
-        this.module_items[this.modulesKeys[i]] = [];
+
+      for (let moduleName of this.modulesKeys) {
+        if (resetCollapsed || !(moduleName in this.isCollapsed)) {
+          this.isCollapsed[moduleName] = true;
+        }
+        this.module_items[moduleName] = [];
       }
 
       for (const item of data['results']) {
@@ -154,7 +155,7 @@ $
       this.translateService.get('History information request is in progress').subscribe((res: string) => {
         this.alertService.info(res);
       });
-      
+
       this.dnsCheckService.getTestHistory(this.historyQuery).then(data => {
         this.history = data as any[];
         if (this.history.length === 0) {

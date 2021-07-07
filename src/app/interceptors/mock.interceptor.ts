@@ -9,7 +9,7 @@ const urls = [
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
-        'language':'en', 'domain': 'afNiC.Fr', 'ipv4': true, 'ipv6': true, 'profile': 'default',
+        'language':'en', 'domain': 'afNiC.Fr', 'profile': 'default',
         'nameservers': [], 'ds_info': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
       }
     },
@@ -20,7 +20,7 @@ const urls = [
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
-        'language':'en', 'domain': 'afNiC.Fr', 'ipv4': true, 'ipv6': true, 'profile': 'default',
+        'language':'en', 'domain': 'afNiC.Fr', 'profile': 'default',
         'nameservers': [{"ns": "ns1.nic.fr"}], 'ds_info': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
       }
     },
@@ -31,7 +31,7 @@ const urls = [
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
-        'language':'en', 'domain': 'afNiC.Fr', 'ipv4': true, 'ipv6': true, 'profile': 'default',
+        'language':'en', 'domain': 'afNiC.Fr', 'profile': 'default',
         'nameservers': [{"ns":"", "ip": "192.134.4.1"}], 'ds_info': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
       }
     },
@@ -55,7 +55,7 @@ const urls = [
     url: 'https://zonemaster.net/api',
     body:{'jsonrpc': '2.0', 'id': 1572277567967, 'method': 'start_domain_test', 'params':
       {
-        'language':'en', 'domain': 'afNiC.Fr', 'ipv4': true, 'ipv6': true, 'profile': 'default',
+        'language':'en', 'domain': 'afNiC.Fr', 'profile': 'default',
         'nameservers': [], 'ds_info': [{
           "keytag": 37610,
           "algorithm":8,

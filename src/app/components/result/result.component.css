@@ -29,6 +29,10 @@
   flex: 1
 }
 
+.nav-link.active.all {
+    background-color: #919191;
+}
+
 .nav-link {
   cursor: pointer;
 }
@@ -85,20 +89,109 @@
   transition: all 300ms ease-in-out;
 }
 
-.active.info, .result.INFO {
+
+.thead-dark tr th:first-child {
+  width: 40px;
+}
+
+.thead-dark tr th:nth-child(2) {
+  width: 15%;
+}
+
+.thead-dark tr th:nth-child(3) {
+  width: 12%;
+}
+
+.table-striped tbody tr.collapse {
+    background-color: inherit;
+}
+
+tr.collapse > th {
+    background-color: #fff;
+    border-top: 0 !important;
+}
+
+.result.INFO:not(.expand) th:first-of-type,
+.result.NOTICE:not(.expand) th:first-of-type,
+.result.WARNING:not(.expand) th:first-of-type,
+.result.ERROR:not(.expand) th:first-of-type,
+.result.CRITICAL:not(.expand) th:first-of-type,
+tbody tr:first-child th {
+    position: relative;
+}
+
+tbody[id^=collapsed_module] tr:first-child th::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.result.INFO:not(.expand) th::after,
+.result.NOTICE:not(.expand) th::after,
+.result.WARNING:not(.expand) th::after,
+.result.ERROR:not(.expand) th::after,
+.result.CRITICAL:not(.expand) th::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.result.collapse.INFO:not(.expand) th:first-of-type::after,
+.result.collapse.NOTICE:not(.expand) th:first-of-type::after,
+.result.collapse.WARNING:not(.expand) th:first-of-type::after,
+.result.collapse.ERROR:not(.expand) th:first-of-type::after,
+.result.collapse.CRITICAL:not(.expand) th:first-of-type::after {
+    right: 0;
+    left: auto;
+}
+
+.active.info,
+.result.INFO:not(.expand) th::after,
+tbody[id^=collapsed_module] tr.INFO th::before {
+  background-color: #66ad54;
+}
+.active.notice,
+.result.NOTICE:not(.expand) th::after,
+tbody[id^=collapsed_module] tr.NOTICE th::before {
   background-color: #007bff;
 }
-.active.notice, .result.NOTICE {
-  background-color: #fff638;
-}
-.active.warning, .result.WARNING {
+.active.warning,
+.result.WARNING:not(.expand) th::after,
+tbody[id^=collapsed_module] tr.WARNING th::before {
   background-color: #ff9019;
 }
-.active.error, .result.ERROR {
-  background-color: #dc3545;
+.active.error,
+.result.ERROR:not(.expand) th::after,
+tbody[id^=collapsed_module] tr.ERROR th::before {
+  background-color: #ec3545;
 }
-.active.critical, .result.CRITICAL {
-  background-color: #dc3545;
+.active.critical,
+.result.CRITICAL:not(.expand) th::after,
+tbody[id^=collapsed_module] tr.CRITICAL th::before {
+  background-color: #ec3545;
+}
+
+.result td:nth-child(3) {
+    font-weight: 700;
+}
+.result.INFO td:nth-child(3) {
+    color: #66ad54;
+}
+.result.NOTICE td:nth-child(3) {
+    color: #007bff;
+}
+.result.WARNING td:nth-child(3) {
+    color: #ff9019;
+}
+.result.ERROR td:nth-child(3) {
+    color: #ec3545;
+}
+.result.CRITICAL td:nth-child(3) {
+    color: #ec3545;
 }
 
 .export, .share, .settings {

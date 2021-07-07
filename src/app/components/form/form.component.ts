@@ -65,11 +65,11 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   private static atLeastOneProtocolValidator(control: AbstractControl) {
-    const ipv4_enabled = control.get('ipv4');
-    const ipv6_enabled = control.get('ipv6');
-    return (ipv4_enabled && ipv4_enabled.value === true) || (ipv6_enabled && ipv6_enabled.value === true) ? null : {
+    const ipv4_disabled = control.get('disable_ipv4');
+    const ipv6_disabled = control.get('disable_ipv6');
+    return (ipv4_disabled && ipv4_disabled.value === true) && (ipv6_disabled && ipv6_disabled.value === true) ? {
       noProtocol: true
-    };
+    } : null;
   };
 
   private static allOrNoneDSFieldsValidator(control: AbstractControl) {
@@ -111,8 +111,8 @@ export class FormComponent implements OnInit, OnChanges {
   public generate_form() {
     this.newForm = new FormGroup({
       domain: new FormControl('', Validators.required),
-      ipv4: new FormControl(true),
-      ipv6: new FormControl(true),
+      disable_ipv4: new FormControl(false),
+      disable_ipv6: new FormControl(false),
       profile: new FormControl(this.profiles[0] || 'default'),
       nameservers: new FormArray([]),
       ds_info: new FormArray([]),
@@ -224,6 +224,13 @@ export class FormComponent implements OnInit, OnChanges {
   public runDomainCheck() {
     this.newForm.markAllAsTouched();
     let param = this.newForm.value;
+
+    if (param.ipv4 === true) delete param.ipv4;
+
+    if (param.disable_ipv4) param.ipv4 = false;
+    if (param.disable_ipv6) param.ipv6 = false;
+    delete param.disable_ipv4;
+    delete param.disable_ipv6;
 
     param.nameservers = param.nameservers
       .filter(ns => ns.ip || ns.ns)

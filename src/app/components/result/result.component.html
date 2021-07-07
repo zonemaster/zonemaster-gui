@@ -4,20 +4,20 @@
 <div class="result container" #resultView>
   <div class="row">
     <div class="col-md-6">
-      <h2>{{'Test #'|translate}}{{ test.id }}<small> - {{form.domain}}</small></h2>
+      <h2>{{form.domain}}</h2>
       <i>{{ test.creation_time | amFromUtc | date:'yyyy-MM-dd HH:mm zzzz' }}</i>
     </div>
     <div class="col-md-6">
       <div class="pull-right actions_btn" >
-        <a class="btn btn-warning history" (click)="getHistory()">
+        <a class="btn btn-secondary history" (click)="getHistory()">
           <i class="fa fa-history text-white" aria-hidden="true"></i>
           <span class="text-white">{{'History'|translate}}</span>
         </a>
-        <a class="btn btn-info export" (click)="openModal(exportModal)">
+        <a class="btn btn-secondary export" (click)="openModal(exportModal)">
           <i class="fa fa-cloud-download text-white"></i>
           <span class="text-white">{{'Export'|translate}}</span>
         </a>
-        <a class="btn btn-success share" (click)="openModal(shareLinkModal)">
+        <a class="btn btn-secondary share" (click)="openModal(shareLinkModal)">
           <i class="fa fa-share text-white"></i>
           <span class="text-white">{{'Share'|translate}}</span>
         </a>
@@ -34,16 +34,6 @@
           </div>
         </div>
       </div>
-      <div class="pull-right ipvX">
-          <span class="m-1">
-            <i [ngClass]="{'fa-check-circle text-success': form['ipv4'], 'fa-times-circle text-danger': !form['ipv4']}" class="fa" aria-hidden="true"></i>
-            IPv4
-          </span>
-        <span class="m-1 mr-3">
-            <i [ngClass]="{'fa-check-circle text-success': form['ipv6'], 'fa-times-circle text-danger': !form['ipv6']}" class="fa" aria-hidden="true"></i>
-            IPv6
-          </span>
-      </div>
     </div>
   </div>
 
@@ -52,7 +42,7 @@
 
     <ul class="nav nav-pills vertical-align filter">
       <li class="nav-item ml-1">
-        <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active text-white': result_filter.all}"
+        <a placement="top" ngbTooltip="Display all results" class="nav-link" [ngClass]="{'active all text-white': result_filter.all}"
            (click)="togglePillFilter('all')"
            [(ngModel)]="result_filter.all" ngDefaultControl>
           All <span class="badge badge-pill badge-secondary">{{result.length}}</span></a>
@@ -89,7 +79,8 @@
       <li class="nav-item ml-1">
         <a  placement="top" ngbTooltip="Critical - means a very serious error." class="nav-link" [ngClass]="{'active critical text-white': result_filter.critical}"
            (click)="togglePillFilter('critical')"
-           [(ngModel)]="result_filter.critical" ngDefaultControl>Critical <span class="badge badge-pill badge-secondary">0</span></a>
+           [(ngModel)]="result_filter.critical" ngDefaultControl>
+          Critical <span class="badge badge-pill badge-secondary">{{level_items['critical'].length}}</span></a>
       </li>
       <li class="search ml-1">
         <div class="input-group">
@@ -107,7 +98,7 @@
     <table class="table table-striped">
       <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
+        <th scope="col"></th>
         <th scope="col">{{ 'Module' | translate }}</th>
         <th scope="col">{{ 'Level' | translate }}</th>
         <th scope="col">{{ 'Message' | translate }}</th>
@@ -115,7 +106,7 @@
       </thead>
       <tbody *ngIf="!resutlCollapsed;else resutlCollapsedTemplate">
       <tr *ngFor="let item of result | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
-        <th scope="row">{{i}}</th>
+        <th scope="row"></th>
         <td>{{item.module|translate}}</td>
         <td>{{item.level}}</td>
         <td>{{item.message|translate}}</td>
@@ -166,18 +157,18 @@
 
 
 <ng-template #resutlCollapsedTemplate>
-  <tbody *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items; let a = index" id="collapsed_module_{{a}}">
-  <tr (click)="isCollapsed[a] = !isCollapsed[a]"
-      [attr.aria-expanded]="!isCollapsed[a]" aria-controls="collapseExample" class="expand result {{modules[moduleKey]}}" >
+  <tbody *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items" id="collapsed_module_{{moduleKey}}">
+  <tr (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]"
+      [attr.aria-expanded]="!isCollapsed[moduleKey]" aria-controls="collapseExample" class="expand result {{modules[moduleKey]}}" >
     <th scope="row" >
-      <a placement="top" ngbTooltip="{{(isCollapsed[a] ? 'Expand': 'Collapse')}}">
-        <i class="fa" [ngClass]="{'fa-plus': isCollapsed[a],'fa-minus': !isCollapsed[a]}" aria-hidden="true"></i>
+      <a placement="top" ngbTooltip="{{(isCollapsed[moduleKey] ? 'Expand': 'Collapse')}}">
+        <i class="fa" [ngClass]="{'fa-plus': isCollapsed[moduleKey],'fa-minus': !isCollapsed[moduleKey]}" aria-hidden="true"></i>
       </a>
     </th>
     <td colspan="3">{{moduleKey}}</td>
   </tr>
-  <tr [ngbCollapse]="isCollapsed[a]" *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
-    <th scope="row">{{i}}</th>
+  <tr [ngbCollapse]="isCollapsed[moduleKey]" *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
+    <th scope="row"></th>
     <td>{{item.module|translate}}</td>
     <td>{{item.level}}</td>
     <td>{{item.message|translate}}</td>

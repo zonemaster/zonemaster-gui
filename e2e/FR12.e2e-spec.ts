@@ -9,13 +9,13 @@ describe('Zonemaster test FR12 - [The simple view should support an advanced vie
     utils.setLang('en');
   });
 
-  it('should have [IPv4 checkbox] && [IPv6 checkbox] NOT visible', () => {
-    expect(element(by.css('label[for="protocol_ipv4"]')).isPresent()).toBe(false);
-    expect(element(by.css('label[for="protocol_ipv6"]')).isPresent()).toBe(false);
+  it('should have [Disable IPv4 checkbox] && [Disable IPv6 checkbox] NOT visible', () => {
+    expect(element(by.css('label[for="disable_protocol_ipv4"]')).isPresent()).toBe(false);
+    expect(element(by.css('label[for="disable_protocol_ipv6"]')).isPresent()).toBe(false);
   });
-  it('should have [IPv4 checkbox] & [IPv6 checkbox] visible', () => {
+  it('should have [Disable IPv4 checkbox] & [Disable IPv6 checkbox] visible', () => {
     element(by.css('.switch')).click();
-    expect(element(by.css('label[for="protocol_ipv4"]')).isPresent()).toBe(true);
-    expect(element(by.css('label[for="protocol_ipv6"]')).isPresent()).toBe(true);
+    expect(element(by.css('label[for="disable_protocol_ipv4"]')).isPresent()).toBe(true);
+    expect(element(by.css('label[for="disable_protocol_ipv6"]')).isPresent()).toBe(true);
   });
 });
