@@ -37,9 +37,9 @@
           <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
               <div class="dropdown-body">
                 <input readonly="" type="text" id="link_location" name="link_location" class="form-inline" value="{{test.location}}">
-                <div class="btn btn-clipboard">
+                <button class="btn btn-clipboard" (click)="copyLinkToClipboard(test.location)">
                     <i class="fa fa-clipboard"></i>
-                </div>
+                </button>
               </div>
           </div>
         </div>

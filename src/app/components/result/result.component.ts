@@ -303,4 +303,45 @@ export class ResultComponent implements OnInit, OnChanges {
     }
   }
 
+  // inspired from
+  // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript#30810322
+  public copyLinkToClipboard(str) {
+    var btnClipboard = document.getElementsByClassName("btn-clipboard")[0];
+    var icon = btnClipboard.firstElementChild;
+
+    var resetIcon = function(oldIcon) {
+      setTimeout(function() {
+        icon.classList.remove(oldIcon);
+        icon.classList.add("fa-clipboard");
+      }, 2000);
+    };
+
+    var textArea = document.createElement("textarea");
+    textArea.value = str;
+
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    var res = document.execCommand('copy');
+
+    if (res === true) {
+      icon.classList.remove("fa-clipboard");
+      icon.classList.add("fa-check");
+
+      resetIcon("fa-check");
+    } else {
+      icon.classList.remove("fa-clipboard");
+      icon.classList.add("fa-remove");
+
+      resetIcon("fa-remove");
+    }
+
+    document.body.removeChild(textArea);
+  }
+
 }
