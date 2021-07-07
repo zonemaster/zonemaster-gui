@@ -25,6 +25,23 @@ following languages with the attached language code:
 * `sv` for Swedish language
 
 
+## Extracting translatable strings
+
+When adding new translatable strings to the GUI, they need to be added to each
+*LANG.json* file. This can be done with the following command:
+
+```
+npm run i18n:extract
+```
+
+This will update each file with the new strings using `null` as default value.
+The file will also be automatically sorted and obsolete strings will be
+removed.
+
+Once updated, it might be required to update the *en.json* file with the
+correct translation.
+
+
 ## Submitting changes
 
 Below are instructions for how to add or modify files. Preferably,
