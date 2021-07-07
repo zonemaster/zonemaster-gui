@@ -49,6 +49,5 @@
 	"Zonemaster Backend is not available": "Zonemaster Backend er ikke tilgængelig",
 	"Profile": "Profil",
 	"Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved": "© AFNIC og The Swedish Internet Foundation. Alle rettigheder forbeholdes",
-	"Disable IPv6": "Deaktiver IPv6",
-	"Disable IPv4": "Deaktiver IPv4"
+	"DISABLE_IP_CHECKBOX": "Deaktiver {{ip}}"
 }
