@@ -79,13 +79,13 @@
                 <div class="custom-control custom-checkbox custom-control-inline">
                   <input type="checkbox" class="custom-control-input" formControlName="disable_ipv4" id="disable_protocol_ipv4" [class.is-invalid]="newForm.errors?.noProtocol || newForm.controls.disable_ipv4.invalid">
                   <label class="custom-control-label" for="disable_protocol_ipv4">
-                    {{'Disable IPv4' |translate}}
+                    {{ 'DISABLE_IP_CHECKBOX' | translate: {ip: 'IPv4'} }}
                   </label>
                 </div>
                 <div class="custom-control custom-checkbox custom-control-inline">
                   <input type="checkbox" class="custom-control-input" formControlName="disable_ipv6" id="disable_protocol_ipv6" [class.is-invalid]="newForm.errors?.noProtocol || newForm.controls.disable_ipv6.invalid">
                   <label class="custom-control-label" for="disable_protocol_ipv6">
-                    {{'Disable IPv6' |translate}}
+                    {{ 'DISABLE_IP_CHECKBOX' | translate: {ip: 'IPv6'} }}
                   </label>
                 </div>
               </div>

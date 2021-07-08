@@ -25,6 +25,23 @@ following languages with the attached language code:
 * `sv` for Swedish language
 
 
+## Extracting translatable strings
+
+When adding new translatable strings to the GUI, they need to be added to each
+*LANG.json* file. This can be done with the following command:
+
+```
+npm run i18n:extract
+```
+
+This will update each file with the new strings using `null` as default value.
+The file will also be automatically sorted and obsolete strings will be
+removed.
+
+Once updated, it might be required to update the *en.json* file with the
+correct translation.
+
+
 ## Submitting changes
 
 Below are instructions for how to add or modify files. Preferably,
@@ -118,7 +135,7 @@ The new language must be added to the following files:
 In `package.json` locate
 
 ```
-    "i18n:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{da,en,fi,fr,nb,sv}.json --key-as-default-value --clean --sort --format json"
+"i18n:extract": "ngx-translate-extract ... --output ./src/assets/i18n/{da,en,fi,fr,nb,sv}.json ...
 ```
 and add the two-letter language code of the new language. Preserve
 the alphabetical order of the language codes.
