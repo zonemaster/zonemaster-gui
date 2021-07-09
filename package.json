@@ -40,7 +40,7 @@
     "zone.js": "^0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.901.0",
+    "@angular-devkit/build-angular": "^0.1000.8",
     "@angular/cli": "^9.1.0",
     "@angular/compiler-cli": "^9.1.0",
     "@angular/language-service": "^9.1.0",
@@ -62,7 +62,7 @@
     "karma-jasmine": "^3.1.1",
     "karma-jasmine-html-reporter": "^1.4.2",
     "ngx-translate-lint": "^1.6.0",
-    "nightwatch": "^1.0.19",
+    "nightwatch": "^1.5.0",
     "ntypescript": "^1.201706190042.1",
     "protractor": "^5.4.2",
     "protractor-image-comparison": "^3.6.0",
