@@ -65,7 +65,7 @@ export class DnsCheckService {
 
   public startDomainTest(data) {
     return this.RPCRequest('start_domain_test', {
-      language: this.translateService.currentLang,
+      // language: this.translateService.currentLang,
       ...data
     });
   }
@@ -89,7 +89,7 @@ export class DnsCheckService {
 
   public fetchFromParent(domain) {
     return this.RPCRequest('get_data_from_parent_zone', {
-      language: this.translateService.currentLang,
+      // language: this.translateService.currentLang,
       domain: domain
     }, false);
   }
