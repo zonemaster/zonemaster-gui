@@ -10,7 +10,7 @@ export class DnsCheckService {
   private clientInfo: object;
   private _profiles: string[];
 
-  constructor(private alertService: AlertService, 
+  constructor(private alertService: AlertService,
     private http: HttpClient,
     private translateService: TranslateService) {
     this.backendUrl = AppService.apiEndpoint();
@@ -63,16 +63,11 @@ export class DnsCheckService {
     return this.RPCRequest('profile_names', {}, false);
   }
 
-  public getNSIps(domain) {
-    return this.RPCRequest('get_ns_ips', domain, false);
-  }
-
-  public getDataFromParentZone(domain) {
-    return this.RPCRequest('get_data_from_parent_zone', domain, false);
-  }
-
   public startDomainTest(data) {
-    return this.RPCRequest('start_domain_test', data);
+    return this.RPCRequest('start_domain_test', {
+      // language: this.translateService.currentLang,
+      ...data
+    });
   }
 
   public testProgress(testId) {
@@ -93,7 +88,10 @@ export class DnsCheckService {
   }
 
   public fetchFromParent(domain) {
-    return this.RPCRequest('get_data_from_parent_zone', {domain}, false);
+    return this.RPCRequest('get_data_from_parent_zone', {
+      // language: this.translateService.currentLang,
+      domain: domain
+    }, false);
   }
 
   public getProfileNames(): string[] {

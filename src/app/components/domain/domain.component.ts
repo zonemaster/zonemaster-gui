@@ -19,8 +19,9 @@ export class DomainComponent implements OnInit {
   public resultID = '';
   public profiles = [];
   public toggleFinished = false;
+  public requestError: object;
 
-  constructor(private alertService: AlertService, 
+  constructor(private alertService: AlertService,
     private dnsCheckService: DnsCheckService,
     private translateService: TranslateService) {}
 
@@ -41,10 +42,14 @@ export class DomainComponent implements OnInit {
         });
       }
     }, error => {
-      console.log(error);
-      this.translateService.get('Error during parent data fetching').subscribe((res: string) => {
-        this.alertService.error(res);
-      });
+      if (error.error.code === "-32602" && error.error.data.constructor === Array) {
+        this.requestError = error.error.data;
+      } else {
+        console.log(error);
+        this.translateService.get('Error during parent data fetching').subscribe((res: string) => {
+          this.alertService.error(res);
+        });
+      }
   });
   }
 
@@ -79,9 +84,14 @@ export class DomainComponent implements OnInit {
           }
         });
       }, this.intervalTime);
-    }, error => {this.translateService.get(`Internal server error`).subscribe((res: string) => {
-        this.alertService.error(res);
-      });
+    }, error => {
+        if (error.error.code === "-32602" && error.error.data.constructor === Array) {
+          this.requestError = error.error.data;
+        } else {
+          this.translateService.get(`Internal server error`).subscribe((res: string) => {
+            this.alertService.error(res);
+          });
+        }
     });
   }
 }
