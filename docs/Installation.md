@@ -9,8 +9,9 @@ Zonemaster product, please see the [main Zonemaster Repository].
 
 The release bundle available in the Github release expects Zonemaster Web GUI
 to be served on its own domain, with the base url `/`. If you wish to serve the
-GUI on a different base url, ex. `/zonemaster/` use the instruction at the end
-of this document to compile a custom bundle.
+GUI on a different base url, e.g. `/zonemaster/` use
+[the instructions][custom base install] at the end of this document to build
+a custom bundle.
 
 
 ## Prerequisites
@@ -302,3 +303,4 @@ Make sure Zonemaster-GUI is properly installed.
 [Zonemaster::Engine installation]: https://github.com/zonemaster/zonemaster-engine/blob/master/docs/Installation.md
 [Zonemaster::Engine]: https://github.com/zonemaster/zonemaster-engine/blob/master/README.md
 [Zonemaster::LDNS]: https://github.com/zonemaster/zonemaster-ldns/blob/master/README.md
+[custom base install]: #serving-the-gui-and-api-from-a-custom-base-url
