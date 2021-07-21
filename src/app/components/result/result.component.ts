@@ -6,6 +6,7 @@ import { saveAs } from 'file-saver';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
 import { Subscription } from 'rxjs';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-result',
@@ -59,7 +60,8 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
               private modalService: NgbModal,
               private alertService: AlertService,
               public translateService: TranslateService,
-              private dnsCheckService: DnsCheckService) {
+              private dnsCheckService: DnsCheckService,
+              private location: Location) {
      this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
        this.activatedRoute.snapshot.data[0]['directAccess'];
   }
@@ -109,7 +111,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
       this.test = {
         id: data['id'],
         creation_time: data['creation_time'],
-        location: `${document.location.origin}/result/${domainCheckId}`
+        location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
       };
 
       this.historyQuery = data['params'];

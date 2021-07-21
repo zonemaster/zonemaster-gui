@@ -7,6 +7,11 @@ post-install sanity checking for Zonemaster Web GUI. The final section wraps up
 with a few pointer to other interfaces to Zonemaster. For an overview of the
 Zonemaster product, please see the [main Zonemaster Repository].
 
+The release bundle available in the Github release expects Zonemaster Web GUI
+to be served on its own domain, with the base url `/`. If you wish to serve the
+GUI on a different base url, ex. `/zonemaster/` use the instruction at the end
+of this document to compile a custom bundle.
+
 
 ## Prerequisites
 
@@ -80,7 +85,7 @@ sudo firewall-cmd --reload
 #### Install Apache
 
 ```sh
-sudo apt-get update && sudo apt-get upgrade -y 
+sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y apache2 unzip
 ```
 
@@ -109,7 +114,7 @@ rm -f zonemaster_web_gui.zip
 sudo a2ensite zonemaster #Activate the website
 ```
 Then update the zonemaster.conf file with your own ServerName, ServerAlias and ServerAdmin.
-For testing on a local machine, you can edit zonemaster.conf and change the "*:80" part of 
+For testing on a local machine, you can edit zonemaster.conf and change the "*:80" part of
 to the host's IP or using localhost as ServerName if that is appropriate.
 
 
@@ -165,7 +170,7 @@ pkg install apache24
 ```sh
 sysrc apache24_enable=yes
 ```
- 
+
 #### Enable three apache modules in Apache configuration file
 
 ```sh
@@ -173,7 +178,7 @@ perl -pi -e 's/^#(LoadModule (proxy_module|proxy_http_module|rewrite_module) lib
 ```
 
 #### Start Apache
- 
+
 ```sh
 service apache24 start
 ```
@@ -189,8 +194,8 @@ restart Apache.
 fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.3.0/zonemaster_web_gui.zip
 mkdir -p /var/www/html/zonemaster-web-gui
 mkdir -p /var/log/zonemaster
-unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip 
-rm zonemaster_web_gui.zip 
+unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
+rm zonemaster_web_gui.zip
 ```
 
 #### Basic Apache configuration
@@ -213,6 +218,53 @@ service apache24 restart
 
 Use the procedure for installation on [Debian](#2-debian).
 
+
+## Serving the GUI and API from a custom base url
+
+In some cases you may want to customize the application to change the base url
+from wich the GUI is served, or change the API endpoint url from the default
+`/api` to something else.
+To achieve that you will need to build the application yourself.
+
+First make sure you have an up-to-date NodeJS/npm installation, then clone this
+repository and install the required dependencies.
+
+```sh
+% git clone https://github.com/zonemaster/zonemaster-gui
+% cd zonemaster-gui
+% npm i
+```
+
+* To change Zonemaster-Backend API endpoint, update
+  `src/environments/environment.prod.ts` and change the `apiEndpoint` with the
+  location of where you are serving the API. For example:
+  ```js
+  export const environment = {
+     apiEndpoint: '/zonemaster/api',
+    ...
+    // Unchanged values not shown
+  };
+  ```
+  Then compile the application with the command `npm run build`.
+
+* To change the base url of the GUI compile the application using
+  `npm run build -- --base-href /zonemaster/`.
+  Replace `/zonemaster/` with the base you want, do not forget the trailing `/`.
+
+In both cases the build step create a `dist` directory that contains the files
+to serve from your Web server.
+
+When serving the application from a different base, you will also need to change
+the Web server configuration by adding an `Alias` directive after the proxy ones.
+Combined with the change of the API endpoint location this gives something like:
+
+```apache
+ProxyPass /zonemaster/api http://localhost:5000/
+ProxyPassReverse /zonemaster/api http://localhost:5000/
+ProxyPreserveHost On
+
+Alias "/zonemaster" "/var/www/html/zonemaster-web-gui/dist"
+```
 
 ## Post-installation sanity check
 
@@ -250,4 +302,3 @@ Make sure Zonemaster-GUI is properly installed.
 [Zonemaster::Engine installation]: https://github.com/zonemaster/zonemaster-engine/blob/master/docs/Installation.md
 [Zonemaster::Engine]: https://github.com/zonemaster/zonemaster-engine/blob/master/README.md
 [Zonemaster::LDNS]: https://github.com/zonemaster/zonemaster-ldns/blob/master/README.md
-
