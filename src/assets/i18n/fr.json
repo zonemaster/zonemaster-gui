@@ -4,10 +4,12 @@
     "About Zonemaster": "À propos de Zonemaster",
     "About domain name system, DNS": "À propos du systeme de nom de domaine, DNS (Domain Name System)",
     "Algorithm": "Algorithme",
+    "All": "Tous",
     "COPYRIGHT": "© AFNIC et The Swedish Internet Foundation. Tous droits réservés",
     "Choose at least one protocol": "Choisissez au moins un protocole.",
     "DISABLE_IP_CHECKBOX": "Désactiver {{ip}}",
     "DS_RECORDS": "Délégation du Signataire (enregistrement DS)",
+    "Delegated": "Délégués",
     "Digest": "Clé publique",
     "Digest required": "Drapeaux (Digest) obligatoire",
     "Digest type": "Drapeaux",
@@ -53,6 +55,7 @@
     "TOOLTIP_NOTICE": "Notice - destiné à informer la personne en charge de la zone, ne correspond pas nécessairement à un problème de configuration",
     "TOOLTIP_WARNING": "Warning - destiné aux erreurs détectées dans certains cas d'usage spécifiques",
     "There is no delegation for the zone": "Aucune délégation trouvée pour cette zone",
+    "Undelegated": "Non délégués",
     "What is an undelegated domain test?": "C'est quoi un test sur un nom de domaine non délégué?",
     "Zonemaster Backend is not available": "Zonemaster Backend n'est pas disponible"
 }

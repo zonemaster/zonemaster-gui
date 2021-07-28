@@ -4,10 +4,12 @@
     "About Zonemaster": "Om Zonemaster",
     "About domain name system, DNS": "Om navnetjenersystemet, DNS",
     "Algorithm": "Algoritme",
+    "All": null,
     "COPYRIGHT": "© AFNIC og The Swedish Internet Foundation",
     "Choose at least one protocol": "Velg minst en protokoll",
     "DISABLE_IP_CHECKBOX": null,
     "DS_RECORDS": "Delegation Signers (DS-poster)",
+    "Delegated": null,
     "Digest": "Digest",
     "Digest required": "Digest må angis",
     "Digest type": "Digest type",
@@ -53,6 +55,7 @@
     "TOOLTIP_NOTICE": null,
     "TOOLTIP_WARNING": null,
     "There is no delegation for the zone": "Det er ingen delegering for sonen",
+    "Undelegated": null,
     "What is an undelegated domain test?": "Hva er en udelegert domenesjekk?",
     "Zonemaster Backend is not available": "Zonemaster Backend er ikke tilgjengelig"
 }

@@ -4,10 +4,12 @@
     "About Zonemaster": "Om Zonemaster",
     "About domain name system, DNS": "Om domain name system, DNS",
     "Algorithm": "Algoritm",
+    "All": null,
     "COPYRIGHT": "© AFNIC och Internetstiftelsen. Alla rättigheter förbehållna",
     "Choose at least one protocol": "Välj åtminstone en av IPv4 och IPv6",
     "DISABLE_IP_CHECKBOX": "Inaktivera {{ip}}",
     "DS_RECORDS": "Delegation Signers (DS-poster)",
+    "Delegated": null,
     "Digest": "Digest",
     "Digest required": "Digest krävs",
     "Digest type": "Digest type",
@@ -53,6 +55,7 @@
     "TOOLTIP_NOTICE": "Notice - betyder något som zonens administratör bör känna till men som inte behöver vara något problem.",
     "TOOLTIP_WARNING": "Warning - betyder något som under vissa omständigheter kan vara ett problem, men det är inte sannolikt att en vanlig användare upptäcker det.",
     "There is no delegation for the zone": "Det finns ingen delegering av zonen (domänen)",
+    "Undelegated": null,
     "What is an undelegated domain test?": "Vad är ett odelegerat domäntest? ",
     "Zonemaster Backend is not available": "Zonemaster Backend är inte åtkomlig"
 }

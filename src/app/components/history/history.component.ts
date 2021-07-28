@@ -46,4 +46,9 @@ export class HistoryComponent implements OnChanges {
     this.historyItems = this.history.slice( (page - 1) * this.pageSize, page * this.pageSize );
   }
 
+  public filterHistory(value) {
+    this.filter = value;
+    this.filterChanged.emit(this.filter);
+  }
+
 }

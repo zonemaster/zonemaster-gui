@@ -4,10 +4,12 @@
     "About Zonemaster": "Tietoja Zonemasterista",
     "About domain name system, DNS": "Nimipalvelujärjestelmä (DNS)",
     "Algorithm": "Algoritmi",
+    "All": null,
     "COPYRIGHT": "© AFNIC ja The Swedish Internet Foundation. Kaikki oikeudet pidätetään",
     "Choose at least one protocol": "Valitse vähintään toinen vaihtoehdoista IPv4 ja IPv6.",
     "DISABLE_IP_CHECKBOX": null,
     "DS_RECORDS": "Delegation Signers (DS-poster)",
+    "Delegated": null,
     "Digest": "Yhteenveto",
     "Digest required": "Yhteenveto tarvitaan",
     "Digest type": "Yhteenvedon tyyppi",
@@ -53,6 +55,7 @@
     "TOOLTIP_NOTICE": null,
     "TOOLTIP_WARNING": null,
     "There is no delegation for the zone": "Verkkotunnuksessa ei ole delegointia",
+    "Undelegated": null,
     "What is an undelegated domain test?": "Mikä on delegoimaton verkkotunnustesti? ",
     "Zonemaster Backend is not available": "Zonemaster Backend ei ole käytettävissä"
 }
