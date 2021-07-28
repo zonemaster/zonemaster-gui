@@ -1,4 +1,18 @@
 <div class="container-fluid">
+  <div class="row mb-2">
+    <div class="btn-group btn-group-toggle">
+      <label class="btn btn-secondary" for="filter_all" [class.active]="filter === 'all'">
+        <input type="radio" [ngModel]="filter" value="all" name="options" id="filter_all" (ngModelChange)="filterChanged.emit($event)" autocomplete="off"> All
+      </label>
+      <label class="btn btn-secondary" for="filter_delegated" [class.active]="filter === 'delegated'">
+        <input type="radio" [ngModel]="filter" value="delegated" name="filter" id="filter_delegated" (ngModelChange)="filterChanged.emit($event)" autocomplete="off"> Delegated
+      </label>
+      <label class="btn btn-secondary" for="filter_undelegated" [class.active]="filter === 'undelegated'">
+        <input type="radio" [ngModel]="filter" value="undelegated" name="filter" id="filter_undelegated" (ngModelChange)="filterChanged.emit($event)" autocomplete="off"> Undelegated
+      </label>
+    </div>
+  </div>
+
   <div class="row">
     <div *ngIf="history.length > 0;else noHistory" class="list-group w-100">
       <div *ngFor="let item of historyItems" class="list-group-item list-group-item-action list-group-item-{{item.color}}">
@@ -14,6 +28,7 @@
                     [(page)]="page"
                     [rotate]="true"
                     [maxSize]="3"
+                    [pageSize]="pageSize"
                     [boundaryLinks]="true"
                     (pageChange)="setItemsByPage(page)">
     </ngb-pagination>

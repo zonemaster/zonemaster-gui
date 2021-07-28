@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
 
@@ -8,20 +8,24 @@ import {AlertService} from '../../services/alert.service';
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.css']
 })
-export class HistoryComponent implements OnInit {
+export class HistoryComponent implements OnChanges {
 
   @Input() history: any[];
+  @Output() filterChanged = new EventEmitter<string>();
 
   public page = 1;
   public pageSize = 10;
 
-  public historyItems: any[] = [];
+  public historyItems: object = {};
+  public filter = 'all';
 
   constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService) { }
 
-  ngOnInit() {
-    this.history = this.setColor(this.history);
-    this.setItemsByPage(1);
+  ngOnChanges(changes) {
+    if ('history' in changes) {
+      this.history = this.setColor(this.history);
+      this.setItemsByPage(1);
+    }
   }
 
   setColor(data) {

@@ -46,10 +46,12 @@ export class ResultComponent implements OnInit, OnChanges {
     search: ''
   };
   public historyQuery: object;
-  public history: any[];
+  public history;
   public language: string;
   private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
+  private isModalOpened = false;
+  private historyCache: object = {};
 
   constructor(private activatedRoute: ActivatedRoute,
               private modalService: NgbModal,
@@ -93,9 +95,12 @@ export class ResultComponent implements OnInit, OnChanges {
   public openModal(content) {
     this.modalService.open(content).result.then((result) => {
       console.log(result)
+      this.isModalOpened = false;
     }, (reason) => {
       console.log(reason);
+      this.isModalOpened = false;
     });
+    this.isModalOpened = true;
   }
 
    private displayResult(domainCheckId: string, language: string, resetCollapsed = true) {
@@ -149,25 +154,28 @@ export class ResultComponent implements OnInit, OnChanges {
     });
   }
 
-  public getHistory() {
-
-    if (!this.history) {
+  public getHistory(filter = 'all') {
+    if (!this.historyCache[filter]) {
       this.translateService.get('History information request is in progress').subscribe((res: string) => {
         this.alertService.info(res);
       });
 
-      this.dnsCheckService.getTestHistory(this.historyQuery).then(data => {
-        this.history = data as any[];
-        if (this.history.length === 0) {
+      this.dnsCheckService.getTestHistory(this.historyQuery, 0, 100, filter).then(data => {
+        this.historyCache[filter] = data as any[];
+        this.history = this.historyCache[filter];
+        if (this.historyCache[filter].length === 0) {
           this.translateService.get('No result for this query').subscribe((res: string) => {
             this.alertService.info(res);
           });
-        } else {
+        } else if (!this.isModalOpened) {
           this.openModal(this.historyModal);
         }
       });
-    } else {
-      this.openModal(this.historyModal);
+    } else{
+      this.history = this.historyCache[filter];
+      if (!this.isModalOpened) {
+        this.openModal(this.historyModal);
+      }
     }
   }
 
