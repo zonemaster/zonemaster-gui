@@ -39,8 +39,8 @@ describe('Zonemaster test FR13 - [The advanced view should support the possibili
   it('should show alert when both are disabled', () => {
     element(by.css('label[for="disable_protocol_ipv4"]')).click();
     element(by.css('label[for="disable_protocol_ipv6"]')).click();
-    expect(element(by.css('.alert.alert-danger.invalid')).isPresent()).toBe(true);
-    expect(element(by.css('.alert.alert-danger.invalid')).getText())
+    expect(element(by.css('.protocol-form .invalid-feedback')).isPresent()).toBe(true);
+    expect(element(by.css('.protocol-form .invalid-feedback')).getText())
       .toEqual('Choose at least one protocol');
   });
 });
