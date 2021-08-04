@@ -138,9 +138,3 @@ button.launch:hover {
 .checkboxForm {
   width: inherit;
 }
-
-.progress {
-  height: 64px !important;
-  opacity: .3;
-  color: red;
-}
