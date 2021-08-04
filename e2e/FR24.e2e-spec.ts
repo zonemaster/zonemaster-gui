@@ -23,9 +23,9 @@ describe('Zonemaster test FR24 - [The list of previous runs should contain links
 
     expect(await $('ngb-modal-window').isPresent()).toBe(true);
 
-    await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-success > a')).get(0)
+    await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-success a')).get(0)
       .getAttribute('href')).toEqual(browser.baseUrl + 'result/84bfac6ae74d0e62');
-    await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-danger > a')).get(0)
+    await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-danger a')).get(0)
       .getAttribute('href')).toEqual(browser.baseUrl + 'result/293f626579274f18');
 
   });
