@@ -13,17 +13,26 @@ export class NavigationComponent implements OnInit {
   public isShrunk = false;
   public activeBackToTop = false;
   public lang = 'en';
-  private lang_default = 'en';
+  private langDefault = 'en';
+  public enabledLanguages = [];
+  public languages = {};
 
-  constructor(private translateService: TranslateService, zone: NgZone) {
-    this.translateService.setDefaultLang(this.lang_default);
+  constructor(private translateService: TranslateService, appService: AppService, zone: NgZone) {
+    this.enabledLanguages = appService.getConfig('enabledLanguages').sort();
+    this.languages = appService.getConfig('languages');
+    this.langDefault = appService.getConfig('defaultLanguage');
+
+    this.translateService.setDefaultLang(this.langDefault);
     this.lang = localStorage.getItem('lang') || this.translateService.getBrowserLang();
+
     if (this.isValidLanguage(this.lang)) {
       this.setLanguage(this.lang);
     } else {
-      this.setLanguage(this.lang_default);
+      this.setLanguage(this.langDefault);
     }
-    this.logoUrl = AppService.getLogoUrl();
+
+    this.logoUrl = appService.getConfig('logoUrl');
+
     window.onscroll = () => {
       zone.run(() => {
         if (window.pageYOffset > 0) {
@@ -55,7 +64,6 @@ export class NavigationComponent implements OnInit {
   }
 
   private isValidLanguage(lang: string) {
-    const validLanguages = [ 'da', 'en', 'fi', 'fr', 'nb', 'sv' ];
-    return validLanguages.includes(lang);
+    return this.enabledLanguages.includes(lang);
   }
 }

@@ -1,8 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { environment } from '../../environments/environment';
-
 
 const urls = [
   {
@@ -11,7 +9,7 @@ const urls = [
       {
         // 'language':'en', 'domain': 'afNiC.Fr', 'profile': 'default',
         'domain': 'afNiC.Fr', 'profile': 'default',
-        'nameservers': [], 'ds_info': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
+        'nameservers': [], 'ds_info': []
       }
     },
     method: 'POST',
@@ -23,7 +21,7 @@ const urls = [
       {
         // 'language':'en', 'domain': 'afNiC.Fr', 'profile': 'default',
         'domain': 'afNiC.Fr', 'profile': 'default',
-        'nameservers': [{"ns": "ns1.nic.fr"}], 'ds_info': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
+        'nameservers': [{"ns": "ns1.nic.fr"}], 'ds_info': []
       }
     },
     method: 'POST',
@@ -35,7 +33,7 @@ const urls = [
       {
         // 'language':'en', 'domain': 'afNiC.Fr', 'profile': 'default',
         'domain': 'afNiC.Fr', 'profile': 'default',
-        'nameservers': [{"ns":"", "ip": "192.134.4.1"}], 'ds_info': [], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
+        'nameservers': [{"ns":"", "ip": "192.134.4.1"}], 'ds_info': []
       }
     },
     method: 'POST',
@@ -65,7 +63,7 @@ const urls = [
           "algorithm":8,
           "digtype":2,
           "digest":"d2681e301f632bd76544e6d5b6631a12d97b5479ff07cd24efecd19203c77db3"
-        }], 'client_version': environment.clientInfo.version, 'client_id': environment.clientInfo.id
+        }]
       }
     },
     method: 'POST',
@@ -103,10 +101,16 @@ export class HttpMockRequestInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     for (const element of urls) {
+
+      // Don't compare client info
+      let requestParams = {...request.body?.params};
+      delete requestParams['client_version'];
+      delete requestParams['client_id'];
+
       if (request.url === element.url
         && request.method === element.method
         && request.body.method === element.body.method
-        && JSON.stringify(request.body.params) === JSON.stringify(element.body.params)
+        && JSON.stringify(requestParams) === JSON.stringify(element.body.params)
       ) {
         console.log('Loaded from json: ' + request.body.method );
         return of(new HttpResponse({ status: 200, body: element.json }));
