@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
 
@@ -8,24 +8,23 @@ import {AlertService} from '../../services/alert.service';
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.css']
 })
-export class HistoryComponent implements OnChanges {
+export class HistoryComponent implements OnInit {
 
   @Input() history: any[];
-  @Output() filterChanged = new EventEmitter<string>();
 
   public page = 1;
   public pageSize = 10;
 
-  public historyItems: object = {};
+  public historyItems: any[] = [];
   public filter = 'all';
+  public filteredHistory: any[] = [];
 
   constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService) { }
 
-  ngOnChanges(changes) {
-    if ('history' in changes) {
-      this.history = this.setColor(this.history);
-      this.setItemsByPage(1);
-    }
+  ngOnInit() {
+    this.history = this.setColor(this.history);
+    this.filterHistory(this.filter);
+    this.setItemsByPage(this.page);
   }
 
   setColor(data) {
@@ -43,12 +42,15 @@ export class HistoryComponent implements OnChanges {
 
   public setItemsByPage(page: number) {
     // TODO rename function
-    this.historyItems = this.history.slice( (page - 1) * this.pageSize, page * this.pageSize );
+    this.historyItems = this.filteredHistory.slice( (page - 1) * this.pageSize, page * this.pageSize );
   }
 
   public filterHistory(value) {
     this.filter = value;
-    this.filterChanged.emit(this.filter);
+    this.filteredHistory = this.history.filter(test => {
+      return (this.filter == 'all') || (test.undelegated == (this.filter == 'undelegated'));
+    });
+    this.setItemsByPage(this.page);
   }
 
 }
