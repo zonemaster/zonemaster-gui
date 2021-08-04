@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
@@ -55,7 +56,8 @@ export class ResultComponent implements OnInit, OnChanges {
               private modalService: NgbModal,
               private alertService: AlertService,
               public translateService: TranslateService,
-              private dnsCheckService: DnsCheckService) {
+              private dnsCheckService: DnsCheckService,
+              private location: Location) {
      this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
        this.activatedRoute.snapshot.data[0]['directAccess'];
   }
@@ -63,6 +65,11 @@ export class ResultComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.language = this.translateService.currentLang;
     console.log(this.resultID);
+
+      if ( this.resultID ) {
+        var new_path = "/result/" + this.resultID;
+        this.location.go( new_path );
+      }
 
     // Le result ID ne passe pas par la lorsque domaine.ts change une seconde fois l'ID !!!
     if (this.directAccess) {
