@@ -1,5 +1,0 @@
-{
-    "defaultLanguage": "en",
-    "enabledLanguages": [ "da", "en", "fi", "fr", "nb", "sv" ],
-    "apiEndpoint": "/api"
-}
