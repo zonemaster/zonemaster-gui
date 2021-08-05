@@ -12,9 +12,13 @@ export class AppService {
   public loadConfig(): Promise<void> {
     return this.http.get('/assets/app.config.json')
       .toPromise()
-      .then((res) => {
-          AppService.config = res
-      });
+      .then(res => {
+          AppService.config = res;
+      })
+      .catch(reason => {
+          console.warn('Failed to load configuration, using default settings.', reason.message);
+          AppService.config = {};
+      })
   }
 
   public getConfig(key) {
