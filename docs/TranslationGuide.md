@@ -49,7 +49,7 @@ submit the new or updated file as a pull request to Github (see
 [translators guide for Engine]). Contact the Zonemaster Group if
 that does not work.
 
-The translator must always create or update the *LANG.json* and 
+The translator must always create or update the *LANG.json* and
 the *gui-faq-LANG.md*. The other changes are only done when
 a language is added and will be completed by the Zonemaster Group.
 
@@ -95,40 +95,13 @@ that assume this model, where the `<a>` tag is just before the heading.
 #### 1. What is Zonemaster?
 ```
 
-## Add the language to HTML code
-
-The language must be linked from the GUI. The new language must be added
-to [src/app/components/navigation/navigation.component.html]:
-
-In `navigation.component.html` :
-
-  * Locate the div `<div class="lang">`
-  * Add the language where `xx` is the language code in lower case, e.g.
-    `en` and `Yy` is the same language code with first letter in upper
-    case, e.g. `En`:
-
-```
-<a lang='xx' (click)="setLanguage('xx')">Yy</a> |
-```
-  * Add the language a second time where `xx` is the language code in
-    lower case, e.g. `sv`, and `Yyyyy` is the name of the same language
-    in that language, e.g. `Svenska`:
-
-```
- <option lang='xx' value='xx' [selected]="lang === 'xx'">
-  Yyyyy
- </option>
- ```
-
-Preserve the alphabetical order of the language codes.
-
 ## Add the language in Type Script code
 
 The new language must be added to the following files:
 
 * [package.json]
 * [src/app/app.module.ts]
-* [src/app/components/navigation/navigation.component.ts]
+* [src/environments/common.ts]
 
 ### package.json
 
@@ -200,5 +173,4 @@ is updated.
 [src/app/components/navigation/navigation.component.ts]:   ../src/app/components/navigation/navigation.component.ts
 [src/assets/i18n]:                                         ../src/assets/i18n
 [translators guide for Engine]:                            https://github.com/zonemaster/zonemaster-engine/blob/develop/docs/Translation-translators.md
-
-
+[src/environments/common.ts]:                              ../src/environments/common.ts
