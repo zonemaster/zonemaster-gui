@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { clientInfo } from '../../environments/version';
 
 @Injectable()
 export class AppService {
@@ -25,4 +26,7 @@ export class AppService {
     return AppService.config[key] || environment[key];
   }
 
+  public getClientInfo() {
+    return clientInfo;
+  }
 }

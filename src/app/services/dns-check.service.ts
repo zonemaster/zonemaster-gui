@@ -14,7 +14,7 @@ export class DnsCheckService {
     appService: AppService) {
 
     this.backendUrl = appService.getConfig('apiEndpoint');
-    this.clientInfo = appService.getConfig('clientInfo');
+    this.clientInfo = appService.getClientInfo();
 
     if (!this.backendUrl) {
       this.translateService.get('Please set the api endpoint').subscribe((res: string) => {
