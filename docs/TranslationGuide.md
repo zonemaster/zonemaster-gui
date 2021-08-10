@@ -95,13 +95,17 @@ that assume this model, where the `<a>` tag is just before the heading.
 #### 1. What is Zonemaster?
 ```
 
-## Add the language in Type Script code
+## Adding a new language
 
-The new language must be added to the following files:
+The new language must be added to the following typescript files:
 
 * [package.json]
 * [src/app/app.module.ts]
 * [src/environments/common.ts]
+
+and the following documentation file:
+
+* [Configuration.md]
 
 ### package.json
 
@@ -127,16 +131,31 @@ import 'moment/locale/xx';
 ```
 Preserve the alphabetical order of the language codes.
 
-### navigation.component.ts
+### common.ts
 
-In `navigation.component.ts` locate
+In `common.ts` locate
 
+```js
+languages: {
+  'da': 'Dansk',
+  ...
+}
 ```
-  private isValidLanguage(lang: string) {
-    const validLanguages = [ 'da', 'en', 'fi', 'fr', 'nb', 'sv' ];
+and append the new two-letter language code and the corresponding new
+languge name.
+
+Also locate
+```js
+enabledLanguages: ['da', ...]
 ```
-and add the two-letter language code of the new language. Preserve
-the alphabetical order of the language codes.
+and append the new two-letter language code of the new language.
+
+
+
+### Configuration.md
+
+Add the new languge's two-letter code to the list of default values for
+`"enabledLanguages"`.
 
 ## Add e2e test script for the language
 
@@ -174,3 +193,4 @@ is updated.
 [src/assets/i18n]:                                         ../src/assets/i18n
 [translators guide for Engine]:                            https://github.com/zonemaster/zonemaster-engine/blob/develop/docs/Translation-translators.md
 [src/environments/common.ts]:                              ../src/environments/common.ts
+[Configuration.md]:                                        ./Configuration.md
