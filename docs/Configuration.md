@@ -1,6 +1,6 @@
 # Configuration
 
-The GUI can be configured by changing the editing the file `assets/app.config.json`.
+The GUI can be configured by editing the file `assets/app.config.json`.
 
 The supported configuration items are the following.
 

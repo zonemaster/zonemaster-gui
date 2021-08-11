@@ -142,7 +142,7 @@ languages: {
 }
 ```
 and append the new two-letter language code and the corresponding new
-languge name.
+language name.
 
 Also locate
 ```js
@@ -154,7 +154,7 @@ and append the new two-letter language code of the new language.
 
 ### Configuration.md
 
-Add the new languge's two-letter code to the list of default values for
+Add the new language's two-letter code to the list of default values for
 `"enabledLanguages"`.
 
 ## Add e2e test script for the language
