@@ -307,4 +307,4 @@ Make sure Zonemaster-GUI is properly installed.
 [Zonemaster::Engine]: https://github.com/zonemaster/zonemaster-engine/blob/master/README.md
 [Zonemaster::LDNS]: https://github.com/zonemaster/zonemaster-ldns/blob/master/README.md
 [custom base install]: #serving-the-gui-and-api-from-a-custom-base-url
-[API endpoint location]: ../Configuration.md
+[API endpoint location]: Configuration.md
