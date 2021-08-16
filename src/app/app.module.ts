@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -104,10 +104,17 @@ const appRoutes: Routes = [
       provide: HTTP_INTERCEPTORS,
       useClass: isMock ? HttpMockRequestInterceptor : HttpRequestInterceptor,
       multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (appService: AppService) => {
+        return () => appService.loadConfig()
+      },
+      multi: true,
+      deps: [AppService]
     }
   ],
   bootstrap: [AppComponent]
 })
 
 export class AppModule {}
-

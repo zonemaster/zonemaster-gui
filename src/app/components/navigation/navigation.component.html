@@ -23,32 +23,16 @@
 
       <div class="lang">
         <div class="d-none d-sm-block">
-          <a lang='da' (click)="setLanguage('da')" title="Dansk" [class.selected]="lang==='da'">Da</a> |
-          <a lang='en' (click)="setLanguage('en')" title="English" [class.selected]="lang==='en'">En</a> |
-          <a lang='fi' (click)="setLanguage('fi')" title="Suomi" [class.selected]="lang==='fi'">Fi</a> |
-          <a lang='fr' (click)="setLanguage('fr')" title="Français" [class.selected]="lang==='fr'">Fr</a> |
-          <a lang='nb' (click)="setLanguage('nb')" title="Norsk (bokmål)" [class.selected]="lang==='nb'">Nb</a> |
-          <a lang='sv' (click)="setLanguage('sv')" title="Svenska" [class.selected]="lang==='sv'">Sv</a> &nbsp;
+          <ng-container  *ngFor="let itemLang of enabledLanguages; let i = index">
+            <a [lang]="itemLang" (click)="setLanguage(itemLang)" [title]="languages[itemLang]" [class.selected]="lang===itemLang">{{ itemLang | titlecase }}</a>
+            <ng-container *ngIf="i < enabledLanguages.length - 1; else endLangNav"> | </ng-container>
+          </ng-container>
+          <ng-template #endLangNav> &nbsp; </ng-template>
         </div>
         <div class="d-sm-none">
           <select name="lang" [(ngModel)]="lang" (change)="setLanguage(lang)" class="form-control" id="languageSelection">
-            <option lang='da' value='da' [selected]="lang === 'da'">
-              Dansk
-            </option>
-            <option lang='en' value='en' [selected]="lang === 'en'">
-              English
-            </option>
-            <option lang='fi' value='fi' [selected]="lang === 'fi'">
-              Suomi
-            </option>
-            <option lang='fr' value='fr' [selected]="lang === 'fr'">
-              Français
-            </option>
-            <option lang='nb' value='nb' [selected]="lang === 'nb'">
-              Norsk (bokmål)
-            </option>
-            <option lang='sv' value='sv' [selected]="lang === 'sv'">
-              Svenska
+            <option *ngFor="let itemLang of enabledLanguages" [lang]="itemLang" [value]="itemLang" [selected]="lang === itemLang">
+              {{ languages[itemLang] }}
             </option>
           </select>
         </div>

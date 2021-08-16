@@ -1,25 +1,32 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { clientInfo } from '../../environments/version';
 
 @Injectable()
 export class AppService {
 
-  constructor() { }
+  private static config;
 
-  public static apiEndpoint(): string {
-    return environment.apiEndpoint;
+  constructor(private http: HttpClient) { }
+
+  public loadConfig(): Promise<void> {
+    return this.http.get('/assets/app.config.json')
+      .toPromise()
+      .then(res => {
+          AppService.config = res;
+      })
+      .catch(reason => {
+          console.warn('Failed to load configuration, using default settings.', reason.message);
+          AppService.config = {};
+      })
   }
 
-  public static getContactAddress(): string {
-    return environment.contactAddress;
+  public getConfig(key) {
+    return AppService.config[key] || environment[key];
   }
 
-  public static getLogoUrl(): string {
-    return environment.logoUrl;
+  public getClientInfo() {
+    return clientInfo;
   }
-
-  public static getClientInfo(): object {
-    return environment.clientInfo;
-  }
-
 }

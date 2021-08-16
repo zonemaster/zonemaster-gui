@@ -15,9 +15,9 @@ export class FooterComponent implements OnInit {
   public contactAddress: string;
   public clientInfo: object;
 
-  constructor(private dnsCheckService: DnsCheckService, private alertService: AlertService, private translateService: TranslateService) {
-    this.contactAddress = AppService.getContactAddress();
-    this.clientInfo = AppService.getClientInfo();
+  constructor(private dnsCheckService: DnsCheckService, private alertService: AlertService, private translateService: TranslateService, appService: AppService) {
+    this.contactAddress = appService.getConfig('contactAddress');
+    this.clientInfo = appService.getClientInfo();
   }
 
   ngOnInit() {
