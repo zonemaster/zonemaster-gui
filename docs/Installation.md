@@ -223,9 +223,21 @@ Use the procedure for installation on [Debian](#2-debian).
 ## Serving the GUI and API from a custom base url
 
 In some cases you may want to customize the application to change the base url
-from wich the GUI is served, or change the API endpoint url from the default
-`/api` to something else.
-To achieve that you will need to build the application yourself.
+from wich the GUI is served.
+
+To achieve that you will either need to change the `<base>` in the `index.html`
+or build the application yourself.
+
+### Change the base url in index.html
+
+Locate the line `<base href="/">` and replace the `href` value with the path you
+want to server the GUI from, e.g. `<base href="/zonemaster/">`. Don't forget the
+trailing `/`.
+
+**NOTE:** Don't forget to update the base after each upgrade as the file will be
+overwritten.
+
+### Building the application
 
 First make sure you have an up-to-date NodeJS/npm installation, then clone this
 repository and install the required dependencies.
@@ -236,28 +248,19 @@ repository and install the required dependencies.
 % npm i
 ```
 
-* To change Zonemaster-Backend API endpoint, update
-  `src/environments/environment.prod.ts` and change the `apiEndpoint` with the
-  location of where you are serving the API. For example:
-  ```js
-  export const environment = {
-     apiEndpoint: '/zonemaster/api',
-    ...
-    // Unchanged values not shown
-  };
-  ```
-  Then compile the application with the command `npm run build`.
+To change the base url of the GUI compile the application using
+`npm run build -- --base-href /zonemaster/`.
+Replace `/zonemaster/` with the base you want, do not forget the trailing `/`.
 
-* To change the base url of the GUI compile the application using
-  `npm run build -- --base-href /zonemaster/`.
-  Replace `/zonemaster/` with the base you want, do not forget the trailing `/`.
+The build step create a `dist` directory that contains the files to serve from
+your Web server.
 
-In both cases the build step create a `dist` directory that contains the files
-to serve from your Web server.
+### Web server configuration
 
 When serving the application from a different base, you will also need to change
 the Web server configuration by adding an `Alias` directive after the proxy ones.
-Combined with the change of the API endpoint location this gives something like:
+Combined with the change of the [API endpoint location] this gives something
+like:
 
 ```apache
 ProxyPass /zonemaster/api http://localhost:5000/
@@ -304,3 +307,4 @@ Make sure Zonemaster-GUI is properly installed.
 [Zonemaster::Engine]: https://github.com/zonemaster/zonemaster-engine/blob/master/README.md
 [Zonemaster::LDNS]: https://github.com/zonemaster/zonemaster-ldns/blob/master/README.md
 [custom base install]: #serving-the-gui-and-api-from-a-custom-base-url
+[API endpoint location]: ../Configuration.md
