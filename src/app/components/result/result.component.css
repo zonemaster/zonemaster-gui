@@ -1,9 +1,9 @@
 .result {
   border-radius: 5px;
   width     : 100%;
-  min-height: 150px;
+  /*min-height: 150px;
+  padding   : 2em;*/
   color     : black;
-  padding   : 2em;
   margin-bottom: 20px;
 }
 
@@ -229,11 +229,43 @@ tbody[id^=collapsed_module] tr.CRITICAL th::before {
 }
 
 @media(max-width:768px){
-  .thead-dark tr th:nth-child(2) {
+  .result .module-name {
     display: none;
   }
+}
 
-  .result.show td:first-of-type {
-    display: none;
-  }
+.result section {
+  display: block;
+  width: 100%;
+}
+
+.result section h3 {
+  position: sticky;
+  top: 90px;
+  z-index: 3;
+  background-color: wheat;
+}
+
+.result section .entry {
+  display: flex;
+}
+
+.result section > div {
+  padding-left: 40px;
+}
+
+.result section .entry .module-name {
+  min-width: 15%;
+  flex-shrink: 0;
+  padding-right: 1em;
+}
+
+.result section .entry .severity {
+  min-width: 12%;
+  flex-shrink: 0;
+  padding-right: 1em;
+}
+
+.result section .entry .message {
+  flex: 1;
 }

@@ -103,24 +103,24 @@
     </ul>
   </div>
   <div class="row mt-3">
-    <table class="table table-striped">
-      <thead class="thead-dark">
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">{{ 'Module' | translate }}</th>
-        <th scope="col">{{ 'Level' | translate }}</th>
-        <th scope="col">{{ 'Message' | translate }}</th>
-      </tr>
-      </thead>
-      <tbody *ngIf="!resutlCollapsed;else resutlCollapsedTemplate">
-      <tr *ngFor="let item of result | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="result {{item.level}}">
-        <th scope="row"></th>
-        <td>{{item.module|translate}}</td>
-        <td>{{item.level}}</td>
-        <td>{{item.message|translate}}</td>
-      </tr>
-      </tbody>
-    </table>
+    <section *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items" id="collapsed_module_{{moduleKey}}" [attr.aria-expanded]="!isCollapsed[moduleKey]" aria-controls="collapseExample" [class.expanded]="!isCollapsed[moduleKey]">
+
+      <h3 (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]">
+        <a>
+          <i class="fa" placement="top" ngbTooltip="{{(isCollapsed[moduleKey] ? 'Expand': 'Collapse')}}" [ngClass]="{'fa-plus': isCollapsed[moduleKey],'fa-minus': !isCollapsed[moduleKey]}" aria-hidden="true"></i>
+          {{moduleKey}}
+        </a>
+
+      </h3>
+      <div [ngbCollapse]="isCollapsed[moduleKey]">
+        <div *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
+          <div class="module-name">{{item.module|translate}}</div>
+          <div class="severity">{{item.level}}</div>
+          <div class="message">{{item.message|translate}}</div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </div>
 
