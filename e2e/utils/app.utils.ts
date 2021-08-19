@@ -10,7 +10,8 @@ export class Utils {
   }
 
   setLang(lang) {
-    return element(by.xpath('//a[@lang="' + lang + '"]')).click()
+    return browser.wait(ExpectedConditions.presenceOf($(`.lang > div > a[lang="${lang}"]`)), 10000)
+      .then(() => element(by.xpath('//a[@lang="' + lang + '"]')).click())
       .then(() => browser.wait(ExpectedConditions.presenceOf($(`.lang > div > a.selected[lang="${lang}"]`)), 10000));
   }
 
