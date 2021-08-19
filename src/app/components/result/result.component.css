@@ -1,7 +1,6 @@
 .result {
   border-radius: 5px;
   width     : 100%;
-  min-width : 500px;
   min-height: 150px;
   color     : black;
   padding   : 2em;
@@ -118,6 +117,33 @@ tr.collapse > th {
 .result.CRITICAL:not(.expand) th:first-of-type,
 tbody tr:first-child th {
     position: relative;
+    z-index: -1;
+}
+
+tbody > tr:first-child {
+  background-color: #f2f2f2;
+}
+
+tbody > tr.expanded:first-child {
+  position: sticky;
+  top: 95px;
+}
+
+tbody > tr.expanded:first-child::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background-color: #fff;
+  bottom: 100%;
+  left: 0;
+  /* fix for chrome */
+  margin-bottom: -1px;
+}
+
+tbody > tr:not(.expanded):first-child th {
+  position: relative;
+  z-index: 0;
 }
 
 tbody[id^=collapsed_module] tr:first-child th::before {
@@ -200,4 +226,14 @@ tbody[id^=collapsed_module] tr.CRITICAL th::before {
 
 .history > i, .export > i, .share > i, .settings > i {
   margin-right: 4px;
+}
+
+@media(max-width:768px){
+  .thead-dark tr th:nth-child(2) {
+    display: none;
+  }
+
+  .result.show td:first-of-type {
+    display: none;
+  }
 }
