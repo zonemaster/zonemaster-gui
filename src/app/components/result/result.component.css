@@ -202,7 +202,7 @@
   padding-left: 40px;
 }
 
-.result section > div > div {
+.result section .entry {
   border-bottom: solid #dee2e6 1px;
 }
 

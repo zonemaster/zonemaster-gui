@@ -3,6 +3,7 @@ import {ActivatedRoute, Params} from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
+import { combineLatest } from 'rxjs';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
 
@@ -196,37 +197,62 @@ export class ResultComponent implements OnInit, OnChanges, AfterViewInit {
 
     saveAs(blob, `zonemaster_result_${this.test['location']}.json`);
   }
+
   public exportHTML() {
-    const tempResutlCollapsed = this.resutlCollapsed;
-    this.resutlCollapsed = false;
-    setTimeout(() => {
+    let toTranslate = ['Module', 'Level', 'Message'];
+    combineLatest([...toTranslate.map(s => this.translateService.get(s))])
+      .subscribe(([moduleStr, levelStr, messageStr]) => {
+        let tbodyContent = '';
+        for (let item of this.result) {
+          tbodyContent += `
+            <tr>
+              <td>${item.module}</td>
+              <td>${item.level}</td>
+              <td>${item.message}</td>
+            </tr>
+          `;
+        }
 
-    const clone = this.resultView.nativeElement.cloneNode(true);
-    clone.querySelector('.result > div.row.d-block').remove();
-    clone.querySelectorAll('.result > div.row > div.col-md-6')[1].remove();
+        let resultHeader = this.resultView.nativeElement.querySelector('.result-header').cloneNode(true).innerHTML;
 
-    const result = `<!doctype html>
-    <html class="no-js" lang="fr">
-      <head>
-        <meta charset="UTF-8">
-        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Zonemaster TEST</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" media="all">
-      </head>
-      <body style="margin-left: 20px;">
-        ${clone.innerHTML}
-      </body>
-    </html>`;
+        const result = `
+          <!doctype html>
+          <html class="no-js" lang="fr">
+            <head>
+              <meta charset="UTF-8">
+              <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+              <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+              <title>Zonemaster TEST</title>
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" media="all">
+            </head>
+            <body style="margin-left: 20px;">
+              <header>
+                ${resultHeader}
+              </header>
+              <table class="table table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">${moduleStr}</th>
+                    <th scope="col">${levelStr}</th>
+                    <th scope="col">${messageStr}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${tbodyContent}
+                </tbody>
+              </table>
+            </body>
+          </html>
+        `;
 
-    const blob = new Blob([result], {
-      type: 'text/html;charset=utf-8'
-    });
+        const blob = new Blob([result], {
+          type: 'text/html;charset=utf-8'
+        });
 
-    saveAs(blob, `zonemaster_result_${this.test['location']}.html`);
-    this.resutlCollapsed = tempResutlCollapsed;
-    }, 100);
+        saveAs(blob, `zonemaster_result_${this.test['location']}.html`);
+      });
   }
+
   public exportText() {
     const csvData = this.ConvertTo([...this.result].slice(0), 'txt');
     const blob = new Blob([csvData], {
@@ -235,6 +261,7 @@ export class ResultComponent implements OnInit, OnChanges, AfterViewInit {
 
     saveAs(blob, `zonemaster_result_${this.test['location']}.txt`);
   }
+
   public exportCSV() {
     const csvData = this.ConvertTo([...this.result].slice(0), 'csv');
     const blob = new Blob([csvData], {
