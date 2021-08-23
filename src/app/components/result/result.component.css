@@ -220,6 +220,7 @@
 .result section .entry .message {
   flex: 1;
   margin: 0;
+  word-break: break-all;
 }
 
 @media(max-width:768px){

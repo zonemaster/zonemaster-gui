@@ -107,6 +107,15 @@ export class ResultComponent implements OnInit, OnChanges, AfterViewInit {
     });
   }
 
+  public moduleCollapsed(headerRef) {
+    let headerRect = headerRef.getBoundingClientRect();
+
+    if (headerRect.top < 0) {
+      let style = window.getComputedStyle(headerRef);
+      window.scrollBy(0, headerRect.top - parseInt(style.top, 10) )
+    }
+  }
+
    private displayResult(domainCheckId: string, language: string, resetCollapsed = true) {
      this.dnsCheckService.getTestResults({id: domainCheckId, language}).then(data => {
       // TODO clean
