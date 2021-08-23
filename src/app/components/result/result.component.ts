@@ -6,6 +6,7 @@ import { saveAs } from 'file-saver';
 import { combineLatest } from 'rxjs';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-result',
@@ -49,6 +50,7 @@ export class ResultComponent implements OnInit, OnChanges {
   public historyQuery: object;
   public history: any[];
   public language: string;
+  public navHeight: Number;
   private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
 
@@ -56,7 +58,8 @@ export class ResultComponent implements OnInit, OnChanges {
               private modalService: NgbModal,
               private alertService: AlertService,
               public translateService: TranslateService,
-              private dnsCheckService: DnsCheckService) {
+              private dnsCheckService: DnsCheckService,
+              private navigationService: NavigationService) {
      this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
        this.activatedRoute.snapshot.data[0]['directAccess'];
   }
@@ -81,6 +84,10 @@ export class ResultComponent implements OnInit, OnChanges {
         this.language = event.lang;
       });
     }
+
+    this.navigationService.heightChanged.subscribe((newHeight: Number) => {
+      this.navHeight = newHeight;
+    });
   }
 
   ngOnChanges() {
@@ -190,8 +197,7 @@ export class ResultComponent implements OnInit, OnChanges {
   }
 
   public exportHTML() {
-    let toTranslate = ['Module', 'Level', 'Message'];
-    combineLatest([...toTranslate.map(s => this.translateService.get(s))])
+    combineLatest([...this.header.map(s => this.translateService.get(s))])
       .subscribe(([moduleStr, levelStr, messageStr]) => {
         let tbodyContent = '';
         for (let item of this.result) {

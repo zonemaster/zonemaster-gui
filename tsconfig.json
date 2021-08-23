@@ -13,6 +13,7 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": [ "@types/resize-observer-browser" ],
     "lib": [
       "es2017",
       "dom"

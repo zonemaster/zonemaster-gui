@@ -1,13 +1,14 @@
-import { Component, OnInit, NgZone} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {AppService} from '../../services/app.service';
+import { Component, OnInit, NgZone, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { NavigationService } from '../../services/navigation.service';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css'],
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, AfterViewInit {
   public logoUrl: string;
   public isNavbarCollapsed = false;
   public isShrunk = false;
@@ -17,7 +18,9 @@ export class NavigationComponent implements OnInit {
   public enabledLanguages = [];
   public languages = {};
 
-  constructor(private translateService: TranslateService, appService: AppService, zone: NgZone) {
+  @ViewChild('navView', {static: false}) navView: ElementRef;
+
+  constructor(private translateService: TranslateService, private navigationService: NavigationService, appService: AppService, zone: NgZone ) {
     this.enabledLanguages = appService.getConfig('enabledLanguages').sort();
     this.languages = appService.getConfig('languages');
     this.langDefault = appService.getConfig('defaultLanguage');
@@ -33,7 +36,7 @@ export class NavigationComponent implements OnInit {
 
     this.logoUrl = appService.getConfig('logoUrl');
 
-    window.onscroll = () => {
+    window.addEventListener('scroll', () => {
       zone.run(() => {
         if (window.pageYOffset > 0) {
           this.isShrunk = true;
@@ -47,10 +50,18 @@ export class NavigationComponent implements OnInit {
           this.activeBackToTop = false;
         }
       });
-    };
+    });
+  }
+  ngAfterViewInit() {
+    let observer = new ResizeObserver(_entries => {
+      let rect = this.navView.nativeElement.getBoundingClientRect();
+      this.navigationService.height = rect.height;
+    });
+    observer.observe(this.navView.nativeElement);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   public backToTop() {
     window.scrollTo(0, 0);
