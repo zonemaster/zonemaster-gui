@@ -156,7 +156,7 @@
 <ng-template #resutlCollapsedTemplate>
   <section *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items" [class.expanded]="!isCollapsed[moduleKey]">
     <a [attr.aria-controls]="'module-' + moduleKey" [attr.aria-expanded]="!isCollapsed[moduleKey]">
-      <h3 (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]" class="{{modules[moduleKey]}}" [ngStyle]="{'top': (navHeight + 7) + 'px'}" #headerRef>
+      <h3 (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]" class="{{modules[moduleKey]}} {{moduleKey}}" [ngStyle]="{'top': (navHeight + 7) + 'px'}" #headerRef>
         <i class="fa" placement="top" ngbTooltip="{{(isCollapsed[moduleKey] ? 'Expand': 'Collapse')}}" [ngClass]="{'fa-plus': isCollapsed[moduleKey],'fa-minus': !isCollapsed[moduleKey]}" aria-hidden="true"></i>
         <span>{{moduleKey}}</span>
       </h3>
