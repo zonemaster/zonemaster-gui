@@ -41,10 +41,10 @@ nav {
 }
 
 @media(max-width: 1300px) {
-	 .github {
-		         display: none
-			  }
-		  }
+  .github {
+    display: none
+  }
+}
 
 .back-to-top {
   cursor: pointer;
