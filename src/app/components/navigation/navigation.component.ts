@@ -20,7 +20,7 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   @ViewChild('navView', {static: false}) navView: ElementRef;
 
-  constructor(private translateService: TranslateService, private navigationService: NavigationService, appService: AppService, zone: NgZone ) {
+  constructor(private translateService: TranslateService, private navigationService: NavigationService, appService: AppService, private zone: NgZone ) {
     this.enabledLanguages = appService.getConfig('enabledLanguages').sort();
     this.languages = appService.getConfig('languages');
     this.langDefault = appService.getConfig('defaultLanguage');
@@ -54,8 +54,10 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     let observer = new ResizeObserver(_entries => {
-      let rect = this.navView.nativeElement.getBoundingClientRect();
-      this.navigationService.height = rect.height;
+      this.zone.run(() => {
+        let rect = this.navView.nativeElement.getBoundingClientRect();
+        this.navigationService.height = rect.height;
+      })
     });
     observer.observe(this.navView.nativeElement);
   }
