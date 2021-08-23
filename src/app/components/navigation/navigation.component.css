@@ -1,12 +1,8 @@
 .logo {
-  max-width: 100%;
-  max-height: 100%;
-  image-rendering: -webkit-optimize-contrast;
-}
-
-.navbar-brand {
-  transition: 0.2s linear height;
   height: 70px;
+  image-rendering: -webkit-optimize-contrast;
+  transition: 0.2s linear height;
+  padding: 0.5rem;
 }
 
 .navbar-brand div {
@@ -35,14 +31,11 @@ nav {
   height: 100%;
 }
 
-@media(min-width:992px){
+@media(min-width:992px) {
   .shrink {
     height: 60px;
   }
 
-  .shrink .navbar-brand {
-    height: 55px;
-  }
 
   .shrink .github {
     width: 60px;
@@ -50,9 +43,19 @@ nav {
   }
 }
 
+@media(max-width: 992px) {
+  .logo {
+    height: 55px;
+  }
+}
+
 @media(max-width: 1300px) {
   .github {
     display: none
+  }
+
+  nav {
+    height: auto;
   }
 }
 
