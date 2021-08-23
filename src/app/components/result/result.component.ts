@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
@@ -17,7 +17,6 @@ export class ResultComponent implements OnInit, OnChanges {
   @Input('resultID') resultID: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
-  @ViewChildren('test') testEl: QueryList<ElementRef>;
 
   public directAccess = false;
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
