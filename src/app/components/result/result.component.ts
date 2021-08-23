@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
@@ -12,7 +12,7 @@ import {AlertService} from '../../services/alert.service';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit, OnChanges, AfterViewInit {
+export class ResultComponent implements OnInit, OnChanges {
 
   @Input('resultID') resultID: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
@@ -90,14 +90,6 @@ export class ResultComponent implements OnInit, OnChanges, AfterViewInit {
       this.displayResult(this.resultID, event.lang, false);
       this.language = event.lang;
     });
-  }
-
-  ngAfterViewInit() {
-    this.testEl.changes.subscribe((event) => {
-      this.testEl.forEach(item => {
-        //observer.observe(item.nativeElement);
-      })
-    })
   }
 
   public openModal(content) {
