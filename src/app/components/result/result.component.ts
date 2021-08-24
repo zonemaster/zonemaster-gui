@@ -1,17 +1,18 @@
-import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit, OnChanges {
+export class ResultComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input('resultID') resultID: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
@@ -51,6 +52,9 @@ export class ResultComponent implements OnInit, OnChanges {
   private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
 
+  private langChangeSubscription: Subscription;
+  private routeParamsSubscription: Subscription;
+
   constructor(private activatedRoute: ActivatedRoute,
               private modalService: NgbModal,
               private alertService: AlertService,
@@ -66,28 +70,28 @@ export class ResultComponent implements OnInit, OnChanges {
 
     // Le result ID ne passe pas par la lorsque domaine.ts change une seconde fois l'ID !!!
     if (this.directAccess) {
-      let notFirst = true;
-      this.activatedRoute.params.subscribe((params: Params) => {
+      this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
         this.resultID = params['resultID'];
         this.displayResult(this.resultID, this.language);
       });
-      this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-        if (notFirst) {
-          notFirst = !notFirst;
-        } else {
-          this.displayResult(this.resultID, event.lang, false);
-        }
-        this.language = event.lang;
-      });
     }
+
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.displayResult(this.resultID, event.lang, false);
+      this.language = event.lang;
+    });
   }
 
   ngOnChanges() {
     this.displayResult(this.resultID, this.translateService.currentLang);
-    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.displayResult(this.resultID, event.lang, false);
-      this.language = event.lang;
-    });
+  }
+
+  ngOnDestroy() {
+    this.langChangeSubscription.unsubscribe();
+
+    if (this.routeParamsSubscription) {
+      this.routeParamsSubscription.unsubscribe();
+    }
   }
 
   public openModal(content) {
