@@ -56,7 +56,7 @@ export class NavigationComponent implements OnInit, AfterViewInit {
     let observer = new ResizeObserver(_entries => {
       this.zone.run(() => {
         let rect = this.navView.nativeElement.getBoundingClientRect();
-        this.navigationService.height = rect.height;
+        this.navigationService.setHeight(rect.height);
       })
     });
     observer.observe(this.navView.nativeElement);

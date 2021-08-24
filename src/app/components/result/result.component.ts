@@ -1,9 +1,9 @@
-import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
-import { combineLatest } from 'rxjs';
+import { combineLatest, Subscription } from 'rxjs';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
@@ -13,7 +13,7 @@ import { NavigationService } from '../../services/navigation.service';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit, OnChanges {
+export class ResultComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input('resultID') resultID: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
@@ -53,6 +53,7 @@ export class ResultComponent implements OnInit, OnChanges {
   public navHeight: Number;
   private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
+  private navHeightSubscription: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
               private modalService: NgbModal,
@@ -85,7 +86,7 @@ export class ResultComponent implements OnInit, OnChanges {
       });
     }
 
-    this.navigationService.heightChanged.subscribe((newHeight: Number) => {
+    this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
       this.navHeight = newHeight;
     });
   }
@@ -96,6 +97,10 @@ export class ResultComponent implements OnInit, OnChanges {
       this.displayResult(this.resultID, event.lang, false);
       this.language = event.lang;
     });
+  }
+
+  ngOnDestroy() {
+    this.navHeightSubscription.unsubscribe();
   }
 
   public openModal(content) {

@@ -1,16 +1,10 @@
-import { Injectable, EventEmitter } from '@angular/core';
-
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class NavigationService {
-    public heightChanged: EventEmitter<Number> = new EventEmitter();
-    private _height: Number;
+    public height: BehaviorSubject<Number> = new BehaviorSubject(0);
 
-    set height(newHeight) {
-        this._height = newHeight;
-        this.heightChanged.emit(newHeight)
-    }
-
-    get height() {
-        return this._height;
+    setHeight(newHeight) {
+        this.height.next(newHeight)
     }
 }
