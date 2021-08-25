@@ -8,3 +8,13 @@
   margin: auto;
   padding: 4rem 0;
 }
+
+.info-banner {
+  background-color: #007bff;
+  padding: 0.5rem;
+}
+
+.info-banner-content {
+  margin: auto;
+  max-width: 1140px;
+}

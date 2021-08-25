@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { AppService } from '../../services/app.service';
 import { NavigationService } from '../../services/navigation.service';
 
 @Component({
@@ -8,10 +9,14 @@ import { NavigationService } from '../../services/navigation.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  public msgBanner: string;
   public navHeight: Number;
   private navHeightSubscription: Subscription;
 
-  constructor(private navigationService: NavigationService) { }
+  constructor(appService: AppService,
+              private navigationService: NavigationService) {
+     this.msgBanner = appService.getConfig('msgBanner') || '';
+  }
 
   ngOnInit() {
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
