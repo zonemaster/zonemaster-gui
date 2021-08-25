@@ -28,3 +28,5 @@ The supported configuration items are the following.
   `"contact@zonemaster.net"`.
 * `"logo`": The URL to the image displayed in the navigation bar, default
   `"assets/images/zonemaster_logo_2021_color.png"`.
+* `"msgBanner"`: A message to display to the user, if empty or undefined no
+  banner will be shown
