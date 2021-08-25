@@ -47,15 +47,15 @@ nav {
   .logo {
     height: 55px;
   }
+
+  nav {
+    height: auto;
+  }
 }
 
 @media(max-width: 1300px) {
   .github {
     display: none
-  }
-
-  nav {
-    height: auto;
   }
 }
 
