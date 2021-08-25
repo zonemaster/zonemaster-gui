@@ -1,3 +1,12 @@
+nav {
+  height: 80px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.75);
+  -webkit-transition: 0.2s linear height;
+  -moz-transition: 0.2s linear height;
+  -o-transition: 0.2s linear height;
+  transition: 0.2s linear height;
+}
+
 .logo {
   height: 70px;
   image-rendering: -webkit-optimize-contrast;
@@ -16,15 +25,6 @@
 .lang > div > a.selected {
   font-weight: bold;
   text-decoration: underline solid 1px;
-}
-
-nav {
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.75);
-  -webkit-transition: 0.2s linear height;
-  -moz-transition: 0.2s linear height;
-  -o-transition: 0.2s linear height;
-  transition: 0.2s linear height;
-  height: 80px;
 }
 
 .github {

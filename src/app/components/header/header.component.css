@@ -1,10 +1,10 @@
 .main {
-  padding-top: 10rem;
-  padding-bottom: 5rem;
-  padding-left: 0;
-  padding-right: 0;
   margin-bottom: 4rem;
   text-align: center;
   color: #efefef;
   background: linear-gradient(135deg, #1b294a, #f8f9fa);
+}
+.main > .container {
+  margin: auto;
+  padding: 4rem 0;
 }
