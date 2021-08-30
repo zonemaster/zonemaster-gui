@@ -2,13 +2,13 @@
   <h1>Result</h1>
 </app-header>
 <div class="result container" #resultView>
-  <div class="row">
-    <div class="col-md-6 result-header">
+  <div>
+    <div class="result-header">
       <h2>{{form.domain}}</h2>
       <i>{{ test.creation_time | amFromUtc | date:'yyyy-MM-dd HH:mm zzzz' }}</i>
     </div>
-    <div class="col-md-6">
-      <div class="pull-right actions_btn" >
+    <div class="actions-btn">
+      <div>
         <a class="btn btn-secondary history" (click)="getHistory()">
           <i class="fa fa-history text-white" aria-hidden="true"></i>
           <span class="text-white">{{'History'|translate}}</span>
@@ -21,25 +21,11 @@
           <i class="fa fa-share text-white"></i>
           <span class="text-white">{{'Share'|translate}}</span>
         </a>
-
-        <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-secondary settings" id="settingsDropdownResult" ngbDropdownToggle>
-            <i class="fa fa-wrench text-white"></i>
-            <span class="text-white">{{'Settings'|translate}}</span>
-          </button>
-          <div ngbDropdownMenu aria-labelledby="settingsDropdownResult">
-            <label class="dropdown-item" ngbButtonLabel>
-              <input type="checkbox" ngbButton [(ngModel)]="resutlCollapsed"> {{'Group by modules'|translate}}
-            </label>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 
-  <br>
-  <div class="row d-block">
-
+  <div class="filters">
     <ul class="nav nav-pills vertical-align filter">
       <li class="nav-item ml-1">
         <ng-template #tooltipAll>{{ 'TOOLTIP_ALL' | translate }}</ng-template>
@@ -90,24 +76,31 @@
            [(ngModel)]="result_filter.critical" ngDefaultControl>
           Critical <span class="badge badge-pill badge-secondary">{{level_items['critical'].length}}</span></a>
       </li>
-      <li class="search ml-1">
-        <div class="input-group">
-          <input type="text" [(ngModel)]="result_filter.search" class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <span class="input-group-text">
-              <i class="fa fa-filter" aria-hidden="true"></i>
-            </span>
-          </div>
-        </div>
-      </li>
     </ul>
+    <div class="input-group search">
+      <input type="text" [(ngModel)]="result_filter.search" class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <span class="input-group-text">
+          <i class="fa fa-filter" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
   </div>
-  <div class="row mt-3">
-    <section *ngIf="!resutlCollapsed;else resutlCollapsedTemplate">
-      <div *ngFor="let item of result | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
-        <div class="module-name">{{item.module|translate}}</div>
-        <div class="severity">{{item.level}}</div>
-        <p class="message">{{item.message|translate}}</p>
+
+  <div class="mt-3">
+    <section *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items" [class.expanded]="!isCollapsed[moduleKey]">
+      <a [attr.aria-controls]="'module-' + moduleKey" [attr.aria-expanded]="!isCollapsed[moduleKey]">
+        <h3 (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]" class="{{modules[moduleKey]}} {{moduleKey}}" [ngStyle]="{'top': (navHeight + 7) + 'px'}" #headerRef>
+          <i class="fa" placement="top" ngbTooltip="{{(isCollapsed[moduleKey] ? 'Expand': 'Collapse')}}" [ngClass]="{'fa-plus': isCollapsed[moduleKey],'fa-minus': !isCollapsed[moduleKey]}" aria-hidden="true"></i>
+          <span>{{moduleKey}}</span>
+        </h3>
+      </a>
+      <div id="module-{{moduleKey}}" [ngbCollapse]="isCollapsed[moduleKey]" (hidden)="moduleCollapsed(headerRef)" [animation]="false">
+        <div *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
+          <div class="module-name">{{item.module|translate}}</div>
+          <div class="severity">{{item.level}}</div>
+          <p class="message">{{item.message|translate}}</p>
+        </div>
       </div>
     </section>
   </div>
@@ -150,23 +143,4 @@
   <div class="modal-body">
     <app-history [history]="history"></app-history>
   </div>
-</ng-template>
-
-
-<ng-template #resutlCollapsedTemplate>
-  <section *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items" [class.expanded]="!isCollapsed[moduleKey]">
-    <a [attr.aria-controls]="'module-' + moduleKey" [attr.aria-expanded]="!isCollapsed[moduleKey]">
-      <h3 (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]" class="{{modules[moduleKey]}} {{moduleKey}}" [ngStyle]="{'top': (navHeight + 7) + 'px'}" #headerRef>
-        <i class="fa" placement="top" ngbTooltip="{{(isCollapsed[moduleKey] ? 'Expand': 'Collapse')}}" [ngClass]="{'fa-plus': isCollapsed[moduleKey],'fa-minus': !isCollapsed[moduleKey]}" aria-hidden="true"></i>
-        <span>{{moduleKey}}</span>
-      </h3>
-    </a>
-    <div id="module-{{moduleKey}}" [ngbCollapse]="isCollapsed[moduleKey]" (hidden)="moduleCollapsed(headerRef)" [animation]="false">
-      <div *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
-        <div class="module-name">{{item.module|translate}}</div>
-        <div class="severity">{{item.level}}</div>
-        <p class="message">{{item.message|translate}}</p>
-      </div>
-    </div>
-  </section>
 </ng-template>

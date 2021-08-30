@@ -26,7 +26,6 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
   public module_items: any = {};
   public modulesKeys;
   public searchQueryLength = 0;
-  public resutlCollapsed = true;
   public test: any = {params: {ipv4: false, ipv6: false}};
   public isCollapsed = [];
   public ns_list;
