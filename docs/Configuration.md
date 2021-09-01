@@ -1,10 +1,15 @@
 # Configuration
 
-The GUI can be configured by creating the file `assets/app.config.json`.
+The GUI can be configured by creating the file `DISTBASE/dist/assets/
+app.config.json`. "DISTBASE" is where the Zonemaster Web GUI zip file is
+installed, which is `/var/www/html/zonemaster-web-gui` by default
+installation (see [Installation instructions](Installation.md)).
 
-This file can by created by copying `assets/app.config.sample.json` to `assets/app.config.json`:
+
+This file can by created by copying `app.config.sample.json` found in
+`DISTBASE/dist/assets`:
 ```sh
-cp assets/app.config.sample.json assets/app.config.json
+cp app.config.sample.json app.config.json
 ```
 
 
