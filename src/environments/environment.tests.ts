@@ -4,5 +4,6 @@ export const environment = {
   ...common,
   production: false,
   apiEndpoint: 'https://zonemaster.net/api',
-  mock: true
+  mock: true,
+  configUrl: 'assets/app.config.tests.json'
 };
