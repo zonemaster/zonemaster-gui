@@ -5,5 +5,6 @@ export const environment = {
   production: false,
   apiEndpoint: 'https://zonemaster.net/api',
   mock: true,
-  configUrl: 'assets/app.config.tests.json'
+  // Use a non existent file to always load the config from the environment file
+  configUrl: 'assets/app.config.non-existent.json'
 };
