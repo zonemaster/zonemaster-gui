@@ -30,9 +30,8 @@ installation].
 This instruction covers the following operating systems:
 
  1. [CentOS](#1-centos)
- 2. [Debian](#2-debian)
+ 2. [Debian](#2-debian-and-ubuntu)
  3. [FreeBSD](#3-freebsd)
- 4. [Ubuntu](#4-ubuntu)
 
 
 ### 1. CentOS
@@ -81,7 +80,7 @@ sudo firewall-cmd --add-service http --permanent
 sudo firewall-cmd --reload
 ```
 
-### 2. Debian
+### 2. Debian and Ubuntu
 
 #### Install Apache
 
@@ -215,47 +214,35 @@ file so that it points to correct IP address or server name and correct port.
 service apache24 restart
 ```
 
-### 4. Ubuntu
+## Post-installation sanity check
 
-Use the procedure for installation on [Debian](#2-debian).
+Make sure Zonemaster-GUI is properly installed.
 
+1. Point your browser at `http://localhost/` (or the address of the server where
+   you installed Zonemaster Web GUI).
+
+2. Verify that the Zonemaster Web GUI is shown with the text "Program versions" in
+   its page footer.
+
+3. Verify that when you mouse over this text the versions of the following
+   Zonemaster components are shown: Backend, Engine and GUI.
+
+## What to do next?
+
+ * For a JSON-RPC API, see the Zonemaster::Backend [JSON-RPC API] documentation.
+ * For a command line interface, follow the [Zonemaster::CLI installation] instruction.
+ * For a Perl API, see the [Zonemaster::Engine API] documentation.
+ * For Https, see [Let's Encrypt / Certbot].
 
 ## Serving the GUI and API from a custom base url
 
-In some cases you may want to customize the application to change the base url
-from wich the GUI is served.
-
-To achieve that you will either need to change the `<base>` in the `index.html`
-or build the application yourself.
-
-### Change the base url in index.html
+In some cases you may want to customize the application to change the base URL
+from wich the GUI is served. To achieve that you will need to change the
+`<base>` in the `index.html`.
 
 Locate the line `<base href="/">` and replace the `href` value with the path you
 want to server the GUI from, e.g. `<base href="/zonemaster/">`. Don't forget the
 trailing `/`.
-
-**NOTE:** Don't forget to update the base after each upgrade as the file will be
-overwritten.
-
-### Building the application
-
-First make sure you have an up-to-date NodeJS/npm installation, then clone this
-repository and install the required dependencies.
-
-```sh
-% git clone https://github.com/zonemaster/zonemaster-gui
-% cd zonemaster-gui
-% npm i
-```
-
-To change the base url of the GUI compile the application using
-`npm run build -- --base-href /zonemaster/`.
-Replace `/zonemaster/` with the base you want, do not forget the trailing `/`.
-
-The build step create a `dist` directory that contains the files to serve from
-your Web server.
-
-### Web server configuration
 
 When serving the application from a different base, you will also need to change
 the Web server configuration by adding an `Alias` directive after the proxy ones.
@@ -270,27 +257,8 @@ ProxyPreserveHost On
 Alias "/zonemaster" "/var/www/html/zonemaster-web-gui/dist"
 ```
 
-## Post-installation sanity check
-
-Make sure Zonemaster-GUI is properly installed.
-
-1. Point your browser at `http://localhost/` (or the address of the server where
-   you installed Zonemaster Web GUI).
-
-2. Verify that the Zonemaster Web GUI is shown with the text "Program versions" in
-   its page footer.
-
-3. Verify that when you mouse over this text the versions of the following
-   Zonemaster components are shown: Backend, Engine and GUI.
-
-
-
-## What to do next?
-
- * For a JSON-RPC API, see the Zonemaster::Backend [JSON-RPC API] documentation.
- * For a command line interface, follow the [Zonemaster::CLI installation] instruction.
- * For a Perl API, see the [Zonemaster::Engine API] documentation.
- * For Https, see [Let's Encrypt / Certbot].
+**NOTE:** Don't forget to apply thoses changes after each updates as the files
+will be overwritten.
 
 -------
 
