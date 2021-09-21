@@ -14,7 +14,7 @@
           <span class="text-white">{{'History'|translate}}</span>
         </a>
 
-        <div ngbDropdown placement="bottom-right" class="d-inline-block">
+        <div ngbDropdown placement="bottom-center" class="d-inline-block">
           <button class="btn btn-secondary export" id="shareDropdownResult" ngbDropdownToggle>
             <i class="fa fa-cloud-download text-white"></i>
             <span class="text-white">{{'Export'|translate}}</span>
@@ -44,17 +44,6 @@
           </div>
         </div>
 
-        <div ngbDropdown placement="bottom-right" class="d-inline-block">
-          <button class="btn btn-secondary settings" id="settingsDropdownResult" ngbDropdownToggle>
-            <i class="fa fa-wrench text-white"></i>
-            <span class="text-white">{{'Settings'|translate}}</span>
-          </button>
-          <div ngbDropdownMenu aria-labelledby="settingsDropdownResult">
-            <label class="dropdown-item" ngbButtonLabel>
-              <input type="checkbox" ngbButton [(ngModel)]="resutlCollapsed"> {{'Group by modules'|translate}}
-            </label>
-          </div>
-        </div>
       </div>
     </div>
   </div>

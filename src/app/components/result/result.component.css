@@ -37,21 +37,23 @@
     padding: 1rem;
     white-space: nowrap;
 }
+
 button.share + .dropdown-menu .dropdown-body {
-    min-width: 420px;
+    min-width: calc(min(420px, 100vw - 2rem));
     display: flex;
 }
 
 button.btn-clipboard:hover {
     border: 1px solid #cdc7c2;
 }
+
 button.btn-clipboard > i.fa-check {
     color: #66ad54;
 }
+
 button.btn-clipboard > i.fa-remove {
     color: #ec3545;
 }
-
 
 .ipvX {
   position: absolute;
@@ -79,7 +81,6 @@ button.btn-clipboard > i.fa-remove {
 .filters > * {
   margin-top: 1rem;
 }
-
 
 .result section h3.INFO::before,
 .result section .entry.INFO::before {
@@ -242,7 +243,15 @@ button.btn-clipboard > i.fa-remove {
     flex-wrap: wrap;
   }
 
-  .actions-btn > div > a {
+  .actions-btn > div > * {
+    flex-grow: 1;
+  }
+
+  .actions-btn > div > div {
+    display: flex!important;
+  }
+
+  .actions-btn > div > div > button {
     flex-grow: 1;
   }
 }
