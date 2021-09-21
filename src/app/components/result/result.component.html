@@ -13,14 +13,48 @@
           <i class="fa fa-history text-white" aria-hidden="true"></i>
           <span class="text-white">{{'History'|translate}}</span>
         </a>
-        <a class="btn btn-secondary export" (click)="openModal(exportModal)">
-          <i class="fa fa-cloud-download text-white"></i>
-          <span class="text-white">{{'Export'|translate}}</span>
-        </a>
-        <a class="btn btn-secondary share" (click)="openModal(shareLinkModal)">
-          <i class="fa fa-share text-white"></i>
-          <span class="text-white">{{'Share'|translate}}</span>
-        </a>
+
+        <div ngbDropdown placement="bottom-right" class="d-inline-block">
+          <button class="btn btn-secondary export" id="shareDropdownResult" ngbDropdownToggle>
+            <i class="fa fa-cloud-download text-white"></i>
+            <span class="text-white">{{'Export'|translate}}</span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
+              <div class="dropdown-body">
+                <button class="btn" (click)="exportJson()"> JSON </button>
+                <button class="btn" (click)="exportCSV()"> CSV </button>
+                <button class="btn" (click)="exportHTML()"> HTML </button>
+                <button class="btn" (click)="exportText()"> TEXT </button>
+              </div>
+          </div>
+        </div>
+
+        <div ngbDropdown placement="bottom-right" class="d-inline-block">
+          <button class="btn btn-secondary share" id="shareDropdownResult" ngbDropdownToggle>
+            <i class="fa fa-share text-white"></i>
+            <span class="text-white">{{'Share'|translate}}</span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
+              <div class="dropdown-body">
+                <input readonly="" type="text" id="link_location" name="link_location" class="form-inline" value="{{test.location}}">
+                <button class="btn btn-clipboard" (click)="copyLinkToClipboard(test.location)">
+                    <i class="fa fa-clipboard"></i>
+                </button>
+              </div>
+          </div>
+        </div>
+
+        <div ngbDropdown placement="bottom-right" class="d-inline-block">
+          <button class="btn btn-secondary settings" id="settingsDropdownResult" ngbDropdownToggle>
+            <i class="fa fa-wrench text-white"></i>
+            <span class="text-white">{{'Settings'|translate}}</span>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="settingsDropdownResult">
+            <label class="dropdown-item" ngbButtonLabel>
+              <input type="checkbox" ngbButton [(ngModel)]="resutlCollapsed"> {{'Group by modules'|translate}}
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -105,33 +139,6 @@
     </section>
   </div>
 </div>
-
-<ng-template #shareLinkModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">{{'Link'|translate}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <input type="text" id="link_location" name="link_location" class="form-inline" value="{{test.location}}">
-  </div>
-</ng-template>
-
-<ng-template #exportModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">{{'Export'|translate}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <button class="btn" (click)="exportJson()"> JSON </button>
-    <button class="btn" (click)="exportCSV()"> CSV </button>
-    <button class="btn" (click)="exportHTML()"> HTML </button>
-    <button class="btn" (click)="exportText()"> TEXT </button>
-  </div>
-</ng-template>
 
 <ng-template #historyModal let-c="close" let-d="dismiss">
   <div class="modal-header">

@@ -32,6 +32,27 @@
   cursor: pointer;
 }
 
+.dropdown-body {
+    position: relative;
+    padding: 1rem;
+    white-space: nowrap;
+}
+button.share + .dropdown-menu .dropdown-body {
+    min-width: 420px;
+    display: flex;
+}
+
+button.btn-clipboard:hover {
+    border: 1px solid #cdc7c2;
+}
+button.btn-clipboard > i.fa-check {
+    color: #66ad54;
+}
+button.btn-clipboard > i.fa-remove {
+    color: #ec3545;
+}
+
+
 .ipvX {
   position: absolute;
   right:0;
