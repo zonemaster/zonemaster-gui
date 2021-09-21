@@ -7,13 +7,6 @@ post-install sanity checking for Zonemaster Web GUI. The final section wraps up
 with a few pointer to other interfaces to Zonemaster. For an overview of the
 Zonemaster product, please see the [main Zonemaster Repository].
 
-The release bundle available in the Github release expects Zonemaster Web GUI
-to be served on its own domain, with the base url `/`. If you wish to serve the
-GUI on a different base url, e.g. `/zonemaster/` use
-[the instructions][custom base install] at the end of this document to build
-a custom bundle.
-
-
 ## Prerequisites
 
 Before installing Zonemaster Web GUI, you should [install Zonemaster::Engine][
@@ -237,28 +230,31 @@ Make sure Zonemaster-GUI is properly installed.
 ## Serving the GUI and API from a custom base url
 
 In some cases you may want to customize the application to change the base URL
-from wich the GUI is served. To achieve that you will need to change the
-`<base>` in the `index.html`.
+from wich the GUI is served.
 
-Locate the line `<base href="/">` and replace the `href` value with the path you
-want to server the GUI from, e.g. `<base href="/zonemaster/">`. Don't forget the
-trailing `/`.
+1. In the `index.html` file, (`/var/www/html/zonemaster-web-gui/dist/index.html`
+   if you followed this installation guide), locate the line `<base href="/">`
+   and replace the `href` value with the path you want to server the GUI from,
+   e.g. `<base href="/zonemaster/">`. Don't forget the trailing `/`.
 
-When serving the application from a different base, you will also need to change
-the Web server configuration by adding an `Alias` directive after the proxy ones.
-Combined with the change of the [API endpoint location] this gives something
-like:
+2. When serving the application from a different base, you will also need to
+   change the Web server configuration by adding an `Alias` directive after the
+   proxy ones.
 
-```apache
-ProxyPass /zonemaster/api http://localhost:5000/
-ProxyPassReverse /zonemaster/api http://localhost:5000/
-ProxyPreserveHost On
+   ```apache
+   ProxyPass /zonemaster/api http://localhost:5000/
+   ProxyPassReverse /zonemaster/api http://localhost:5000/
+   ProxyPreserveHost On
 
-Alias "/zonemaster" "/var/www/html/zonemaster-web-gui/dist"
-```
+   Alias "/zonemaster" "/var/www/html/zonemaster-web-gui/dist"
+   ```
 
-**NOTE:** Don't forget to apply thoses changes after each updates as the files
-will be overwritten.
+3. Update `apiEndpoint` in `assets/app.config.json` (possibly creating it) and
+   set it `/zonemaster/api`. See Configuration.md and the example configuration
+   `app.config.sample.json`.
+
+**NOTE:** Don't forget to apply the changes to the `index.html` and Web
+server configurartion as thoses files will be overwritten.
 
 -------
 
