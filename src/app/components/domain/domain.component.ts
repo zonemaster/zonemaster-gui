@@ -83,7 +83,7 @@ export class DomainComponent implements OnInit {
             self.showProgressBar = false;
             self.domain_check_progression = 5;
             self.toggleFinished = !self.toggleFinished;
-            this.location.go(this.location.prepareExternalUrl(`result/${this.resultID}`));
+            this.location.go(`/result/${this.resultID}`);
           }
         });
       }, this.intervalTime);
