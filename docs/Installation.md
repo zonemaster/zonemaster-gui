@@ -238,8 +238,9 @@ from wich the GUI is served.
    e.g. `<base href="/zonemaster/">`. Don't forget the trailing `/`.
 
 2. When serving the application from a different base, you will also need to
-   change the Web server configuration by adding an `Alias` directive after the
-   proxy ones.
+   change the Web server configuration in `zonemaster.conf` (location is found
+   in the installation instructions above) by updating `ProxyPass` and
+  `ProxyPassReverse`, and adding `Alias` as in the following example:
 
    ```apache
    ProxyPass /zonemaster/api http://localhost:5000/
@@ -248,13 +249,23 @@ from wich the GUI is served.
 
    Alias "/zonemaster" "/var/www/html/zonemaster-web-gui/dist"
    ```
+3. Update or create `app.config.json` (
+   `/var/www/html/zonemaster-web-gui/dist/assets/app.config.json` in a default
+   installation) by setting `apiEndpoint` to `/zonemaster/api` as below. See
+   [Configuration.md] and the example configuration `app.config.sample.json`.
 
-3. Update `apiEndpoint` in `assets/app.config.json` (possibly creating it) and
-   set it `/zonemaster/api`. See Configuration.md and the example configuration
-   `app.config.sample.json`.
+   ```json
+   {
+      "apiEndpoint": "/zonemaster/api"
+   }
+   ```
+
+4. Reload Apache.
+5. Point you browser to the new base URL.
+
 
 **NOTE:** Don't forget to apply the changes to the `index.html` and Web
-server configurartion as thoses files will be overwritten.
+server configurartion after each updates as thoses files will be overwritten.
 
 -------
 
@@ -271,4 +282,4 @@ server configurartion as thoses files will be overwritten.
 [Zonemaster::Engine]: https://github.com/zonemaster/zonemaster-engine/blob/master/README.md
 [Zonemaster::LDNS]: https://github.com/zonemaster/zonemaster-ldns/blob/master/README.md
 [custom base install]: #serving-the-gui-and-api-from-a-custom-base-url
-[API endpoint location]: Configuration.md
+[Configuration.md]: Configuration.md
