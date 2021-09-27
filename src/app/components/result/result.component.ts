@@ -1,12 +1,13 @@
 import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
 import { combineLatest, Subscription } from 'rxjs';
-import {DnsCheckService} from '../../services/dns-check.service';
-import {AlertService} from '../../services/alert.service';
+import { DnsCheckService } from '../../services/dns-check.service';
+import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-result',
@@ -62,7 +63,8 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
               private alertService: AlertService,
               public translateService: TranslateService,
               private dnsCheckService: DnsCheckService,
-              private navigationService: NavigationService) {
+              private navigationService: NavigationService,
+              private location: Location) {
      this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
        this.activatedRoute.snapshot.data[0]['directAccess'];
   }
@@ -126,7 +128,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
       this.test = {
         id: data['id'],
         creation_time: data['creation_time'],
-        location: `${document.location.origin}/result/${domainCheckId}`
+        location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
       };
 
       this.historyQuery = data['params'];
