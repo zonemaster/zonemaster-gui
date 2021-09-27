@@ -223,7 +223,11 @@ button.btn-clipboard > i.fa-remove {
   overflow-wrap: anywhere;
 }
 
-@media(max-width:768px){
+@media(max-width:767px){
+  .result-header {
+    width: 100%;
+  }
+
   .result .module-name {
     display: none;
   }
@@ -256,7 +260,7 @@ button.btn-clipboard > i.fa-remove {
   }
 }
 
-@media(max-width:992px) {
+@media(max-width:991px) {
   .filters > ul {
     flex-grow: 1;
     display: flex;

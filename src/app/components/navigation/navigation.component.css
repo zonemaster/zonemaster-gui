@@ -31,7 +31,7 @@ nav {
   height: 100%;
 }
 
-@media(min-width:992px) {
+@media(min-width:991px) {
   .shrink {
     height: 60px;
   }
@@ -43,7 +43,7 @@ nav {
   }
 }
 
-@media(max-width: 992px) {
+@media(max-width: 991px) {
   .logo {
     height: 55px;
   }
