@@ -21,7 +21,7 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
               private translateService: TranslateService,
               private route: ActivatedRoute) {
     this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.url = `/assets/faqs/gui-faq-${event.lang}.html`;
+      this.url = `assets/faqs/gui-faq-${event.lang}.html`;
       this._http.get(this.url, {responseType: 'text'})
         .subscribe(data => {
           this.faqTemplate = data;
@@ -30,7 +30,7 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   ngOnInit() {
-    this.url = `/assets/faqs/gui-faq-${this.translateService.currentLang}.html`;
+    this.url = `assets/faqs/gui-faq-${this.translateService.currentLang}.html`;
     this._http.get(this.url, {responseType: 'text'})
       .subscribe(data => {
         this.faqTemplate = data;

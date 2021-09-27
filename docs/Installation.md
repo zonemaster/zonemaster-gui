@@ -7,7 +7,6 @@ post-install sanity checking for Zonemaster Web GUI. The final section wraps up
 with a few pointer to other interfaces to Zonemaster. For an overview of the
 Zonemaster product, please see the [main Zonemaster Repository].
 
-
 ## Prerequisites
 
 Before installing Zonemaster Web GUI, you should [install Zonemaster::Engine][
@@ -24,9 +23,8 @@ installation].
 This instruction covers the following operating systems:
 
  1. [CentOS](#1-centos)
- 2. [Debian](#2-debian)
+ 2. [Debian](#2-debian-and-ubuntu)
  3. [FreeBSD](#3-freebsd)
- 4. [Ubuntu](#4-ubuntu)
 
 
 ### 1. CentOS
@@ -75,12 +73,12 @@ sudo firewall-cmd --add-service http --permanent
 sudo firewall-cmd --reload
 ```
 
-### 2. Debian
+### 2. Debian and Ubuntu
 
 #### Install Apache
 
 ```sh
-sudo apt-get update && sudo apt-get upgrade -y 
+sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y apache2 unzip
 ```
 
@@ -109,7 +107,7 @@ rm -f zonemaster_web_gui.zip
 sudo a2ensite zonemaster #Activate the website
 ```
 Then update the zonemaster.conf file with your own ServerName, ServerAlias and ServerAdmin.
-For testing on a local machine, you can edit zonemaster.conf and change the "*:80" part of 
+For testing on a local machine, you can edit zonemaster.conf and change the "*:80" part of
 to the host's IP or using localhost as ServerName if that is appropriate.
 
 
@@ -165,7 +163,7 @@ pkg install apache24
 ```sh
 sysrc apache24_enable=yes
 ```
- 
+
 #### Enable three apache modules in Apache configuration file
 
 ```sh
@@ -173,7 +171,7 @@ perl -pi -e 's/^#(LoadModule (proxy_module|proxy_http_module|rewrite_module) lib
 ```
 
 #### Start Apache
- 
+
 ```sh
 service apache24 start
 ```
@@ -189,8 +187,8 @@ restart Apache.
 fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.3.0/zonemaster_web_gui.zip
 mkdir -p /var/www/html/zonemaster-web-gui
 mkdir -p /var/log/zonemaster
-unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip 
-rm zonemaster_web_gui.zip 
+unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
+rm zonemaster_web_gui.zip
 ```
 
 #### Basic Apache configuration
@@ -209,11 +207,6 @@ file so that it points to correct IP address or server name and correct port.
 service apache24 restart
 ```
 
-### 4. Ubuntu
-
-Use the procedure for installation on [Debian](#2-debian).
-
-
 ## Post-installation sanity check
 
 Make sure Zonemaster-GUI is properly installed.
@@ -227,14 +220,52 @@ Make sure Zonemaster-GUI is properly installed.
 3. Verify that when you mouse over this text the versions of the following
    Zonemaster components are shown: Backend, Engine and GUI.
 
-
-
 ## What to do next?
 
  * For a JSON-RPC API, see the Zonemaster::Backend [JSON-RPC API] documentation.
  * For a command line interface, follow the [Zonemaster::CLI installation] instruction.
  * For a Perl API, see the [Zonemaster::Engine API] documentation.
  * For Https, see [Let's Encrypt / Certbot].
+
+## Serving the GUI and API from a custom base url
+
+In some cases you may want to customize the application to change the base URL
+from wich the GUI is served.
+
+1. In the `index.html` file, (`/var/www/html/zonemaster-web-gui/dist/index.html`
+   if you followed this installation guide), locate the line `<base href="/">`
+   and replace the `href` value with the path you want to server the GUI from,
+   e.g. `<base href="/zonemaster/">`. Don't forget the trailing `/`.
+
+2. When serving the application from a different base, you will also need to
+   change the Web server configuration in `zonemaster.conf` (location is found
+   in the installation instructions above) by updating `ProxyPass` and
+  `ProxyPassReverse`, and adding `Alias` as in the following example:
+
+   ```apache
+   ProxyPass /zonemaster/api http://localhost:5000/
+   ProxyPassReverse /zonemaster/api http://localhost:5000/
+   ProxyPreserveHost On
+
+   Alias "/zonemaster" "/var/www/html/zonemaster-web-gui/dist"
+   ```
+3. Update or create `app.config.json` (
+   `/var/www/html/zonemaster-web-gui/dist/assets/app.config.json` in a default
+   installation) by setting `apiEndpoint` to `/zonemaster/api` as below. See
+   [Configuration.md] and the example configuration `app.config.sample.json`.
+
+   ```json
+   {
+      "apiEndpoint": "/zonemaster/api"
+   }
+   ```
+
+4. Reload Apache.
+5. Point you browser to the new base URL.
+
+
+**NOTE:** Don't forget to apply the changes to the `index.html` and Web
+server configurartion after each updates as thoses files will be overwritten.
 
 -------
 
@@ -250,4 +281,5 @@ Make sure Zonemaster-GUI is properly installed.
 [Zonemaster::Engine installation]: https://github.com/zonemaster/zonemaster-engine/blob/master/docs/Installation.md
 [Zonemaster::Engine]: https://github.com/zonemaster/zonemaster-engine/blob/master/README.md
 [Zonemaster::LDNS]: https://github.com/zonemaster/zonemaster-ldns/blob/master/README.md
-
+[custom base install]: #serving-the-gui-and-api-from-a-custom-base-url
+[Configuration.md]: Configuration.md
