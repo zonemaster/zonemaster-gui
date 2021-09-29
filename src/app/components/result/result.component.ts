@@ -1,12 +1,13 @@
 import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
-import {DnsCheckService} from '../../services/dns-check.service';
-import {AlertService} from '../../services/alert.service';
-import { Subscription } from 'rxjs';
-import {Location} from '@angular/common';
+import { combineLatest, Subscription } from 'rxjs';
+import { DnsCheckService } from '../../services/dns-check.service';
+import { AlertService } from '../../services/alert.service';
+import { NavigationService } from '../../services/navigation.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-result',
@@ -26,7 +27,6 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
   public module_items: any = {};
   public modulesKeys;
   public searchQueryLength = 0;
-  public resutlCollapsed = true;
   public test: any = {params: {ipv4: false, ipv6: false}};
   public isCollapsed = [];
   public ns_list;
@@ -50,8 +50,10 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
   public historyQuery: object;
   public history: any[];
   public language: string;
+  public navHeight: Number;
   private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
+  private navHeightSubscription: Subscription;
 
   private langChangeSubscription: Subscription;
   private routeParamsSubscription: Subscription;
@@ -61,6 +63,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
               private alertService: AlertService,
               public translateService: TranslateService,
               private dnsCheckService: DnsCheckService,
+              private navigationService: NavigationService,
               private location: Location) {
      this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
        this.activatedRoute.snapshot.data[0]['directAccess'];
@@ -78,6 +81,10 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
       });
     }
 
+    this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
+      this.navHeight = newHeight;
+    });
+
     this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       this.displayResult(this.resultID, event.lang, false);
       this.language = event.lang;
@@ -89,6 +96,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.navHeightSubscription.unsubscribe();
     this.langChangeSubscription.unsubscribe();
 
     if (this.routeParamsSubscription) {
@@ -102,6 +110,15 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
     }, (reason) => {
       console.log(reason);
     });
+  }
+
+  public moduleCollapsed(headerRef) {
+    let headerRect = headerRef.getBoundingClientRect();
+
+    if (headerRect.top < 0) {
+      let style = window.getComputedStyle(headerRef);
+      window.scrollBy(0, headerRect.top - parseInt(style.top, 10) )
+    }
   }
 
    private displayResult(domainCheckId: string, language: string, resetCollapsed = true) {
@@ -184,37 +201,61 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
 
     saveAs(blob, `zonemaster_result_${this.test['location']}.json`);
   }
+
   public exportHTML() {
-    const tempResutlCollapsed = this.resutlCollapsed;
-    this.resutlCollapsed = false;
-    setTimeout(() => {
+    combineLatest([...this.header.map(s => this.translateService.get(s))])
+      .subscribe(([moduleStr, levelStr, messageStr]) => {
+        let tbodyContent = '';
+        for (let item of this.result) {
+          tbodyContent += `
+            <tr>
+              <td>${item.module}</td>
+              <td>${item.level}</td>
+              <td>${item.message}</td>
+            </tr>
+          `;
+        }
 
-    const clone = this.resultView.nativeElement.cloneNode(true);
-    clone.querySelector('.result > div.row.d-block').remove();
-    clone.querySelectorAll('.result > div.row > div.col-md-6')[1].remove();
+        let resultHeader = this.resultView.nativeElement.querySelector('.result-header').cloneNode(true).innerHTML;
 
-    const result = `<!doctype html>
-    <html class="no-js" lang="fr">
-      <head>
-        <meta charset="UTF-8">
-        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Zonemaster TEST</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" media="all">
-      </head>
-      <body style="margin-left: 20px;">
-        ${clone.innerHTML}
-      </body>
-    </html>`;
+        const result = `
+          <!doctype html>
+          <html class="no-js" lang="fr">
+            <head>
+              <meta charset="UTF-8">
+              <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+              <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+              <title>Zonemaster TEST</title>
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" media="all">
+            </head>
+            <body style="margin-left: 20px;">
+              <header>
+                ${resultHeader}
+              </header>
+              <table class="table table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">${moduleStr}</th>
+                    <th scope="col">${levelStr}</th>
+                    <th scope="col">${messageStr}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${tbodyContent}
+                </tbody>
+              </table>
+            </body>
+          </html>
+        `;
 
-    const blob = new Blob([result], {
-      type: 'text/html;charset=utf-8'
-    });
+        const blob = new Blob([result], {
+          type: 'text/html;charset=utf-8'
+        });
 
-    saveAs(blob, `zonemaster_result_${this.test['location']}.html`);
-    this.resutlCollapsed = tempResutlCollapsed;
-    }, 100);
+        saveAs(blob, `zonemaster_result_${this.test['location']}.html`);
+      });
   }
+
   public exportText() {
     const csvData = this.ConvertTo([...this.result].slice(0), 'txt');
     const blob = new Blob([csvData], {
@@ -223,6 +264,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
 
     saveAs(blob, `zonemaster_result_${this.test['location']}.txt`);
   }
+
   public exportCSV() {
     const csvData = this.ConvertTo([...this.result].slice(0), 'csv');
     const blob = new Blob([csvData], {

@@ -2,9 +2,9 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 
@@ -22,12 +22,14 @@ import { AlertComponent } from './components/alert/alert.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FilterByCategoriesPipe } from './pipes/filter-by-categories.pipe';
 import { RomanizePipe } from './pipes/romanize.pipe';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 import { AppService } from './services/app.service';
-import {DnsCheckService} from './services/dns-check.service';
-import {AlertService} from './services/alert.service';
+import { DnsCheckService } from './services/dns-check.service';
+import { AlertService } from './services/alert.service';
+import { NavigationService } from './services/navigation.service';
 import { HeaderComponent } from './components/header/header.component';
-import {SafeHtmlPipe} from './pipes/safe-html.pipe';
+
 import { MomentModule } from 'ngx-moment';
 
 import 'moment/locale/da';
@@ -100,6 +102,7 @@ const appRoutes: Routes = [
     AppService,
     DnsCheckService,
     AlertService,
+    NavigationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: isMock ? HttpMockRequestInterceptor : HttpRequestInterceptor,
