@@ -7,6 +7,10 @@
 /tmp
 /out-tsc
 
+
+# Application onfiguration
+/src/assets/app.config.json
+
 # dependencies
 /node_modules
 

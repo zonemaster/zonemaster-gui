@@ -6,12 +6,12 @@ import { clientInfo } from '../../environments/version';
 @Injectable()
 export class AppService {
 
-  private static config;
+  private static config = {};
 
   constructor(private http: HttpClient) { }
 
   public loadConfig(): Promise<void> {
-    return this.http.get('/assets/app.config.json')
+    return this.http.get(this.getConfig('configUrl'))
       .toPromise()
       .then(res => {
           AppService.config = res;

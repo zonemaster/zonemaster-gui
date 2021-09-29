@@ -14,4 +14,5 @@ export const common = {
     'sv': 'Svenska'
   },
   enabledLanguages: [ 'da', 'en', 'fi', 'fr', 'nb', 'sv' ],
+  configUrl: 'assets/app.config.json'
 }
