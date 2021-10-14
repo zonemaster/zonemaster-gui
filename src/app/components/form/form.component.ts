@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Input, Output, SimpleChanges, OnChanges, SimpleChange} from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output, SimpleChanges, OnChanges, SimpleChange, OnDestroy} from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -6,6 +6,8 @@ import {
   FormBuilder,
   Validators,
   AbstractControl} from '@angular/forms';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -13,7 +15,7 @@ import {
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit, OnChanges {
+export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() is_advanced_options_enabled;
   @Input() domain_check_progression;
   @Input() toggleFinished;
@@ -46,15 +48,21 @@ export class FormComponent implements OnInit, OnChanges {
   };
 
   private _showProgressBar: boolean;
+  private langChangeSubscription: Subscription;
 
   public history = {};
   public test = {};
   public disable_check_button = false;
   public newForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private translateService: TranslateService) {}
 
   ngOnInit() {
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe((_: LangChangeEvent) => {
+      if (this.newForm.touched) {
+        this.runDomainCheck(true);
+      }
+    });
     this.generate_form();
   }
 
@@ -62,6 +70,10 @@ export class FormComponent implements OnInit, OnChanges {
     if ('toggleFinished' in changes) {
       this.resetFullForm();
     }
+  }
+
+  ngOnDestroy() {
+    this.langChangeSubscription.unsubscribe();
   }
 
   private static atLeastOneProtocolValidator(control: AbstractControl) {
@@ -221,7 +233,7 @@ export class FormComponent implements OnInit, OnChanges {
     }
   }
 
-  public runDomainCheck() {
+  public runDomainCheck(submitNotValid = false) {
     this.newForm.markAllAsTouched();
     let param = this.newForm.value;
 
@@ -250,7 +262,7 @@ export class FormComponent implements OnInit, OnChanges {
         digest: ds.digest
       }});
 
-    if (this.newForm.valid) {
+    if ((!submitNotValid && this.newForm.valid) || (submitNotValid && !this.newForm.valid)) {
       this.onDomainCheck.emit(param);
     }
   }
