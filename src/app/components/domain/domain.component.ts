@@ -3,6 +3,7 @@ import {DnsCheckService} from '../../services/dns-check.service';
 import {ActivatedRoute} from '@angular/router';
 import {AlertService} from '../../services/alert.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-domain',
@@ -23,7 +24,8 @@ export class DomainComponent implements OnInit {
 
   constructor(private alertService: AlertService,
     private dnsCheckService: DnsCheckService,
-    private translateService: TranslateService) {}
+    private translateService: TranslateService,
+    private location: Location) {}
 
   ngOnInit() {
     this.dnsCheckService.profileNames().then( (res: string[]) => this.profiles = res );
@@ -81,6 +83,7 @@ export class DomainComponent implements OnInit {
             self.showProgressBar = false;
             self.domain_check_progression = 5;
             self.toggleFinished = !self.toggleFinished;
+            this.location.go(`/result/${this.resultID}`);
           }
         });
       }, this.intervalTime);

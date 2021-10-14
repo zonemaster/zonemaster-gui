@@ -31,10 +31,10 @@
     <tbody>
     <tr *ngFor="let item of versions">
       <td  align="left">
-        {{item[0]}}
+        {{ item[0] | titlecase }}
       </td>
       <td  align="right">
-        {{item[1]}}
+        {{ item[1] }}
       </td>
     </tr>
     </tbody>

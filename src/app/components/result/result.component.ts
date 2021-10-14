@@ -1,17 +1,20 @@
-import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
+import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
-import {DnsCheckService} from '../../services/dns-check.service';
-import {AlertService} from '../../services/alert.service';
+import { combineLatest, Subscription } from 'rxjs';
+import { DnsCheckService } from '../../services/dns-check.service';
+import { AlertService } from '../../services/alert.service';
+import { NavigationService } from '../../services/navigation.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit, OnChanges {
+export class ResultComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input('resultID') resultID: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
@@ -24,7 +27,6 @@ export class ResultComponent implements OnInit, OnChanges {
   public module_items: any = {};
   public modulesKeys;
   public searchQueryLength = 0;
-  public resutlCollapsed = true;
   public test: any = {params: {ipv4: false, ipv6: false}};
   public isCollapsed = [];
   public ns_list;
@@ -48,14 +50,21 @@ export class ResultComponent implements OnInit, OnChanges {
   public historyQuery: object;
   public history: any[];
   public language: string;
+  public navHeight: Number;
   private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
+  private navHeightSubscription: Subscription;
+
+  private langChangeSubscription: Subscription;
+  private routeParamsSubscription: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
               private modalService: NgbModal,
               private alertService: AlertService,
               public translateService: TranslateService,
-              private dnsCheckService: DnsCheckService) {
+              private dnsCheckService: DnsCheckService,
+              private navigationService: NavigationService,
+              private location: Location) {
      this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
        this.activatedRoute.snapshot.data[0]['directAccess'];
   }
@@ -66,28 +75,33 @@ export class ResultComponent implements OnInit, OnChanges {
 
     // Le result ID ne passe pas par la lorsque domaine.ts change une seconde fois l'ID !!!
     if (this.directAccess) {
-      let notFirst = true;
-      this.activatedRoute.params.subscribe((params: Params) => {
+      this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
         this.resultID = params['resultID'];
         this.displayResult(this.resultID, this.language);
       });
-      this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-        if (notFirst) {
-          notFirst = !notFirst;
-        } else {
-          this.displayResult(this.resultID, event.lang, false);
-        }
-        this.language = event.lang;
-      });
     }
+
+    this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
+      this.navHeight = newHeight;
+    });
+
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.displayResult(this.resultID, event.lang, false);
+      this.language = event.lang;
+    });
   }
 
   ngOnChanges() {
     this.displayResult(this.resultID, this.translateService.currentLang);
-    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.displayResult(this.resultID, event.lang, false);
-      this.language = event.lang;
-    });
+  }
+
+  ngOnDestroy() {
+    this.navHeightSubscription.unsubscribe();
+    this.langChangeSubscription.unsubscribe();
+
+    if (this.routeParamsSubscription) {
+      this.routeParamsSubscription.unsubscribe();
+    }
   }
 
   public openModal(content) {
@@ -98,6 +112,15 @@ export class ResultComponent implements OnInit, OnChanges {
     });
   }
 
+  public moduleCollapsed(headerRef) {
+    let headerRect = headerRef.getBoundingClientRect();
+
+    if (headerRect.top < 0) {
+      let style = window.getComputedStyle(headerRef);
+      window.scrollBy(0, headerRect.top - parseInt(style.top, 10) )
+    }
+  }
+
    private displayResult(domainCheckId: string, language: string, resetCollapsed = true) {
      this.dnsCheckService.getTestResults({id: domainCheckId, language}).then(data => {
       // TODO clean
@@ -105,7 +128,7 @@ export class ResultComponent implements OnInit, OnChanges {
       this.test = {
         id: data['id'],
         creation_time: data['creation_time'],
-        location: `${document.location.origin}/result/${domainCheckId}`
+        location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
       };
 
       this.historyQuery = data['params'];
@@ -177,37 +200,61 @@ export class ResultComponent implements OnInit, OnChanges {
 
     saveAs(blob, `zonemaster_result_${this.test['location']}.json`);
   }
+
   public exportHTML() {
-    const tempResutlCollapsed = this.resutlCollapsed;
-    this.resutlCollapsed = false;
-    setTimeout(() => {
+    combineLatest([...this.header.map(s => this.translateService.get(s))])
+      .subscribe(([moduleStr, levelStr, messageStr]) => {
+        let tbodyContent = '';
+        for (let item of this.result) {
+          tbodyContent += `
+            <tr>
+              <td>${item.module}</td>
+              <td>${item.level}</td>
+              <td>${item.message}</td>
+            </tr>
+          `;
+        }
 
-    const clone = this.resultView.nativeElement.cloneNode(true);
-    clone.querySelector('.result > div.row.d-block').remove();
-    clone.querySelectorAll('.result > div.row > div.col-md-6')[1].remove();
+        let resultHeader = this.resultView.nativeElement.querySelector('.result-header').cloneNode(true).innerHTML;
 
-    const result = `<!doctype html>
-    <html class="no-js" lang="fr">
-      <head>
-        <meta charset="UTF-8">
-        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Zonemaster TEST</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" media="all">
-      </head>
-      <body style="margin-left: 20px;">
-        ${clone.innerHTML}
-      </body>
-    </html>`;
+        const result = `
+          <!doctype html>
+          <html class="no-js" lang="fr">
+            <head>
+              <meta charset="UTF-8">
+              <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+              <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+              <title>Zonemaster TEST</title>
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" media="all">
+            </head>
+            <body style="margin-left: 20px;">
+              <header>
+                ${resultHeader}
+              </header>
+              <table class="table table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">${moduleStr}</th>
+                    <th scope="col">${levelStr}</th>
+                    <th scope="col">${messageStr}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${tbodyContent}
+                </tbody>
+              </table>
+            </body>
+          </html>
+        `;
 
-    const blob = new Blob([result], {
-      type: 'text/html;charset=utf-8'
-    });
+        const blob = new Blob([result], {
+          type: 'text/html;charset=utf-8'
+        });
 
-    saveAs(blob, `zonemaster_result_${this.test['location']}.html`);
-    this.resutlCollapsed = tempResutlCollapsed;
-    }, 100);
+        saveAs(blob, `zonemaster_result_${this.test['location']}.html`);
+      });
   }
+
   public exportText() {
     const csvData = this.ConvertTo([...this.result].slice(0), 'txt');
     const blob = new Blob([csvData], {
@@ -216,6 +263,7 @@ export class ResultComponent implements OnInit, OnChanges {
 
     saveAs(blob, `zonemaster_result_${this.test['location']}.txt`);
   }
+
   public exportCSV() {
     const csvData = this.ConvertTo([...this.result].slice(0), 'csv');
     const blob = new Blob([csvData], {
@@ -300,6 +348,47 @@ export class ResultComponent implements OnInit, OnChanges {
     } else {
       this.result_filter['all'] = false;
     }
+  }
+
+  // inspired from
+  // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript#30810322
+  public copyLinkToClipboard(str) {
+    var btnClipboard = document.getElementsByClassName("btn-clipboard")[0];
+    var icon = btnClipboard.firstElementChild;
+
+    var resetIcon = function(oldIcon) {
+      setTimeout(function() {
+        icon.classList.remove(oldIcon);
+        icon.classList.add("fa-clipboard");
+      }, 2000);
+    };
+
+    var textArea = document.createElement("textarea");
+    textArea.value = str;
+
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    var res = document.execCommand('copy');
+
+    if (res === true) {
+      icon.classList.remove("fa-clipboard");
+      icon.classList.add("fa-check");
+
+      resetIcon("fa-check");
+    } else {
+      icon.classList.remove("fa-clipboard");
+      icon.classList.add("fa-remove");
+
+      resetIcon("fa-remove");
+    }
+
+    document.body.removeChild(textArea);
   }
 
 }

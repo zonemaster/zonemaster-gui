@@ -120,36 +120,21 @@ button.launch:hover {
   color: grey;
 }
 
-
 .progress-value {
   display: block;
   color: #000;
   position: absolute;
   right: 10px;
+  font-size: 30px;
 }
 
-@media(min-width:576px){
-  .progress-result {
-    position: absolute;
-    z-index: 20;
-    width: 20.1rem;
-    position: absolute;
-    top: 0;
-  }
-  .progress-value {
-    display: block;
-    color: #000;
-    position: absolute;
-    right: 10px;
-    font-size: 30px;
-  }
-  .checkboxForm {
-    width: inherit;
-  }
-
+.progress-result {
+  width: calc(100% - 10px);
+  position: absolute;
+  z-index: 20;
+  top: 0;
 }
-@media(min-width:768px){
-  .progress-result {
-    width: calc(100% - 10px)
-  }
+
+.checkboxForm {
+  width: inherit;
 }
