@@ -82,26 +82,31 @@ button.btn-clipboard > i.fa-remove {
   margin-top: 1rem;
 }
 
+.active.info,
 .result section h3.INFO::before,
 .result section .entry.INFO::before {
   background-color: #66ad54;
 }
 
+.active.notice,
 .result section h3.NOTICE::before,
 .result section .entry.NOTICE::before {
   background-color: #007bff;
 }
 
+.active.warning,
 .result section h3.WARNING::before,
 .result section .entry.WARNING::before {
   background-color: #ff9019;
 }
 
+.active.error,
 .result section h3.ERROR::before,
 .result section .entry.ERROR::before {
   background-color: #ec3545;
 }
 
+.active.critical,
 .result section h3.CRITICAL::before,
 .result section .entry.CRITICAL::before {
   background-color: #ec3545;
