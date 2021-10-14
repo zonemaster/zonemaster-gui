@@ -2,13 +2,34 @@
   <div class="row mb-2">
     <div class="btn-group btn-group-toggle">
       <label class="btn btn-secondary" for="filter_all" [class.active]="filter === 'all'">
-        <input type="radio" [ngModel]="filter" value="all" name="options" id="filter_all" (ngModelChange)="filterHistory($event)" autocomplete="off"> {{ 'All' | translate }}
+        <input type="radio"
+               [ngModel]="filter"
+               value="all"
+               name="options"
+               id="filter_all"
+               (ngModelChange)="filterHistory($event)"
+               autocomplete="off">
+        {{ 'All' | translate }}
       </label>
-      <label class="btn btn-secondary" for="filter_delegated" [class.active]="filter === 'delegated'">
-        <input type="radio" [ngModel]="filter" value="delegated" name="filter" id="filter_delegated" (ngModelChange)="filterHistory($event)" autocomplete="off"> {{ 'Delegated' | translate }}
+      <label class="btn btn-secondary"for="filter_delegated" [class.active]="filter === 'delegated'">
+        <input type="radio"
+               [ngModel]="filter"
+               value="delegated"
+               name="filter"
+               id="filter_delegated"
+               (ngModelChange)="filterHistory($event)"
+               autocomplete="off">
+        {{ 'Delegated' | translate }}
       </label>
       <label class="btn btn-secondary" for="filter_undelegated" [class.active]="filter === 'undelegated'">
-        <input type="radio" [ngModel]="filter" value="undelegated" name="filter" id="filter_undelegated" (ngModelChange)="filterHistory($event)" autocomplete="off"> {{ 'Undelegated' | translate }}
+        <input type="radio"
+               [ngModel]="filter"
+               value="undelegated"
+               name="filter"
+               id="filter_undelegated"
+               (ngModelChange)="filterHistory($event)"
+               autocomplete="off">
+        {{ 'Undelegated' | translate }}
       </label>
     </div>
   </div>
@@ -17,7 +38,9 @@
     <div *ngIf="filteredHistory.length > 0;else noHistory" class="list-group w-100">
       <div *ngFor="let item of historyItems" class="list-group-item list-group-item-action list-group-item-{{item.color}}">
         <div class="d-flex w-100 justify-content-between">
-          <a routerLink="/result/{{item.id}}"> {{ item.creation_time | amFromUtc | date:'yyyy-MM-dd HH:mm zzzz' }}</a>
+          <a routerLink="/result/{{item.id}}">
+            {{ item.creation_time | amFromUtc | date:'yyyy-MM-dd HH:mm zzzz' }}
+          </a>
           <small *ngIf="item.undelegated" class="text-muted">{{ "Undelegated" | translate }}</small>
         </div>
       </div>
