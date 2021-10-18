@@ -109,7 +109,7 @@ button.btn-clipboard > i.fa-remove {
 .active.critical,
 .result section h3.CRITICAL::before,
 .result section .entry.CRITICAL::before {
-  background-color: #ec3545;
+  background-color: #bd2130;
 }
 
 .result section .entry.INFO .severity {
@@ -129,7 +129,7 @@ button.btn-clipboard > i.fa-remove {
 }
 
 .result section .entry.CRITICAL .severity {
-    color: #ec3545;
+    color: #bd2130;
 }
 
 .export, .share, .settings {
