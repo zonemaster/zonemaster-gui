@@ -173,7 +173,6 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public getHistory() {
-
     if (!this.history) {
       this.translateService.get('History information request is in progress').subscribe((res: string) => {
         this.alertService.info(res);
