@@ -16,7 +16,6 @@ describe('Zonemaster test FR05-fr - [Supports French language]', () => {
 
   it('should switch to French', async () => {
     await utils.setLang('fr');
-    //expect(element(by.xpath('//h1[.="Nom de domaine"]')).isPresent()).toBe(true);
     await browser.wait(() => ExpectedConditions.presenceOf(element(by.xpath('//h1[.="Nom de domaine"]'))), 5 * 1000);
     const selectedLang = element.all(by.css('nav div.lang a.selected'));
     expect(selectedLang.count()).toBe(1);

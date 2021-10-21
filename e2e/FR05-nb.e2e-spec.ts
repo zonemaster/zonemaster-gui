@@ -14,7 +14,6 @@ describe('Zonemaster test FR05-nb - [Supports Norwegian language]', () => {
 
   it('should switch to Norwegian', async () => {
     await utils.setLang('nb');
-    //expect(element(by.xpath('//h1[.="Domenenavn"]')).isPresent()).toBe(true);
     await browser.wait(() => ExpectedConditions.presenceOf(element(by.xpath('//h1[.="Domenenavn"]'))), 5 * 1000);
     const selectedLang = element.all(by.css('nav div.lang a.selected'));
     expect(selectedLang.count()).toBe(1);

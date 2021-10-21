@@ -14,7 +14,6 @@ describe('Zonemaster test FR05-da - [Supports Danish language]', () => {
 
   it('should switch to Danish', async () => {
     await utils.setLang('da');
-    //expect(element(by.xpath('//h1[.="Domænenavn"]')).isPresent()).toBe(true);
     await browser.wait(() => ExpectedConditions.presenceOf(element(by.xpath('//h1[.="Domænenavn"]'))), 5 * 1000);
     const selectedLang = element.all(by.css('nav div.lang a.selected'));
     expect(selectedLang.count()).toBe(1);

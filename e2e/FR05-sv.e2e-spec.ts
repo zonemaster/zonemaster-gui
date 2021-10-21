@@ -14,7 +14,6 @@ describe('Zonemaster test FR05-sv - [Supports Swedish language]', () => {
 
   it('should switch to Swedish', async () => {
     await utils.setLang('sv');
-    //expect(element(by.xpath('//h1[.="Domännamn"]')).isPresent()).toBe(true);
     await browser.wait(() => ExpectedConditions.presenceOf(element(by.xpath('//h1[.="Domännamn"]'))), 5 * 1000);
     const selectedLang = element.all(by.css('nav div.lang a.selected'));
     expect(selectedLang.count()).toBe(1);
