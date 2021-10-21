@@ -7,9 +7,9 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR18 - [The GUI should be able to run tests by just providing the domain name]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
   });
 
   it('should display progress bar',  async() => {

@@ -4,9 +4,9 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR03 - [All appropriate fields should be writable]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
   });
 
   it('should be able to write in the main input', () => {

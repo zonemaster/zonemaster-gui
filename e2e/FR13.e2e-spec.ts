@@ -4,10 +4,10 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR13 - [The advanced view should support the possibility of enabling or disabling IPv4 or IPv6]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
-    utils.activeOptions();
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
+    await utils.activeOptions();
   });
 
   it('should have [Disable IPv4 checkbox] visible and are disable', () => {
