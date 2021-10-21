@@ -26,10 +26,13 @@ exports.config = {
     'chromeOptions': {
       'args': [
         '--headless',
-        '--disk-cache-dir=/dev/null',
+        '--no-sandbox',
+        '--disable-gpu',
+        '--disable-extension',
+        '--incogito',
         '--disable-web-security',
         '--window-size=1920,1080',
-        'lang=es-AR'
+        '--lang=es-AR'
       ]
     }
   }],
@@ -60,9 +63,7 @@ exports.config = {
     require('ts-node').register({
       project: 'e2e/tsconfig.e2e.json'
     });
-    jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: false } }));
+    jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: 'none' } }));
     browser.ignoreSynchronization = true
   }
 };
-
-
