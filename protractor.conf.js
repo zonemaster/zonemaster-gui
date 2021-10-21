@@ -29,7 +29,7 @@ exports.config = {
         '--no-sandbox',
         '--disable-gpu',
         '--disable-extension',
-        '--incogito',
+        '--incognito',
         '--disable-web-security',
         '--window-size=1920,1080',
         '--lang=es-AR'
