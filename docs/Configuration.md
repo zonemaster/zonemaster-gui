@@ -29,4 +29,6 @@ The supported configuration items are the following.
 * `"logo`": The URL to the image displayed in the navigation bar, default
   `"assets/images/zonemaster_logo_2021_color.png"`.
 * `"msgBanner"`: A message to display to the user, if empty or undefined no
-  banner will be shown
+  banner will be shown. HTML formatting is supported (such as `<a>` tag) and
+  some characters such as `&><` need to be written as HTML codes to be properly
+  rendered.
