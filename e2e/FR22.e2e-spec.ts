@@ -8,9 +8,9 @@ import { Utils } from './utils/app.utils';
 describe('Zonemaster test FR22 - [Provide the possibility to see more information about encountered errors ' +
   'within the simple view]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
   });
 
   it('should display full messages',  async() => {

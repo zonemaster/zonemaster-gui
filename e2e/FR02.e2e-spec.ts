@@ -4,9 +4,9 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR02 - [All menus should be clickable in latest version of different browsers]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
   });
 
   it('should go to faq page', () => {
