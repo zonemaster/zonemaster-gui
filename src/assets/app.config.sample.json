@@ -2,6 +2,6 @@
     "apiEndpoint": "/api",
     "contactAddress": "contact@zonemaster.net",
     "defaultLanguage": "en",
-    "enabledLanguages": [ "da", "en", "fi", "fr", "nb", "sv" ],
+    "enabledLanguages": [ "da", "en", "es", "fi", "fr", "nb", "sv" ],
     "logo": "assets/images/zonemaster_logo_2021_color.png"
 }

@@ -8,11 +8,12 @@ export const common = {
   languages: {
     'da': 'Dansk',
     'en': 'English',
+    'es': 'Español',
     'fi': 'Suomi',
     'fr': 'Français',
     'nb': 'Norsk (bokmål)',
     'sv': 'Svenska'
   },
-  enabledLanguages: [ 'da', 'en', 'fi', 'fr', 'nb', 'sv' ],
+  enabledLanguages: [ 'da', 'en', 'fi', 'fr', 'nb', 'sv', 'es' ],
   configUrl: 'assets/app.config.json'
 }
