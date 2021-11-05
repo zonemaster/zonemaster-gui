@@ -8,9 +8,9 @@ import { Utils } from './utils/app.utils';
 describe('Zonemaster test FR23 - [Provide a list of previous runs for the domain and should be paginated]', () => {
   const utils = new Utils();
   const EC = protractor.ExpectedConditions;
-  beforeAll(() => {
-    utils.goTo('result/2005cf23e9fb24b6');
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goTo('result/2005cf23e9fb24b6');
+    await utils.setLang('en');
   });
 
   it('should display previous tests',  async() => {
@@ -31,8 +31,3 @@ describe('Zonemaster test FR23 - [Provide a list of previous runs for the domain
 
   });
 });
-
-
-
-
-

@@ -8,9 +8,9 @@ import { Utils } from './utils/app.utils';
 describe('Zonemaster test FR24 - [The list of previous runs should contain links to the previous tests]', () => {
   const utils = new Utils();
   const EC = protractor.ExpectedConditions;
-  beforeAll(() => {
-    utils.goTo('result/2005cf23e9fb24b6');
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goTo('result/2005cf23e9fb24b6');
+    await utils.setLang('en');
   });
 
   it('should display previous run link',  async() => {

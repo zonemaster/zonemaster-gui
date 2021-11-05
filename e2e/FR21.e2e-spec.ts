@@ -9,9 +9,9 @@ describe('Zonemaster test FR21 - [Able to provide a summarized result of the tes
   '(possibility in different colours for error, warning, success etc.)]', () => {
   const utils = new Utils();
   beforeAll(async () => {
-    utils.goToHome();
+    await utils.goToHome();
     await utils.setLang('en');
-    utils.activeOptions();
+    await utils.activeOptions();
     await utils.clearBrowserCache();
   });
 

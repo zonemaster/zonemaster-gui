@@ -7,10 +7,10 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR20 - [The user must be able to submit one or more DS record(s) for use with DNSSEC]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
-    utils.activeOptions();
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
+    await utils.activeOptions();
   });
 
   it('should display progress bar when we add a DS entry and launch a test',  async() => {

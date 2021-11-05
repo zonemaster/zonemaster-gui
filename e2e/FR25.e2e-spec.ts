@@ -7,9 +7,9 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR25 - [Should be able to export the result in multiple formats (HTML, CSV, JSON, TEXT)]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goTo('result/2005cf23e9fb24b6');
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goTo('result/2005cf23e9fb24b6');
+    await utils.setLang('en');
   });
 
   it('should have an export button',  async() => {
@@ -30,8 +30,3 @@ describe('Zonemaster test FR25 - [Should be able to export the result in multipl
     await expect(element.all(by.css('button.btn.export + div.show button.btn')).get(3).getText()).toEqual('TEXT');
   });
 });
-
-
-
-
-

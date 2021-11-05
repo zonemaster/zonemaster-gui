@@ -4,9 +4,9 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR12 - [The simple view should support an advanced view expanding when the checkbox is enabled]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
   });
 
   it('should have [Disable IPv4 checkbox] && [Disable IPv6 checkbox] NOT visible', () => {

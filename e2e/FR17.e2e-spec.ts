@@ -4,10 +4,10 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR17 - [Able to specify delegation parameters]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
-    utils.activeOptions();
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
+    await utils.activeOptions();
   });
 
   it('should be have one ns and digest form', () => {

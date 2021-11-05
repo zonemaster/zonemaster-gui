@@ -7,11 +7,11 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR19 - [The GUI should be able to run the test with at least one name server as input]', () => {
   const utils = new Utils();
-  beforeEach(() => {
-    utils.goTo('faq');
-    utils.goToHome();
-    utils.setLang('en');
-    utils.activeOptions();
+  beforeEach(async () => {
+    await utils.goTo('faq');
+    await utils.goToHome();
+    await utils.setLang('en');
+    await utils.activeOptions();
   });
 
   it('should NOT display progress bar when we add a NS ip',  async() => {
