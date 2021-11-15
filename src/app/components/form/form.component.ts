@@ -60,7 +60,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   ngOnInit() {
     this.langChangeSubscription = this.translateService.onLangChange.subscribe((_: LangChangeEvent) => {
       if (this.newForm.touched) {
-        this.runDomainCheck(true);
+        this.runDomainCheck(false);
       }
     });
     this.generate_form();
@@ -233,7 +233,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  public runDomainCheck(submitNotValid = false) {
+  public runDomainCheck(submitValid = true) {
     this.newForm.markAllAsTouched();
     let param = this.newForm.value;
 
@@ -262,7 +262,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         digest: ds.digest
       }});
 
-    if ((!submitNotValid && this.newForm.valid) || (submitNotValid && !this.newForm.valid)) {
+    if (submitValid == this.newForm.valid) {
       this.onDomainCheck.emit(param);
     }
   }
