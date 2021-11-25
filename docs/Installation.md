@@ -23,7 +23,7 @@ installation].
 This instruction covers the following operating systems:
 
  1. [CentOS](#1-centos)
- 2. [Debian](#2-debian-and-ubuntu)
+ 2. [Debian and Ubuntu](#2-debian-and-ubuntu)
  3. [FreeBSD](#3-freebsd)
 
 
