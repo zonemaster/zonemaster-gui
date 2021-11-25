@@ -8,10 +8,18 @@ sudo: false
 
 addons:
   chrome: stable
+  # https://github.com/Automattic/node-canvas
+  # canvas is indirectly required by protractor-image-comparison
   apt:
     packages:
       - libpango1.0-dev
       - libjpeg-dev
+      - build-essential
+      - libcairo2-dev
+      - libpango1.0-dev
+      - libjpeg-dev
+      - libgif-dev
+      - librsvg2-dev
 
 install:
   - npm install
