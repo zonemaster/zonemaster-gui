@@ -22,18 +22,18 @@ installation].
 
 This instruction covers the following operating systems:
 
- 1. [CentOS](#1-centos)
+ 1. [Rocky Linux](#1-rocky-linux)
  2. [Debian and Ubuntu](#2-debian-and-ubuntu)
  3. [FreeBSD](#3-freebsd)
 
 
-### 1. CentOS
+### 1. Rocky Linux
 
 #### Install Apache
 
 ```sh
-sudo yum update
-sudo yum -y install httpd unzip
+sudo dnf update
+sudo dnf -y install httpd unzip
 ```
 
 #### Install Zonemaster Web GUI
