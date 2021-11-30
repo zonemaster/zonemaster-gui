@@ -1,11 +1,11 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Observable, from } from 'rxjs';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -44,8 +44,14 @@ import { HttpMockRequestInterceptor } from './interceptors/mock.interceptor';
 export const isMock = environment.mock;
 
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, `assets/i18n/`, '.json');
+export function TranslationLoaderFactory() {
+  return new MyTranslationLoader();
+}
+
+class MyTranslationLoader extends TranslateLoader {
+  getTranslation(lang: string): Observable<any> {
+    return from(import(/* webpackChunkName: "i18n-[request]" */ `../assets/i18n/${lang}.json`));
+  }
 }
 
 const appRoutes: Routes = [
@@ -88,8 +94,7 @@ const appRoutes: Routes = [
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        useFactory: TranslationLoaderFactory,
       }
     }),
     RouterModule.forRoot(
