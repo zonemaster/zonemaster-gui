@@ -1,4 +1,4 @@
 export const clientInfo = {
-    version: '3.3.0',
+    version: '3.4.0',
     id: 'Zonemaster-GUI'
 };
