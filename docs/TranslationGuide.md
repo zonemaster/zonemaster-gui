@@ -25,6 +25,23 @@ following languages with the attached language code:
 * `sv` for Swedish language
 
 
+## Extracting translatable strings
+
+When adding new translatable strings to the GUI, they need to be added to each
+*LANG.json* file. This can be done with the following command:
+
+```
+npm run i18n:extract
+```
+
+This will update each file with the new strings using `null` as default value.
+The file will also be automatically sorted and obsolete strings will be
+removed.
+
+Once updated, it might be required to update the *en.json* file with the
+correct translation.
+
+
 ## Submitting changes
 
 Below are instructions for how to add or modify files. Preferably,
@@ -32,7 +49,7 @@ submit the new or updated file as a pull request to Github (see
 [translators guide for Engine]). Contact the Zonemaster Group if
 that does not work.
 
-The translator must always create or update the *LANG.json* and 
+The translator must always create or update the *LANG.json* and
 the *gui-faq-LANG.md*. The other changes are only done when
 a language is added and will be completed by the Zonemaster Group.
 
@@ -78,47 +95,25 @@ that assume this model, where the `<a>` tag is just before the heading.
 #### 1. What is Zonemaster?
 ```
 
-## Add the language to HTML code
+## Adding a new language
 
-The language must be linked from the GUI. The new language must be added
-to [src/app/components/navigation/navigation.component.html]:
-
-In `navigation.component.html` :
-
-  * Locate the div `<div class="lang">`
-  * Add the language where `xx` is the language code in lower case, e.g.
-    `en` and `Yy` is the same language code with first letter in upper
-    case, e.g. `En`:
-
-```
-<a lang='xx' (click)="setLanguage('xx')">Yy</a> |
-```
-  * Add the language a second time where `xx` is the language code in
-    lower case, e.g. `sv`, and `Yyyyy` is the name of the same language
-    in that language, e.g. `Svenska`:
-
-```
- <option lang='xx' value='xx' [selected]="lang === 'xx'">
-  Yyyyy
- </option>
- ```
-
-Preserve the alphabetical order of the language codes.
-
-## Add the language in Type Script code
-
-The new language must be added to the following files:
+The new language must be added to the following typescript files:
 
 * [package.json]
 * [src/app/app.module.ts]
-* [src/app/components/navigation/navigation.component.ts]
+* [src/environments/common.ts]
+* [src/assets/app.config.sample.json]
+
+and the following documentation file:
+
+* [Configuration.md]
 
 ### package.json
 
 In `package.json` locate
 
 ```
-    "i18n:extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/{da,en,fi,fr,nb,sv}.json --key-as-default-value --clean --sort --format json"
+"i18n:extract": "ngx-translate-extract ... --output ./src/assets/i18n/{da,en,fi,fr,nb,sv}.json ...
 ```
 and add the two-letter language code of the new language. Preserve
 the alphabetical order of the language codes.
@@ -137,16 +132,38 @@ import 'moment/locale/xx';
 ```
 Preserve the alphabetical order of the language codes.
 
-### navigation.component.ts
+### common.ts
 
-In `navigation.component.ts` locate
+In `common.ts` locate
 
+```js
+languages: {
+  'da': 'Dansk',
+  ...
+}
 ```
-  private isValidLanguage(lang: string) {
-    const validLanguages = [ 'da', 'en', 'fi', 'fr', 'nb', 'sv' ];
+and append the new two-letter language code and the corresponding new
+language name.
+
+Also locate
+```js
+enabledLanguages: ['da', ...]
 ```
-and add the two-letter language code of the new language. Preserve
-the alphabetical order of the language codes.
+and append the new two-letter language code of the new language.
+
+### app.config.sample.json
+
+In  `app.config.sample.json` locate
+
+```json
+"enabledLanguages": ["da", ...]
+```
+and append the new two-letter language code of the new language.
+
+### Configuration.md
+
+Add the new language's two-letter code to the list of default values for
+`"enabledLanguages"`.
 
 ## Add e2e test script for the language
 
@@ -183,5 +200,6 @@ is updated.
 [src/app/components/navigation/navigation.component.ts]:   ../src/app/components/navigation/navigation.component.ts
 [src/assets/i18n]:                                         ../src/assets/i18n
 [translators guide for Engine]:                            https://github.com/zonemaster/zonemaster-engine/blob/develop/docs/Translation-translators.md
-
-
+[src/environments/common.ts]:                              ../src/environments/common.ts
+[src/assets/app.config.sample.json]:                       ../src/assets/app.config.sample.json
+[Configuration.md]:                                        ./Configuration.md

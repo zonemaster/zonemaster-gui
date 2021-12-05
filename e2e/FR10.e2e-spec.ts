@@ -1,14 +1,15 @@
-import { by, browser, element } from 'protractor';
+import { by, browser, element, ExpectedConditions } from 'protractor';
 
 import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR10 - [On launching the URL opens with a default simple view]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.clearBrowserCache();
   });
-  it('should have [Domain name] label visible', () => {
-    expect(element(by.xpath('//h1[(.="Domain name")]')).isPresent()).toBe(true);
+  it('should have [Domain name] label visible', async () => {
+    await browser.wait(() => ExpectedConditions.presenceOf(element(by.xpath('//h1[.="Domain name"]'))), 5 * 1000);
   });
   it('should have [Options] label visible and NOT selected', () => {
     expect(element(by.xpath('//label[contains(., "Options")]')).isPresent()).toBe(true);

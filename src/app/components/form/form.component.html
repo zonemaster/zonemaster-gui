@@ -1,29 +1,34 @@
-<div class="container-fuild">
-  <div class="row mb-1">
-    <div class="col-sm-10 offset-sm-1 text-center">
-      <h1>{{'Domain name'|translate}}</h1>
-      <div class="info-form">
-        <form class="form-inline domain mb-2">
-          <div class="input-group mb-2">
-            <span class="form-ckeck-group input-group">
-              <input type="text"
-                   class="form-control form-control-lg"
-                   id="domain_check_name"
-                   name="domain_check_name"
-                   [(ngModel)]="form.domain"
-                   (keypress)="($event.which === 13)? runDomainCheck() : 0"
-                   placeholder="{{'Domain name'|translate}}"
-                   required>
+<form class="domain mb-2" (ngSubmit)="runDomainCheck();" [formGroup]="newForm">
+  <div class="container-fuild">
+    <div class="row mb-1">
+      <div class="col-sm-10 offset-sm-1 text-center">
+        <h1>{{'Domain name'|translate}}</h1>
+        <div class="form-row mb-2">
+          <div class="col">
+            <input type="text"
+                class="form-control form-control-lg"
+                [class.is-invalid]="domain.invalid && (domain.dirty || domain.touched)"
+                id="domain_check_name"
+                name="domain_check_name"
+                formControlName="domain"
+                placeholder="{{'Domain name'|translate}}"
+                required>
+            <div class="invalid-feedback" *ngIf="domain.errors?.required" >
+              {{ 'Domain name required' | translate }}
+            </div>
 
-              <p class="reset-form d-none d-sm-block" *ngIf="form.domain.length > 0 && !showProgressBar" >
-                <button
-                  (click)="resetDomainForm();"
-                  type="button"
-                  class="btn grey"><i class="fa fa-2x fa-times-circle"></i></button>
-              </p>
+            <div class="invalid-feedback" *ngIf="domain.errors?.serverError" >
+              {{ domain.errors.serverError }}
+            </div>
 
-            </span>
-            <p class="progress-result d-none d-sm-block" *ngIf="showProgressBar">
+            <p class="reset-form d-none d-sm-block" *ngIf="domain.value.length > 0 && !showProgressBar" >
+              <button
+                (click)="resetDomainForm();"
+                type="button"
+                class="btn grey"><i class="fa fa-2x fa-times-circle"></i></button>
+            </p>
+
+            <p class="progress-result d-block" *ngIf="showProgressBar">
               <ngb-progressbar
                 type="info"
                 [value]="domain_check_progression"
@@ -33,93 +38,126 @@
                 <span class="progress-value">{{domain_check_progression}}%</span>
               </ngb-progressbar>
             </p>
-              <button title="{{'Run test'|translate}}"
-                      (click)="runDomainCheck();"
-                      class="launch ml-2 btn btn-lg text-white"
-                      type="button"
-                      [disabled]="showProgressBar || disable_check_button">
-                Check
-              </button>
           </div>
-
-          <p class="progress-result d-sm-none" *ngIf="showProgressBar">
-            <!-- Progress Bar for extra small devices -->
-            <ngb-progressbar
-              type="info"
-              [value]="domain_check_progression"
-              [striped]="true"
-              [animated]="true"
-            >
-              <span class="progress-value">{{domain_check_progression}}%</span>
-            </ngb-progressbar>
-          </p>
-        </form>
+          <div class="col-auto text-left">
+            <button title="{{'Run test'|translate}}"
+                    class="launch btn btn-lg text-white"
+                    type="submit"
+                    [disabled]="disable_check_button">
+              Check
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="advanced">
-      <label class="d-flex" for="advanced_checkbox">
-      <span class="switch">
-          <input type="checkbox" name="advanced_checkbox" id="advanced_checkbox" (change)="toggleOptions()" [ngModel]="is_advanced_options_enabled">
-          <span class="slider round"></span>
-        </span>
-        <p class="ml-1 pt-1">{{'Options'|translate}}</p>
-      </label>
+    <div class="row">
+      <div class="advanced col-sm-10 offset-sm-1">
+        <label class="d-flex" for="advanced_checkbox">
+          <span class="switch">
+            <input type="checkbox" name="advanced_checkbox" id="advanced_checkbox" (change)="toggleOptions()" [ngModel]="is_advanced_options_enabled" [ngModelOptions]="{standalone: true}">
+            <span class="slider round"></span>
+          </span>
+          <p class="ml-1 pt-1">{{'Options'|translate}}</p>
+        </label>
 
-      <div *ngIf="is_advanced_options_enabled">
-             <span [formGroup]="checkboxForm" class=" half-with">
-              <span class="options d-flex" [formArrayName]="'items'" [class.invalid]="!checkboxForm['controls'].selectedItems.valid">
-                <span *ngFor="let protocol of checkboxForm['controls'].items['controls']; let i = index;"
-                     [formGroup]="protocol"
-                     [ngClass]="{'has-error': !checkboxForm['controls'].selectedItems.valid}"
-                     class="form-check form-check-inline">
-
-                  <input type="checkbox" class="form-check-input" type="checkbox" formControlName="checked" id="protocol_{{ protocol.controls.key.value }}">
-                  <label class="custom-control custom-checkbox form-check-label" attr.for="protocol_{{ protocol.controls.key.value }}">
-                    {{ protocol.controls.value.value }}
+        <div *ngIf="is_advanced_options_enabled">
+          <div class="form-row protocol-form">
+            <div class="col-md-10">
+              <div [class.is-invalid]="newForm.errors?.noProtocol">
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input type="checkbox" class="custom-control-input" formControlName="disable_ipv4" id="disable_protocol_ipv4" [class.is-invalid]="newForm.errors?.noProtocol || newForm.controls.disable_ipv4.invalid">
+                  <label class="custom-control-label" for="disable_protocol_ipv4">
+                    {{ 'Disable IPv4' | translate }}
                   </label>
-                </span>
-              </span>
-            </span>
-          <div class="alert alert-danger" role="alert" [class.invalid]="!checkboxForm.controls.selectedItems.valid" *ngIf="!checkboxForm.controls.selectedItems.valid">
-            {{"Choose at least one protocol" | translate}}
+                </div>
+                <div class="custom-control custom-checkbox custom-control-inline">
+                  <input type="checkbox" class="custom-control-input" formControlName="disable_ipv6" id="disable_protocol_ipv6" [class.is-invalid]="newForm.errors?.noProtocol || newForm.controls.disable_ipv6.invalid">
+                  <label class="custom-control-label" for="disable_protocol_ipv6">
+                    {{ 'Disable IPv6' | translate }}
+                  </label>
+                </div>
+              </div>
+              <div class="invalid-feedback" *ngIf="newForm.errors?.noProtocol" >
+                {{"Choose at least one protocol" | translate}}
+              </div>
+            </div>
           </div>
-          <hr>
-          <h4 class="d-inline">{{'Profile'|translate}}</h4>
-            <select [(ngModel)]="form.profile" class="form-control half-with" name="form.profile">
-              <option *ngFor="let profile of profiles" [value]="profile" [selected]="form.profile == profile">{{profile}}</option>
-            </select>
+
           <hr>
 
-          <h4 class="d-inline">{{'Nameservers'|translate}}</h4>
-          <form [formGroup]="NSForm" class="form-inline nameservers">
-            <div formArrayName="itemRows">
-              <div class="nsForm" *ngFor="let itemrow of NSForm.controls.itemRows.controls; let i=index" [formGroupName]="i">
-                <input formControlName="ns" name='form.ns' class="form-control" placeholder="NS">
-                <input formControlName="ip" name='form.ip' class="form-control" placeholder="IP">
-                <button (click)="deleteRow('NSForm', i)"
-                        class="btn btn-danger delete">
+          <h4><label for="profile">{{'Profile'|translate}}</label></h4>
+          <div class="form-row">
+            <div class="col-md-10">
+              <select class="form-control" formControlName="profile" id="profile" [class.is-invalid]="newForm.controls.profile.invalid">
+                <option *ngFor="let profile of profiles" [value]="profile">{{profile}}</option>
+              </select>
+              <div class="invalid-feedback" *ngIf="newForm.controls.profile.errors?.serverError" >
+                {{ newForm.controls.profile.errors.serverError }}
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <h4>{{'Nameservers'|translate}}</h4>
+
+          <div formArrayName="nameservers">
+            <div class="mb-2 form-row" *ngFor="let ns of newForm.controls.nameservers.controls; let i=index" [formGroupName]="i">
+              <div class="col col-md-5">
+                <input formControlName="ns" class="form-control" placeholder="NS" [class.is-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)">
+                <div class="invalid-feedback" *ngIf="ns.controls.ns.errors?.serverError" >
+                  {{ ns.controls.ns.errors.serverError }}
+                </div>
+                <div class="invalid-feedback" *ngIf="ns.controls.ns.errors?.required" >
+                  {{ 'NS required' | translate }}
+                </div>
+              </div>
+
+              <div class="col col-md-5">
+                <input formControlName="ip" class="form-control" placeholder="IP" [class.is-invalid]="ns.controls.ip.invalid">
+                <div class="invalid-feedback" *ngIf="ns.controls.ip.errors?.serverError" >
+                  {{ ns.controls.ip.errors.serverError }}
+                </div>
+              </div>
+
+              <div class="col-auto">
+                <button (click)="deleteRow('nameservers', i)"
+                class="btn btn-danger delete">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
-                <button *ngIf="NSForm.controls.itemRows.controls.length <= 1 || i == NSForm.controls.itemRows.controls.length - 1"
+              </div>
+
+              <div class="col-auto">
+                <button *ngIf="i == newForm.controls.nameservers.length - 1"
                         type="button"
-                        (click)="addNewRow('NSForm')"
+                        (click)="addNewRow('nameservers')"
                         class="btn btn-success add">
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
-          </form>
+          </div>
+
           <hr>
-          
-          <h4 class="d-inline">{{'DS_RECORDS'|translate}}</h4>
-          <form [formGroup]="digestForm" class="form-inline digests">
-            <div formArrayName="itemRows">
-              <div class="nsForm" *ngFor="let itemrow of digestForm.controls.itemRows.controls; let i=index" [formGroupName]="i">
-                <input formControlName="keytag" class="form-control" name="form.keytag" placeholder="{{'Key Tag' | translate}}">
-                <select formControlName="algorithm" class="form-control" name="form.algorithm">
-                  <option [value]="-1" selected disabled hidden>{{'Algorithm' | translate}}</option>
+
+          <h4>{{'DS_RECORDS'|translate}}</h4>
+          <div formArrayName="ds_info">
+            <div class="form-row mb-2" *ngFor="let ds_info of newForm.controls.ds_info.controls; let i=index" [formGroupName]="i">
+              <div class="col-md-2">
+                <input formControlName="keytag" class="form-control" placeholder="{{'Key Tag' | translate}}"
+                       [class.is-invalid]="ds_info.controls.keytag.invalid && (ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched)">
+                <div class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
+                  {{ ds_info.controls.keytag.errors.serverError }}
+                </div>
+                <div class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.required" >
+                  {{ 'Keytag required' | translate }}
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <select formControlName="algorithm" class="form-control"
+                        [class.is-invalid]="ds_info.controls.algorithm.invalid && (ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched)">
+                  <option [value]="-1" selected disabled>{{'Algorithm' | translate}}</option>
                   <option [value]="1">1 - RSAMD5</option>
                   <option [value]="3">3 - DSA</option>
                   <option [value]="5">5 - RSASHA1</option>
@@ -133,33 +171,68 @@
                   <option [value]="15">15 - ED25519</option>
                   <option [value]="16">16 - ED448</option>
                 </select>
-                <select formControlName="digtype" class="form-control" name="form.digtype">
-                  <option [value]="-1" selected disabled hidden> {{'Digest type' | translate}} </option>
-                  <option [value]="1">SHA-1</option>
-                  <option [value]="2">SHA-256</option>
-                  <option [value]="3">GOST R 34.11-94</option>
-                  <option [value]="4">SHA-384</option>
+                <div class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.serverError" >
+                  {{ ds_info.controls.algorithm.errors.serverError }}
+                </div>
+                <div class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.required" >
+                  {{ 'Algorithm required' | translate }}
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <select formControlName="digtype" class="form-control"
+                        [class.is-invalid]="ds_info.controls.digtype.invalid && (ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched)">
+                  <option [value]="-1" selected disabled> {{'Digest type' | translate}} </option>
+                  <option [value]="1">1 - SHA-1</option>
+                  <option [value]="2">2 - SHA-256</option>
+                  <option [value]="3">3 - GOST R 34.11-94</option>
+                  <option [value]="4">4 - SHA-384</option>
                 </select>
-                <input formControlName="digest" class="form-control" name="digest" placeholder="{{'Digest' | translate}}">
+                <div class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.serverError" >
+                  {{ ds_info.controls.digtype.errors.serverError }}
+                </div>
+                <div class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.required" >
+                  {{ 'Digest type required' | translate }}
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <input formControlName="digest" class="form-control" placeholder="{{'Digest' | translate}}"
+                       [class.is-invalid]="ds_info.controls.digest.invalid && (ds_info.controls.digest.dirty || ds_info.controls.digest.touched)">
+                <div class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.serverError" >
+                  {{ ds_info.controls.digest.errors.serverError }}
+                </div>
+                <div class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.required" >
+                  {{ 'Digest required' | translate }}
+                </div>
+              </div>
+
+              <div class="col-auto">
                 <button
-                        (click)="deleteRow('digestForm',i)"
+                        (click)="deleteRow('ds_info',i)"
                         class="btn btn-danger delete">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
-                <button *ngIf="digestForm.controls.itemRows.controls.length <= 1 || i == digestForm.controls.itemRows.controls.length - 1"
+              </div>
+
+              <div class="col-auto">
+                <button *ngIf="i == newForm.controls.ds_info.controls.length - 1"
                         type="button"
-                        (click)="addNewRow('digestForm')"
+                        (click)="addNewRow('ds_info')"
                         class="btn btn-success add">
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
-          </form>
-          <br>
-        <button class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
-        <button class="btn btn-danger resetFullForm" (click)="resetFullForm()">{{'Reset'|translate}}</button>
+          </div>
 
+          <br>
+
+          <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
+          <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()">{{'Reset'|translate}}</button>
+
+        </div>
       </div>
     </div>
   </div>
-</div>
+</form>

@@ -4,9 +4,9 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR09 - [Once a language is chosen, all other links should open in that respective language]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('fr');
+  beforeAll(async ()=> {
+    await utils.goToHome();
+    await utils.setLang('fr');
   });
 
   it('should keep french when opening faq page', async() => {

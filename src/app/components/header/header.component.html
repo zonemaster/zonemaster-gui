@@ -1,4 +1,7 @@
-<section class="main">
+<section class="main" [ngStyle]="{'margin-top': navHeight + 'px'}">
+    <div class="info-banner alert-info" *ngIf="msgBanner !== ''">
+      <div class="info-banner-content" [innerHTML]="msgBanner"></div>
+  </div>
   <div class="container">
     <ng-content></ng-content>
   </div>

@@ -1,22 +1,23 @@
-import {Component, EventEmitter, OnInit, Input, Output, SimpleChanges, OnChanges, SimpleChange} from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output, SimpleChanges, OnChanges, SimpleChange, OnDestroy} from '@angular/core';
 import {
   FormGroup,
   FormControl,
   FormArray,
   FormBuilder,
-  Validators } from '@angular/forms';
-import {AlertService} from '../../services/alert.service';
-import { TranslateService } from '@ngx-translate/core';
+  Validators,
+  AbstractControl} from '@angular/forms';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit, OnChanges {
+export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() is_advanced_options_enabled;
   @Input() domain_check_progression;
-  @Input() showProgressBar;
   @Input() toggleFinished;
   @Input() profiles;
 
@@ -24,30 +25,44 @@ export class FormComponent implements OnInit, OnChanges {
   @Output() onfetchFromParent = new EventEmitter<string>();
   @Output() onOpenOptions = new EventEmitter<boolean>();
 
-  private NSFormConfig = {
-    ns: [''],
-    ip: ['']
+  private formConfig = {
+    'nameservers': {
+        ns: '',
+        ip: ''
+    },
+    'ds_info': {
+      keytag: '',
+      algorithm: -1,
+      digtype: -1,
+      digest: ''
+    }
   };
-  private digestFormConfig = {
-    keytag: [''],
-    algorithm: [''],
-    digtype: [''],
-    digest: ['']
+
+  private formOpts = {
+    'ds_info': {
+      validators: FormComponent.allOrNoneDSFieldsValidator
+    },
+    'nameservers':  {
+      validators: FormComponent.nsRequiredValidator
+    }
   };
-  public NSForm: FormGroup;
-  public digestForm: FormGroup;
-  public ns_list;
-  public ds_list;
+
+  private _showProgressBar: boolean;
+  private langChangeSubscription: Subscription;
+
   public history = {};
   public test = {};
-  public form = {ipv4: true, ipv6: true, profile: 'default', domain: ''};
-  public checkboxForm: FormGroup;
   public disable_check_button = false;
+  public newForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private alertService: AlertService,
-    private translateService: TranslateService) {}
+  constructor(private formBuilder: FormBuilder, private translateService: TranslateService) {}
 
   ngOnInit() {
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe((_: LangChangeEvent) => {
+      if (this.newForm.touched) {
+        this.runDomainCheck(false);
+      }
+    });
     this.generate_form();
   }
 
@@ -57,81 +72,136 @@ export class FormComponent implements OnInit, OnChanges {
     }
   }
 
-  public generate_form() {
-
-    const group = [];
-
-    group.push(new FormGroup({
-      key: new FormControl('ipv4'),
-      value: new FormControl('IPv4'),
-      checked: new FormControl(true)
-    }));
-    group.push(new FormGroup({
-      key: new FormControl('ipv6'),
-      value: new FormControl('IPv6'),
-      checked: new FormControl(true)
-    }));
-
-    const formControlArray = new FormArray(group);
-
-    this.checkboxForm = new FormGroup({
-      items: formControlArray,
-      selectedItems: new FormControl(this.mapItems(formControlArray.value), Validators.required)
-    });
-
-    formControlArray.valueChanges.subscribe((v) => {
-      this.checkboxForm.controls['selectedItems'].setValue(this.mapItems(v));
-    });
-
-    this.NSForm = this.formBuilder.group({
-      itemRows: this.formBuilder.array([this.initItemRows(this.NSFormConfig)])
-    });
-
-    this.digestForm = this.formBuilder.group({
-      itemRows: this.formBuilder.array([this.initItemRows(this.digestFormConfig)])
-    });
+  ngOnDestroy() {
+    this.langChangeSubscription.unsubscribe();
   }
+
+  private static atLeastOneProtocolValidator(control: AbstractControl) {
+    const ipv4_disabled = control.get('disable_ipv4');
+    const ipv6_disabled = control.get('disable_ipv6');
+    return (ipv4_disabled && ipv4_disabled.value === true) && (ipv6_disabled && ipv6_disabled.value === true) ? {
+      noProtocol: true
+    } : null;
+  };
+
+  private static allOrNoneDSFieldsValidator(control: AbstractControl) {
+    const keytag = control.get('keytag');
+    const algorithm = control.get('algorithm');
+    const digest = control.get('digest');
+    const digtype = control.get('digtype');
+
+    if (keytag.value || digest.value || (algorithm.value > -1) || (digtype.value > -1)) {
+      if (!keytag.value) keytag.setErrors({required: true});
+      if (!digest.value) digest.setErrors({required: true});
+      if (algorithm.value <= 0) algorithm.setErrors({required: true});
+      if (digtype.value <= 0) digtype.setErrors({required: true});
+    } else { // reset errors on children
+      keytag.setErrors(null);
+      digest.setErrors(null);
+      algorithm.setErrors(null);
+      digtype.setErrors(null);
+      control.markAsUntouched();
+      control.markAsPristine();
+    }
+
+    return null;
+  };
+
+  private static nsRequiredValidator(control: AbstractControl) {
+    const ns = control.get('ns');
+    const ip = control.get('ip');
+    if (ip.value && !ns.value)  {
+      return ns.setErrors({ required: true });
+    } else if (!ip.value && !ns.value) { // reset errros on children
+      ns.setErrors(null);
+      control.markAsUntouched();
+      control.markAsPristine();
+    }
+    return  null;
+  };
+
+  public generate_form() {
+    this.newForm = new FormGroup({
+      domain: new FormControl('', Validators.required),
+      disable_ipv4: new FormControl(false),
+      disable_ipv6: new FormControl(false),
+      profile: new FormControl(this.profiles[0] || 'default'),
+      nameservers: new FormArray([]),
+      ds_info: new FormArray([]),
+    }, {
+      validators: FormComponent.atLeastOneProtocolValidator
+    });
+
+    this.addNewRow('nameservers');
+    this.addNewRow('ds_info');
+  }
+
+  get domain() { return this.newForm.get('domain'); }
 
   @Input()
   set parentData(data: object) {
     this.disable_check_button = false;
-    if (this.NSForm) {
-      this.deleteRow('NSForm', -1);
-      data['ns_list'].map(ns => {
-        this.addNewRow('NSForm', ns);
+    if (this.newForm) {
+      this.deleteRow('nameservers', -1);
+      data['ns_list'].forEach(ns => {
+        this.addNewRow('nameservers', ns);
       });
 
-      this.deleteRow('digestForm', -1);
-      data['ds_list'].map(digest => {
-        this.addNewRow('digestForm', digest);
+      this.deleteRow('ds_info', -1);
+      data['ds_list'].forEach(digest => {
+        this.addNewRow('ds_info', digest);
       });
     }
+  }
+
+  @Input()
+  set formError(errors: Array<any>) {
+    if (!errors) {
+      return;
+    }
+    this.disable_check_button = false;
+    for (let error of errors) {
+      let path = error.path.split('/');
+      path.shift(); // First element is ""
+      let currentForm: AbstractControl = this.newForm;
+      for (let segment of path) {
+        currentForm = currentForm.get(segment);
+      }
+      currentForm.setErrors({'serverError': error.message})
+    }
+  }
+
+  @Input()
+  set showProgressBar(show: boolean) {
+    this._showProgressBar = show;
+    if (!this.newForm) return;
+    this.disableForm(show);
+  }
+
+  get showProgressBar() {
+    return this._showProgressBar;
   }
 
   public resetDomainForm() {
-    this.form['domain'] = '';
+    this.newForm.controls.domain.reset('');
   }
 
   public resetFullForm() {
-    this.resetDomainForm();
     this.generate_form();
   }
 
-
-  public addNewRow(form, value = null) {
-    const control = <FormArray>this[form].controls['itemRows'];
+  public addNewRow(formName, value = null) {
+    const control = <FormArray>this.newForm.get(formName);
 
     if (value !== null) {
-      control.push(this.initItemRows(value));
-    } else if (form === 'NSForm') {
-      control.push(this.initItemRows(this.NSFormConfig));
-    } else if (form === 'digestForm') {
-      control.push(this.initItemRows(this.digestFormConfig));
+      control.push(this.formBuilder.group(value, this.formOpts[formName]));
+    } else {
+      control.push(this.formBuilder.group(this.formConfig[formName], this.formOpts[formName]));
     }
   }
 
-  public deleteRow(form, index: number) {
-    const control = <FormArray>this[form].controls['itemRows'];
+  public deleteRow(formName, index: number) {
+    const control = <FormArray>this.newForm.get(formName);
     if (index === -1) {
       for ( let i = control.length - 1; i >= 0; i--) {
         control.removeAt(i);
@@ -139,81 +209,62 @@ export class FormComponent implements OnInit, OnChanges {
     } else {
       control.removeAt(index);
       if (control.length === 0) {
-        this.addNewRow(form);
+        this.addNewRow(formName);
       }
     }
-
-  }
-
-  public initItemRows(value) {
-    return this.formBuilder.group(value);
-  }
-
-  private mapItems(items) {
-    const selectedItems = items.filter((l) => l.checked).map((l) => l.key);
-    return selectedItems.length ? selectedItems : null;
   }
 
   private displayDataFromParent() {
-
-    if (this.form['domain'] === '') {
-      this.translateService.get('Domain name required').subscribe((res: string) => {
-        this.alertService.error(res);
-      });
+    this.domain.markAsTouched();
+    if (this.domain.invalid) {
       return false;
     }
 
     this.disable_check_button = true;
-    this.onfetchFromParent.emit(this.form['domain']);
+    this.onfetchFromParent.emit(this.newForm.value.domain);
   }
 
-  public runDomainCheck() {
-
-    this.form['ds_info'] = [];
-    this.form['nameservers'] = [];
-
-    if (this.NSForm.value.itemRows.length > 0 && this.NSForm.value.itemRows[0].ns !== '') {
-      this.form['nameservers'] = this.NSForm.value.itemRows;
+  private disableForm(disable = true) {
+    this.disable_check_button = disable;
+    if (disable) {
+      this.domain.disable();
+    } else {
+      this.domain.enable();
     }
+  }
 
-    if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].keytag !== '' ) {
-      if (this.digestForm.value.itemRows[0].digest !== '' ) {
-        this.form['ds_info'] = this.digestForm.value.itemRows.map(x => {
-          x['keytag'] = Number(x['keytag']);
-          x['algorithm'] = Number(x['algorithm']);
-          x['digtype'] = Number(x['digtype']);
-          return x;
-        });
-      } else {
-        this.translateService.get('Digest required').subscribe((res: string) => {
-          this.alertService.error(res);
-        });
-      }
-    } else if (this.digestForm.value.itemRows.length > 0 && this.digestForm.value.itemRows[0].digest !== '') {
-      this.translateService.get('Keytag required').subscribe((res: string) => {
-        this.alertService.error(res);
+  public runDomainCheck(submitValid = true) {
+    this.newForm.markAllAsTouched();
+    let param = this.newForm.value;
+
+    if (param.ipv4 === true) delete param.ipv4;
+
+    if (param.disable_ipv4) param.ipv4 = false;
+    if (param.disable_ipv6) param.ipv6 = false;
+    delete param.disable_ipv4;
+    delete param.disable_ipv6;
+
+    param.nameservers = param.nameservers
+      .filter(ns => ns.ip || ns.ns)
+      .map(x => {
+        if (!x.ip) {
+          delete x.ip;
+        }
+        return x;
       });
-    }
 
-    let atLeastOneChecked = false;
-    const protocols = this.checkboxForm.value.items;
-    for (const el of protocols) {
-      this.form[el.key] = el.checked;
-      atLeastOneChecked += el.checked;
-    }
+    param.ds_info = param.ds_info
+      .filter(ds => ds.keytag || ds.algorithm > 0 || ds.digtype > 0 || ds.digest)
+      .map(ds => {return {
+        keytag: Number(ds.keytag),
+        algorithm: Number(ds.algorithm),
+        digtype: Number(ds.digtype),
+        digest: ds.digest
+      }});
 
-    if (this.form['domain'] === '') {
-      this.translateService.get('Domain name required').subscribe((res: string) => {
-        this.alertService.error(res);
-      });
-      return false;
-    } else if (!atLeastOneChecked) {
-      this.translateService.get('Choose at least one protocol').subscribe((res: string) => {
-        this.alertService.error(res);
-      });
+    if (submitValid == this.newForm.valid) {
+      this.onDomainCheck.emit(param);
     }
-
-    this.onDomainCheck.emit(this.form);
   }
 
   public toggleOptions() {

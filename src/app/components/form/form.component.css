@@ -6,10 +6,6 @@
   color: #9ad;
 }
 
-.input-group {
-  width: 100%;
-}
-
 #domain_check_name {
   font-size:16px;
   height:64px;
@@ -27,6 +23,7 @@
 
 button.launch {
   background-color: #FF5A5F;
+  height: 64px;
 }
 button.launch:hover {
   background-color: #ff3c3a;
@@ -92,13 +89,19 @@ button.launch:hover {
 }
 
 .advanced {
-  margin-left: 6.7rem;
   text-align: left;
 }
 
-
-.form-ckeck-group {
-  width: 85%;
+.domain .invalid-feedback {
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #fff;
+  background-color: rgba(220, 53, 69, 0.9);
+  border-radius: 0.25rem;
+  text-align: left;
 }
 
 .reset-form {
@@ -117,45 +120,21 @@ button.launch:hover {
   color: grey;
 }
 
-
 .progress-value {
   display: block;
   color: #000;
   position: absolute;
   right: 10px;
+  font-size: 30px;
 }
 
 .progress-result {
-  position: relative;
-}
-@media(min-width:576px){
-  .progress-result {
-    position: absolute;
-    z-index: 20;
-    width: 20.1rem;
-  }
-  .progress-value {
-    display: block;
-    color: #000;
-    position: absolute;
-    right: 10px;
-    font-size: 30px;
-  }
-  .checkboxForm {
-    width: inherit;
-  }
-
-}
-@media(min-width:768px){
-  .progress-result {
-    width: 85%;
-  }
+  width: calc(100% - 10px);
+  position: absolute;
+  z-index: 20;
+  top: 0;
 }
 
-.nsForm {
-  margin-bottom: 5px;
-}
-
-.has-error {
-  color: red;
+.checkboxForm {
+  width: inherit;
 }

@@ -1,23 +1,27 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import {ActivatedRoute} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.css']
 })
-export class FaqComponent implements OnInit, AfterViewChecked {
+export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
   private fragment: string;
   public faqTemplate = '';
   public url = '';
 
+  private langChangeSubscription: Subscription;
+  private fragmentSubscription: Subscription;
+
   constructor(private _http: HttpClient,
               private translateService: TranslateService,
               private route: ActivatedRoute) {
-    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.url = `/assets/faqs/gui-faq-${event.lang}.html`;
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.url = `assets/faqs/gui-faq-${event.lang}.html`;
       this._http.get(this.url, {responseType: 'text'})
         .subscribe(data => {
           this.faqTemplate = data;
@@ -26,14 +30,18 @@ export class FaqComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-    this.url = `/assets/faqs/gui-faq-${this.translateService.currentLang}.html`;
+    this.url = `assets/faqs/gui-faq-${this.translateService.currentLang}.html`;
     this._http.get(this.url, {responseType: 'text'})
       .subscribe(data => {
         this.faqTemplate = data;
       });
 
-    this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
+    this.fragmentSubscription = this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
+  }
 
+  ngOnDestroy() {
+    this.langChangeSubscription.unsubscribe();
+    this.fragmentSubscription.unsubscribe();
   }
 
   ngAfterViewChecked(): void {

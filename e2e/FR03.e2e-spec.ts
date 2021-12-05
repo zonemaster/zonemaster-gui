@@ -4,9 +4,9 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR03 - [All appropriate fields should be writable]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
   });
 
   it('should be able to write in the main input', () => {
@@ -16,10 +16,10 @@ describe('Zonemaster test FR03 - [All appropriate fields should be writable]', (
     utils.activeOptions();
     expect(element(by.css('#domain_check_name')).getAttribute('value')).toBe('afnic.fr');
 
-    element(by.css('input[name="form.ns"]')).sendKeys('afnic.fr');
-    expect(element(by.css('input[name="form.ns"]')).getAttribute('value')).toBe('afnic.fr');
+    element(by.css('input[formControlName="ns"]')).sendKeys('afnic.fr');
+    expect(element(by.css('input[formControlName="ns"]')).getAttribute('value')).toBe('afnic.fr');
 
-    element(by.css('input[name="form.keytag"]')).sendKeys('afnic.fr');
-    expect(element(by.css('input[name="form.keytag"]')).getAttribute('value')).toBe('afnic.fr');
+    element(by.css('input[formControlName="keytag"]')).sendKeys('afnic.fr');
+    expect(element(by.css('input[formControlName="keytag"]')).getAttribute('value')).toBe('afnic.fr');
   });
 });

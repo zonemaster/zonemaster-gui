@@ -8,9 +8,9 @@ import { Utils } from './utils/app.utils';
 describe('Zonemaster test FR24 - [The list of previous runs should contain links to the previous tests]', () => {
   const utils = new Utils();
   const EC = protractor.ExpectedConditions;
-  beforeAll(() => {
-    utils.goTo('result/2005cf23e9fb24b6');
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goTo('result/2005cf23e9fb24b6');
+    await utils.setLang('en');
   });
 
   it('should display previous run link',  async() => {
@@ -23,15 +23,10 @@ describe('Zonemaster test FR24 - [The list of previous runs should contain links
 
     expect(await $('ngb-modal-window').isPresent()).toBe(true);
 
-    await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-success > a')).get(0)
-      .getAttribute('href')).toEqual('http://localhost:4201/result/84bfac6ae74d0e62');
-    await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-danger > a')).get(0)
-      .getAttribute('href')).toEqual('http://localhost:4201/result/293f626579274f18');
+    await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-success a')).get(0)
+      .getAttribute('href')).toEqual(browser.baseUrl + 'result/84bfac6ae74d0e62');
+    await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-danger a')).get(0)
+      .getAttribute('href')).toEqual(browser.baseUrl + 'result/293f626579274f18');
 
   });
 });
-
-
-
-
-

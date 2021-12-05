@@ -1,14 +1,15 @@
-import { by, browser, element } from 'protractor';
+import { by, browser, element, ExpectedConditions } from 'protractor';
 
 import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR08 - [Presence of a default fallback language - English]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.clearBrowserCache();
   });
 
-  it('should have a fallback language - English', () => {
-    expect(element(by.xpath('//h1[.="Domain name"]')).isPresent()).toBe(true);
+  it('should have a fallback language - English', async () => {
+    await browser.wait(() => ExpectedConditions.presenceOf(element(by.xpath('//h1[.="Domain name"]'))), 5 * 1000);
   });
 });

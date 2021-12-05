@@ -20,7 +20,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        <p class="copyright text-muted small">Copyright &copy; AFNIC and The Swedish Internet Foundation, 2018-2020. All Rights Reserved</p>
+        <p class="copyright text-muted small">{{"COPYRIGHT"|translate}}</p>
       </div>
     </div>
   </div>
@@ -31,10 +31,10 @@
     <tbody>
     <tr *ngFor="let item of versions">
       <td  align="left">
-        {{item[0]}}
+        {{ item[0] | titlecase }}
       </td>
       <td  align="right">
-        {{item[1]}}
+        {{ item[1] }}
       </td>
     </tr>
     </tbody>

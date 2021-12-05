@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {AlertService} from './alert.service';
 import {AppService} from './app.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -10,13 +9,14 @@ export class DnsCheckService {
   private clientInfo: object;
   private _profiles: string[];
 
-  constructor(private alertService: AlertService, 
-    private http: HttpClient,
-    private translateService: TranslateService) {
-    this.backendUrl = AppService.apiEndpoint();
-    this.clientInfo = AppService.getClientInfo();
+  constructor(private http: HttpClient,
+    private translateService: TranslateService,
+    appService: AppService) {
 
-    if (this.backendUrl) {
+    this.backendUrl = appService.getConfig('apiEndpoint');
+    this.clientInfo = appService.getClientInfo();
+
+    if (!this.backendUrl) {
       this.translateService.get('Please set the api endpoint').subscribe((res: string) => {
         console.error(res);
       });
@@ -63,16 +63,11 @@ export class DnsCheckService {
     return this.RPCRequest('profile_names', {}, false);
   }
 
-  public getNSIps(domain) {
-    return this.RPCRequest('get_ns_ips', domain, false);
-  }
-
-  public getDataFromParentZone(domain) {
-    return this.RPCRequest('get_data_from_parent_zone', domain, false);
-  }
-
   public startDomainTest(data) {
-    return this.RPCRequest('start_domain_test', data);
+    return this.RPCRequest('start_domain_test', {
+      language: this.translateService.currentLang,
+      ...data
+    });
   }
 
   public testProgress(testId) {
@@ -83,17 +78,20 @@ export class DnsCheckService {
     return this.RPCRequest('get_test_results', data, false);
   }
 
-  public getTestHistory(data, offset = 0, limit = 100) {
+  public getTestHistory(data, offset = 0, limit = 100, filter = 'all') {
     const domain = data["domain"];
     return this.RPCRequest('get_test_history', {
       offset,
       limit,
-      'filter': 'all',
+      filter,
       'frontend_params': {domain}}, false);
   }
 
   public fetchFromParent(domain) {
-    return this.RPCRequest('get_data_from_parent_zone', {domain}, false);
+    return this.RPCRequest('get_data_from_parent_zone', {
+      language: this.translateService.currentLang,
+      domain: domain
+    }, false);
   }
 
   public getProfileNames(): string[] {
