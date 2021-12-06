@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
 
@@ -16,12 +16,15 @@ export class HistoryComponent implements OnInit {
   public pageSize = 10;
 
   public historyItems: any[] = [];
+  public filter = 'all';
+  public filteredHistory: any[] = [];
 
   constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService) { }
 
   ngOnInit() {
     this.history = this.setColor(this.history);
-    this.setItemsByPage(1);
+    this.filterHistory(this.filter);
+    this.setItemsByPage(this.page);
   }
 
   setColor(data) {
@@ -39,7 +42,15 @@ export class HistoryComponent implements OnInit {
 
   public setItemsByPage(page: number) {
     // TODO rename function
-    this.historyItems = this.history.slice( (page - 1) * this.pageSize, page * this.pageSize );
+    this.historyItems = this.filteredHistory.slice( (page - 1) * this.pageSize, page * this.pageSize );
+  }
+
+  public filterHistory(value) {
+    this.filter = value;
+    this.filteredHistory = this.history.filter(test => {
+      return (this.filter == 'all') || (test.undelegated == (this.filter == 'undelegated'));
+    });
+    this.setItemsByPage(this.page);
   }
 
 }

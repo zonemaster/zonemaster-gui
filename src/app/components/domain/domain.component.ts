@@ -3,6 +3,7 @@ import {DnsCheckService} from '../../services/dns-check.service';
 import {ActivatedRoute} from '@angular/router';
 import {AlertService} from '../../services/alert.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-domain',
@@ -19,10 +20,12 @@ export class DomainComponent implements OnInit {
   public resultID = '';
   public profiles = [];
   public toggleFinished = false;
+  public requestError: object;
 
-  constructor(private alertService: AlertService, 
+  constructor(private alertService: AlertService,
     private dnsCheckService: DnsCheckService,
-    private translateService: TranslateService) {}
+    private translateService: TranslateService,
+    private location: Location) {}
 
   ngOnInit() {
     this.dnsCheckService.profileNames().then( (res: string[]) => this.profiles = res );
@@ -41,10 +44,14 @@ export class DomainComponent implements OnInit {
         });
       }
     }, error => {
-      console.log(error);
-      this.translateService.get('Error during parent data fetching').subscribe((res: string) => {
-        this.alertService.error(res);
-      });
+      if (error.error.code === "-32602" && error.error.data.constructor === Array) {
+        this.requestError = error.error.data;
+      } else {
+        console.log(error);
+        this.translateService.get('Error during parent data fetching').subscribe((res: string) => {
+          this.alertService.error(res);
+        });
+      }
   });
   }
 
@@ -76,12 +83,18 @@ export class DomainComponent implements OnInit {
             self.showProgressBar = false;
             self.domain_check_progression = 5;
             self.toggleFinished = !self.toggleFinished;
+            this.location.go(`/result/${this.resultID}`);
           }
         });
       }, this.intervalTime);
-    }, error => {this.translateService.get(`Internal server error`).subscribe((res: string) => {
-        this.alertService.error(res);
-      });
+    }, error => {
+        if (error.error.code === "-32602" && error.error.data.constructor === Array) {
+          this.requestError = error.error.data;
+        } else {
+          this.translateService.get(`Internal server error`).subscribe((res: string) => {
+            this.alertService.error(res);
+          });
+        }
     });
   }
 }

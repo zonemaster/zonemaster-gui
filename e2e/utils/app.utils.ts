@@ -1,4 +1,4 @@
-import { element, browser, by } from 'protractor';
+import { element, browser, by, ExpectedConditions, $ } from 'protractor';
 
 export class Utils {
   goToHome() {
@@ -10,11 +10,13 @@ export class Utils {
   }
 
   setLang(lang) {
-    element(by.xpath('//a[@lang="' + lang + '"]')).click();
+    return browser.wait(ExpectedConditions.presenceOf($(`.lang > div > a[lang="${lang}"]`)), 10000)
+      .then(() => element(by.xpath('//a[@lang="' + lang + '"]')).click())
+      .then(() => browser.wait(ExpectedConditions.presenceOf($(`.lang > div > a.selected[lang="${lang}"]`)), 10000));
   }
 
   activeOptions() {
-    element(by.css('.switch')).click();
+    return element(by.css('.switch')).click();
   }
 
   getPageTitle() {
@@ -22,9 +24,11 @@ export class Utils {
   }
 
   clearBrowserCache() {
-    browser.executeScript('window.localStorage.clear();');
-    browser.executeScript('window.sessionStorage.clear();');
-    browser.driver.manage().deleteAllCookies();
+    return Promise.all([
+      browser.executeScript('window.localStorage.clear();'),
+      browser.executeScript('window.sessionStorage.clear();'),
+      browser.driver.manage().deleteAllCookies(),
+    ])
   }
 
 }

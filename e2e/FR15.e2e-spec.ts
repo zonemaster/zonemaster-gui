@@ -4,10 +4,10 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR15 - [The advanced view should look the same in latest version of different browsers]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
-    utils.activeOptions();
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
+    await utils.activeOptions();
   });
 
   it('should match the domain page with options on', () => {

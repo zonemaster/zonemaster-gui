@@ -1,5 +1,31 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
+
+v3.4.0 2021-12-03 (public release version)
+
+ [Features]
+ - Replaces CentOS with Rocky Linux (#280)
+ - Provides translation to error messages from RPC API (#269, #239)
+ - Adds support from information banner (#266)
+ - Adds filter for test history (#253, #251)
+ - Adds run time configuration (#267, #260, #219, #170)
+ - Adds flexible URL (#252, #250)
+ - Adds support for translated tooltips (#243, #241)
+
+ [Fixes]
+ - Updates Finnish translation (#290, #288)
+ - Updates Swedish translation (#286)
+ - Updates Danish translation (#248, #244)
+ - Improves translation handling (#265, #267, #234, #235, #229, #278)
+ - Updates version of Node.js used (#274)
+ - Fixes colors on buttons (#270)
+ - Improves on narrow device (#259)
+ - Improves user interface (#263, #115, #247, #238, #257, #236, #150, #153)
+   #237, #222, #212, #213, #227, #226, #224, #176, #216)
+ - Improves error messages (#230, #175, #177, #178)
+ - Fixes default protocol setting (#218, #217)
+ - Fixes critical count (#233)
+
 v3.3.0 2021-05-28 (public release version)
 
  [Features]

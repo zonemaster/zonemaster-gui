@@ -8,11 +8,11 @@ import { Utils } from './utils/app.utils';
 describe('Zonemaster test FR21 - [Able to provide a summarized result of the test being run ' +
   '(possibility in different colours for error, warning, success etc.)]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
-    utils.activeOptions();
-    utils.clearBrowserCache();
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
+    await utils.activeOptions();
+    await utils.clearBrowserCache();
   });
 
   it('should display summary',  async() => {
@@ -40,7 +40,7 @@ describe('Zonemaster test FR21 - [Able to provide a summarized result of the tes
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(3).getText()).toBe('0');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(4).getText()).toBe('0');
     await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(5).getText()).toBe('0');
-  });  
+  });
 */
 
   it('should display summary with good colors',  async() => {
@@ -52,8 +52,3 @@ describe('Zonemaster test FR21 - [Able to provide a summarized result of the tes
     expect(await browser.imageComparison.checkFullPageScreen('result')).toBeLessThan(5);
   });
 });
-
-
-
-
-

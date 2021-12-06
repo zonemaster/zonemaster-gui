@@ -7,9 +7,9 @@ import { Utils } from './utils/app.utils';
 
 describe('Zonemaster test FR26 - [Should be able to show a progress bar with a rough estimate of the total test progress]', () => {
   const utils = new Utils();
-  beforeAll(() => {
-    utils.goToHome();
-    utils.setLang('en');
+  beforeAll(async () => {
+    await utils.goToHome();
+    await utils.setLang('en');
   });
 
   it('should display progress bar',  async() => {
