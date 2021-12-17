@@ -23,7 +23,7 @@ The supported configuration items are the following.
   code, default `"en"`. The value must be one of the languages listed in
   `"enabledLanguages"`.
 * `"enabledLanguages"`: An array of the languages enabled in the GUI, default
-  `[ "da", "en", "fi", "fr", "nb", "sv" ]`.
+  `[ "da", "en", "es", "fi", "fr", "nb", "sv" ]`.
 * `"contactAddress"`: The contact email address displayed in the footer, default
   `"contact@zonemaster.net"`.
 * `"logo`": The URL to the image displayed in the navigation bar, default

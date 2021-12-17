@@ -33,6 +33,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MomentModule } from 'ngx-moment';
 
 import 'moment/locale/da';
+import 'moment/locale/es';
 import 'moment/locale/fi';
 import 'moment/locale/fr';
 import 'moment/locale/nb';
