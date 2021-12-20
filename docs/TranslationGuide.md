@@ -19,6 +19,7 @@ following languages with the attached language code:
 
 * `da` for Danish language
 * `en` for English language
+* `es` for Spanish language
 * `fi` for Finnish language
 * `fr` for French language
 * `nb` for Norwegian language

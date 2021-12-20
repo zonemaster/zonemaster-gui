@@ -1,6 +1,16 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
 
+v3.5.0 2021-12-20 (public fix release)
+
+ [Features]
+ - Adds translation to Spanish language and support for Spanish (#272)
+
+ [Fixes]
+ - Updates Danish translation (#293, #287)
+ - Updates Norwegian translation (#294, #289)
+
+
 v3.4.0 2021-12-03 (public release version)
 
  [Features]

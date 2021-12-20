@@ -13,6 +13,7 @@
           "options": {
             "allowedCommonJsDependencies": [
               "moment/locale/da",
+              "moment/locale/es",
               "moment/locale/fi",
               "moment/locale/fr",
               "moment/locale/nb",
