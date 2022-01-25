@@ -1,15 +1,14 @@
-import { by, browser, element, ExpectedConditions } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, clearBrowserCache } from './utils/app.utils';
 
-describe('Zonemaster test FR08 - [Presence of a default fallback language - English]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.clearBrowserCache();
+test.describe('Zonemaster test FR08 - [Presence of a default fallback language - English]', () => {
+  test.beforeEach(async ({ page }) => {
+    await goToHome(page);
+    await clearBrowserCache(page);
   });
 
-  it('should have a fallback language - English', async () => {
-    await browser.wait(() => ExpectedConditions.presenceOf(element(by.xpath('//h1[.="Domain name"]'))), 5 * 1000);
+  test('should have a fallback language - English', async ({ page }) => {
+    await expect(page.locator('h1')).toHaveText('Domain name');
   });
 });

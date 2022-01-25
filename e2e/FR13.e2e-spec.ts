@@ -1,46 +1,54 @@
-import { by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang, showOptions } from './utils/app.utils';
 
-describe('Zonemaster test FR13 - [The advanced view should support the possibility of enabling or disabling IPv4 or IPv6]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
-    await utils.activeOptions();
-  });
+test.describe.serial('Zonemaster test FR13 - [The advanced view should support the possibility of enabling or disabling IPv4 or IPv6]', () => {
+  let page;
 
-  it('should have [Disable IPv4 checkbox] visible and are disable', () => {
-    expect(element(by.css('#disable_protocol_ipv4')).isPresent()).toBe(true);
-    expect(element(by.css('#disable_protocol_ipv4')).isSelected()).toBe(false);
-  });
-  it('should have [Disable IPv4 checkbox] possible to enable', () => {
-    element(by.css('label[for="disable_protocol_ipv4"]')).click();
-    expect(element(by.css('#disable_protocol_ipv4')).isSelected()).toBe(true);
-  });
-  it('should have [Disable IPv4 checkbox] possible to disable', () => {
-    element(by.css('label[for="disable_protocol_ipv4"]')).click();
-    expect(element(by.css('#disable_protocol_ipv4')).isSelected()).toBe(false);
+  // Keep the same page between tests
+  test.beforeAll(async ({ browser }) => {
+    page = await browser.newPage();
+    await goToHome(page);
+    await setLang(page, 'en');
+    await showOptions(page);
   });
 
-  it('should have [Disable IPv6 checkbox] visible and are enable', () => {
-    expect(element(by.css('#disable_protocol_ipv6')).isPresent()).toBe(true);
-    expect(element(by.css('#disable_protocol_ipv6')).isSelected()).toBe(false);
-  });
-  it('should have [Disable IPv6 checkbox] possible to enable', () => {
-    element(by.css('label[for="disable_protocol_ipv6"]')).click();
-    expect(element(by.css('#disable_protocol_ipv6')).isSelected()).toBe(true);
-  });
-  it('should have [Disable IPv6 checkbox] possible to disable', () => {
-    element(by.css('label[for="disable_protocol_ipv6"]')).click();
-    expect(element(by.css('#disable_protocol_ipv6')).isSelected()).toBe(false);
+  test('should have [Disable IPv4 checkbox] visible and disabled', async () => {
+    await expect(page.locator('#disable_protocol_ipv4')).toBeVisible();
+    await expect(page.locator('#disable_protocol_ipv4')).not.toBeChecked();
   });
 
-  it('should show alert when both are disabled', () => {
-    element(by.css('label[for="disable_protocol_ipv4"]')).click();
-    element(by.css('label[for="disable_protocol_ipv6"]')).click();
-    expect(element(by.css('.protocol-form .invalid-feedback')).isPresent()).toBe(true);
-    expect(element(by.css('.protocol-form .invalid-feedback')).getText())
-      .toEqual('Choose at least one protocol');
+  test('should be possible to enable [Disable IPv4 checkbox]', async () => {
+    await page.locator('label[for="disable_protocol_ipv4"]').click();
+    await expect(page.locator('#disable_protocol_ipv4')).toBeChecked();
+  });
+
+  test('should be possible to disable [Disable IPv4 checkbox]', async () => {
+    await page.locator('label[for="disable_protocol_ipv4"]').click();
+    await expect(page.locator('#disable_protocol_ipv4')).not.toBeChecked();
+  });
+
+  test('should have [Disable IPv6 checkbox] visible and disabled', async () => {
+    await expect(page.locator('#disable_protocol_ipv6')).toBeVisible();
+    await expect(page.locator('#disable_protocol_ipv6')).not.toBeChecked();
+  });
+
+  test('should be possible to enable [Disable IPv6 checkbox]', async () => {
+    await page.locator('label[for="disable_protocol_ipv6"]').click();
+    await expect(page.locator('#disable_protocol_ipv6')).toBeChecked();
+  });
+
+  test('should be possible to disable [Disable IPv6 checkbox]', async () => {
+    await page.locator('label[for="disable_protocol_ipv6"]').click();
+    await expect(page.locator('#disable_protocol_ipv6')).not.toBeChecked();
+  });
+
+  test('should show alert when both are disabled', async () => {
+    await page.locator('label[for="disable_protocol_ipv4"]').click()
+    await page.locator('label[for="disable_protocol_ipv6"]').click()
+
+    const alert = page.locator('.protocol-form .invalid-feedback');
+    await expect(alert).toBeVisible();
+    await expect(alert).toHaveText('Choose at least one protocol')
   });
 });

@@ -1,19 +1,19 @@
-import { by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang, showOptions } from './utils/app.utils';
 
-describe('Zonemaster test FR14 - [The advanced view should support the possibility of choosing a profile from multiple profiles]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
-    await utils.activeOptions();
+test.describe('Zonemaster test FR14 - [The advanced view should support the possibility of choosing a profile from multiple profiles]', () => {
+  test.beforeEach(async ({ page }) => {
+    await goToHome(page);
+    await setLang(page, 'en');
+    await showOptions(page);
   });
 
-  it('should have an select form with at least one choice (default)', () => {
-    const selectFrom = element(by.css('select#profile'));
-    expect(selectFrom.isPresent()).toBe(true);
-    expect(selectFrom.all(by.tagName('option')).count()).toBeGreaterThan(0);
-    expect(selectFrom.all(by.tagName('option')).get(0).getAttribute('value')).toEqual('default');
+
+  test('should have an select form with at least one choice (default)', async ({ page }) => {
+    const selectForm = page.locator('select#profile');
+    await expect(selectForm).toBeVisible();
+    expect(await selectForm.locator('option').count()).toBeGreaterThan(0);
+    await expect(selectForm.locator('option').nth(0)).toHaveAttribute('value', 'default');
   });
 });

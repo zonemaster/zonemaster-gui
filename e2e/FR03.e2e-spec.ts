@@ -1,25 +1,28 @@
-import { by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang, showOptions } from './utils/app.utils';
 
-describe('Zonemaster test FR03 - [All appropriate fields should be writable]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
+test.describe('Zonemaster test FR03 - [All appropriate fields should be writable]', () => {
+  test.beforeEach(async ({ page }) => {
+    await goToHome(page);
+    await setLang(page, 'en');
   });
 
-  it('should be able to write in the main input', () => {
-    element(by.css('#domain_check_name')).sendKeys('afnic.fr');
-    expect(element(by.css('#domain_check_name')).getAttribute('value')).toBe('afnic.fr');
+  test('should be able to write in the main input', async ({ page }) => {
+    const testString = 'afnic.fr';
 
-    utils.activeOptions();
-    expect(element(by.css('#domain_check_name')).getAttribute('value')).toBe('afnic.fr');
+    const domainInput = page.locator('#domain_check_name');
+    await domainInput.type(testString);
+    await expect(domainInput).toHaveValue(testString);
 
-    element(by.css('input[formControlName="ns"]')).sendKeys('afnic.fr');
-    expect(element(by.css('input[formControlName="ns"]')).getAttribute('value')).toBe('afnic.fr');
+    await showOptions(page);
 
-    element(by.css('input[formControlName="keytag"]')).sendKeys('afnic.fr');
-    expect(element(by.css('input[formControlName="keytag"]')).getAttribute('value')).toBe('afnic.fr');
+    const nsInput = page.locator('input[formControlName="ns"]');
+    await nsInput.type(testString);
+    await expect(nsInput).toHaveValue(testString);
+
+    const keytagInput = page.locator('input[formControlName="keytag"]');
+    await keytagInput.type(testString);
+    await expect(keytagInput).toHaveValue(testString);
   });
 });
