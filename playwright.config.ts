@@ -14,7 +14,6 @@ const config: PlaywrightTestConfig = {
     },
   },
   use: {
-    browserName: 'chromium',
     headless: true,
     baseURL: 'http://localhost:4201',
     viewport: { width: 1920, height: 1080 },

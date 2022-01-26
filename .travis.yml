@@ -4,26 +4,13 @@ language: node_js
 node_js:
   - 16
 
-sudo: false
-
-addons:
-  chrome: stable
-  # https://github.com/Automattic/node-canvas
-  # canvas is indirectly required by protractor-image-comparison
-  apt:
-    packages:
-      - libpango1.0-dev
-      - libjpeg-dev
-      - build-essential
-      - libcairo2-dev
-      - libpango1.0-dev
-      - libjpeg-dev
-      - libgif-dev
-      - librsvg2-dev
+sudo: true
 
 install:
   - npm install
-  - node ./node_modules/.bin/webdriver-manager update --versions.chrome=$(google-chrome --version | sed 's/Google Chrome //')
+  - npm run e2e:install-deps
+  - npm run e2e:install
+  - npm run e2e
 
 script:
-  - xvfb-run npm run ng e2e -- --webdriver-update=false
+  - npm run e2e
