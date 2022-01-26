@@ -12,12 +12,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-              "moment/locale/da",
-              "moment/locale/es",
-              "moment/locale/fi",
-              "moment/locale/fr",
-              "moment/locale/nb",
-              "moment/locale/sv"
+              "file-saver"
             ],
             "outputPath": "dist",
             "index": "src/index.html",

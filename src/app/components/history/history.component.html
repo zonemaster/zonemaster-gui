@@ -39,7 +39,7 @@
       <div *ngFor="let item of historyItems" class="list-group-item list-group-item-action list-group-item-{{item.color}}">
         <div class="d-flex w-100 justify-content-between">
           <a routerLink="/result/{{item.id}}">
-            {{ item.creation_time | amFromUtc | date:'yyyy-MM-dd HH:mm zzzz' }}
+            {{ item.creation_time | date:'yyyy-MM-dd HH:mm zzzz' }}
           </a>
           <small *ngIf="item.undelegated" class="text-muted">{{ 'UNDELEGATED_SINGULAR' | translate }}</small>
         </div>

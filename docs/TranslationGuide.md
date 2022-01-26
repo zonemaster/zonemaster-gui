@@ -101,7 +101,6 @@ that assume this model, where the `<a>` tag is just before the heading.
 The new language must be added to the following typescript files:
 
 * [package.json]
-* [src/app/app.module.ts]
 * [src/environments/common.ts]
 * [src/assets/app.config.sample.json]
 
@@ -118,20 +117,6 @@ In `package.json` locate
 ```
 and add the two-letter language code of the new language. Preserve
 the alphabetical order of the language codes.
-
-### app.module.ts
-
-In `app.module.ts` locate
-
-```
-import 'moment/locale/fr';
-import 'moment/locale/sv';
-```
-and add a new line with code of the new language instead of `xx`
-```
-import 'moment/locale/xx';
-```
-Preserve the alphabetical order of the language codes.
 
 ### common.ts
 

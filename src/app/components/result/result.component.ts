@@ -127,7 +127,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
 
       this.test = {
         id: data['id'],
-        creation_time: data['creation_time'],
+        creation_time: new Date(data['creation_time'] + 'Z'),
         location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
       };
 
