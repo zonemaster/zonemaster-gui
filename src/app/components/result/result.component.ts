@@ -7,7 +7,7 @@ import { combineLatest, Subscription } from 'rxjs';
 import { DnsCheckService } from '../../services/dns-check.service';
 import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
-import { Location } from '@angular/common';
+import { formatDate, Location } from '@angular/common';
 
 @Component({
   selector: 'app-result',
@@ -202,6 +202,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public exportHTML() {
+
     combineLatest([...this.header.map(s => this.translateService.get(s))])
       .subscribe(([moduleStr, levelStr, messageStr]) => {
         let tbodyContent = '';
@@ -215,11 +216,9 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
           `;
         }
 
-        let resultHeader = this.resultView.nativeElement.querySelector('.result-header').cloneNode(true).innerHTML;
-
         const result = `
           <!doctype html>
-          <html class="no-js" lang="fr">
+          <html class="no-js" lang="${this.language}">
             <head>
               <meta charset="UTF-8">
               <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
@@ -229,7 +228,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
             </head>
             <body style="margin-left: 20px;">
               <header>
-                ${resultHeader}
+               <h2>${this.form.domain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
               </header>
               <table class="table table-striped">
                 <thead class="thead-dark">
