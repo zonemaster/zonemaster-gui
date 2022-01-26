@@ -13,7 +13,6 @@ test.describe('Zonemaster test FR14 - [The advanced view should support the poss
   test('should have an select form with at least one choice (default)', async ({ page }) => {
     const selectForm = page.locator('select#profile');
     await expect(selectForm).toBeVisible();
-    expect(await selectForm.locator('option').count()).toBeGreaterThan(0);
     await expect(selectForm.locator('option').nth(0)).toHaveAttribute('value', 'default');
   });
 });

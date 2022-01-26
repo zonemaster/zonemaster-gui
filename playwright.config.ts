@@ -10,7 +10,7 @@ const config: PlaywrightTestConfig = {
   },
   expect: {
     toMatchSnapshot: {
-      threshold: 0.1,
+      threshold: 0.15,
     },
   },
   use: {

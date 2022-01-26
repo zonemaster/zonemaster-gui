@@ -3,6 +3,22 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } fr
 import { Observable, of } from 'rxjs';
 
 const urls = [
+  // Version info
+  {
+    url: 'https://zonemaster.net/api',
+    body: {jsonrpc: '2.0', id: 1643203570632, method:'version_info', params: {}},
+    method: 'POST',
+    json: {jsonrpc: '2.0', id: 1643203570632, result: {zonemaster_engine: 'e2e-test', zonemaster_backend: 'e2e-test'}}
+  },
+
+  // Profile list in option
+  {
+    url: 'https://zonemaster.net/api',
+    body: {jsonrpc: '2.0', id:1643203351479, method: 'profile_names', params: {}},
+    method: 'POST',
+    json: {jsonrpc: '2.0', id: 1643203351479, result: ["default"]}
+  },
+
   // FR18 - Should display progress bar
   // FR26 - Should display progress bar
   {

@@ -14,7 +14,7 @@ test.describe('Zonemaster test FR25 - [Should be able to export the result in mu
     await expect(exportButton).toHaveText('Export');
   });
 
-  test('should open a modal and contains four export possibilities (HTML, CSV, HTML, TEXT)', async ({ page }) => {
+  test('should open a modal that contains four export possibilities (HTML, CSV, HTML, TEXT)', async ({ page }) => {
     await page.locator('button.btn.export').click();
     await expect(page.locator('button.btn.export + div.show')).toBeVisible();
 
