@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 
 const urls = [
   // FR18 - Should display progress bar
+  // FR26 - Should display progress bar
   {
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
@@ -76,6 +77,7 @@ const urls = [
   // FR18 - Should display progress bar
   // FR19 - Should display progress bar when we add a NS name
   // FR20 - should display progress bar when we add a DS entry and launch a test
+  // FR26 - Should display progress bar
   {
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254972236, 'method': 'test_progress', 'params': {'test_id': '2005cf23e9fb24b6'}},
@@ -84,7 +86,8 @@ const urls = [
   },
 
 
-  // FR21 - should display summary
+  // FR21 - Should display summary
+  // FR22 - Should display full messages
   {
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
@@ -97,7 +100,8 @@ const urls = [
     json: {'jsonrpc': '2.0', 'id': 1572254767685, 'result': '226f6d4f44ae3f80'}
   },
 
-  // FR21 - should display summary
+  // FR21 - Should display summary
+  // FR22 - Should display full messages
   {
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254972236, 'method': 'test_progress', 'params': {'test_id': '226f6d4f44ae3f80'}},
@@ -106,7 +110,13 @@ const urls = [
   },
 
 
-  // FR21 - should display summary
+  // FR21 - Should display summary
+  // FR22 - Should display full messages
+
+  // FR23 - Should display previous tests
+  // FR24 - Should display previous run link
+  // FR25 - Should have an export button
+  // FR25 - Should open a modal that contains four export possibilities
   {
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572254972327, 'method': 'get_test_results', 'params': {'id': '226f6d4f44ae3f80', 'language': 'en'}},
@@ -120,7 +130,10 @@ const urls = [
     }
   },
 
-
+  // FR23 - Should display previous tests
+  // FR24 - Should display previous run link
+  // FR25 - Should have an export button
+  // FR25 - Should open a modal that contains four export possibilities
   {
     url: 'https://zonemaster.net/api',
     body: {'jsonrpc': '2.0', 'id': 1572271917712, 'method': 'get_test_history', 'params': {'offset': 0, 'limit': 100, 'filter': 'all', 'frontend_params': {'domain': 'results.afNiC.Fr'}}},

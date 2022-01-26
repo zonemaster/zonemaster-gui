@@ -2,7 +2,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   testDir: 'e2e',
-  testMatch: 'e2e/*21.e2e-spec.ts',
+  testMatch: 'e2e/*.e2e-spec.ts',
   webServer: {
     command: 'npm run ng serve -- --configuration=tests --port=4201',
     port: 4201,

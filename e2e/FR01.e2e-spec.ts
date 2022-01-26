@@ -9,9 +9,7 @@ test.describe('Zonemaster test FR01 - [A Home button that sends the user to the 
   });
 
   test('should have a link to go to home page', async ({ page }) => {
-    await page.screenshot({ path: 'screenshot.png' });
     await expect(page.locator('a.navbar-brand')).toHaveAttribute('href', '/');
     await expect(page.locator('a.navbar-brand')).toHaveAttribute('routerLink', '/');
   });
-
 });
