@@ -168,10 +168,15 @@ Add the new language's two-letter code to the list of default values for
 
 ## Add e2e test script for the language
 
-Create a new `FR05-xx.e2e-spec.ts` e2e test script in the [e2e] folder
-where `xx` is the language code of the new language. Copy
-[FR05-en.e2e-spec.ts] and modify to create a correct test file for
-the new language.
+In `FR05.e2e-spec.ts` add a new test case in the `testSuite` array:
+
+```js
+const testSuite = [
+      ...
+      { language: 'New language name', code: 'two-letter code', expected: '`Domain name` translation in the new language' },
+      ...
+  ];
+```
 
 
 ## Change default language
