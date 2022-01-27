@@ -59,8 +59,6 @@
     "codelyzer": "^5.0.1",
     "david": "^12.0.0",
     "i": "^0.3.7",
-    "jasmine-core": "^3.5.0",
-    "jasmine-spec-reporter": "^5.0.1",
     "karma": "^5.0.0",
     "karma-chrome-launcher": "^3.1.0",
     "karma-cli": "^2.0.0",
@@ -72,7 +70,6 @@
     "ntypescript": "^1.201706190042.1",
     "ts-node": "^8.4.1",
     "tslint": "^6.1.1",
-    "typescript": "^4.0.5",
-    "webdriver-manager": "^12.1.7"
+    "typescript": "^4.0.5"
   }
 }
