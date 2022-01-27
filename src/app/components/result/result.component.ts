@@ -164,7 +164,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
 
       for (const module in this.module_items) {
         this.module_items[module].sort((msg1, msg2) => {
-          // sort messages by descending serverity level
+          // sort messages by descending severity level
           return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
         })
       }
