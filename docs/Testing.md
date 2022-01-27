@@ -32,7 +32,6 @@ time).
 
 ```sh
 docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.12.3-focal /bin/bash
-npm i
 npm run e2e:install
 npm run e2e:update
 exit
