@@ -1,4 +1,7 @@
-<app-header *ngIf="directAccess">
+<app-header *ngIf="displayForm">
+  <app-domain-check></app-domain-check>
+</app-header>
+<app-header *ngIf="!displayForm">
   <h1>Result</h1>
 </app-header>
 <div class="result container" #resultView>

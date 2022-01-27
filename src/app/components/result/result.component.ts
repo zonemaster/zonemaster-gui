@@ -1,6 +1,6 @@
-import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
 import { combineLatest, Subscription } from 'rxjs';
@@ -14,13 +14,13 @@ import { Location } from '@angular/common';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit, OnChanges, OnDestroy {
+export class ResultComponent implements OnInit, OnDestroy {
 
   @Input('resultID') resultID: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
 
-  public directAccess = false;
+  public displayForm = false;
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
   public result = [];
   public modules: any;
@@ -59,27 +59,28 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
   private routeParamsSubscription: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
+              private router: Router,
               private modalService: NgbModal,
               private alertService: AlertService,
               public translateService: TranslateService,
               private dnsCheckService: DnsCheckService,
               private navigationService: NavigationService,
               private location: Location) {
-     this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
-       this.activatedRoute.snapshot.data[0]['directAccess'];
+
+    // Merge data, when route is accessed directly, and state, when routed from domain-check component
+    // state is persistent when using back / forward navigation buttons but not when refreshed
+    let data = { ...(this.activatedRoute.snapshot.data[0] || {}),  ...(this.router.getCurrentNavigation().extras.state || {}) };
+    this.displayForm = data.displayForm;
   }
 
   ngOnInit() {
     this.language = this.translateService.currentLang;
     console.log(this.resultID);
 
-    // Le result ID ne passe pas par la lorsque domaine.ts change une seconde fois l'ID !!!
-    if (this.directAccess) {
-      this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
-        this.resultID = params['resultID'];
-        this.displayResult(this.resultID, this.language);
-      });
-    }
+    this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
+      this.resultID = params['resultID'];
+      this.displayResult(this.resultID, this.language);
+    });
 
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
       this.navHeight = newHeight;
@@ -89,10 +90,6 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
       this.displayResult(this.resultID, event.lang, false);
       this.language = event.lang;
     });
-  }
-
-  ngOnChanges() {
-    this.displayResult(this.resultID, this.translateService.currentLang);
   }
 
   ngOnDestroy() {

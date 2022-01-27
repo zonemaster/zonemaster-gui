@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { DomainComponent } from './components/domain/domain.component';
+import { DomainCheckComponent } from './components/domain-check/domain-check.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -51,8 +52,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 const appRoutes: Routes = [
   { path: 'domain_check', component: DomainComponent },
-  { path: 'result/:resultID', component: ResultComponent, data: [{directAccess: true}]},
-  { path: 'test/:resultID', component: ResultComponent, data: [{directAccess: true}]},
+  { path: 'result/:resultID', component: ResultComponent, data: [{displayForm: false}]},
+  { path: 'test/:resultID', component: ResultComponent, data: [{displayForm: false}]},
   { path: 'history', component: HistoryComponent},
   { path: 'faq', component: FaqComponent },
   { path: '',
@@ -66,6 +67,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DomainComponent,
+    DomainCheckComponent,
     FaqComponent,
     PageNotFoundComponent,
     NavigationComponent,
