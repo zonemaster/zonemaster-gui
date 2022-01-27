@@ -84,8 +84,7 @@ export class DomainCheckComponent implements OnInit {
             self.showProgressBar = false;
             self.domain_check_progression = 5;
             self.toggleFinished = !self.toggleFinished;
-            //this.location.go(`/result/${this.resultID}`);
-            this.router.navigate(['/result', this.resultID ], { state:  { displayForm: true }});
+            this.router.navigate(['/result', this.resultID ], { state: { displayForm: true }});
           }
         });
       }, this.intervalTime);
