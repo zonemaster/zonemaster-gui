@@ -10,7 +10,6 @@ install:
   - npm install
   - npm run e2e:install-deps
   - npm run e2e:install
-  - npm run e2e
 
 script:
   - npm run e2e

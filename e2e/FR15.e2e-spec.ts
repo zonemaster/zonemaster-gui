@@ -10,6 +10,8 @@ test.describe('Zonemaster test FR15 - [The advanced view should look the same in
 
   test('should match the domain page with options on', async ({ page}) => {
     await showOptions(page);
+    // Force wait 0.4s, for the switch animation to finish
+    await page.waitForTimeout(400);
     expect(await page.screenshot()).toMatchSnapshot('domain_with_options.png');
   });
 
