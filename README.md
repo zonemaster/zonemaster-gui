@@ -86,15 +86,7 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 The script also change the FAQ markdown files to html files.
 
 ##### Test
-Run the following commands to run the e2e tests, you will need [Google Chrome to be installed](https://github.com/zonemaster/zonemaster/blob/develop/docs/internal-documentation/distrib-testing/Ubuntu-Node.js-build-environment.md).
-  1. Install the webdriver corresponding to you version of Chrome
-     ```sh
-     npx webdriver-manager update --versions.chrome=$(google-chrome --version | sed 's/Google Chrome //')
-     ```
-  2. Run the tests
-     ```sh
-     npm run e2e -- --webdriver-update=false
-     ```
+See [Testing](docs/Testing.md).
 
 ##### Create a release zip file
 Run 'npm run release' to create a zip file with dist folder and zonemaster.conf file. Then upload it in github.
