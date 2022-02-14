@@ -162,6 +162,13 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
         this.level_items[item['level'].toLowerCase()].push(item);
       }
 
+      for (const module in this.module_items) {
+        this.module_items[module].sort((msg1, msg2) => {
+          // sort messages by descending severity level
+          return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
+        })
+      }
+
       this.form = data['params'];
       this.ns_list = data['ns_list'];
       this.ds_list = data['ds_list'];
