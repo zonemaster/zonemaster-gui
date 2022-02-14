@@ -80,24 +80,6 @@
             "browserTarget": "zonemaster:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "karmaConfig": "./karma.conf.js",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "scripts": [],
-            "styles": [
-              "node_modules/font-awesome/scss/font-awesome.scss",
-              "src/styles.scss"
-            ],
-            "assets": [
-              "src/assets",
-              "src/.htaccess"
-            ]
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
