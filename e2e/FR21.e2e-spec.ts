@@ -1,54 +1,54 @@
-/**
- * Created by pamasse on 05/11/2017.
- */
-import {protractor, by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang, showOptions, clearBrowserCache } from './utils/app.utils';
 
-describe('Zonemaster test FR21 - [Able to provide a summarized result of the test being run ' +
+test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized result of the test being run ' +
   '(possibility in different colours for error, warning, success etc.)]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
-    await utils.activeOptions();
-    await utils.clearBrowserCache();
+
+  let page;
+
+  // Keep the same page between tests
+  test.beforeAll(async ({ browser }) => {
+    page = await browser.newPage();
+    await goToHome(page);
+    await setLang(page, 'en');
+    await clearBrowserCache(page);
+    await showOptions(page);
   });
 
-  it('should display summary',  async() => {
-    await expect(element.all(by.css('.progress-result')).isPresent()).toBe(false);
-    await element(by.css('#domain_check_name')).sendKeys('afNiC.Fr');
-    await element(by.css('div button.launch')).click();
+  test('should display summary',  async () => {
+    await expect(page.locator('.progress-bar')).toBeHidden();
+    await page.locator('#domain_check_name').type('results.afNiC.Fr');
+    await page.locator('div button.launch').click();
 
-    await browser.wait(() => element(by.css('div.result.container')).isPresent(), 120 * 1000);
+    await expect(page.locator('div.result.container')).toBeVisible({ timeout: 10000 });
 
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).count()).toEqual(6);
-    await browser.sleep(1000);
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(0).getText()).toContain('All');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(1).getText()).toContain('Info');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(2).getText()).toContain('Notice');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(3).getText()).toContain('Warning');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(4).getText()).toContain('Error');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(5).getText()).toContain('Critical');
+    const messageCountBadges = page.locator('.nav.nav-pills.vertical-align.filter > li > a');
+    const expectedLabels = ['All', 'Info', 'Notice', 'Warning', 'Error', 'Critical'];
+
+    await expect(messageCountBadges).toHaveCount(6);
+
+    for (const idx in expectedLabels) {
+      await expect(messageCountBadges.nth(idx)).toContainText(expectedLabels[idx]);
+    }
   });
 
-/*
-  it('should display number of each level',  async() => {
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(0).getText()).toBe('123');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(1).getText()).toBe('119');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(2).getText()).toBe('4');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(3).getText()).toBe('0');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(4).getText()).toBe('0');
-    await expect(element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a > span.badge')).get(5).getText()).toBe('0');
-  });
-*/
+  test('should display number of each level',  async () => {
+    const expectedCounts = ['123', '118', '4', '0', '1', '0'];
+    const messageCountBadges = page.locator('.nav.nav-pills.vertical-align.filter > li > a > span.badge');
 
-  it('should display summary with good colors',  async() => {
-    await element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(1).click();
-    await element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(2).click();
-    await element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(3).click();
-    await element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(4).click();
-    await element.all(by.css('.nav.nav-pills.vertical-align.filter > li > a')).get(5).click();
-    expect(await browser.imageComparison.checkFullPageScreen('result')).toBeLessThan(5);
+    for (const idx in expectedCounts) {
+      await expect(messageCountBadges.nth(idx)).toHaveText(expectedCounts[idx]);
+    }
+  });
+
+  test('should display summary with good colors',  async () => {
+    const filterButtons = page.locator('.nav.nav-pills.vertical-align.filter > li > a');
+
+    for (const idx of [1, 2, 3, 4, 5]) {
+      await filterButtons.nth(idx).click();
+    }
+
+    expect(await page.screenshot()).toMatchSnapshot('results.png');
   });
 });

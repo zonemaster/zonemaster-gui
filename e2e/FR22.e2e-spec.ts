@@ -1,28 +1,29 @@
-/**
- * Created by pamasse on 05/11/2017.
- */
-import {protractor, by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang } from './utils/app.utils';
 
-describe('Zonemaster test FR22 - [Provide the possibility to see more information about encountered errors ' +
+test.describe('Zonemaster test FR22 - [Provide the possibility to see more information about encountered errors ' +
   'within the simple view]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
-  });
 
-  it('should display full messages',  async() => {
-    await expect(element.all(by.css('progress-result')).isPresent()).toBe(false);
-    await element(by.css('#domain_check_name')).sendKeys('afNiC.Fr');
-    await element(by.css('div button.launch')).click();
+    test.beforeEach(async ({ page }) => {
+      await goToHome(page);
+      await setLang(page, 'en');
+    });
 
-    await browser.wait(() => element(by.css('.result h3.BASIC')).isPresent(), 120 * 1000);
+  test('should display full messages',  async({ page }) => {
+    await expect(page.locator('.progress-bar')).toBeHidden();
 
-    await expect(element(by.css('.result h3.BASIC')).getText()).toEqual('BASIC');
-    await expect(element.all(by.css('.expanded #module-BASIC .entry')).count()).toBe(0);
-    await element(by.css('.result h3.BASIC')).click();
-    await expect(element.all(by.css('.expanded #module-BASIC .entry')).count()).toEqual(14);
+    await page.locator('#domain_check_name').type('results.afNiC.Fr');
+    await page.locator('div button.launch').click();
+
+    const basicHeader = page.locator('.result h3.BASIC');
+    const basicMessages = page.locator('.expanded #module-BASIC .entry');
+
+    await expect(basicHeader).toBeVisible({ timeout: 10000 });
+    await expect(basicHeader).toHaveText('BASIC');
+
+    await expect(basicMessages).toHaveCount(0);
+    await basicHeader.click();
+    await expect(basicMessages).toHaveCount(14);
   });
 });

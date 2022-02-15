@@ -1,22 +1,21 @@
-import { by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang } from './utils/app.utils';
 
-describe('Zonemaster test FR02 - [All menus should be clickable in latest version of different browsers]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
+test.describe('Zonemaster test FR02 - [All menus should be clickable in latest version of different browsers]', () => {
+  test.beforeEach(async ({ page }) => {
+    await goToHome(page);
+    await setLang(page, 'en');
   });
 
-  it('should go to faq page', () => {
-    element(by.css('a.nav-link[routerlink="/faq"]')).click();
-    expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + 'faq');
+  test('should go to faq page', async ({ page, baseURL  }) => {
+    await page.locator('a.nav-link[routerlink="/faq"]').click();
+    await expect(page).toHaveURL(baseURL + '/faq');
   });
 
-  it('should go to domain page', () => {
-    element(by.css('a.nav-link[routerlink="/domain_check"]')).click();
-    expect(browser.getCurrentUrl()).toEqual(browser.baseUrl + 'domain_check');
+  test('should go to domain page', async ({ page, baseURL }) => {
+    await page.locator('a.nav-link[routerlink="/domain_check"]').click();
+    await expect(page).toHaveURL(baseURL + '/domain_check');
   });
 
 });

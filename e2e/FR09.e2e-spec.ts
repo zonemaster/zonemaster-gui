@@ -1,19 +1,17 @@
-import { by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang } from './utils/app.utils';
 
-describe('Zonemaster test FR09 - [Once a language is chosen, all other links should open in that respective language]', () => {
-  const utils = new Utils();
-  beforeAll(async ()=> {
-    await utils.goToHome();
-    await utils.setLang('fr');
+test.describe('Zonemaster test FR09 - [Once a language is chosen, all other links should open in that respective language]', () => {
+  test.beforeEach(async ({ page })=> {
+    await goToHome(page);
+    await setLang(page, 'fr');
   });
 
-  it('should keep french when opening faq page', async() => {
-    await browser.wait(() => element(by.xpath('//h1[.="Nom de domaine"]')).isPresent(), 21 * 1000);
-    await element(by.css('a.nav-link[routerlink="/faq"]')).click();
-    await expect(element(by.css('section.main > div > h1')).getText())
-      .toBe('FAQ');
-    await expect(element(by.css('a.nav-link[routerlink="/domain_check"]')).getText()).toBe('Test d\'un domaine');
+  test('should keep french when opening faq page', async ({ page }) => {
+    await expect(page.locator('h1')).toHaveText('Nom de domaine');
+    await page.locator('a.nav-link[routerlink="/faq"]').click();
+    await expect(page.locator('section.main > div > h1')).toHaveText('FAQ');
+    await expect(page.locator('a.nav-link[routerlink="/domain_check"]')).toHaveText("Test d'un domaine");
   });
 });

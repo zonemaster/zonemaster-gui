@@ -1,34 +1,25 @@
-import { element, browser, by, ExpectedConditions, $ } from 'protractor';
+export function goToHome(page) {
+  return page.goto('/');
+}
 
-export class Utils {
-  goToHome() {
-    return browser.get('/');
+export function setLang(page, lang) {
+  return Promise.all([
+    page.waitForSelector(`.lang > div > a.selected[lang="${lang}"]`),
+    page.locator(`.lang > div > a[lang="${lang}"]`).click(),
+  ]);
+}
+
+export async function showOptions(page) {
+  const showOptionCheckbox = page.locator('#advanced_checkbox');
+  if (!(await showOptionCheckbox.isChecked())) {
+    return page.locator('.switch').click();
   }
+}
 
-  goTo(link) {
-    return browser.get('/' + link);
-  }
-
-  setLang(lang) {
-    return browser.wait(ExpectedConditions.presenceOf($(`.lang > div > a[lang="${lang}"]`)), 10000)
-      .then(() => element(by.xpath('//a[@lang="' + lang + '"]')).click())
-      .then(() => browser.wait(ExpectedConditions.presenceOf($(`.lang > div > a.selected[lang="${lang}"]`)), 10000));
-  }
-
-  activeOptions() {
-    return element(by.css('.switch')).click();
-  }
-
-  getPageTitle() {
-    return browser.getTitle();
-  }
-
-  clearBrowserCache() {
-    return Promise.all([
-      browser.executeScript('window.localStorage.clear();'),
-      browser.executeScript('window.sessionStorage.clear();'),
-      browser.driver.manage().deleteAllCookies(),
-    ])
-  }
-
+export function clearBrowserCache(page) {
+  return Promise.all([
+    page.evaluate(() => window.localStorage.clear()),
+    page.evaluate(() => window.sessionStorage.clear()),
+    page.context().clearCookies(),
+  ])
 }
