@@ -235,7 +235,12 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   // Remove trailing spaces and dots, and leading spaces
   private sanitizeDomain(domain: string): string {
-    return domain.replace(/[ \.]+$/, '').trim();
+    domain = domain.trim();
+    if (domain == '.') {
+      return domain;
+    } else {
+      return domain.replace(/[ \.]+$/, '');
+    }
   }
 
   public runDomainCheck(submitValid = true) {
