@@ -1,32 +1,29 @@
-/**
- * Created by pamasse on 05/11/2017.
- */
-import {protractor, by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { setLang } from './utils/app.utils';
 
-describe('Zonemaster test FR25 - [Should be able to export the result in multiple formats (HTML, CSV, JSON, TEXT)]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goTo('result/2005cf23e9fb24b6');
-    await utils.setLang('en');
+test.describe('Zonemaster test FR25 - [Should be able to export the result in multiple formats (HTML, CSV, JSON, TEXT)]', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('result/226f6d4f44ae3f80');
+    await setLang(page, 'en');
   });
 
-  it('should have an export button',  async() => {
-    await browser.wait(() => element(by.css('button.btn.export')).isPresent(), 120 * 1000);
-
-    await expect(element(by.css('button.btn.export')).getText()).toEqual('Export');
+  test('should have an export button',  async ({ page }) => {
+    const exportButton = page.locator('button.btn.export');
+    await expect(page.locator('button.btn.export')).toBeVisible();
+    await expect(exportButton).toHaveText('Export');
   });
 
-  it('should open a modal and contains for export possibilities (HTML, CSV, HTML, TEXT)', async() => {
-    await element(by.css('button.btn.export')).click();
-    const box = element(by.css('button.btn.export + div.show'));
-    await browser.wait(() => box.isDisplayed(), 10 * 1000);
+  test('should open a modal that contains four export possibilities (HTML, CSV, HTML, TEXT)', async ({ page }) => {
+    await page.locator('button.btn.export').click();
+    await expect(page.locator('button.btn.export + div.show')).toBeVisible();
 
-    await expect(element.all(by.css('button.btn.export + div.show button.btn')).count()).toEqual(4);
-    await expect(element.all(by.css('button.btn.export + div.show button.btn')).get(0).getText()).toEqual('JSON');
-    await expect(element.all(by.css('button.btn.export + div.show button.btn')).get(1).getText()).toEqual('CSV');
-    await expect(element.all(by.css('button.btn.export + div.show button.btn')).get(2).getText()).toEqual('HTML');
-    await expect(element.all(by.css('button.btn.export + div.show button.btn')).get(3).getText()).toEqual('TEXT');
+    const exportButtons = page.locator('button.btn.export + div.show button.btn');
+    await expect(exportButtons).toHaveCount(4);
+
+    const expectedText = ['JSON', 'CSV', 'HTML', 'TEXT'];
+    for (const idx in expectedText) {
+      await expect(exportButtons.nth(idx)).toHaveText(expectedText[idx]);
+    }
   });
 });

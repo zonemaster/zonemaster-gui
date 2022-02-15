@@ -1,33 +1,24 @@
-/**
- * Created by pamasse on 05/11/2017.
- */
-import {$, protractor, by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { setLang } from './utils/app.utils';
 
-describe('Zonemaster test FR23 - [Provide a list of previous runs for the domain and should be paginated]', () => {
-  const utils = new Utils();
-  const EC = protractor.ExpectedConditions;
-  beforeAll(async () => {
-    await utils.goTo('result/2005cf23e9fb24b6');
-    await utils.setLang('en');
+
+test.describe('Zonemaster test FR23 - [Provide a list of previous runs for the domain and should be paginated]', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('result/226f6d4f44ae3f80');
+    await setLang(page, 'en');
   });
 
-  it('should display previous tests',  async() => {
-    await browser.sleep(1000);
-    await browser.wait(() => element(by.css('a.btn.history')).isPresent(), 120 * 1000);
+  test('should display previous tests',  async ({ page }) => {
+    const historyButton = page.locator('a.btn.history');
 
-    await expect(element(by.css('a.btn.history')).getText()).toEqual('History');
-    await element(by.css('a.btn.history')).click();
-    await browser.sleep(1000);
+    await expect(historyButton).toBeVisible();
+    await expect(historyButton).toHaveText('History');
+    await historyButton.click();
+    await expect(page.locator('ngb-modal-window')).toBeVisible();
 
-    expect(await $('ngb-modal-window').isPresent()).toBe(true);
-
-    await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-success')).count())
-      .toEqual(9);
-    await expect(element.all(by.css('.list-group-item.list-group-item-action.list-group-item-danger')).count())
-      .toEqual(1);
-    await expect(element.all(by.css('ul.pagination > li')).count()).toEqual(7);
-
+    await expect(page.locator('.list-group-item.list-group-item-action.list-group-item-success')).toHaveCount(9);
+    await expect(page.locator('.list-group-item.list-group-item-action.list-group-item-danger')).toHaveCount(1);
+    await expect(page.locator('ul.pagination > li')).toHaveCount(7);
   });
 });

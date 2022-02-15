@@ -1,18 +1,14 @@
-import { by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang } from './utils/app.utils';
 
-describe('Zonemaster test FR04 - Valid title for the Web interface', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
+test.describe('Zonemaster test FR04 - Valid title for the Web interface', () => {
+  test.beforeEach(async ({ page }) => {
+    await goToHome(page);
+    await setLang(page, 'en');
   });
 
-  it('should have right title - Zonemaster', () => {
-    utils.getPageTitle()
-      .then((title: string) => {
-        expect(title).toEqual('Zonemaster');
-      });
+  test('should have right title - Zonemaster', async ({ page }) => {
+    await expect(page).toHaveTitle('Zonemaster');
   });
 });

@@ -1,20 +1,19 @@
-import { by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang, showOptions } from './utils/app.utils';
 
-describe('Zonemaster test FR11 - [The simple view should look the same in latest version of different browsers]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
+test.describe('Zonemaster test FR11 - [The simple view should look the same in latest version of different browsers]', () => {
+  test.beforeEach(async ({ page }) => {
+    await goToHome(page);
+    await setLang(page, 'en');
   });
 
-  it('should match the domain page', async() => {
-    expect(await browser.imageComparison.checkFullPageScreen('domain')).toBeLessThan(5);
+  test('should match the domain page', async ({ page}) => {
+    expect(await page.screenshot()).toMatchSnapshot('domain.png');
   });
 
-  it('should not match the domain page', async() => {
-    element(by.css('.switch')).click();
-    expect( await browser.imageComparison.checkFullPageScreen('domain')).toBeGreaterThan(5);
+  test('should not match the domain page', async({ page }) => {
+    await showOptions(page);
+    expect(await page.screenshot()).not.toMatchSnapshot('domain.png');
   });
 });

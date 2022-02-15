@@ -1,21 +1,21 @@
-import { by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang, showOptions } from './utils/app.utils';
 
-describe('Zonemaster test FR12 - [The simple view should support an advanced view expanding when the checkbox is enabled]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
+test.describe('Zonemaster test FR12 - [The simple view should support an advanced view expanding when the checkbox is enabled]', () => {
+  test.beforeEach(async ({ page }) => {
+    await goToHome(page);
+    await setLang(page, 'en');
   });
 
-  it('should have [Disable IPv4 checkbox] && [Disable IPv6 checkbox] NOT visible', () => {
-    expect(element(by.css('label[for="disable_protocol_ipv4"]')).isPresent()).toBe(false);
-    expect(element(by.css('label[for="disable_protocol_ipv6"]')).isPresent()).toBe(false);
+  test('should have [Disable IPv4 checkbox] && [Disable IPv6 checkbox] NOT visible', async ({ page }) => {
+    await expect(page.locator('label[for="disable_protocol_ipv4"]')).toBeHidden();
+    await expect(page.locator('label[for="disable_protocol_ipv6"]')).toBeHidden();
   });
-  it('should have [Disable IPv4 checkbox] & [Disable IPv6 checkbox] visible', () => {
-    element(by.css('.switch')).click();
-    expect(element(by.css('label[for="disable_protocol_ipv4"]')).isPresent()).toBe(true);
-    expect(element(by.css('label[for="disable_protocol_ipv6"]')).isPresent()).toBe(true);
+
+  test('should have [Disable IPv4 checkbox] & [Disable IPv6 checkbox] visible', async ({ page }) => {
+    await showOptions(page);
+    await expect(page.locator('label[for="disable_protocol_ipv4"]')).toBeVisible();
+    await expect(page.locator('label[for="disable_protocol_ipv6"]')).toBeVisible();
   });
 });
