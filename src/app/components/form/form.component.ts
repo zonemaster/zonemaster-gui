@@ -233,9 +233,17 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  // Remove trailing spaces and dots, and leading spaces
+  private sanitizeDomain(domain: string): string {
+    return domain.replace(/[ \.]+$/, '').trim();
+  }
+
   public runDomainCheck(submitValid = true) {
     this.form.markAllAsTouched();
     let param = this.form.value;
+
+    param.domain = this.sanitizeDomain(param.domain);
+    this.form.get('domain').setValue(param.domain);
 
     if (param.ipv4 === true) delete param.ipv4;
 
@@ -245,13 +253,15 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     delete param.disable_ipv6;
 
     param.nameservers = param.nameservers
-      .filter(ns => ns.ip || ns.ns)
-      .map(x => {
+      .map((x, i) => {
+        x.ns = this.sanitizeDomain(x.ns);
+        this.form.get(['nameservers', i, 'ns']).setValue(x.ns);
         if (!x.ip) {
           delete x.ip;
         }
         return x;
-      });
+      })
+      .filter(ns => ns.ip || ns.ns);
 
     param.ds_info = param.ds_info
       .filter(ds => ds.keytag || ds.algorithm > 0 || ds.digtype > 0 || ds.digest)
