@@ -3,6 +3,7 @@ import { DnsCheckService } from '../../services/dns-check.service';
 import { Router} from '@angular/router';
 import { AlertService } from '../../services/alert.service';
 import { TranslateService } from '@ngx-translate/core';
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-domain-check',
@@ -10,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./domain-check.component.css']
 })
 export class DomainCheckComponent implements OnInit {
-  private intervalTime = 5 * 1000;
+  private intervalTime: number;
   public is_advanced_options_enabled = false;
   public domain_check_progression = 0;
   public showResult = false;
@@ -24,7 +25,10 @@ export class DomainCheckComponent implements OnInit {
   constructor(private alertService: AlertService,
     private dnsCheckService: DnsCheckService,
     private translateService: TranslateService,
-    private router: Router) {}
+    private router: Router,
+    private appService: AppService) {
+      this.intervalTime = this.appService.getConfig('pollingInterval');
+    }
 
   ngOnInit() {
     this.dnsCheckService.profileNames().then( (res: string[]) => this.profiles = res );
