@@ -7,7 +7,7 @@ import { combineLatest, Subscription } from 'rxjs';
 import { DnsCheckService } from '../../services/dns-check.service';
 import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
-import { Location } from '@angular/common';
+import { formatDate, Location } from '@angular/common';
 
 @Component({
   selector: 'app-result',
@@ -124,7 +124,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
       this.test = {
         id: data['id'],
-        creation_time: data['creation_time'],
+        creation_time: new Date(data['creation_time'] + 'Z'),
         location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
       };
 
@@ -157,6 +157,13 @@ export class ResultComponent implements OnInit, OnDestroy {
       };
       for (const item of data['results']) {
         this.level_items[item['level'].toLowerCase()].push(item);
+      }
+
+      for (const module in this.module_items) {
+        this.module_items[module].sort((msg1, msg2) => {
+          // sort messages by descending severity level
+          return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
+        })
       }
 
       this.form = data['params'];
@@ -199,6 +206,7 @@ export class ResultComponent implements OnInit, OnDestroy {
   }
 
   public exportHTML() {
+
     combineLatest([...this.header.map(s => this.translateService.get(s))])
       .subscribe(([moduleStr, levelStr, messageStr]) => {
         let tbodyContent = '';
@@ -212,11 +220,9 @@ export class ResultComponent implements OnInit, OnDestroy {
           `;
         }
 
-        let resultHeader = this.resultView.nativeElement.querySelector('.result-header').cloneNode(true).innerHTML;
-
         const result = `
           <!doctype html>
-          <html class="no-js" lang="fr">
+          <html class="no-js" lang="${this.language}">
             <head>
               <meta charset="UTF-8">
               <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
@@ -226,7 +232,7 @@ export class ResultComponent implements OnInit, OnDestroy {
             </head>
             <body style="margin-left: 20px;">
               <header>
-                ${resultHeader}
+               <h2>${this.form.domain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
               </header>
               <table class="table table-striped">
                 <thead class="thead-dark">

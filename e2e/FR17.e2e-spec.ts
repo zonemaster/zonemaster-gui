@@ -1,37 +1,39 @@
-import { by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang, showOptions } from './utils/app.utils';
 
-describe('Zonemaster test FR17 - [Able to specify delegation parameters]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
-    await utils.activeOptions();
+test.describe.serial('Zonemaster test FR17 - [Able to specify delegation parameters]', () => {
+  let page;
+
+  // Keep the same page between tests
+  test.beforeAll(async ({ browser }) => {
+    page = await browser.newPage();
+    await goToHome(page);
+    await setLang(page, 'en');
+    await showOptions(page);
   });
 
-  it('should be have one ns and digest form', () => {
-    expect(element.all(by.css('div[formArrayName] .form-row')).count()).toEqual(2);
-    expect(element.all(by.css('input[formControlName="keytag"')).count()).toEqual(1);
-    expect(element.all(by.css('input[formControlName="ns"')).count()).toEqual(1);
+  test('should have one ns and digest form', async () => {
+    await expect(page.locator('div[formArrayName] .form-row')).toHaveCount(2);
+    await expect(page.locator('input[formControlName="keytag"]')).toHaveCount(1);
+    await expect(page.locator('input[formControlName="ns"]')).toHaveCount(1);
   });
 
-  it('should be have two ns and one digest form', () => {
-    element.all(by.css('div[formArrayName="nameservers"] .form-row:first-child .btn.add')).click();
-    expect(element.all(by.css('input[formControlName="ns"')).count()).toEqual(2);
-    expect(element.all(by.css('input[formControlName="keytag"')).count()).toEqual(1);
+  test('should be possible to add new ns form', async () => {
+    await page.locator('div[formArrayName="nameservers"] .form-row:first-child .btn.add').click();
+    await expect(page.locator('input[formControlName="ns"]')).toHaveCount(2);
+    await expect(page.locator('input[formControlName="keytag"]')).toHaveCount(1);
   });
 
-  it('should be have two ns and two digest form', () => {
-    element.all(by.css('div[formArrayName="ds_info"] .form-row:first-child .btn.add')).click();
-    expect(element.all(by.css('input[formControlName="ns"')).count()).toEqual(2);
-    expect(element.all(by.css('input[formControlName="keytag"')).count()).toEqual(2);
+  test('should be possible to add new digest form', async () => {
+    await page.locator('div[formArrayName="ds_info"] .form-row:first-child .btn.add').click();
+    await expect(page.locator('input[formControlName="ns"]')).toHaveCount(2);
+    await expect(page.locator('input[formControlName="keytag"]')).toHaveCount(2);
   });
 
-
-  it('should be have one ns and two digest form', () => {
-    element.all(by.css('div[formArrayName="nameservers"] .form-row:first-child .btn.delete')).click();
-    expect(element.all(by.css('input[formControlName="ns"')).count()).toEqual(1);
-    expect(element.all(by.css('input[formControlName="keytag"')).count()).toEqual(2);
+  test('should be possible to delete ns forms', async () => {
+    await page.locator('div[formArrayName="nameservers"] .form-row:first-child .btn.delete').click();
+    await expect(page.locator('input[formControlName="ns"]')).toHaveCount(1);
+    await expect(page.locator('input[formControlName="keytag"]')).toHaveCount(2);
   });
 });

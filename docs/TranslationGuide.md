@@ -101,7 +101,6 @@ that assume this model, where the `<a>` tag is just before the heading.
 The new language must be added to the following typescript files:
 
 * [package.json]
-* [src/app/app.module.ts]
 * [src/environments/common.ts]
 * [src/assets/app.config.sample.json]
 
@@ -118,20 +117,6 @@ In `package.json` locate
 ```
 and add the two-letter language code of the new language. Preserve
 the alphabetical order of the language codes.
-
-### app.module.ts
-
-In `app.module.ts` locate
-
-```
-import 'moment/locale/fr';
-import 'moment/locale/sv';
-```
-and add a new line with code of the new language instead of `xx`
-```
-import 'moment/locale/xx';
-```
-Preserve the alphabetical order of the language codes.
 
 ### common.ts
 
@@ -168,10 +153,15 @@ Add the new language's two-letter code to the list of default values for
 
 ## Add e2e test script for the language
 
-Create a new `FR05-xx.e2e-spec.ts` e2e test script in the [e2e] folder
-where `xx` is the language code of the new language. Copy
-[FR05-en.e2e-spec.ts] and modify to create a correct test file for
-the new language.
+In `FR05.e2e-spec.ts` add a new test case in the `testSuite` array:
+
+```js
+const testSuite = [
+      ...
+      { language: 'New language name', code: 'two-letter code', expected: '`Domain name` translation in the new language' },
+      ...
+  ];
+```
 
 
 ## Change default language
