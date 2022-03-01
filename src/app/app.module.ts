@@ -30,15 +30,6 @@ import { AlertService } from './services/alert.service';
 import { NavigationService } from './services/navigation.service';
 import { HeaderComponent } from './components/header/header.component';
 
-import { MomentModule } from 'ngx-moment';
-
-import 'moment/locale/da';
-import 'moment/locale/es';
-import 'moment/locale/fi';
-import 'moment/locale/fr';
-import 'moment/locale/nb';
-import 'moment/locale/sv';
-
 import { HttpRequestInterceptor } from './interceptors/request.interceptor';
 import { HttpMockRequestInterceptor } from './interceptors/mock.interceptor';
 
@@ -96,8 +87,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false } // <-- debugging purposes only
-    ),
-    MomentModule
+    )
   ],
   providers: [
     AppService,
