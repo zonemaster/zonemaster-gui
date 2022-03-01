@@ -67,10 +67,15 @@ export class ResultComponent implements OnInit, OnDestroy {
               private navigationService: NavigationService,
               private location: Location) {
 
-    // Merge data, when route is accessed directly, and state, when routed from domain-check component
-    // state is persistent when using back / forward navigation buttons but not when refreshed
-    let data = { ...(this.activatedRoute.snapshot.data[0] || {}),  ...(this.router.getCurrentNavigation().extras.state || {}) };
-    this.displayForm = data.displayForm;
+    let data = this.router.getCurrentNavigation().extras.state || {};
+    this.displayForm = data.displayForm === undefined ? false : data.displayForm;
+
+    // When redirected from the domain check page we display the notification here as the other component has been destroyed
+    if (this.displayForm) {
+      this.translateService.get(`Domain checked completed`).subscribe((res: string) => {
+        this.alertService.success(res);
+      });
+    }
   }
 
   ngOnInit() {
