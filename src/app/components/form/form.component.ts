@@ -239,7 +239,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     if (domain == '.') {
       return domain;
     } else {
-      return domain.replace(/[ \.]+$/, '');
+      return domain.replace(/\.$/, '');
     }
   }
 
@@ -248,7 +248,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     let param = this.form.value;
 
     param.domain = this.sanitizeDomain(param.domain);
-    this.form.get('domain').setValue(param.domain);
 
     if (param.ipv4 === true) delete param.ipv4;
 
@@ -260,7 +259,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     param.nameservers = param.nameservers
       .map((x, i) => {
         x.ns = this.sanitizeDomain(x.ns);
-        this.form.get(['nameservers', i, 'ns']).setValue(x.ns);
         if (!x.ip) {
           delete x.ip;
         }
