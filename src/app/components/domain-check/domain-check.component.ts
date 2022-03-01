@@ -1,9 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {DnsCheckService} from '../../services/dns-check.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {AlertService} from '../../services/alert.service';
+import { Component, OnInit } from '@angular/core';
+import { DnsCheckService } from '../../services/dns-check.service';
+import { Router} from '@angular/router';
+import { AlertService } from '../../services/alert.service';
 import { TranslateService } from '@ngx-translate/core';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-domain-check',
@@ -25,7 +24,6 @@ export class DomainCheckComponent implements OnInit {
   constructor(private alertService: AlertService,
     private dnsCheckService: DnsCheckService,
     private translateService: TranslateService,
-    private location: Location,
     private router: Router) {}
 
   ngOnInit() {

@@ -8,7 +8,7 @@ test.describe('Navigation should be consistent and honor browser behaviour', () 
     await setLang(page, 'en');
   });
 
-  test('make navigation more consistent #300',  async ({ page, baseURL}) => {
+  test('ensure navigation to result page is consistent - #300',  async ({ page, baseURL}) => {
     const domainCheckUrl = baseURL + '/domain_check';
     const firstTestUrl = baseURL + '/result/226f6d4f44ae3f80';
     const secondTestUrl = baseURL + '/result/a0fbcbf6c5ff5842';
