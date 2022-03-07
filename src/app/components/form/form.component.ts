@@ -53,13 +53,13 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   public history = {};
   public test = {};
   public disable_check_button = false;
-  public newForm: FormGroup;
+  public form: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private translateService: TranslateService) {}
 
   ngOnInit() {
     this.langChangeSubscription = this.translateService.onLangChange.subscribe((_: LangChangeEvent) => {
-      if (this.newForm.touched) {
+      if (this.form.touched) {
         this.runDomainCheck(false);
       }
     });
@@ -121,7 +121,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   };
 
   public generate_form() {
-    this.newForm = new FormGroup({
+    this.form = new FormGroup({
       domain: new FormControl('', Validators.required),
       disable_ipv4: new FormControl(false),
       disable_ipv6: new FormControl(false),
@@ -136,12 +136,12 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     this.addNewRow('ds_info');
   }
 
-  get domain() { return this.newForm.get('domain'); }
+  get domain() { return this.form.get('domain'); }
 
   @Input()
   set parentData(data: object) {
     this.disable_check_button = false;
-    if (this.newForm) {
+    if (this.form) {
       this.deleteRow('nameservers', -1);
       data['ns_list'].forEach(ns => {
         this.addNewRow('nameservers', ns);
@@ -163,7 +163,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     for (let error of errors) {
       let path = error.path.split('/');
       path.shift(); // First element is ""
-      let currentForm: AbstractControl = this.newForm;
+      let currentForm: AbstractControl = this.form;
       for (let segment of path) {
         currentForm = currentForm.get(segment);
       }
@@ -174,7 +174,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input()
   set showProgressBar(show: boolean) {
     this._showProgressBar = show;
-    if (!this.newForm) return;
+    if (!this.form) return;
     this.disableForm(show);
   }
 
@@ -183,7 +183,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public resetDomainForm() {
-    this.newForm.controls.domain.reset('');
+    this.form.controls.domain.reset('');
   }
 
   public resetFullForm() {
@@ -191,7 +191,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public addNewRow(formName, value = null) {
-    const control = <FormArray>this.newForm.get(formName);
+    const control = <FormArray>this.form.get(formName);
 
     if (value !== null) {
       control.push(this.formBuilder.group(value, this.formOpts[formName]));
@@ -201,7 +201,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public deleteRow(formName, index: number) {
-    const control = <FormArray>this.newForm.get(formName);
+    const control = <FormArray>this.form.get(formName);
     if (index === -1) {
       for ( let i = control.length - 1; i >= 0; i--) {
         control.removeAt(i);
@@ -221,7 +221,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     this.disable_check_button = true;
-    this.onfetchFromParent.emit(this.newForm.value.domain);
+    this.onfetchFromParent.emit(this.form.value.domain);
   }
 
   private disableForm(disable = true) {
@@ -233,9 +233,21 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  // Remove trailing spaces and dots, and leading spaces
+  private sanitizeDomain(domain: string): string {
+    domain = domain.trim();
+    if (domain == '.') {
+      return domain;
+    } else {
+      return domain.replace(/\.$/, '');
+    }
+  }
+
   public runDomainCheck(submitValid = true) {
-    this.newForm.markAllAsTouched();
-    let param = this.newForm.value;
+    this.form.markAllAsTouched();
+    let param = this.form.value;
+
+    param.domain = this.sanitizeDomain(param.domain);
 
     if (param.ipv4 === true) delete param.ipv4;
 
@@ -245,13 +257,14 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     delete param.disable_ipv6;
 
     param.nameservers = param.nameservers
-      .filter(ns => ns.ip || ns.ns)
-      .map(x => {
+      .map((x, i) => {
+        x.ns = this.sanitizeDomain(x.ns);
         if (!x.ip) {
           delete x.ip;
         }
         return x;
-      });
+      })
+      .filter(ns => ns.ip || ns.ns);
 
     param.ds_info = param.ds_info
       .filter(ds => ds.keytag || ds.algorithm > 0 || ds.digtype > 0 || ds.digest)
@@ -262,7 +275,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         digest: ds.digest
       }});
 
-    if (submitValid == this.newForm.valid) {
+    if (submitValid == this.form.valid) {
       this.onDomainCheck.emit(param);
     }
   }
