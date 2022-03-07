@@ -1,6 +1,6 @@
-import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
 import { combineLatest, Subscription } from 'rxjs';
@@ -14,13 +14,13 @@ import { formatDate, Location } from '@angular/common';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit, OnChanges, OnDestroy {
+export class ResultComponent implements OnInit, OnDestroy {
 
   @Input('resultID') resultID: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
 
-  public directAccess = false;
+  public displayForm = false;
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
   public result = [];
   public modules: any;
@@ -59,27 +59,33 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
   private routeParamsSubscription: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
+              private router: Router,
               private modalService: NgbModal,
               private alertService: AlertService,
               public translateService: TranslateService,
               private dnsCheckService: DnsCheckService,
               private navigationService: NavigationService,
               private location: Location) {
-     this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
-       this.activatedRoute.snapshot.data[0]['directAccess'];
+
+    let data = this.router.getCurrentNavigation().extras.state || {};
+    this.displayForm = data.displayForm === undefined ? false : data.displayForm;
+
+    // When redirected from the domain check page we display the notification here as the other component has been destroyed
+    if (this.displayForm) {
+      this.translateService.get(`Domain checked completed`).subscribe((res: string) => {
+        this.alertService.success(res);
+      });
+    }
   }
 
   ngOnInit() {
     this.language = this.translateService.currentLang;
     console.log(this.resultID);
 
-    // Le result ID ne passe pas par la lorsque domaine.ts change une seconde fois l'ID !!!
-    if (this.directAccess) {
-      this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
-        this.resultID = params['resultID'];
-        this.displayResult(this.resultID, this.language);
-      });
-    }
+    this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
+      this.resultID = params['resultID'];
+      this.displayResult(this.resultID, this.language);
+    });
 
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
       this.navHeight = newHeight;
@@ -89,10 +95,6 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
       this.displayResult(this.resultID, event.lang, false);
       this.language = event.lang;
     });
-  }
-
-  ngOnChanges() {
-    this.displayResult(this.resultID, this.translateService.currentLang);
   }
 
   ngOnDestroy() {
