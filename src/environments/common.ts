@@ -15,5 +15,6 @@ export const common = {
     'sv': 'Svenska'
   },
   enabledLanguages: [ 'da', 'en', 'es', 'fi', 'fr', 'nb', 'sv' ],
-  configUrl: 'assets/app.config.json'
+  configUrl: 'assets/app.config.json',
+  pollingInterval: 5 * 1000,
 }
