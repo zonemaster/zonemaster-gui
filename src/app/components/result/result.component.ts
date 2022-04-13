@@ -128,7 +128,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       // TODO clean
 
       this.test = {
-        id: data['id'],
+        id: data['hash_id'],
         creation_time: new Date(data['creation_time'] + 'Z'),
         location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
       };
@@ -202,12 +202,16 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
+  private exportedName(extension) {
+    return `zonemaster_result_${this.form.domain}_${this.test.id}.${extension}`
+  }
+
   public exportJson() {
     const blob = new Blob([JSON.stringify(this.result)], {
       type: 'application/javascript'
     });
 
-    saveAs(blob, `zonemaster_result_${this.test['location']}.json`);
+    saveAs(blob, this.exportedName('json'));
   }
 
   public exportHTML() {
@@ -231,7 +235,7 @@ export class ResultComponent implements OnInit, OnDestroy {
             <head>
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-              <title>Zonemaster TEST</title>
+              <title>${this.form.domain} • Zonemaster Test Result</title>
               <style>
                 th,td {
                   text-align: left;
@@ -287,7 +291,7 @@ export class ResultComponent implements OnInit, OnDestroy {
           type: 'text/html;charset=utf-8'
         });
 
-        saveAs(blob, `zonemaster_result_${this.test['location']}.html`);
+        saveAs(blob, this.exportedName('html'));
       });
   }
 
@@ -297,7 +301,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       type: 'text/plain;charset=utf-8'
     });
 
-    saveAs(blob, `zonemaster_result_${this.test['location']}.txt`);
+    saveAs(blob, this.exportedName('txt'));
   }
 
   public exportCSV() {
@@ -305,7 +309,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     const blob = new Blob([csvData], {
       type: 'text/csv;charset=utf-8'
     });
-    saveAs(blob, `zonemaster_result_${this.test['location']}.csv`);
+    saveAs(blob, this.exportedName('csv'));
   }
 
   ConvertTo(objArray, extension: string) {
