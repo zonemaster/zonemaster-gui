@@ -6,6 +6,7 @@ import {
   FormBuilder,
   Validators,
   AbstractControl} from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
@@ -55,7 +56,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   public disable_check_button = false;
   public form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private translateService: TranslateService) {}
+  constructor(private formBuilder: FormBuilder, private translateService: TranslateService, private titleService: Title) {}
 
   ngOnInit() {
     this.langChangeSubscription = this.translateService.onLangChange.subscribe((_: LangChangeEvent) => {
@@ -64,6 +65,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
       }
     });
     this.generate_form();
+    this.titleService.setTitle('Zonemaster');
   }
 
   ngOnChanges(changes: { [property: string]: SimpleChange }) {

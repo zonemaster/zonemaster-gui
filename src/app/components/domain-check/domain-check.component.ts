@@ -4,6 +4,7 @@ import { Router} from '@angular/router';
 import { AlertService } from '../../services/alert.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from '../../services/app.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-domain-check',
@@ -26,7 +27,8 @@ export class DomainCheckComponent implements OnInit {
     private dnsCheckService: DnsCheckService,
     private translateService: TranslateService,
     private router: Router,
-    private appService: AppService) {
+    private appService: AppService,
+    private titleService: Title) {
       this.intervalTime = this.appService.getConfig('pollingInterval');
     }
 
@@ -70,6 +72,9 @@ export class DomainCheckComponent implements OnInit {
     this.dnsCheckService.startDomainTest(data).then(id => {
       domainCheckId = id as string;
       this.showProgressBar = true;
+
+      this.titleService.setTitle(`${data['domain']} · Zonemaster`);
+
       const handle = setInterval(() => {
         self.dnsCheckService.testProgress(domainCheckId).then(res => {
 
