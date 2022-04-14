@@ -128,7 +128,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       // TODO clean
 
       this.test = {
-        id: data['id'],
+        id: data['hash_id'],
         creation_time: new Date(data['creation_time'] + 'Z'),
         location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
       };
@@ -202,12 +202,16 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
+  private exportedName(extension) {
+    return `zonemaster_result_${this.form.domain}_${this.test.id}.${extension}`
+  }
+
   public exportJson() {
     const blob = new Blob([JSON.stringify(this.result)], {
       type: 'application/javascript'
     });
 
-    saveAs(blob, `zonemaster_result_${this.test['location']}.json`);
+    saveAs(blob, this.exportedName('json'));
   }
 
   public exportHTML() {
@@ -227,20 +231,48 @@ export class ResultComponent implements OnInit, OnDestroy {
 
         const result = `
           <!doctype html>
-          <html class="no-js" lang="${this.language}">
+          <html lang="${this.language}">
             <head>
               <meta charset="UTF-8">
-              <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
               <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-              <title>Zonemaster TEST</title>
-              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" media="all">
+              <title>${this.form.domain} • Zonemaster Test Result</title>
+              <style>
+                th,td {
+                  text-align: left;
+                  font-weight: normal;
+                  padding: 0.75rem;
+                }
+                thead {
+                  background-color: #212529;
+                  color: #fff;
+                }
+                body td {
+                  border-top: 1px solid #dee2e6;
+                }
+                body {
+                  color: #212529;
+                  font-family: sans;
+                  margin-left: 20px;
+                }
+                table {
+                  border: none;
+                }
+                tbody tr:nth-child(odd) {
+                  background-color: rgba(0,0,0,.05);
+                }
+                h2 {
+                  font-weight: normal;
+                  font-size: 2rem;
+                  margin: .5rem 0;
+                }
+              </style>
             </head>
-            <body style="margin-left: 20px;">
+            <body>
               <header>
                <h2>${this.form.domain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
               </header>
-              <table class="table table-striped">
-                <thead class="thead-dark">
+              <table cellspacing="0" cellpadding="0">
+                <thead>
                   <tr>
                     <th scope="col">${moduleStr}</th>
                     <th scope="col">${levelStr}</th>
@@ -259,7 +291,7 @@ export class ResultComponent implements OnInit, OnDestroy {
           type: 'text/html;charset=utf-8'
         });
 
-        saveAs(blob, `zonemaster_result_${this.test['location']}.html`);
+        saveAs(blob, this.exportedName('html'));
       });
   }
 
@@ -269,7 +301,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       type: 'text/plain;charset=utf-8'
     });
 
-    saveAs(blob, `zonemaster_result_${this.test['location']}.txt`);
+    saveAs(blob, this.exportedName('txt'));
   }
 
   public exportCSV() {
@@ -277,7 +309,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     const blob = new Blob([csvData], {
       type: 'text/csv;charset=utf-8'
     });
-    saveAs(blob, `zonemaster_result_${this.test['location']}.csv`);
+    saveAs(blob, this.exportedName('csv'));
   }
 
   ConvertTo(objArray, extension: string) {
@@ -311,6 +343,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
     return str;
   }
+
   private setItemsColors(data): void {
     for (const item in data) {
       if (['WARNING'].includes(this.result[item].level)) {
