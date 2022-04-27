@@ -3,6 +3,7 @@ import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import {ActivatedRoute} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-faq',
@@ -19,7 +20,8 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   constructor(private _http: HttpClient,
               private translateService: TranslateService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private titleService: Title) {
     this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
       this.url = `assets/faqs/gui-faq-${event.lang}.html`;
       this._http.get(this.url, {responseType: 'text'})
@@ -37,6 +39,7 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
       });
 
     this.fragmentSubscription = this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
+    this.titleService.setTitle('FAQ · Zonemaster');
   }
 
   ngOnDestroy() {

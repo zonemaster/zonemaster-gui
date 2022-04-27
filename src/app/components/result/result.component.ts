@@ -8,6 +8,7 @@ import { DnsCheckService } from '../../services/dns-check.service';
 import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
 import { formatDate, Location } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-result',
@@ -65,7 +66,8 @@ export class ResultComponent implements OnInit, OnDestroy {
               public translateService: TranslateService,
               private dnsCheckService: DnsCheckService,
               private navigationService: NavigationService,
-              private location: Location) {
+              private location: Location,
+              private titleService: Title) {
 
     let data = this.router.getCurrentNavigation().extras.state || {};
     this.displayForm = data.displayForm === undefined ? false : data.displayForm;
@@ -174,6 +176,8 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.form = data['params'];
       this.ns_list = data['ns_list'];
       this.ds_list = data['ds_list'];
+
+      this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
     }, error => {
       this.translateService.get('No data for this test').subscribe((res: string) => {
         this.alertService.error(res)
