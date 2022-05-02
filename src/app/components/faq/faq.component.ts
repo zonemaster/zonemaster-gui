@@ -22,24 +22,15 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
               private translateService: TranslateService,
               private route: ActivatedRoute,
               private titleService: Title) {
+
     this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.url = `assets/faqs/gui-faq-${event.lang}.html`;
-      this._http.get(this.url, {responseType: 'text'})
-        .subscribe(data => {
-          this.faqTemplate = data;
-        });
+      this.loadFaq(event.lang)
     });
   }
 
   ngOnInit() {
-    this.url = `assets/faqs/gui-faq-${this.translateService.currentLang}.html`;
-    this._http.get(this.url, {responseType: 'text'})
-      .subscribe(data => {
-        this.faqTemplate = data;
-      });
-
+    this.loadFaq(this.translateService.currentLang);
     this.fragmentSubscription = this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
-    this.titleService.setTitle('FAQ · Zonemaster');
   }
 
   ngOnDestroy() {
@@ -52,5 +43,18 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
       document.querySelector('a[name="' + this.fragment + '"]').scrollIntoView();
       this.fragment = '';
     } catch (e) {}
+  }
+
+  loadFaq(lang) {
+    this.url = `assets/faqs/gui-faq-${lang}.html`;
+
+    this._http.get(this.url, {responseType: 'text'})
+      .subscribe(data => {
+        this.faqTemplate = data;
+      });
+
+    this.translateService.get('FAQ').subscribe((faqTitle: string) => {
+      this.titleService.setTitle(`${faqTitle} · Zonemaster`);
+    });
   }
 }
