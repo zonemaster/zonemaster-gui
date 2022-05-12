@@ -36,7 +36,7 @@ export class HistoryComponent implements OnInit {
       } else if ('ok' === item.overall_result) {
         item.color = 'success';
       }
-      item.local_creation_time = new Date(item.creation_time + 'Z');
+      item.local_creation_time = new Date(item.created_at);
       return item;
     });
   }
