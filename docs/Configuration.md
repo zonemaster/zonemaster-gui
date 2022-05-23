@@ -32,4 +32,5 @@ The supported configuration items are the following.
   banner will be shown. HTML formatting is supported (such as `<a>` tag) and
   some characters such as `&><` need to be written as HTML codes to be properly
   rendered.
-* `"pollingInterval"`: Time between each test progress query.
+* `"pollingInterval"`: Time between each test progress query in millisecond,
+  default: `5000` (5 seconds).
