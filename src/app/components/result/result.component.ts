@@ -131,7 +131,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
       this.test = {
         id: data['hash_id'],
-        creation_time: new Date(data['creation_time'] + 'Z'),
+        creation_time: new Date(data['created_at']),
         location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
       };
 
