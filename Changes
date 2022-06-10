@@ -1,5 +1,28 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
+v3.6.0 2021-06-10 (public release version)
+
+ [Status]
+ - This version of Zonemaster-GUI only works with Zonemaster-Backend
+   v9.0.0 or newer due to the change in #319 and #316.
+
+ [Features]
+ - Makes pollinginterval configurable (#320, #307)
+ - Sorts messages by severity when presented (#297, #118)
+
+ [Fixes]
+ - Uses created_at instead of deprecated creation_time in result from
+   RPCAPI (#319, #316)
+ - Fixes translation (#318, #314)
+ - Makes it possible to have translated FAQ title (#313)
+ - Make pages title consistent (#310)
+ - Avoids using bootstrap for html export (#308)
+ - Prevent translation caching when the translation are updated (#285)
+ - Code clean-up (#303, #299, #275)
+ - Cleans domain names and nameserver names from trailing dots, trailing
+   spaces and leading spaces (#305, #249)
+ - Make navigation more consistent (#300, #284)
+
 
 v3.5.0 2021-12-20 (public fix release)
 
@@ -74,7 +97,7 @@ v3.2.1 2020-11-06 (public release version)
  - Updated/improved installation instruction (#154, #152)
  - Improved internationalization (i18n) (#121, #139)
  - Corrected language value (#140, #138)
- 
+
 
 v3.2.0 2020-04-30
 
@@ -82,7 +105,7 @@ v3.2.0 2020-04-30
  - New logotype for Zonemaster (#120)
  - Improved testing (#84, #83)
  - Improved translations (#81, #44, #61)
- 
+
  [Fixes]
  - Language switch goes to Github instead (#114, #124)
  - Translated untranslated phrases (#116)
@@ -124,7 +147,7 @@ v3.1.0 2019-05-22 (public release version)
  - Fix french typos in translations (#30, #17)
  - Fix history call (#18)
  - Add no-cache for index.html (#22, #23)
- 
+
  [Features]
  - Added documentation for contributers (#32)
  - Add some e2e test with selenium (only works on local) (#37, #26)
@@ -134,7 +157,7 @@ v3.1.0 2019-05-22 (public release version)
 
 
 v3.0.1 2019-01-31 (pre-release version)
- 
+
  - Status
    - This is a pre-release version not fully tested on all supported
      environments.
@@ -173,10 +196,10 @@ v2.0.0 2018-06-25
  - This is the first release version of this code.
  - Old Zonemaster-GUI has been replaced by a entirely new code with
    new architecture.
- - New Zonemaster-GUI is in Javascript only with no Perl, and it talks 
+ - New Zonemaster-GUI is in Javascript only with no Perl, and it talks
    directly with the Zonemaster-Backend API, in the default installation
    through a web server proxy, e.g. Apache http server.
- - The old Zonemaster-GUI is deprecated, and can, for the time being, 
-   still be found in the old repository, 
+ - The old Zonemaster-GUI is deprecated, and can, for the time being,
+   still be found in the old repository,
    https://github.com/dotse/zonemaster-gui
 
