@@ -30,6 +30,7 @@
 
 .nav-link {
   cursor: pointer;
+  color: inherit;
 }
 
 .dropdown-body {

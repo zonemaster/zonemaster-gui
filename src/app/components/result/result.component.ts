@@ -1,26 +1,27 @@
-import { Component, OnInit, OnChanges, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
 import { combineLatest, Subscription } from 'rxjs';
 import { DnsCheckService } from '../../services/dns-check.service';
 import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
-import { Location } from '@angular/common';
+import { formatDate, Location } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.css']
 })
-export class ResultComponent implements OnInit, OnChanges, OnDestroy {
+export class ResultComponent implements OnInit, OnDestroy {
 
   @Input('resultID') resultID: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
 
-  public directAccess = false;
+  public displayForm = false;
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
   public result = [];
   public modules: any;
@@ -59,27 +60,34 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
   private routeParamsSubscription: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
+              private router: Router,
               private modalService: NgbModal,
               private alertService: AlertService,
               public translateService: TranslateService,
               private dnsCheckService: DnsCheckService,
               private navigationService: NavigationService,
-              private location: Location) {
-     this.directAccess = (this.activatedRoute.snapshot.data[0] === undefined) ? false :
-       this.activatedRoute.snapshot.data[0]['directAccess'];
+              private location: Location,
+              private titleService: Title) {
+
+    let data = this.router.getCurrentNavigation().extras.state || {};
+    this.displayForm = data.displayForm === undefined ? false : data.displayForm;
+
+    // When redirected from the domain check page we display the notification here as the other component has been destroyed
+    if (this.displayForm) {
+      this.translateService.get(`Domain checked completed`).subscribe((res: string) => {
+        this.alertService.success(res);
+      });
+    }
   }
 
   ngOnInit() {
     this.language = this.translateService.currentLang;
     console.log(this.resultID);
 
-    // Le result ID ne passe pas par la lorsque domaine.ts change une seconde fois l'ID !!!
-    if (this.directAccess) {
-      this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
-        this.resultID = params['resultID'];
-        this.displayResult(this.resultID, this.language);
-      });
-    }
+    this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
+      this.resultID = params['resultID'];
+      this.displayResult(this.resultID, this.language);
+    });
 
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
       this.navHeight = newHeight;
@@ -89,10 +97,6 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
       this.displayResult(this.resultID, event.lang, false);
       this.language = event.lang;
     });
-  }
-
-  ngOnChanges() {
-    this.displayResult(this.resultID, this.translateService.currentLang);
   }
 
   ngOnDestroy() {
@@ -126,8 +130,8 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
       // TODO clean
 
       this.test = {
-        id: data['id'],
-        creation_time: data['creation_time'],
+        id: data['hash_id'],
+        creation_time: new Date(data['created_at']),
         location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
       };
 
@@ -162,9 +166,18 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
         this.level_items[item['level'].toLowerCase()].push(item);
       }
 
+      for (const module in this.module_items) {
+        this.module_items[module].sort((msg1, msg2) => {
+          // sort messages by descending severity level
+          return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
+        })
+      }
+
       this.form = data['params'];
       this.ns_list = data['ns_list'];
       this.ds_list = data['ds_list'];
+
+      this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
     }, error => {
       this.translateService.get('No data for this test').subscribe((res: string) => {
         this.alertService.error(res)
@@ -193,15 +206,20 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  private exportedName(extension) {
+    return `zonemaster_result_${this.form.domain}_${this.test.id}.${extension}`
+  }
+
   public exportJson() {
     const blob = new Blob([JSON.stringify(this.result)], {
       type: 'application/javascript'
     });
 
-    saveAs(blob, `zonemaster_result_${this.test['location']}.json`);
+    saveAs(blob, this.exportedName('json'));
   }
 
   public exportHTML() {
+
     combineLatest([...this.header.map(s => this.translateService.get(s))])
       .subscribe(([moduleStr, levelStr, messageStr]) => {
         let tbodyContent = '';
@@ -215,24 +233,50 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
           `;
         }
 
-        let resultHeader = this.resultView.nativeElement.querySelector('.result-header').cloneNode(true).innerHTML;
-
         const result = `
           <!doctype html>
-          <html class="no-js" lang="fr">
+          <html lang="${this.language}">
             <head>
               <meta charset="UTF-8">
-              <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
               <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-              <title>Zonemaster TEST</title>
-              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" media="all">
+              <title>${this.form.domain} • Zonemaster Test Result</title>
+              <style>
+                th,td {
+                  text-align: left;
+                  font-weight: normal;
+                  padding: 0.75rem;
+                }
+                thead {
+                  background-color: #212529;
+                  color: #fff;
+                }
+                body td {
+                  border-top: 1px solid #dee2e6;
+                }
+                body {
+                  color: #212529;
+                  font-family: sans;
+                  margin-left: 20px;
+                }
+                table {
+                  border: none;
+                }
+                tbody tr:nth-child(odd) {
+                  background-color: rgba(0,0,0,.05);
+                }
+                h2 {
+                  font-weight: normal;
+                  font-size: 2rem;
+                  margin: .5rem 0;
+                }
+              </style>
             </head>
-            <body style="margin-left: 20px;">
+            <body>
               <header>
-                ${resultHeader}
+               <h2>${this.form.domain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
               </header>
-              <table class="table table-striped">
-                <thead class="thead-dark">
+              <table cellspacing="0" cellpadding="0">
+                <thead>
                   <tr>
                     <th scope="col">${moduleStr}</th>
                     <th scope="col">${levelStr}</th>
@@ -251,7 +295,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
           type: 'text/html;charset=utf-8'
         });
 
-        saveAs(blob, `zonemaster_result_${this.test['location']}.html`);
+        saveAs(blob, this.exportedName('html'));
       });
   }
 
@@ -261,7 +305,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
       type: 'text/plain;charset=utf-8'
     });
 
-    saveAs(blob, `zonemaster_result_${this.test['location']}.txt`);
+    saveAs(blob, this.exportedName('txt'));
   }
 
   public exportCSV() {
@@ -269,7 +313,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
     const blob = new Blob([csvData], {
       type: 'text/csv;charset=utf-8'
     });
-    saveAs(blob, `zonemaster_result_${this.test['location']}.csv`);
+    saveAs(blob, this.exportedName('csv'));
   }
 
   ConvertTo(objArray, extension: string) {
@@ -303,6 +347,7 @@ export class ResultComponent implements OnInit, OnChanges, OnDestroy {
     }
     return str;
   }
+
   private setItemsColors(data): void {
     for (const item in data) {
       if (['WARNING'].includes(this.result[item].level)) {

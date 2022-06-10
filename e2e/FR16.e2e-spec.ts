@@ -1,29 +1,31 @@
-import { by, browser, element } from 'protractor';
+const { test, expect } = require('@playwright/test');
 
-import { Utils } from './utils/app.utils';
+import { goToHome, setLang, showOptions } from './utils/app.utils';
 
-describe('Zonemaster test FR16 - [The advanced view should have a text describing what undelegated means?]', () => {
-  const utils = new Utils();
-  beforeAll(async () => {
-    await utils.goToHome();
-    await utils.setLang('en');
-    await utils.activeOptions();
+test.describe('Zonemaster test FR16 - [The advanced view should have a text describing what undelegated means]', () => {
+  test.beforeEach(async ({ page }) => {
+    await goToHome(page);
+    await setLang(page, 'en');
+    await showOptions(page);
   });
 
-  it('should have a link to the proper faq answer', () => {
-    expect(element(by.css('.alert.alert-info')).isPresent()).toBe(true);
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('routerlink')).toBe('/faq');
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getAttribute('fragment')).toBe('q12');
+  test('should have a link to the proper faq answer', async ({ page }) => {
+    const alert = page.locator('.alert.alert-info');
+    await expect(alert).toBeVisible();
+    await expect(alert.locator('a')).toHaveAttribute('routerlink', '/faq');
+    await expect(alert.locator('a')).toHaveAttribute('fragment', 'q12');
   });
 
-  it('should have a description text in multi languages', async () => {
-    await utils.setLang('en');
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('undelegated');
+  test('should have a description text in multi languages', async ({ page }) => {
+    const testSuite = [
+      { lang: 'en', text: 'undelegated' },
+      { lang: 'fr', text: 'non délégué' },
+      { lang: 'sv', text: 'odelegerat domäntest' },
+    ];
 
-    await utils.setLang('fr');
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('non délégué');
-
-    await utils.setLang('sv');
-    expect(element(by.css('.alert.alert-info')).element(by.css('a')).getText()).toContain('odelegerat domäntest');
+    for (const {lang, text} of testSuite) {
+      await setLang(page, lang);
+      await expect(page.locator('.alert.alert-info a')).toContainText(text);
+    }
   });
 });
