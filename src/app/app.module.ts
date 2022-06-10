@@ -1,15 +1,16 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Observable, from } from 'rxjs';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { DomainComponent } from './components/domain/domain.component';
+import { DomainCheckComponent } from './components/domain-check/domain-check.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -30,30 +31,27 @@ import { AlertService } from './services/alert.service';
 import { NavigationService } from './services/navigation.service';
 import { HeaderComponent } from './components/header/header.component';
 
-import { MomentModule } from 'ngx-moment';
-
-import 'moment/locale/da';
-import 'moment/locale/es';
-import 'moment/locale/fi';
-import 'moment/locale/fr';
-import 'moment/locale/nb';
-import 'moment/locale/sv';
-
 import { HttpRequestInterceptor } from './interceptors/request.interceptor';
 import { HttpMockRequestInterceptor } from './interceptors/mock.interceptor';
 
 export const isMock = environment.mock;
 
 // AoT requires an exported function for factories
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, `assets/i18n/`, '.json');
+export function TranslationLoaderFactory() {
+  return new MyTranslationLoader();
+}
+
+class MyTranslationLoader extends TranslateLoader {
+  getTranslation(lang: string): Observable<any> {
+    return from(import(/* webpackChunkName: "i18n-[request]" */ `../assets/i18n/${lang}.json`));
+  }
 }
 
 const appRoutes: Routes = [
   { path: 'domain_check', component: DomainComponent },
-  { path: 'result/:resultID', component: ResultComponent, data: [{directAccess: true}]},
-  { path: 'test/:resultID', component: ResultComponent, data: [{directAccess: true}]},
-  { path: 'history', component: HistoryComponent},
+  { path: 'result/:resultID', component: ResultComponent },
+  { path: 'test/:resultID', component: ResultComponent },
+  { path: 'history', component: HistoryComponent },
   { path: 'faq', component: FaqComponent },
   { path: '',
     redirectTo: 'domain_check',
@@ -66,6 +64,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DomainComponent,
+    DomainCheckComponent,
     FaqComponent,
     PageNotFoundComponent,
     NavigationComponent,
@@ -89,15 +88,13 @@ const appRoutes: Routes = [
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        useFactory: TranslationLoaderFactory,
       }
     }),
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
-    ),
-    MomentModule
+      { enableTracing: false, relativeLinkResolution: 'legacy' } // <-- debugging purposes only
+    )
   ],
   providers: [
     AppService,
