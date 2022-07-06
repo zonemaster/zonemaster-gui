@@ -25,6 +25,7 @@ This instruction covers the following operating systems:
  1. [Rocky Linux](#1-rocky-linux)
  2. [Debian and Ubuntu](#2-debian-and-ubuntu)
  3. [FreeBSD](#3-freebsd)
+ 4. [CentOS Linux 7](#4-CentOS-Linux-7)
 
 
 ### 1. Rocky Linux
@@ -206,6 +207,60 @@ file so that it points to correct IP address or server name and correct port.
 ```sh
 service apache24 restart
 ```
+
+
+### 4. CentOS Linux 7
+
+> **Please note!** CentOS 7 will only be supported until the release of
+> v2023.1, which is expected to happen during the spring of 2023.
+
+#### Install Apache and unzip
+
+```sh
+sudo yum update
+sudo yum -y install httpd unzip
+```
+
+
+#### Install Zonemaster Web GUI
+
+```sh
+curl -O https://github.com/zonemaster/zonemaster-gui/releases/download/v3.6.0/zonemaster_web_gui.zip
+sudo install -vd /var/www/html/zonemaster-web-gui
+sudo install -vd /var/log/zonemaster
+sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
+rm -f zonemaster_web_gui.zip
+```
+
+
+#### Configure Apache site
+
+```sh
+sudo chcon -R -t httpd_sys_content_t /var/www/html/zonemaster-web-gui/dist
+sudo chcon -R -t httpd_sys_rw_content_t /var/log/zonemaster
+sudo setsebool -P httpd_can_network_connect=1
+sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/httpd/conf.d/zonemaster.conf
+```
+
+Optionally update the zonemaster.conf.
+E.g. if Zonemaster-Backend RPCAPI runs on another server or on another port (not
+port 5000), update ProxyPass and ProxyPassReserve.
+Or if you want provide your own settings for ServerName, ServerAlias and ServerAdmin.
+
+```sh
+sudoedit /etc/httpd/conf.d/zonemaster.conf
+```
+
+
+#### Start Apache and allow remote access
+
+```sh
+sudo systemctl enable httpd
+sudo systemctl start httpd
+sudo firewall-cmd --add-service http --permanent
+sudo firewall-cmd --reload
+```
+
 
 ## Post-installation sanity check
 
