@@ -1,5 +1,17 @@
 Release history for Zonemaster component Zonemaster-GUI 
 
+
+v3.6.1 2021-07-08 (public fix version)
+
+ [Status]
+ - This fix version does not change anything in the installed GUI besides
+   the version. There is no reason to update to this version from
+   previous version (v3.6.0).
+
+ [Fixes]
+ - Adds missing installation instructions for CentOS Linux 7 (#325)
+
+
 v3.6.0 2021-06-10 (public release version)
 
  [Status]
