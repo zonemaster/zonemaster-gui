@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
 import { Subscription } from 'rxjs';
@@ -31,6 +32,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
   constructor(
       private activatedRoute: ActivatedRoute,
       private alertService: AlertService,
+      private titleService: Title,
       private dnsCheckService: DnsCheckService) { }
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
 
         // TODO fetch history for this.domainName in this.history
 
+        this.titleService.setTitle(this.domainName + ' · History · Zonemaster');
         this.withinModal = false;
       }
     });
