@@ -69,7 +69,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       if ( params['domain'] ) {
         this.domainName = params['domain'];
-        console.log(this.domainName);
       }
     });
 
@@ -78,8 +77,13 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         this.runDomainCheck(false);
       }
     });
+
     this.generate_form();
     this.titleService.setTitle('Zonemaster');
+
+    if ( this.domainName ) {
+        this.runDomainCheck();
+    }
   }
 
   ngOnChanges(changes: { [property: string]: SimpleChange }) {
