@@ -48,6 +48,7 @@ class MyTranslationLoader extends TranslateLoader {
 }
 
 const appRoutes: Routes = [
+  { path: 'check/:domain', component: DomainComponent },
   { path: 'check', component: DomainComponent },
   { path: 'result/:resultID', component: ResultComponent },
   { path: 'history', component: HistoryComponent },

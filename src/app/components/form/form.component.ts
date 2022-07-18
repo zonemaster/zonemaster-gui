@@ -7,6 +7,7 @@ import {
   Validators,
   AbstractControl} from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
@@ -51,14 +52,27 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   private _showProgressBar: boolean;
   private langChangeSubscription: Subscription;
 
+  private domainName: string;
+  private routeParamsSubscription: Subscription;
+
   public history = {};
   public test = {};
   public disable_check_button = false;
   public form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private translateService: TranslateService, private titleService: Title) {}
+  constructor(private activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private translateService: TranslateService,
+    private titleService: Title) {}
 
   ngOnInit() {
+    this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
+      if ( params['domain'] ) {
+        this.domainName = params['domain'];
+        console.log(this.domainName);
+      }
+    });
+
     this.langChangeSubscription = this.translateService.onLangChange.subscribe((_: LangChangeEvent) => {
       if (this.form.touched) {
         this.runDomainCheck(false);
@@ -76,6 +90,9 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnDestroy() {
     this.langChangeSubscription.unsubscribe();
+    if ( this.routeParamsSubscription ) {
+      this.routeParamsSubscription.unsubscribe();
+    }
   }
 
   private static atLeastOneProtocolValidator(control: AbstractControl) {
