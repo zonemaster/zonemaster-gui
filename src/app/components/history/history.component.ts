@@ -21,6 +21,8 @@ export class HistoryComponent implements OnInit, OnDestroy {
   public domainName: string;
   public withinModal = true;
 
+  public infoMsg: string;
+
   public page = 1;
   public pageSize = 10;
 
@@ -48,9 +50,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
       if ( params['domain'] ) {
         this.domainName = sanitizeDomain(params['domain']);
         console.log(this.domainName);
-
-        // TODO fetch history for this.domainName in this.history
-
+        this.getHistory();
         this.withinModal = false;
       }
     });
@@ -77,6 +77,25 @@ export class HistoryComponent implements OnInit, OnDestroy {
     this.translateService.get('History').subscribe((historyTitle: string) => {
       this.titleService.setTitle(`${this.domainName} · ${historyTitle} · Zonemaster`);
     });
+  }
+
+  public getHistory() {
+    if (!this.history) {
+      this.infoMsg = 'History information request is in progress';
+
+      this.dnsCheckService.getTestHistory({'domain': this.domainName})
+      .then( data => {
+        this.history = data as any[];
+        if (this.history.length === 0) {
+          this.infoMsg = 'No history available for this domain';
+        } else {
+            this.populateHistory();
+        }
+      })
+      .catch( data => {
+        this.infoMsg = 'HISTORY_BACKEND_UNAVAILABLE';
+      });
+    }
   }
 
   setColor(data) {
