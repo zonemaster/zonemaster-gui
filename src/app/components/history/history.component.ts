@@ -89,11 +89,15 @@ export class HistoryComponent implements OnInit, OnDestroy {
         if (this.history.length === 0) {
           this.infoMsg = 'No history available for this domain';
         } else {
-            this.populateHistory();
+          this.populateHistory();
         }
       })
       .catch( data => {
-        this.infoMsg = 'HISTORY_BACKEND_UNAVAILABLE';
+        if ( data && data.jsonrpc !== undefined ) {
+          this.infoMsg = 'No history available for this domain';
+        } else {
+            this.infoMsg = 'HISTORY_BACKEND_UNAVAILABLE';
+        }
       });
     }
   }
