@@ -2,6 +2,9 @@
   <h1>{{ "History" | translate }}</h1>
 </app-header>
 <div class="container">
+  <div class="result-header">
+    <h2>{{domainName}}</h2>
+  </div>
   <div class="mb-2" [class.row]="withinModal">
     <div class="btn-group btn-group-toggle">
       <label class="btn btn-secondary" for="filter_all" [class.active]="filter === 'all'">
