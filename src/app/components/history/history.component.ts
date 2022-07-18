@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
 import { Subscription } from 'rxjs';
@@ -27,13 +28,20 @@ export class HistoryComponent implements OnInit, OnDestroy {
   public filter = 'all';
   public filteredHistory: any[] = [];
 
+  private langChangeSubscription: Subscription;
   private routeParamsSubscription: Subscription;
 
   constructor(
       private activatedRoute: ActivatedRoute,
       private alertService: AlertService,
+      private translateService: TranslateService,
       private titleService: Title,
-      private dnsCheckService: DnsCheckService) { }
+      private dnsCheckService: DnsCheckService) {
+
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.updateTitle();
+    });
+  }
 
   ngOnInit() {
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
@@ -43,7 +51,6 @@ export class HistoryComponent implements OnInit, OnDestroy {
 
         // TODO fetch history for this.domainName in this.history
 
-        this.titleService.setTitle(this.domainName + ' · History · Zonemaster');
         this.withinModal = false;
       }
     });
@@ -52,6 +59,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.langChangeSubscription.unsubscribe();
     if (this.routeParamsSubscription) {
       this.routeParamsSubscription.unsubscribe();
     }
@@ -63,6 +71,12 @@ export class HistoryComponent implements OnInit, OnDestroy {
       this.filterHistory(this.filter);
       this.setItemsByPage(this.page);
     }
+  }
+
+  private updateTitle() {
+    this.translateService.get('History').subscribe((historyTitle: string) => {
+      this.titleService.setTitle(`${this.domainName} · ${historyTitle} · Zonemaster`);
+    });
   }
 
   setColor(data) {
