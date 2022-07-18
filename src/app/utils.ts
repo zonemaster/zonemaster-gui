@@ -1,6 +1,8 @@
-// Remove trailing spaces and dots, and leading spaces
+// Remove trailing and leading spaces
+// Remove trailing dot
+// Convert to lower case
 export function sanitizeDomain(domain: string): string {
-  domain = domain.trim();
+  domain = domain.trim().toLowerCase();
   if (domain == '.') {
     return domain;
   } else {
