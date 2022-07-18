@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row mb-2">
+  <div class="mb-2" [class.row]="withinModal">
     <div class="btn-group btn-group-toggle">
       <label class="btn btn-secondary" for="filter_all" [class.active]="filter === 'all'">
         <input type="radio"
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div [class.row]="withinModal">
     <div *ngIf="filteredHistory.length > 0;else noHistory" class="list-group w-100">
       <div *ngFor="let item of historyItems" class="list-group-item list-group-item-action list-group-item-{{item.color}}">
         <div class="d-flex w-100 justify-content-between">
@@ -46,7 +46,7 @@
       </div>
     </div>
   </div>
-  <div class="row mt-1">
+  <div class="mt-1" [class.row]="withinModal">
     <ngb-pagination class="m-auto"
                     *ngIf="filteredHistory.length > 1"
                     [collectionSize]="filteredHistory.length"

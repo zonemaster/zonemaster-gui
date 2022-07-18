@@ -15,6 +15,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
   @Input() history: any[];
 
   public domainName: string;
+  public withinModal = true;
 
   public page = 1;
   public pageSize = 10;
@@ -36,6 +37,8 @@ export class HistoryComponent implements OnInit, OnDestroy {
       console.log(this.domainName);
 
       // TODO fetch history for this.domainName in this.history
+
+      this.withinModal = false;
     });
 
     this.populateHistory();
