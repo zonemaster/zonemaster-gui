@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -8,9 +10,11 @@ import {AlertService} from '../../services/alert.service';
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.css']
 })
-export class HistoryComponent implements OnInit {
+export class HistoryComponent implements OnInit, OnDestroy {
 
   @Input() history: any[];
+
+  public domainName: string;
 
   public page = 1;
   public pageSize = 10;
@@ -19,10 +23,28 @@ export class HistoryComponent implements OnInit {
   public filter = 'all';
   public filteredHistory: any[] = [];
 
-  constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService) { }
+  private routeParamsSubscription: Subscription;
+
+  constructor(
+      private activatedRoute: ActivatedRoute,
+      private alertService: AlertService,
+      private dnsCheckService: DnsCheckService) { }
 
   ngOnInit() {
+    this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
+      this.domainName = params['domain'];
+      console.log(this.domainName);
+
+      // TODO fetch history for this.domainName in this.history
+    });
+
     this.populateHistory();
+  }
+
+  ngOnDestroy() {
+    if (this.routeParamsSubscription) {
+      this.routeParamsSubscription.unsubscribe();
+    }
   }
 
   private populateHistory() {
