@@ -26,7 +26,7 @@ The supported configuration items are the following.
   `[ "da", "en", "es", "fi", "fr", "nb", "sv" ]`.
 * `"contactAddress"`: The contact email address displayed in the footer, default
   `"contact@zonemaster.net"`.
-* `"logo`": The URL to the image displayed in the navigation bar, default
+* `"logoUrl`": The URL to the image displayed in the navigation bar, default
   `"assets/images/zonemaster_logo_2021_color.png"`.
 * `"msgBanner"`: A message to display to the user, if empty or undefined no
   banner will be shown. HTML formatting is supported (such as `<a>` tag) and
