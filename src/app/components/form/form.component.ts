@@ -52,7 +52,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   private _showProgressBar: boolean;
   private langChangeSubscription: Subscription;
 
-  private domainName: string;
+  private domainName: string = '';
   private routeParamsSubscription: Subscription;
 
   public history = {};
@@ -141,7 +141,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   public generate_form() {
     this.form = new FormGroup({
-      domain: new FormControl('', Validators.required),
+      domain: new FormControl(this.domainName, Validators.required),
       disable_ipv4: new FormControl(false),
       disable_ipv6: new FormControl(false),
       profile: new FormControl(this.profiles[0] || 'default'),
