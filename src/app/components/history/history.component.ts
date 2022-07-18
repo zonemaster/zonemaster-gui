@@ -33,12 +33,14 @@ export class HistoryComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
-      this.domainName = params['domain'];
-      console.log(this.domainName);
+      if ( params['domain'] ) {
+        this.domainName = params['domain'];
+        console.log(this.domainName);
 
-      // TODO fetch history for this.domainName in this.history
+        // TODO fetch history for this.domainName in this.history
 
-      this.withinModal = false;
+        this.withinModal = false;
+      }
     });
 
     this.populateHistory();

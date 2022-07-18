@@ -1,3 +1,6 @@
+<app-header *ngIf="!withinModal">
+  <h1>{{ "History" | translate }}</h1>
+</app-header>
 <div class="container">
   <div class="mb-2" [class.row]="withinModal">
     <div class="btn-group btn-group-toggle">
