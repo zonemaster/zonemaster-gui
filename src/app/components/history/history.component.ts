@@ -4,6 +4,8 @@ import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
 import { Subscription } from 'rxjs';
 
+import { sanitizeDomain } from '../../utils';
+
 
 @Component({
   selector: 'app-history',
@@ -34,7 +36,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       if ( params['domain'] ) {
-        this.domainName = params['domain'];
+        this.domainName = sanitizeDomain(params['domain']);
         console.log(this.domainName);
 
         // TODO fetch history for this.domainName in this.history
