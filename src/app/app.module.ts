@@ -50,11 +50,11 @@ class MyTranslationLoader extends TranslateLoader {
 const appRoutes: Routes = [
   { path: 'check', component: DomainComponent },
   { path: 'result/:resultID', component: ResultComponent },
-  { path: 'test/:resultID', component: ResultComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'faq', component: FaqComponent },
 
   { path: 'domain_check', redirectTo: 'check', pathMatch: 'full' },
+  { path: 'test/:resultID', redirectTo: 'result/:resultID', pathMatch: 'full' },
   { path: '', redirectTo: 'check', pathMatch: 'full' },
 
   { path: '**', component: PageNotFoundComponent }
