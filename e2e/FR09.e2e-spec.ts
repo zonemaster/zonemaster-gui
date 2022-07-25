@@ -12,6 +12,6 @@ test.describe('Zonemaster test FR09 - [Once a language is chosen, all other link
     await expect(page.locator('h1')).toHaveText('Nom de domaine');
     await page.locator('a.nav-link[routerlink="/faq"]').click();
     await expect(page.locator('section.main > div > h1')).toHaveText('FAQ');
-    await expect(page.locator('a.nav-link[routerlink="/domain_check"]')).toHaveText("Test d'un domaine");
+    await expect(page.locator('a.nav-link[routerlink="/check"]')).toHaveText("Test d'un domaine");
   });
 });

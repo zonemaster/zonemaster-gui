@@ -14,8 +14,8 @@ test.describe('Zonemaster test FR02 - [All menus should be clickable in latest v
   });
 
   test('should go to domain page', async ({ page, baseURL }) => {
-    await page.locator('a.nav-link[routerlink="/domain_check"]').click();
-    await expect(page).toHaveURL(baseURL + '/domain_check');
+    await page.locator('a.nav-link[routerlink="/check"]').click();
+    await expect(page).toHaveURL(baseURL + '/check');
   });
 
 });
