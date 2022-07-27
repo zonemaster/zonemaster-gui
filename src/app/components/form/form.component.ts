@@ -66,9 +66,14 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     private titleService: Title) {}
 
   ngOnInit() {
+    this.titleService.setTitle('Zonemaster');
+    this.generate_form();
+
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       if ( params['domain'] ) {
         this.domainName = params['domain'];
+        this.form.controls.domain.setValue(this.domainName);
+        this.runDomainCheck();
       }
     });
 
@@ -78,12 +83,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
       }
     });
 
-    this.generate_form();
-    this.titleService.setTitle('Zonemaster');
-
-    if ( this.domainName ) {
-        this.runDomainCheck();
-    }
   }
 
   ngOnChanges(changes: { [property: string]: SimpleChange }) {
@@ -94,9 +93,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnDestroy() {
     this.langChangeSubscription.unsubscribe();
-    if ( this.routeParamsSubscription ) {
-      this.routeParamsSubscription.unsubscribe();
-    }
+    this.routeParamsSubscription.unsubscribe();
   }
 
   private static atLeastOneProtocolValidator(control: AbstractControl) {
@@ -145,7 +142,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   public generate_form() {
     this.form = new FormGroup({
-      domain: new FormControl(this.domainName, Validators.required),
+      domain: new FormControl('', Validators.required),
       disable_ipv4: new FormControl(false),
       disable_ipv6: new FormControl(false),
       profile: new FormControl(this.profiles[0] || 'default'),
