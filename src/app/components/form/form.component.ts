@@ -52,7 +52,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   private _showProgressBar: boolean;
   private langChangeSubscription: Subscription;
 
-  private domainName: string = '';
   private routeParamsSubscription: Subscription;
 
   public history = {};
@@ -71,8 +70,8 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       if ( params['domain'] ) {
-        this.domainName = params['domain'];
-        this.form.controls.domain.setValue(this.domainName);
+        let domainName: string = params['domain'];
+        this.form.controls.domain.setValue(domainName);
         this.runDomainCheck();
       }
     });
