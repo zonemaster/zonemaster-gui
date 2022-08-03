@@ -68,7 +68,8 @@ allvarliga vissa fel ska vara, via CLI-verktyget går det att direkt peka ut sin
 
 Men eftersom DNS utvecklas hela tiden kan situationer som idag bara kräver en 
 varning räknas som allvarliga fel imorgon. Om du tror du hittat något som du tycker
-vi felbedömt, tveka då inte att kontakta oss på zonemaster-devel@lists.iis.se med en 
+vi felbedömt, tveka då inte att kontakta oss på zonemaster-users@lists.iis.se
+(modererad e-postlista) med en
 länk till ditt test och en förklaring av varför du anser att resultatet inte är
 korrekt. 
 

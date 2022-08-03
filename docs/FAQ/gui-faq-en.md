@@ -77,7 +77,8 @@ file when running the tests.
 But as with all things as evolving as DNS the situation is most likely
 changing, what is a notice today could be an error tomorrow. If you really think
 we have made a mistake in our judgement please do not hesitate to drop us an email
-at zonemaster-devel@lists.iis.se with a link to your test and an explanation why you think it
+at zonemaster-users@lists.iis.se (moderated mailing list) with a link to your
+test and an explanation why you think it
 shows something that you consider incorrect.
 
 <a name="q6"></a>
