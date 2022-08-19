@@ -48,15 +48,15 @@ class MyTranslationLoader extends TranslateLoader {
 }
 
 const appRoutes: Routes = [
-  { path: 'domain_check', component: DomainComponent },
+  { path: 'check/:domain', component: DomainComponent },
+  { path: 'check', component: DomainComponent },
   { path: 'result/:resultID', component: ResultComponent },
-  { path: 'test/:resultID', component: ResultComponent },
-  { path: 'history', component: HistoryComponent },
   { path: 'faq', component: FaqComponent },
-  { path: '',
-    redirectTo: 'domain_check',
-    pathMatch: 'full'
-  },
+
+  { path: 'domain_check', redirectTo: 'check', pathMatch: 'full' },
+  { path: 'test/:resultID', redirectTo: 'result/:resultID', pathMatch: 'full' },
+  { path: '', redirectTo: 'check', pathMatch: 'full' },
+
   { path: '**', component: PageNotFoundComponent }
 ];
 
