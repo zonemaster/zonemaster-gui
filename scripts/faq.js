@@ -8,7 +8,7 @@ const markdown_to_html = (text) => {
   const faqHref = {
     type: 'output',
     regex: new RegExp('href="#', 'g'),
-    replace: 'href="/faq#'
+    replace: 'href="./faq#'
   }
   const converter = new showdown.Converter({
     extensions: [faqHref],
@@ -36,4 +36,3 @@ fs.readdir('./src/assets/i18n', (err, files) => {
     getFaq(filename.split('.')[0]);
   });
 });
-
