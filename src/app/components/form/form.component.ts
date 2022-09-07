@@ -17,12 +17,12 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() is_advanced_options_enabled;
-  @Input() domain_check_progression;
+  @Input() isAdvancedOptionEnabled;
+  @Input() formProgression;
   @Input() toggleFinished;
   @Input() profiles;
 
-  @Output() onDomainCheck = new EventEmitter<object>();
+  @Output() onRunTest = new EventEmitter<object>();
   @Output() onfetchFromParent = new EventEmitter<string>();
   @Output() onOpenOptions = new EventEmitter<boolean>();
 
@@ -63,13 +63,13 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnInit() {
     this.titleService.setTitle('Zonemaster');
-    this.generate_form();
+    this.generateForm();
 
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       if ( params['domain'] ) {
         let domainName: string = params['domain'];
         this.form.controls.domain.setValue(domainName);
-        this.runDomainCheck();
+        this.submitRunTest();
       }
     });
   }
@@ -128,7 +128,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return  null;
   };
 
-  public generate_form() {
+  private generateFormRunTest() {
     this.form = new FormGroup({
       domain: new FormControl('', Validators.required),
       disable_ipv4: new FormControl(false),
@@ -142,6 +142,10 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
     this.addNewRow('nameservers');
     this.addNewRow('ds_info');
+  }
+
+  public generateForm() {
+    this.generateFormRunTest();
   }
 
   get domain() { return this.form.get('domain'); }
@@ -190,12 +194,12 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return this._showProgressBar;
   }
 
-  public resetDomainForm() {
+  public resetForm() {
     this.form.controls.domain.reset('');
   }
 
   public resetFullForm() {
-    this.generate_form();
+    this.generateForm();
   }
 
   public addNewRow(formName, value = null) {
@@ -251,7 +255,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  public runDomainCheck(submitValid = true) {
+  private submitRunTest(submitValid = true) {
     this.form.markAllAsTouched();
     let param = this.form.value;
 
@@ -284,12 +288,16 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
       }});
 
     if (submitValid == this.form.valid) {
-      this.onDomainCheck.emit(param);
+      this.onRunTest.emit(param);
     }
   }
 
+  public submitForm() {
+    this.submitRunTest();
+  }
+
   public toggleOptions() {
-    this.is_advanced_options_enabled = !this.is_advanced_options_enabled
-    this.onOpenOptions.emit(this.is_advanced_options_enabled);
+    this.isAdvancedOptionEnabled = !this.isAdvancedOptionEnabled
+    this.onOpenOptions.emit(this.isAdvancedOptionEnabled);
   }
 }

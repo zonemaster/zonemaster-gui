@@ -12,8 +12,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class DomainCheckComponent implements OnInit {
   private intervalTime: number;
-  public is_advanced_options_enabled = false;
-  public domain_check_progression = 0;
+  public isAdvancedOptionEnabled = false;
+  public runTestProgression = 0;
   public showResult = false;
   public showProgressBar = false;
   public parentData: any;
@@ -53,10 +53,10 @@ export class DomainCheckComponent implements OnInit {
   }
 
   public openOptions(value) {
-    this.is_advanced_options_enabled = value;
+    this.isAdvancedOptionEnabled = value;
   }
 
-  public domainCheck(data: object) {
+  public runTest(data: object) {
     let domainCheckId: string;
 
     const self = this;
@@ -70,16 +70,16 @@ export class DomainCheckComponent implements OnInit {
       const handle = setInterval(() => {
         self.dnsCheckService.testProgress(domainCheckId).then(res => {
 
-          self.domain_check_progression = parseInt(res as string, 10) as number;
+          self.runTestProgression = parseInt(res as string, 10) as number;
 
-          if (self.domain_check_progression === 100) {
+          if (self.runTestProgression === 100) {
             clearInterval(handle);
             this.alertService.success($localize `Test completed`);
             self.resultID = domainCheckId;
-            self.is_advanced_options_enabled = false;
+            self.isAdvancedOptionEnabled = false;
             self.showResult = true;
             self.showProgressBar = false;
-            self.domain_check_progression = 5;
+            self.runTestProgression = 5;
             self.toggleFinished = !self.toggleFinished;
             this.router.navigate(['/result', this.resultID ], { state: { displayForm: true, displayNotification: true }});
           }
