@@ -18,8 +18,9 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
+  @Input() isFormDomainCheck;
   @Input() is_advanced_options_enabled;
-  @Input() domain_check_progression;
+  @Input() form_progression;
   @Input() toggleFinished;
   @Input() profiles;
 
@@ -139,7 +140,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return  null;
   };
 
-  public generate_form() {
+  private generate_form_domain_check() {
     this.form = new FormGroup({
       domain: new FormControl('', Validators.required),
       disable_ipv4: new FormControl(false),
@@ -153,6 +154,12 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
     this.addNewRow('nameservers');
     this.addNewRow('ds_info');
+  }
+
+  public generate_form() {
+    if ( this.isFormDomainCheck ) {
+      this.generate_form_domain_check();
+    }
   }
 
   get domain() { return this.form.get('domain'); }
@@ -201,7 +208,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return this._showProgressBar;
   }
 
-  public resetDomainForm() {
+  public resetForm() {
     this.form.controls.domain.reset('');
   }
 
@@ -262,7 +269,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  public runDomainCheck(submitValid = true) {
+  private runDomainCheck(submitValid = true) {
     this.form.markAllAsTouched();
     let param = this.form.value;
 
@@ -297,6 +304,12 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     if (submitValid == this.form.valid) {
       this.onDomainCheck.emit(param);
     }
+  }
+
+  public submitForm() {
+      if (this.isFormDomainCheck) {
+        this.runDomainCheck();
+      }
   }
 
   public toggleOptions() {
