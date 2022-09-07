@@ -11,6 +11,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
+import { sanitizeDomain } from '../../utils';
+
 
 @Component({
   selector: 'app-form',
@@ -259,21 +261,11 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  // Remove trailing spaces and dots, and leading spaces
-  private sanitizeDomain(domain: string): string {
-    domain = domain.trim();
-    if (domain == '.') {
-      return domain;
-    } else {
-      return domain.replace(/\.$/, '');
-    }
-  }
-
   private runDomainCheck(submitValid = true) {
     this.form.markAllAsTouched();
     let param = this.form.value;
 
-    param.domain = this.sanitizeDomain(param.domain);
+    param.domain = sanitizeDomain(param.domain);
 
     if (param.ipv4 === true) delete param.ipv4;
 
@@ -284,7 +276,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
     param.nameservers = param.nameservers
       .map((x, i) => {
-        x.ns = this.sanitizeDomain(x.ns);
+        x.ns = sanitizeDomain(x.ns);
         if (!x.ip) {
           delete x.ip;
         }

@@ -22,9 +22,15 @@ export class HistoryComponent implements OnInit {
   constructor(private alertService: AlertService, private dnsCheckService: DnsCheckService) { }
 
   ngOnInit() {
-    this.history = this.setColor(this.history);
-    this.filterHistory(this.filter);
-    this.setItemsByPage(this.page);
+    this.populateHistory();
+  }
+
+  private populateHistory() {
+    if ( this.history ) {
+      this.history = this.setColor(this.history);
+      this.filterHistory(this.filter);
+      this.setItemsByPage(this.page);
+    }
   }
 
   setColor(data) {
