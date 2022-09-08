@@ -17,9 +17,9 @@ import { sanitizeDomain } from '../../utils';
 export class HistoryComponent implements OnInit, OnDestroy {
 
   @Input() history: any[];
+  @Input() withinModal: boolean;
 
   public domainName: string;
-  public withinModal = true;
 
   public infoMsg: string;
 
@@ -51,7 +51,6 @@ export class HistoryComponent implements OnInit, OnDestroy {
         this.domainName = sanitizeDomain(params['domain']);
         console.log(this.domainName);
         this.getHistory();
-        this.withinModal = false;
       }
     });
 
@@ -75,7 +74,11 @@ export class HistoryComponent implements OnInit, OnDestroy {
 
   private updateTitle() {
     this.translateService.get('History').subscribe((historyTitle: string) => {
-      this.titleService.setTitle(`${this.domainName} · ${historyTitle} · Zonemaster`);
+      if ( this.domainName ) {
+        this.titleService.setTitle(`${this.domainName} · ${historyTitle} · Zonemaster`);
+      } else {
+        this.titleService.setTitle(`${historyTitle} · Zonemaster`);
+      }
     });
   }
 
