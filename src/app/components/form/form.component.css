@@ -21,9 +21,12 @@
   width: 50%;
 }
 
+button.launch,
+button.history {
+  height: 64px;
+}
 button.launch {
   background-color: #FF5A5F;
-  height: 64px;
 }
 button.launch:hover {
   background-color: #ff3c3a;

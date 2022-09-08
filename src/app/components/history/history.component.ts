@@ -20,12 +20,10 @@ export class HistoryComponent implements OnInit, OnDestroy {
   @Input() withinModal: boolean;
 
   public domainName: string;
-
   public infoMsg: string;
-
+  public isFormHistory = true;
   public page = 1;
   public pageSize = 10;
-
   public historyItems: any[] = [];
   public filter = 'all';
   public filteredHistory: any[] = [];

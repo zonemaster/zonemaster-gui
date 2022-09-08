@@ -21,6 +21,7 @@ import { sanitizeDomain } from '../../utils';
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() isFormDomainCheck;
+  @Input() isFormHistory;
   @Input() is_advanced_options_enabled;
   @Input() form_progression;
   @Input() toggleFinished;
@@ -158,9 +159,18 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     this.addNewRow('ds_info');
   }
 
+  private generate_form_history() {
+    this.form = new FormGroup({
+      domain: new FormControl('', Validators.required),
+    });
+  }
+
   public generate_form() {
     if ( this.isFormDomainCheck ) {
       this.generate_form_domain_check();
+    }
+    if ( this.isFormHistory ) {
+      this.generate_form_history();
     }
   }
 

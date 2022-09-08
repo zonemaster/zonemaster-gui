@@ -2,7 +2,8 @@
   <div class="container-fuild">
     <div class="row mb-1">
       <div class="col-sm-10 offset-sm-1 text-center">
-        <h1>{{'Domain name'|translate}}</h1>
+        <h1 *ngIf="isFormDomainCheck">{{'Domain name'|translate}}</h1>
+        <h1 *ngIf="isFormHistory">{{ 'History' | translate }}</h1>
         <div class="form-row mb-2">
           <div class="col">
             <input type="text"
@@ -46,6 +47,13 @@
                     [disabled]="disable_check_button"
                     *ngIf="isFormDomainCheck">
               Check
+            </button>
+            <button title="{{'Get domain\'s history'|translate}}"
+                    class="history btn btn-lg btn-primary text-white"
+                    type="submit"
+                    [disabled]="disable_check_button"
+                    *ngIf="isFormHistory">
+                {{ 'View history' | translate }}
             </button>
           </div>
         </div>
