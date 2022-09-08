@@ -21,16 +21,9 @@ nav {
   cursor: pointer;
   color: inherit;
 }
-
-.lang > div > a.selected {
-  font-weight: bold;
-  text-decoration: underline solid 1px;
+#languageSelection{
+  width: auto;
 }
-
-.lang > div > a {
-  text-decoration: none;
-}
-
 .github {
   height: 100%;
 }

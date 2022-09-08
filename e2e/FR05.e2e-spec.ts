@@ -18,16 +18,16 @@ test.describe('Zonemaster test FR05 - [Supports internationalization]', () => {
   ];
 
   for (const { language, code, expected } of testSuite) {
-    test(`should have ${language} language button`, async ({ page }) => {
-      const langNavLink = page.locator(`.lang > div > a[lang="${code}"]`);
+    test(`should have ${language} language option`, async ({ page }) => {
+      const langNavLink = page.locator(`select#languageSelection > option[lang="${code}"]`);
       await expect(langNavLink).toHaveCount(1);
     })
 
-    test(`should switch switch to ${language}`, async ({ page }) => {
+    test(`should switch to ${language}`, async ({ page }) => {
       await setLang(page, code);
       await expect(page.locator('h1')).toHaveText(expected);
 
-      const langNavLink = page.locator(`.lang > div > a[lang="${code}"]`);
+      const langNavLink = page.locator(`select#languageSelection > option[lang="${code}"]`);
       await expect(langNavLink).toHaveCount(1);
       await expect(langNavLink).toHaveAttribute('lang', code);
     })
