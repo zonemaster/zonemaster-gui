@@ -72,6 +72,13 @@ export class HistoryComponent implements OnInit, OnDestroy {
     }
   }
 
+  private resetHistory() {
+    this.history = [];
+    this.filteredHistory = [];
+    this.historyItems = [];
+    this.showProgressBar = false;
+  }
+
   private updateTitle() {
     this.translateService.get('History').subscribe((historyTitle: string) => {
       if ( this.domainName ) {
@@ -95,12 +102,14 @@ export class HistoryComponent implements OnInit, OnDestroy {
         this.history = data as any[];
         if (this.history.length === 0) {
           this.infoMsg = 'No history available for this domain';
+          this.resetHistory();
         } else {
           this.populateHistory();
         }
       })
       .catch( data => {
         this.showProgressBar = false;
+        this.resetHistory();
         if ( data && data.jsonrpc !== undefined ) {
           this.infoMsg = 'No history available for this domain';
         } else {
