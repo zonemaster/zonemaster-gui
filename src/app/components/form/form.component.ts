@@ -28,6 +28,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() profiles;
 
   @Output() onDomainCheck = new EventEmitter<object>();
+  @Output() ongetTestHistory = new EventEmitter<object>();
   @Output() onfetchFromParent = new EventEmitter<string>();
   @Output() onOpenOptions = new EventEmitter<boolean>();
 
@@ -65,6 +66,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
+    private router: Router,
     private translateService: TranslateService,
     private titleService: Title) {}
 
@@ -308,9 +310,24 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  private runTestHistory() {
+    this.form.markAllAsTouched();
+    let param = this.form.value;
+
+    param.domain = sanitizeDomain(param.domain);
+
+    if ( this.form.valid ) {
+      this.ongetTestHistory.emit( param.domain );
+      this.router.navigate( [ '/history', param.domain ] );
+    }
+  }
+
   public submitForm() {
       if (this.isFormDomainCheck) {
         this.runDomainCheck();
+      }
+      if (this.isFormHistory) {
+          this.runTestHistory();
       }
   }
 

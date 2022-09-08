@@ -80,8 +80,11 @@ export class HistoryComponent implements OnInit, OnDestroy {
     });
   }
 
-  public getHistory() {
-    if (!this.history) {
+  public getHistory(domain:string = undefined) {
+    if (!this.history || domain) {
+      if ( domain ) {
+        this.domainName = sanitizeDomain( domain );
+      }
       this.infoMsg = 'History information request is in progress';
 
       this.dnsCheckService.getTestHistory({'domain': this.domainName})
