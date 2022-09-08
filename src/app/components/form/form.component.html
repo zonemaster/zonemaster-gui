@@ -36,7 +36,7 @@
                 [striped]="true"
                 [animated]="true"
               >
-                <span class="progress-value">{{form_progression}}%</span>
+                <span class="progress-value" *ngIf="!isFormHistory">{{form_progression}}%</span>
               </ngb-progressbar>
             </p>
           </div>

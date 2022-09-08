@@ -22,6 +22,8 @@ export class HistoryComponent implements OnInit, OnDestroy {
   public domainName: string;
   public infoMsg: string;
   public isFormHistory = true;
+  public showProgressBar = false;
+  public historyProgression = 100;
   public page = 1;
   public pageSize = 10;
   public historyItems: any[] = [];
@@ -86,9 +88,10 @@ export class HistoryComponent implements OnInit, OnDestroy {
         this.domainName = sanitizeDomain( domain );
       }
       this.infoMsg = 'History information request is in progress';
-
+      this.showProgressBar = true;
       this.dnsCheckService.getTestHistory({'domain': this.domainName})
       .then( data => {
+        this.showProgressBar = false;
         this.history = data as any[];
         if (this.history.length === 0) {
           this.infoMsg = 'No history available for this domain';
@@ -97,6 +100,7 @@ export class HistoryComponent implements OnInit, OnDestroy {
         }
       })
       .catch( data => {
+        this.showProgressBar = false;
         if ( data && data.jsonrpc !== undefined ) {
           this.infoMsg = 'No history available for this domain';
         } else {

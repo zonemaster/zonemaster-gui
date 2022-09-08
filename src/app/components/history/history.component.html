@@ -1,5 +1,7 @@
 <app-header *ngIf="!withinModal">
     <app-form [isFormHistory]="isFormHistory"
+              [form_progression]="historyProgression"
+              [showProgressBar]="showProgressBar"
               (ongetTestHistory)="getHistory($event)"
     ></app-form>
 </app-header>
