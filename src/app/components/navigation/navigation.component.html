@@ -22,6 +22,7 @@
       </ul>
 
       <div class="lang">
+        <span class="icon"><i class="fa fa-language" aria-hidden="true"></i></span>
         <div class="d-block">
           <select name="lang" [(ngModel)]="lang" (change)="setLanguage(lang)" class="form-select" id="languageSelection">
             <option *ngFor="let itemLang of enabledLanguages" [lang]="itemLang" [value]="itemLang" [selected]="lang === itemLang">
