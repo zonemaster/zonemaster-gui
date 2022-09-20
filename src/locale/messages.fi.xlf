@@ -46,14 +46,6 @@
         <source>Disable IPv6</source>
         <target state="new">Poista IPv6 käytöstä</target>
       </trans-unit>
-      <trans-unit datatype="html" id="cc9e42424cb8ce1094a530da54272362116e26bc">
-        <source>Domain check</source>
-        <target state="new">Verkkotunnustesti</target>
-      </trans-unit>
-      <trans-unit datatype="html" id="4004806372315985461">
-        <source>Domain checked completed</source>
-        <target state="new">Verkkotunnustesti valmis</target>
-      </trans-unit>
       <trans-unit datatype="html" id="a80323a72217e6e51ab903d5109e12c69ed70b79">
         <source>Domain name</source>
         <target state="new">Verkkotunnus</target>
@@ -247,10 +239,6 @@
         <source>Close</source>
         <target state="new">Close</target>
       </trans-unit>
-      <trans-unit id="efe796c3f1faf267427bfe3a8d70708bfd418058" datatype="html">
-        <source>Check</source>
-        <target state="new">Check</target>
-      </trans-unit>
       <trans-unit id="dfc3c34e182ea73c5d784ff7c8135f087992dac1" datatype="html">
         <source>All</source>
         <target state="new">All</target>
@@ -304,6 +292,22 @@
       <trans-unit id="55cae3ebe403d9eb277c9ff354297a0b34f56486" datatype="html">
         <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the &apos;Enter&apos; button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
         <target state="new">Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the &apos;Enter&apos; button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</target>
+      </trans-unit>
+      <trans-unit id="ccaa538a3c6d0d421092f253668feb173578f989" datatype="html">
+        <source>Run domain test</source>
+        <target state="new">Run domain test</target>
+      </trans-unit>
+      <trans-unit id="b23b7b874559732067ac282a864c98562cdbb435" datatype="html">
+        <source>Run</source>
+        <target state="new">Run</target>
+      </trans-unit>
+      <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
+        <source>Change language</source>
+        <target state="new">Change language</target>
+      </trans-unit>
+      <trans-unit id="1431398063810974447" datatype="html">
+        <source>Test completed</source>
+        <target state="new">Test completed</target>
       </trans-unit>
     </body>
   </file>
