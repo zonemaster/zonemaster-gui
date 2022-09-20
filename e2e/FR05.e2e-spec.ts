@@ -25,7 +25,7 @@ test.describe('Zonemaster test FR05 - [Supports internationalization]', () => {
 
     test(`should switch to ${language}`, async ({ page }) => {
       await setLang(page, code);
-      await expect(page.locator('h1')).toHaveText(expected);
+      await expect(page.locator('input#input_domain_form')).toHaveAttribute('placeholder', expected);
 
       const langNavLink = page.locator(`select#languageSelection > option[lang="${code}"]`);
       await expect(langNavLink).toHaveCount(1);
