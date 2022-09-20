@@ -148,7 +148,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="baa5cda119114bb5fba61496780778a5fa10caf1">
         <source>Run test</source>
-        <target state="new">Lancer ce test</target>
+        <target state="new">Lancer un test</target>
       </trans-unit>
       <trans-unit datatype="html" id="0bd8b27f60a1f098a53e06328426d818e3508ff9">
         <source>Share</source>
@@ -295,11 +295,11 @@
       </trans-unit>
       <trans-unit id="ccaa538a3c6d0d421092f253668feb173578f989" datatype="html">
         <source>Run domain test</source>
-        <target state="new">Run domain test</target>
+        <target state="new">Lancer un test</target>
       </trans-unit>
       <trans-unit id="b23b7b874559732067ac282a864c98562cdbb435" datatype="html">
         <source>Run</source>
-        <target state="new">Run</target>
+        <target state="new">Lancer</target>
       </trans-unit>
       <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
         <source>Change language</source>
@@ -307,7 +307,7 @@
       </trans-unit>
       <trans-unit id="1431398063810974447" datatype="html">
         <source>Test completed</source>
-        <target state="new">Test completed</target>
+        <target state="new">Test terminé</target>
       </trans-unit>
     </body>
   </file>
