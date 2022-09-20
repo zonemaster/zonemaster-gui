@@ -16,7 +16,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class ResultComponent implements OnInit, OnDestroy {
 
-  @Input('resultID') resultID: string;
+  @Input('testId') testId: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
 
@@ -76,11 +76,11 @@ export class ResultComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log(this.resultID);
+    console.log(this.testId);
 
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
-      this.resultID = params['resultID'];
-      this.displayResult(this.resultID);
+      this.testId = params['testId'];
+      this.displayResult(this.testId);
     });
 
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
@@ -129,14 +129,14 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
-   private displayResult(domainCheckId: string, resetCollapsed = true) {
-     this.dnsCheckService.getTestResults(domainCheckId).then(data => {
+   private displayResult(testId: string, resetCollapsed = true) {
+     this.dnsCheckService.getTestResults(testId).then(data => {
       // TODO clean
 
       this.test = {
         id: data['hash_id'],
         creation_time: new Date(data['created_at']),
-        location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
+        location: document.location.origin + this.location.prepareExternalUrl(`/result/${testId}`)
       };
 
       this.historyQuery = data['params'];

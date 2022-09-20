@@ -17,7 +17,7 @@ export class DomainCheckComponent implements OnInit {
   public showResult = false;
   public showProgressBar = false;
   public parentData: any;
-  public resultID = '';
+  public testId = '';
   public profiles = [];
   public toggleFinished = false;
   public requestError: object;
@@ -57,31 +57,31 @@ export class DomainCheckComponent implements OnInit {
   }
 
   public runTest(data: object) {
-    let domainCheckId: string;
+    let testId: string;
 
     const self = this;
 
     this.dnsCheckService.startDomainTest(data).then(id => {
-      domainCheckId = id as string;
+      testId = id as string;
       this.showProgressBar = true;
 
       this.titleService.setTitle(`${data['domain']} · Zonemaster`);
 
       const handle = setInterval(() => {
-        self.dnsCheckService.testProgress(domainCheckId).then(res => {
+        self.dnsCheckService.testProgress(testId).then(res => {
 
           self.runTestProgression = parseInt(res as string, 10) as number;
 
           if (self.runTestProgression === 100) {
             clearInterval(handle);
             this.alertService.success($localize `Test completed`);
-            self.resultID = domainCheckId;
+            self.testId = testId;
             self.isAdvancedOptionEnabled = false;
             self.showResult = true;
             self.showProgressBar = false;
             self.runTestProgression = 5;
             self.toggleFinished = !self.toggleFinished;
-            this.router.navigate(['/result', this.resultID ], { state: { displayForm: true, displayNotification: true }});
+            this.router.navigate(['/result', this.testId ], { state: { displayForm: true, displayNotification: true }});
           }
         });
       }, this.intervalTime);

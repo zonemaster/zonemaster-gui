@@ -37,11 +37,11 @@ export const isMock = environment.mock;
 const appRoutes: Routes = [
   { path: 'run-test/:domain', component: DomainComponent },
   { path: 'run-test', component: DomainComponent },
-  { path: 'result/:resultID', component: ResultComponent },
+  { path: 'result/:testId', component: ResultComponent },
   { path: 'faq', component: FaqComponent },
 
   { path: 'domain_check', redirectTo: 'run-test', pathMatch: 'full' },
-  { path: 'test/:resultID', redirectTo: 'result/:resultID', pathMatch: 'full' },
+  { path: 'test/:testId', redirectTo: 'result/:testId', pathMatch: 'full' },
   { path: '', redirectTo: 'run-test', pathMatch: 'full' },
 
   { path: '**', component: PageNotFoundComponent }
