@@ -79,8 +79,8 @@ Pero tal como muchas cosas que evolucionan como el DNS, la situación es
 cambiante en el tiempo, y lo que es un aviso hoy puede ser un error
 mañana. Si realmente crees que hemos cometido un error en nuestro
 juicio, por favor no dudes en enviarnos un email a 
-zonemaster-users@lists.iis.se (lista de correo moderada) con un enlace a tu
-prueba y una explicación
+[zonemaster-users@lists.iis.se](mailto:zonemaster-users@lists.iis.se)
+(lista de correo moderada) con un enlace a tu prueba y una explicación
 por qué crees que muestra algo que consideres incorrecto.
 
 <a name="q6"></a>

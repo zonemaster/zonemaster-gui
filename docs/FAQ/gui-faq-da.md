@@ -68,8 +68,8 @@ advarsel. Den ekstra fordel ved værktøjet er, at man kan tilføje sin egen pol
 Zonemaster om at bruge denne politik til at afvikle tests.
 Men som alle andre ting udvikler DNS sig også, og det er sandsynligt, at en advarsel kan blive
 til en fejl på et senere tidspunkt. Hvis du mener, at Vi har lavet en fejl, så tøv ikke med at
-sende os en e-mail på adressen zonemaster-users@lists.iis.se (moderated mailing
-list) med et link til din test
+sende os en e-mail på adressen [zonemaster-users@lists.iis.se](mailto:zonemaster-users@lists.iis.se)
+(moderated mailing list) med et link til din test
 og en forklaring på, hvorfor du mener, at resultatet viser noget, som du anser forkert.
 
 <a name="q6"></a>

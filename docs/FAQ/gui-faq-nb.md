@@ -50,7 +50,7 @@ Det beror på hvilket test som gikk galt for domenet.
 #### 5. Hvordan avgjør Zonemaster hva som er rett eller feil? <a name="q5"></a>
 Det er viktig å understreke at ingen kan gi en endelig uttalelse om helsen til et domene. Zonemaster er ikke alltid fullstendig korrekt, og resultatene kan gi rom for tolkning. De som står bak testen understreker at de har gjort sitt aller beste for å utvikle en best mulig policy for vurdering av ulike feil før de blir presentert for deg som bruker verktøyet.
 
-Hvis du syns at et testresultat er feil så oppfordrer vi til å sende en e-post til zonemaster-users@lists.iis.se (moderert e-postliste) med en lenke til testresultatet og forklar hvorfor du synes testen er feil.
+Hvis du syns at et testresultat er feil så oppfordrer vi til å sende en e-post til [zonemaster-users@lists.iis.se](mailto:zonemaster-users@lists.iis.se) (moderert e-postliste) med en lenke til testresultatet og forklar hvorfor du synes testen er feil.
 
 #### 6. Håndterer Zonemaster IPv6? <a name="q6"></a>
 Ja, alle tester kjøres på både IPv4 og IPv6.
