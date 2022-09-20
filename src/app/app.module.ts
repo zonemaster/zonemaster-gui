@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { DomainComponent } from './components/domain/domain.component';
-import { DomainCheckComponent } from './components/domain-check/domain-check.component';
+import { RunTestComponent } from './components/run-test/run-test.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -51,7 +51,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DomainComponent,
-    DomainCheckComponent,
+    RunTestComponent,
     FaqComponent,
     PageNotFoundComponent,
     NavigationComponent,

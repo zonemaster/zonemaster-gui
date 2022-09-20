@@ -6,11 +6,11 @@ import { AppService } from '../../services/app.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-domain-check',
-  templateUrl: './domain-check.component.html',
-  styleUrls: ['./domain-check.component.css']
+  selector: 'app-run-test',
+  templateUrl: './run-test.component.html',
+  styleUrls: ['./run-test.component.css']
 })
-export class DomainCheckComponent implements OnInit {
+export class RunTestComponent implements OnInit {
   private intervalTime: number;
   public isAdvancedOptionEnabled = false;
   public runTestProgression = 0;
