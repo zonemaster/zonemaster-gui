@@ -35,14 +35,14 @@ import { HttpMockRequestInterceptor } from './interceptors/mock.interceptor';
 export const isMock = environment.mock;
 
 const appRoutes: Routes = [
-  { path: 'check/:domain', component: DomainComponent },
-  { path: 'check', component: DomainComponent },
+  { path: 'run-test/:domain', component: DomainComponent },
+  { path: 'run-test', component: DomainComponent },
   { path: 'result/:resultID', component: ResultComponent },
   { path: 'faq', component: FaqComponent },
 
-  { path: 'domain_check', redirectTo: 'check', pathMatch: 'full' },
+  { path: 'domain_check', redirectTo: 'run-test', pathMatch: 'full' },
   { path: 'test/:resultID', redirectTo: 'result/:resultID', pathMatch: 'full' },
-  { path: '', redirectTo: 'check', pathMatch: 'full' },
+  { path: '', redirectTo: 'run-test', pathMatch: 'full' },
 
   { path: '**', component: PageNotFoundComponent }
 ];

@@ -74,7 +74,7 @@ export class DomainCheckComponent implements OnInit {
 
           if (self.domain_check_progression === 100) {
             clearInterval(handle);
-            this.alertService.success($localize `Domain checked completed`);
+            this.alertService.success($localize `Test completed`);
             self.resultID = domainCheckId;
             self.is_advanced_options_enabled = false;
             self.showResult = true;

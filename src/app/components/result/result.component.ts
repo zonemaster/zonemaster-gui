@@ -71,7 +71,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
     // When redirected from the domain check page we display the notification here as the other component has been destroyed
     if (this.displayForm) {
-      this.alertService.success($localize `Domain checked completed`);
+      this.alertService.success($localize `Test completed`);
     }
   }
 
