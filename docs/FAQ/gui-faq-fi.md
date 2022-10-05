@@ -52,7 +52,7 @@ Kukaan ei voi antaa lopullista, kaikenkattavaa lausuntoa verkkotunnuksen kunnost
 
 Käyttäjänä voit helposti luoda oman profiilin, jonka avulla voit arvioida tiettyjen virheiden vakavuutta. Oman profiilin voi osoittaa suoraan CLI-työkalulla.
 
-Koska DNS kuitenkin kehittyy koko ajan, tilanteet, jotka ovat normaaleja nyt, saattavat olla tulevaisuudessa vakavia virheitä. Jos uskot löytäneesi jotakin, jonka olemme arvioineet väärin, ota epäröimättä yhteyttä osoitteeseen [zonemaster-devel@lists.iis.se](mailto:zonemaster-devel@lists.iis.se) ja lähetä linkki testiisi ja selitys siitä, miksi tulos ei ole mielestäsi oikein.
+Koska DNS kuitenkin kehittyy koko ajan, tilanteet, jotka ovat normaaleja nyt, saattavat olla tulevaisuudessa vakavia virheitä. Jos uskot löytäneesi jotakin, jonka olemme arvioineet väärin, ota epäröimättä yhteyttä osoitteeseen [zonemaster-users@lists.iis.se](mailto:zonemaster-users@lists.iis.se) (moderated mailing list) ja lähetä linkki testiisi ja selitys siitä, miksi tulos ei ole mielestäsi oikein.
 
 #### 6. Pystyykö Zonemaster käsittelemään IPv6:ta? <a name="q6"></a>
 

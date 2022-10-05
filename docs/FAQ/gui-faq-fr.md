@@ -95,7 +95,8 @@ Mais, avec les technonologies évolutives, comme le DNS, ce qui est aujourd'hui
 un simple avertissement, peut devenir demain une faille de sécurité grave. Si
 vous considérez que nous avons fait une erreur de jugement pour qualifier une
 erreur, n'hésitez pas à nous en faire part en envoyant un Email à l'adresse
-zonemaster-devel@lists.iis.se avec le lien sur le test réalisé et un commentaire
+[zonemaster-users@lists.iis.se](mailto:zonemaster-users@lists.iis.se) (liste
+email modérée) avec le lien sur le test réalisé et un commentaire
 indiquant ce que vous pensez être incorrect dans notre diagnostique. (Si vous
 ne savez pas quel lien envoyer, consulter la réponse à la question "Qu'est-ce 
 que Zonemaster peut faire pour moi ?" qui se trouve dans cette FAQ)
