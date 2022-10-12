@@ -1,3 +1,82 @@
+article header div > i.fa {
+  margin-right: 3em;
+  display: inline-block;
+  width: 1em;
+}
+article h4 {
+  font-size: 1rem;
+  display: inline-block;
+}
+
+article h4.info {
+  color: #66ad54;
+}
+
+article h4.notice {
+  color: #007bff;
+}
+
+article h4.warning {
+  color: #ff9019;
+}
+
+article h4 i {
+  width: 1em;
+  display: inline-block;
+  text-align: center;
+  margin-left: -1.3em ;
+  margin-right: 0.3em;
+}
+article header div {
+  display: inline;
+  cursor: pointer;
+}
+article header a {
+  display: inline-block;
+  background-color: #d3eeff;
+  color: #555454;
+  margin-left: 1em;
+  font-size: 0.9em;
+  padding: 0.1em 0.4em;
+  text-transform: capitalize;
+}
+
+article ul li > span {
+  display: inline;
+  padding: 0.2em 0.3em;
+  border-radius: 0.3em;
+  font-size: 0.8em;
+}
+
+article ul li > span.info {
+  background: #66ad54;
+  color: white;
+}
+article ul li > span.notice {
+  background: #007bff;
+  color: white;
+}
+
+article ul li > span.warning {
+  background: #ff9019;
+  color: white;
+}
+
+article li {
+  list-style: none;
+}
+article ul {
+  padding-left: 4em;
+}
+
+article ul.collapsed {
+  display: none;
+}
+
+article h3 {
+  margin-top: 1rem;
+}
+
 .result {
   border-radius: 5px;
   width     : 100%;

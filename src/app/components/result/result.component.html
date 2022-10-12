@@ -114,23 +114,30 @@
   </div>
 
   <div class="mt-3">
-    <section *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items" [class.expanded]="!isCollapsed[moduleKey]">
-      <a [attr.aria-controls]="'module-' + moduleKey" [attr.aria-expanded]="!isCollapsed[moduleKey]">
-        <h3 (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]" class="{{modules[moduleKey]}} {{moduleKey}}" [ngStyle]="{'top': (navHeight + 7) + 'px'}" #headerRef>
-          <i class="fa" placement="top" ngbTooltip="{{(isCollapsed[moduleKey] ? 'Expand': 'Collapse')}}" [ngClass]="{'fa-plus': isCollapsed[moduleKey],'fa-minus': !isCollapsed[moduleKey]}" aria-hidden="true"></i>
-          <span>{{moduleKey}}</span>
-        </h3>
-      </a>
-      <div id="module-{{moduleKey}}" [ngbCollapse]="isCollapsed[moduleKey]" (hidden)="moduleCollapsed(headerRef)" [animation]="false">
-        <div *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
-          <div class="module-name">{{item.module|translate}}</div>
-          <div class="severity">{{item.level}}</div>
-          <p class="message">{{item.message|translate}}</p>
-        </div>
-      </div>
-    </section>
+    <article *ngFor="let module of new_module_items | keyvalue">
+      <h3>{{module.key}}</h3>
+      <article *ngFor="let testcase of module.value | keyvalue">
+        <header>
+          <div
+            (click)="isCollapsed[testcase.key] = !isCollapsed[testcase.key]; console.log(isCollapsed)"
+            [attr.aria-controls]="'testcase-' + testcase.key"
+            [attr.aria-expanded]="!isCollapsed[testcase.key]"
+          >
+            <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.key],'fa-minus-square-o': !isCollapsed[testcase.key]}"></i>
+
+            <h4 class="{{testcase.value.level}}">
+              <i class="fa {{severity_icons[testcase.value.level]}}" aria-hidden="true"></i>{{'testcases.' + testcase.key | translate}}
+            </h4>
+          </div>
+          <a href="https://zonemaster-docs.rd.nic.fr/specifications/{{module.key|lowercase}}-tp/{{testcase.key|lowercase}}.html"><i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.key|lowercase}}</a>
+
+        </header>
+        <ul [class.collapsed]="isCollapsed[testcase.key]" id="testcase-{{testcase.key}}" >
+          <li *ngFor="let entry of testcase.value.entries"><span class="{{entry.level|lowercase}}">{{entry.level}}</span> {{entry.message}} </li>
+        </ul>
+      </article>
+    </article>
   </div>
-</div>
 
 <ng-template #historyModal let-c="close" let-d="dismiss">
   <div class="modal-header">

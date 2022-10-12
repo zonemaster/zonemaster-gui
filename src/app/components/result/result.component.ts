@@ -26,6 +26,14 @@ export class ResultComponent implements OnInit, OnDestroy {
   public result = [];
   public modules: any;
   public module_items: any = {};
+  public new_module_items: any = {};
+  public severity_icons = {
+    'info': 'fa-check',
+    'notice': 'fa-exclamation',
+    'warning': 'fa-exclamation-triangle',
+    'error': 'fa-times-circle',
+    'critical': 'fa-times-circle'
+  }
   public modulesKeys;
   public searchQueryLength = 0;
   public test: any = {params: {ipv4: false, ipv6: false}};
@@ -172,6 +180,50 @@ export class ResultComponent implements OnInit, OnDestroy {
           return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
         })
       }
+
+      const levelsToNum = {
+        'info': 0,
+        'notice': 1,
+        'warning': 2,
+        'error': 3,
+        'critical': 4,
+      };
+
+      for (const entry of this.result) {
+        const currentModule = entry['module'];
+        const currentTestcase = entry['testcase'];
+        const currentLevel = entry['level'].toLowerCase();
+        const numLevel = levelsToNum[currentLevel];
+
+        if (!(currentModule in this.new_module_items)) {
+          this.new_module_items[currentModule] = {}
+        }
+
+        if (!(currentTestcase in this.new_module_items[currentModule])) {
+          this.isCollapsed[currentTestcase] = true;
+          this.new_module_items[currentModule][currentTestcase] = {
+            'entries': [],
+            'level': 'info'
+          }
+        }
+
+        this.new_module_items[currentModule][currentTestcase].entries.push(entry);
+
+        if (numLevel > levelsToNum[this.new_module_items[currentModule][currentTestcase].level]) {
+          this.new_module_items[currentModule][currentTestcase].level = currentLevel;
+        }
+      }
+
+      for (const module in this.new_module_items) {
+        for (const testcase in this.new_module_items[module]) {
+          this.new_module_items[module][testcase].entries.sort((msg1, msg2) => {
+            // sort messages by descending severity level
+            return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
+          })
+        }
+      }
+
+      console.log(this.new_module_items);
 
       this.form = data['params'];
       this.ns_list = data['ns_list'];
