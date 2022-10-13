@@ -1,24 +1,8 @@
-.fa-play-circle-o:hover {
-  color: #fff;
-}
-
-.fa-play-circle-o {
-  color: #9ad;
-}
-
 #domain_check_name {
   font-size:16px;
   height:64px;
   color:#6F787E;
   border-radius:3px
-}
-
-.checkboxForm {
-  width: 100%;
-}
-
-.half-with {
-  width: 50%;
 }
 
 button.launch {
@@ -29,63 +13,40 @@ button.launch:hover {
   background-color: #ff3c3a;
 }
 
+.advanced-options {
+  margin-top: 1em;
+}
 /* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+.switch-input-container {
+  display: flex;
+  align-items: center;
 }
 
-/* Hide default HTML checkbox */
-.switch input {display:none;}
+.switch-input-container label {
+  margin: 0;
+}
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+input[type=checkbox].switch-input {
+  width: 2em;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  display: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 1em;
+  border-radius: 2em;
+  font-size: 2em;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+  background-position: left center;
+  transition: all .25s ease-in-out;
+  margin-right: 0.2em;
+  cursor: pointer;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.advanced input:checked + .slider {
-  background-color: #2196F3;
-}
-
-.advanced input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-.advanced input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+input[type=checkbox].switch-input:checked {
+  background-position: right center;
+  background-color: #2196f3;
 }
 
 .advanced {
