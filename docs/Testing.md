@@ -31,7 +31,7 @@ similar environment than the one the CI runs in is used (ubuntu focal and UTC
 time).
 
 ```sh
-docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.12.3-focal /bin/bash
+docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.27.1-focal /bin/bash
 npm run e2e:install
 npm run e2e:update
 exit
