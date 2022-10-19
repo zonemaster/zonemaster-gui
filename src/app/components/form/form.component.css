@@ -9,7 +9,6 @@
 #domain_check_name {
   font-size:16px;
   height:64px;
-  color:#6F787E;
   border-radius:3px
 }
 
@@ -102,6 +101,10 @@ button.launch:hover {
   background-color: rgba(220, 53, 69, 0.9);
   border-radius: 0.25rem;
   text-align: left;
+}
+
+.domain .row {
+  --bs-gutter-x: 0.5rem;
 }
 
 .reset-form {

@@ -10,7 +10,7 @@ import { AppService } from '../../services/app.service';
 })
 export class NavigationComponent implements OnInit, AfterViewInit {
   public logoUrl: string;
-  public isNavbarCollapsed = false;
+  public isNavbarCollapsed = true;
   public isShrunk = false;
   public activeBackToTop = false;
   public lang = 'en';

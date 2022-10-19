@@ -17,33 +17,33 @@
           <span class="text-white">{{'History'|translate}}</span>
         </a>
 
-        <div ngbDropdown placement="bottom-center" class="d-inline-block">
+        <div ngbDropdown placement="bottom" class="d-inline-block">
           <button class="btn btn-secondary export" id="shareDropdownResult" ngbDropdownToggle>
-            <i class="fa fa-cloud-download text-white"></i>
+            <i class="fa fa-cloud-download text-white" aria-hidden="true"></i>
             <span class="text-white">{{'Export'|translate}}</span>
           </button>
           <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
-              <div class="dropdown-body">
-                <button class="btn" (click)="exportJson()"> JSON </button>
-                <button class="btn" (click)="exportCSV()"> CSV </button>
-                <button class="btn" (click)="exportHTML()"> HTML </button>
-                <button class="btn" (click)="exportText()"> TEXT </button>
-              </div>
+            <div class="dropdown-body">
+              <button class="btn" (click)="exportJson()"> JSON </button>
+              <button class="btn" (click)="exportCSV()"> CSV </button>
+              <button class="btn" (click)="exportHTML()"> HTML </button>
+              <button class="btn" (click)="exportText()"> TEXT </button>
+            </div>
           </div>
         </div>
 
-        <div ngbDropdown placement="bottom-right" class="d-inline-block">
+        <div ngbDropdown placement="bottom-end" class="d-inline-block">
           <button class="btn btn-secondary share" id="shareDropdownResult" ngbDropdownToggle>
-            <i class="fa fa-share text-white"></i>
+            <i class="fa fa-share text-white" aria-hidden="true"></i>
             <span class="text-white">{{'Share'|translate}}</span>
           </button>
           <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
-              <div class="dropdown-body">
-                <input readonly="" type="text" id="link_location" name="link_location" class="form-inline" value="{{test.location}}">
-                <button class="btn btn-clipboard" (click)="copyLinkToClipboard(test.location)">
-                    <i class="fa fa-clipboard"></i>
-                </button>
-              </div>
+            <div class="dropdown-body">
+              <input readonly="" type="text" id="link_location" name="link_location" class="form-inline" value="{{test.location}}">
+              <button class="btn btn-clipboard" (click)="copyLinkToClipboard(test.location)">
+                  <i class="fa fa-clipboard"></i>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -56,60 +56,58 @@
       <li class="nav-item ml-1">
         <ng-template #tooltipAll>{{ 'TOOLTIP_ALL' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipAll"
-           class="nav-link" [ngClass]="{'active all text-white': result_filter.all}"
+           class="btn" [ngClass]="{'active all text-white btn-secondary': result_filter.all}"
            (click)="togglePillFilter('all')"
            [(ngModel)]="result_filter.all" ngDefaultControl>
-          All <span class="badge badge-pill badge-secondary">{{result.length}}</span></a>
+          All <span class="badge bg-secondary">{{result.length}}</span></a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipInfo>{{ 'TOOLTIP_INFO' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipInfo"
-           class="nav-link" [ngClass]="{'active info text-white': result_filter.info}"
+           class="btn" [ngClass]="{'active info text-white': result_filter.info}"
            (click)="togglePillFilter('info')"
            [(ngModel)]="result_filter.info" ngDefaultControl>
           Info
-          <span class="badge badge-pill badge-secondary">{{level_items['info'].length}}</span></a>
+          <span class="badge bg-secondary">{{level_items['info'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipNotice>{{ 'TOOLTIP_NOTICE' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipNotice"
-           class="nav-link" [ngClass]="{'active notice text-white': result_filter.notice}"
+           class="btn" [ngClass]="{'active notice text-white': result_filter.notice}"
            (click)="togglePillFilter('notice')"
            [(ngModel)]="result_filter.notice" ngDefaultControl>
-          Notice <span class="badge badge-pill badge-secondary">{{level_items['notice'].length}}</span></a>
+          Notice <span class="badge bg-secondary">{{level_items['notice'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipWarning>{{ 'TOOLTIP_WARNING' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipWarning"
-           class="nav-link" [ngClass]="{'active warning text-white': result_filter.warning}"
+           class="btn" [ngClass]="{'active warning text-white': result_filter.warning}"
            (click)="togglePillFilter('warning')"
            [(ngModel)]="result_filter.warning" ngDefaultControl>
-          Warning <span class="badge badge-pill badge-secondary">{{level_items['warning'].length}}</span></a>
+          Warning <span class="badge bg-secondary">{{level_items['warning'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipError>{{ 'TOOLTIP_ERROR' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipError"
-           class="nav-link" [ngClass]="{'active error text-white': result_filter.error}"
+           class="btn" [ngClass]="{'active error text-white': result_filter.error}"
            (click)="togglePillFilter('error')"
            [(ngModel)]="result_filter.error" ngDefaultControl>
-          Error <span class="badge badge-pill badge-secondary">{{level_items['error'].length}}</span></a>
+          Error <span class="badge bg-secondary">{{level_items['error'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipCritical>{{ 'TOOLTIP_CRITICAL' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipCritical"
-           class="nav-link" [ngClass]="{'active critical text-white': result_filter.critical}"
+           class="btn" [ngClass]="{'active critical text-white': result_filter.critical}"
            (click)="togglePillFilter('critical')"
            [(ngModel)]="result_filter.critical" ngDefaultControl>
-          Critical <span class="badge badge-pill badge-secondary">{{level_items['critical'].length}}</span></a>
+          Critical <span class="badge bg-secondary">{{level_items['critical'].length}}</span></a>
       </li>
     </ul>
     <div class="input-group search">
-      <input type="text" [(ngModel)]="result_filter.search" class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="basic-addon2">
-      <div class="input-group-append">
-        <span class="input-group-text">
-          <i class="fa fa-filter" aria-hidden="true"></i>
-        </span>
-      </div>
+      <input type="text" [(ngModel)]="result_filter.search" class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="search-icon">
+      <span class="input-group-text" id="search-icon">
+        <i class="fa fa-filter" aria-hidden="true"></i>
+      </span>
     </div>
   </div>
 
@@ -135,9 +133,7 @@
 <ng-template #historyModal let-c="close" let-d="dismiss">
   <div class="modal-header">
   <h4 class="modal-title">{{'History'|translate}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <button type="button" class="btn-close" (click)="d('Cross click')" aria-label="Close"></button>
   </div>
   <div class="modal-body">
     <app-history [history]="history"></app-history>

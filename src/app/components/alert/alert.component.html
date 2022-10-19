@@ -1,8 +1,8 @@
 <div class="container" [ngClass]="{'sticky-top': isShrunk}" >
   <div class="row alert-area">
-    <div *ngFor="let alert of alerts" class="{{ cssClass(alert) }} alert-dismissable w-100">
+    <div *ngFor="let alert of alerts" class="{{ cssClass(alert) }} alert-dismissible" role="alert">
       {{alert.message | translate}}
-      <a class="close" (click)="removeAlert(alert)">&times;</a>
+      <button type="button" class="btn-close" (click)="removeAlert(alert)" aria-label="Close"></button>
     </div>
   </div>
 </div>
