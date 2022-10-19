@@ -168,7 +168,7 @@ it in the format that it has in the DNS, e.g.:
 [Implemented Test Cases document]:       https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/ImplementedTestCases.md
 [Question 12]:                           #q12
 [RFCs]:                                  https://www.ietf.org/standards/rfcs/
-[Severity Level Definitions document]:   https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md)
+[Severity Level Definitions document]:   https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
 [Swedish Internet Foundation]:           https://internetstiftelsen.se/en/
 [Test Requirements]:                     https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md
 [zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se
