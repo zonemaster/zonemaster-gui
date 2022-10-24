@@ -133,7 +133,7 @@
 <ng-template #historyModal let-c="close" let-d="dismiss">
   <div class="modal-header">
   <h4 class="modal-title">{{'History'|translate}}</h4>
-    <button type="button" class="btn-close" (click)="d('Cross click')" aria-label="Close"></button>
+    <button type="button" class="btn-close" (click)="d('Cross click')" aria-label="{{ 'Close' | translate }}" title="{{ 'Close' | translate }}"></button>
   </div>
   <div class="modal-body">
     <app-history [history]="history"></app-history>
