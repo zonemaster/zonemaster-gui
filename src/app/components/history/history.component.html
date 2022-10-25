@@ -2,25 +2,28 @@
   <div class="btn-group mb-3">
     <div class="btn-group btn-group-toggle">
       <button
+        i18n
         type="button"
         class="btn btn-secondary"
         [class.active]="filter === 'all'"
         (click)="filterHistory('all')">
-        {{ 'All' | translate }}
+        All
       </button>
       <button
+        i18n="plural delegated"
         type="button"
         class="btn btn-secondary"
         [class.active]="filter === 'delegated'"
         (click)="filterHistory('delegated')">
-        {{ 'DELEGATED_PLURAL' | translate }}
+        Delegated
       </button>
       <button
+        i18n="plural undelegated"
         type="button"
         class="btn btn-secondary"
         [class.active]="filter === 'undelegated'"
         (click)="filterHistory('undelegated')">
-        {{ 'UNDELEGATED_PLURAL' | translate }}
+        Undelegated
       </button>
     </div>
   </div>
@@ -30,7 +33,7 @@
       <a routerLink="/result/{{item.id}}">
         {{ item.local_creation_time | date:'yyyy-MM-dd HH:mm zzzz' }}
       </a>
-      <small *ngIf="item.undelegated" class="text-muted">{{ 'UNDELEGATED_SINGULAR' | translate }}</small>
+      <small i18n="singular undelegated" *ngIf="item.undelegated" class="text-muted">Undelegated</small>
     </li>
   </ul>
 
@@ -47,5 +50,5 @@
 </div>
 
 <ng-template #noHistory>
-  <p class="text-dark">{{"Results from previous tests are not available"|translate}}</p>
+  <p i18n class="text-dark">Results from previous tests are not available</p>
 </ng-template>

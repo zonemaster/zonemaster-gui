@@ -2,7 +2,7 @@
   <app-domain-check></app-domain-check>
 </app-header>
 <app-header *ngIf="!displayForm">
-  <h1>Result</h1>
+  <h1 i18n>Result</h1>
 </app-header>
 <div class="result container">
   <div>
@@ -14,13 +14,13 @@
       <div>
         <a class="btn btn-secondary history" (click)="getHistory()">
           <i class="fa fa-history text-white" aria-hidden="true"></i>
-          <span class="text-white">{{'History'|translate}}</span>
+          <span class="text-white" i18n>History</span>
         </a>
 
         <div ngbDropdown placement="bottom" class="d-inline-block">
           <button class="btn btn-secondary export" id="shareDropdownResult" ngbDropdownToggle>
             <i class="fa fa-cloud-download text-white" aria-hidden="true"></i>
-            <span class="text-white">{{'Export'|translate}}</span>
+            <span class="text-white" i18n>Export</span>
           </button>
           <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
             <div class="dropdown-body">
@@ -35,7 +35,7 @@
         <div ngbDropdown placement="bottom-end" class="d-inline-block">
           <button class="btn btn-secondary share" id="shareDropdownResult" ngbDropdownToggle>
             <i class="fa fa-share text-white" aria-hidden="true"></i>
-            <span class="text-white">{{'Share'|translate}}</span>
+            <span class="text-white" i18n>Share</span>
           </button>
           <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
             <div class="dropdown-body">
@@ -54,57 +54,79 @@
   <div class="filters">
     <ul class="nav nav-pills vertical-align filter">
       <li class="nav-item ml-1">
-        <ng-template #tooltipAll>{{ 'TOOLTIP_ALL' | translate }}</ng-template>
+        <ng-template #tooltipAll i18n="tooltip all">
+          Display all results
+        </ng-template>
         <a placement="top" [ngbTooltip]="tooltipAll"
            class="btn" [ngClass]="{'active all text-white btn-secondary': result_filter.all}"
            (click)="togglePillFilter('all')"
            [(ngModel)]="result_filter.all" ngDefaultControl>
-          All <span class="badge bg-secondary">{{result.length}}</span></a>
+          <ng-container i18n="tooltip all">All</ng-container>
+          <span class="badge bg-secondary">{{result.length}}</span>
+        </a>
       </li>
       <li class="nav-item ml-1">
-        <ng-template #tooltipInfo>{{ 'TOOLTIP_INFO' | translate }}</ng-template>
+        <ng-template #tooltipInfo i18n="tooltip info">
+          Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem.
+        </ng-template>
         <a placement="top" [ngbTooltip]="tooltipInfo"
            class="btn" [ngClass]="{'active info text-white': result_filter.info}"
            (click)="togglePillFilter('info')"
            [(ngModel)]="result_filter.info" ngDefaultControl>
-          Info
-          <span class="badge bg-secondary">{{level_items['info'].length}}</span></a>
+          <ng-container i18n="tooltip info">Info</ng-container>
+          <span class="badge bg-secondary">{{level_items['info'].length}}</span>
+        </a>
       </li>
       <li class="nav-item ml-1">
-        <ng-template #tooltipNotice>{{ 'TOOLTIP_NOTICE' | translate }}</ng-template>
+        <ng-template #tooltipNotice i18n="tooltip notice">
+          Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all
+        </ng-template>
         <a placement="top" [ngbTooltip]="tooltipNotice"
            class="btn" [ngClass]="{'active notice text-white': result_filter.notice}"
            (click)="togglePillFilter('notice')"
            [(ngModel)]="result_filter.notice" ngDefaultControl>
-          Notice <span class="badge bg-secondary">{{level_items['notice'].length}}</span></a>
+          <ng-container i18n="tooltip notice">Notice</ng-container>
+          <span class="badge bg-secondary">{{level_items['notice'].length}}</span>
+        </a>
       </li>
       <li class="nav-item ml-1">
-        <ng-template #tooltipWarning>{{ 'TOOLTIP_WARNING' | translate }}</ng-template>
+        <ng-template #tooltipWarning i18n="tooltip warning">
+          Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.
+        </ng-template>
         <a placement="top" [ngbTooltip]="tooltipWarning"
            class="btn" [ngClass]="{'active warning text-white': result_filter.warning}"
            (click)="togglePillFilter('warning')"
            [(ngModel)]="result_filter.warning" ngDefaultControl>
-          Warning <span class="badge bg-secondary">{{level_items['warning'].length}}</span></a>
+          <ng-container i18n="tooltip warning">Warning</ng-container>
+          <span class="badge bg-secondary">{{level_items['warning'].length}}</span>
+        </a>
       </li>
       <li class="nav-item ml-1">
-        <ng-template #tooltipError>{{ 'TOOLTIP_ERROR' | translate }}</ng-template>
+        <ng-template #tooltipError i18n="tooltip error">
+          Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable
+        </ng-template>
         <a placement="top" [ngbTooltip]="tooltipError"
            class="btn" [ngClass]="{'active error text-white': result_filter.error}"
            (click)="togglePillFilter('error')"
            [(ngModel)]="result_filter.error" ngDefaultControl>
-          Error <span class="badge bg-secondary">{{level_items['error'].length}}</span></a>
+          <ng-container i18n="tooltip error">Error</ng-container>
+          <span class="badge bg-secondary">{{level_items['error'].length}}</span>
+        </a>
       </li>
       <li class="nav-item ml-1">
-        <ng-template #tooltipCritical>{{ 'TOOLTIP_CRITICAL' | translate }}</ng-template>
+        <ng-template #tooltipCritical i18n="tooltip critical">
+          Critical - means a very serious error.
+        </ng-template>
         <a placement="top" [ngbTooltip]="tooltipCritical"
            class="btn" [ngClass]="{'active critical text-white': result_filter.critical}"
            (click)="togglePillFilter('critical')"
            [(ngModel)]="result_filter.critical" ngDefaultControl>
-          Critical <span class="badge bg-secondary">{{level_items['critical'].length}}</span></a>
+          <ng-container i18n>Critical</ng-container>
+          <span class="badge bg-secondary">{{level_items['critical'].length}}</span></a>
       </li>
     </ul>
     <div class="input-group search">
-      <input type="text" [(ngModel)]="result_filter.search" class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="search-icon">
+      <input type="text" [(ngModel)]="result_filter.search" class="form-control" i18n-placeholder placeholder="Filter text" aria-label="filter input" aria-describedby="search-icon">
       <span class="input-group-text" id="search-icon">
         <i class="fa fa-filter" aria-hidden="true"></i>
       </span>
@@ -121,9 +143,9 @@
       </a>
       <div id="module-{{moduleKey}}" [ngbCollapse]="isCollapsed[moduleKey]" (hidden)="moduleCollapsed(headerRef)" [animation]="false">
         <div *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
-          <div class="module-name">{{item.module|translate}}</div>
+          <div class="module-name">{{item.module}}</div>
           <div class="severity">{{item.level}}</div>
-          <p class="message">{{item.message|translate}}</p>
+          <p class="message">{{item.message}}</p>
         </div>
       </div>
     </section>
@@ -132,8 +154,8 @@
 
 <ng-template #historyModal let-c="close" let-d="dismiss">
   <div class="modal-header">
-  <h4 class="modal-title">{{'History'|translate}}</h4>
-    <button type="button" class="btn-close" (click)="d('Cross click')" aria-label="{{ 'Close' | translate }}" title="{{ 'Close' | translate }}"></button>
+  <h4 class="modal-title" i18n>History</h4>
+    <button type="button" class="btn-close" (click)="d('Cross click')" i18n-aria-label aria-label="Close" i18n-title title="Close"></button>
   </div>
   <div class="modal-body">
     <app-history [history]="history"></app-history>

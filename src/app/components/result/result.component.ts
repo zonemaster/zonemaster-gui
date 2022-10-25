@@ -74,9 +74,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
     // When redirected from the domain check page we display the notification here as the other component has been destroyed
     if (this.displayForm) {
-      this.translateService.get(`Domain checked completed`).subscribe((res: string) => {
-        this.alertService.success(res);
-      });
+      this.alertService.success($localize `Domain checked completed`);
     }
   }
 
@@ -179,24 +177,18 @@ export class ResultComponent implements OnInit, OnDestroy {
 
       this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
     }, error => {
-      this.translateService.get('No data for this test').subscribe((res: string) => {
-        this.alertService.error(res)
-      });
+      this.alertService.error($localize `No data for this test`)
     });
   }
 
   public getHistory() {
     if (!this.history) {
-      this.translateService.get('History information request is in progress').subscribe((res: string) => {
-        this.alertService.info(res);
-      });
+      this.alertService.info($localize `History information request is in progress`);
 
       this.dnsCheckService.getTestHistory(this.historyQuery).then(data => {
         this.history = data as any[];
         if (this.history.length === 0) {
-          this.translateService.get('No result for this query').subscribe((res: string) => {
-            this.alertService.info(res);
-          });
+          this.alertService.info($localize `No result for this query`);
         } else {
           this.openModal(this.historyModal);
         }
@@ -219,84 +211,80 @@ export class ResultComponent implements OnInit, OnDestroy {
   }
 
   public exportHTML() {
+    let tbodyContent = '';
+    for (let item of this.result) {
+      tbodyContent += `
+        <tr>
+          <td>${item.module}</td>
+          <td>${item.level}</td>
+          <td>${item.message}</td>
+        </tr>
+      `;
+    }
 
-    combineLatest([...this.header.map(s => this.translateService.get(s))])
-      .subscribe(([moduleStr, levelStr, messageStr]) => {
-        let tbodyContent = '';
-        for (let item of this.result) {
-          tbodyContent += `
-            <tr>
-              <td>${item.module}</td>
-              <td>${item.level}</td>
-              <td>${item.message}</td>
-            </tr>
-          `;
-        }
+    const result = `
+      <!doctype html>
+      <html lang="${this.language}">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+          <title>${this.form.domain} • Zonemaster Test Result</title>
+          <style>
+            th,td {
+              text-align: left;
+              font-weight: normal;
+              padding: 0.75rem;
+            }
+            thead {
+              background-color: #212529;
+              color: #fff;
+            }
+            body td {
+              border-top: 1px solid #dee2e6;
+            }
+            body {
+              color: #212529;
+              font-family: sans;
+              margin-left: 20px;
+            }
+            table {
+              border: none;
+            }
+            tbody tr:nth-child(odd) {
+              background-color: rgba(0,0,0,.05);
+            }
+            h2 {
+              font-weight: normal;
+              font-size: 2rem;
+              margin: .5rem 0;
+            }
+          </style>
+        </head>
+        <body>
+          <header>
+            <h2>${this.form.domain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
+          </header>
+          <table cellspacing="0" cellpadding="0">
+            <thead>
+              <tr>
+                <th scope="col">${$localize `Module`}</th>
+                <th scope="col">${$localize `Level`}</th>
+                <th scope="col">${$localize `Message`}</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${tbodyContent}
+            </tbody>
+          </table>
+        </body>
+      </html>
+    `;
 
-        const result = `
-          <!doctype html>
-          <html lang="${this.language}">
-            <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-              <title>${this.form.domain} • Zonemaster Test Result</title>
-              <style>
-                th,td {
-                  text-align: left;
-                  font-weight: normal;
-                  padding: 0.75rem;
-                }
-                thead {
-                  background-color: #212529;
-                  color: #fff;
-                }
-                body td {
-                  border-top: 1px solid #dee2e6;
-                }
-                body {
-                  color: #212529;
-                  font-family: sans;
-                  margin-left: 20px;
-                }
-                table {
-                  border: none;
-                }
-                tbody tr:nth-child(odd) {
-                  background-color: rgba(0,0,0,.05);
-                }
-                h2 {
-                  font-weight: normal;
-                  font-size: 2rem;
-                  margin: .5rem 0;
-                }
-              </style>
-            </head>
-            <body>
-              <header>
-               <h2>${this.form.domain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
-              </header>
-              <table cellspacing="0" cellpadding="0">
-                <thead>
-                  <tr>
-                    <th scope="col">${moduleStr}</th>
-                    <th scope="col">${levelStr}</th>
-                    <th scope="col">${messageStr}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${tbodyContent}
-                </tbody>
-              </table>
-            </body>
-          </html>
-        `;
+    const blob = new Blob([result], {
+      type: 'text/html;charset=utf-8'
+    });
 
-        const blob = new Blob([result], {
-          type: 'text/html;charset=utf-8'
-        });
-
-        saveAs(blob, this.exportedName('html'));
-      });
+    saveAs(blob, this.exportedName('html'));
   }
 
   public exportText() {

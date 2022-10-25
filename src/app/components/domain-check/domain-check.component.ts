@@ -39,23 +39,17 @@ export class DomainCheckComponent implements OnInit {
   public fetchFromParent(domain) {
     this.dnsCheckService.fetchFromParent(domain).then(result => {
       if (result['ds_list'].length === 0 && result['ns_list'].length === 0) {
-        this.translateService.get('There is no delegation for the zone').subscribe((res: string) => {
-          this.alertService.warn(res);
-        });
+        this.alertService.warn($localize `There is no delegation for the zone`);
       } else {
         this.parentData = result;
-        this.translateService.get('Parent data fetched with success').subscribe((res: string) => {
-          this.alertService.success(res);
-        });
+        this.alertService.success($localize `Parent data fetched with success`);
       }
     }, error => {
       if (error.error.code === "-32602" && error.error.data.constructor === Array) {
         this.requestError = error.error.data;
       } else {
         console.log(error);
-        this.translateService.get('Error during parent data fetching').subscribe((res: string) => {
-          this.alertService.error(res);
-        });
+        this.alertService.error($localize `Error during parent data fetching`);
       }
   });
   }
@@ -82,9 +76,7 @@ export class DomainCheckComponent implements OnInit {
 
           if (self.domain_check_progression === 100) {
             clearInterval(handle);
-            this.translateService.get(`Domain checked completed`).subscribe((res: string) => {
-              this.alertService.success(res);
-            });
+            this.alertService.success($localize `Domain checked completed`);
             self.resultID = domainCheckId;
             self.is_advanced_options_enabled = false;
             self.showResult = true;
@@ -99,9 +91,7 @@ export class DomainCheckComponent implements OnInit {
         if (error.error.code === "-32602" && error.error.data.constructor === Array) {
           this.requestError = error.error.data;
         } else {
-          this.translateService.get(`Internal server error`).subscribe((res: string) => {
-            this.alertService.error(res);
-          });
+          this.alertService.error($localize `Internal server error`);
         }
     });
   }

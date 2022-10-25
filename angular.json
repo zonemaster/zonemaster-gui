@@ -7,10 +7,21 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
+
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "fr": {
+            "translation": "src/locale/messages.fr.xlf"
+          }
+        }
+      },
+
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": true,
             "allowedCommonJsDependencies": [
               "file-saver"
             ],
@@ -28,7 +39,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "aot": false,
+            "aot": true,
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -60,6 +71,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "fr": {
+              "localize": ["fr"]
             }
           },
           "defaultConfiguration": ""
@@ -78,13 +92,22 @@
             "tests": {
               "proxyConfig": "proxy.disabled.conf.json",
               "browserTarget": "zonemaster:build:tests"
+            },
+            "fr": {
+              "browserTarget": "zonemaster:build:fr"
             }
           }
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
           "options": {
-            "browserTarget": "zonemaster:build"
+            "browserTarget": "zonemaster:build",
+            "format": "xlf",
+            "outputPath": "src/locale",
+            "targetFiles": [
+              "messages.fr.xlf"
+            ],
+            "includeContext": "sourceFileOnly"
           }
         }
       }

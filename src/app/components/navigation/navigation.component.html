@@ -14,10 +14,10 @@
     <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navBar">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/check" routerLinkActive="active">{{'Domain check'|translate}} </a>
+          <a class="nav-link" routerLink="/check" routerLinkActive="active" i18n>Domain check</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/faq" routerLinkActive="active">{{'FAQ'|translate}} </a>
+          <a class="nav-link" routerLink="/faq" routerLinkActive="active" i18n>FAQ</a>
         </li>
       </ul>
 
@@ -41,6 +41,6 @@
   </div>
 </nav>
 
-<button (click)="backToTop()" class="btn btn-primary btn-lg" [ngClass]="{'d-none': !activeBackToTop, 'back-to-top': activeBackToTop}" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
+<button (click)="backToTop()" class="btn btn-primary btn-lg" [ngClass]="{'d-none': !activeBackToTop, 'back-to-top': activeBackToTop}" role="button" i18n-title title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
   <i class="fa fa-arrow-up" aria-hidden="true"></i>
 </button>
