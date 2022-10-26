@@ -25,8 +25,6 @@ export class ResultComponent implements OnInit, OnDestroy {
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
   public result = [];
   public modules: any;
-  public module_items: any = {};
-  public new_module_items: any = {};
   public severity_icons = {
     'info': 'fa-check',
     'notice': 'fa-exclamation',
@@ -34,19 +32,19 @@ export class ResultComponent implements OnInit, OnDestroy {
     'error': 'fa-times-circle',
     'critical': 'fa-times-circle'
   }
-  public modulesKeys;
   public searchQueryLength = 0;
   public test: any = {params: {ipv4: false, ipv6: false}};
   public isCollapsed = [];
   public ns_list;
   public ds_list;
-  public level_items = {
-    info: [],
-    notice: [],
-    warning: [],
-    error: [],
-    critical: [],
-  };
+  public testCasesCount = {
+    'all': 0,
+    'info': 0,
+    'notice': 0,
+    'warning': 0,
+    'error': 0,
+    'critical': 0,
+  }
   public result_filter = {
     all: true,
     info: false,
@@ -94,7 +92,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       this.resultID = params['resultID'];
-      this.displayResult(this.resultID, this.language);
+      this.getResults(this.resultID, this.language);
     });
 
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
@@ -102,7 +100,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
 
     this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.displayResult(this.resultID, event.lang, false);
+      this.getResults(this.resultID, event.lang, false);
       this.language = event.lang;
     });
   }
@@ -133,7 +131,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
-   private displayResult(domainCheckId: string, language: string, resetCollapsed = true) {
+  private getResults(domainCheckId: string, language: string, resetCollapsed = true) {
      this.dnsCheckService.getTestResults({id: domainCheckId, language}).then(data => {
       // TODO clean
 
@@ -147,83 +145,8 @@ export class ResultComponent implements OnInit, OnDestroy {
 
       this.result = data['results'];
 
-      this.setItemsColors(this.result);
-      this.setModulesColors(data['results']);
+      this.testCasesCount = this.displayResults(this.result, resetCollapsed);
 
-      this.modulesKeys = Object.keys(this.modules);
-
-      for (let moduleName of this.modulesKeys) {
-        if (resetCollapsed || !(moduleName in this.isCollapsed)) {
-          this.isCollapsed[moduleName] = true;
-        }
-        this.module_items[moduleName] = [];
-      }
-
-      for (const item of data['results']) {
-        this.module_items[item.module].push(item);
-      }
-
-      this.level_items = {
-        info: [],
-        notice: [],
-        warning: [],
-        error: [],
-        critical: [],
-      };
-      for (const item of data['results']) {
-        this.level_items[item['level'].toLowerCase()].push(item);
-      }
-
-      for (const module in this.module_items) {
-        this.module_items[module].sort((msg1, msg2) => {
-          // sort messages by descending severity level
-          return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
-        })
-      }
-
-      const levelsToNum = {
-        'info': 0,
-        'notice': 1,
-        'warning': 2,
-        'error': 3,
-        'critical': 4,
-      };
-
-      for (const entry of this.result) {
-        const currentModule = entry['module'];
-        const currentTestcase = entry['testcase'];
-        const currentLevel = entry['level'].toLowerCase();
-        const numLevel = levelsToNum[currentLevel];
-
-        if (!(currentModule in this.new_module_items)) {
-          this.new_module_items[currentModule] = {}
-        }
-
-        if (!(currentTestcase in this.new_module_items[currentModule])) {
-          this.isCollapsed[currentTestcase] = true;
-          this.new_module_items[currentModule][currentTestcase] = {
-            'entries': [],
-            'level': 'info'
-          }
-        }
-
-        this.new_module_items[currentModule][currentTestcase].entries.push(entry);
-
-        if (numLevel > levelsToNum[this.new_module_items[currentModule][currentTestcase].level]) {
-          this.new_module_items[currentModule][currentTestcase].level = currentLevel;
-        }
-      }
-
-      for (const module in this.new_module_items) {
-        for (const testcase in this.new_module_items[module]) {
-          this.new_module_items[module][testcase].entries.sort((msg1, msg2) => {
-            // sort messages by descending severity level
-            return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
-          })
-        }
-      }
-
-      console.log(this.new_module_items);
 
       this.form = data['params'];
       this.ns_list = data['ns_list'];
@@ -235,6 +158,70 @@ export class ResultComponent implements OnInit, OnDestroy {
         this.alertService.error(res)
       });
     });
+  }
+
+  private displayResults(results: Array<Object>, resetCollapsed: boolean) {
+    const testCasesCount = {
+      'all': 0,
+      'info': 0,
+      'notice': 0,
+      'warning': 0,
+      'error': 0,
+      'critical': 0,
+    }
+
+    const levelsToNum = {
+      'info': 0,
+      'notice': 1,
+      'warning': 2,
+      'error': 3,
+      'critical': 4,
+    };
+
+    this.modules = {};
+
+    for (const entry of results) {
+      const currentModule = entry['module'];
+      const currentTestcase = entry['testcase'];
+      const currentLevel = entry['level'].toLowerCase();
+      const numLevel = levelsToNum[currentLevel];
+
+      if (!(currentModule in this.modules)) {
+        this.modules[currentModule] = {}
+      }
+
+      if (!(currentTestcase in this.modules[currentModule])) {
+        this.modules[currentModule][currentTestcase] = {
+          'entries': [],
+          'level': 'info'
+        }
+
+        if (resetCollapsed || !(currentTestcase in this.isCollapsed)) {
+          this.isCollapsed[currentTestcase] = true;
+        }
+      }
+
+      this.modules[currentModule][currentTestcase].entries.push(entry);
+
+      if (numLevel > levelsToNum[this.modules[currentModule][currentTestcase].level]) {
+        this.modules[currentModule][currentTestcase].level = currentLevel;
+      }
+    }
+
+    for (const module in this.modules) {
+      for (const testcase in this.modules[module]) {
+        const level = this.modules[module][testcase].level;
+
+        testCasesCount[level] ++;
+        testCasesCount['all'] ++;
+        this.modules[module][testcase].entries.sort((msg1, msg2) => {
+          // sort messages by descending severity level
+          return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
+        })
+      }
+    }
+
+    return testCasesCount;
   }
 
   public getHistory() {
@@ -399,35 +386,6 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
     return str;
   }
-
-  private setItemsColors(data): void {
-    for (const item in data) {
-      if (['WARNING'].includes(this.result[item].level)) {
-        this.result[item].color = this.result[item].level.toLowerCase();
-      } else if (['ERROR', 'CRITICAL'].includes(this.result[item].level)) {
-        this.result[item].color = 'danger';
-      } else if (['NOTICE'].includes(this.result[item].level)) {
-        this.result[item].color = 'success';
-      } else {
-        this.result[item].color = '';
-      }
-    }
-  }
-
-  public setModulesColors(result): void {
-      this.modules =  result.reduce((modules, item) => {
-      if (typeof modules[item.module] === 'undefined') {
-        modules[item.module] = '';
-      }
-
-      const itemLevel = this.levelSeverity.indexOf(item.level);
-      const moduleLevel = this.levelSeverity.indexOf(modules[item.module]);
-      const maxLevel = Math.max(moduleLevel, itemLevel);
-      modules[item.module] = this.levelSeverity[maxLevel];
-      return modules;
-    }, {});
-  }
-
 
   public togglePillFilter(name) {
     this.result_filter[name] = !this.result_filter[name];
