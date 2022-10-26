@@ -38,14 +38,14 @@ export class ResultComponent implements OnInit, OnDestroy {
   public ns_list;
   public ds_list;
   public testCasesCount = {
-    'all': 0,
-    'info': 0,
-    'notice': 0,
-    'warning': 0,
-    'error': 0,
-    'critical': 0,
-  }
-  public result_filter = {
+    all: 0,
+    info: 0,
+    notice: 0,
+    warning: 0,
+    error: 0,
+    critical: 0,
+  };
+  public resultFilter = {
     all: true,
     info: false,
     notice: false,
@@ -53,6 +53,13 @@ export class ResultComponent implements OnInit, OnDestroy {
     error: false,
     critical: false,
     search: ''
+  };
+  public severityLevels = {
+    info: 0,
+    notice: 1,
+    warning: 2,
+    error: 3,
+    critical: 4,
   };
   public historyQuery: object;
   public history: any[];
@@ -133,7 +140,6 @@ export class ResultComponent implements OnInit, OnDestroy {
 
   private getResults(domainCheckId: string, language: string, resetCollapsed = true) {
      this.dnsCheckService.getTestResults({id: domainCheckId, language}).then(data => {
-      // TODO clean
 
       this.test = {
         id: data['hash_id'],
@@ -170,21 +176,13 @@ export class ResultComponent implements OnInit, OnDestroy {
       'critical': 0,
     }
 
-    const levelsToNum = {
-      'info': 0,
-      'notice': 1,
-      'warning': 2,
-      'error': 3,
-      'critical': 4,
-    };
-
     this.modules = {};
 
     for (const entry of results) {
       const currentModule = entry['module'];
       const currentTestcase = entry['testcase'];
       const currentLevel = entry['level'].toLowerCase();
-      const numLevel = levelsToNum[currentLevel];
+      const numLevel = this.severityLevels[currentLevel];
 
       if (!(currentModule in this.modules)) {
         this.modules[currentModule] = {}
@@ -203,7 +201,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
       this.modules[currentModule][currentTestcase].entries.push(entry);
 
-      if (numLevel > levelsToNum[this.modules[currentModule][currentTestcase].level]) {
+      if (numLevel > this.severityLevels[this.modules[currentModule][currentTestcase].level]) {
         this.modules[currentModule][currentTestcase].level = currentLevel;
       }
     }
@@ -388,21 +386,51 @@ export class ResultComponent implements OnInit, OnDestroy {
   }
 
   public togglePillFilter(name) {
-    this.result_filter[name] = !this.result_filter[name];
-    const atLeastOneActive = Object.keys(this.result_filter).slice(1, -1).filter(el => this.result_filter[el]);
+    this.resultFilter[name] = !this.resultFilter[name];
+    const atLeastOneActive = Object.keys(this.resultFilter).slice(1, -1).filter(el => this.resultFilter[el]);
     this.searchQueryLength = atLeastOneActive.length;
 
     if (atLeastOneActive.length < 1) {
-      this.result_filter['all'] = true;
+      this.resultFilter['all'] = true;
     } else if (name === 'all') {
-      for (const index of Object.keys(this.result_filter).slice(1, -1)) {
-        this.result_filter[index] = false;
+      for (const index of Object.keys(this.resultFilter).slice(1, -1)) {
+        this.resultFilter[index] = false;
       }
-      this.result_filter['all'] = true;
+      this.resultFilter['all'] = true;
       this.searchQueryLength = -1;
     } else {
-      this.result_filter['all'] = false;
+      this.resultFilter['all'] = false;
     }
+
+    this.filterResults()
+  }
+
+  public filterResults() {
+    const filteredResults = this.filterResultsSearch(
+      this.filterResultsLevel(this.result, this.resultFilter),
+      this.resultFilter['search']
+    );
+    this.displayResults(filteredResults, false);
+  }
+
+  private filterResultsLevel(results: any[], levelFilter: Object) {
+    if (levelFilter['all']) {
+      return results;
+    } else {
+      const levels = Object.entries(levelFilter)
+        .filter(([_key, value]) => value === true)
+        .map(([key, _value]) => key);
+
+      return results.filter(entry => levels.includes(entry.level.toLowerCase()));
+    }
+  }
+
+  private filterResultsSearch(results: any[], query: string) {
+    if (!query) {
+      return results;
+    }
+    const queryLower = query.toLocaleLowerCase()
+    return results.filter(entry => entry.message.toLowerCase().includes(queryLower));
   }
 
   // inspired from

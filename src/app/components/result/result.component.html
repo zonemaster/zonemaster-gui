@@ -56,55 +56,55 @@
       <li class="nav-item ml-1">
         <ng-template #tooltipAll>{{ 'TOOLTIP_ALL' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipAll"
-           class="nav-link" [ngClass]="{'active all text-white': result_filter.all}"
+           class="nav-link" [ngClass]="{'active all text-white': resultFilter.all}"
            (click)="togglePillFilter('all')"
-           [(ngModel)]="result_filter.all" ngDefaultControl>
+           [(ngModel)]="resultFilter.all" ngDefaultControl>
           All <span class="badge badge-pill badge-secondary">{{testCasesCount['all']}}</span></a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipInfo>{{ 'TOOLTIP_INFO' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipInfo"
-           class="nav-link" [ngClass]="{'active info text-white': result_filter.info}"
+           class="nav-link" [ngClass]="{'active info text-white': resultFilter.info}"
            (click)="togglePillFilter('info')"
-           [(ngModel)]="result_filter.info" ngDefaultControl>
+           [(ngModel)]="resultFilter.info" ngDefaultControl>
           Info
           <span class="badge badge-pill badge-secondary">{{testCasesCount['info']}}</span></a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipNotice>{{ 'TOOLTIP_NOTICE' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipNotice"
-           class="nav-link" [ngClass]="{'active notice text-white': result_filter.notice}"
+           class="nav-link" [ngClass]="{'active notice text-white': resultFilter.notice}"
            (click)="togglePillFilter('notice')"
-           [(ngModel)]="result_filter.notice" ngDefaultControl>
+           [(ngModel)]="resultFilter.notice" ngDefaultControl>
           Notice <span class="badge badge-pill badge-secondary">{{testCasesCount['notice']}}</span></a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipWarning>{{ 'TOOLTIP_WARNING' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipWarning"
-           class="nav-link" [ngClass]="{'active warning text-white': result_filter.warning}"
+           class="nav-link" [ngClass]="{'active warning text-white': resultFilter.warning}"
            (click)="togglePillFilter('warning')"
-           [(ngModel)]="result_filter.warning" ngDefaultControl>
+           [(ngModel)]="resultFilter.warning" ngDefaultControl>
           Warning <span class="badge badge-pill badge-secondary">{{testCasesCount['warning']}}</span></a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipError>{{ 'TOOLTIP_ERROR' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipError"
-           class="nav-link" [ngClass]="{'active error text-white': result_filter.error}"
+           class="nav-link" [ngClass]="{'active error text-white': resultFilter.error}"
            (click)="togglePillFilter('error')"
-           [(ngModel)]="result_filter.error" ngDefaultControl>
+           [(ngModel)]="resultFilter.error" ngDefaultControl>
           Error <span class="badge badge-pill badge-secondary">{{testCasesCount['error']}}</span></a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipCritical>{{ 'TOOLTIP_CRITICAL' | translate }}</ng-template>
         <a placement="top" [ngbTooltip]="tooltipCritical"
-           class="nav-link" [ngClass]="{'active critical text-white': result_filter.critical}"
+           class="nav-link" [ngClass]="{'active critical text-white': resultFilter.critical}"
            (click)="togglePillFilter('critical')"
-           [(ngModel)]="result_filter.critical" ngDefaultControl>
+           [(ngModel)]="resultFilter.critical" ngDefaultControl>
           Critical <span class="badge badge-pill badge-secondary">{{testCasesCount['critical']}}</span></a>
       </li>
     </ul>
     <div class="input-group search">
-      <input type="text" [(ngModel)]="result_filter.search" class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="basic-addon2">
+      <input type="text" [(ngModel)]="resultFilter.search" (ngModelChange)='filterResults()' class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="basic-addon2">
       <div class="input-group-append">
         <span class="input-group-text">
           <i class="fa fa-filter" aria-hidden="true"></i>
@@ -119,7 +119,7 @@
       <article *ngFor="let testcase of module.value | keyvalue">
         <header>
           <div
-            (click)="isCollapsed[testcase.key] = !isCollapsed[testcase.key]; console.log(isCollapsed)"
+            (click)="isCollapsed[testcase.key] = !isCollapsed[testcase.key]"
             [attr.aria-controls]="'testcase-' + testcase.key"
             [attr.aria-expanded]="!isCollapsed[testcase.key]"
           >
