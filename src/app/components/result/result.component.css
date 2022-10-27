@@ -52,6 +52,7 @@ article h4 i {
 
 article header  {
   display: flex;
+  align-items: baseline;
 }
 
 article header div {
