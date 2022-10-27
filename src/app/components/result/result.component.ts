@@ -67,10 +67,12 @@ export class ResultComponent implements OnInit, OnDestroy {
   public historyQuery: object;
   public history: any[];
   public language: string;
-  public navHeight: Number;
+  public navHeight: number;
   private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
+  private fragmentSubscription: Subscription;
   private navHeightSubscription: Subscription;
+  private fragment: string;
 
   private langChangeSubscription: Subscription;
   private routeParamsSubscription: Subscription;
@@ -105,7 +107,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.fetchResults(this.resultID, this.language);
     });
 
-    this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
+    this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: number) => {
       this.navHeight = newHeight;
     });
 
@@ -113,15 +115,30 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.fetchResults(this.resultID, event.lang, false);
       this.language = event.lang;
     });
+
+    this.fragmentSubscription = this.activatedRoute.fragment.subscribe(fragment => { this.fragment =  fragment; });
   }
 
   ngOnDestroy() {
+    this.fragmentSubscription.unsubscribe();
     this.navHeightSubscription.unsubscribe();
     this.langChangeSubscription.unsubscribe();
 
     if (this.routeParamsSubscription) {
       this.routeParamsSubscription.unsubscribe();
     }
+  }
+
+  ngAfterViewChecked(): void {
+    try {
+      if (this.fragment) {
+        console.log(this.fragment);
+        let moduleContainer = document.getElementById(this.fragment).parentElement;
+        let bbox = moduleContainer.getBoundingClientRect()
+        window.scrollBy({top: bbox.y - this.navHeight});
+        this.fragment = '';
+      }
+    } catch (e) {}
   }
 
   public openModal(content) {
