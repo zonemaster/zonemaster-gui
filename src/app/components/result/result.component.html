@@ -117,7 +117,7 @@
     <article *ngFor="let module of modules | keyvalue">
       <h3>{{module.key}}</h3>
       <article *ngFor="let testcase of module.value | keyvalue">
-        <header>
+        <header class="{{testcase.value.level}}">
           <div
             (click)="isCollapsed[testcase.key] = !isCollapsed[testcase.key]"
             [attr.aria-controls]="'testcase-' + testcase.key + ',testcase-id-' + testcase.key"
@@ -125,9 +125,8 @@
           >
             <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.key],'fa-minus-square-o': !isCollapsed[testcase.key]}"></i>
 
-            <h4 class="{{testcase.value.level}}">
-              <i class="fa {{severity_icons[testcase.value.level]}}" aria-hidden="true"></i>
-              {{ testCaseDescriptions[testcase.key] }}
+            <h4>
+              <i class="fa {{severity_icons[testcase.value.level]}}" aria-hidden="true"></i>{{ testCaseDescriptions[testcase.key] }}
             </h4>
           </div>
           <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.key]" id="testcase-id-{{testcase.key}}">
@@ -136,7 +135,7 @@
         </header>
         <div [class.collapsed]="isCollapsed[testcase.key]" id="testcase-{{testcase.key}}">
           <ul>
-            <li *ngFor="let entry of testcase.value.entries"><span class="{{entry.level|lowercase}}">{{entry.level}}</span> {{entry.message}} </li>
+            <li *ngFor="let entry of testcase.value.entries"><div><span class="level {{entry.level|lowercase}}">{{entry.level}}</span></div><p> {{entry.message}} </p></li>
           </ul>
         </div>
       </article>
