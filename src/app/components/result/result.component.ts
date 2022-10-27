@@ -9,6 +9,7 @@ import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
 import { formatDate, Location } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import { isThisTypeNode } from 'typescript';
 
 @Component({
   selector: 'app-result',
@@ -43,6 +44,9 @@ export class ResultComponent implements OnInit, OnDestroy {
     error: 0,
     critical: 0,
   };
+
+  public testCasesCountByModule = {};
+
   public resultFilter = {
     all: true,
     info: false,
@@ -151,6 +155,24 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.testCaseDescriptions = data['testcase_descriptions'];
 
       this.testCasesCount = this.displayResults(this.result, resetCollapsed);
+      this.testCasesCountByModule = {};
+
+      for (const module in this.modules) {
+        const levels = {};
+        for (const testcase in this.modules[module]) {
+          const level = this.modules[module][testcase].level;
+
+          if (!(level in levels)) {
+            levels[level] = 0;
+          }
+
+          levels[level] ++;
+        }
+
+        this.testCasesCountByModule[module] = levels;
+      }
+
+      console.log(this.testCasesCountByModule);
 
 
       this.titleService.setTitle(`${this.form.domain} · Zonemaster`);

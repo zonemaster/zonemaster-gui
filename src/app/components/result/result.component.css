@@ -84,30 +84,35 @@ article ul li .level {
   background-color: #919191;
 }
 
+.summary dl dd div.info,
 .filters .active.info,
 article ul li .level.info {
   background: var(--result-info-bg);
   color: white;
 }
 
+.summary dl dd div.notice,
 .filters .active.notice,
 article ul li .level.notice {
   background: var(--result-notice-bg);
   color: white;
 }
 
+.summary dl dd div.warning,
 .filters .active.warning,
 article ul li .level.warning {
   background: var(--result-warning-bg);
   color: black;
 }
 
+.summary dl dd div.error,
 .filters .active.error,
 article ul li .level.error {
   background: var(--result-error-bg);;
   color: white;
 }
 
+.summary dl dd div.critical,
 .filters .active.critical,
 article ul li .level.critical {
   background: var(--result-critical-bg);;
@@ -145,6 +150,7 @@ article h3::after {
 article h3 {
   display: flex;
   align-items: center;
+  font-size: 1.35em;
 }
 
 .result section.details > article {
@@ -222,6 +228,41 @@ button.btn-clipboard > i.fa-remove {
   margin-right: 0.25rem;
 }
 
+.summary {
+  margin-top: 1rem;
+}
+.summary dl {
+  display: grid;
+  grid: auto / auto 1fr;
+}
+
+.summary dl dt {
+  margin-right: 1rem;
+  font-weight: normal;
+  margin-bottom: 0.5rem;
+}
+
+.summary dl dd {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.summary dl dd div {
+  text-align: center;
+  overflow: hidden;
+  height: 0.7rem;
+}
+
+.summary dl dd div:last-child {
+  border-top-right-radius: 0.35rem;
+  border-bottom-right-radius: 0.35rem;
+}
+
+.summary dl dd div:first-child {
+  border-top-left-radius: 0.35rem;
+  border-bottom-left-radius: 0.35rem;
+}
 
 @media(max-width:767px){
   .result-header {
