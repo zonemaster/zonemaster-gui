@@ -126,7 +126,7 @@
             <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.key],'fa-minus-square-o': !isCollapsed[testcase.key]}"></i>
 
             <h4 class="{{testcase.value.level}}">
-              <i class="fa {{severity_icons[testcase.value.level]}}" aria-hidden="true"></i>{{'testcases.' + testcase.key | translate}}
+              <i class="fa {{severity_icons[testcase.value.level]}}" aria-hidden="true"></i>{{ testCaseDescriptions[testcase.key] }}
             </h4>
           </div>
           <a href="https://zonemaster-docs.rd.nic.fr/specifications/{{module.key|lowercase}}-tp/{{testcase.key|lowercase}}.html"><i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.key|lowercase}}</a>

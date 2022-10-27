@@ -35,8 +35,6 @@ export class ResultComponent implements OnInit, OnDestroy {
   public searchQueryLength = 0;
   public test: any = {params: {ipv4: false, ipv6: false}};
   public isCollapsed = [];
-  public ns_list;
-  public ds_list;
   public testCasesCount = {
     all: 0,
     info: 0,
@@ -61,6 +59,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     error: 3,
     critical: 4,
   };
+  public testCaseDescriptions = {};
   public historyQuery: object;
   public history: any[];
   public language: string;
@@ -99,7 +98,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       this.resultID = params['resultID'];
-      this.getResults(this.resultID, this.language);
+      this.fetchResults(this.resultID, this.language);
     });
 
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
@@ -107,7 +106,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
 
     this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.getResults(this.resultID, event.lang, false);
+      this.fetchResults(this.resultID, event.lang, false);
       this.language = event.lang;
     });
   }
@@ -138,7 +137,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
-  private getResults(domainCheckId: string, language: string, resetCollapsed = true) {
+  private fetchResults(domainCheckId: string, language: string, resetCollapsed = true) {
      this.dnsCheckService.getTestResults({id: domainCheckId, language}).then(data => {
 
       this.test = {
@@ -148,15 +147,12 @@ export class ResultComponent implements OnInit, OnDestroy {
       };
 
       this.historyQuery = data['params'];
-
       this.result = data['results'];
+      this.form = data['params'];
+      this.testCaseDescriptions = data['testcase_descriptions'];
 
       this.testCasesCount = this.displayResults(this.result, resetCollapsed);
 
-
-      this.form = data['params'];
-      this.ns_list = data['ns_list'];
-      this.ds_list = data['ds_list'];
 
       this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
     }, error => {
