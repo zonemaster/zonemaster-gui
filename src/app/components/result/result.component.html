@@ -120,21 +120,25 @@
         <header>
           <div
             (click)="isCollapsed[testcase.key] = !isCollapsed[testcase.key]"
-            [attr.aria-controls]="'testcase-' + testcase.key"
+            [attr.aria-controls]="'testcase-' + testcase.key + ',testcase-id-' + testcase.key"
             [attr.aria-expanded]="!isCollapsed[testcase.key]"
           >
             <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.key],'fa-minus-square-o': !isCollapsed[testcase.key]}"></i>
 
             <h4 class="{{testcase.value.level}}">
-              <i class="fa {{severity_icons[testcase.value.level]}}" aria-hidden="true"></i>{{ testCaseDescriptions[testcase.key] }}
+              <i class="fa {{severity_icons[testcase.value.level]}}" aria-hidden="true"></i>
+              {{ testCaseDescriptions[testcase.key] }}
             </h4>
           </div>
-          <a href="https://zonemaster-docs.rd.nic.fr/specifications/{{module.key|lowercase}}-tp/{{testcase.key|lowercase}}.html"><i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.key}}</a>
-
+          <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.key]" id="testcase-id-{{testcase.key}}">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.key}}
+          </span>
         </header>
-        <ul [class.collapsed]="isCollapsed[testcase.key]" id="testcase-{{testcase.key}}" >
-          <li *ngFor="let entry of testcase.value.entries"><span class="{{entry.level|lowercase}}">{{entry.level}}</span> {{entry.message}} </li>
-        </ul>
+        <div [class.collapsed]="isCollapsed[testcase.key]" id="testcase-{{testcase.key}}">
+          <ul>
+            <li *ngFor="let entry of testcase.value.entries"><span class="{{entry.level|lowercase}}">{{entry.level}}</span> {{entry.message}} </li>
+          </ul>
+        </div>
       </article>
     </article>
   </div>

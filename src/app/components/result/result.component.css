@@ -52,7 +52,7 @@ article header div {
   display: inline;
   cursor: pointer;
 }
-article header a {
+article header .test-case-id {
   display: inline-block;
   background-color: #d3eeff;
   color: #555454;
@@ -105,8 +105,8 @@ article ul {
   padding-left: 4em;
 }
 
-article ul.collapsed {
-  display: none;
+.collapsed {
+  display: none!important;
 }
 
 article h3 {
