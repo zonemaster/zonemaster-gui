@@ -1,12 +1,13 @@
 article header div > i.fa {
   margin-right: 3em;
-  display: inline-block;
+  align-self: center;
   width: 1em;
 }
 
 article h4 {
   font-size: 1rem;
   display: inline-block;
+  margin: 0;
 }
 
 .result {
@@ -58,6 +59,7 @@ article header  {
 article header div {
   display: flex;
   cursor: pointer;
+  margin: 0.25rem 0;
 }
 article header .test-case-id {
   display: inline-block;
