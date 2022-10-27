@@ -228,6 +228,10 @@ button.btn-clipboard > i.fa-remove {
   margin-right: 0.25rem;
 }
 
+.summary a {
+  color: black;
+}
+
 .summary {
   margin-top: 1rem;
 }
