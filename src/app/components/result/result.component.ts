@@ -128,12 +128,11 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
   }
 
-  public moduleCollapsed(headerRef) {
-    let headerRect = headerRef.getBoundingClientRect();
-
-    if (headerRect.top < 0) {
-      let style = window.getComputedStyle(headerRef);
-      window.scrollBy(0, headerRect.top - parseInt(style.top, 10) )
+  public onTestcaseKeyDownEvent(event, testCaseId) {
+    switch (event.key) {
+      case 'Enter':
+        this.isCollapsed[testCaseId] = !this.isCollapsed[testCaseId];
+        break;
     }
   }
 
