@@ -113,13 +113,15 @@
     </div>
   </div>
 
-  <section class="summary">
+  <section class="mt-3 summary">
     <h3>{{ 'Summary' | translate }}</h3>
     <dl>
       <ng-container *ngFor="let module of modules | keyvalue">
         <dt><a [href]="'/result/' + test.id + '#' + module.key">{{ module.key }}</a></dt>
         <dd>
-          <div *ngFor="let level of testCasesCountByModule[module.key] | keyvalue" [ngStyle]="{'flex-grow': level.value}" class="{{ level.key }}"></div>
+          <div tabindex="0" *ngFor="let level of testCasesCountByModule[module.key] | keyvalue; let last = last" [ngStyle]="{'flex-grow': level.value}" class="{{ level.key }}" ngbTooltip="{{ level.key | uppercase }}: {{ level.value }}">
+            <span class="sr-only">{{level.value}} {{level.key}}<ng-container *ngIf="!last">,</ng-container></span>
+          </div>
         </dd>
       </ng-container>
     </dl>
@@ -128,7 +130,7 @@
   <section class="mt-3 details">
     <h3>Details</h3>
     <article *ngFor="let module of modules | keyvalue">
-      <h3 id="{{module.key}}">{{module.key}}</h3>
+      <h4 id="{{module.key}}">{{module.key}}</h4>
       <article *ngFor="let testcase of module.value | keyvalue">
         <header class="{{testcase.value.level}}">
           <div
@@ -140,9 +142,9 @@
           >
             <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.key],'fa-minus-square-o': !isCollapsed[testcase.key]}"></i>
 
-            <h4>
+            <h5>
               <i class="fa {{severity_icons[testcase.value.level]}}" aria-hidden="true"></i>{{ testCaseDescriptions[testcase.key] }}
-            </h4>
+            </h5>
           </div>
           <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.key]" id="testcase-id-{{testcase.key}}">
             <i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.key}}

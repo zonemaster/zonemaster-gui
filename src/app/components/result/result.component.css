@@ -4,7 +4,7 @@ article header div > i.fa {
   width: 1em;
 }
 
-article h4 {
+article h5 {
   font-size: 1rem;
   display: inline-block;
   margin: 0;
@@ -43,7 +43,7 @@ article header.critical {
   color: var(--result-critical-color);
 }
 
-article h4 i {
+article h5 i {
   width: 1em;
   display: inline-block;
   text-align: center;
@@ -138,7 +138,7 @@ article ul {
   display: none!important;
 }
 
-article h3::after {
+article h4::after {
   content: '';
   width: 100%;
   display: flex;
@@ -147,7 +147,7 @@ article h3::after {
   margin-left: 1rem;
 }
 
-article h3 {
+article h4 {
   display: flex;
   align-items: center;
   font-size: 1.35em;
@@ -258,12 +258,12 @@ button.btn-clipboard > i.fa-remove {
   height: 0.7rem;
 }
 
-.summary dl dd div:last-child {
+.summary dl dd div:last-of-type {
   border-top-right-radius: 0.35rem;
   border-bottom-right-radius: 0.35rem;
 }
 
-.summary dl dd div:first-child {
+.summary dl dd div:first-of-type {
   border-top-left-radius: 0.35rem;
   border-bottom-left-radius: 0.35rem;
 }
