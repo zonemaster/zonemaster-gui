@@ -216,10 +216,6 @@ button.btn-clipboard > i.fa-remove {
   flex-wrap: wrap;
 }
 
-.filters > * {
-  margin-top: 1rem;
-}
-
 .export, .share, .settings {
   margin-left: 0.25rem;
 }
