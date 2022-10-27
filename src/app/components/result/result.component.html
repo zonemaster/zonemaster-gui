@@ -51,68 +51,6 @@
     </div>
   </div>
 
-  <div class="filters">
-    <ul class="nav nav-pills vertical-align filter">
-      <li class="nav-item ml-1">
-        <ng-template #tooltipAll>{{ 'TOOLTIP_ALL' | translate }}</ng-template>
-        <a placement="top" [ngbTooltip]="tooltipAll"
-           class="nav-link" [ngClass]="{'active all': resultFilter.all}"
-           (click)="togglePillFilter('all')"
-           [(ngModel)]="resultFilter.all" ngDefaultControl>
-          All <span class="badge badge-pill badge-secondary">{{testCasesCount['all']}}</span></a>
-      </li>
-      <li class="nav-item ml-1">
-        <ng-template #tooltipInfo>{{ 'TOOLTIP_INFO' | translate }}</ng-template>
-        <a placement="top" [ngbTooltip]="tooltipInfo"
-           class="nav-link" [ngClass]="{'active info': resultFilter.info}"
-           (click)="togglePillFilter('info')"
-           [(ngModel)]="resultFilter.info" ngDefaultControl>
-          Info
-          <span class="badge badge-pill badge-secondary">{{testCasesCount['info']}}</span></a>
-      </li>
-      <li class="nav-item ml-1">
-        <ng-template #tooltipNotice>{{ 'TOOLTIP_NOTICE' | translate }}</ng-template>
-        <a placement="top" [ngbTooltip]="tooltipNotice"
-           class="nav-link" [ngClass]="{'active notice': resultFilter.notice}"
-           (click)="togglePillFilter('notice')"
-           [(ngModel)]="resultFilter.notice" ngDefaultControl>
-          Notice <span class="badge badge-pill badge-secondary">{{testCasesCount['notice']}}</span></a>
-      </li>
-      <li class="nav-item ml-1">
-        <ng-template #tooltipWarning>{{ 'TOOLTIP_WARNING' | translate }}</ng-template>
-        <a placement="top" [ngbTooltip]="tooltipWarning"
-           class="nav-link" [ngClass]="{'active warning': resultFilter.warning}"
-           (click)="togglePillFilter('warning')"
-           [(ngModel)]="resultFilter.warning" ngDefaultControl>
-          Warning <span class="badge badge-pill badge-secondary">{{testCasesCount['warning']}}</span></a>
-      </li>
-      <li class="nav-item ml-1">
-        <ng-template #tooltipError>{{ 'TOOLTIP_ERROR' | translate }}</ng-template>
-        <a placement="top" [ngbTooltip]="tooltipError"
-           class="nav-link" [ngClass]="{'active error': resultFilter.error}"
-           (click)="togglePillFilter('error')"
-           [(ngModel)]="resultFilter.error" ngDefaultControl>
-          Error <span class="badge badge-pill badge-secondary">{{testCasesCount['error']}}</span></a>
-      </li>
-      <li class="nav-item ml-1">
-        <ng-template #tooltipCritical>{{ 'TOOLTIP_CRITICAL' | translate }}</ng-template>
-        <a placement="top" [ngbTooltip]="tooltipCritical"
-           class="nav-link" [ngClass]="{'active critical': resultFilter.critical}"
-           (click)="togglePillFilter('critical')"
-           [(ngModel)]="resultFilter.critical" ngDefaultControl>
-          Critical <span class="badge badge-pill badge-secondary">{{testCasesCount['critical']}}</span></a>
-      </li>
-    </ul>
-    <div class="input-group search">
-      <input type="text" [(ngModel)]="resultFilter.search" (ngModelChange)='filterResults()' class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="basic-addon2">
-      <div class="input-group-append">
-        <span class="input-group-text">
-          <i class="fa fa-filter" aria-hidden="true"></i>
-        </span>
-      </div>
-    </div>
-  </div>
-
   <section class="mt-3 summary">
     <h3>{{ 'Summary' | translate }}</h3>
     <dl>
@@ -129,6 +67,69 @@
 
   <section class="mt-3 details">
     <h3>Details</h3>
+
+    <div class="filters">
+      <ul class="nav nav-pills vertical-align filter">
+        <li class="nav-item ml-1">
+          <ng-template #tooltipAll>{{ 'TOOLTIP_ALL' | translate }}</ng-template>
+          <a placement="top" [ngbTooltip]="tooltipAll"
+            class="nav-link" [ngClass]="{'active all': resultFilter.all}"
+            (click)="togglePillFilter('all')"
+            [(ngModel)]="resultFilter.all" ngDefaultControl>
+            All <span class="badge badge-pill badge-secondary">{{testCasesCount['all']}}</span></a>
+        </li>
+        <li class="nav-item ml-1">
+          <ng-template #tooltipInfo>{{ 'TOOLTIP_INFO' | translate }}</ng-template>
+          <a placement="top" [ngbTooltip]="tooltipInfo"
+            class="nav-link" [ngClass]="{'active info': resultFilter.info}"
+            (click)="togglePillFilter('info')"
+            [(ngModel)]="resultFilter.info" ngDefaultControl>
+            Info
+            <span class="badge badge-pill badge-secondary">{{testCasesCount['info']}}</span></a>
+        </li>
+        <li class="nav-item ml-1">
+          <ng-template #tooltipNotice>{{ 'TOOLTIP_NOTICE' | translate }}</ng-template>
+          <a placement="top" [ngbTooltip]="tooltipNotice"
+            class="nav-link" [ngClass]="{'active notice': resultFilter.notice}"
+            (click)="togglePillFilter('notice')"
+            [(ngModel)]="resultFilter.notice" ngDefaultControl>
+            Notice <span class="badge badge-pill badge-secondary">{{testCasesCount['notice']}}</span></a>
+        </li>
+        <li class="nav-item ml-1">
+          <ng-template #tooltipWarning>{{ 'TOOLTIP_WARNING' | translate }}</ng-template>
+          <a placement="top" [ngbTooltip]="tooltipWarning"
+            class="nav-link" [ngClass]="{'active warning': resultFilter.warning}"
+            (click)="togglePillFilter('warning')"
+            [(ngModel)]="resultFilter.warning" ngDefaultControl>
+            Warning <span class="badge badge-pill badge-secondary">{{testCasesCount['warning']}}</span></a>
+        </li>
+        <li class="nav-item ml-1">
+          <ng-template #tooltipError>{{ 'TOOLTIP_ERROR' | translate }}</ng-template>
+          <a placement="top" [ngbTooltip]="tooltipError"
+            class="nav-link" [ngClass]="{'active error': resultFilter.error}"
+            (click)="togglePillFilter('error')"
+            [(ngModel)]="resultFilter.error" ngDefaultControl>
+            Error <span class="badge badge-pill badge-secondary">{{testCasesCount['error']}}</span></a>
+        </li>
+        <li class="nav-item ml-1">
+          <ng-template #tooltipCritical>{{ 'TOOLTIP_CRITICAL' | translate }}</ng-template>
+          <a placement="top" [ngbTooltip]="tooltipCritical"
+            class="nav-link" [ngClass]="{'active critical': resultFilter.critical}"
+            (click)="togglePillFilter('critical')"
+            [(ngModel)]="resultFilter.critical" ngDefaultControl>
+            Critical <span class="badge badge-pill badge-secondary">{{testCasesCount['critical']}}</span></a>
+        </li>
+      </ul>
+      <div class="input-group search">
+        <input type="text" [(ngModel)]="resultFilter.search" (ngModelChange)='filterResults()' class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-filter" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
     <article *ngFor="let module of modules | keyvalue">
       <h4 id="{{module.key}}">{{module.key}}</h4>
       <article *ngFor="let testcase of module.value | keyvalue">
