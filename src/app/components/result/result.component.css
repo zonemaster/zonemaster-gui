@@ -80,6 +80,10 @@ article ul li .level {
   margin-right: 0.5em;
 }
 
+.filters .active.all {
+  background-color: #919191;
+}
+
 .filters .active.info,
 article ul li .level.info {
   background: var(--result-info-bg);
@@ -143,15 +147,7 @@ article h3 {
   align-items: center;
 }
 
-.result {
-  border-radius: 5px;
-  width     : 100%;
-  padding   : 1rem;
-  color     : black;
-  margin-bottom: 20px;
-}
-
-.result > div > article {
+.result section.details > article {
   background: #f7f7f7;
   padding: 0.5rem;
   margin-top: 1rem;
@@ -173,10 +169,6 @@ article h3 {
 .search {
   flex: 1;
   min-width: 300px;
-}
-
-.nav-link.active.all {
-    background-color: #919191;
 }
 
 .nav-link {
@@ -207,18 +199,6 @@ button.btn-clipboard > i.fa-remove {
     color: #bb2d3b;
 }
 
-.ipvX {
-  position: absolute;
-  right:0;
-  bottom: 0;
-}
-
-.result.container > div:first-child {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
 .actions-btn {
   flex-grow: 1;
   display: flex;
@@ -235,93 +215,13 @@ button.btn-clipboard > i.fa-remove {
 }
 
 .export, .share, .settings {
-  margin-left: 5px;
+  margin-left: 0.25rem;
 }
 
 .history > i, .export > i, .share > i, .settings > i {
-  margin-right: 4px;
+  margin-right: 0.25rem;
 }
 
-.result section {
-  display: block;
-  width: 100%;
-}
-
-.result section h3 {
-  position: sticky;
-  top: 95px;
-  z-index: 3;
-  background-color: #f2f2f2;
-  padding: 1rem;
-  font-size: 1rem;
-  margin: 8px 0 0 0;
-  display: flex;
-}
-
-.result section > a {
-  cursor: pointer;
-}
-
-.result section h3 i {
-  width: 40px;
-}
-
-.result section h3::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 8px;
-  background-color: #fff;
-  bottom: calc(100% + 1px);
-  left: 0;
-  cursor: auto;
-  /* fix for chrome */
-  margin-bottom: -1px;
-}
-
-.result section .entry::before,
-.result section h3::before {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 100%;
-  left: 0;
-  top: 0;
-}
-
-.result section .entry::before {
-  height: calc(100% + 1px);
-  top: -0.5px;
-}
-
-.result section .entry {
-  display: flex;
-  padding: 1rem 1rem;
-  position: relative;
-}
-
-.result section .entry:last-child {
-  border: none;
-}
-
-.result section > div {
-  padding-left: 40px;
-}
-
-.result section .entry {
-  border-bottom: solid #dee2e6 1px;
-}
-
-.result section .entry .module-name {
-  min-width: 15%;
-  flex-shrink: 0;
-}
-
-.result section .entry .severity {
-  min-width: 12%;
-  flex-shrink: 0;
-  font-weight: 700;
-}
 
 @media(max-width:767px){
   .result-header {

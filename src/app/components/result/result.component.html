@@ -112,8 +112,7 @@
       </div>
     </div>
   </div>
-
-  <div class="mt-3">
+  <section class="mt-3 details">
     <article *ngFor="let module of modules | keyvalue">
       <h3>{{module.key}}</h3>
       <article *ngFor="let testcase of module.value | keyvalue">
@@ -140,8 +139,8 @@
         </div>
       </article>
     </article>
-  </div>
-
+  </section>
+</div>
 <ng-template #historyModal let-c="close" let-d="dismiss">
   <div class="modal-header">
   <h4 class="modal-title">{{'History'|translate}}</h4>
