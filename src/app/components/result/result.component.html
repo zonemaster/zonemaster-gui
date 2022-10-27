@@ -54,10 +54,10 @@
   <section class="mt-3 summary">
     <h3>{{ 'Summary' | translate }}</h3>
     <dl>
-      <ng-container *ngFor="let module of modules | keyvalue">
+      <ng-container *ngFor="let module of testCasesCountByModule | keyvalue">
         <dt><a [href]="'/result/' + test.id + '#' + module.key">{{ module.key }}</a></dt>
         <dd>
-          <div tabindex="0" *ngFor="let level of testCasesCountByModule[module.key] | keyvalue; let last = last" [ngStyle]="{'flex-grow': level.value}" class="{{ level.key }}" ngbTooltip="{{ level.key | uppercase }}: {{ level.value }}">
+          <div tabindex="0" *ngFor="let level of module.value | keyvalue; let last = last" [ngStyle]="{'flex-grow': level.value}" class="{{ level.key }}" ngbTooltip="{{ level.key | uppercase }}: {{ level.value }}">
             <span class="sr-only">{{level.value}} {{level.key}}<ng-container *ngIf="!last">,</ng-container></span>
           </div>
         </dd>
