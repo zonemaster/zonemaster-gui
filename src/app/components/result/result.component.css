@@ -115,6 +115,7 @@ article li {
 article li p {
   word-break: normal;
   overflow-wrap: anywhere;
+  margin: 0;
 }
 
 article ul {
