@@ -34,13 +34,12 @@ It consists of several components:
 
 When a domain name (such as 'zonemaster.net') is submitted to Zonemaster (using CLI or
 GUI), it will verify the domain name’s general health with a series of tests.
-The different sanity checks and corresponding tests conducted by Zonemaster can be
-found in the [Test Requirements] document.
+The tests conducted by Zonemaster can be found in the [Defined Test Cases] document.
 
 <a name="q2"></a>
 #### 2. Who is behind Zonemaster?
 Zonemaster is a joint project between [AFNIC] (registry of '.fr' TLD and several other
-TLDs, e.g. '.re', '.pm', '.tf', '.wf', '.yt' and '.paris') and the [Swedish Internet Foundation]
+TLDs, e.g. '.re', '.pm', '.tf', '.wf', '.yt' and '.paris') and [The Swedish Internet Foundation]
 (registry of '.se' and '.nu' TLDs).
 
 <a name="q3"></a>
@@ -58,13 +57,13 @@ in case there are errors or warnings for any test of their domain name.
 #### 4. Zonemaster returns "Error" or "Warning" for my domain name. What does it mean?
 It depends on which test failed for your domain name.
 Each test are accompanied with one or several messages describing the issues found.
-You can also get further insight about each test from the [Implemented Test Cases] document.
+You can also get further insight about each test from the [Defined Test Cases] document.
 
 <a name="q5"></a>
 #### 5. How can Zonemaster distinguish between what is right and wrong?
 The judgement of Zonemaster is primarily based on the DNS standards as defined in [RFCs].
 It also bases its judgement on DNS best practices, which can be more loosely defined.
-All Zonemaster tests are defined in [Test Case Specifications][Implemented Test Cases]
+All Zonemaster tests are defined in [Test Case Specifications][Defined Test Cases]
 in which the references to the standard documents for that test case are found.
 
 The descriptions of message levels such as *notice*, *warning* and *error* are found 
@@ -101,7 +100,8 @@ can be found in the [Defined Test Cases] document.
 Thirdly, Zonemaster can be used to test undelegated domain names.
 See [Question 12].
 
-Fourthly, Zonemaster can be used to test DS records before their publication in the parent zone.
+Fourthly, Zonemaster can be used to test DS records before their publication in the parent zone
+(which is required to enable DNSSEC for a signed zone).
 See [Question 13].
 
 Lastly, this open source version of Zonemaster was built using modular code
@@ -111,7 +111,7 @@ redelegations.
 
 <a name="q9"></a>
 #### 9. Zonemaster and privacy
-Since Zonemaster is open to everyone it is possible for anyone to check your
+Since [Zonemaster.net] is open to everyone it is possible for anyone to check your
 domain and its history of tests.
 However there is no way to tell who has run a specific test since nothing more than the test
 parameters and results are stored.
@@ -134,11 +134,12 @@ There are several possibilities:
 Zonemaster send multiple DNS queries to the name servers hosting the domain name being tested and
 also to the name servers hosting the parent zone of that domain name.
 
-The GUI interface of Zonemaster does not show any queries sent.
-Only the CLI interface can. If you want to see such queries, you will have to locally install
-a minimally working Zonemaster instance with both the Engine and CLI components.
+The GUI interface of Zonemaster does not show any queries sent, only the CLI interface can.
+If you want to see such queries, you will have to locally install
+a minimally working Zonemaster instance with both the Engine and CLI components (a Docker image is also available).
 Queries sent can be shown using the 'DEBUG' level option.
 Fair warning, the output from the CLI can be quite heavy.
+For more information see [Using The CLI].
 
 <a name="q12"></a>
 #### 12. What is an undelegated domain test?
@@ -148,7 +149,7 @@ This can be quite useful if one is going to migrate one's domain from one regist
 e.g., migrate zone 'example.com' from the name server 'ns.example.com' to the name server 'ns.example.org'.
 In this scenario one could perform an undelegated domain test providing the zone ('example.com')
 and the name server you are migrating to ('ns.example.org') *before* you migrate your domain.
-When the results of the test are color-coded "green" one can be fairly certain that the
+When the results of the test doesn't show any errors or warnings one can be fairly certain that the
 domain's new location is working well.
 However there might still be other problems in the zone data itself that this test is unaware of.
 
@@ -172,10 +173,11 @@ Examples:
 
 [AFNIC]:                                 https://www.afnic.fr/en/
 [Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
-[Implemented Test Cases]:                https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/ImplementedTestCases.md
 [Question 12]:                           #q12
+[Question 13]:                           #q13
 [RFCs]:                                  https://www.ietf.org/standards/rfcs/
 [Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
-[Swedish Internet Foundation]:           https://internetstiftelsen.se/en/
-[Test Requirements]:                     https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md
+[The Swedish Internet Foundation]:       https://internetstiftelsen.se/en/
+[Using The CLI]:                         https://github.com/zonemaster/zonemaster-cli/blob/master/USING.md
+[Zonemaster.net]:                        https://zonemaster.net/
 [zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se
