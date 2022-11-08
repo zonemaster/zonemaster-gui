@@ -51,6 +51,8 @@ const appRoutes: Routes = [
   { path: 'check/:domain', component: DomainComponent },
   { path: 'check', component: DomainComponent },
   { path: 'result/:resultID', component: ResultComponent },
+  { path: 'history/:domain', component: HistoryComponent },
+  { path: 'history', component: HistoryComponent },
   { path: 'faq', component: FaqComponent },
 
   { path: 'domain_check', redirectTo: 'check', pathMatch: 'full' },

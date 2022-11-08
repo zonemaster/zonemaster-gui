@@ -6,7 +6,7 @@
   color: #9ad;
 }
 
-#domain_check_name {
+#input_domain_form {
   font-size:16px;
   height:64px;
   color:#6F787E;
@@ -21,9 +21,12 @@
   width: 50%;
 }
 
+button.launch,
+button.history {
+  height: 64px;
+}
 button.launch {
   background-color: #FF5A5F;
-  height: 64px;
 }
 button.launch:hover {
   background-color: #ff3c3a;

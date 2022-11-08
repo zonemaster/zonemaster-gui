@@ -1,15 +1,16 @@
-<form class="domain mb-2" (ngSubmit)="runDomainCheck();" [formGroup]="form">
+<form class="domain mb-2" (ngSubmit)="submitForm();" [formGroup]="form">
   <div class="container-fuild">
     <div class="row mb-1">
       <div class="col-sm-10 offset-sm-1 text-center">
-        <h1>{{'Domain name'|translate}}</h1>
+        <h1 *ngIf="isFormDomainCheck">{{'Domain name'|translate}}</h1>
+        <h1 *ngIf="isFormHistory">{{ 'History' | translate }}</h1>
         <div class="form-row mb-2">
           <div class="col">
             <input type="text"
                 class="form-control form-control-lg"
                 [class.is-invalid]="domain.invalid && (domain.dirty || domain.touched)"
-                id="domain_check_name"
-                name="domain_check_name"
+                id="input_domain_form"
+                name="input_domain_form"
                 formControlName="domain"
                 placeholder="{{'Domain name'|translate}}"
                 required>
@@ -23,7 +24,7 @@
 
             <p class="reset-form d-none d-sm-block" *ngIf="domain.value.length > 0 && !showProgressBar" >
               <button
-                (click)="resetDomainForm();"
+                (click)="resetForm();"
                 type="button"
                 class="btn grey"><i class="fa fa-2x fa-times-circle"></i></button>
             </p>
@@ -31,11 +32,11 @@
             <p class="progress-result d-block" *ngIf="showProgressBar">
               <ngb-progressbar
                 type="info"
-                [value]="domain_check_progression"
+                [value]="form_progression"
                 [striped]="true"
                 [animated]="true"
               >
-                <span class="progress-value">{{domain_check_progression}}%</span>
+                <span class="progress-value" *ngIf="!isFormHistory">{{form_progression}}%</span>
               </ngb-progressbar>
             </p>
           </div>
@@ -43,14 +44,22 @@
             <button title="{{'Run test'|translate}}"
                     class="launch btn btn-lg text-white"
                     type="submit"
-                    [disabled]="disable_check_button">
+                    [disabled]="disable_check_button"
+                    *ngIf="isFormDomainCheck">
               Check
+            </button>
+            <button title="{{'Get domain\'s history'|translate}}"
+                    class="history btn btn-lg btn-primary text-white"
+                    type="submit"
+                    [disabled]="disable_check_button"
+                    *ngIf="isFormHistory">
+                {{ 'View history' | translate }}
             </button>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row" *ngIf="isFormDomainCheck">
       <div class="advanced col-sm-10 offset-sm-1">
         <label class="d-flex" for="advanced_checkbox">
           <span class="switch">

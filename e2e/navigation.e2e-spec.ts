@@ -17,11 +17,11 @@ test.describe('Navigation should be consistent and honor browser behaviour', () 
 
     // Create a new test
     await expect(page).toHaveURL(domainCheckUrl);
-    await page.locator('#domain_check_name').type(firstDomain);
+    await page.locator('#input_domain_form').type(firstDomain);
     await page.locator('div button.launch').click();
     // Verify that when the test finishes the browser is redirect to the result page with an url /result/<id1>.
     // The domain check form is visible.
-    await expect(page.locator('.result-header > h2')).toHaveText(firstDomain, { timeout: 10000 });
+    await expect(page.locator('.result-header > h2')).toHaveText(firstDomain.toLowerCase(), { timeout: 10000 });
     await expect(page.locator('div.result.container')).toBeVisible();
     await expect(page.locator('form.domain')).toBeVisible();
     await expect(page).toHaveURL(firstTestUrl);
@@ -35,16 +35,16 @@ test.describe('Navigation should be consistent and honor browser behaviour', () 
     await page.goForward();
     // Verify that the previous test result is displayed with the url /result/<id1>.
     // The domain check form should still be visible.
-    await expect(page.locator('.result-header > h2')).toHaveText(firstDomain, { timeout: 10000 });
+    await expect(page.locator('.result-header > h2')).toHaveText(firstDomain.toLowerCase(), { timeout: 10000 });
     await expect(page.locator('div.result.container')).toBeVisible();
     await expect(page.locator('form.domain')).toBeVisible();
     await expect(page).toHaveURL(firstTestUrl);
     // Create a second test for an other domain from the result page.
-    await page.locator('#domain_check_name').type(secondDomain);
+    await page.locator('#input_domain_form').type(secondDomain);
     await page.locator('div button.launch').click();
     // When the second test finishes the url should change to /result/<id2>.
     // The result for the second test should be displayed and the domain check form should still be visible.
-    await expect(page.locator('.result-header > h2')).toHaveText(secondDomain, { timeout: 10000 });
+    await expect(page.locator('.result-header > h2')).toHaveText(secondDomain.toLowerCase(), { timeout: 10000 });
     await expect(page.locator('div.result.container')).toBeVisible();
     await expect(page.locator('form.domain')).toBeVisible();
     await expect(page).toHaveURL(secondTestUrl);
@@ -53,7 +53,7 @@ test.describe('Navigation should be consistent and honor browser behaviour', () 
     // The domain check form is not visible, instead a Result header is displayed.
     await expect(page.locator('h1')).toHaveText('Result');
     await expect(page.locator('div.result.container')).toBeVisible({ timeout: 10000 });
-    await expect(page.locator('.result-header > h2')).toHaveText(secondDomain);
+    await expect(page.locator('.result-header > h2')).toHaveText(secondDomain.toLowerCase());
     await expect(page.locator('form.domain')).not.toBeVisible();
   });
 });

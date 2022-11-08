@@ -25,6 +25,8 @@
     "FAQ": "FAQ",
     "Fetch data from parent zone": "Fetch data from parent zone",
     "Filter text": "Filter text",
+    "Get domain's history": "Get domain's history",
+    "HISTORY_BACKEND_UNAVAILABLE": "Zonemaster Backend not available. No history available for this domain.",
     "History": "History",
     "History information request is in progress": "History information request is in progress",
     "Internal server error": "Internal server error",
@@ -33,6 +35,8 @@
     "NS required": "NS required",
     "Nameservers": "Nameservers",
     "No data for this test": "No data for this test",
+    "No history available for this domain": "No history available for this domain",
+    "No result available with this filter": "No result available with this filter",
     "No result for this query": "No result for this query",
     "Notice! More info on undelegated test": "Notice! More info on undelegated test",
     "Options": "Options",
@@ -55,6 +59,7 @@
     "There is no delegation for the zone": "There is no delegation for the zone",
     "UNDELEGATED_PLURAL": "Undelegated",
     "UNDELEGATED_SINGULAR": "Undelegated",
+    "View history": "View history",
     "What is an undelegated domain test?": "What is an undelegated domain test?",
     "Zonemaster Backend is not available": "Zonemaster Backend is not available"
 }

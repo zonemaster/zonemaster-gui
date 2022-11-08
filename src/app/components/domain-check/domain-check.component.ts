@@ -13,6 +13,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class DomainCheckComponent implements OnInit {
   private intervalTime: number;
+  public isFormDomainCheck = true;
   public is_advanced_options_enabled = false;
   public domain_check_progression = 0;
   public showResult = false;

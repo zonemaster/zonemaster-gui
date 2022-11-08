@@ -11,6 +11,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
+import { sanitizeDomain } from '../../utils';
+
 
 @Component({
   selector: 'app-form',
@@ -18,12 +20,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
+  @Input() isFormDomainCheck;
+  @Input() isFormHistory;
   @Input() is_advanced_options_enabled;
-  @Input() domain_check_progression;
+  @Input() form_progression;
   @Input() toggleFinished;
   @Input() profiles;
 
   @Output() onDomainCheck = new EventEmitter<object>();
+  @Output() ongetTestHistory = new EventEmitter<object>();
   @Output() onfetchFromParent = new EventEmitter<string>();
   @Output() onOpenOptions = new EventEmitter<boolean>();
 
@@ -61,6 +66,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
+    private router: Router,
     private translateService: TranslateService,
     private titleService: Title) {}
 
@@ -139,7 +145,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return  null;
   };
 
-  public generate_form() {
+  private generate_form_domain_check() {
     this.form = new FormGroup({
       domain: new FormControl('', Validators.required),
       disable_ipv4: new FormControl(false),
@@ -153,6 +159,21 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
     this.addNewRow('nameservers');
     this.addNewRow('ds_info');
+  }
+
+  private generate_form_history() {
+    this.form = new FormGroup({
+      domain: new FormControl('', Validators.required),
+    });
+  }
+
+  public generate_form() {
+    if ( this.isFormDomainCheck ) {
+      this.generate_form_domain_check();
+    }
+    if ( this.isFormHistory ) {
+      this.generate_form_history();
+    }
   }
 
   get domain() { return this.form.get('domain'); }
@@ -201,7 +222,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return this._showProgressBar;
   }
 
-  public resetDomainForm() {
+  public resetForm() {
     this.form.controls.domain.reset('');
   }
 
@@ -252,21 +273,11 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  // Remove trailing spaces and dots, and leading spaces
-  private sanitizeDomain(domain: string): string {
-    domain = domain.trim();
-    if (domain == '.') {
-      return domain;
-    } else {
-      return domain.replace(/\.$/, '');
-    }
-  }
-
-  public runDomainCheck(submitValid = true) {
+  private runDomainCheck(submitValid = true) {
     this.form.markAllAsTouched();
     let param = this.form.value;
 
-    param.domain = this.sanitizeDomain(param.domain);
+    param.domain = sanitizeDomain(param.domain);
 
     if (param.ipv4 === true) delete param.ipv4;
 
@@ -277,7 +288,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
     param.nameservers = param.nameservers
       .map((x, i) => {
-        x.ns = this.sanitizeDomain(x.ns);
+        x.ns = sanitizeDomain(x.ns);
         if (!x.ip) {
           delete x.ip;
         }
@@ -297,6 +308,27 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     if (submitValid == this.form.valid) {
       this.onDomainCheck.emit(param);
     }
+  }
+
+  private runTestHistory() {
+    this.form.markAllAsTouched();
+    let param = this.form.value;
+
+    param.domain = sanitizeDomain(param.domain);
+
+    if ( this.form.valid ) {
+      this.ongetTestHistory.emit( param.domain );
+      this.router.navigate( [ '/history', param.domain ] );
+    }
+  }
+
+  public submitForm() {
+      if (this.isFormDomainCheck) {
+        this.runDomainCheck();
+      }
+      if (this.isFormHistory) {
+          this.runTestHistory();
+      }
   }
 
   public toggleOptions() {
