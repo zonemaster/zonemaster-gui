@@ -1,25 +1,25 @@
 Zonemaster
 ==========
 
-1. [Zonemaster, c'est quoi ?](#q1)
+1. [Qu'est-ce que Zonemaster ?](#q1)
 2. [Qui se cache derrière Zonemaster ?](#q2)
 3. [Qu'est-ce que Zonemaster peut faire pour moi?](#q3)
-4. [Zonemaster indique des "Erreurs" ou "Avertissements" sur mon nom de domaine. Qu'est-ce que cela signifie ?](#q4)
+4. [Zonemaster indique des « Erreurs » ou « Avertissements » sur mon nom de domaine. Qu'est-ce que cela signifie ?](#q4)
 5. [Comment Zonemaster discerne-t-il le bon du mauvais ?](#q5)
 6. [Zonemaster prend-il en charge IPv6 ?](#q6)
 7. [Zonemaster vérifie-t-il DNSSEC ?](#q7)
-8. [Qu'est ce qui fait que Zonemaster est différent des outils existants ?](#q8)
-9. [Zonemaster et confidentialité](#q9)
+8. [Qu'est-ce qui distingue Zonemaster des autres outils existants ?](#q8)
+9. [Zonemaster et le respect de la vie privée](#q9)
 10. [Pourquoi mon nom de domaine n'a-t-il pas pu être testé ?](#q10)
-11. [Quels genres de requêtes Zonemaster génère t-il ?](#q11)
-12. [C'est quoi un test sur un domaine non délégué?](#q12)
+11. [Quel genre de requêtes Zonemaster génère-t-il ?](#q11)
+12. [Qu'est-ce qu'un test sur un domaine non délégué ?](#q12)
 13. [Peut-on tester des enregistrements DS avant leur publication ?](#q13)
 14. [Comment tester une zone inverse avec Zonemaster ?](#q14)
 
 Zonemaster
 ----------
 <a name="q1"></a>
-#### 1. Zonemaster, c'est quoi ?
+#### 1. Qu'est-ce que Zonemaster ?
 
 Zonemaster est un programme conçu pour aider à vérifier, mesurer et peut-être
 aussi aider à la compréhension du fonctionnement du DNS (_Domain Name
@@ -63,7 +63,7 @@ DNS si le moindre test de leur nom de domaine rapporte une erreur ou un
 avertissement.
 
 <a name="q4"></a>
-#### 4. Zonemaster indique des "Erreurs" ou "Avertissements" sur mon nom de domaine. Qu'est-ce que cela signifie ?
+#### 4. Zonemaster indique des « Erreurs » ou « Avertissements » sur mon nom de domaine. Qu'est-ce que cela signifie ?
 
 Cela dépend du test ayant échoué pour votre nom de domaine. Chaque test est
 accompagné d'un ou plusieurs messages décrivant les problèmes qui ont été
@@ -109,7 +109,7 @@ Si DNSSEC est disponible pour un domaine testé par Zonemaster, des tests
 DNSSEC seront effectués automatiquement.
 
 <a name="q8"></a>
-#### 8. Qu'est ce qui fait que Zonemaster est différent des outils existants ?
+#### 8. Qu'est-ce qui distingue Zonemaster des autres outils existants ?
 
 Premièrement, Zonemaster conserve tout l'historique des tests réalisés sur un
 nom de domaine, ce qui signifie que vous pouvez revenir en arrière pour
@@ -134,7 +134,7 @@ souhaite rarement utiliser un logiciel complet juste pour vérifier des
 redélégations.
 
 <a name="q9"></a>
-#### 9. Zonemaster et confidentialité
+#### 9. Zonemaster et le respect de la vie privée
 
 Puisque Zonemaster est accessible à tous, n'importe qui peut vérifier votre
 nom de domaine et consulter son historique de tests.
@@ -163,7 +163,7 @@ Il y a plusieurs possibilités :
 - Vous avez fait une faute de frappe dans le nom de domaine.
 
 <a name="q11"></a>
-#### 11. Quels genres de requêtes Zonemaster génère t-il ?
+#### 11. Quel genre de requêtes Zonemaster génère-t-il ?
 
 Zonemaster envoie plusieurs requêtes DNS aux serveurs de noms hébergeant le
 nom de domaine à tester ainsi qu'aux serveurs de noms hébergant la zone
@@ -180,7 +180,7 @@ Pour plus d'informations, voir [Utilisation de l'interface en ligne de
 commandes] (document rédigé en anglais).
 
 <a name="q12"></a>
-#### 12. C'est quoi un test sur un nom de domaine non délégué ?
+#### 12. Qu'est-ce qu'un test sur un nom de domaine non délégué ?
 
 Un test sur un nom de domaine non délégué est un test effectué sur un nom de
 domaine qui peut ne pas être entièrement publié dans le DNS. Ce type de test
