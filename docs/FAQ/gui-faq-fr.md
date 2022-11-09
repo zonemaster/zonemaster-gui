@@ -4,235 +4,225 @@ Zonemaster
 1. [Zonemaster, c'est quoi ?](#q1)
 2. [Qui se cache derrière Zonemaster ?](#q2)
 3. [Qu'est-ce que Zonemaster peut faire pour moi?](#q3)
-4. [Zonemaster indique des "Erreurs" ou "Avertissements" sur ma zone. Qu'est ce que cela signifie ?](#q4)
-5. [Comment Zonemaster peut décider ce qui est correct de ce qui ne l'est pas?](#q5)
-6. [Est-ce que Zonemaster supporte IPv6 ?](#q6)
-7. [Est-ce que Zonemaster supporte DNSSEC ?](#q7)
+4. [Zonemaster indique des "Erreurs" ou "Avertissements" sur mon nom de domaine. Qu'est-ce que cela signifie ?](#q4)
+5. [Comment Zonemaster discerne-t-il le bon du mauvais ?](#q5)
+6. [Zonemaster prend-il en charge IPv6 ?](#q6)
+7. [Zonemaster vérifie-t-il DNSSEC ?](#q7)
 8. [Qu'est ce qui fait que Zonemaster est différent des outils existants ?](#q8)
 9. [Zonemaster et confidentialité](#q9)
-10. [Comment se fait-il que je ne puisse pas tester mon nom de domaine ?](#q10)
+10. [Pourquoi mon nom de domaine n'a-t-il pas pu être testé ?](#q10)
 11. [Quels genres de requêtes Zonemaster génère t-il ?](#q11)
 12. [C'est quoi un test sur un domaine non délégué?](#q12)
-13. [Comment tester une zone "reverse" avec Zonemaster ?](#q13)
+13. [Peut-on tester des enregistrements DS avant leur publication ?](#q13)
+14. [Comment tester une zone inverse avec Zonemaster ?](#q14)
 
 Zonemaster
 ----------
 <a name="q1"></a>
-#### 1. Zonemaster c'est quoi ?
+#### 1. Zonemaster, c'est quoi ?
 
-Zonemaster est un outil qui a été créé dans le but d'aider au diagnostic,
-de mesurer et aussi permettre à ses utilisateurs de mieux comprendre le
-fonctionnement du DNS (Domain Name System). Il est constitué de 4 éléments
-qui sont:
+Zonemaster est un programme conçu pour aider à vérifier, mesurer et peut-être
+aussi aider à la compréhension du fonctionnement du DNS (_Domain Name
+System_).
 
- 1. Un moteur de tests qui contient tout le code nécessaire aux traitements
-    à réaliser lors de l'analyse d'une zone.
- 2. Une interface en ligne de commande (CLI) plus particulièrement dédiée
-    aux utilisateurs les plus expérimentés.
- 3. Un serveur permettant l'execution des tests zonemaster, 
-    et l'historisation des resultats, au travers d'une API JSON-RPC.
- 4. Une interface Web permettant un accès rapide à l'outil.
+Il est constitué de plusieurs composants :
 
-Lorsqu'un nom de domaine (et conséquemment la zone à laquelle il fait 
-référence) est soumis à Zonemaster, ce dernier va réaliser une analyse 
-complète et parcourir l'arborescence des noms de domaine en partant de la 
-racine (.) jusqu'aux serveurs de noms contenant les informations pour la 
-zone correspondante. Ceci afin de détecter toute anomalie indiquant une 
-non conformité ou faille qui pourrait conduire à une mauvaise qualité du
-service. Ce qui inclut, des tests de connectivité, de validité des adresses
-IP, de contrôle de validité des signatures DNSSEC...
+ 1. *Engine* (moteur) - un cadriciel de tests prenant en charge toutes les
+    fonctionnalités pour les tests DNS ;
+ 2. *CLI* - une interface en ligne de commande pour le moteur ;
+ 3. *Backend* - un serveur permettant l'exécution de tests et la sauvegarde de
+    résultats au moyen d'une API JSON-RPC et d'une base de données ;
+ 4. *GUI* - une interface graphique (Web) pour le Backend.
 
-L'ensemble des tests réalisés par Zonemaster est décrit au sein du document
-[Test Requirements document](https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md).
+Lorsqu'un nom de domaine (comme « zonemaster.net ») est soumis à Zonemaster
+(par l'interface en ligne de commande ou l'interface graphique), ce dernier
+vérifie l'état de santé général du nom de domaine à l'aide d'une série de
+tests. L'ensemble des tests réalisés par Zonemaster est décrit dans le
+document intitulé [Defined Test Cases] (« cas de tests définis », document
+rédigé en anglais).
 
 <a name="q2"></a>
 #### 2. Qui se cache derrière Zonemaster ?
 
-Zonemaster est un projet conjoint entre l'Afnic (multi-registre français de 
-ccTLDs .fr, .re, .pm, .tf, .wf, .yt et de gTLDs .paris, ...) d'une part et
-[The Swedish Internet Foundation](https://internetstiftelsen.se/en/)
-(registre suédois des ccTLDs .se et .nu) d'autre part.
+Zonemaster est un projet conjoint entre l'[Afnic], registre du TLD « .fr »
+ainsi que d'autres TLD, comme « .re », « .pm », « .tf », « .wf », « .yt » et
+« .paris » et [The Swedish Internet Foundation], registre suédois des TLD
+« .se » et « .nu ».
 
 <a name="q3"></a>
 #### 3. Qu'est-ce que Zonemaster peut faire pour moi ?
 
-Zonemaster a été créé pour un public de techniciens, ou tout du moins pour
-les personnes s'intéressant à la manière dont le DNS fonctionne. Il peut
-par exemple être utilisé pour montrer aux responsables techniques de votre 
-nom de domaine, qu'un problème de configuration est en cours en leur
-fournissant le lien généré par Zonemaster qui se trouve à la fin de chaque 
-analyse. Ainsi, si vous avez demandé une analyse et que vous souhaitez
-montrer à quelqu'un le résultat de celle-ci vous pouvez juste copier le lien
-fourni sur la page des résultats de tests.
+Zonemaster a été conçu pour deux types de publics :
+
+ - Les utilisateurs ayant une bonne connaissance du protocole DNS ;
+ - Les utilisateurs souhaitant simplement savoir si les noms de domaine qu'ils
+   possèdent ou utilisent ont des problèmes.
+
+Les utilisateurs de la seconde catégorie devraient contacter leur opérateur
+DNS si le moindre test de leur nom de domaine rapporte une erreur ou un
+avertissement.
 
 <a name="q4"></a>
-#### 4. Zonemaster indique des "Erreurs" ou "Avertissements" sur ma zone. Qu'est ce que cela signifie ?
+#### 4. Zonemaster indique des "Erreurs" ou "Avertissements" sur mon nom de domaine. Qu'est-ce que cela signifie ?
 
-Bien évidemment, cela dépend du type des tests qui ont échoué lors de l'analyse
-de la zone. Dans la plupart des cas, vous pouvez cliquer sur le message d'erreur
-ou d'avertissement pour obtenir plus de détails sur le problème qui a été détecté.
+Cela dépend du test ayant échoué pour votre nom de domaine. Chaque test est
+accompagné d'un ou plusieurs messages décrivant les problèmes qui ont été
+trouvés. Vous pouvez également trouver des détails supplémentaires sur chaque
+test dans le document intitulé [Defined Test Cases].
 
- <a name="q5"></a>
-#### 5. Comment Zonemaster peut décider ce qui est correct de ce qui ne l'est pas ?
+<a name="q5"></a>
+#### 5. Comment Zonemaster discerne-t-il le bon du mauvais ?
 
-Personne ne peut donner de jugement définitif quand à la bonne configuration
-d'une zone (même si certaines erreurs font toutefois consensus). Il est très 
-important de comprendre que les équipe de l'Afnic et du IIS derrière la 
-conception de Zonemaster ne prétendent pas détenir la connaissance absolue
-sur tous les aspects vérifiés au cours de l'analyse d'une zone. Parfois
-des règles font débat entre pays, mais aussi plus localement. Nous avons
-fait notre possible pour proposer une politique par défaut pour qualifier
-les erreurs, au sein du projet. Nous nous sommes assurés de réaliser un bon
-compromis entre des erreurs réellement dangereuses et celles qui peuvent
-être considérées comme des conseils de bonne pratique non critiques pour  
-le bon fonctionnement de la zone testée.
+Le jugement de Zonemaster repose principalement sur les normes techniques du
+DNS telles qu'elles sont définies dans les [RFC]. Le jugement est également
+fondé sur les bonnes pratiques du DNS, dont la définition est moins stricte.
+Tous les tests de Zonemaster sont définis dans des [spécifications de cas de
+test][Defined Test Cases], dans lesquels vous pourrez trouver les références
+aux documents normatifs pour un cas de test donné.
 
-Un des avantages de Zonemaster est qu'il est possible d'utiliser d'autres
-politiques que celles déjà existantes (en utilisant un fichier que l'on
-peut écrire pour ses propres besoins).
+Les descriptions de niveaux de messages comme *notice*, *avertissement* et
+*erreur* se trouvent dans le document intitulé [Severity Level Definitions]
+(en anglais).
 
-Mais, avec les technonologies évolutives, comme le DNS, ce qui est aujourd'hui
-un simple avertissement, peut devenir demain une faille de sécurité grave. Si
-vous considérez que nous avons fait une erreur de jugement pour qualifier une
-erreur, n'hésitez pas à nous en faire part en envoyant un Email à l'adresse
-[zonemaster-users@lists.iis.se](mailto:zonemaster-users@lists.iis.se) (liste
-email modérée) avec le lien sur le test réalisé et un commentaire
-indiquant ce que vous pensez être incorrect dans notre diagnostique. (Si vous
-ne savez pas quel lien envoyer, consulter la réponse à la question "Qu'est-ce 
-que Zonemaster peut faire pour moi ?" qui se trouve dans cette FAQ)
+Parfois, les normes techniques ou les opinions de ce qui constitue une bonne
+pratique peuvent faire l'objet d'interprétations multiples ; l'équipe de
+Zonemaster est toujours ouverte aux commentaires. Si vous pensez que nous
+avons fait une erreur dans notre jugement, n'hésitez pas à nous envoyer un
+e-mail à [zonemaster-users@lists.iis.se] (liste de diffusion modérée) avec un
+lien vers le résultat de votre test et en expliquant pourquoi vous pensez que
+Zonemaster affiche quelque chose que vous considérez comme incorrect.
 
 <a name="q6"></a>
-#### 6. Est-ce que Zonemaster supporte IPv6 ?
+#### 6. Zonemaster prend-il en charge IPv6 ?
 
-Oui, bien sûr. Tous les tests exécutés en IPv4, le seront aussi en IPv6, dans
-la mesure ou Zonemaster est configuré pour le faire.
+Oui.
+Par défaut, Zonemaster interroge les serveurs de noms aussi bien en IPv4 qu'en
+IPv6, sauf si un paramètre de configuration prescrit le contraire.
+De tels paramètres de configuration sont accessibles à travers le bouton « Options ».
+
 
 <a name="q7"></a>
-#### 7. Est-ce que Zonemaster supporte DNSSEC ?
+#### 7. Zonemaster vérifie-t-il DNSSEC ?
 
-Oui, si des informations relatives à DNSSEC sont détectées au cours de l'analyse
-de la zone à tester, leur conformité sera automatiquement vérifiée.
+Oui.
+Si DNSSEC est disponible pour un domaine testé par Zonemaster, des tests
+DNSSEC seront effectués automatiquement.
 
 <a name="q8"></a>
 #### 8. Qu'est ce qui fait que Zonemaster est différent des outils existants ?
 
-Avant toute chose, Zonemaster conserve un historique des derniers tests 
-réalisés sur une zone. Concrètement, cela signifie que vous pouvez revenir
-analyser et comparer l'état d'une zone même après avoir corrigé les problèmes
-rencontrés sur celle-ci.
+Premièrement, Zonemaster conserve tout l'historique des tests réalisés sur un
+nom de domaine, ce qui signifie que vous pouvez revenir en arrière pour
+comparer les résultats d'un test remontant à un certain temps et ceux d'un
+test que vous avez lancé il y a un instant.
 
-Zonemaster va aussi essayer de vous présenter les résultats de ces analyses,
-d'une manière lisible et compréhensible (bien que le caractère technique
-de ceux-ci peut les rendre difficiles à comprendre pour un néophyte).
+Deuxièmement, tous les tests qu'effectue Zonemaster sont définis dans des
+spécifications de cas de test, qui se trouvent dans le document intitulé
+[Defined Test Cases].
 
-Zonemaster peut réaliser des tests sur une zone qui n'est pas encore
-déléguées (plus de détails dans la réponse à la question "C'est quoi un test
-sur un nom de domaine non délégué ?" ).
+Troisièmement, Zonemaster peut être utilisé pour tester des zones non
+déléguées. Voir [Question 12].
 
-Il existe aussi la possibilité, pour les utilisateurs expérimentés, de
-passer en mode "avancé" afin d'obtenir un niveau de détails accru.
+Quatrièmement, Zonemaster peut être utilisé pour tester des enregistrements DS
+avant leur publication dans la zone parente (un prérequis pour l'activation de
+DNSSEC dans une zone signée). Voir [Question 13].
 
-Pour finir, cette version "open source" de Zonemaster a été écrite de
-manière modulaire afin de permettre son intégration en tout ou partie dans
-des systèmes existants.
+Enfin, cette version « open source » de Zonemaster a été écrite de manière
+modulaire, ce qui signifie en résumé qu'il est possible d'intégrer des parties
+de Zonemaster dans vos propres systèmes, si vous le souhaitez. Par exemple, on
+souhaite rarement utiliser un logiciel complet juste pour vérifier des
+redélégations.
 
 <a name="q9"></a>
 #### 9. Zonemaster et confidentialité
 
-Puisque Zonemaster est accessible à tous, n'importe qui, peut vérifier
-votre nom de domaine et consulter les historiques afférents. Toutefois, il
-n'est pas possible de savoir qui a réalisé ces tests puisque cette information
-n'est pas conservée (contrairement à l'heure et au jour du test).
+Puisque Zonemaster est accessible à tous, n'importe qui peut vérifier votre
+nom de domaine et consulter son historique de tests.
+Toutefois, il n'est pas possible de savoir qui a réalisé ces tests, car seuls
+les paramètres et les résultats du test sont conservés.
+En particulier, aucun cookie et aucune information sur l'adresse IP de
+l'utilisateur ne sont conservés dans la base de données. L'initiateur d'un
+test ne peut pas être retrouvé à partir des informations dans la base de
+données.
 
  <a name="q10"></a>
-#### 10. Qu'est-ce qui fait que je ne peux pas tester mon nom de domaine ?
+#### 10. Pourquoi mon nom de domaine n'a-t-il pas pu être testé ?
 
-Si nous occultons le cas où le nom de domaine n'a pas d'existence au moment 
-où le test est réalisé, il peut y avoir 2 raisons qui peuvent conduire à ce
-résultat:
+Il y a plusieurs possibilités :
 
- - Afin de protéger l'outil d'abus qui consisteraient à interroger très souvent,
-   depuis la même adresse IP, la même zone, une temporisation de 5 minutes a été
-   mise en oeuvre entre 2 analyse considérée comme identiques. Dans la pratique,
-   cela signifie, que si vous essayez d'analyser une zone dont vous avez déjà
-   demandé le traitement il y a moins de 5 minutes, vous obtiendrez en retour
-   le résultat de l'analyse précédente, qui aura été préalablement enregistré.
-
- - Zonemaster a été créé pour analyser des noms de domaine (comme afnic.fr) et
-   non des noms de serveurs/services (comme www.afnic.fr), des tests de validation
-   de l'entrée fournie sur la page Web sont réalisés. Cela ne devrait pas affecter
-   la très grande majorité des noms de domaine mais il existe quelques rares cas
-   ou cela est possible car si lors de ces tests de validation Zonemaster considère
-   que ce nom de domaine ne peut pas exister, il n'exécutera aucun test dessus.
-   Jusque là, le seul cas de faux positif rencontré concerne le cas où TOUS les
-   serveurs de noms du nom de domaine à tester "mentent" quand à l'exsitence de
-   ce nom de domaine. Ce cas très rare indique de toute façon une zone 
-   particulièrement cassée. Nous devons corriger ce cas, n'hésitez pas à nous
-   contacter si vous pensez que ce problème empêche l'analyse de votre zone.
-   Ce contrôle sera amélioré par la suite, nous vous le garantissons.
+- Votre domaine n'est pas encore délégué ;
+- Votre domaine n'est pas joignable publiquement depuis Internet ;
+- Zonemaster peut seulement tester ce qu'on appelle une zone DNS (par exemple
+  « zonemaster.net ») et non pas les noms d'hôte (comme
+  « www.zonemaster.net ») ;
+- Il y a une temporisation de dix minutes entre deux tests consécutifs d'un
+  même nom de domaine (avec les mêmes paramètres de test). Lancer un second
+  test dans cette fenêtre de temps donnera les résultats du dernier test
+  effectué pour ce nom de domaine (et ces paramètres) au lieu d'un nouveau
+  test ;
+- Vous avez fait une faute de frappe dans le nom de domaine.
 
 <a name="q11"></a>
 #### 11. Quels genres de requêtes Zonemaster génère t-il ?
 
-C'est une question à laquelle il est difficile d'apporter une réponse précise
-puisqu'elle dépend de la configuration de la zone testée mais aussi de la zone
-parente, de la configuration des serveurs de noms, ... Pour obtenir une bonne
-idée des requêtes envoyées et des résultats reçus il est possible d'utiliser 
-l'outil en mode "ligne de commande". Par ce biais, vous pourrez obtenir de 
-très nombreux détails sur la nature des traitements effectués. Mais à moins 
-de manipuler des données liées au DNS quotidiennement, ce niveau de détail 
-pourra être considéré trop technique et réservé à un public averti, les autres 
-pourront se contenter de l'interface "classique".
+Zonemaster envoie plusieurs requêtes DNS aux serveurs de noms hébergeant le
+nom de domaine à tester ainsi qu'aux serveurs de noms hébergant la zone
+parente du même nom de domaine.
+
+L'interface graphique de Zonemaster n'affiche pas les requêtes envoyées, seule
+l'interface en ligne de commande en est capable. Si vous souhaitez voir ces
+requêtes, vous devez installer localement une instance minimale et
+fonctionnelle de Zonemaster doté des composants Engine et CLI (une image
+Docker est également disponible). Les requêtes envoyées peuvent être affichées
+avec l'option de niveau de messages 'DEBUG'. Attention, la quantité de données
+affichées par l'interface en ligne de commande peut être très volumineuse.
+Pour plus d'informations, voir [Utilisation de l'interface en ligne de
+commandes] (document rédigé en anglais).
 
 <a name="q12"></a>
 #### 12. C'est quoi un test sur un nom de domaine non délégué ?
 
-On va appeler, test sur un nom de domaine non délégué, un test réalisé sur
-une zone non complètement publiée dans le DNS. Cela est particulièrement
-pratique lors de la création d'une nouvelle zone ou pour le changement de
-délégation d'une zone existante. Disons, que vous souhaitez déplacer la zone
-"exemple.fr" du serveur de noms "ns1.afnic.fr" vers le serveur de noms 
-"ns2.afnic.fr". Dans ce scénario vous pouvez réaliser un test sur un nom de 
-domaine non délégué en indiquant le nom de la zone mais aussi le futur serveur
-de la zone, à savoir "ns2.afnic.fr" AVANT que ce changement soit réellement 
-effectué. Un résultat d'analyse positif (toutes les catégories de résultat
-aparaissent en vert) vous permet d'être à peu près certain que le nouveau 
-serveur est correctement configuré. 
+Un test sur un nom de domaine non délégué est un test effectué sur un nom de
+domaine qui peut ne pas être entièrement publié dans le DNS. Ce type de test
+peut être très utile lorsqu'on est en train de migrer un domaine d'un bureau
+d'enregistrement vers un autre, par exemple lorsqu'on migre la zone
+« example.com » du serveur de noms « ns.example.com » vers le serveur de noms
+« ns.example.org ». Dans ce cas de figure, on pourrait effectuer un test sur
+un nom de domaine non délégué, en fournissant la zone (« example.com ») et le
+serveur de noms vers lequel on migre (« ns.example.org ») *avant* de migrer le
+domaine. Si le résultat du test ne comporte aucune erreur ni avertissement, on
+peut être relativement certain que le nouvel emplacement du domaine fonctionne
+bien. Mais cela n'exclut pas l'existence d'autres problèmes dans les données
+elles-mêmes de la zone que ce test n'aurait pas décelés.
 
 <a name="q13"></a>
-#### 13. Comment tester une zone "reverse" avec Zonemaster ?
+#### 13. Peut-on tester des enregistrements DS avant leur publication ?
 
-Zonemaster peut être utilisé pour valider un certain nombre d'éléments lors
-de la configuration d'une zone. Parmi ces éléments, il y a les vérifications
-des zones inverses. Pour réaliser cela pour des adresses en IPv4 ou IPv6, il faut
-déjà connaître l'adresse réseau utilisée par votre système ainsi que le masque
-de sous réseau de celui-ci. Ensuite il suffit de suivre la procédure décrite
-ci-après pour les adresses IPv4 d'une part, et IPv6 d'autre part.
+Oui.
+Pour cela, utilisez le bouton « Options » et ajoutez-y les entrées *Delegation Signer* (DS) à tester.
+Zonemaster utilisera ces entrées-là comme si elles avaient déjà été ajoutées dans la zone parent.
 
-Pour les adresses de type IPv4:
-  - Le cas sera différent selon que la taille du masque est un multiple de
-    8 ou non, à titre d'illustration, nous ne parlons que du cas /24 (mais
-    le raisonnement peut tout aussi bien s'appliquer avec un masque de type
-    /8 ou /16).
-  - Si le masque de sous réseau est /24 et que l'adresse réseau est, disons,
-    "1.2.3.0", supprimer le dernier champ (ici "0"), inverser l'ordre des
-    champs restants et y adjoindre le suffixe "in-addr.arpa". Dans ce cas,
-    la zone inverse est "3.2.1.in-addr.arpa.". Celle-ci peut ensuite être
-    soumise à Zonemaster pour vérification.
-  - Dans le cas d'un sous réseau plus petit ayant un masque /28 par exemple,
-    avec une adresse réseau "1.2.3.4", la zone inverse est obtenue en
-    inversant l'ordre de l'ensemble des champs de l'adresse IP puis en
-    ajoutant le suffixe "in-addr.arpa". Dans ce cas, "4.3.2.1.in-addr.arpa.".
-    Celle-ci peut ensuite être soumise à Zonemaster pour vérification.
+<a name="q14"></a>
+#### 14. Comment tester une zone inverse avec Zonemaster ?
 
-Pour les adresses de type IPv6:
-  - Il faut dans un premier temps les écrire en mode "non abrégé". Inverser
-    l'ordre de chaque lettre/chiffre que l'on séparera par un point, puis 
-    ajouter le suffixe "ip6.arpa.".
-  - C'est un peu compliqué, c'est pourquoi il existe une astuce simple pour
-    trouver la zone "reverse" à l'aide de la commande "dig".
-  - Faire la commande "dig -x 2001:660:3003:2::4:1" (l'adresse sera remplacée
-    par l'adresse que l'on souhaite vérifier).
-  - Dans la partie "authority section" de la réponse on trouve la zone inverse,
-    soit "6.0.1.0.0.2.ip6.arpa." dans le cas présent. Celle-ci peut ensuite
-    être soumise à Zonemaster pour vérification.
+Pour tester une zone inverse, il faut d'abord déterminer le nom de la zone
+inverse, puis la saisir dans le format qu'elle a dans le DNS. Une zone inverse
+s'obtient en inversant une adresse IP et en ajoutant un suffixe. Les adresses
+IPv4 utilisent le suffixe « in-addr.arpa » tandis que les adresses IPv6
+utilisent « ip6.arpa ».
+
+Exemples :
+
+  - Pour le préfixe IPv4 « 198.51.100.0/24 » : 100.51.198.in-addr.arpa ;
+  - Pour le préfixe IPv6 « 2001:db8::/32 » : 8.b.d.0.1.0.0.2.ip6.arpa.
+
+[Afnic]:                                 https://www.afnic.fr/fr/
+[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
+[Question 12]:                           #q12
+[Question 13]:                           #q13
+[RFC]:                                   https://www.ietf.org/standards/rfcs/
+[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
+[The Swedish Internet Foundation]:       https://internetstiftelsen.se/en/
+[Utilisation de l'interface en ligne de commandes]: https://github.com/zonemaster/zonemaster-cli/blob/master/USING.md
+[Zonemaster.net]:                        https://zonemaster.net/
+[zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se
