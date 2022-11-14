@@ -304,6 +304,10 @@
         <source>Filter text</source>
         <target state="new">Filtrer les résultats</target>
       </trans-unit>
+      <trans-unit id="97b0c1cdfbb01988bed0535fd7656148bef0e854" datatype="html">
+        <source>Most people who use the internet have never reflected over what actually happens when one types an address in their web browser and then clicks the enter button. To simplify, the domain name system, (DNS) is a database that associates domain names to IP addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the internet. It’s similar to the way every telephone has its own number in the telephone network. A long series of numbers works fine for computers, but it’s difficult for people to memorize. Therefore, DNS has been developed an extra system for us when we want to reach a web server on a specific site or an email server we want to send an email to.</source>
+        <target>La plupart des gens qui utilisent Internet n'ont jamais réfléchi à ce qui se passe réellement quand on tape une adresse dans leur navigateur Web, puis clique sur le bouton Entrée. Pour simplifier, le système de noms de domaine (DNS) est une base de données qui associe des noms de domaine à des adresses IP, de la même manière qu'un annuaire téléphonique associe des noms à des numéros de téléphone. Une adresse IP est une série unique de chiffres qui identifie chaque ordinateur connecté à Internet. C'est semblable à la façon dont chaque téléphone a son propre numéro dans le réseau téléphonique. Une longue série de chiffres fonctionne bien pour les ordinateurs, mais il est difficile pour les gens de mémoriser. Par conséquent, DNS a été développé afin de permettre d'atteindre le serveur web d'un domaine spécifique ou un serveur de messagerie auquel nous voulons envoyer un email.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
