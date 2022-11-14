@@ -53,6 +53,6 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
         this.faqTemplate = data;
       });
 
-    this.titleService.setTitle(`${$localize `FAQ`} · Zonemaster`);
+    this.titleService.setTitle(`${$localize `:@@zm.faq.title:FAQ`} · Zonemaster`);
   }
 }

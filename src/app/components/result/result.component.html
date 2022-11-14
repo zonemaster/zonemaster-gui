@@ -61,7 +61,7 @@
            class="btn" [ngClass]="{'active all text-white btn-secondary': result_filter.all}"
            (click)="togglePillFilter('all')"
            [(ngModel)]="result_filter.all" ngDefaultControl>
-          <ng-container i18n="tooltip all">All</ng-container>
+          <ng-container i18n="all filter button">All</ng-container>
           <span class="badge bg-secondary">{{result.length}}</span>
         </a>
       </li>
@@ -73,7 +73,7 @@
            class="btn" [ngClass]="{'active info text-white': result_filter.info}"
            (click)="togglePillFilter('info')"
            [(ngModel)]="result_filter.info" ngDefaultControl>
-          <ng-container i18n="tooltip info">Info</ng-container>
+          <ng-container i18n="info filter button">Info</ng-container>
           <span class="badge bg-secondary">{{level_items['info'].length}}</span>
         </a>
       </li>
@@ -85,7 +85,7 @@
            class="btn" [ngClass]="{'active notice text-white': result_filter.notice}"
            (click)="togglePillFilter('notice')"
            [(ngModel)]="result_filter.notice" ngDefaultControl>
-          <ng-container i18n="tooltip notice">Notice</ng-container>
+          <ng-container i18n="notice filter button">Notice</ng-container>
           <span class="badge bg-secondary">{{level_items['notice'].length}}</span>
         </a>
       </li>
@@ -97,7 +97,7 @@
            class="btn" [ngClass]="{'active warning text-white': result_filter.warning}"
            (click)="togglePillFilter('warning')"
            [(ngModel)]="result_filter.warning" ngDefaultControl>
-          <ng-container i18n="tooltip warning">Warning</ng-container>
+          <ng-container i18n="warning filter button">Warning</ng-container>
           <span class="badge bg-secondary">{{level_items['warning'].length}}</span>
         </a>
       </li>
@@ -109,7 +109,7 @@
            class="btn" [ngClass]="{'active error text-white': result_filter.error}"
            (click)="togglePillFilter('error')"
            [(ngModel)]="result_filter.error" ngDefaultControl>
-          <ng-container i18n="tooltip error">Error</ng-container>
+          <ng-container i18n="error filter button">Error</ng-container>
           <span class="badge bg-secondary">{{level_items['error'].length}}</span>
         </a>
       </li>
@@ -121,7 +121,7 @@
            class="btn" [ngClass]="{'active critical text-white': result_filter.critical}"
            (click)="togglePillFilter('critical')"
            [(ngModel)]="result_filter.critical" ngDefaultControl>
-          <ng-container i18n>Critical</ng-container>
+          <ng-container i18n="critical filter button">Critical</ng-container>
           <span class="badge bg-secondary">{{level_items['critical'].length}}</span></a>
       </li>
     </ul>

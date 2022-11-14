@@ -81,8 +81,8 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4eb25da0148bc8c06fab5780f540ab486fd9ca32" datatype="html">
-        <source>Give your domain a complete physical! Zonemaster helps you to control how your website is doing. As a bonus, you also get a better understanding of how the domain name system, DNS, works. When a domain (also called zone) is sent to Zonemaster, the program investigates the state of the domain from beginning to end. This is done through Zonemaster examining DNS from the root (.) to the TLD (top-level domain, for example, .se), and then finally through the DNS servers that contain information about the specified domain (for example, zonemaster.se). Zonemaster is also able to perform many other tests, for example, checking the DNSSEC signatures, that different hosts can be accessed and that the IP addresses are valid. This is all to make sure that your domain runs as good as possible</source>
+      <trans-unit id="8d6f28760b6fdd0c1d1729a8d44dcee5ad5b4313" datatype="html">
+        <source>Give your domain a complete physical! Zonemaster helps you to control how your website is doing. As a bonus, you also get a better understanding of how the domain name system, DNS, works. When a domain (also called zone) is sent to Zonemaster, the program investigates the state of the domain from beginning to end. This is done through Zonemaster examining DNS from the root (.) to the TLD (top-level domain, for example, .se), and then finally through the DNS servers that contain information about the specified domain (for example, zonemaster.se). Zonemaster is also able to perform many other tests, for example, checking the DNSSEC signatures, that different hosts can be accessed and that the IP addresses are valid. This is all to make sure that your domain runs as good as possible.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain/domain.component.html</context>
           <context context-type="linenumber">8,11</context>
@@ -95,22 +95,19 @@
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4b6dbf2d92858e82bcf6ae5dbc8dfb4b29d82ad0" datatype="html">
+      <trans-unit id="zm.faq.title" datatype="html">
         <source>FAQ</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
           <context context-type="linenumber">2</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/navigation/navigation.component.html</context>
-          <context context-type="linenumber">20</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2806917038528218276" datatype="html">
-        <source>FAQ</source>
-        <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/faq/faq.component.ts</context>
           <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/navigation/navigation.component.html</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="918f28cae009f8e67af8ca86f26b47ed2ce0ae5e" datatype="html">
@@ -411,7 +408,7 @@
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
           <context context-type="linenumber">64</context>
         </context-group>
-        <note priority="1" from="description">tooltip all</note>
+        <note priority="1" from="description">all filter button</note>
       </trans-unit>
       <trans-unit id="e2078dcf83ee65214be6c030d03b996c50f5c125" datatype="html">
         <source>Info - is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem.</source>
@@ -427,7 +424,7 @@
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
           <context context-type="linenumber">76</context>
         </context-group>
-        <note priority="1" from="description">tooltip info</note>
+        <note priority="1" from="description">info filter button</note>
       </trans-unit>
       <trans-unit id="2aac65462f0404645d081aa3120c053cc10f3234" datatype="html">
         <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all</source>
@@ -443,7 +440,7 @@
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
           <context context-type="linenumber">88</context>
         </context-group>
-        <note priority="1" from="description">tooltip notice</note>
+        <note priority="1" from="description">notice filter button</note>
       </trans-unit>
       <trans-unit id="d5bde85ca7895ff2e333e7938467500a2bd9b605" datatype="html">
         <source>Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.</source>
@@ -459,7 +456,7 @@
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
           <context context-type="linenumber">100</context>
         </context-group>
-        <note priority="1" from="description">tooltip warning</note>
+        <note priority="1" from="description">warning filter button</note>
       </trans-unit>
       <trans-unit id="f161183fb36bf1e20ee39dba76c46d70f1c114e2" datatype="html">
         <source>Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable</source>
@@ -475,7 +472,7 @@
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
           <context context-type="linenumber">112</context>
         </context-group>
-        <note priority="1" from="description">tooltip error</note>
+        <note priority="1" from="description">error filter button</note>
       </trans-unit>
       <trans-unit id="688e4555813c90de96d11699aef24aab49d5b4af" datatype="html">
         <source>Critical - means a very serious error.</source>
@@ -491,6 +488,7 @@
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
           <context context-type="linenumber">124</context>
         </context-group>
+        <note priority="1" from="description">critical filter button</note>
       </trans-unit>
       <trans-unit id="80ae0c040fa413750521d66c0ef3e537f2866121" datatype="html">
         <source>Filter text</source>
