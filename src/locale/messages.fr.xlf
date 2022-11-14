@@ -35,7 +35,7 @@
         <target>À propos de Zonemaster</target>
       </trans-unit>
       <trans-unit id="4eb25da0148bc8c06fab5780f540ab486fd9ca32" datatype="html">
-        <source> Give your domain a complete physical! Zonemaster helps you to control how your website is doing. As a bonus, you also get a better understanding of how the domain name system, DNS, works. When a domain (also called zone) is sent to Zonemaster, the program investigates the state of the domain from beginning to end. This is done through Zonemaster examining DNS from the root (.) to the TLD (top-level domain, for example, .se), and then finally through the DNS servers that contain information about the specified domain (for example, zonemaster.se). Zonemaster is also able to perform many other tests, for example, checking the DNSSEC signatures, that different hosts can be accessed and that the IP addresses are valid. This is all to make sure that your domain runs as good as possible </source>
+        <source>Give your domain a complete physical! Zonemaster helps you to control how your website is doing. As a bonus, you also get a better understanding of how the domain name system, DNS, works. When a domain (also called zone) is sent to Zonemaster, the program investigates the state of the domain from beginning to end. This is done through Zonemaster examining DNS from the root (.) to the TLD (top-level domain, for example, .se), and then finally through the DNS servers that contain information about the specified domain (for example, zonemaster.se). Zonemaster is also able to perform many other tests, for example, checking the DNSSEC signatures, that different hosts can be accessed and that the IP addresses are valid. This is all to make sure that your domain runs as good as possible</source>
         <target>Donnez à votre domaine un check up complet! Zonemaster vous aide à contrôler le fonctionnement de votre site Web. En prime, vous obtenez également une meilleure compréhension du fonctionnement du système de noms de domaine, le DNS. Lorsqu&apos;un domaine (également appelé zone) est envoyé à Zonemaster, le programme examine l&apos;état du domaine du début à la fin. Cela se fait via Zonemaster en examinant DNS de la racine (.) vers le TLD (domaine de premier niveau, par exemple, .fr), puis enfin via les serveurs DNS qui contiennent des informations sur le domaine spécifié (par exemple, zonemaster.fr ). Zonemaster est également capable d&apos;effectuer de nombreux autres tests, par exemple, vérifier les signatures DNSSEC, que différents hôtes peuvent être accédés et que les adresses IP sont valides. Tout est fait pour s&apos;assurer que votre domaine fonctionne aussi bien que possible.</target>
       </trans-unit>
       <trans-unit id="146ccb323de128a0306c53f9486c4c67cd3871c8" datatype="html">
@@ -67,28 +67,28 @@
         <target>Nom de domaine</target>
       </trans-unit>
       <trans-unit id="d97fc0ce0c1d83a43448e9253f3b93f91b844b8c" datatype="html">
-        <source> Domain name required </source>
-        <target> Nom de domaine requis </target>
+        <source>Domain name required</source>
+        <target>Nom de domaine requis</target>
       </trans-unit>
       <trans-unit id="efe796c3f1faf267427bfe3a8d70708bfd418058" datatype="html">
-        <source> Check </source>
-        <target> Tester </target>
+        <source>Check</source>
+        <target>Tester</target>
       </trans-unit>
       <trans-unit id="24813b8a3e45f0b57136c18d003027262cfe2d1f" datatype="html">
         <source>Options</source>
         <target>Options</target>
       </trans-unit>
       <trans-unit id="2c098c2435a725b6528263e609a89a0ec3d188b2" datatype="html">
-        <source> Disable IPv4 </source>
-        <target> Désactiver IPv4 </target>
+        <source>Disable IPv4</source>
+        <target>Désactiver IPv4</target>
       </trans-unit>
       <trans-unit id="da728aedfa61a52bd7b39213dc0ce50acb19ee26" datatype="html">
-        <source> Disable IPv6 </source>
-        <target> Désactiver IPv6 </target>
+        <source>Disable IPv6</source>
+        <target>Désactiver IPv6</target>
       </trans-unit>
       <trans-unit id="527beda5f3b727f97375828def449a7922404bcb" datatype="html">
-        <source> Choose at least one protocol </source>
-        <target> Choisissez au moins un protocole. </target>
+        <source>Choose at least one protocol</source>
+        <target>Choisissez au moins un protocole.</target>
       </trans-unit>
       <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
         <source>Profile</source>
@@ -99,36 +99,36 @@
         <target>Serveurs DNS</target>
       </trans-unit>
       <trans-unit id="7a35c539ecd2b4e9e100d15edb3456e32d37d581" datatype="html">
-        <source> NS required </source>
-        <target> NS obligatoire </target>
+        <source>NS required</source>
+        <target>NS obligatoire</target>
       </trans-unit>
       <trans-unit id="4e59adf0c565d3c2601c3128d0c94a3aa44513f4" datatype="html">
         <source>Delegation Signers (DS records)</source>
         <target>Délégation du Signataire (enregistrement DS)</target>
       </trans-unit>
       <trans-unit id="d6c4b18a2e3878c97bc5bc6bef7fcfb0d1b85715" datatype="html">
-        <source> Keytag required </source>
-        <target> Identifiant obligatoire </target>
+        <source>Keytag required</source>
+        <target>Identifiant obligatoire</target>
       </trans-unit>
       <trans-unit id="6c6f25c47da62ec597c6057a36ddfc3209811ec5" datatype="html">
         <source>Algorithm</source>
         <target>Algorithme</target>
       </trans-unit>
       <trans-unit id="c6e800ae7bc17f6c913bb85159017b5b8d31ce1d" datatype="html">
-        <source> Algorithm required </source>
-        <target> Algorithme requis </target>
+        <source>Algorithm required</source>
+        <target>Algorithme requis</target>
       </trans-unit>
       <trans-unit id="3530c857805fc74fe628dcc56456fa90ff9128d1" datatype="html">
         <source>Digest type</source>
         <target>Drapeau</target>
       </trans-unit>
       <trans-unit id="6decc246adf8fa54408bb99010015ff3fa27f059" datatype="html">
-        <source> Digest type required </source>
-        <target> Drapeau obligatoire </target>
+        <source>Digest type required</source>
+        <target>Drapeau obligatoire</target>
       </trans-unit>
       <trans-unit id="41a92d5e8a530001a958246408f411ccabfe3595" datatype="html">
-        <source> Digest required </source>
-        <target> Drapeau (Digest) obligatoire </target>
+        <source>Digest required</source>
+        <target>Drapeau (Digest) obligatoire</target>
       </trans-unit>
       <trans-unit id="ef26e6f68a894c88d6a40a35ebea9141accb691a" datatype="html">
         <source>Fetch data from parent zone</source>
@@ -139,17 +139,17 @@
         <target>Annuler</target>
       </trans-unit>
       <trans-unit id="6f38d53bf6192c4d83d21fc84478cf97c2bc81c2" datatype="html">
-        <source> All </source>
-        <target> Tous </target>
+        <source>All</source>
+        <target>Tous</target>
       </trans-unit>
       <trans-unit id="e948a3edba1bbf1a743318826b81d146d9539477" datatype="html">
-        <source> Delegated </source>
-        <target> Délégués </target>
+        <source>Delegated</source>
+        <target>Délégués</target>
         <note priority="1" from="description">plural delegated</note>
       </trans-unit>
       <trans-unit id="dd85d90fa412b898b4d9c806721d00fefffa3913" datatype="html">
-        <source> Undelegated </source>
-        <target> Non délégués </target>
+        <source>Undelegated</source>
+        <target>Non délégués</target>
         <note priority="1" from="description">plural undelegated</note>
       </trans-unit>
       <trans-unit id="42ad467746ed6e8a989a9e579a481cddbb6f1ece" datatype="html">
@@ -194,8 +194,8 @@
         <target>Partager</target>
       </trans-unit>
       <trans-unit id="2e52adeb40004b84f94197ec742951783fb4e377" datatype="html">
-        <source> Display all results </source>
-        <target> Afficher l&apos;ensemble des résultats </target>
+        <source>Display all results</source>
+        <target state="new">Afficher l&apos;ensemble des résultats</target>
         <note priority="1" from="description">tooltip all</note>
       </trans-unit>
       <trans-unit id="dfc3c34e182ea73c5d784ff7c8135f087992dac1" datatype="html">
@@ -204,8 +204,8 @@
         <note priority="1" from="description">tooltip all</note>
       </trans-unit>
       <trans-unit id="e2078dcf83ee65214be6c030d03b996c50f5c125" datatype="html">
-        <source> Info - is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem. </source>
-        <target> Info - contient des informations qui peuvent être d&apos;intérêt pour la personne lançant le test, ces messages ne sont pas des erreurs </target>
+        <source>Info - is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem.</source>
+        <target state="new">Info - contient des informations qui peuvent être d&apos;intérêt pour la personne lançant le test, ces messages ne sont pas des erreurs</target>
         <note priority="1" from="description">tooltip info</note>
       </trans-unit>
       <trans-unit id="321e4419a943044e674beb55b8039f42a9761ca5" datatype="html">
@@ -214,8 +214,8 @@
         <note priority="1" from="description">tooltip info</note>
       </trans-unit>
       <trans-unit id="2aac65462f0404645d081aa3120c053cc10f3234" datatype="html">
-        <source> Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all </source>
-        <target> Notice - destiné à informer la personne en charge de la zone, ne correspond pas nécessairement à un problème de configuration </target>
+        <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all</source>
+        <target state="new">Notice - destiné à informer la personne en charge de la zone, ne correspond pas nécessairement à un problème de configuration</target>
         <note priority="1" from="description">tooltip notice</note>
       </trans-unit>
       <trans-unit id="bafecf51738eee6e4a0d7b62cbc5dc156be6cf3d" datatype="html">
@@ -224,8 +224,8 @@
         <note priority="1" from="description">tooltip notice</note>
       </trans-unit>
       <trans-unit id="d5bde85ca7895ff2e333e7938467500a2bd9b605" datatype="html">
-        <source> Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user. </source>
-        <target> Warning - destiné aux erreurs détectées dans certains cas d&apos;usage spécifiques </target>
+        <source>Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.</source>
+        <target state="new">Warning - destiné aux erreurs détectées dans certains cas d&apos;usage spécifiques</target>
         <note priority="1" from="description">tooltip warning</note>
       </trans-unit>
       <trans-unit id="a8059e31694578c1b0344a76a345357dd60e8f01" datatype="html">
@@ -234,8 +234,8 @@
         <note priority="1" from="description">tooltip warning</note>
       </trans-unit>
       <trans-unit id="f161183fb36bf1e20ee39dba76c46d70f1c114e2" datatype="html">
-        <source> Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable </source>
-        <target> Error - une erreur qui a de grande change d&apos;affecter la zone testée, mais pas suffisamment pour la rendre inutilisable </target>
+        <source>Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable</source>
+        <target state="new">Error - une erreur qui a de grande change d&apos;affecter la zone testée, mais pas suffisamment pour la rendre inutilisable</target>
         <note priority="1" from="description">tooltip error</note>
       </trans-unit>
       <trans-unit id="6080b77234e92ad41bb52653b239c4c4f851317d" datatype="html">
@@ -244,8 +244,8 @@
         <note priority="1" from="description">tooltip error</note>
       </trans-unit>
       <trans-unit id="688e4555813c90de96d11699aef24aab49d5b4af" datatype="html">
-        <source> Critical - means a very serious error. </source>
-        <target> Critical - une erreur vraiment sévère </target>
+        <source>Critical - means a very serious error.</source>
+        <target state="new">Critical - une erreur vraiment sévère</target>
         <note priority="1" from="description">tooltip critical</note>
       </trans-unit>
       <trans-unit id="43b83878842ed1b33e975a88ddfb5db83b5f1fe7" datatype="html">
