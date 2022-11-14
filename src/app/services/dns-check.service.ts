@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, LOCALE_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {AppService} from './app.service';
-import { TranslateService } from '@ngx-translate/core';
+
 
 @Injectable()
 export class DnsCheckService {
@@ -9,8 +9,7 @@ export class DnsCheckService {
   private clientInfo: object;
   private _profiles: string[];
 
-  constructor(private http: HttpClient,
-    private translateService: TranslateService,
+  constructor(@Inject(LOCALE_ID) private locale: string, private http: HttpClient,
     appService: AppService) {
 
     this.backendUrl = appService.getConfig('apiEndpoint');
@@ -63,7 +62,7 @@ export class DnsCheckService {
 
   public startDomainTest(data) {
     return this.RPCRequest('start_domain_test', {
-      language: this.translateService.currentLang,
+      language: this.locale,
       ...data
     });
   }
@@ -72,8 +71,8 @@ export class DnsCheckService {
     return this.RPCRequest('test_progress', {'test_id': testId}, false);
   }
 
-  public getTestResults(data) {
-    return this.RPCRequest('get_test_results', data, false);
+  public getTestResults(testId: string) {
+    return this.RPCRequest('get_test_results', { id: testId, language: this.locale }, false);
   }
 
   public getTestHistory(data, offset = 0, limit = 100, filter = 'all') {
@@ -87,7 +86,7 @@ export class DnsCheckService {
 
   public fetchFromParent(domain) {
     return this.RPCRequest('get_data_from_parent_zone', {
-      language: this.translateService.currentLang,
+      language: this.locale,
       domain: domain
     }, false);
   }

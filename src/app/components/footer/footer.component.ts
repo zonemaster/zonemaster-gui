@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AppService} from '../../services/app.service';
 import {AlertService} from '../../services/alert.service';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
@@ -15,7 +14,7 @@ export class FooterComponent implements OnInit {
   public contactAddress: string;
   public clientInfo: object;
 
-  constructor(private dnsCheckService: DnsCheckService, private alertService: AlertService, private translateService: TranslateService, appService: AppService) {
+  constructor(private dnsCheckService: DnsCheckService, private alertService: AlertService, appService: AppService) {
     this.contactAddress = appService.getConfig('contactAddress');
     this.clientInfo = appService.getClientInfo();
   }

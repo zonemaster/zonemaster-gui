@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DnsCheckService } from '../../services/dns-check.service';
 import { Router} from '@angular/router';
 import { AlertService } from '../../services/alert.service';
-import { TranslateService } from '@ngx-translate/core';
 import { AppService } from '../../services/app.service';
 import { Title } from '@angular/platform-browser';
 
@@ -25,7 +24,6 @@ export class DomainCheckComponent implements OnInit {
 
   constructor(private alertService: AlertService,
     private dnsCheckService: DnsCheckService,
-    private translateService: TranslateService,
     private router: Router,
     private appService: AppService,
     private titleService: Title) {

@@ -1,5 +1,4 @@
-import { Component, OnInit, AfterViewChecked, OnDestroy } from '@angular/core';
-import {TranslateService, LangChangeEvent} from '@ngx-translate/core';
+import { Component, OnInit, AfterViewChecked, OnDestroy, Inject, LOCALE_ID } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
@@ -15,26 +14,20 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
   public faqTemplate = '';
   public url = '';
 
-  private langChangeSubscription: Subscription;
   private fragmentSubscription: Subscription;
 
   constructor(private _http: HttpClient,
-              private translateService: TranslateService,
               private route: ActivatedRoute,
-              private titleService: Title) {
-
-    this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.loadFaq(event.lang)
-    });
+              private titleService: Title,
+              @Inject(LOCALE_ID) private language: string) {
   }
 
   ngOnInit() {
-    this.loadFaq(this.translateService.currentLang);
+    this.loadFaq(this.language);
     this.fragmentSubscription = this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
   }
 
   ngOnDestroy() {
-    this.langChangeSubscription.unsubscribe();
     this.fragmentSubscription.unsubscribe();
   }
 

@@ -2,10 +2,8 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Observable, from } from 'rxjs';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -35,17 +33,6 @@ import { HttpRequestInterceptor } from './interceptors/request.interceptor';
 import { HttpMockRequestInterceptor } from './interceptors/mock.interceptor';
 
 export const isMock = environment.mock;
-
-// AoT requires an exported function for factories
-export function TranslationLoaderFactory() {
-  return new MyTranslationLoader();
-}
-
-class MyTranslationLoader extends TranslateLoader {
-  getTranslation(lang: string): Observable<any> {
-    return from(import(/* webpackChunkName: "i18n-[request]" */ `../assets/i18n/${lang}.json`));
-  }
-}
 
 const appRoutes: Routes = [
   { path: 'check/:domain', component: DomainComponent },
@@ -85,12 +72,6 @@ const appRoutes: Routes = [
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: TranslationLoaderFactory,
-      }
-    }),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false, relativeLinkResolution: 'legacy' } // <-- debugging purposes only

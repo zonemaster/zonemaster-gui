@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy, Inject, LOCALE_ID } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
-import { combineLatest, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { DnsCheckService } from '../../services/dns-check.service';
 import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
@@ -50,24 +49,22 @@ export class ResultComponent implements OnInit, OnDestroy {
   };
   public historyQuery: object;
   public history: any[];
-  public language: string;
   public navHeight: Number;
   private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
   private navHeightSubscription: Subscription;
 
-  private langChangeSubscription: Subscription;
   private routeParamsSubscription: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private modalService: NgbModal,
               private alertService: AlertService,
-              public translateService: TranslateService,
               private dnsCheckService: DnsCheckService,
               private navigationService: NavigationService,
               private location: Location,
-              private titleService: Title) {
+              private titleService: Title,
+              @Inject(LOCALE_ID) private language: string) {
 
     let data = this.router.getCurrentNavigation().extras.state || {};
     this.displayForm = data.displayForm === undefined ? false : data.displayForm;
@@ -79,27 +76,20 @@ export class ResultComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.language = this.translateService.currentLang;
     console.log(this.resultID);
 
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       this.resultID = params['resultID'];
-      this.displayResult(this.resultID, this.language);
+      this.displayResult(this.resultID);
     });
 
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
       this.navHeight = newHeight;
     });
-
-    this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.displayResult(this.resultID, event.lang, false);
-      this.language = event.lang;
-    });
   }
 
   ngOnDestroy() {
     this.navHeightSubscription.unsubscribe();
-    this.langChangeSubscription.unsubscribe();
 
     if (this.routeParamsSubscription) {
       this.routeParamsSubscription.unsubscribe();
@@ -123,8 +113,8 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
-   private displayResult(domainCheckId: string, language: string, resetCollapsed = true) {
-     this.dnsCheckService.getTestResults({id: domainCheckId, language}).then(data => {
+   private displayResult(domainCheckId: string, resetCollapsed = true) {
+     this.dnsCheckService.getTestResults(domainCheckId).then(data => {
       // TODO clean
 
       this.test = {
