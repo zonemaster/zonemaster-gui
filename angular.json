@@ -9,7 +9,7 @@
       "projectType": "application",
 
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": "en",
         "locales": {
           "fr": {
             "translation": "src/locale/messages.fr.xlf"
@@ -21,7 +21,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "localize": true,
             "allowedCommonJsDependencies": [
               "file-saver"
             ],
@@ -57,6 +56,7 @@
               ]
             },
             "production": {
+              "localize": true,
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -73,10 +73,15 @@
               ]
             },
             "fr": {
-              "localize": ["fr"]
+              "localize": ["fr"],
+              "baseHref": "/fr/"
+            },
+            "en": {
+              "localize": ["en"],
+              "baseHref": "/en/"
             }
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "en"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
