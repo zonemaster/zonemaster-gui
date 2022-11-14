@@ -7,18 +7,19 @@ const app = express();
 
 app.use(express.static(DIST_DIR));
 
-app.get('/:lang/*', (req, res) => {
+app.use('/:lang', (req, res, next) => {
   const lang = req.params.lang;
-  if (!lang.match(/[a-z]{2}/)) {
-    return res.sendStatus(404);
+
+  if (!lang.match(/^[a-z]{2}$/)) {
+    return next();
   }
 
   res.sendFile(path.join(DIST_DIR, `${lang}/index.html`));
 });
 
-app.get('/', (req, res) => {
-  res.redirect('/en');
-})
+app.get('/*', (req, res) => {
+  res.redirect('/en' + req.originalUrl);
+});
 
 app.listen(4201, () => {
   console.log('Starting test server...')
