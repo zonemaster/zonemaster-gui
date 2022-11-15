@@ -19,6 +19,8 @@ The supported paths are the following:
 * `faq`: access the FAQ
 
 The GUI will rewrite `domain_check` to `run-test` before the page is displayed.
+Note that `domain_check/<domain>` is **not** rewritten and hence is an invalid
+path.
 
 The GUI will rewrite `test/<test-id>` to `result/<test-id>` before the result
 is displayed.
