@@ -14,6 +14,11 @@ export class FooterComponent implements OnInit {
   public versions: any[];
   public contactAddress: string;
   public clientInfo: object;
+  private nameMap = {
+    'zonemaster_ldns': 'Zonemaster-LDNS',
+    'zonemaster_engine': 'Zonemaster-Engine',
+    'zonemaster_backend': 'Zonemaster-Backend',
+  }
 
   constructor(private dnsCheckService: DnsCheckService, private alertService: AlertService, private translateService: TranslateService, appService: AppService) {
     this.contactAddress = appService.getConfig('contactAddress');
@@ -38,10 +43,10 @@ export class FooterComponent implements OnInit {
 
   private setVersionsText(data) {
     const res = [];
-    for (const item of Object.keys(data)) {
-      res.push([item.replace('zonemaster_', ''), data[item].replace('v', '')]);
+    for (const item in data) {
+      res.push([this.nameMap[item], data[item].replace('v', '')]);
     }
-    res.push(['GUI', this.clientInfo['version']]);
+    res.push(['Zonemaster-GUI', this.clientInfo['version']]);
     return res;
   }
 }

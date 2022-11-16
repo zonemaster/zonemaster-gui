@@ -27,16 +27,10 @@
 </footer>
 
 <ng-template #tipContent>
-  <table>
-    <tbody>
-    <tr *ngFor="let item of versions">
-      <td  align="left">
-        {{ item[0] | titlecase }}
-      </td>
-      <td  align="right">
-        {{ item[1] }}
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="version">
+    <ng-container *ngFor="let item of versions">
+      <div>{{ item[0] }}</div>
+      <div>{{ item[1] }}</div>
+    </ng-container>
+  </div>
 </ng-template>

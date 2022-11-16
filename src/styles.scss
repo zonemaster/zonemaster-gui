@@ -15,3 +15,12 @@ html, body {
   height: 64px !important;
   opacity: .3;
 }
+
+footer .tooltip {
+  --bs-tooltip-max-width: auto;
+}
+
+/* bootstrap 4, remove this when merged with upgrade PR */
+footer .tooltip-inner {
+  max-width: initial;
+}
