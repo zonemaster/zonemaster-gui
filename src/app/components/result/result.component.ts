@@ -128,7 +128,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onTestcaseKeyDownEvent(event, testCaseId) {
+  public onCallapsableKeyDownEvent(event, testCaseId) {
     switch (event.key) {
       case 'Enter':
         this.isCollapsed[testCaseId] = !this.isCollapsed[testCaseId];

@@ -114,12 +114,18 @@
   </div>
   <section class="mt-3 details">
     <article *ngFor="let module of modules | keyvalue" [class.expanded]="!isCollapsed[module.key]">
-      <h3 (click)="isCollapsed[module.key] = !isCollapsed[module.key]"><i class="fa fa-caret-right" aria-hidden="true"></i>{{module.key}}</h3>
+      <h3
+        tabindex="0"
+        (keydown)="onCallapsableKeyDownEvent($event, module.key)"
+        (click)="isCollapsed[module.key] = !isCollapsed[module.key]"
+        >
+          <i class="fa fa-caret-right" aria-hidden="true"></i>{{module.key}}
+      </h3>
       <article *ngFor="let testcase of module.value | keyvalue" [class.collapsed]="isCollapsed[module.key]">
         <header class="{{testcase.value.level}}">
           <div
             tabindex="0"
-            (keydown)="onTestcaseKeyDownEvent($event, testcase.key)"
+            (keydown)="onCallapsableKeyDownEvent($event, testcase.key)"
             (click)="isCollapsed[testcase.key] = !isCollapsed[testcase.key]"
             [attr.aria-controls]="'testcase-' + testcase.key + ',testcase-id-' + testcase.key"
             [attr.aria-expanded]="!isCollapsed[testcase.key]"
