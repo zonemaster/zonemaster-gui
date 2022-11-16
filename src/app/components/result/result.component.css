@@ -144,6 +144,19 @@ article h3::after {
 article h3 {
   display: flex;
   align-items: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+article h3 i {
+  transform: rotate(0), translate(0, 0);
+  transition: 0.1s transform;
+  display: inline-block;
+  width: 1em;
+}
+
+article.expanded h3 i {
+  transform: rotate(90deg) translate(0.3em, 0.15em);
 }
 
 .result section.details > article {

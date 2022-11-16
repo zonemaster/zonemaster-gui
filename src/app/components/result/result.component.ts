@@ -191,6 +191,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
         if (resetCollapsed || !(currentTestcase in this.isCollapsed)) {
           this.isCollapsed[currentTestcase] = true;
+          this.isCollapsed[currentModule] = true;
         }
       }
 
