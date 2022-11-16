@@ -322,7 +322,20 @@ from wich the GUI is served.
 **NOTE:** Don't forget to apply the changes to the `index.html` and Web
 server configurartion after each updates as thoses files will be overwritten.
 
--------
+
+## Change default language
+
+To change the default language update the Apache configuration, locate the last `RewriteRule`:
+```apache
+# Default locale
+RewriteRule ^$ /en/ [R,L]
+```
+and change it to
+```apache
+# Default locale
+RewriteRule ^$ /<LANG>/ [R,L]
+```
+where `<LANG>` is the language code of you choice.
 
 [Declaration of prerequisites]: https://github.com/zonemaster/zonemaster/blob/master/README.md#prerequisites
 [JSON-RPC API]: https://github.com/zonemaster/zonemaster-backend/blob/master/docs/API.md

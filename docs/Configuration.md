@@ -19,9 +19,9 @@ The supported configuration items are the following.
   It could be either a full URL to use an API endpoint not located on the same
   origin as the one serving the GUI or just a path, like the default value, when
   both the API and GUI are served from the same origin.
-* `"defaultLanguage"`: The default language of the GUI, defined as a two letters
-  code, default `"en"`. The value must be one of the languages listed in
-  `"enabledLanguages"`.
+* `"defaultLanguage"`: (*Deprecated*) This **does not** work anymore, to change
+  the default language update the Apache configuration as mentionned in the
+  [installation instructions].
 * `"enabledLanguages"`: An array of the languages enabled in the GUI, default
   `[ "da", "en", "es", "fi", "fr", "nb", "sv" ]`.
 * `"contactAddress"`: The contact email address displayed in the footer, default
@@ -34,3 +34,6 @@ The supported configuration items are the following.
   rendered.
 * `"pollingInterval"`: Time between each test progress query in millisecond,
   default: `5000` (5 seconds).
+
+
+[installation instructions]: Installation.md#change-default-language

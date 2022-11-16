@@ -20,6 +20,9 @@
     RewriteCond %{HTTP:Accept-Language} ^da [NC]
     RewriteRule ^$ /da/ [R,L]
 
+    RewriteCond %{HTTP:Accept-Language} ^en [NC]
+    RewriteRule ^$ /en/ [R,L]
+
     RewriteCond %{HTTP:Accept-Language} ^es [NC]
     RewriteRule ^$ /es/ [R,L]
 
