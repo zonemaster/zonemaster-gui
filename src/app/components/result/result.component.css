@@ -1,7 +1,7 @@
 article header div > i.fa {
-  margin-right: 3em;
-  align-self: center;
-  width: 1em;
+  margin-right: 3rem;
+  margin-top: 0.1rem;
+  width: 1rem;
 }
 
 article h4 {
@@ -44,11 +44,11 @@ article header.critical {
 }
 
 article h4 i {
-  width: 1em;
+  width: 1rem;
   display: inline-block;
   text-align: center;
-  margin-left: -1.3em ;
-  margin-right: 0.3em;
+  margin-left: -1.3rem ;
+  margin-right: 0.3rem;
 }
 
 article header  {
@@ -69,7 +69,6 @@ article header .test-case-id {
   font-size: 0.9em;
   padding: 0.15em 0.4em;
   white-space: nowrap;
-  height: fit-content;
 }
 
 article ul li .level {
@@ -150,7 +149,7 @@ article h3 {
 .result section.details > article {
   background: #f7f7f7;
   padding: 0.5rem;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 #link_location {
@@ -257,6 +256,14 @@ button.btn-clipboard > i.fa-remove {
 
   .actions-btn > div > div > button {
     flex-grow: 1;
+  }
+
+  article header {
+    flex-direction: column;
+  }
+
+  article header .test-case-id {
+    margin-left: 4.4em;
   }
 }
 
