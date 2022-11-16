@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 
 const DIST_DIR = path.resolve(__dirname, '../dist');
-
+const PORT = 4201;
 const app = express();
 
 app.use(express.static(DIST_DIR));
@@ -21,6 +21,6 @@ app.get('/*', (req, res) => {
   res.redirect('/en' + req.originalUrl);
 });
 
-app.listen(4201, () => {
-  console.log('Starting test server...')
+app.listen(PORT, () => {
+  console.log(`Starting test server port ${PORT}...`);
 });
