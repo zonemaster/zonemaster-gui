@@ -287,20 +287,23 @@ Make sure Zonemaster-GUI is properly installed.
 In some cases you may want to customize the application to change the base URL
 from wich the GUI is served.
 
-1. In the `index.html` file, (`/var/www/html/zonemaster-web-gui/dist/index.html`
+1. In the `index.html` files, (`/var/www/html/zonemaster-web-gui/dist/*/index.html`
    if you followed this installation guide), locate the line `<base href="/">`
-   and replace the `href` value with the path you want to server the GUI from,
-   e.g. `<base href="/zonemaster/">`. Don't forget the trailing `/`.
+   and replace the `href` value with the path you want to server the GUI from.
+   You can use the following command to update the base URL in all files:
+   ```
+   export BASE_URL=/zonemaster; find /var/www/html/zonemaster-web-gui/dist -name index.html | xargs sed -r "s%<base href=\"[^\"]*/([a-z]{2})/\">%<base href=\"$BASE_URL/\1/\">%" -i
+   ```
+   You can change the `BASE_URL` variable to the path (without trailing slash)
+   that you want.
 
 2. When serving the application from a different base, you will also need to
    change the Web server configuration in `zonemaster.conf` (location is found
-   in the installation instructions above) by updating `ProxyPass` and
-  `ProxyPassReverse`, and adding `Alias` as in the following example:
+   in the installation instructions above) by updating the `BASE_URL` variable
+   and adding an `Alias` directive as in the following example:
 
    ```apache
-   ProxyPass /zonemaster/api http://localhost:5000/
-   ProxyPassReverse /zonemaster/api http://localhost:5000/
-   ProxyPreserveHost On
+   Define BASE_URL "/zonemaster/"
 
    Alias "/zonemaster" "/var/www/html/zonemaster-web-gui/dist"
    ```
