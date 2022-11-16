@@ -4,9 +4,39 @@
   ServerAdmin example@example.net
 
   <Directory "/var/www/html/zonemaster-web-gui/dist">
-    Options Indexes MultiViews FollowSymlinks Includes
-    AllowOverride All
+    Options MultiViews FollowSymlinks Includes
     Require all granted
+
+    RewriteEngine on
+
+    RewriteBase /
+    RewriteRule ^../index\.html$ - [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule (..) $1/index.html [L]
+
+    # Redirect user based on prefered locale
+    RewriteCond %{HTTP:Accept-Language} ^da [NC]
+    RewriteRule ^$ /da/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^es [NC]
+    RewriteRule ^$ /es/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^fi [NC]
+    RewriteRule ^$ /fi/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+    RewriteRule ^$ /fr/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^nb [NC]
+    RewriteRule ^$ /nb/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^sv [NC]
+    RewriteRule ^$ /sv/ [R,L]
+
+    # Default locale
+    RewriteRule ^$ /en/ [R,L]
   </Directory>
 
   ProxyPass /api http://localhost:5000/

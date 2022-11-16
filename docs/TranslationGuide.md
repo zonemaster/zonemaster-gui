@@ -100,6 +100,7 @@ The new language must be added to the following source files:
 * [angular.json],
 * [src/environments/common.ts],
 * [src/assets/app.config.sample.json],
+* [zonemaster.conf-example].
 
 and the following documentation file:
 
@@ -195,6 +196,16 @@ In  `app.config.sample.json` locate
 ```
 and append the new two-letter language code of the new language.
 
+### zonemaster.conf-example
+
+In the Apache example configuration add a rewrite rule to redirect the
+user to the new language:
+
+```apache
+RewriteCond %{HTTP:Accept-Language} ^<LANG> [NC]
+RewriteRule ^$ /<LANG>/ [R,L]
+```
+
 ### Configuration.md
 
 Add the new language's two-letter code to the list of default values for
@@ -223,3 +234,4 @@ const testSuite = [
 [src/environments/common.ts]:                              ../src/environments/common.ts
 [src/assets/app.config.sample.json]:                       ../src/assets/app.config.sample.json
 [Configuration.md]:                                        ./Configuration.md
+[zonemaster.conf-example]:                                 ../zonemaster.conf-example
