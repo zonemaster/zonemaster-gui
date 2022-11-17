@@ -40,7 +40,7 @@
     "@angular/cli": "^13.3.9",
     "@angular/compiler-cli": "^13.3.11",
     "@angular/language-service": "^13.3.11",
-    "@playwright/test": "^1.27.1",
+    "@playwright/test": "^1.28.0",
     "@types/file-saver": "^2.0.1",
     "@types/node": "^13.11.0",
     "archiver": "^3.1.1",
