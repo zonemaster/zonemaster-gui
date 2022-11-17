@@ -104,7 +104,7 @@
       </li>
     </ul>
     <div class="input-group search">
-      <input type="text" [(ngModel)]="resultFilter.search" (ngModelChange)='filterResults()' class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="filter input" aria-describedby="basic-addon2">
+      <input type="text" [(ngModel)]="resultFilter.search" (ngModelChange)='filterResults()' class="form-control" placeholder="{{'Filter text' | translate }}" aria-label="{{'Filter text' | translate }}">
       <div class="input-group-append">
         <span class="input-group-text">
           <i class="fa fa-filter" aria-hidden="true"></i>
@@ -123,11 +123,11 @@
         role="button"
         >
           <i class="fa fa-caret-right caret" aria-hidden="true"></i>{{module.name}}<span class="sr-only">:</span>
-          <div *ngFor="let count of testCasesCountByModule[module.name] | keyvalue; let last = last;" class="badge badge-pill {{ count.key }}" title="{{ count.key|titlecase }} ({{ count.value }})">
+          <div *ngFor="let count of testCasesCountByModule[module.name]; let last = last;" class="badge badge-pill {{ count.name }}" title="{{ count.name|titlecase }} ({{ count.value }})">
             <span aria-hidden="true">
-              <i class="fa {{severity_icons[count.key]}}"></i> {{ count.value }}
+              <i class="fa {{severity_icons[count.name]}}"></i> {{ count.value }}
             </span>
-            <span class="sr-only">{{ count.key }} ({{ count.value }})<ng-container *ngIf="!last">, </ng-container></span>
+            <span class="sr-only">{{ count.name }} ({{ count.value }})<ng-container *ngIf="!last">, </ng-container></span>
           </div>
       </h3>
       <article *ngFor="let testcase of module.testcases" [class.collapsed]="isCollapsed[module.name]" id="module-{{ module.name }}">

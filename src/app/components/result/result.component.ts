@@ -166,7 +166,14 @@ export class ResultComponent implements OnInit, OnDestroy {
           levels[level] ++;
         }
 
-        this.testCasesCountByModule[module.name] = levels;
+        this.testCasesCountByModule[module.name] = Object.entries(this.severityLevels).sort(([, numLevel1], [_, numLevel2]) => numLevel2 - numLevel1)
+          .filter(([levelId, _]) => levelId in levels)
+          .map(([levelId, _]) => {
+            return {
+              name: levelId,
+              value: levels[levelId]
+            }
+          });
       }
 
       this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
