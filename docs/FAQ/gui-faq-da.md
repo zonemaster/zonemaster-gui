@@ -137,7 +137,7 @@ redelegering vil kunne udføres med succes.
 <a name="q13"></a>
 #### 13. Hvordan tester jeg en "reverse" zone med Zonemaster?
 For at kontrollere en "reverse" zone med Zonemaster, skal man først vide,
-hvad den "reverse" zone er. Hvis du vil kontrollere den "reverse" zone,
+hvad en "reverse" zone er. Hvis du vil kontrollere en "reverse" zone,
 skal du indtaste den i det format, den har i DNS, f.eks.:
 
   - 3.2.1.in-addr.arpa
