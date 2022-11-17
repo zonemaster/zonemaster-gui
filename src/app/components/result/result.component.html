@@ -64,7 +64,7 @@
            (keydown)="onFilterLevelKeyDownEvent($event, 'all')"
            [(ngModel)]="result_filter.all" tabindex="0" ngDefaultControl>
            <ng-container i18n="all filter button">All</ng-container>
-           <span class="badge bg-secondary">{{result.length}}</span>
+           &nbsp;<span class="badge rounded-pill bg-secondary">{{result.length}}</span>
         </a>
       </li>
       <li class="nav-item ml-1">
@@ -77,7 +77,7 @@
            (keydown)="onFilterLevelKeyDownEvent($event, 'info')"
            [(ngModel)]="result_filter.info" tabindex="0" ngDefaultControl>
            <ng-container i18n="info filter button">Info</ng-container>
-           <span class="badge bg-secondary">{{level_items['info'].length}}</span>
+           &nbsp;<span class="badge rounded-pill bg-secondary">{{level_items['info'].length}}</span>
          </a>
       </li>
       <li class="nav-item ml-1">
@@ -90,7 +90,7 @@
            (keydown)="onFilterLevelKeyDownEvent($event, 'notice')"
            [(ngModel)]="result_filter.notice" tabindex="0" ngDefaultControl>
           <ng-container i18n="notice filter button">Notice</ng-container>
-          <span class="badge bg-secondary">{{level_items['notice'].length}}</span>
+          &nbsp;<span class="badge rounded-pill bg-secondary">{{level_items['notice'].length}}</span>
         </a>
       </li>
       <li class="nav-item ml-1">
@@ -103,7 +103,7 @@
            (keydown)="onFilterLevelKeyDownEvent($event, 'warning')"
            [(ngModel)]="result_filter.warning" tabindex="0" ngDefaultControl>
           <ng-container i18n="warning filter button">Warning</ng-container>
-          <span class="badge bg-secondary">{{level_items['warning'].length}}</span>
+          &nbsp;<span class="badge rounded-pill bg-secondary">{{level_items['warning'].length}}</span>
         </a>
       </li>
       <li class="nav-item ml-1">
@@ -116,7 +116,7 @@
            (keydown)="onFilterLevelKeyDownEvent($event, 'error')"
            [(ngModel)]="result_filter.error" tabindex="0" ngDefaultControl>
           <ng-container i18n="error filter button">Error</ng-container>
-          <span class="badge bg-secondary">{{level_items['error'].length}}</span>
+          &nbsp;<span class="badge rounded-pill bg-secondary">{{level_items['error'].length}}</span>
         </a>
       </li>
       <li class="nav-item ml-1">
@@ -129,7 +129,7 @@
            (keydown)="onFilterLevelKeyDownEvent($event, 'critical')"
            [(ngModel)]="result_filter.critical" tabindex="0" ngDefaultControl>
           <ng-container i18n="critical filter button">Critical</ng-container>
-          <span class="badge bg-secondary">{{level_items['critical'].length}}</span>
+          &nbsp;<span class="badge rounded-pill bg-secondary">{{level_items['critical'].length}}</span>
         </a>
       </li>
     </ul>
