@@ -69,6 +69,14 @@ Each language file contains a list of `<trans-unit>` elements with a
 and a `<target>` element containing the translated message. Optionally a
 `<note>` element can contain context to help the translator.
 
+To help translating the locale files, tools like [Poedit] can be used.
+
+### Poedit
+
+In Poedit, the translator can see the new strings to translated in an accent
+color. Additional context for translation, if available, is shown in the
+bottom left corner of the window under "Notes for translators".
+
 ## gui-faq-\<LANG\>.md
 
 The FAQ document holds questions and answers on Zonemaster, and there
@@ -235,3 +243,4 @@ const testSuite = [
 [src/assets/app.config.sample.json]:                       ../src/assets/app.config.sample.json
 [Configuration.md]:                                        ./Configuration.md
 [zonemaster.conf-example]:                                 ../zonemaster.conf-example
+[Poedit]:                                                  [https://poedit.net]
