@@ -12,7 +12,7 @@
     "e2e:update": "playwright test --update-snapshots",
     "e2e:install": "playwright install chromium",
     "e2e:install-deps": "playwright install-deps chromium",
-    "e2e:test-server": "npm run ng build -- --configuration=tests --localize && node scripts/test_server.js",
+    "e2e:test-server": "ng build --configuration=tests --localize && node scripts/test_server.js",
     "i18n:extract": "ng extract-i18n --remove-ids-with-prefix ngb. --output-path src/locale --trim"
   },
   "private": false,

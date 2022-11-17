@@ -4,7 +4,7 @@ const config: PlaywrightTestConfig = {
   testDir: 'e2e',
   testMatch: 'e2e/*.e2e-spec.ts',
   webServer: {
-    command: 'npm run e2e:test-server',
+    command: 'ng build --configuration=tests --localize && node scripts/test_server.js',
     port: 4201,
     reuseExistingServer: true,
   },
