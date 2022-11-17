@@ -118,10 +118,19 @@
         tabindex="0"
         (keydown)="onCallapsableKeyDownEvent($event, module.name)"
         (click)="isCollapsed[module.name] = !isCollapsed[module.name]"
+        [attr.aria-expanded]="!isCollapsed[module.name]"
+        [attr.aria-controls]="'module-' + module.name"
+        role="button"
         >
-          <i class="fa fa-caret-right" aria-hidden="true"></i>{{module.name}}
+          <i class="fa fa-caret-right caret" aria-hidden="true"></i>{{module.name}}<span class="sr-only">:</span>
+          <div *ngFor="let count of testCasesCountByModule[module.name] | keyvalue; let last = last;" class="badge badge-pill {{ count.key }}" title="{{ count.key|titlecase }} ({{ count.value }})">
+            <span aria-hidden="true">
+              <i class="fa {{severity_icons[count.key]}}"></i> {{ count.value }}
+            </span>
+            <span class="sr-only">{{ count.key }} ({{ count.value }})<ng-container *ngIf="!last">, </ng-container></span>
+          </div>
       </h3>
-      <article *ngFor="let testcase of module.testcases" [class.collapsed]="isCollapsed[module.name]">
+      <article *ngFor="let testcase of module.testcases" [class.collapsed]="isCollapsed[module.name]" id="module-{{ module.name }}">
         <header class="{{testcase.level}}" *ngIf="testcase.id != 'UNSPECIFIED'">
           <div
             tabindex="0"
@@ -129,6 +138,7 @@
             (click)="isCollapsed[testcase.id] = !isCollapsed[testcase.id]"
             [attr.aria-controls]="'testcase-entries-' + testcase.id + ',testcase-id-' + testcase.id"
             [attr.aria-expanded]="!isCollapsed[testcase.id]"
+            role="button"
           >
             <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.id],'fa-minus-square-o': !isCollapsed[testcase.id]}"></i>
 

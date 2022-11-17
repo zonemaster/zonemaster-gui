@@ -43,6 +43,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     error: 0,
     critical: 0,
   };
+  public testCasesCountByModule = {};
   public resultFilter = {
     all: true,
     info: false,
@@ -151,6 +152,22 @@ export class ResultComponent implements OnInit, OnDestroy {
 
       this.testCasesCount = this.displayResults(this.result, resetCollapsed);
 
+      this.testCasesCountByModule = {};
+
+      for (const module of this.modules) {
+        const levels = {};
+        for (const testcase of module.testcases) {
+          const level = testcase.level;
+
+          if (!(level in levels)) {
+            levels[level] = 0;
+          }
+
+          levels[level] ++;
+        }
+
+        this.testCasesCountByModule[module.name] = levels;
+      }
 
       this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
     }, error => {

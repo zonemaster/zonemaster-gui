@@ -87,30 +87,35 @@ article ul li .level {
   background-color: #919191;
 }
 
+.badge.info,
 .filters .active.info,
 article ul li .level.info {
   background: var(--result-info-bg);
   color: white;
 }
 
+.badge.notice,
 .filters .active.notice,
 article ul li .level.notice {
   background: var(--result-notice-bg);
   color: white;
 }
 
+.badge.warning,
 .filters .active.warning,
 article ul li .level.warning {
   background: var(--result-warning-bg);
   color: black;
 }
 
+.badge.error,
 .filters .active.error,
 article ul li .level.error {
   background: var(--result-error-bg);;
   color: white;
 }
 
+.badge.critical,
 .filters .active.critical,
 article ul li .level.critical {
   background: var(--result-critical-bg);;
@@ -142,7 +147,7 @@ article h3::after {
   display: flex;
   height: 1px;
   background: black;
-  margin-left: 1rem;
+  margin-left: .5rem;
 }
 
 article h3 {
@@ -153,18 +158,31 @@ article h3 {
   margin-bottom: 0;
 }
 
+article h3 div.badge:first-of-type {
+  margin-left: 1rem;
+}
+
+article h3 .badge {
+  margin-right: 0.5rem;
+  font-size: .8rem;
+}
+
+article h3 .badge i {
+  width: 1em;
+}
+
 article.expanded h3 {
   margin-bottom: 0.5rem;
 }
 
-article h3 i {
+article h3 i.caret {
   transform: rotate(0), translate(0, 0);
   transition: 0.1s transform;
   display: inline-block;
   width: 1em;
 }
 
-article.expanded h3 i {
+article.expanded h3 i.caret {
   transform: rotate(90deg) translate(0.3em, 0.15em);
 }
 
