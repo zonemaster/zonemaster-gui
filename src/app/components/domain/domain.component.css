@@ -1,0 +1,7 @@
+aside.about article {
+    display: flex;
+}
+
+aside {
+    padding: 0;
+}
