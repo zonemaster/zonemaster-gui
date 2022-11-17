@@ -143,7 +143,7 @@
             <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.id],'fa-minus-square-o': !isCollapsed[testcase.id]}"></i>
 
             <h4>
-              <i class="fa {{severity_icons[testcase.level]}}" aria-hidden="true"></i>{{ testCaseDescriptions[testcase.id] }}
+              <i class="fa {{severity_icons[testcase.level]}}" aria-hidden="true" title="{{ testcase.level | titlecase }}"></i><span class="sr-only">{{ testcase.level | titlecase }}: </span>{{ testCaseDescriptions[testcase.id] }}
             </h4>
           </div>
           <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.id]" id="testcase-id-{{testcase.id}}">
