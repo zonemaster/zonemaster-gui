@@ -104,6 +104,22 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
   }
 
+  public onModuleKeyDownEvent(event, moduleKey) {
+    switch (event.key) {
+      case 'Enter':
+        this.isCollapsed[moduleKey] = !this.isCollapsed[moduleKey];
+        break;
+    }
+  }
+
+  public onFilterLevelKeyDownEvent(event, level) {
+    switch (event.key) {
+      case 'Enter':
+        this.togglePillFilter(level);
+        break;
+    }
+  }
+
   public moduleCollapsed(headerRef) {
     let headerRect = headerRef.getBoundingClientRect();
 

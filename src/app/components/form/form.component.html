@@ -52,13 +52,10 @@
     </div>
     <div class="row">
       <div class="advanced col-sm-10 offset-sm-1">
-        <label class="d-flex" for="advanced_checkbox">
-          <span class="switch">
-            <input type="checkbox" name="advanced_checkbox" id="advanced_checkbox" (change)="toggleOptions()" [ngModel]="is_advanced_options_enabled" [ngModelOptions]="{standalone: true}">
-            <span class="slider round"></span>
-          </span>
-          <p class="ml-1 pt-1" i18n>Options</p>
-        </label>
+        <div class="switch-input-container">
+          <input class="switch-input" type="checkbox" id="advanced_checkbox" (change)="toggleOptions()" [ngModel]="is_advanced_options_enabled" [ngModelOptions]="{standalone: true}">
+          <label for="advanced_checkbox" i18n>Options</label>
+        </div>
 
         <div *ngIf="is_advanced_options_enabled">
           <div class="row protocol-form">
@@ -236,8 +233,6 @@
               <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()" i18n>Reset</button>
             </div>
           </div>
-
-
 
         </div>
       </div>

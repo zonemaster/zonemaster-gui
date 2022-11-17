@@ -10,7 +10,7 @@ test.describe('Zonemaster test FR23 - [Provide a list of previous runs for the d
   });
 
   test('should display previous tests',  async ({ page }) => {
-    const historyButton = page.locator('a.btn.history');
+    const historyButton = page.locator('button.history');
 
     await expect(historyButton).toBeVisible();
     await expect(historyButton).toHaveText('History');

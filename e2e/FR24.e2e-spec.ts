@@ -10,7 +10,7 @@ test.describe('Zonemaster test FR24 - [The list of previous runs should contain 
 
   test('should display previous run link',  async ({ page }) => {
 
-    const historyButton = page.locator('a.btn.history');
+    const historyButton = page.locator('button.history');
     await expect(historyButton).toBeVisible();
     await expect(historyButton).toHaveText('History');
     await historyButton.click();

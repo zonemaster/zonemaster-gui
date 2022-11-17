@@ -12,7 +12,7 @@ export function setLang(page, lang) {
 export async function showOptions(page) {
   const showOptionCheckbox = page.locator('#advanced_checkbox');
   if (!(await showOptionCheckbox.isChecked())) {
-    return page.locator('.switch').click();
+    return showOptionCheckbox.click();
   }
 }
 

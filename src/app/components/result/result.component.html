@@ -4,6 +4,7 @@
 <app-header *ngIf="!displayForm">
   <h1 i18n>Result</h1>
 </app-header>
+
 <div class="result container">
   <div>
     <div class="result-header">
@@ -12,10 +13,10 @@
     </div>
     <div class="actions-btn">
       <div>
-        <a class="btn btn-secondary history" (click)="getHistory()">
+        <button class="btn btn-secondary history" (click)="getHistory()" tabindex="0">
           <i class="fa fa-history text-white" aria-hidden="true"></i>
           <span class="text-white" i18n>History</span>
-        </a>
+        </button>
 
         <div ngbDropdown placement="bottom" class="d-inline-block">
           <button class="btn btn-secondary export" id="shareDropdownResult" ngbDropdownToggle>
@@ -60,9 +61,10 @@
         <a placement="top" [ngbTooltip]="tooltipAll"
            class="btn" [ngClass]="{'active all text-white btn-secondary': result_filter.all}"
            (click)="togglePillFilter('all')"
-           [(ngModel)]="result_filter.all" ngDefaultControl>
-          <ng-container i18n="all filter button">All</ng-container>
-          <span class="badge bg-secondary">{{result.length}}</span>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'all')"
+           [(ngModel)]="result_filter.all" tabindex="0" ngDefaultControl>
+           <ng-container i18n="all filter button">All</ng-container>
+           <span class="badge bg-secondary">{{result.length}}</span>
         </a>
       </li>
       <li class="nav-item ml-1">
@@ -72,10 +74,11 @@
         <a placement="top" [ngbTooltip]="tooltipInfo"
            class="btn" [ngClass]="{'active info text-white': result_filter.info}"
            (click)="togglePillFilter('info')"
-           [(ngModel)]="result_filter.info" ngDefaultControl>
-          <ng-container i18n="info filter button">Info</ng-container>
-          <span class="badge bg-secondary">{{level_items['info'].length}}</span>
-        </a>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'info')"
+           [(ngModel)]="result_filter.info" tabindex="0" ngDefaultControl>
+           <ng-container i18n="info filter button">Info</ng-container>
+           <span class="badge bg-secondary">{{level_items['info'].length}}</span>
+         </a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipNotice i18n="tooltip notice">
@@ -84,7 +87,8 @@
         <a placement="top" [ngbTooltip]="tooltipNotice"
            class="btn" [ngClass]="{'active notice text-white': result_filter.notice}"
            (click)="togglePillFilter('notice')"
-           [(ngModel)]="result_filter.notice" ngDefaultControl>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'notice')"
+           [(ngModel)]="result_filter.notice" tabindex="0" ngDefaultControl>
           <ng-container i18n="notice filter button">Notice</ng-container>
           <span class="badge bg-secondary">{{level_items['notice'].length}}</span>
         </a>
@@ -96,7 +100,8 @@
         <a placement="top" [ngbTooltip]="tooltipWarning"
            class="btn" [ngClass]="{'active warning text-white': result_filter.warning}"
            (click)="togglePillFilter('warning')"
-           [(ngModel)]="result_filter.warning" ngDefaultControl>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'warning')"
+           [(ngModel)]="result_filter.warning" tabindex="0" ngDefaultControl>
           <ng-container i18n="warning filter button">Warning</ng-container>
           <span class="badge bg-secondary">{{level_items['warning'].length}}</span>
         </a>
@@ -108,7 +113,8 @@
         <a placement="top" [ngbTooltip]="tooltipError"
            class="btn" [ngClass]="{'active error text-white': result_filter.error}"
            (click)="togglePillFilter('error')"
-           [(ngModel)]="result_filter.error" ngDefaultControl>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'error')"
+           [(ngModel)]="result_filter.error" tabindex="0" ngDefaultControl>
           <ng-container i18n="error filter button">Error</ng-container>
           <span class="badge bg-secondary">{{level_items['error'].length}}</span>
         </a>
@@ -120,9 +126,11 @@
         <a placement="top" [ngbTooltip]="tooltipCritical"
            class="btn" [ngClass]="{'active critical text-white': result_filter.critical}"
            (click)="togglePillFilter('critical')"
-           [(ngModel)]="result_filter.critical" ngDefaultControl>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'critical')"
+           [(ngModel)]="result_filter.critical" tabindex="0" ngDefaultControl>
           <ng-container i18n="critical filter button">Critical</ng-container>
-          <span class="badge bg-secondary">{{level_items['critical'].length}}</span></a>
+          <span class="badge bg-secondary">{{level_items['critical'].length}}</span>
+        </a>
       </li>
     </ul>
     <div class="input-group search">
@@ -135,14 +143,14 @@
 
   <div class="mt-3">
     <section *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items" [class.expanded]="!isCollapsed[moduleKey]">
-      <a [attr.aria-controls]="'module-' + moduleKey" [attr.aria-expanded]="!isCollapsed[moduleKey]">
-        <h3 (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]" class="{{modules[moduleKey]}} {{moduleKey}}" [ngStyle]="{'top': (navHeight + 7) + 'px'}" #headerRef>
+      <a [attr.aria-controls]="'module-' + moduleKey" [attr.aria-expanded]="!isCollapsed[moduleKey]" (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]" (keydown)="onModuleKeyDownEvent($event, moduleKey)">
+        <h3 class="{{modules[moduleKey]}} {{moduleKey}}" [ngStyle]="{'top': (navHeight + 7) + 'px'}" #headerRef>
           <i class="fa" placement="top" ngbTooltip="{{(isCollapsed[moduleKey] ? 'Expand': 'Collapse')}}" [ngClass]="{'fa-plus': isCollapsed[moduleKey],'fa-minus': !isCollapsed[moduleKey]}" aria-hidden="true"></i>
-          <span>{{moduleKey}}</span>
+          <span tabindex="0">{{moduleKey}}</span>
         </h3>
       </a>
-      <div id="module-{{moduleKey}}" [ngbCollapse]="isCollapsed[moduleKey]" (hidden)="moduleCollapsed(headerRef)" [animation]="false">
-        <div *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
+      <div role="list" id="module-{{moduleKey}}" [ngbCollapse]="isCollapsed[moduleKey]" (hidden)="moduleCollapsed(headerRef)" [animation]="false">
+        <div role="listitem" *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
           <div class="module-name">{{item.module}}</div>
           <div class="severity">{{item.level}}</div>
           <p class="message">{{item.message}}</p>
@@ -153,10 +161,10 @@
 </div>
 
 <ng-template #historyModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-  <h4 class="modal-title" i18n>History</h4>
-    <button type="button" class="btn-close" (click)="d('Cross click')" i18n-aria-label aria-label="Close" i18n-title title="Close"></button>
-  </div>
+  <header class="modal-header">
+    <h4 class="modal-title" i18n>History</h4>
+    <button type="button" class="btn-close" i18n-aria-label aria-label="Close" i18n-title title="Close" (click)="d('Cross click')"></button>
+  </header>
   <div class="modal-body">
     <app-history [history]="history"></app-history>
   </div>
