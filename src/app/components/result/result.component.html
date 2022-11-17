@@ -123,7 +123,7 @@
         role="button"
         >
           <i class="fa fa-caret-right caret" aria-hidden="true"></i>{{module.name}}<span class="sr-only">:</span>
-          <div *ngFor="let count of testCasesCountByModule[module.name]; let last = last;" class="badge badge-pill {{ count.name }}" title="{{ count.name|titlecase }} ({{ count.value }})">
+          <div *ngFor="let count of testCasesCountByModule[module.name]; let last = last;" class="badge badge-pill {{ count.name }}" title="{{ count.name | titlecase }} ({{ count.value }})">
             <span aria-hidden="true">
               <i class="fa {{severity_icons[count.name]}}"></i> {{ count.value }}
             </span>
@@ -152,7 +152,7 @@
         </header>
         <div [class.collapsed]="isCollapsed[testcase.id]" id="testcase-entries-{{testcase.id}}" [class.no-header]="testcase.id == 'UNSPECIFIED'">
           <ul>
-            <li *ngFor="let entry of testcase.entries"><div><span class="level {{entry.level|lowercase}}">{{entry.level|uppercase}}</span></div><p> {{entry.message}} </p></li>
+            <li *ngFor="let entry of testcase.entries"><div><span class="level {{entry.level|lowercase}}">{{entry.level | titlecase}}</span></div><p> {{entry.message}} </p></li>
           </ul>
         </div>
       </article>

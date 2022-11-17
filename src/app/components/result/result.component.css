@@ -15,7 +15,7 @@ article h4 {
   --result-info-bg: var(--result-info-color);
   --result-notice-color: #0f75e1;
   --result-notice-bg: var(--result-notice-color);
-  --result-warning-color: #b55e03;
+  --result-warning-color: #ae5a01;
   --result-warning-bg: #ff9019;
   --result-error-color: #bb2d3b;
   --result-error-bg: var(--result-error-color);
@@ -81,6 +81,7 @@ article ul li .level {
   border-radius: 0.3em;
   font-size: 0.8em;
   margin-right: 0.5em;
+  text-transform: uppercase;
 }
 
 .filters .active.all {
