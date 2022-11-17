@@ -234,7 +234,6 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
 
     for (const module in modulesMap) {
-      console.log(modulesMap[module].testcases);
       modulesMap[module].testcases.sort((testcase1, testcase2) => {
         // sort messages by descending severity level, unspecified messages always on top
         if (testcase1.id == 'UNSPECIFIED') {
@@ -245,7 +244,6 @@ export class ResultComponent implements OnInit, OnDestroy {
         }
         return this.severityLevels[testcase2.level] - this.severityLevels[testcase1.level];
       })
-      console.log(modulesMap[module].testcases);
       for (const testcase in modulesMap[module].testcasesMap) {
         const level = modulesMap[module].testcasesMap[testcase].level;
 
