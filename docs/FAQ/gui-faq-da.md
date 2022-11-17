@@ -147,7 +147,7 @@ skal du indtaste den i det format, den har i DNS, f.eks.:
 [Implemented Test Cases document]:       https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/ImplementedTestCases.md
 [spørgsmål 12]:                          #q12
 [RFCs]:                                  https://www.ietf.org/standards/rfcs/
-[Severity Level Definitions document]:   https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md)
+[Severity Level Definitions document]:   https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
 [IIS]:                                   https://internetstiftelsen.se/en/
 [Test Requirements]:                     https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md
 [zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se
