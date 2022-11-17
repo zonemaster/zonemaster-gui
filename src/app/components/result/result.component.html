@@ -12,14 +12,14 @@
     </div>
     <div class="actions-btn">
       <div>
-        <a class="btn btn-secondary history" (click)="getHistory()">
+        <button class="btn btn-secondary history" (click)="getHistory()" tabindex="0">
           <i class="fa fa-history text-white" aria-hidden="true"></i>
           <span class="text-white">{{'History'|translate}}</span>
-        </a>
+        </button>
 
         <div ngbDropdown placement="bottom-center" class="d-inline-block">
           <button class="btn btn-secondary export" id="shareDropdownResult" ngbDropdownToggle>
-            <i class="fa fa-cloud-download text-white"></i>
+            <i class="fa fa-cloud-download text-white" aria-hidden="true"></i>
             <span class="text-white">{{'Export'|translate}}</span>
           </button>
           <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
@@ -58,7 +58,8 @@
         <a placement="top" [ngbTooltip]="tooltipAll"
            class="nav-link" [ngClass]="{'active all text-white': result_filter.all}"
            (click)="togglePillFilter('all')"
-           [(ngModel)]="result_filter.all" ngDefaultControl>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'all')"
+           [(ngModel)]="result_filter.all" tabindex="0" ngDefaultControl>
           All <span class="badge badge-pill badge-secondary">{{result.length}}</span></a>
       </li>
       <li class="nav-item ml-1">
@@ -66,7 +67,8 @@
         <a placement="top" [ngbTooltip]="tooltipInfo"
            class="nav-link" [ngClass]="{'active info text-white': result_filter.info}"
            (click)="togglePillFilter('info')"
-           [(ngModel)]="result_filter.info" ngDefaultControl>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'info')"
+           [(ngModel)]="result_filter.info" tabindex="0" ngDefaultControl>
           Info
           <span class="badge badge-pill badge-secondary">{{level_items['info'].length}}</span></a>
       </li>
@@ -75,7 +77,8 @@
         <a placement="top" [ngbTooltip]="tooltipNotice"
            class="nav-link" [ngClass]="{'active notice text-white': result_filter.notice}"
            (click)="togglePillFilter('notice')"
-           [(ngModel)]="result_filter.notice" ngDefaultControl>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'notice')"
+           [(ngModel)]="result_filter.notice" tabindex="0" ngDefaultControl>
           Notice <span class="badge badge-pill badge-secondary">{{level_items['notice'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
@@ -83,7 +86,8 @@
         <a placement="top" [ngbTooltip]="tooltipWarning"
            class="nav-link" [ngClass]="{'active warning text-white': result_filter.warning}"
            (click)="togglePillFilter('warning')"
-           [(ngModel)]="result_filter.warning" ngDefaultControl>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'warning')"
+           [(ngModel)]="result_filter.warning"  tabindex="0" ngDefaultControl>
           Warning <span class="badge badge-pill badge-secondary">{{level_items['warning'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
@@ -91,7 +95,8 @@
         <a placement="top" [ngbTooltip]="tooltipError"
            class="nav-link" [ngClass]="{'active error text-white': result_filter.error}"
            (click)="togglePillFilter('error')"
-           [(ngModel)]="result_filter.error" ngDefaultControl>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'error')"
+           [(ngModel)]="result_filter.error" tabindex="0" ngDefaultControl>
           Error <span class="badge badge-pill badge-secondary">{{level_items['error'].length}}</span></a>
       </li>
       <li class="nav-item ml-1">
@@ -99,7 +104,8 @@
         <a placement="top" [ngbTooltip]="tooltipCritical"
            class="nav-link" [ngClass]="{'active critical text-white': result_filter.critical}"
            (click)="togglePillFilter('critical')"
-           [(ngModel)]="result_filter.critical" ngDefaultControl>
+           (keydown)="onFilterLevelKeyDownEvent($event, 'critical')"
+           [(ngModel)]="result_filter.critical" tabindex="0" ngDefaultControl>
           Critical <span class="badge badge-pill badge-secondary">{{level_items['critical'].length}}</span></a>
       </li>
     </ul>
@@ -115,14 +121,14 @@
 
   <div class="mt-3">
     <section *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items" [class.expanded]="!isCollapsed[moduleKey]">
-      <a [attr.aria-controls]="'module-' + moduleKey" [attr.aria-expanded]="!isCollapsed[moduleKey]">
-        <h3 (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]" class="{{modules[moduleKey]}} {{moduleKey}}" [ngStyle]="{'top': (navHeight + 7) + 'px'}" #headerRef>
+      <a [attr.aria-controls]="'module-' + moduleKey" [attr.aria-expanded]="!isCollapsed[moduleKey]" (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]" (keydown)="onModuleKeyDownEvent($event, moduleKey)">
+        <h3 class="{{modules[moduleKey]}} {{moduleKey}}" [ngStyle]="{'top': (navHeight + 7) + 'px'}" #headerRef>
           <i class="fa" placement="top" ngbTooltip="{{(isCollapsed[moduleKey] ? 'Expand': 'Collapse')}}" [ngClass]="{'fa-plus': isCollapsed[moduleKey],'fa-minus': !isCollapsed[moduleKey]}" aria-hidden="true"></i>
-          <span>{{moduleKey}}</span>
+          <span tabindex="0">{{moduleKey}}</span>
         </h3>
       </a>
-      <div id="module-{{moduleKey}}" [ngbCollapse]="isCollapsed[moduleKey]" (hidden)="moduleCollapsed(headerRef)" [animation]="false">
-        <div *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
+      <div role="list" id="module-{{moduleKey}}" [ngbCollapse]="isCollapsed[moduleKey]" (hidden)="moduleCollapsed(headerRef)" [animation]="false">
+        <div role="listitem" *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
           <div class="module-name">{{item.module|translate}}</div>
           <div class="severity">{{item.level}}</div>
           <p class="message">{{item.message|translate}}</p>
@@ -133,12 +139,12 @@
 </div>
 
 <ng-template #historyModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-  <h4 class="modal-title">{{'History'|translate}}</h4>
+  <header class="modal-header">
+    <h4 class="modal-title">{{'History'|translate}}</h4>
     <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
+  </header>
   <div class="modal-body">
     <app-history [history]="history"></app-history>
   </div>

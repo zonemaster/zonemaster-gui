@@ -52,15 +52,13 @@
     </div>
     <div class="row">
       <div class="advanced col-sm-10 offset-sm-1">
-        <label class="d-flex" for="advanced_checkbox">
-          <span class="switch">
-            <input type="checkbox" name="advanced_checkbox" id="advanced_checkbox" (change)="toggleOptions()" [ngModel]="is_advanced_options_enabled" [ngModelOptions]="{standalone: true}">
-            <span class="slider round"></span>
-          </span>
-          <p class="ml-1 pt-1">{{'Options'|translate}}</p>
-        </label>
 
-        <div *ngIf="is_advanced_options_enabled">
+        <div class="switch-input-container">
+          <input class="switch-input" type="checkbox" id="advanced_checkbox" (change)="toggleOptions()" [ngModel]="is_advanced_options_enabled" [ngModelOptions]="{standalone: true}">
+          <label for="advanced_checkbox">{{'Options'|translate}}</label>
+        </div>
+
+        <div *ngIf="is_advanced_options_enabled" class="advanced-options">
           <div class="form-row protocol-form">
             <div class="col-md-10">
               <div [class.is-invalid]="form.errors?.noProtocol">
@@ -228,8 +226,11 @@
 
           <br>
 
-          <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()">{{'Fetch data from parent zone'|translate}}</button>
-          <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()">{{'Reset'|translate}}</button>
+          <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()">
+            {{'Fetch data from parent zone'|translate}}
+          </button>&nbsp;<button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()">
+            {{'Reset'|translate}}
+          </button>
 
         </div>
       </div>
