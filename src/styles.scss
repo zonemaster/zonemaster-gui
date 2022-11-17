@@ -19,3 +19,9 @@ html, body {
 .pagination {
   justify-content: center;
 }
+
+.btn.active:focus-visible,
+.btn:focus-visible {
+  outline: auto;
+  box-shadow: none;
+}

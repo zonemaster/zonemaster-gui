@@ -85,6 +85,7 @@ button.btn-clipboard > i.fa-remove {
 
 .filters a {
   margin: 0 0.125rem;
+  border: 0;
 }
 
 .active.info,
