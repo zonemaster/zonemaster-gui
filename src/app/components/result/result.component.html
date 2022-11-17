@@ -113,36 +113,36 @@
     </div>
   </div>
   <section class="mt-3 details">
-    <article *ngFor="let module of modules | keyvalue" [class.expanded]="!isCollapsed[module.key]">
+    <article *ngFor="let module of modules" [class.expanded]="!isCollapsed[module.name]">
       <h3
         tabindex="0"
-        (keydown)="onCallapsableKeyDownEvent($event, module.key)"
-        (click)="isCollapsed[module.key] = !isCollapsed[module.key]"
+        (keydown)="onCallapsableKeyDownEvent($event, module.name)"
+        (click)="isCollapsed[module.name] = !isCollapsed[module.name]"
         >
-          <i class="fa fa-caret-right" aria-hidden="true"></i>{{module.key}}
+          <i class="fa fa-caret-right" aria-hidden="true"></i>{{module.name}}
       </h3>
-      <article *ngFor="let testcase of module.value | keyvalue" [class.collapsed]="isCollapsed[module.key]">
-        <header class="{{testcase.value.level}}">
+      <article *ngFor="let testcase of module.testcases" [class.collapsed]="isCollapsed[module.name]">
+        <header class="{{testcase.level}}" *ngIf="testcase.id != 'UNSPECIFIED'">
           <div
             tabindex="0"
-            (keydown)="onCallapsableKeyDownEvent($event, testcase.key)"
-            (click)="isCollapsed[testcase.key] = !isCollapsed[testcase.key]"
-            [attr.aria-controls]="'testcase-' + testcase.key + ',testcase-id-' + testcase.key"
-            [attr.aria-expanded]="!isCollapsed[testcase.key]"
+            (keydown)="onCallapsableKeyDownEvent($event, testcase.id)"
+            (click)="isCollapsed[testcase.id] = !isCollapsed[testcase.id]"
+            [attr.aria-controls]="'testcase-entries-' + testcase.id + ',testcase-id-' + testcase.id"
+            [attr.aria-expanded]="!isCollapsed[testcase.id]"
           >
-            <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.key],'fa-minus-square-o': !isCollapsed[testcase.key]}"></i>
+            <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.id],'fa-minus-square-o': !isCollapsed[testcase.id]}"></i>
 
             <h4>
-              <i class="fa {{severity_icons[testcase.value.level]}}" aria-hidden="true"></i>{{ testCaseDescriptions[testcase.key] }}
+              <i class="fa {{severity_icons[testcase.level]}}" aria-hidden="true"></i>{{ testCaseDescriptions[testcase.id] }}
             </h4>
           </div>
-          <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.key]" id="testcase-id-{{testcase.key}}">
-            <i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.key}}
+          <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.id]" id="testcase-id-{{testcase.id}}">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.id}}
           </span>
         </header>
-        <div [class.collapsed]="isCollapsed[testcase.key]" id="testcase-{{testcase.key}}">
+        <div [class.collapsed]="isCollapsed[testcase.id]" id="testcase-entries-{{testcase.id}}" [class.no-header]="testcase.id == 'UNSPECIFIED'">
           <ul>
-            <li *ngFor="let entry of testcase.value.entries"><div><span class="level {{entry.level|lowercase}}">{{entry.level}}</span></div><p> {{entry.message}} </p></li>
+            <li *ngFor="let entry of testcase.entries"><div><span class="level {{entry.level|lowercase}}">{{entry.level|uppercase}}</span></div><p> {{entry.message}} </p></li>
           </ul>
         </div>
       </article>

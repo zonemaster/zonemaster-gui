@@ -64,7 +64,6 @@ export class ResultComponent implements OnInit, OnDestroy {
   public history: any[];
   public language: string;
   public navHeight: Number;
-  private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
   private navHeightSubscription: Subscription;
 
@@ -171,7 +170,8 @@ export class ResultComponent implements OnInit, OnDestroy {
       'critical': 0,
     }
 
-    this.modules = {};
+    this.modules = [];
+    const modulesMap = {};
 
     for (const entry of results) {
       const currentModule = entry['module'];
@@ -179,15 +179,22 @@ export class ResultComponent implements OnInit, OnDestroy {
       const currentLevel = entry['level'].toLowerCase();
       const numLevel = this.severityLevels[currentLevel];
 
-      if (!(currentModule in this.modules)) {
-        this.modules[currentModule] = {}
+      entry['level'] = currentLevel;
+
+      if (!(currentModule in modulesMap)) {
+        modulesMap[currentModule] = {name: currentModule, testcases: [], testcasesMap: {}}
+
+        this.modules.push(modulesMap[currentModule]);
       }
 
-      if (!(currentTestcase in this.modules[currentModule])) {
-        this.modules[currentModule][currentTestcase] = {
-          'entries': [],
-          'level': 'info'
+      if (!(currentTestcase in modulesMap[currentModule].testcasesMap)) {
+        modulesMap[currentModule].testcasesMap[currentTestcase] = {
+          id: currentTestcase,
+          entries: [],
+          level: 'info'
         }
+
+        modulesMap[currentModule].testcases.push(modulesMap[currentModule].testcasesMap[currentTestcase]);
 
         if (resetCollapsed || !(currentTestcase in this.isCollapsed)) {
           this.isCollapsed[currentTestcase] = true;
@@ -195,25 +202,39 @@ export class ResultComponent implements OnInit, OnDestroy {
         }
       }
 
-      this.modules[currentModule][currentTestcase].entries.push(entry);
+      modulesMap[currentModule].testcasesMap[currentTestcase].entries.push(entry);
 
-      if (numLevel > this.severityLevels[this.modules[currentModule][currentTestcase].level]) {
-        this.modules[currentModule][currentTestcase].level = currentLevel;
+      if (numLevel > this.severityLevels[modulesMap[currentModule].testcasesMap[currentTestcase].level]) {
+        modulesMap[currentModule].testcasesMap[currentTestcase].level = currentLevel;
       }
     }
 
-    for (const module in this.modules) {
-      for (const testcase in this.modules[module]) {
-        const level = this.modules[module][testcase].level;
+    for (const module in modulesMap) {
+      console.log(modulesMap[module].testcases);
+      modulesMap[module].testcases.sort((testcase1, testcase2) => {
+        // sort messages by descending severity level, unspecified messages always on top
+        if (testcase1.id == 'UNSPECIFIED') {
+          return 1;
+        }
+        if (testcase2.id == 'UNSPECIFIED') {
+          return 1;
+        }
+        return this.severityLevels[testcase2.level] - this.severityLevels[testcase1.level];
+      })
+      console.log(modulesMap[module].testcases);
+      for (const testcase in modulesMap[module].testcasesMap) {
+        const level = modulesMap[module].testcasesMap[testcase].level;
 
         testCasesCount[level] ++;
         testCasesCount['all'] ++;
-        this.modules[module][testcase].entries.sort((msg1, msg2) => {
+        modulesMap[module].testcasesMap[testcase].entries.sort((msg1, msg2) => {
           // sort messages by descending severity level
-          return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
+          return this.severityLevels[msg2.level] - this.severityLevels[msg1.level];
         })
       }
     }
+
+    this.isCollapsed['UNSPECIFIED'] = false;
 
     return testCasesCount;
   }

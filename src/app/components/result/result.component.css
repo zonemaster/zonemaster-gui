@@ -71,6 +71,10 @@ article header .test-case-id {
   white-space: nowrap;
 }
 
+article div.no-header ul {
+  margin-bottom: 0.5rem;
+}
+
 article ul li .level {
   display: inline;
   padding: 0.2em 0.3em;
@@ -146,6 +150,11 @@ article h3 {
   align-items: center;
   font-size: 1.4rem;
   cursor: pointer;
+  margin-bottom: 0;
+}
+
+article.expanded h3 {
+  margin-bottom: 0.5rem;
 }
 
 article h3 i {
