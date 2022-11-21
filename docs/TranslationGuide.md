@@ -29,7 +29,7 @@ following languages with the attached language code:
 ## Extracting translatable strings
 
 When adding new translatable strings to the GUI, they need to be added to each
-`*messages.<LANG>.xlf` file. This can be done with the following command:
+`messages.<LANG>.xlf` file. This can be done with the following command:
 
 ```
 npm run i18n:extract
@@ -54,9 +54,6 @@ a language is added and will be completed by the Zonemaster Group.
 
 ## messages.\<LANG\>.xlf
 
-The XML structure LANG.json holds all the messages for GUI in respective
-language, where "LANG" is the language code, e.g. `en.json`.
-
 The XLF files `messages.<LANG>.xlf` are XML files and contains the messages
 for GUI in respective language, where `<LANG>` is the language code,
 e.g. `messages.fr.xlf`.
@@ -68,6 +65,13 @@ Each language file contains a list of `<trans-unit>` elements with a
 `<source>` element containing the message in English (the source locale),
 and a `<target>` element containing the translated message. Optionally a
 `<note>` element can contain context to help the translator.
+
+```xml
+<trans-unit datatype="html" id="a434ae37bd56265a0693fbc28bd8338a38500871">
+  <source>About Zonemaster</source>
+  <target state="new">À propos de Zonemaster</target>
+</trans-unit>
+```
 
 To help translating the locale files, tools like [Poedit] can be used.
 
@@ -243,4 +247,4 @@ const testSuite = [
 [src/assets/app.config.sample.json]:                       ../src/assets/app.config.sample.json
 [Configuration.md]:                                        ./Configuration.md
 [zonemaster.conf-example]:                                 ../zonemaster.conf-example
-[Poedit]:                                                  [https://poedit.net]
+[Poedit]:                                                  https://poedit.net
