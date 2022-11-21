@@ -84,16 +84,19 @@ input[type=checkbox].switch-input:checked {
   color: grey;
 }
 
+.domain-input-container {
+  position: relative;
+}
 .progress-value {
   display: block;
   color: #000;
   position: absolute;
-  right: 10px;
-  font-size: 30px;
+  right: 1rem;
+  font-size: 2rem;
 }
 
 .progress-result {
-  width: calc(100% - 10px);
+  width: calc(100% - var(--bs-gutter-x));
   position: absolute;
   z-index: 20;
   top: 0;
