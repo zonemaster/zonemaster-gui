@@ -69,7 +69,8 @@
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipInfo i18n="tooltip info">
-          Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem.
+          Info - is something that may be of interest to the zone's administrator
+          but that definitely does not indicate a problem.
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipInfo"
            class="btn" [ngClass]="{'active info text-white': result_filter.info}"
@@ -82,7 +83,8 @@
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipNotice i18n="tooltip notice">
-          Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all
+          Notice - means something that should be known by the zone's administrator
+          but that need not necessarily be a problem at all
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipNotice"
            class="btn" [ngClass]="{'active notice text-white': result_filter.notice}"
@@ -95,7 +97,8 @@
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipWarning i18n="tooltip warning">
-          Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.
+          Warning - means something that will under some circumstances be a problem,
+          but that is unlikely to be noticed by a casual user.
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipWarning"
            class="btn" [ngClass]="{'active warning text-white': result_filter.warning}"
@@ -108,7 +111,9 @@
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipError i18n="tooltip error">
-          Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable
+          Error - means a problem that is very likely (or possibly certain) to
+          negatively affect the function of the zone being tested, but not so
+          severe that the entire zone becomes unresolvable
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipError"
            class="btn" [ngClass]="{'active error text-white': result_filter.error}"

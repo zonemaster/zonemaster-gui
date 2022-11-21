@@ -14,11 +14,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">158</context>
+          <context context-type="linenumber">171</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">158</context>
+          <context context-type="linenumber">171</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7d2be22a7252a8b76dea7b3b85ab94ff86184e5d" datatype="html">
@@ -39,39 +39,39 @@
         <source>There is no delegation for the zone</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain-check/domain-check.component.ts</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="479999054176392213" datatype="html">
         <source>Parent data fetched with success</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain-check/domain-check.component.ts</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5744111782246551528" datatype="html">
         <source>Error during parent data fetching</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain-check/domain-check.component.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4004806372315985461" datatype="html">
         <source>Domain checked completed</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain-check/domain-check.component.ts</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">77</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5779341115787231384" datatype="html">
         <source>Internal server error</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain-check/domain-check.component.ts</context>
-          <context context-type="linenumber">94</context>
+          <context context-type="linenumber">92</context>
         </context-group>
       </trans-unit>
       <trans-unit id="a434ae37bd56265a0693fbc28bd8338a38500871" datatype="html">
@@ -81,18 +81,18 @@
           <context context-type="linenumber">7</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8d6f28760b6fdd0c1d1729a8d44dcee5ad5b4313" datatype="html">
+      <trans-unit id="87ce5d1a29c8483ec8f8600630f31beea9fedf29" datatype="html">
         <source>Give your domain a complete physical! Zonemaster helps you to control how your website is doing. As a bonus, you also get a better understanding of how the domain name system, DNS, works. When a domain (also called zone) is sent to Zonemaster, the program investigates the state of the domain from beginning to end. This is done through Zonemaster examining DNS from the root (.) to the TLD (top-level domain, for example, .se), and then finally through the DNS servers that contain information about the specified domain (for example, zonemaster.se). Zonemaster is also able to perform many other tests, for example, checking the DNSSEC signatures, that different hosts can be accessed and that the IP addresses are valid. This is all to make sure that your domain runs as good as possible.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain/domain.component.html</context>
-          <context context-type="linenumber">8,11</context>
+          <context context-type="linenumber">8,21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="146ccb323de128a0306c53f9486c4c67cd3871c8" datatype="html">
         <source>About domain name system, DNS</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain/domain.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="zm.faq.title" datatype="html">
@@ -103,7 +103,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/faq/faq.component.ts</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">49</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/navigation/navigation.component.html</context>
@@ -128,7 +128,7 @@
         <source>Zonemaster Backend is not available</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/footer/footer.component.ts</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">31</context>
         </context-group>
       </trans-unit>
       <trans-unit id="a80323a72217e6e51ab903d5109e12c69ed70b79" datatype="html">
@@ -167,126 +167,126 @@
         <source>Options</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2c098c2435a725b6528263e609a89a0ec3d188b2" datatype="html">
         <source>Disable IPv4</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">69,71</context>
+          <context context-type="linenumber">66,68</context>
         </context-group>
       </trans-unit>
       <trans-unit id="da728aedfa61a52bd7b39213dc0ce50acb19ee26" datatype="html">
         <source>Disable IPv6</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">75,77</context>
+          <context context-type="linenumber">72,74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="527beda5f3b727f97375828def449a7922404bcb" datatype="html">
         <source>Choose at least one protocol</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">80,82</context>
+          <context context-type="linenumber">77,79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8" datatype="html">
         <source>Profile</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">88</context>
+          <context context-type="linenumber">85</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ace1918547e0a85b94282b0fa6ba429bf82e704f" datatype="html">
         <source>Nameservers</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">102</context>
+          <context context-type="linenumber">99</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7a35c539ecd2b4e9e100d15edb3456e32d37d581" datatype="html">
         <source>NS required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">111,113</context>
+          <context context-type="linenumber">108,110</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4e59adf0c565d3c2601c3128d0c94a3aa44513f4" datatype="html">
         <source>Delegation Signers (DS records)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">143</context>
+          <context context-type="linenumber">140</context>
         </context-group>
       </trans-unit>
       <trans-unit id="153a2d7fa70b7fb265f0aa30d3ecbf07b67c60ab" datatype="html">
         <source>Key Tag</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">147</context>
+          <context context-type="linenumber">144</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d6c4b18a2e3878c97bc5bc6bef7fcfb0d1b85715" datatype="html">
         <source>Keytag required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">152,154</context>
+          <context context-type="linenumber">149,151</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6c6f25c47da62ec597c6057a36ddfc3209811ec5" datatype="html">
         <source>Algorithm</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">160</context>
+          <context context-type="linenumber">157</context>
         </context-group>
       </trans-unit>
       <trans-unit id="c6e800ae7bc17f6c913bb85159017b5b8d31ce1d" datatype="html">
         <source>Algorithm required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">177,179</context>
+          <context context-type="linenumber">174,176</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3530c857805fc74fe628dcc56456fa90ff9128d1" datatype="html">
         <source>Digest type</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">185</context>
+          <context context-type="linenumber">182</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6decc246adf8fa54408bb99010015ff3fa27f059" datatype="html">
         <source>Digest type required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">194,196</context>
+          <context context-type="linenumber">191,193</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ae50a7291ac86efaefeefaaf53afff3b8b8c088b" datatype="html">
         <source>Digest</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">200</context>
+          <context context-type="linenumber">197</context>
         </context-group>
       </trans-unit>
       <trans-unit id="41a92d5e8a530001a958246408f411ccabfe3595" datatype="html">
         <source>Digest required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">205,207</context>
+          <context context-type="linenumber">202,204</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ef26e6f68a894c88d6a40a35ebea9141accb691a" datatype="html">
         <source>Fetch data from parent zone</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">233</context>
+          <context context-type="linenumber">230</context>
         </context-group>
       </trans-unit>
       <trans-unit id="06c663bf1474713f57551123a46b34318543b67d" datatype="html">
         <source>Reset</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">236</context>
+          <context context-type="linenumber">233</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6f38d53bf6192c4d83d21fc84478cf97c2bc81c2" datatype="html">
@@ -373,32 +373,32 @@
         <source>History</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">157</context>
+          <context context-type="linenumber">170</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5f19586aba912ec6eb123ec5ab609a3bcc073066" datatype="html">
         <source>Export</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="0bd8b27f60a1f098a53e06328426d818e3508ff9" datatype="html">
         <source>Share</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2e52adeb40004b84f94197ec742951783fb4e377" datatype="html">
         <source>Display all results</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">57,59</context>
+          <context context-type="linenumber">58,60</context>
         </context-group>
         <note priority="1" from="description">tooltip all</note>
       </trans-unit>
@@ -406,15 +406,15 @@
         <source>All</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">66</context>
         </context-group>
         <note priority="1" from="description">all filter button</note>
       </trans-unit>
-      <trans-unit id="e2078dcf83ee65214be6c030d03b996c50f5c125" datatype="html">
+      <trans-unit id="281f2af4328daa895401b765738b1eb9cc55f489" datatype="html">
         <source>Info - is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">69,71</context>
+          <context context-type="linenumber">71,74</context>
         </context-group>
         <note priority="1" from="description">tooltip info</note>
       </trans-unit>
@@ -422,15 +422,15 @@
         <source>Info</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">76</context>
+          <context context-type="linenumber">80</context>
         </context-group>
         <note priority="1" from="description">info filter button</note>
       </trans-unit>
-      <trans-unit id="2aac65462f0404645d081aa3120c053cc10f3234" datatype="html">
+      <trans-unit id="5f27bfb99492b3cb2b7ae776e56665fa23c93c48" datatype="html">
         <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">81,83</context>
+          <context context-type="linenumber">85,88</context>
         </context-group>
         <note priority="1" from="description">tooltip notice</note>
       </trans-unit>
@@ -438,15 +438,15 @@
         <source>Notice</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">88</context>
+          <context context-type="linenumber">94</context>
         </context-group>
         <note priority="1" from="description">notice filter button</note>
       </trans-unit>
-      <trans-unit id="d5bde85ca7895ff2e333e7938467500a2bd9b605" datatype="html">
+      <trans-unit id="5f8e2137b25e61faf62e17cea5f550a5ae2fbf9c" datatype="html">
         <source>Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">93,95</context>
+          <context context-type="linenumber">99,102</context>
         </context-group>
         <note priority="1" from="description">tooltip warning</note>
       </trans-unit>
@@ -454,15 +454,15 @@
         <source>Warning</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="linenumber">108</context>
         </context-group>
         <note priority="1" from="description">warning filter button</note>
       </trans-unit>
-      <trans-unit id="f161183fb36bf1e20ee39dba76c46d70f1c114e2" datatype="html">
+      <trans-unit id="fff721af9d16ca1cd0983fce54d10c5e857ba341" datatype="html">
         <source>Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">105,107</context>
+          <context context-type="linenumber">113,117</context>
         </context-group>
         <note priority="1" from="description">tooltip error</note>
       </trans-unit>
@@ -470,7 +470,7 @@
         <source>Error</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">112</context>
+          <context context-type="linenumber">123</context>
         </context-group>
         <note priority="1" from="description">error filter button</note>
       </trans-unit>
@@ -478,7 +478,7 @@
         <source>Critical - means a very serious error.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">117,119</context>
+          <context context-type="linenumber">128,130</context>
         </context-group>
         <note priority="1" from="description">tooltip critical</note>
       </trans-unit>
@@ -486,7 +486,7 @@
         <source>Critical</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">124</context>
+          <context context-type="linenumber">136</context>
         </context-group>
         <note priority="1" from="description">critical filter button</note>
       </trans-unit>
@@ -494,63 +494,63 @@
         <source>Filter text</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">129</context>
+          <context context-type="linenumber">142</context>
         </context-group>
       </trans-unit>
       <trans-unit id="670066086142774318" datatype="html">
         <source>No data for this test</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">180</context>
+          <context context-type="linenumber">186</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7637329813318246049" datatype="html">
         <source>History information request is in progress</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">186</context>
+          <context context-type="linenumber">192</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6562028689116277067" datatype="html">
         <source>No result for this query</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">191</context>
+          <context context-type="linenumber">197</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1867992058937397585" datatype="html">
         <source>Module</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">270</context>
+          <context context-type="linenumber">276</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3733215288982610673" datatype="html">
         <source>Level</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">271</context>
+          <context context-type="linenumber">277</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">272</context>
+          <context context-type="linenumber">278</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7104935342812835081" datatype="html">
         <source>Please set the api endpoint</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/services/dns-check.service.ts</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="97b0c1cdfbb01988bed0535fd7656148bef0e854" datatype="html">
+      <trans-unit id="0a34ba010e76182e1149f5df1c358d624ba182a7" datatype="html">
         <source>Most people who use the internet have never reflected over what actually happens when one types an address in their web browser and then clicks the enter button. To simplify, the domain name system, (DNS) is a database that associates domain names to IP addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the internet. It’s similar to the way every telephone has its own number in the telephone network. A long series of numbers works fine for computers, but it’s difficult for people to memorize. Therefore, DNS has been developed an extra system for us when we want to reach a web server on a specific site or an email server we want to send an email to.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain/domain.component.html</context>
-          <context context-type="linenumber">18,20</context>
+          <context context-type="linenumber">28,40</context>
         </context-group>
       </trans-unit>
     </body>

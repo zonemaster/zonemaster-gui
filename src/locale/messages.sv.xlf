@@ -2,11 +2,11 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit datatype="html" id="97b0c1cdfbb01988bed0535fd7656148bef0e854">
+      <trans-unit datatype="html" id="0a34ba010e76182e1149f5df1c358d624ba182a7">
         <source>Most people who use the internet have never reflected over what actually happens when one types an address in their web browser and then clicks the enter button. To simplify, the domain name system, (DNS) is a database that associates domain names to IP addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the internet. It’s similar to the way every telephone has its own number in the telephone network. A long series of numbers works fine for computers, but it’s difficult for people to memorize. Therefore, DNS has been developed an extra system for us when we want to reach a web server on a specific site or an email server we want to send an email to.</source>
         <target state="new">De flesta som använder internet har aldrig ens reflekterat över vad som egentligen händer när man har skrivit in en adress i sin webbläsare och tryckt ned enter-tangenten. Något förenklat är domännamnssystemet (DNS) en databas som översätter domännamn till IP-adresser, på samma sätt som en telefonkatalog översätter namn till telefonnummer. En IP-adress är en unik nummerserie som identifierar varje dator som är exponerad mot internet. Det kan liknas vid hur varje telefon har ett eget telefonnummer i telenätet. Långa nummerserier fungerar fint för datorer, men för oss människor är de svåra att memorera. Därför har man utvecklat DNS ett extra system för oss när vi vill nå fram till en webbserver med en viss sajt på eller en e-postserver som vi vill skicka e-postmeddelanden till.</target>
       </trans-unit>
-      <trans-unit datatype="html" id="8d6f28760b6fdd0c1d1729a8d44dcee5ad5b4313">
+      <trans-unit datatype="html" id="87ce5d1a29c8483ec8f8600630f31beea9fedf29">
         <source>Give your domain a complete physical! Zonemaster helps you to control how your website is doing. As a bonus, you also get a better understanding of how the domain name system, DNS, works. When a domain (also called zone) is sent to Zonemaster, the program investigates the state of the domain from beginning to end. This is done through Zonemaster examining DNS from the root (.) to the TLD (top-level domain, for example, .se), and then finally through the DNS servers that contain information about the specified domain (for example, zonemaster.se). Zonemaster is also able to perform many other tests, for example, checking the DNSSEC signatures, that different hosts can be accessed and that the IP addresses are valid. This is all to make sure that your domain runs as good as possible.</source>
         <target state="new">Ge din domän en komplett hälsoundersökning! Zonemaster hjälper dig att kontrollera hur din webbplats mår. På köpet får du dessutom en bättre förståelse för hur domämnamnssystemet DNS fungerar. När en domän (även kallad zon) skickas till Zonemaster, undersöker programmet domänens hälsotillstånd från början till slut. Det görs genom att Zonemaster går igenom DNS från roten (.) till TLD:n (toppdomänen, till exempel .se) och slutligen de DNS-servrar som innehåller information om den specificerade domänen (till exempel iis.se). Zonemaster passar även på att utföra en hel del andra tester, exempelvis kontroll av DNSSEC-signaturer, att olika värdar går att komma åt och att IP-adresser är giltiga. Allt för att kontrollera att din domän mår så bra som möjligt.</target>
       </trans-unit>
@@ -188,22 +188,22 @@
         <target state="new">Critical - betyder att det finns ett mycket allvarligt fel.</target>
         <note priority="1" from="description">tooltip critical</note>
       </trans-unit>
-      <trans-unit datatype="html" id="f161183fb36bf1e20ee39dba76c46d70f1c114e2">
+      <trans-unit datatype="html" id="fff721af9d16ca1cd0983fce54d10c5e857ba341">
         <source>Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable</source>
         <target state="new">Error - betyder att det finns ett fel som det är mycket troligt ger negativa konsekvenser för hur den testade zonen fungerar, men inte så allvarligt att hela zonen är ouppslagbar.</target>
         <note priority="1" from="description">tooltip error</note>
       </trans-unit>
-      <trans-unit datatype="html" id="e2078dcf83ee65214be6c030d03b996c50f5c125">
+      <trans-unit datatype="html" id="281f2af4328daa895401b765738b1eb9cc55f489">
         <source>Info - is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem.</source>
         <target state="new">Info - något som kan vara av intresse för zonens administratör men som helt klart inte tyder på att vara ett problem.</target>
         <note priority="1" from="description">tooltip info</note>
       </trans-unit>
-      <trans-unit datatype="html" id="2aac65462f0404645d081aa3120c053cc10f3234">
+      <trans-unit datatype="html" id="5f27bfb99492b3cb2b7ae776e56665fa23c93c48">
         <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all</source>
         <target state="new">Notice - betyder något som zonens administratör bör känna till men som inte behöver vara något problem.</target>
         <note priority="1" from="description">tooltip notice</note>
       </trans-unit>
-      <trans-unit datatype="html" id="d5bde85ca7895ff2e333e7938467500a2bd9b605">
+      <trans-unit datatype="html" id="5f8e2137b25e61faf62e17cea5f550a5ae2fbf9c">
         <source>Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.</source>
         <target state="new">Warning - betyder något som under vissa omständigheter kan vara ett problem, men det är inte sannolikt att en vanlig användare upptäcker det.</target>
         <note priority="1" from="description">tooltip warning</note>
