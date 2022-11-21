@@ -87,13 +87,29 @@
                 }
               ]
             },
+            "da": {
+              "localize": ["da"],
+              "baseHref": "/da/"
+            },
             "en": {
               "localize": ["en"],
               "baseHref": "/en/"
             },
+            "es": {
+              "localize": ["es"],
+              "baseHref": "/es/"
+            },
+            "fi": {
+              "localize": ["fi"],
+              "baseHref": "/fi/"
+            },
             "fr": {
               "localize": ["fr"],
               "baseHref": "/fr/"
+            },
+            "nb": {
+              "localize": ["nb"],
+              "baseHref": "/nb/"
             },
             "sv": {
               "localize": ["sv"],
