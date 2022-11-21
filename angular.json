@@ -133,8 +133,26 @@
               "proxyConfig": "proxy.disabled.conf.json",
               "browserTarget": "zonemaster:build:tests"
             },
+            "da": {
+              "browserTarget": "zonemaster:build:da"
+            },
+            "en": {
+              "browserTarget": "zonemaster:build:en"
+            },
+            "es": {
+              "browserTarget": "zonemaster:build:es"
+            },
+            "fi": {
+              "browserTarget": "zonemaster:build:fi"
+            },
             "fr": {
               "browserTarget": "zonemaster:build:fr"
+            },
+            "nb": {
+              "browserTarget": "zonemaster:build:nb"
+            },
+            "sv": {
+              "browserTarget": "zonemaster:build:sv"
             }
           }
         },
