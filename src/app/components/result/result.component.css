@@ -13,7 +13,7 @@ article h4 {
 .result {
   --result-info-color: #157347;
   --result-info-bg: var(--result-info-color);
-  --result-notice-color: #0f75e1;
+  --result-notice-color: #1069c8;
   --result-notice-bg: var(--result-notice-color);
   --result-warning-color: #ae5a01;
   --result-warning-bg: #ff9019;
