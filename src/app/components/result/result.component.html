@@ -184,7 +184,7 @@
               <i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.id}}
             </span>
           </header>
-          <div [class.collapsed]="isCollapsed[testcase.id]" id="testcase-entries-{{testcase.id}}" [class.no-header]="testcase.id == 'UNSPECIFIED'">
+          <div [class.collapsed]="isCollapsed[testcase.id]" id="testcase-entries-{{testcase.id}}">
             <ul>
               <li *ngFor="let entry of testcase.entries"><div><span class="level {{entry.level|lowercase}}">{{entry.level | titlecase}}</span></div><p> {{entry.message}} </p></li>
             </ul>

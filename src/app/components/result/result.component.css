@@ -71,16 +71,13 @@ article header .test-case-id {
   white-space: nowrap;
 }
 
-article div.no-header ul {
-  margin-bottom: 0.5rem;
-}
-
 article ul li .level {
   display: inline;
   padding: 0.2em 0.3em;
   border-radius: 0.3em;
   font-size: 0.8em;
   margin-right: 0.5em;
+  margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
 
