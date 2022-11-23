@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() is_advanced_options_enabled;
+  @Input() isAdvancedOptionsEnabled = false;
   @Input() domain_check_progression;
   @Input() toggleFinished;
   @Input() profiles;
@@ -289,7 +289,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public toggleOptions() {
-    this.is_advanced_options_enabled = !this.is_advanced_options_enabled
-    this.onOpenOptions.emit(this.is_advanced_options_enabled);
+    this.isAdvancedOptionsEnabled = !this.isAdvancedOptionsEnabled
+    this.onOpenOptions.emit(this.isAdvancedOptionsEnabled);
   }
 }

@@ -53,11 +53,11 @@
     <div class="row">
       <div class="advanced col-sm-10 offset-sm-1">
         <div class="switch-input-container">
-          <input class="switch-input" type="checkbox" id="advanced_checkbox" (change)="toggleOptions()" [ngModel]="is_advanced_options_enabled" [ngModelOptions]="{standalone: true}">
-          <label for="advanced_checkbox" i18n>Options</label>
+          <button class="switch-toggle" id="advanced-toggle" (click)="toggleOptions()" [class.enabled]="isAdvancedOptionsEnabled" aria-controls="advanced-options" [attr.aria-expanded]="isAdvancedOptionsEnabled"></button>
+          <label for="advanced-toggle" i18n>Options</label>
         </div>
 
-        <div *ngIf="is_advanced_options_enabled">
+        <div *ngIf="isAdvancedOptionsEnabled" id="advanced-options">
 
           <section>
             <h4><label for="profile" i18n>General</label></h4>

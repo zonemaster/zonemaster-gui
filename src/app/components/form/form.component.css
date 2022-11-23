@@ -41,13 +41,11 @@ form .protocol {
   margin: 0;
 }
 
-input[type=checkbox].switch-input {
+button.switch-toggle {
+  border: none;
   width: 2em;
   background-color: #ccc;
   display: inherit;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   height: 1em;
   border-radius: 2em;
   font-size: 2em;
@@ -59,7 +57,7 @@ input[type=checkbox].switch-input {
   cursor: pointer;
 }
 
-input[type=checkbox].switch-input:checked {
+button.switch-toggle.enabled {
   background-position: right center;
   background-color: #2196f3;
 }
