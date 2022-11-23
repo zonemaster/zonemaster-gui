@@ -49,6 +49,10 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
       await filterButtons.nth(idx).click();
     }
 
+    // wait for .2 second (color transition)
+    await page.waitForTimeout(200);
+
+
     expect(await page.screenshot()).toMatchSnapshot('results.png');
   });
 });

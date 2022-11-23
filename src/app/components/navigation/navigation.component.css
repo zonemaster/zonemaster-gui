@@ -27,6 +27,10 @@ nav {
   text-decoration: underline solid 1px;
 }
 
+.lang > div > a {
+  text-decoration: none;
+}
+
 .github {
   height: 100%;
 }

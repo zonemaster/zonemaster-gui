@@ -20,7 +20,12 @@ footer .tooltip {
   --bs-tooltip-max-width: auto;
 }
 
-/* bootstrap 4, remove this when merged with upgrade PR */
-footer .tooltip-inner {
-  max-width: initial;
+.pagination {
+  justify-content: center;
+}
+
+.btn.active:focus-visible,
+.btn:focus-visible {
+  outline: auto;
+  box-shadow: none;
 }

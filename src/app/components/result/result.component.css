@@ -245,6 +245,12 @@ button.btn-clipboard > i.fa-remove {
   margin-top: 1rem;
 }
 
+/* TODO: check if needed */
+.filters a {
+  margin: 0 0.125rem;
+  border: 0;
+}
+
 .export, .share, .settings {
   margin-left: 0.25rem;
 }
