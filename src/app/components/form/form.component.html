@@ -122,7 +122,7 @@
                 </div>
 
                 <div class="col-md-3">
-                  <select formControlName="algorithm" i18n-aria-label aria-label="Algorithm" class="form-control"
+                  <select formControlName="algorithm" i18n-aria-label aria-label="Algorithm" class="form-select"
                           [class.is-invalid]="ds_info.controls.algorithm.invalid && (ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched)">
                     <option i18n [value]="-1" selected disabled>Algorithm</option>
                     <option [value]="1">1 - RSAMD5</option>
@@ -147,7 +147,7 @@
                 </div>
 
                 <div class="col-md-2">
-                  <select formControlName="digtype" i18n-aria-label aria-label="Digest type" class="form-control"
+                  <select formControlName="digtype" i18n-aria-label aria-label="Digest type" class="form-select"
                           [class.is-invalid]="ds_info.controls.digtype.invalid && (ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched)">
                     <option i18n [value]="-1" selected disabled>Digest type</option>
                     <option [value]="1">1 - SHA-1</option>
