@@ -158,7 +158,7 @@
         role="button"
         >
           <i class="fa fa-caret-right caret" aria-hidden="true"></i>{{module.name}}<span class="sr-only">:</span>
-          <div *ngFor="let count of testCasesCountByModule[module.name]; let last = last;" class="badge badge-pill {{ count.name }}" title="{{ count.name | titlecase }} ({{ count.value }})">
+          <div *ngFor="let count of testCasesCountByModule[module.name]; let last = last;" class="badge badge-pill rounded-pill {{ count.name }}" title="{{ count.name | titlecase }} ({{ count.value }})">
             <span aria-hidden="true">
               <i class="fa {{severity_icons[count.name]}}"></i> {{ count.value }}
             </span>
