@@ -11,12 +11,13 @@
 <app-form [isAdvancedOptionsEnabled]="is_advanced_options_enabled"
           [domain_check_progression]="domain_check_progression"
           [showProgressBar]="showProgressBar"
-          [parentData]="parentData"
+          [parentDataNS]="parentDataNS"
+          [parentDataDS]="parentDataDS"
           [profiles]="profiles"
           [toggleFinished]="toggleFinished"
           [formError]="requestError"
           (onDomainCheck)="domainCheck($event)"
-          (onfetchFromParent)="fetchFromParent($event)"
+          (onFetchDataFromParent)="fetchFromParent($event)"
           (onOpenOptions)="openOptions($event)"
 
 ></app-form>

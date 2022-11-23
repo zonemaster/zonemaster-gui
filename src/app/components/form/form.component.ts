@@ -23,7 +23,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() profiles;
 
   @Output() onDomainCheck = new EventEmitter<object>();
-  @Output() onfetchFromParent = new EventEmitter<string>();
+  @Output() onFetchDataFromParent = new EventEmitter<[string, string]>();
   @Output() onOpenOptions = new EventEmitter<boolean>();
 
   private formConfig = {
@@ -147,17 +147,23 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   get domain() { return this.form.get('domain'); }
 
   @Input()
-  set parentData(data: object) {
+  set parentDataDS(dsList) {
+    this.disable_check_button = false;
+    if (this.form) {
+      this.deleteRow('ds_info', -1);
+      dsList.forEach(ds => {
+        this.addNewRow('ds_info', ds);
+      });
+    }
+  }
+
+  @Input()
+  set parentDataNS(nsList) {
     this.disable_check_button = false;
     if (this.form) {
       this.deleteRow('nameservers', -1);
-      data['ns_list'].forEach(ns => {
+      nsList.forEach(ns => {
         this.addNewRow('nameservers', ns);
-      });
-
-      this.deleteRow('ds_info', -1);
-      data['ds_list'].forEach(digest => {
-        this.addNewRow('ds_info', digest);
       });
     }
   }
@@ -222,14 +228,15 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  private displayDataFromParent() {
+  private fetchDataFromParent(type) {
     this.domain.markAsTouched();
     if (this.domain.invalid) {
       return false;
     }
 
     this.disable_check_button = true;
-    this.onfetchFromParent.emit(this.form.value.domain);
+    console.log(this.form.value);
+    this.onFetchDataFromParent.emit([type, this.form.value.domain]);
   }
 
   private disableForm(disable = true) {

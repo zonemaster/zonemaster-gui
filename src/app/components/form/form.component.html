@@ -59,7 +59,7 @@
     <div class="row">
       <div class="advanced col-sm-10 offset-sm-1">
         <div class="switch-input-container">
-          <button class="switch-toggle" id="advanced-toggle" (click)="toggleOptions()" [class.enabled]="isAdvancedOptionsEnabled" aria-controls="advanced-options" [attr.aria-expanded]="isAdvancedOptionsEnabled"></button>
+          <button type="button" class="switch-toggle" id="advanced-toggle" (click)="toggleOptions()" [class.enabled]="isAdvancedOptionsEnabled" aria-controls="advanced-options" [attr.aria-expanded]="isAdvancedOptionsEnabled"></button>
           <label for="advanced-toggle" i18n>Options</label>
         </div>
 
@@ -121,12 +121,15 @@
                 </div>
               </div>
             </div>
+            <div class="col-auto">
+              <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="fetchDataFromParent('NS')" i18n>Fetch NS from parent zone</button>
+            </div>
           </fieldset>
 
           <hr>
 
           <fieldset>
-            <legend i18n>Delegation Signers (DS records)</legend>
+            <legend i18n>DS records</legend>
             <div formArrayName="ds_info">
               <div class="row mb-2" *ngFor="let ds_info of form.controls.ds_info.controls; let i=index" [formGroupName]="i">
                 <div class="col-md-2">
@@ -237,6 +240,9 @@
                 </div>
               </div>
             </div>
+            <div class="col-auto">
+              <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="fetchDataFromParent('DS')" i18n>Fetch DS from parent zone</button>
+            </div>
           </fieldset>
 
           <hr>
@@ -279,9 +285,6 @@
           </fieldset>
 
           <div class="row">
-            <div class="col-auto">
-              <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()" i18n>Fetch data from parent zone</button>
-            </div>
             <div class="col-auto">
               <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()" i18n>Reset</button>
             </div>

@@ -16,7 +16,8 @@ export class DomainCheckComponent implements OnInit {
   public domain_check_progression = 0;
   public showResult = false;
   public showProgressBar = false;
-  public parentData: any;
+  public parentDataDS: any;
+  public parentDataNS: any;
   public resultID = '';
   public profiles = [];
   public toggleFinished = false;
@@ -34,12 +35,17 @@ export class DomainCheckComponent implements OnInit {
     this.dnsCheckService.profileNames().then( (res: string[]) => this.profiles = res );
   }
 
-  public fetchFromParent(domain) {
+  public fetchFromParent([type, domain]) {
+    console.log(type, domain)
     this.dnsCheckService.fetchFromParent(domain).then(result => {
       if (result['ds_list'].length === 0 && result['ns_list'].length === 0) {
         this.alertService.warn($localize `There is no delegation for the zone`);
       } else {
-        this.parentData = result;
+        if (type == 'DS') {
+          this.parentDataDS = result['ds_list'];
+        } else if(type = 'NS') {
+          this.parentDataNS = result['ns_list'];
+        }
         this.alertService.success($localize `Parent data fetched with success`);
       }
     }, error => {
