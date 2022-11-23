@@ -13,12 +13,13 @@
                 formControlName="domain"
                 i18n-placeholder placeholder="Domain name"
                 i18n-aria-label aria-label="Domain name"
+                aria-describedby="domain-error-required domain-error-server"
                 required>
-            <div class="invalid-feedback" *ngIf="domain.errors?.required" i18n>
+            <div id="domain-error-required" class="invalid-feedback" *ngIf="domain.errors?.required" i18n>
               Domain name required
             </div>
 
-            <div class="invalid-feedback" *ngIf="domain.errors?.serverError" >
+            <div id="domain-error-server" class="invalid-feedback" *ngIf="domain.errors?.serverError" >
               {{ domain.errors.serverError }}
             </div>
 
@@ -26,7 +27,11 @@
               <button
                 (click)="resetDomainForm();"
                 type="button"
-                class="btn grey"><i class="fa fa-2x fa-times-circle"></i></button>
+                i18n-title
+                title="Clear domain input"
+                class="btn grey">
+                  <i class="fa fa-2x fa-times-circle" aria-hidden="true"></i>
+              </button>
             </p>
 
             <p class="progress-result d-block" *ngIf="showProgressBar">
@@ -65,18 +70,32 @@
             <div formArrayName="nameservers">
               <div class="mb-2 row" *ngFor="let ns of form.controls.nameservers.controls; let i=index" [formGroupName]="i">
                 <div class="col col-md-5">
-                  <input formControlName="ns" class="form-control" i18n-aria-label aria-label="Nameserver" placeholder="NS" [class.is-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)">
-                  <div class="invalid-feedback" *ngIf="ns.controls.ns.errors?.serverError" >
+                  <input
+                    [attr.aria-describedby]="'ns-' + i + '-error-required ns-' + i + '-error-server'"
+                    formControlName="ns"
+                    class="form-control"
+                    i18n-aria-label aria-label="Nameserver"
+                    placeholder="NS"
+                    [class.is-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)"
+                  >
+                  <div id="ns-{{i}}-error-server" class="invalid-feedback" *ngIf="ns.controls.ns.errors?.serverError" >
                     {{ ns.controls.ns.errors.serverError }}
                   </div>
-                  <div i18n class="invalid-feedback" *ngIf="ns.controls.ns.errors?.required" >
-                    NS required
+                  <div id="ns-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ns.controls.ns.errors?.required" >
+                    Nameserver required
                   </div>
                 </div>
 
                 <div class="col col-md-5">
-                  <input formControlName="ip" class="form-control" i18n-aria-label aria-label="IP address" placeholder="IP" [class.is-invalid]="ns.controls.ip.invalid">
-                  <div class="invalid-feedback" *ngIf="ns.controls.ip.errors?.serverError" >
+                  <input
+                    [attr.aria-describedby]="'ip-' + i + '-error-server'"
+                    formControlName="ip"
+                    class="form-control"
+                    i18n-aria-label aria-label="IP address"
+                    placeholder="IP"
+                    [class.is-invalid]="ns.controls.ip.invalid"
+                  >
+                  <div id="ip-{{i}}-error-server" class="invalid-feedback" *ngIf="ns.controls.ip.errors?.serverError" >
                     {{ ns.controls.ip.errors.serverError }}
                   </div>
                 </div>
@@ -111,19 +130,30 @@
             <div formArrayName="ds_info">
               <div class="row mb-2" *ngFor="let ds_info of form.controls.ds_info.controls; let i=index" [formGroupName]="i">
                 <div class="col-md-2">
-                  <input formControlName="keytag" class="form-control" i18n-aria-label aria-label="Key Tag" i18n-placeholder placeholder="Key Tag"
-                        [class.is-invalid]="ds_info.controls.keytag.invalid && (ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched)">
-                  <div class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
+                  <input
+                    [attr.aria-describedby]="'keytag-' + i + '-error-required keytag-' + i + '-error-server'"
+                    formControlName="keytag"
+                    class="form-control"
+                    i18n-aria-label aria-label="Key Tag"
+                    i18n-placeholder placeholder="Key Tag"
+                    [class.is-invalid]="ds_info.controls.keytag.invalid && (ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched)"
+                  >
+                  <div id="ketag-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
                     {{ ds_info.controls.keytag.errors.serverError }}
                   </div>
-                  <div i18n class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.required" >
+                  <div id="keytag-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.required" >
                     Keytag required
                   </div>
                 </div>
 
                 <div class="col-md-3">
-                  <select formControlName="algorithm" i18n-aria-label aria-label="Algorithm" class="form-select"
-                          [class.is-invalid]="ds_info.controls.algorithm.invalid && (ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched)">
+                  <select
+                    [attr.aria-describedby]="'algorithm-' + i + '-error-required algorithm-' + i + '-error-server'"
+                    formControlName="algorithm"
+                    i18n-aria-label aria-label="Algorithm"
+                    class="form-select"
+                    [class.is-invalid]="ds_info.controls.algorithm.invalid && (ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched)"
+                  >
                     <option i18n [value]="-1" selected disabled>Algorithm</option>
                     <option [value]="1">1 - RSAMD5</option>
                     <option [value]="3">3 - DSA</option>
@@ -138,38 +168,49 @@
                     <option [value]="15">15 - ED25519</option>
                     <option [value]="16">16 - ED448</option>
                   </select>
-                  <div class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.serverError" >
+                  <div id="algorithm-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.serverError" >
                     {{ ds_info.controls.algorithm.errors.serverError }}
                   </div>
-                  <div i18n class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.required" >
+                  <div id="algorithm-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.required" >
                     Algorithm required
                   </div>
                 </div>
 
                 <div class="col-md-2">
-                  <select formControlName="digtype" i18n-aria-label aria-label="Digest type" class="form-select"
-                          [class.is-invalid]="ds_info.controls.digtype.invalid && (ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched)">
+                  <select
+                    [attr.aria-describedby]="'digtype-' + i + '-error-required digtype-' + i + '-error-server'"
+                    formControlName="digtype"
+                    i18n-aria-label aria-label="Digest type"
+                    class="form-select"
+                    [class.is-invalid]="ds_info.controls.digtype.invalid && (ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched)"
+                  >
                     <option i18n [value]="-1" selected disabled>Digest type</option>
                     <option [value]="1">1 - SHA-1</option>
                     <option [value]="2">2 - SHA-256</option>
                     <option [value]="3">3 - GOST R 34.11-94</option>
                     <option [value]="4">4 - SHA-384</option>
                   </select>
-                  <div class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.serverError" >
+                  <div id="digtype-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.serverError" >
                     {{ ds_info.controls.digtype.errors.serverError }}
                   </div>
-                  <div i18n class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.required" >
+                  <div id="digtype-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.required" >
                     Digest type required
                   </div>
                 </div>
 
                 <div class="col-md-3">
-                  <input formControlName="digest" class="form-control" i18n-aria-label aria-label="Digest" i18n-placeholder placeholder="Digest"
-                        [class.is-invalid]="ds_info.controls.digest.invalid && (ds_info.controls.digest.dirty || ds_info.controls.digest.touched)">
-                  <div class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.serverError" >
+                  <input
+                    [attr.aria-describedby]="'digest-' + i + '-error-required digest-' + i + '-error-server'"
+                    formControlName="digest"
+                    class="form-control"
+                    i18n-aria-label aria-label="Digest"
+                    i18n-placeholder placeholder="Digest"
+                    [class.is-invalid]="ds_info.controls.digest.invalid && (ds_info.controls.digest.dirty || ds_info.controls.digest.touched)"
+                  >
+                  <div id="digest-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.serverError" >
                     {{ ds_info.controls.digest.errors.serverError }}
                   </div>
-                  <div i18n class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.required" >
+                  <div id="digest-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.required" >
                     Digest required
                   </div>
                 </div>
