@@ -1,7 +1,7 @@
 .main {
   margin-bottom: 4rem;
   text-align: center;
-  background-color: rgb(248, 249, 250);
+  background-color: #ececec;
 }
 .main > .container {
   margin: auto;
