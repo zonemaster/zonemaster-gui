@@ -244,7 +244,7 @@
           <fieldset>
             <legend i18n>General</legend>
             <div class="row">
-              <fieldset class="col-md-5 form-col">
+              <fieldset aria-describedby="protocol-error" class="col-md-5 form-col">
                 <legend for="profile">Protocol</legend>
                 <div class="protocol" [class.is-invalid]="form.errors?.noProtocol">
                   <div class="custom-control form-check form-check-inline">
@@ -260,7 +260,7 @@
                     </label>
                   </div>
                 </div>
-                <div i18n class="invalid-feedback" *ngIf="form.errors?.noProtocol">
+                <div id="protocol-error" i18n class="invalid-feedback" *ngIf="form.errors?.noProtocol">
                   Choose at least one protocol
                 </div>
               </fieldset>
