@@ -9,9 +9,9 @@ test.describe('Navigation should be consistent and honor browser behaviour', () 
   });
 
   test('ensure navigation to result page is consistent - #300',  async ({ page, baseURL}) => {
-    const domainCheckUrl = baseURL + '/check';
-    const firstTestUrl = baseURL + '/result/226f6d4f44ae3f80';
-    const secondTestUrl = baseURL + '/result/a0fbcbf6c5ff5842';
+    const domainCheckUrl = baseURL + '/en/check';
+    const firstTestUrl = baseURL + '/en/result/226f6d4f44ae3f80';
+    const secondTestUrl = baseURL + '/en/result/a0fbcbf6c5ff5842';
     const firstDomain = 'results.afNiC.Fr';
     const secondDomain = 'empty-results.afNiC.Fr';
 

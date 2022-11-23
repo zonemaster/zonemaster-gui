@@ -5,7 +5,7 @@ import { setLang } from './utils/app.utils';
 
 test.describe('Zonemaster test FR23 - [Provide a list of previous runs for the domain and should be paginated]', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('result/226f6d4f44ae3f80');
+    await page.goto('/result/226f6d4f44ae3f80');
     await setLang(page, 'en');
   });
 

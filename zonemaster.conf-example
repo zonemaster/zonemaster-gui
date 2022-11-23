@@ -3,14 +3,56 @@
   DirectoryIndex index.html
   ServerAdmin example@example.net
 
+  # Define base url for rewriting, needs a trailing slash.
+  Define BASE_URL "/"
+
+  # Uncomment to use Zonemaster from a different base url
+  # Don't forget to also update the BASE_URL definition above and to also
+  # change the base href in the index.html files.
+  # Do not add a trailing slash here.
+  #Alias "/zonemaster" "/var/www/html/zonemaster-web-gui/dist"
+
   <Directory "/var/www/html/zonemaster-web-gui/dist">
-    Options Indexes MultiViews FollowSymlinks Includes
-    AllowOverride All
+    Options MultiViews FollowSymlinks Includes
     Require all granted
+
+    RewriteEngine on
+
+    RewriteBase ${BASE_URL}
+    RewriteRule ^../index\.html$ - [L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule (..) $1/index.html [L]
+
+    # Redirect user based on prefered locale
+    RewriteCond %{HTTP:Accept-Language} ^da [NC]
+    RewriteRule ^$ ${BASE_URL}da/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^en [NC]
+    RewriteRule ^$ ${BASE_URL}en/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^es [NC]
+    RewriteRule ^$ ${BASE_URL}es/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^fi [NC]
+    RewriteRule ^$ ${BASE_URL}fi/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+    RewriteRule ^$ ${BASE_URL}fr/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^nb [NC]
+    RewriteRule ^$ ${BASE_URL}nb/ [R,L]
+
+    RewriteCond %{HTTP:Accept-Language} ^sv [NC]
+    RewriteRule ^$ ${BASE_URL}sv/ [R,L]
+
+    # Default locale
+    RewriteRule ^$ ${BASE_URL}en/ [R,L]
   </Directory>
 
-  ProxyPass /api http://localhost:5000/
-  ProxyPassReverse /api http://localhost:5000/
+  ProxyPass ${BASE_URL}api http://localhost:5000/
+  ProxyPassReverse ${BASE_URL}api http://localhost:5000/
   ProxyPreserveHost On
 
   ErrorLog  /var/log/zonemaster/zonemaster-web-gui-error.log

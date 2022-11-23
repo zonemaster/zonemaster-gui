@@ -29,18 +29,15 @@ following languages with the attached language code:
 ## Extracting translatable strings
 
 When adding new translatable strings to the GUI, they need to be added to each
-*LANG.json* file. This can be done with the following command:
+`messages.<LANG>.xlf` file. This can be done with the following command:
 
 ```
 npm run i18n:extract
 ```
 
-This will update each file with the new strings using `null` as default value.
-The file will also be automatically sorted and obsolete strings will be
-removed.
-
-Once updated, it might be required to update the *en.json* file with the
-correct translation.
+This will update each file with the new strings using the English string as
+default value. All new strings are appended to the end of the files, obsolete
+strings are removed from the files.
 
 
 ## Submitting changes
@@ -50,29 +47,41 @@ submit the new or updated file as a pull request to Github (see
 [translators guide for Engine]). Contact the Zonemaster Group if
 that does not work.
 
-The translator must always create or update the *LANG.json* and
-the *gui-faq-LANG.md*. The other changes are only done when
+The translator must always create or update the `messages.<LANG>.xlf` and
+the `gui-faq-<LANG>.md`. The other changes are only done when
 a language is added and will be completed by the Zonemaster Group.
 
 
-## LANG.json
+## messages.\<LANG\>.xlf
 
-The JSON structure LANG.json holds all the messages for GUI in respective
-language, where "LANG" is the language code, e.g. `en.json`.
+The XLF files `messages.<LANG>.xlf` are XML files and contains the messages
+for GUI in respective language, where `<LANG>` is the language code,
+e.g. `messages.fr.xlf`.
 
-The files are located in the [src/assets/i18n] folder, one file for each
+The files are located in the [src/locale] folder, one file for each
 supported language.
 
-Each language file contains a hash structure with the English message
-(default messages) as the key and the translated messages as the value. In
-a few cases, when the value is long, the key is a KEY_STRING.
+Each language file contains a list of `<trans-unit>` elements with a
+`<source>` element containing the message in English (the source locale),
+and a `<target>` element containing the translated message. Optionally a
+`<note>` element can contain context to help the translator.
 
-When creating a new language file, make a copy of `en.json` with the new
-language code instead of `en`. The code must be in lower case. Then
-translate the file using English as the model.
+```xml
+<trans-unit datatype="html" id="a434ae37bd56265a0693fbc28bd8338a38500871">
+  <source>About Zonemaster</source>
+  <target state="new">À propos de Zonemaster</target>
+</trans-unit>
+```
 
+To help translating the locale files, tools like [Poedit] can be used.
 
-## gui-faq-LANG.md
+### Poedit
+
+In Poedit, the translator can see the new strings to translated in an accent
+color. Additional context for translation, if available, is shown in the
+bottom left corner of the window under "Notes for translators".
+
+## gui-faq-\<LANG\>.md
 
 The FAQ document holds questions and answers on Zonemaster, and there
 is one document per language, e.g. `gui-faq-en.md`.
@@ -98,25 +107,78 @@ that assume this model, where the `<a>` tag is just before the heading.
 
 ## Adding a new language
 
-The new language must be added to the following typescript files:
+The new language must be added to the following source files:
 
-* [package.json]
-* [src/environments/common.ts]
-* [src/assets/app.config.sample.json]
+* [angular.json],
+* [src/environments/common.ts],
+* [src/assets/app.config.sample.json],
+* [zonemaster.conf-example].
 
 and the following documentation file:
 
-* [Configuration.md]
+Then run `npm run i18n:extract` to create and populate the new
+translation file.
 
-### package.json
+* [Configuration.md].
 
-In `package.json` locate
+### angular.json
 
+In `angular.json` locate and update the following sections
+* `/projects/zonemaster/i18n/locales`: add a new property named `<LANG>` with a value of object having the `translation` property containing the path to the `messages.<LANG>.xlf` file;
+* `/projects/architect/build/configurations`: add a new build configuration named `<LANG>`, with a `localize` property set to an array containing the language code and a `baseHref` property set a URL prefix in the form `/<LANG>/`;
+* `/projects/architect/serve/configurations`: add a new serve configuration baled `<LANG>`, with a `browserTarget` set to the name of the build configuration created in the previous step, `zonemaster:build:<LANG>`;
+* `/projects/zonemaster/extract-i18n/options/targetFiles`: add the name of the translation file (`messages.<LANG>.xlf`) to the array.
+
+```jsonc
+{
+  // ...
+  "projects": {
+    "zonemaster"
+      // ...
+      "i18n": {
+        "locales": {
+          // ...
+          "<LANG>": {
+            "translation": "src/locale/messages.<LANG>.xlf"
+          }
+        }
+      },
+      "architect": {
+        "build": {
+          // ...
+          "configurations": {
+            // ...
+            "<LANG>": {
+              "localize": ["<LANG>"],
+              "baseHref": "/<LANG>/"
+            }
+          }
+        },
+        "serve": {
+          // ...
+          "configurations": {
+            // ...
+            "<LANG>": {
+              "browserTarget": "zonemaster:build:<LANG>"
+            }
+          }
+        },
+        "extract-i18n": {
+          // ...
+          "options": {
+            // ...
+            "targetFiles": [
+              // ...
+              "messages.<LANG>.xlf"
+            ],
+          }
+        }
+      }
+    }
+  },
+  // ...
+}
 ```
-"i18n:extract": "ngx-translate-extract ... --output ./src/assets/i18n/{da,en,fi,fr,nb,sv}.json ...
-```
-and add the two-letter language code of the new language. Preserve
-the alphabetical order of the language codes.
 
 ### common.ts
 
@@ -146,6 +208,16 @@ In  `app.config.sample.json` locate
 ```
 and append the new two-letter language code of the new language.
 
+### zonemaster.conf-example
+
+In the Apache example configuration add a rewrite rule to redirect the
+user to the new language:
+
+```apache
+RewriteCond %{HTTP:Accept-Language} ^<LANG> [NC]
+RewriteRule ^$ /<LANG>/ [R,L]
+```
+
 ### Configuration.md
 
 Add the new language's two-letter code to the list of default values for
@@ -164,33 +236,15 @@ const testSuite = [
 ```
 
 
-## Change default language
-
-Optionally, to change the default language update
-[src/app/components/navigation/navigation.component.ts].
-
-In `navigation.component.ts` update the following code
-```
-  public lang = 'en';
-  private lang_default = 'en';
-```
-by setting another language code instead of `en` in both cases (they
-should be the same). Such a change **must not** be submitted to the
-Zonemaster repository. Instead it should be done in the local
-installation. Also, it will be overwritten next time Zonemaster GUI
-is updated.
-
-
 [ISO 639-1]:                                               https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 [docs/FAQ]:                                                FAQ
 [e2e]:                                                     ../e2e
 [FR05-en.e2e-spec.ts]:                                     ../e2e/FR05-en.e2e-spec.ts
-[package.json]:                                            ../package.json
-[src/app/app.module.ts]:                                   ../src/app/app.module.ts
-[src/app/components/navigation/navigation.component.html]: ../src/app/components/navigation/navigation.component.html
-[src/app/components/navigation/navigation.component.ts]:   ../src/app/components/navigation/navigation.component.ts
-[src/assets/i18n]:                                         ../src/assets/i18n
+[angular.json]:                                            ../angular.json
+[src/locale]:                                              ../src/locale
 [translators guide for Engine]:                            https://github.com/zonemaster/zonemaster-engine/blob/develop/docs/Translation-translators.md
 [src/environments/common.ts]:                              ../src/environments/common.ts
 [src/assets/app.config.sample.json]:                       ../src/assets/app.config.sample.json
 [Configuration.md]:                                        ./Configuration.md
+[zonemaster.conf-example]:                                 ../zonemaster.conf-example
+[Poedit]:                                                  https://poedit.net

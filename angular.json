@@ -7,6 +7,31 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
+
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "da": {
+            "translation": "src/locale/messages.da.xlf"
+          },
+          "es": {
+            "translation": "src/locale/messages.es.xlf"
+          },
+          "fi": {
+            "translation": "src/locale/messages.fi.xlf"
+          },
+          "fr": {
+            "translation": "src/locale/messages.fr.xlf"
+          },
+          "nb": {
+            "translation": "src/locale/messages.nb.xlf"
+          },
+          "sv": {
+            "translation": "src/locale/messages.sv.xlf"
+          }
+        }
+      },
+
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -28,7 +53,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "aot": false,
+            "aot": true,
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -46,6 +71,7 @@
               ]
             },
             "production": {
+              "localize": true,
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -60,9 +86,37 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "da": {
+              "localize": ["da"],
+              "baseHref": "/da/"
+            },
+            "en": {
+              "localize": ["en"],
+              "baseHref": "/en/"
+            },
+            "es": {
+              "localize": ["es"],
+              "baseHref": "/es/"
+            },
+            "fi": {
+              "localize": ["fi"],
+              "baseHref": "/fi/"
+            },
+            "fr": {
+              "localize": ["fr"],
+              "baseHref": "/fr/"
+            },
+            "nb": {
+              "localize": ["nb"],
+              "baseHref": "/nb/"
+            },
+            "sv": {
+              "localize": ["sv"],
+              "baseHref": "/sv/"
             }
           },
-          "defaultConfiguration": ""
+          "defaultConfiguration": "en"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -78,25 +132,45 @@
             "tests": {
               "proxyConfig": "proxy.disabled.conf.json",
               "browserTarget": "zonemaster:build:tests"
+            },
+            "da": {
+              "browserTarget": "zonemaster:build:da"
+            },
+            "en": {
+              "browserTarget": "zonemaster:build:en"
+            },
+            "es": {
+              "browserTarget": "zonemaster:build:es"
+            },
+            "fi": {
+              "browserTarget": "zonemaster:build:fi"
+            },
+            "fr": {
+              "browserTarget": "zonemaster:build:fr"
+            },
+            "nb": {
+              "browserTarget": "zonemaster:build:nb"
+            },
+            "sv": {
+              "browserTarget": "zonemaster:build:sv"
             }
           }
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
           "options": {
-            "browserTarget": "zonemaster:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+            "browserTarget": "zonemaster:build",
+            "format": "xlf",
+            "outputPath": "src/locale",
+            "targetFiles": [
+              "messages.da.xlf",
+              "messages.es.xlf",
+              "messages.fi.xlf",
+              "messages.fr.xlf",
+              "messages.nb.xlf",
+              "messages.sv.xlf"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "includeContext": "sourceFileOnly"
           }
         }
       }

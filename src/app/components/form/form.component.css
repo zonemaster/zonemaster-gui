@@ -1,7 +1,6 @@
 #domain_check_name {
   font-size:16px;
   height:64px;
-  color:#6F787E;
   border-radius:3px
 }
 
@@ -65,6 +64,10 @@ input[type=checkbox].switch-input:checked {
   text-align: left;
 }
 
+.domain .row {
+  --bs-gutter-x: 0.5rem;
+}
+
 .reset-form {
   position: absolute;
   right: 0;
@@ -81,16 +84,19 @@ input[type=checkbox].switch-input:checked {
   color: grey;
 }
 
+.domain-input-container {
+  position: relative;
+}
 .progress-value {
   display: block;
   color: #000;
   position: absolute;
-  right: 10px;
-  font-size: 30px;
+  right: 1rem;
+  font-size: 2rem;
 }
 
 .progress-result {
-  width: calc(100% - 10px);
+  width: calc(100% - var(--bs-gutter-x));
   position: absolute;
   z-index: 20;
   top: 0;

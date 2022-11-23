@@ -10,12 +10,12 @@ test.describe('Zonemaster test FR02 - [All menus should be clickable in latest v
 
   test('should go to faq page', async ({ page, baseURL  }) => {
     await page.locator('a.nav-link[routerlink="/faq"]').click();
-    await expect(page).toHaveURL(baseURL + '/faq');
+    await expect(page).toHaveURL(baseURL + '/en/faq');
   });
 
   test('should go to domain page', async ({ page, baseURL }) => {
     await page.locator('a.nav-link[routerlink="/check"]').click();
-    await expect(page).toHaveURL(baseURL + '/check');
+    await expect(page).toHaveURL(baseURL + '/en/check');
   });
 
 });

@@ -15,3 +15,13 @@ html, body {
   height: 64px !important;
   opacity: .3;
 }
+
+.pagination {
+  justify-content: center;
+}
+
+.btn.active:focus-visible,
+.btn:focus-visible {
+  outline: auto;
+  box-shadow: none;
+}

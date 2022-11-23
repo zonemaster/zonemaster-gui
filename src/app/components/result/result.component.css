@@ -83,6 +83,11 @@ button.btn-clipboard > i.fa-remove {
   margin-top: 1rem;
 }
 
+.filters a {
+  margin: 0 0.125rem;
+  border: 0;
+}
+
 .active.info,
 .result section h3.INFO::before,
 .result section .entry.INFO::before {

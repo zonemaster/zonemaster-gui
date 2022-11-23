@@ -8,7 +8,6 @@ import {
   AbstractControl} from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
 
 
@@ -50,7 +49,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   };
 
   private _showProgressBar: boolean;
-  private langChangeSubscription: Subscription;
 
   private routeParamsSubscription: Subscription;
 
@@ -61,7 +59,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private translateService: TranslateService,
     private titleService: Title) {}
 
   ngOnInit() {
@@ -75,13 +72,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         this.runDomainCheck();
       }
     });
-
-    this.langChangeSubscription = this.translateService.onLangChange.subscribe((_: LangChangeEvent) => {
-      if (this.form.touched) {
-        this.runDomainCheck(false);
-      }
-    });
-
   }
 
   ngOnChanges(changes: { [property: string]: SimpleChange }) {
@@ -91,7 +81,6 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.langChangeSubscription.unsubscribe();
     this.routeParamsSubscription.unsubscribe();
   }
 
