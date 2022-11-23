@@ -129,3 +129,9 @@ button.switch-toggle.enabled {
 .checkboxForm {
   width: inherit;
 }
+
+@media(max-width:767px){
+  fieldset .form-col:not(:first-child) {
+    margin-top: 0.5rem;
+  }
+}

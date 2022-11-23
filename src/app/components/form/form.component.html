@@ -203,7 +203,7 @@
           <fieldset>
             <legend i18n>General</legend>
             <div class="row">
-              <fieldset class="col-md-5">
+              <fieldset class="col-md-5 form-col">
                 <legend for="profile">Protocol</legend>
                 <div class="protocol" [class.is-invalid]="form.errors?.noProtocol">
                   <div class="custom-control form-check form-check-inline">
@@ -225,7 +225,7 @@
               </fieldset>
 
 
-              <div class="col-md-5" *ngIf="profiles.length > 1">
+              <div class="col-md-5 form-col" *ngIf="profiles.length > 1">
                 <label for="profile" class="form-label">Profile</label>
                 <select class="form-select" formControlName="profile" id="profile" [class.is-invalid]="form.controls.profile.invalid">
                   <option *ngFor="let profile of profiles" [value]="profile">{{profile}}</option>
