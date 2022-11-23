@@ -12,6 +12,7 @@
                 name="domain_check_name"
                 formControlName="domain"
                 i18n-placeholder placeholder="Domain name"
+                i18n-aria-label aria-label="Domain name"
                 required>
             <div class="invalid-feedback" *ngIf="domain.errors?.required" i18n>
               Domain name required
