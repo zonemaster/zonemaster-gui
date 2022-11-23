@@ -103,7 +103,7 @@
             <div formArrayName="nameservers">
               <div class="mb-2 row" *ngFor="let ns of form.controls.nameservers.controls; let i=index" [formGroupName]="i">
                 <div class="col col-md-5">
-                  <input formControlName="ns" class="form-control" placeholder="NS" [class.is-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)">
+                  <input formControlName="ns" class="form-control" i18n-aria-label aria-label="Nameserver" placeholder="NS" [class.is-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)">
                   <div class="invalid-feedback" *ngIf="ns.controls.ns.errors?.serverError" >
                     {{ ns.controls.ns.errors.serverError }}
                   </div>
@@ -113,7 +113,7 @@
                 </div>
 
                 <div class="col col-md-5">
-                  <input formControlName="ip" class="form-control" placeholder="IP" [class.is-invalid]="ns.controls.ip.invalid">
+                  <input formControlName="ip" class="form-control" i18n-aria-label aria-label="IP address" placeholder="IP" [class.is-invalid]="ns.controls.ip.invalid">
                   <div class="invalid-feedback" *ngIf="ns.controls.ip.errors?.serverError" >
                     {{ ns.controls.ip.errors.serverError }}
                   </div>
@@ -121,7 +121,9 @@
 
                 <div class="col-auto">
                   <button (click)="deleteRow('nameservers', i)"
-                  class="btn btn-danger delete">
+                          class="btn btn-danger delete"
+                          i18n-title
+                          title="Delete namesever">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
                 </div>
@@ -130,7 +132,9 @@
                   <button *ngIf="i == form.controls.nameservers.length - 1"
                           type="button"
                           (click)="addNewRow('nameservers')"
-                          class="btn btn-success add">
+                          class="btn btn-success add"
+                          i18n-title
+                          title="Add new namesever">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
                 </div>
@@ -144,7 +148,7 @@
             <div formArrayName="ds_info">
               <div class="row mb-2" *ngFor="let ds_info of form.controls.ds_info.controls; let i=index" [formGroupName]="i">
                 <div class="col-md-2">
-                  <input formControlName="keytag" class="form-control" i18n-placeholder placeholder="Key Tag"
+                  <input formControlName="keytag" class="form-control" i18n-aria-label aria-label="Key Tag" i18n-placeholder placeholder="Key Tag"
                         [class.is-invalid]="ds_info.controls.keytag.invalid && (ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched)">
                   <div class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
                     {{ ds_info.controls.keytag.errors.serverError }}
@@ -155,7 +159,7 @@
                 </div>
 
                 <div class="col-md-3">
-                  <select formControlName="algorithm" class="form-control"
+                  <select formControlName="algorithm" i18n-aria-label aria-label="Algorithm" class="form-control"
                           [class.is-invalid]="ds_info.controls.algorithm.invalid && (ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched)">
                     <option i18n [value]="-1" selected disabled>Algorithm</option>
                     <option [value]="1">1 - RSAMD5</option>
@@ -180,7 +184,7 @@
                 </div>
 
                 <div class="col-md-2">
-                  <select formControlName="digtype" class="form-control"
+                  <select formControlName="digtype" i18n-aria-label aria-label="Digest type" class="form-control"
                           [class.is-invalid]="ds_info.controls.digtype.invalid && (ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched)">
                     <option i18n [value]="-1" selected disabled>Digest type</option>
                     <option [value]="1">1 - SHA-1</option>
@@ -197,7 +201,7 @@
                 </div>
 
                 <div class="col-md-3">
-                  <input formControlName="digest" class="form-control" i18n-placeholder placeholder="Digest"
+                  <input formControlName="digest" class="form-control" i18n-aria-label aria-label="Digest" i18n-placeholder placeholder="Digest"
                         [class.is-invalid]="ds_info.controls.digest.invalid && (ds_info.controls.digest.dirty || ds_info.controls.digest.touched)">
                   <div class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.serverError" >
                     {{ ds_info.controls.digest.errors.serverError }}
@@ -210,7 +214,9 @@
                 <div class="col-auto">
                   <button
                           (click)="deleteRow('ds_info',i)"
-                          class="btn btn-danger delete">
+                          class="btn btn-danger delete"
+                          i18n-title
+                          title="Delete DS record">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
                 </div>
@@ -219,7 +225,9 @@
                   <button *ngIf="i == form.controls.ds_info.controls.length - 1"
                           type="button"
                           (click)="addNewRow('ds_info')"
-                          class="btn btn-success add">
+                          class="btn btn-success add"
+                          i18n-title
+                          title="Add new DS record">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
                 </div>
