@@ -21,6 +21,22 @@ button.launch:hover {
   align-items: center;
 }
 
+form section h4:first-of-type {
+  margin-top: 1rem;
+}
+
+form section h5 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+form .protocol {
+  padding: 0.375rem 0;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
 .switch-input-container label {
   margin: 0;
 }
