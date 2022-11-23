@@ -1,6 +1,7 @@
 .main {
   margin-bottom: 4rem;
   text-align: center;
+  background-color: rgb(248, 249, 250);
 }
 .main > .container {
   margin: auto;
