@@ -328,7 +328,8 @@ server configurartion after each updates as thoses files will be overwritten.
 
 ## Change default language
 
-To change the default language update the Apache configuration, locate the last `RewriteRule`:
+To change the default language update the Apache configuration in `zonemaster.conf`
+that was installed in a previous section. Locate the last `RewriteRule`:
 ```apache
 # Default locale
 RewriteRule ^$ /en/ [R,L]
