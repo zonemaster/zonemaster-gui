@@ -12,21 +12,27 @@ button.launch:hover {
   background-color: #ff3c3a;
 }
 
-.advanced-options {
-  margin-top: 1em;
-}
 /* The switch - the box around the slider */
 .switch-input-container {
   display: flex;
   align-items: center;
 }
 
-form section h4:first-of-type {
+#advanced-options .form-label {
+  margin-bottom: 0;
+}
+
+#advanced-options > fieldset:first-of-type {
   margin-top: 1rem;
 }
 
-form section h5 {
+#advanced-options > fieldset:last-of-type {
+  margin-bottom: 1rem;
+}
+
+fieldset fieldset legend {
   font-size: 1em;
+  margin-bottom: 0;
   font-weight: normal;
 }
 

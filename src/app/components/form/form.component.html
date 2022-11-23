@@ -59,47 +59,8 @@
         </div>
 
         <div *ngIf="isAdvancedOptionsEnabled" id="advanced-options">
-
-          <section>
-            <h4><label for="profile" i18n>General</label></h4>
-            <div class="row">
-              <div class="col-md-5">
-                <label for="profile" class="form-label">Profile</label>
-                <select class="form-control" formControlName="profile" id="profile" [class.is-invalid]="form.controls.profile.invalid">
-                  <option *ngFor="let profile of profiles" [value]="profile">{{profile}}</option>
-                </select>
-                <div class="invalid-feedback" *ngIf="form.controls.profile.errors?.serverError" >
-                  {{ form.controls.profile.errors.serverError }}
-                </div>
-              </div>
-
-              <section class="col-md-5">
-                <h5 for="profile" class="form-label">Protocol</h5>
-                <div class="protocol" [class.is-invalid]="form.errors?.noProtocol">
-                  <div class="custom-control form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" formControlName="disable_ipv4" id="disable_protocol_ipv4" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv4.invalid">
-                    <label i18n class="form-check-label" for="disable_protocol_ipv4">
-                      Disable IPv4
-                    </label>
-                  </div>
-                  <div class="custom-control form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" formControlName="disable_ipv6" id="disable_protocol_ipv6" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv6.invalid">
-                    <label i18n class="form-check-label" for="disable_protocol_ipv6">
-                      Disable IPv6
-                    </label>
-                  </div>
-                </div>
-                <div i18n class="invalid-feedback" *ngIf="form.errors?.noProtocol">
-                  Choose at least one protocol
-                </div>
-              </section>
-            </div>
-          </section>
-
-          <hr>
-
-          <section>
-            <h4 i18n>Nameservers</h4>
+          <fieldset>
+            <legend i18n>Nameservers</legend>
 
             <div formArrayName="nameservers">
               <div class="mb-2 row" *ngFor="let ns of form.controls.nameservers.controls; let i=index" [formGroupName]="i">
@@ -141,11 +102,12 @@
                 </div>
               </div>
             </div>
-          </section>
+          </fieldset>
 
           <hr>
-          <section>
-            <h4 i18n>Delegation Signers (DS records)</h4>
+
+          <fieldset>
+            <legend i18n>Delegation Signers (DS records)</legend>
             <div formArrayName="ds_info">
               <div class="row mb-2" *ngFor="let ds_info of form.controls.ds_info.controls; let i=index" [formGroupName]="i">
                 <div class="col-md-2">
@@ -234,7 +196,46 @@
                 </div>
               </div>
             </div>
-          </section>
+          </fieldset>
+
+          <hr>
+
+          <fieldset>
+            <legend i18n>General</legend>
+            <div class="row">
+              <fieldset class="col-md-5">
+                <legend for="profile">Protocol</legend>
+                <div class="protocol" [class.is-invalid]="form.errors?.noProtocol">
+                  <div class="custom-control form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" formControlName="disable_ipv4" id="disable_protocol_ipv4" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv4.invalid">
+                    <label i18n class="form-check-label" for="disable_protocol_ipv4">
+                      Disable IPv4
+                    </label>
+                  </div>
+                  <div class="custom-control form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" formControlName="disable_ipv6" id="disable_protocol_ipv6" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv6.invalid">
+                    <label i18n class="form-check-label" for="disable_protocol_ipv6">
+                      Disable IPv6
+                    </label>
+                  </div>
+                </div>
+                <div i18n class="invalid-feedback" *ngIf="form.errors?.noProtocol">
+                  Choose at least one protocol
+                </div>
+              </fieldset>
+
+
+              <div class="col-md-5" *ngIf="profiles.length > 1">
+                <label for="profile" class="form-label">Profile</label>
+                <select class="form-select" formControlName="profile" id="profile" [class.is-invalid]="form.controls.profile.invalid">
+                  <option *ngFor="let profile of profiles" [value]="profile">{{profile}}</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="form.controls.profile.errors?.serverError" >
+                  {{ form.controls.profile.errors.serverError }}
+                </div>
+              </div>
+            </div>
+          </fieldset>
 
           <div class="row">
             <div class="col-auto">
