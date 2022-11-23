@@ -163,32 +163,34 @@
             <span class="sr-only">{{ count.name }} ({{ count.value }})<ng-container *ngIf="!last">, </ng-container></span>
           </div>
       </h3>
-      <article *ngFor="let testcase of module.testcases" [class.collapsed]="isCollapsed[module.name]" id="module-{{ module.name }}">
-        <header class="{{testcase.level}}" *ngIf="testcase.id != 'UNSPECIFIED'">
-          <div
-            tabindex="0"
-            (keydown)="onCallapsableKeyDownEvent($event, testcase.id)"
-            (click)="isCollapsed[testcase.id] = !isCollapsed[testcase.id]"
-            [attr.aria-controls]="'testcase-entries-' + testcase.id + ',testcase-id-' + testcase.id"
-            [attr.aria-expanded]="!isCollapsed[testcase.id]"
-            role="button"
-          >
-            <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.id],'fa-minus-square-o': !isCollapsed[testcase.id]}"></i>
+      <div id="module-{{ module.name }}">
+        <article *ngFor="let testcase of module.testcases" [class.collapsed]="isCollapsed[module.name]">
+          <header class="{{testcase.level}}" *ngIf="testcase.id != 'UNSPECIFIED'">
+            <div
+              tabindex="0"
+              (keydown)="onCallapsableKeyDownEvent($event, testcase.id)"
+              (click)="isCollapsed[testcase.id] = !isCollapsed[testcase.id]"
+              [attr.aria-controls]="'testcase-entries-' + testcase.id + ' testcase-id-' + testcase.id"
+              [attr.aria-expanded]="!isCollapsed[testcase.id]"
+              role="button"
+            >
+              <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.id],'fa-minus-square-o': !isCollapsed[testcase.id]}"></i>
 
-            <h4>
-              <i class="fa {{severity_icons[testcase.level]}}" aria-hidden="true" title="{{ testcase.level | titlecase }}"></i><span class="sr-only">{{ testcase.level | titlecase }}: </span>{{ testCaseDescriptions[testcase.id] }}
-            </h4>
+              <h4>
+                <i class="fa {{severity_icons[testcase.level]}}" aria-hidden="true" title="{{ testcase.level | titlecase }}"></i><span class="sr-only">{{ testcase.level | titlecase }}: </span>{{ testCaseDescriptions[testcase.id] }}
+              </h4>
+            </div>
+            <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.id]" id="testcase-id-{{testcase.id}}">
+              <i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.id}}
+            </span>
+          </header>
+          <div [class.collapsed]="isCollapsed[testcase.id]" id="testcase-entries-{{testcase.id}}" [class.no-header]="testcase.id == 'UNSPECIFIED'">
+            <ul>
+              <li *ngFor="let entry of testcase.entries"><div><span class="level {{entry.level|lowercase}}">{{entry.level | titlecase}}</span></div><p> {{entry.message}} </p></li>
+            </ul>
           </div>
-          <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.id]" id="testcase-id-{{testcase.id}}">
-            <i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.id}}
-          </span>
-        </header>
-        <div [class.collapsed]="isCollapsed[testcase.id]" id="testcase-entries-{{testcase.id}}" [class.no-header]="testcase.id == 'UNSPECIFIED'">
-          <ul>
-            <li *ngFor="let entry of testcase.entries"><div><span class="level {{entry.level|lowercase}}">{{entry.level | titlecase}}</span></div><p> {{entry.message}} </p></li>
-          </ul>
-        </div>
-      </article>
+        </article>
+      </div>
     </article>
   </section>
 </div>
