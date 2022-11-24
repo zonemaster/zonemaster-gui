@@ -148,24 +148,27 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input()
   set parentDataDS(dsList) {
-    this.disable_check_button = false;
-    if (this.form) {
-      this.deleteRow('ds_info', -1);
-      dsList.forEach(ds => {
-        this.addNewRow('ds_info', ds);
-      });
-    }
+    this.setParentData(dsList, 'ds_info');
   }
 
   @Input()
   set parentDataNS(nsList) {
+    this.setParentData(nsList, 'nameservers');
+  }
+
+  private setParentData(dataList: Array<Object>, formName: string) {
     this.disable_check_button = false;
     if (this.form) {
-      this.deleteRow('nameservers', -1);
-      nsList.forEach(ns => {
-        this.addNewRow('nameservers', ns);
-      });
+      this.deleteRow(formName, -1);
+      if (dataList.length == 0) {
+        this.addNewRow(formName);
+      } else {
+        dataList.forEach(row => {
+          this.addNewRow(formName, row);
+        });
+      }
     }
+
   }
 
   @Input()
