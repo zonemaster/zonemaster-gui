@@ -251,7 +251,7 @@
             <legend i18n>General</legend>
             <div class="row">
               <fieldset aria-describedby="protocol-error" class="col-md-5 form-col">
-                <legend for="profile">Protocol</legend>
+                <legend for="profile" i18n>Protocol</legend>
                 <div class="protocol" [class.is-invalid]="form.errors?.noProtocol">
                   <div class="custom-control form-check form-check-inline">
                     <input type="checkbox" class="form-check-input" formControlName="disable_ipv4" id="disable_protocol_ipv4" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv4.invalid">
@@ -267,7 +267,7 @@
                   </div>
                 </div>
                 <div id="protocol-error" i18n class="invalid-feedback" *ngIf="form.errors?.noProtocol">
-                  Choose at least one protocol
+                  Cannot disable both IPv4 and IPv6
                 </div>
               </fieldset>
 
