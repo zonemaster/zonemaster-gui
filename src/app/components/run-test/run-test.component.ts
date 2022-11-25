@@ -6,18 +6,18 @@ import { AppService } from '../../services/app.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-domain-check',
-  templateUrl: './domain-check.component.html',
-  styleUrls: ['./domain-check.component.css']
+  selector: 'app-run-test',
+  templateUrl: './run-test.component.html',
+  styleUrls: ['./run-test.component.css']
 })
-export class DomainCheckComponent implements OnInit {
+export class RunTestComponent implements OnInit {
   private intervalTime: number;
-  public is_advanced_options_enabled = false;
-  public domain_check_progression = 0;
+  public isAdvancedOptionEnabled = false;
+  public runTestProgression = 0;
   public showResult = false;
   public showProgressBar = false;
   public parentData: any;
-  public resultID = '';
+  public testId = '';
   public profiles = [];
   public toggleFinished = false;
   public requestError: object;
@@ -53,35 +53,35 @@ export class DomainCheckComponent implements OnInit {
   }
 
   public openOptions(value) {
-    this.is_advanced_options_enabled = value;
+    this.isAdvancedOptionEnabled = value;
   }
 
-  public domainCheck(data: object) {
-    let domainCheckId: string;
+  public runTest(data: object) {
+    let testId: string;
 
     const self = this;
 
     this.dnsCheckService.startDomainTest(data).then(id => {
-      domainCheckId = id as string;
+      testId = id as string;
       this.showProgressBar = true;
 
       this.titleService.setTitle(`${data['domain']} · Zonemaster`);
 
       const handle = setInterval(() => {
-        self.dnsCheckService.testProgress(domainCheckId).then(res => {
+        self.dnsCheckService.testProgress(testId).then(res => {
 
-          self.domain_check_progression = parseInt(res as string, 10) as number;
+          self.runTestProgression = parseInt(res as string, 10) as number;
 
-          if (self.domain_check_progression === 100) {
+          if (self.runTestProgression === 100) {
             clearInterval(handle);
-            this.alertService.success($localize `Domain checked completed`);
-            self.resultID = domainCheckId;
-            self.is_advanced_options_enabled = false;
+            this.alertService.success($localize `Test completed`);
+            self.testId = testId;
+            self.isAdvancedOptionEnabled = false;
             self.showResult = true;
             self.showProgressBar = false;
-            self.domain_check_progression = 5;
+            self.runTestProgression = 5;
             self.toggleFinished = !self.toggleFinished;
-            this.router.navigate(['/result', this.resultID ], { state: { displayForm: true, displayNotification: true }});
+            this.router.navigate(['/result', this.testId ], { state: { displayForm: true, displayNotification: true }});
           }
         });
       }, this.intervalTime);

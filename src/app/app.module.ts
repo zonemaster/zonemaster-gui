@@ -8,7 +8,7 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { DomainComponent } from './components/domain/domain.component';
-import { DomainCheckComponent } from './components/domain-check/domain-check.component';
+import { RunTestComponent } from './components/run-test/run-test.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -35,14 +35,14 @@ import { HttpMockRequestInterceptor } from './interceptors/mock.interceptor';
 export const isMock = environment.mock;
 
 const appRoutes: Routes = [
-  { path: 'check/:domain', component: DomainComponent },
-  { path: 'check', component: DomainComponent },
-  { path: 'result/:resultID', component: ResultComponent },
+  { path: 'run-test/:domain', component: DomainComponent },
+  { path: 'run-test', component: DomainComponent },
+  { path: 'result/:testId', component: ResultComponent },
   { path: 'faq', component: FaqComponent },
 
-  { path: 'domain_check', redirectTo: 'check', pathMatch: 'full' },
-  { path: 'test/:resultID', redirectTo: 'result/:resultID', pathMatch: 'full' },
-  { path: '', redirectTo: 'check', pathMatch: 'full' },
+  { path: 'domain_check', redirectTo: 'run-test', pathMatch: 'full' },
+  { path: 'test/:testId', redirectTo: 'result/:testId', pathMatch: 'full' },
+  { path: '', redirectTo: 'run-test', pathMatch: 'full' },
 
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -51,7 +51,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DomainComponent,
-    DomainCheckComponent,
+    RunTestComponent,
     FaqComponent,
     PageNotFoundComponent,
     NavigationComponent,
