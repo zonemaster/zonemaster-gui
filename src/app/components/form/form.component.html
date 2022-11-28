@@ -37,11 +37,11 @@
             <p class="progress-result d-block" *ngIf="showProgressBar">
               <ngb-progressbar
                 type="info"
-                [value]="domain_check_progression"
+                [value]="domainTestProgression"
                 [striped]="true"
                 [animated]="true"
               >
-                <span class="progress-value">{{domain_check_progression}}%</span>
+                <span class="progress-value">{{domainTestProgression}}%</span>
               </ngb-progressbar>
             </p>
           </div>
@@ -49,7 +49,7 @@
             <button i18n-title title="Run test" i18n
                     class="launch btn btn-lg text-white"
                     type="submit"
-                    [disabled]="disable_check_button">
+                    [disabled]="form.disabled">
               Check
             </button>
           </div>
@@ -104,7 +104,8 @@
                   <button (click)="deleteRow('nameservers', i)"
                           class="btn btn-danger delete"
                           i18n-title
-                          title="Delete nameserver">
+                          title="Delete nameserver"
+                          [disabled]="form.disabled">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
                 </div>
@@ -115,14 +116,15 @@
                           (click)="addNewRow('nameservers')"
                           class="btn btn-success add"
                           i18n-title
-                          title="Add new nameserver">
+                          title="Add new nameserver"
+                          [disabled]="form.disabled">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
                 </div>
               </div>
             </div>
             <div class="col-auto">
-              <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="fetchDataFromParent('NS')" i18n>Fetch NS from parent zone</button>
+              <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="fetchDataFromParent('NS')" i18n [disabled]="form.disabled">Fetch NS from parent zone</button>
             </div>
           </fieldset>
 
@@ -223,7 +225,8 @@
                           (click)="deleteRow('ds_info',i)"
                           class="btn btn-danger delete"
                           i18n-title
-                          title="Delete DS record">
+                          title="Delete DS record"
+                          [disabled]="form.disabled">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </button>
                 </div>
@@ -234,14 +237,15 @@
                           (click)="addNewRow('ds_info')"
                           class="btn btn-success add"
                           i18n-title
-                          title="Add new DS record">
+                          title="Add new DS record"
+                          [disabled]="form.disabled">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
                 </div>
               </div>
             </div>
             <div class="col-auto">
-              <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="fetchDataFromParent('DS')" i18n>Fetch DS from parent zone</button>
+              <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="fetchDataFromParent('DS')" i18n [disabled]="form.disabled">Fetch DS from parent zone</button>
             </div>
           </fieldset>
 
@@ -292,7 +296,7 @@
 
           <div class="row">
             <div class="col-auto">
-              <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()" i18n>Reset</button>
+              <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()" i18n [disabled]="form.disabled">Reset</button>
             </div>
           </div>
 

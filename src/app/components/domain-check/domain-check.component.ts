@@ -36,17 +36,11 @@ export class DomainCheckComponent implements OnInit {
   }
 
   public fetchFromParent([type, domain]) {
-    console.log(type, domain)
     this.dnsCheckService.fetchFromParent(domain).then(result => {
-      if (result['ds_list'].length === 0 && result['ns_list'].length === 0) {
-        this.alertService.warn($localize `There is no delegation for the zone`);
-      } else {
-        if (type == 'DS') {
-          this.parentDataDS = result['ds_list'];
-        } else if(type = 'NS') {
-          this.parentDataNS = result['ns_list'];
-        }
-        this.alertService.success($localize `Parent data fetched with success`);
+      if (type == 'DS') {
+        this.parentDataDS = result['ds_list'];
+      } else if(type = 'NS') {
+        this.parentDataNS = result['ns_list'];
       }
     }, error => {
       if (error.error.code === "-32602" && error.error.data.constructor === Array) {

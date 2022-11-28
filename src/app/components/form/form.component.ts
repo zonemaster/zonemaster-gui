@@ -7,8 +7,9 @@ import {
   Validators,
   AbstractControl} from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AlertService } from '../../services/alert.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { Subscription } from 'rxjs';
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() isAdvancedOptionsEnabled = false;
-  @Input() domain_check_progression;
+  @Input() domainTestProgression;
   @Input() toggleFinished;
   @Input() profiles;
 
@@ -59,11 +60,12 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private titleService: Title) {}
+    private titleService: Title,
+    private alertService: AlertService) {}
 
   ngOnInit() {
     this.titleService.setTitle('Zonemaster');
-    this.generate_form();
+    this.generateForm();
 
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       if ( params['domain'] ) {
@@ -128,7 +130,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return  null;
   };
 
-  public generate_form() {
+  public generateForm() {
     this.form = new FormGroup({
       domain: new FormControl('', Validators.required),
       disable_ipv4: new FormControl(false),
@@ -157,15 +159,18 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private setParentData(dataList: Array<Object>, formName: string) {
-    this.disable_check_button = false;
     if (this.form) {
+      this.disableForm(false);
+
       this.deleteRow(formName, -1);
       if (dataList.length == 0) {
         this.addNewRow(formName);
+        this.alertService.warn($localize `No data found for the zone.`);
       } else {
         dataList.forEach(row => {
           this.addNewRow(formName, row);
         });
+        this.alertService.success($localize `Parent data fetched with success.`);
       }
     }
 
@@ -176,7 +181,9 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     if (!errors) {
       return;
     }
-    this.disable_check_button = false;
+
+    this.disableForm(false);
+
     for (let error of errors) {
       let path = error.path.split('/');
       path.shift(); // First element is ""
@@ -204,7 +211,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public resetFullForm() {
-    this.generate_form();
+    this.generateForm();
   }
 
   public addNewRow(formName, value = null) {
@@ -236,18 +243,16 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     if (this.domain.invalid) {
       return false;
     }
+    this.disableForm();
 
-    this.disable_check_button = true;
-    console.log(this.form.value);
     this.onFetchDataFromParent.emit([type, this.form.value.domain]);
   }
 
   private disableForm(disable = true) {
-    this.disable_check_button = disable;
     if (disable) {
-      this.domain.disable();
+      this.form.disable();
     } else {
-      this.domain.enable();
+      this.form.enable();
     }
   }
 
