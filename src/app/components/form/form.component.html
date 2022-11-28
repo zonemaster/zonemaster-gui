@@ -143,7 +143,7 @@
                     i18n-placeholder placeholder="Key Tag"
                     [class.is-invalid]="ds_info.controls.keytag.invalid && (ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched)"
                   >
-                  <div id="ketag-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
+                  <div id="keytag-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
                     {{ ds_info.controls.keytag.errors.serverError }}
                   </div>
                   <div id="keytag-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.required" >
