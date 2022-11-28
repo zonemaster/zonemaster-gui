@@ -18,6 +18,7 @@ archive.on('error', function(err){
 archive.pipe(output);
 
 archive.file('zonemaster.conf-example', { name: 'zonemaster.conf-example' });
+archive.file('LICENSE', { name: 'LICENSE' });
 archive.directory('dist/', 'dist');
 
 archive.finalize();
