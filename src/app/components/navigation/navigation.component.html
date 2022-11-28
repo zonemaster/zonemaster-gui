@@ -14,23 +14,20 @@
     <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navBar">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/check" routerLinkActive="active" i18n>Domain check</a>
+          <a class="nav-link" routerLink="/run-test" routerLinkActive="active" i18n>Run test</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/faq" routerLinkActive="active" i18n="@@zm.faq.title">FAQ</a>
         </li>
       </ul>
 
-      <div class="lang">
-        <div class="d-none d-sm-block">
-          <ng-container  *ngFor="let itemLang of enabledLanguages; let i = index">
-            <a [lang]="itemLang" (click)="setLanguage(itemLang)" [title]="languages[itemLang]" [class.selected]="lang===itemLang">{{ itemLang | titlecase }}</a>
-            <ng-container *ngIf="i < enabledLanguages.length - 1; else endLangNav"> | </ng-container>
-          </ng-container>
-          <ng-template #endLangNav> &nbsp; </ng-template>
-        </div>
-        <div class="d-sm-none">
-          <select name="lang" [(ngModel)]="lang" (change)="setLanguage(lang)" class="form-control" id="languageSelection">
+      <div class="lang" i18n-title title="Change language">
+        <label for="languageSelection" class="icon">
+            <i class="fa fa-language" aria-hidden="true"></i>
+            <span class="sr-only" i18n>Change language</span>
+        </label>
+        <div class="d-block">
+          <select name="lang" [(ngModel)]="lang" (change)="setLanguage(lang)" class="form-select" id="languageSelection">
             <option *ngFor="let itemLang of enabledLanguages" [lang]="itemLang" [value]="itemLang" [selected]="lang === itemLang">
               {{ languages[itemLang] }}
             </option>

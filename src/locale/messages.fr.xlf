@@ -2,21 +2,9 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit datatype="html" id="0a34ba010e76182e1149f5df1c358d624ba182a7">
-        <source>Most people who use the internet have never reflected over what actually happens when one types an address in their web browser and then clicks the enter button. To simplify, the domain name system, (DNS) is a database that associates domain names to IP addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the internet. It’s similar to the way every telephone has its own number in the telephone network. A long series of numbers works fine for computers, but it’s difficult for people to memorize. Therefore, DNS has been developed an extra system for us when we want to reach a web server on a specific site or an email server we want to send an email to.</source>
-        <target state="new">La plupart des gens qui utilisent Internet n&apos;ont jamais réfléchi à ce qui se passe réellement quand on tape une adresse dans leur navigateur Web, puis clique sur le bouton Entrée. Pour simplifier, le système de noms de domaine (DNS) est une base de données qui associe des noms de domaine à des adresses IP, de la même manière qu&apos;un annuaire téléphonique associe des noms à des numéros de téléphone. Une adresse IP est une série unique de chiffres qui identifie chaque ordinateur connecté à Internet. C&apos;est semblable à la façon dont chaque téléphone a son propre numéro dans le réseau téléphonique. Une longue série de chiffres fonctionne bien pour les ordinateurs, mais il est difficile pour les gens de mémoriser. Par conséquent, DNS a été développé afin de permettre d&apos;atteindre le serveur web d&apos;un domaine spécifique ou un serveur de messagerie auquel nous voulons envoyer un email.</target>
-      </trans-unit>
-      <trans-unit datatype="html" id="87ce5d1a29c8483ec8f8600630f31beea9fedf29">
-        <source>Give your domain a complete physical! Zonemaster helps you to control how your website is doing. As a bonus, you also get a better understanding of how the domain name system, DNS, works. When a domain (also called zone) is sent to Zonemaster, the program investigates the state of the domain from beginning to end. This is done through Zonemaster examining DNS from the root (.) to the TLD (top-level domain, for example, .se), and then finally through the DNS servers that contain information about the specified domain (for example, zonemaster.se). Zonemaster is also able to perform many other tests, for example, checking the DNSSEC signatures, that different hosts can be accessed and that the IP addresses are valid. This is all to make sure that your domain runs as good as possible.</source>
-        <target state="new">Donnez à votre domaine un check up complet! Zonemaster vous aide à contrôler le fonctionnement de votre site Web. En prime, vous obtenez également une meilleure compréhension du fonctionnement du système de noms de domaine, le DNS. Lorsqu&apos;un domaine (également appelé zone) est envoyé à Zonemaster, le programme examine l&apos;état du domaine du début à la fin. Cela se fait via Zonemaster en examinant DNS de la racine (.) vers le TLD (domaine de premier niveau, par exemple, .fr), puis enfin via les serveurs DNS qui contiennent des informations sur le domaine spécifié (par exemple, zonemaster.fr ). Zonemaster est également capable d&apos;effectuer de nombreux autres tests, par exemple, vérifier les signatures DNSSEC, que différents hôtes peuvent être accédés et que les adresses IP sont valides. Tout est fait pour s&apos;assurer que votre domaine fonctionne aussi bien que possible.</target>
-      </trans-unit>
       <trans-unit datatype="html" id="a434ae37bd56265a0693fbc28bd8338a38500871">
         <source>About Zonemaster</source>
         <target state="new">À propos de Zonemaster</target>
-      </trans-unit>
-      <trans-unit datatype="html" id="146ccb323de128a0306c53f9486c4c67cd3871c8">
-        <source>About domain name system, DNS</source>
-        <target state="new">À propos du systeme de nom de domaine, DNS (Domain Name System)</target>
       </trans-unit>
       <trans-unit datatype="html" id="6c6f25c47da62ec597c6057a36ddfc3209811ec5">
         <source>Algorithm</source>
@@ -57,14 +45,6 @@
       <trans-unit datatype="html" id="da728aedfa61a52bd7b39213dc0ce50acb19ee26">
         <source>Disable IPv6</source>
         <target state="new">Désactiver IPv6</target>
-      </trans-unit>
-      <trans-unit datatype="html" id="cc9e42424cb8ce1094a530da54272362116e26bc">
-        <source>Domain check</source>
-        <target state="new">Test d&apos;un domaine</target>
-      </trans-unit>
-      <trans-unit datatype="html" id="4004806372315985461">
-        <source>Domain checked completed</source>
-        <target state="new">Vérification du nom de domaine terminée.</target>
       </trans-unit>
       <trans-unit datatype="html" id="a80323a72217e6e51ab903d5109e12c69ed70b79">
         <source>Domain name</source>
@@ -168,7 +148,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="baa5cda119114bb5fba61496780778a5fa10caf1">
         <source>Run test</source>
-        <target state="new">Lancer ce test</target>
+        <target state="new">Lancer un test</target>
       </trans-unit>
       <trans-unit datatype="html" id="0bd8b27f60a1f098a53e06328426d818e3508ff9">
         <source>Share</source>
@@ -259,10 +239,6 @@
         <source>Close</source>
         <target state="new">Close</target>
       </trans-unit>
-      <trans-unit id="efe796c3f1faf267427bfe3a8d70708bfd418058" datatype="html">
-        <source>Check</source>
-        <target state="new">Check</target>
-      </trans-unit>
       <trans-unit id="dfc3c34e182ea73c5d784ff7c8135f087992dac1" datatype="html">
         <source>All</source>
         <target state="new">All</target>
@@ -304,6 +280,34 @@
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
         <target state="new">Message</target>
+      </trans-unit>
+      <trans-unit id="3e1042f106a9c7ded3aadadbf8fe40e7651aa353" datatype="html">
+        <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called &apos;zone&apos;) from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root (&apos;.&apos;) to the TLD (Top-Level Domain; e.g., &apos;.net&apos;) for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., &apos;zonemaster.net&apos;). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
+        <target state="new">Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called &apos;zone&apos;) from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root (&apos;.&apos;) to the TLD (Top-Level Domain; e.g., &apos;.net&apos;) for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., &apos;zonemaster.net&apos;). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</target>
+      </trans-unit>
+      <trans-unit id="78cb66330b7cd7a76d2124aca1126152d5ff9b17" datatype="html">
+        <source>About the DNS</source>
+        <target state="new">About the DNS</target>
+      </trans-unit>
+      <trans-unit id="55cae3ebe403d9eb277c9ff354297a0b34f56486" datatype="html">
+        <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the &apos;Enter&apos; button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
+        <target state="new">Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the &apos;Enter&apos; button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</target>
+      </trans-unit>
+      <trans-unit id="ccaa538a3c6d0d421092f253668feb173578f989" datatype="html">
+        <source>Run domain test</source>
+        <target state="new">Lancer un test</target>
+      </trans-unit>
+      <trans-unit id="b23b7b874559732067ac282a864c98562cdbb435" datatype="html">
+        <source>Run</source>
+        <target state="new">Lancer</target>
+      </trans-unit>
+      <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
+        <source>Change language</source>
+        <target state="new">Change language</target>
+      </trans-unit>
+      <trans-unit id="1431398063810974447" datatype="html">
+        <source>Test completed</source>
+        <target state="new">Test terminé</target>
       </trans-unit>
     </body>
   </file>

@@ -8,14 +8,14 @@ test.describe('Redirection should properly work', () => {
     await setLang(page, 'en');
   });
 
-  test('/ should redirect to /check', async ({ page, baseURL }) => {
-    await page.goto( baseURL );
-    await expect(page).toHaveURL( baseURL + '/en/check' );
+  test('/ should redirect to /run-test', async ({ page, baseURL }) => {
+    await page.goto( baseURL + '/' );
+    await expect(page).toHaveURL( baseURL + '/en/run-test' );
   });
 
-  test('/domain_check should redirect to /check', async ({ page, baseURL }) => {
+  test('/domain_check should redirect to /run-test', async ({ page, baseURL }) => {
     await page.goto( baseURL + '/domain_check' );
-    await expect(page).toHaveURL( baseURL + '/en/check' );
+    await expect(page).toHaveURL( baseURL + '/en/run-test' );
   });
 
   test('/test/<test-id> should redirect to /result/<test-id>', async ({ page, baseURL }) => {

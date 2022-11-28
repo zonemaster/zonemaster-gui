@@ -16,7 +16,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class ResultComponent implements OnInit, OnDestroy {
 
-  @Input('resultID') resultID: string;
+  @Input('testId') testId: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
 
@@ -83,16 +83,16 @@ export class ResultComponent implements OnInit, OnDestroy {
 
     // When redirected from the domain check page we display the notification here as the other component has been destroyed
     if (this.displayForm) {
-      this.alertService.success($localize `Domain checked completed`);
+      this.alertService.success($localize `Test completed`);
     }
   }
 
   ngOnInit() {
-    console.log(this.resultID);
+    console.log(this.testId);
 
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
-      this.resultID = params['resultID'];
-      this.fetchResults(this.resultID);
+      this.testId = params['testId'];
+      this.fetchResult(this.testId);
     });
 
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
@@ -149,14 +149,14 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
-  private fetchResults(domainCheckId: string, resetCollapsed = true) {
-    this.dnsCheckService.getTestResults(domainCheckId).then(data => {
+  private fetchResult(testId: string, resetCollapsed = true) {
+    this.dnsCheckService.getTestResults(testId).then(data => {
       // TODO clean
 
       this.test = {
         id: data['hash_id'],
         creation_time: new Date(data['created_at']),
-        location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
+        location: document.location.origin + this.location.prepareExternalUrl(`/result/${testId}`)
       };
 
       this.historyQuery = data['params'];
@@ -164,7 +164,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.form = data['params'];
       this.testCaseDescriptions = data['testcase_descriptions'];
 
-      this.testCasesCount = this.displayResults(this.result, resetCollapsed);
+      this.testCasesCount = this.displayResult(this.result, resetCollapsed);
 
       this.testCasesCountByModule = {};
 
@@ -196,7 +196,7 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
   }
 
-  private displayResults(results: Array<Object>, resetCollapsed: boolean) {
+  private displayResult(results: Array<Object>, resetCollapsed: boolean) {
     const testCasesCount = {
       'all': 0,
       'info': 0,
@@ -453,7 +453,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.filterResultsLevel(this.result, this.resultFilter),
       this.resultFilter['search']
     );
-    this.displayResults(filteredResults, false);
+    this.displayResult(filteredResults, false);
   }
 
   private filterResultsLevel(results: any[], levelFilter: Object) {

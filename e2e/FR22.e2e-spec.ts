@@ -13,7 +13,7 @@ test.describe('Zonemaster test FR22 - [Provide the possibility to see more infor
   test('should display full messages',  async({ page }) => {
     await expect(page.locator('.progress-bar')).toBeHidden();
 
-    await page.locator('#domain_check_name').type('results.afNiC.Fr');
+    await page.locator('#input_domain_form').type('results.afNiC.Fr');
     await page.locator('div button.launch').click();
 
     const basicHeader = page.locator('.result h3[aria-controls="module-BASIC"]');

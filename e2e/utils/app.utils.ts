@@ -4,8 +4,8 @@ export function goToHome(page) {
 
 export function setLang(page, lang) {
   return Promise.all([
-    page.waitForSelector(`.lang > div > a.selected[lang="${lang}"]`),
-    page.locator(`.lang > div > a[lang="${lang}"]`).click(),
+    page.waitForSelector('select#languageSelection'),
+    page.locator('select#languageSelection').selectOption(lang),
   ]);
 }
 
