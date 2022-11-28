@@ -1,5 +1,5 @@
 <app-header *ngIf="displayForm">
-  <app-domain-check></app-domain-check>
+  <app-run-test></app-run-test>
 </app-header>
 <app-header *ngIf="!displayForm">
   <h1 i18n>Result</h1>
@@ -59,12 +59,12 @@
           Display all results
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipAll"
-           class="btn" [ngClass]="{'active all text-white btn-secondary': result_filter.all}"
+           class="btn" [ngClass]="{'active all': resultFilter.all}"
            (click)="togglePillFilter('all')"
            (keydown)="onFilterLevelKeyDownEvent($event, 'all')"
-           [(ngModel)]="result_filter.all" tabindex="0" ngDefaultControl>
+           [(ngModel)]="resultFilter  .all" tabindex="0" ngDefaultControl>
            <ng-container i18n="all filter button">All</ng-container>
-           &nbsp;<span class="badge rounded-pill bg-secondary">{{result.length}}</span>
+           &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['all']}}</span>
         </a>
       </li>
       <li class="nav-item ml-1">
@@ -73,12 +73,12 @@
           but that definitely does not indicate a problem.
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipInfo"
-           class="btn" [ngClass]="{'active info text-white': result_filter.info}"
+           class="btn" [ngClass]="{'active info': resultFilter.info}"
            (click)="togglePillFilter('info')"
            (keydown)="onFilterLevelKeyDownEvent($event, 'info')"
-           [(ngModel)]="result_filter.info" tabindex="0" ngDefaultControl>
+           [(ngModel)]="resultFilter.info" tabindex="0" ngDefaultControl>
            <ng-container i18n="info filter button">Info</ng-container>
-           &nbsp;<span class="badge rounded-pill bg-secondary">{{level_items['info'].length}}</span>
+           &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['info']}}</span>
          </a>
       </li>
       <li class="nav-item ml-1">
@@ -87,12 +87,12 @@
           but that need not necessarily be a problem at all
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipNotice"
-           class="btn" [ngClass]="{'active notice text-white': result_filter.notice}"
+           class="btn" [ngClass]="{'active notice': resultFilter.notice}"
            (click)="togglePillFilter('notice')"
            (keydown)="onFilterLevelKeyDownEvent($event, 'notice')"
-           [(ngModel)]="result_filter.notice" tabindex="0" ngDefaultControl>
+           [(ngModel)]="resultFilter.notice" tabindex="0" ngDefaultControl>
           <ng-container i18n="notice filter button">Notice</ng-container>
-          &nbsp;<span class="badge rounded-pill bg-secondary">{{level_items['notice'].length}}</span>
+          &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['notice']}}</span>
         </a>
       </li>
       <li class="nav-item ml-1">
@@ -101,12 +101,12 @@
           but that is unlikely to be noticed by a casual user.
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipWarning"
-           class="btn" [ngClass]="{'active warning text-white': result_filter.warning}"
+           class="btn" [ngClass]="{'active warning': resultFilter.warning}"
            (click)="togglePillFilter('warning')"
            (keydown)="onFilterLevelKeyDownEvent($event, 'warning')"
-           [(ngModel)]="result_filter.warning" tabindex="0" ngDefaultControl>
+           [(ngModel)]="resultFilter.warning" tabindex="0" ngDefaultControl>
           <ng-container i18n="warning filter button">Warning</ng-container>
-          &nbsp;<span class="badge rounded-pill bg-secondary">{{level_items['warning'].length}}</span>
+          &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['warning']}}</span>
         </a>
       </li>
       <li class="nav-item ml-1">
@@ -116,12 +116,12 @@
           severe that the entire zone becomes unresolvable
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipError"
-           class="btn" [ngClass]="{'active error text-white': result_filter.error}"
+           class="btn" [ngClass]="{'active error': resultFilter.error}"
            (click)="togglePillFilter('error')"
            (keydown)="onFilterLevelKeyDownEvent($event, 'error')"
-           [(ngModel)]="result_filter.error" tabindex="0" ngDefaultControl>
+           [(ngModel)]="resultFilter.error" tabindex="0" ngDefaultControl>
           <ng-container i18n="error filter button">Error</ng-container>
-          &nbsp;<span class="badge rounded-pill bg-secondary">{{level_items['error'].length}}</span>
+          &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['error']}}</span>
         </a>
       </li>
       <li class="nav-item ml-1">
@@ -129,42 +129,71 @@
           Critical - means a very serious error.
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipCritical"
-           class="btn" [ngClass]="{'active critical text-white': result_filter.critical}"
+           class="btn" [ngClass]="{'active critical': resultFilter.critical}"
            (click)="togglePillFilter('critical')"
            (keydown)="onFilterLevelKeyDownEvent($event, 'critical')"
-           [(ngModel)]="result_filter.critical" tabindex="0" ngDefaultControl>
+           [(ngModel)]="resultFilter.critical" tabindex="0" ngDefaultControl>
           <ng-container i18n="critical filter button">Critical</ng-container>
-          &nbsp;<span class="badge rounded-pill bg-secondary">{{level_items['critical'].length}}</span>
+          &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['critical']}}</span>
         </a>
       </li>
     </ul>
     <div class="input-group search">
-      <input type="text" [(ngModel)]="result_filter.search" class="form-control" i18n-placeholder placeholder="Filter text" aria-label="filter input" aria-describedby="search-icon">
-      <span class="input-group-text" id="search-icon">
+      <input type="text" [(ngModel)]="resultFilter.search" (ngModelChange)='filterResults()' class="form-control" i18n-placeholder placeholder="Filter text" i18n-aria-label aria-label="Filter results">
+      <div class="input-group-text">
         <i class="fa fa-filter" aria-hidden="true"></i>
-      </span>
+      </div>
     </div>
   </div>
+  <section class="mt-3 details">
+    <article *ngFor="let module of modules" [class.expanded]="!isCollapsed[module.name]">
+      <h3
+        tabindex="0"
+        (keydown)="onCallapsableKeyDownEvent($event, module.name)"
+        (click)="isCollapsed[module.name] = !isCollapsed[module.name]"
+        [attr.aria-expanded]="!isCollapsed[module.name]"
+        [attr.aria-controls]="'module-' + module.name"
+        role="button"
+        >
+          <i class="fa fa-caret-right caret" aria-hidden="true"></i>{{module.name}}<span class="sr-only">:</span>
+          <div *ngFor="let count of testCasesCountByModule[module.name]; let last = last;" class="badge badge-pill rounded-pill {{ count.name }}" title="{{ count.name | titlecase }} ({{ count.value }})">
+            <span aria-hidden="true">
+              <i class="fa {{severity_icons[count.name]}}"></i> {{ count.value }}
+            </span>
+            <span class="sr-only">{{ count.name }} ({{ count.value }})<ng-container *ngIf="!last">, </ng-container></span>
+          </div>
+      </h3>
+      <div id="module-{{ module.name }}">
+        <article *ngFor="let testcase of module.testcases" [class.collapsed]="isCollapsed[module.name]">
+          <header class="{{testcase.level}}" *ngIf="testcase.id != 'UNSPECIFIED'">
+            <div
+              tabindex="0"
+              (keydown)="onCallapsableKeyDownEvent($event, testcase.id)"
+              (click)="isCollapsed[testcase.id] = !isCollapsed[testcase.id]"
+              [attr.aria-controls]="'testcase-entries-' + testcase.id + ' testcase-id-' + testcase.id"
+              [attr.aria-expanded]="!isCollapsed[testcase.id]"
+              role="button"
+            >
+              <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.id],'fa-minus-square-o': !isCollapsed[testcase.id]}"></i>
 
-  <div class="mt-3">
-    <section *ngFor="let moduleKey of modulesKeys | filter : result_filter['search']:true:module_items | filterByCategories:result_filter:searchQueryLength:'level':true:module_items" [class.expanded]="!isCollapsed[moduleKey]">
-      <a [attr.aria-controls]="'module-' + moduleKey" [attr.aria-expanded]="!isCollapsed[moduleKey]" (click)="isCollapsed[moduleKey] = !isCollapsed[moduleKey]" (keydown)="onModuleKeyDownEvent($event, moduleKey)">
-        <h3 class="{{modules[moduleKey]}} {{moduleKey}}" [ngStyle]="{'top': (navHeight + 7) + 'px'}" #headerRef>
-          <i class="fa" placement="top" ngbTooltip="{{(isCollapsed[moduleKey] ? 'Expand': 'Collapse')}}" [ngClass]="{'fa-plus': isCollapsed[moduleKey],'fa-minus': !isCollapsed[moduleKey]}" aria-hidden="true"></i>
-          <span tabindex="0">{{moduleKey}}</span>
-        </h3>
-      </a>
-      <div role="list" id="module-{{moduleKey}}" [ngbCollapse]="isCollapsed[moduleKey]" (hidden)="moduleCollapsed(headerRef)" [animation]="false">
-        <div role="listitem" *ngFor="let item of module_items[moduleKey] | filter : result_filter['search'] | filterByCategories : result_filter:searchQueryLength:'level'; let i = index" class="entry {{item.level}}">
-          <div class="module-name">{{item.module}}</div>
-          <div class="severity">{{item.level}}</div>
-          <p class="message">{{item.message}}</p>
-        </div>
+              <h4>
+                <i class="fa {{severity_icons[testcase.level]}}" aria-hidden="true" title="{{ testcase.level | titlecase }}"></i><span class="sr-only">{{ testcase.level | titlecase }}: </span>{{ testCaseDescriptions[testcase.id] }}
+              </h4>
+            </div>
+            <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.id]" id="testcase-id-{{testcase.id}}">
+              <i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.id}}
+            </span>
+          </header>
+          <div [class.collapsed]="isCollapsed[testcase.id]" id="testcase-entries-{{testcase.id}}">
+            <ul>
+              <li *ngFor="let entry of testcase.entries"><div><span class="level {{entry.level|lowercase}}">{{entry.level | titlecase}}</span></div><p> {{entry.message}} </p></li>
+            </ul>
+          </div>
+        </article>
       </div>
-    </section>
-  </div>
+    </article>
+  </section>
 </div>
-
 <ng-template #historyModal let-c="close" let-d="dismiss">
   <header class="modal-header">
     <h4 class="modal-title" i18n>History</h4>

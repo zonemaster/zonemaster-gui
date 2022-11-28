@@ -1,5 +1,5 @@
 
-<div class="row" *ngIf="is_advanced_options_enabled">
+<div class="row" *ngIf="isAdvancedOptionEnabled">
   <div class="text-center m-auto info-notice">
     <div class="alert alert-info">
       <span i18n>Notice! More info on undelegated test</span>
@@ -8,15 +8,15 @@
     </div>
   </div>
 </div>
-<app-form [isAdvancedOptionsEnabled]="is_advanced_options_enabled"
-          [domainTestProgression]="domain_check_progression"
+<app-form [isAdvancedOptionEnabled]="isAdvancedOptionEnabled"
+          [formProgression]="runTestProgression"
           [showProgressBar]="showProgressBar"
           [parentDataNS]="parentDataNS"
           [parentDataDS]="parentDataDS"
           [profiles]="profiles"
           [toggleFinished]="toggleFinished"
           [formError]="requestError"
-          (onDomainCheck)="domainCheck($event)"
+          (onRunTest)="runTest($event)"
           (onFetchDataFromParent)="fetchFromParent($event)"
           (onOpenOptions)="openOptions($event)"
 

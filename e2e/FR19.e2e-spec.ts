@@ -11,7 +11,7 @@ test.describe('Zonemaster test FR19 - [The GUI should be able to run the test wi
 
   test('should NOT display progress bar when we add a NS ip',  async ({ page }) => {
     await expect(page.locator('.progress-bar')).toBeHidden();
-    await page.locator('#domain_check_name').type('progress.afNiC.Fr');
+    await page.locator('#input_domain_form').type('progress.afNiC.Fr');
     await page.locator('input[formControlName="ip"]').type('192.134.4.1');
     await page.locator('div button.launch').click();
 
@@ -28,7 +28,7 @@ test.describe('Zonemaster test FR19 - [The GUI should be able to run the test wi
 
   test('should display progress bar when we add a NS name',  async ({ page }) => {
     await expect(page.locator('.progress-bar')).toBeHidden();
-    await page.locator('#domain_check_name').type('progress.afNiC.Fr');
+    await page.locator('#input_domain_form').type('progress.afNiC.Fr');
     await page.locator('input[formControlName="ns"]').type('ns1.nic.fr');
     await page.locator('div button.launch').click();
     await expect(page.locator('.progress-bar')).toBeVisible({ timeout: 10000 });

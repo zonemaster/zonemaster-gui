@@ -18,12 +18,12 @@ import { AlertService } from '../../services/alert.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() isAdvancedOptionsEnabled = false;
-  @Input() domainTestProgression;
+  @Input() isAdvancedOptionEnabled = false;
+  @Input() formProgression;
   @Input() toggleFinished;
   @Input() profiles;
 
-  @Output() onDomainCheck = new EventEmitter<object>();
+  @Output() onRunTest = new EventEmitter<object>();
   @Output() onFetchDataFromParent = new EventEmitter<[string, string]>();
   @Output() onOpenOptions = new EventEmitter<boolean>();
 
@@ -71,7 +71,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
       if ( params['domain'] ) {
         let domainName: string = params['domain'];
         this.form.controls.domain.setValue(domainName);
-        this.runDomainCheck();
+        this.submitRunTest();
       }
     });
   }
@@ -130,7 +130,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return  null;
   };
 
-  public generateForm() {
+  private generateFormRunTest() {
     this.form = new FormGroup({
       domain: new FormControl('', Validators.required),
       disable_ipv4: new FormControl(false),
@@ -144,6 +144,10 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
     this.addNewRow('nameservers');
     this.addNewRow('ds_info');
+  }
+
+  public generateForm() {
+    this.generateFormRunTest();
   }
 
   get domain() { return this.form.get('domain'); }
@@ -206,7 +210,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return this._showProgressBar;
   }
 
-  public resetDomainForm() {
+  public resetForm() {
     this.form.controls.domain.reset('');
   }
 
@@ -266,7 +270,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  public runDomainCheck(submitValid = true) {
+  private submitRunTest(submitValid = true) {
     this.form.markAllAsTouched();
     let param = this.form.value;
 
@@ -299,12 +303,16 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
       }});
 
     if (submitValid == this.form.valid) {
-      this.onDomainCheck.emit(param);
+      this.onRunTest.emit(param);
     }
   }
 
+  public submitForm() {
+    this.submitRunTest();
+  }
+
   public toggleOptions() {
-    this.isAdvancedOptionsEnabled = !this.isAdvancedOptionsEnabled
-    this.onOpenOptions.emit(this.isAdvancedOptionsEnabled);
+    this.isAdvancedOptionEnabled = !this.isAdvancedOptionEnabled
+    this.onOpenOptions.emit(this.isAdvancedOptionEnabled);
   }
 }

@@ -8,8 +8,8 @@ test.describe('Zonemaster test FR10 - [On launching the URL opens with a default
     await clearBrowserCache(page);
   });
 
-  test('should have [Domain name] label visible', async ({ page }) => {
-    await expect(page.locator('h1', { hasText: 'Domain name'})).toBeVisible();
+  test('should have [Run domain test] label visible', async ({ page }) => {
+    await expect(page.locator('h1', { hasText: 'Run domain test'})).toBeVisible();
   });
 
   test('should have [Options] label visible and NOT selected', async ({ page }) => {

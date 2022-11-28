@@ -171,10 +171,695 @@ const urls = [
     body: {'jsonrpc': '2.0', 'id': 1572254972327, 'method': 'get_test_results', 'params': {'id': '226f6d4f44ae3f80', 'language': 'en'}},
     method: 'POST',
     json: {'jsonrpc': '2.0', 'id': 1572254972327, 'result': {
-        'params': {'profile' : 'default', 'priority': 10, 'ipv6': true, 'ipv4': true, 'client_id': 'Zonemaster GUI',
-          'nameservers': [], 'ds_info': [], 'domain': 'results.afNiC.Fr', 'queue': 0, 'client_version': '3.1.0'
-        }, 'hash_id': '226f6d4f44ae3f80', 'created_at': '2019-10-28T09:29:26Z', 'creation_time': '2019-10-28 09:29:26.288692', 'id': 49640, 'results':
-        [{"level":"INFO","message":"Utilisation de la version v3.0.3 du moteur Zonemaster.\n","module":"SYSTEM"},{"level":"ERROR","message":"Une zone parente 'fr' a pu être trouvée pour le nom de domaine testé.\n","module":"BASIC"},{"level":"INFO","message":"IPv4 est activé,  il est possible de réaliser une requête de type \"NS\" sur le serveur ns1.nic.fr/192.134.4.1.\n","module":"BASIC"},{"level":"INFO","message":"Une requête NS sur le serveur de noms ns1.nic.fr renvoie la liste de serveurs de noms suivants: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n","module":"BASIC"},{"level":"INFO","message":"IPv6 est activé,  il est possible de réaliser une requête de type \"NS\" sur le serveur ns1.nic.fr.\n","module":"BASIC"},{"level":"INFO","message":"Une requête NS sur le serveur de noms ns1.nic.fr renvoie la liste de serveurs de noms suivants: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n","module":"BASIC"},{"level":"INFO","message":"IPv4 est activé,  il est possible de réaliser une requête de type \"NS\" sur le serveur ns2.nic.fr/192.93.0.4.\n","module":"BASIC"},{"level":"INFO","message":"Une requête NS sur le serveur de noms ns2.nic.fr renvoie la liste de serveurs de noms suivants: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n","module":"BASIC"},{"level":"INFO","message":"IPv6 est activé,  il est possible de réaliser une requête de type \"NS\" sur le serveur ns2.nic.fr.\n","module":"BASIC"},{"level":"INFO","message":"Une requête NS sur le serveur de noms ns2.nic.fr renvoie la liste de serveurs de noms suivants: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n","module":"BASIC"},{"level":"INFO","message":"IPv4 est activé,  il est possible de réaliser une requête de type \"NS\" sur le serveur ns3.nic.fr/192.134.0.49.\n","module":"BASIC"},{"level":"INFO","message":"Une requête NS sur le serveur de noms ns3.nic.fr renvoie la liste de serveurs de noms suivants: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n","module":"BASIC"},{"level":"INFO","message":"IPv6 est activé,  il est possible de réaliser une requête de type \"NS\" sur le serveur ns3.nic.fr.\n","module":"BASIC"},{"level":"INFO","message":"Une requête NS sur le serveur de noms ns3.nic.fr renvoie la liste de serveurs de noms suivants: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n","module":"BASIC"},{"level":"INFO","message":"Un serveur de noms fonctionnel a été trouvé. Inutile de réaliser une requête de type \"A\" sur www.afNiC.Fr.\n","module":"BASIC"},{"level":"INFO","message":"Toutes les adresses IP des serveurs de noms sont dans l'espace d'adresses publiques routables.\n","module":"ADDRESS"},{"level":"INFO","message":"Les différentes adresses IP des serveurs de noms ont toutes un enregistrement \"PTR\" (reverse) associé dans le DNS.\n","module":"ADDRESS"},{"level":"INFO","message":"Tous les enregistrements PTR correspondent aux serveurs de noms.\n","module":"ADDRESS"},{"level":"INFO","message":"Le serveur de noms ns1.nic.fr/192.134.4.1 est accessible via UDP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1 est accessible via UDP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns2.nic.fr/192.93.0.4 est accessible via UDP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2 est accessible via UDP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns3.nic.fr/192.134.0.49 est accessible via UDP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1 est accessible via UDP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns1.nic.fr/192.134.4.1 est accessible via TCP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1 est accessible via TCP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns2.nic.fr/192.93.0.4 est accessible via TCP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2 est accessible via TCP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns3.nic.fr/192.134.0.49 est accessible via TCP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1 est accessible via TCP sur le port 53.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Les serveurs de noms ont des adresses IPv4 dans les AS suivants: 2486, 2485.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Les serveurs de noms ont des adresses IPv6 dans les AS suivants: 2486, 2485.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Les adresses IPv4 des serveurs faisant autorité se trouvent dans plusieurs AS.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Les adresses IPv6 des serveurs faisant autorité se trouvent dans plusieurs AS.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Les serveurs de noms pour le nom de domaine ne se trouvent pas tous dans le même AS.\n","module":"CONNECTIVITY"},{"level":"INFO","message":"Le numéro de série 2019102803 a été récupérée sur les serveurs suivants : ns1.nic.fr/192.134.4.1; ns1.nic.fr/2001:67c:2218:2::4:1; ns2.nic.fr/192.93.0.4; ns2.nic.fr/2001:660:3005:1::1:2; ns3.nic.fr/192.134.0.49; ns3.nic.fr/2001:660:3006:1::1:1.\n","module":"CONSISTENCY"},{"level":"INFO","message":"Un unique numéro de série a été trouvé dans les enregistrements de type \"SOA\" de la zone testée (2019102803).\n","module":"CONSISTENCY"},{"level":"INFO","message":"Une unique adresse mail a été trouvée dans les enregistrements de type \"SOA\" de la zone testée (hostmaster.nic.fr.).\n","module":"CONSISTENCY"},{"level":"INFO","message":"Un unique ensemble de paramètres temporels a été trouvé (REFRESH=7200, RETRY=1800, EXPIRE=2419200, MINIMUM=5400).\n","module":"CONSISTENCY"},{"level":"INFO","message":"Un unique ensemble de serveurs de noms est configuré sur les serveurs de la zone testée (ns1.nic.fr., ns2.nic.fr., ns3.nic.fr.).\n","module":"CONSISTENCY"},{"level":"INFO","message":"La liste des adresses IP des serveurs de nom retournée par les serveurs de noms de la zone parente et par ceux de la zone est identique.\n","module":"CONSISTENCY"},{"level":"INFO","message":"A single SOA mname value was seen (dnsmaster.nic.fr.)\n","module":"CONSISTENCY"},{"level":"INFO","message":"Des enregistrements de type \"DS\" ont été trouvés avec les tags suivants 37610.\n","module":"DNSSEC"},{"level":"INFO","message":"Il y a des enregistrements de type \"DS\" et \"DNSKEY\" partageant les mêmes tag de clé 37610.\n","module":"DNSSEC"},{"level":"INFO","message":"L'enregistrement de type \"DS\" avec le tag de clé 37610 et de type de condensat \"2\" correspond à l'enregistrement de type \"DNSKEY\" ayant le même tag.\n","module":"DNSSEC"},{"level":"INFO","message":"Au moins un enregistrement de type \"DS\" avec un enregistrement de type \"DNSKEY\" correspondant a été trouvé.\n","module":"DNSSEC"},{"level":"INFO","message":"La signature (RRSIG) avec la champ keytag 37610 et couvrant les enregistrements de type(s) \"DNSKEY\" expire à la date suivante : Tue Nov 26 16:29:20 2019.\n","module":"DNSSEC"},{"level":"INFO","message":"La signature (RRSIG) avec la champ keytag 52935 et couvrant les enregistrements de type(s) \"SOA\" expire à la date suivante : Tue Nov 26 23:36:20 2019.\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 37610 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La clé (DNSKEY) avec le tag 52935 utilise un numéro d'algorithme correct 8/(RSASHA256).\n","module":"DNSSEC"},{"level":"INFO","message":"La zone a des enregistrements de type \"NSEC3\".\n","module":"DNSSEC"},{"level":"INFO","message":"L'opt-out est mis en oeuvre pour des enregistrements de type \"NSEC3\".\n","module":"DNSSEC"},{"level":"INFO","message":"L'enregistrement DS dans la zone parente est correctement signé.\n","module":"DNSSEC"},{"level":"INFO","message":"Les serveurs de noms de la zone parente retournent suffisamment de serveurs (3) faisant autorité (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr). La limite inférieure étant fixée à 2.\n","module":"DELEGATION"},{"level":"INFO","message":"Les serveurs de noms de la zone retournent suffisamment de serveurs (3) faisant autorité (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr). La limite inférieure étant fixée à 2.\n","module":"DELEGATION"},{"level":"INFO","message":"Child lists enough (3) nameservers that resolve to IPv4 addresses (192.134.0.49; 192.134.4.1; 192.93.0.4). Lower limit set to 2.\n","module":"DELEGATION"},{"level":"INFO","message":"Child lists enough (3) nameservers that resolve to IPv6 addresses (192.134.0.49; 192.134.4.1; 192.93.0.4). Lower limit set to 2.\n","module":"DELEGATION"},{"level":"INFO","message":"Delegation lists enough (3) nameservers that resolve to IPv4 addresses (192.134.0.49; 192.134.4.1; 192.93.0.4). Lower limit set to 2.\n","module":"DELEGATION"},{"level":"INFO","message":"Delegation lists enough (3) nameservers that resolve to IPv6 addresses (2001:660:3005:1::1:2; 2001:660:3006:1::1:1; 2001:67c:2218:2::4:1). Lower limit set to 2.\n","module":"DELEGATION"},{"level":"INFO","message":"All the IP addresses used by the nameservers in parent are unique.\n","module":"DELEGATION"},{"level":"INFO","message":"All the IP addresses used by the nameservers in child are unique.\n","module":"DELEGATION"},{"level":"INFO","message":"Toutes les adresses IP utilisées par les serveurs de noms sont uniques.\n","module":"DELEGATION"},{"level":"INFO","message":"La plus petite taille d'un paquet légal contenant une référence (referral) est inférieure à 513 octets (elle est de 373).\n","module":"DELEGATION"},{"level":"INFO","message":"Ces serveurs de noms ont pu être vérifiés comme faisant autorité : ns1.nic.fr, ns2.nic.fr, ns3.nic.fr.\n","module":"DELEGATION"},{"level":"INFO","message":"Aucun serveur de noms ne pointe sur un alias (CNAME).\n","module":"DELEGATION"},{"level":"INFO","message":"Tous les serveurs de noms retournent un enregistrement de type \"SOA\".\n","module":"DELEGATION"},{"level":"INFO","message":"Tous les serveurs de noms de la zone font partie de la liste des serveurs de noms retournés par les serveurs de noms de la zone parente ainsi que par les serveurs de noms de la zone elle-même.\n","module":"DELEGATION"},{"ns":"ns2.nic.fr","level":"INFO","message":"Le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2 n'est pas un récurseur.\n","module":"NAMESERVER"},{"ns":"ns2.nic.fr","level":"INFO","message":"Le serveur de noms ns2.nic.fr/192.93.0.4 n'est pas un récurseur.\n","module":"NAMESERVER"},{"ns":"ns1.nic.fr","level":"INFO","message":"Le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1 n'est pas un récurseur.\n","module":"NAMESERVER"},{"ns":"ns3.nic.fr","level":"INFO","message":"Le serveur de noms ns3.nic.fr/192.134.0.49 n'est pas un récurseur.\n","module":"NAMESERVER"},{"ns":"ns1.nic.fr","level":"INFO","message":"Le serveur de noms ns1.nic.fr/192.134.4.1 n'est pas un récurseur.\n","module":"NAMESERVER"},{"ns":"ns3.nic.fr","level":"INFO","message":"Le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1 n'est pas un récurseur.\n","module":"NAMESERVER"},{"ns":"All","level":"INFO","message":"Les serveurs de noms suivants supportent EDNS0 : ns2.nic.fr/2001:660:3005:1::1:2, ns2.nic.fr/192.93.0.4, ns1.nic.fr/2001:67c:2218:2::4:1, ns3.nic.fr/192.134.0.49, ns1.nic.fr/192.134.4.1, ns3.nic.fr/2001:660:3006:1::1:1.\n","module":"NAMESERVER"},{"ns":"ns1.nic.fr","level":"INFO","message":"Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns1.nic.fr/192.134.4.1.\n","module":"NAMESERVER"},{"ns":"ns1.nic.fr","level":"INFO","message":"Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1.\n","module":"NAMESERVER"},{"ns":"ns2.nic.fr","level":"INFO","message":"Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns2.nic.fr/192.93.0.4.\n","module":"NAMESERVER"},{"ns":"ns2.nic.fr","level":"INFO","message":"Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2.\n","module":"NAMESERVER"},{"ns":"ns3.nic.fr","level":"INFO","message":"Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns3.nic.fr/192.134.0.49.\n","module":"NAMESERVER"},{"ns":"ns3.nic.fr","level":"INFO","message":"Il n'est pas  possible de réaliser un transfert de zone depuis le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1.\n","module":"NAMESERVER"},{"ns":"All","level":"INFO","message":"Tous les serveurs de noms répondent avec la même adresse IP que celle utilisée lors de leur requêtage.\n","module":"NAMESERVER"},{"ns":"All","level":"INFO","message":"Les serveurs de noms suivants répondent correctement aux requêtes de type \"AAAA\" : ns2.nic.fr/2001:660:3005:1::1:2, ns2.nic.fr/192.93.0.4, ns1.nic.fr/2001:67c:2218:2::4:1, ns3.nic.fr/192.134.0.49, ns1.nic.fr/192.134.4.1, ns3.nic.fr/2001:660:3006:1::1:1.\n","module":"NAMESERVER"},{"ns":"All","level":"INFO","message":"Il a été possible de trouver au moins une adresse IP pour tous les serveurs de noms.\n","module":"NAMESERVER"},{"ns":"All","level":"INFO","message":"Aucun des serveurs de noms suivants ne répond à la requête de type \"NS\" sur la racine '.' (upward referral) : ns1.nic.fr, ns2.nic.fr, ns3.nic.fr.\n","module":"NAMESERVER"},{"ns":"ns1.nic.fr","level":"INFO","message":"Le serveur de noms ns1.nic.fr/192.134.4.1 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n","module":"NAMESERVER"},{"ns":"ns1.nic.fr","level":"INFO","message":"Le serveur de noms ns1.nic.fr/2001:67c:2218:2::4:1 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n","module":"NAMESERVER"},{"ns":"ns2.nic.fr","level":"INFO","message":"Le serveur de noms ns2.nic.fr/192.93.0.4 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n","module":"NAMESERVER"},{"ns":"ns2.nic.fr","level":"INFO","message":"Le serveur de noms ns2.nic.fr/2001:660:3005:1::1:2 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n","module":"NAMESERVER"},{"ns":"ns3.nic.fr","level":"INFO","message":"Le serveur de noms ns3.nic.fr/192.134.0.49 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n","module":"NAMESERVER"},{"ns":"ns3.nic.fr","level":"INFO","message":"Le serveur de noms ns3.nic.fr/2001:660:3006:1::1:1 conserve la casse des noms requêtés dans les réponses 'wWW.afNic.Fr'.\n","module":"NAMESERVER"},{"ns":"All","level":"INFO","message":"Lors d'une requête de type SOA pour la ressource \"www.afNiC.Fr\" avec des casses différentes,  tous les serveurs retournent les mêmes résultats.\n","module":"NAMESERVER"},{"level":"INFO","message":"Le nom de domaine 'afNiC.Fr' ne contient aucun caractère interdit.\n","module":"SYNTAX"},{"level":"INFO","message":"Aucune des extrémités des labels du nom de domain 'afNiC.Fr' n'est un tiret '-'.\n","module":"SYNTAX"},{"level":"INFO","message":"Le nom de domaine 'afNiC.Fr' n'a aucun label contenant un double tiret ('--') en positions 3 et 4 (avec un préfixe différent de 'xn--').\n","module":"SYNTAX"},{"level":"INFO","message":"La syntaxe du nom du serveur de noms (ns1.nic.fr) est valide.\n","module":"SYNTAX"},{"level":"INFO","message":"La syntaxe du nom du serveur de noms (ns2.nic.fr) est valide.\n","module":"SYNTAX"},{"level":"INFO","message":"La syntaxe du nom du serveur de noms (ns3.nic.fr) est valide.\n","module":"SYNTAX"},{"level":"INFO","message":"Il n'y a aucun caractère '@' dans le champ RNAME (hostmaster.nic.fr.) du SOA.\n","module":"SYNTAX"},{"level":"INFO","message":"Le champ RNAME (hostmaster@nic.fr) du SOA est conforme aux règles définies dans le RFC2822.\n","module":"SYNTAX"},{"level":"INFO","message":"La syntaxe du nom du serveur maître défini dans le SOA,  'mname' (dnsmaster.nic.fr) est valide.\n","module":"SYNTAX"},{"level":"INFO","message":"La syntaxe du nom du relais de messagerie (mx4.nic.fr) est valide.\n","module":"SYNTAX"},{"level":"INFO","message":"La syntaxe du nom du relais de messagerie (mx5.nic.fr) est valide.\n","module":"SYNTAX"},{"level":"NOTICE","message":"Le serveur maître défini dans le SOA,  'mname' dnsmaster.nic.fr/192.134.4.2,  ne répond pas.\n","module":"ZONE"},{"level":"NOTICE","message":"Le serveur maître défini dans le SOA,  'mname' (dnsmaster.nic.fr),  ne fait pas partie des enregistrements de type \"NS\" listés par la zone parente (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr).\n","module":"ZONE"},{"level":"NOTICE","message":"Dans le SOA,  la valeur du champ 'refresh' (7200) est plus petite que la valeur recommandée (14400).\n","module":"ZONE"},{"level":"INFO","message":"Dans le SOA,  la valeur du champ 'refresh' (7200) est plus grande que la valeur du champ 'retry' (1800).\n","module":"ZONE"},{"level":"NOTICE","message":"Dans le SOA,  la valeur du champ 'retry' (1800) est plus petite que la valeur recommandée (3600).\n","module":"ZONE"},{"level":"INFO","message":"Dans le SOA,  la valeur du champ 'expire' (2419200) est plus grande que la valeur minimale recommandée (604800) et pas plus petite que la valeur du champ 'refresh' (7200).\n","module":"ZONE"},{"level":"INFO","message":"Dans le SOA,  la valeur du champ 'minimum' (5400) est comprise dans l'interval de valeurs recommandées (300/86400).\n","module":"ZONE"},{"level":"INFO","message":"Le serveur maître défini dans le SOA,  'mname' (dnsmaster.nic.fr),  fait référence à un serveur de noms qui n'est pas un alias (CNAME).\n","module":"ZONE"},{"level":"INFO","message":"Le serveur maître défini dans le SOA,  'mname' (dnsmaster.nic.fr),  fait référence à un serveur de noms qui n'est pas un alias (CNAME).\n","module":"ZONE"},{"level":"INFO","message":"L'enregistrement de type \"MX\" pour le domaine ne pointe pas sur un alias (CNAME).\n","module":"ZONE"},{"level":"INFO","message":"Information (MX=mx4.nic.fr/MX=mx5.nic.fr) trouvée pour faire parvenir un message à ce nom de domaine.\n","module":"ZONE"}]
+        'params': {
+          'profile' : 'default',
+          'priority': 10,
+          'ipv6': true,
+          'ipv4': true,
+          'client_id': 'Zonemaster GUI',
+          'nameservers': [],
+          'ds_info': [],
+          'domain': 'results.afNiC.Fr',
+          'queue': 0,
+          'client_version': '3.6.1'
+        },
+        'hash_id': 'efd1dedc98d456bf',
+        'created_at': '2022-11-23T16:38:17Z',
+        'creation_time': '2022-11-23 16:38:17',
+        'id': 49640,
+        "testcase_descriptions": {
+          "CONSISTENCY04": "Name server NS consistency",
+          "ZONE08": "MX is not an alias",
+          "DNSSEC10": "Zone contains NSEC or NSEC3 records",
+          "NAMESERVER07": "To check whether authoritative name servers return an upward referral",
+          "UNSPECIFIED": "UNSPECIFIED",
+          "CONSISTENCY06": "SOA MNAME consistency",
+          "NAMESERVER04": "Same source address",
+          "ZONE10": "No multiple SOA records",
+          "SYNTAX08": "MX name must have a valid hostname",
+          "SYNTAX05": "Misuse of '@' character in the SOA RNAME field",
+          "ZONE05": "SOA 'expire' minimum value",
+          "NAMESERVER08": "Testing QNAME case insensitivity",
+          "CONNECTIVITY03": "AS Diversity",
+          "NAMESERVER02": "Test of EDNS0 support",
+          "NAMESERVER05": "Behaviour against AAAA query",
+          "BASIC01": "The domain must have a parent domain",
+          "SYNTAX01": "No illegal characters in the domain name",
+          "CONSISTENCY01": "SOA serial number consistency",
+          "DELEGATION06": "Existence of SOA",
+          "SYNTAX02": "No hyphen ('-') at the start or end of the domain name",
+          "SYNTAX04": "The NS name must have a valid domain/hostname",
+          "DELEGATION01": "Minimum number of name servers",
+          "ZONE04": "SOA 'retry' at least 1 hour",
+          "CONSISTENCY02": "SOA RNAME consistency",
+          "NAMESERVER03": "Test availability of zone transfer (AXFR)",
+          "ADDRESS01": "Name server address must be globally routable",
+          "CONSISTENCY03": "SOA timers consistency",
+          "DNSSEC15": "Existence of CDS and CDNSKEY",
+          "ADDRESS03": "Reverse DNS entry matches name server name",
+          "NAMESERVER09": "Testing QNAME case sensitivity",
+          "DNSSEC04": "Check for too short or too long RRSIG lifetimes",
+          "DELEGATION02": "Name servers must have distinct IP addresses",
+          "ADDRESS02": "Reverse DNS entry exists for name server IP address",
+          "DELEGATION05": "Name server must not point at CNAME alias",
+          "CONSISTENCY05": "Consistency between glue and authoritative data",
+          "SYNTAX03": "There must be no double hyphen ('--') in position 3 and 4 of the domain name",
+          "ZONE01": "Fully qualified master nameserver in SOA",
+          "ZONE03": "SOA 'retry' lower than 'refresh'",
+          "ZONE09": "MX record present",
+          "ZONE07": "SOA master is not an alias",
+          "DELEGATION07": "Parent glue name records present in child",
+          "SYNTAX07": "No illegal characters in the SOA MNAME field",
+          "DELEGATION04": "Name server is authoritative",
+          "SYNTAX06": "No illegal characters in the SOA RNAME field",
+          "NAMESERVER01": "A name server should not be a recursor",
+          "DELEGATION03": "No truncation of referrals",
+          "DNSSEC05": "Check for invalid DNSKEY algorithms",
+          "ZONE06": "SOA 'minimum' maximum value",
+          "ZONE02": "SOA 'refresh' minimum value",
+          "BASIC02": "The domain must have at least one working name server",
+          "NAMESERVER06": "NS can be resolved"
+        },
+        'results': [
+          {
+            "message": "Using version v4.5.1 of the Zonemaster engine.\n",
+            "module": "SYSTEM",
+            "testcase": "UNSPECIFIED",
+            "level": "INFO"
+          },
+          {
+            "testcase": "BASIC01",
+            "level": "INFO",
+            "module": "BASIC",
+            "message": "Parent domain 'fr' was found for the tested domain.\n"
+          },
+          {
+            "level": "INFO",
+            "testcase": "BASIC02",
+            "message": "Nameserver ns1.nic.fr/192.134.4.1 listed these servers as glue: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n",
+            "module": "BASIC"
+          },
+          {
+            "level": "INFO",
+            "testcase": "BASIC02",
+            "module": "BASIC",
+            "message": "Nameserver ns1.nic.fr/2001:67c:2218:2::4:1 listed these servers as glue: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n"
+          },
+          {
+            "module": "BASIC",
+            "message": "Nameserver ns2.nic.fr/192.93.0.4 listed these servers as glue: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n",
+            "testcase": "BASIC02",
+            "level": "INFO"
+          },
+          {
+            "level": "INFO",
+            "testcase": "BASIC02",
+            "message": "Nameserver ns2.nic.fr/2001:660:3005:1::1:2 listed these servers as glue: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n",
+            "module": "BASIC"
+          },
+          {
+            "message": "Nameserver ns3.nic.fr/192.134.0.49 listed these servers as glue: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n",
+            "module": "BASIC",
+            "testcase": "BASIC02",
+            "level": "INFO"
+          },
+          {
+            "module": "BASIC",
+            "message": "Nameserver ns3.nic.fr/2001:660:3006:1::1:1 listed these servers as glue: ns1.nic.fr., ns2.nic.fr., ns3.nic.fr..\n",
+            "level": "INFO",
+            "testcase": "BASIC02"
+          },
+          {
+            "module": "BASIC",
+            "message": "Functional nameserver found. \"A\" query for www.afnic.fr test skipped.\n",
+            "testcase": "UNSPECIFIED",
+            "level": "INFO"
+          },
+          {
+            "module": "ADDRESS",
+            "message": "All Nameserver addresses are in the routable public addressing space.\n",
+            "level": "INFO",
+            "testcase": "ADDRESS01"
+          },
+          {
+            "module": "ADDRESS",
+            "message": "Reverse DNS entry exists for each Nameserver IP address.\n",
+            "testcase": "ADDRESS02",
+            "level": "INFO"
+          },
+          {
+            "message": "Every reverse DNS entry matches name server name.\n",
+            "module": "ADDRESS",
+            "testcase": "ADDRESS03",
+            "level": "INFO"
+          },
+          {
+            "module": "CONNECTIVITY",
+            "message": "At least two IPv4 addresses of the authoritative nameservers are announce by different AS sets. A merged list of all AS: (\"2485, \"2486).\n",
+            "testcase": "CONNECTIVITY03",
+            "level": "INFO"
+          },
+          {
+            "module": "CONNECTIVITY",
+            "message": "At least two IPv6 addresses of the authoritative nameservers are announce by different AS sets. A merged list of all AS: (\"2486, \"2485).\n",
+            "level": "INFO",
+            "testcase": "CONNECTIVITY03"
+          },
+          {
+            "level": "INFO",
+            "testcase": "CONSISTENCY01",
+            "module": "CONSISTENCY",
+            "message": "Saw SOA serial number 2022112200 on following nameserver set : ns1.nic.fr/192.134.4.1; ns1.nic.fr/2001:67c:2218:2::4:1; ns2.nic.fr/192.93.0.4; ns2.nic.fr/2001:660:3005:1::1:2; ns3.nic.fr/192.134.0.49; ns3.nic.fr/2001:660:3006:1::1:1.\n"
+          },
+          {
+            "message": "A single SOA serial number was found (2022112200).\n",
+            "module": "CONSISTENCY",
+            "testcase": "CONSISTENCY01",
+            "level": "INFO"
+          },
+          {
+            "testcase": "CONSISTENCY02",
+            "level": "INFO",
+            "message": "A single SOA rname value was found (hostmaster.nic.fr.).\n",
+            "module": "CONSISTENCY"
+          },
+          {
+            "level": "INFO",
+            "testcase": "CONSISTENCY03",
+            "module": "CONSISTENCY",
+            "message": "A single SOA time parameter set was seen (REFRESH=7200, RETRY=1800, EXPIRE=2419200, MINIMUM=5400).\n"
+          },
+          {
+            "testcase": "CONSISTENCY04",
+            "level": "INFO",
+            "message": "A single NS set was found (ns1.nic.fr.; ns2.nic.fr.; ns3.nic.fr.).\n",
+            "module": "CONSISTENCY"
+          },
+          {
+            "message": "Glue records are consistent between glue and authoritative data.\n",
+            "module": "CONSISTENCY",
+            "level": "INFO",
+            "testcase": "CONSISTENCY05"
+          },
+          {
+            "message": "A single SOA mname value was seen (dnsmaster.nic.fr.).\n",
+            "module": "CONSISTENCY",
+            "level": "INFO",
+            "testcase": "CONSISTENCY06"
+          },
+          {
+            "module": "DELEGATION",
+            "message": "Parent lists enough (3) nameservers (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr). Lower limit set to 2.\n",
+            "level": "INFO",
+            "testcase": "DELEGATION01"
+          },
+          {
+            "level": "INFO",
+            "testcase": "DELEGATION01",
+            "message": "Child lists enough (3) nameservers (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr). Lower limit set to 2.\n",
+            "module": "DELEGATION"
+          },
+          {
+            "module": "DELEGATION",
+            "message": "Child lists enough (3) nameservers (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr) that resolve to IPv4 addresses (192.134.0.49; 192.134.4.1; 192.93.0.4). Lower limit set to 2.\n",
+            "testcase": "DELEGATION01",
+            "level": "INFO"
+          },
+          {
+            "level": "INFO",
+            "testcase": "DELEGATION01",
+            "module": "DELEGATION",
+            "message": "Child lists enough (3) nameservers (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr) that resolve to IPv6 addresses (2001:660:3005:1::1:2; 2001:660:3006:1::1:1; 2001:67c:2218:2::4:1). Lower limit set to 2.\n"
+          },
+          {
+            "testcase": "DELEGATION01",
+            "level": "INFO",
+            "message": "Delegation lists enough (3) nameservers (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr) that resolve to IPv4 addresses (192.134.0.49; 192.134.4.1; 192.93.0.4). Lower limit set to 2.\n",
+            "module": "DELEGATION"
+          },
+          {
+            "message": "Delegation lists enough (3) nameservers (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr) that resolve to IPv6 addresses (2001:660:3005:1::1:2; 2001:660:3006:1::1:1; 2001:67c:2218:2::4:1). Lower limit set to 2.\n",
+            "module": "DELEGATION",
+            "level": "INFO",
+            "testcase": "DELEGATION01"
+          },
+          {
+            "message": "All the IP addresses used by the nameservers in parent are unique.\n",
+            "module": "DELEGATION",
+            "level": "INFO",
+            "testcase": "DELEGATION02"
+          },
+          {
+            "level": "INFO",
+            "testcase": "DELEGATION02",
+            "message": "All the IP addresses used by the nameservers in child are unique.\n",
+            "module": "DELEGATION"
+          },
+          {
+            "level": "INFO",
+            "testcase": "DELEGATION02",
+            "module": "DELEGATION",
+            "message": "All the IP addresses used by the nameservers are unique.\n"
+          },
+          {
+            "testcase": "DELEGATION03",
+            "level": "INFO",
+            "module": "DELEGATION",
+            "message": "The smallest possible legal referral packet is smaller than 513 octets (it is 373).\n"
+          },
+          {
+            "module": "DELEGATION",
+            "message": "All these nameservers are confirmed to be authoritative : ns1.nic.fr; ns2.nic.fr; ns3.nic.fr.\n",
+            "testcase": "DELEGATION04",
+            "level": "INFO"
+          },
+          {
+            "testcase": "DELEGATION05",
+            "level": "INFO",
+            "module": "DELEGATION",
+            "message": "No nameserver points to CNAME alias.\n"
+          },
+          {
+            "level": "INFO",
+            "testcase": "DELEGATION06",
+            "message": "All the nameservers have SOA record.\n",
+            "module": "DELEGATION"
+          },
+          {
+            "module": "DELEGATION",
+            "message": "All of the nameserver names are listed both at parent and child.\n",
+            "testcase": "DELEGATION07",
+            "level": "INFO"
+          },
+          {
+            "message": "RRSIG with keytag 53080 and covering type(s) DNSKEY expires at : Wed Dec 21 20:36:15 2022.\n",
+            "module": "DNSSEC",
+            "level": "INFO",
+            "testcase": "DNSSEC04"
+          },
+          {
+            "message": "RRSIG with keytag 15756 and covering type(s) SOA expires at : Wed Dec 21 12:48:04 2022.\n",
+            "module": "DNSSEC",
+            "testcase": "DNSSEC04",
+            "level": "INFO"
+          },
+          {
+            "module": "DNSSEC",
+            "message": "The DNSKEY with tag 53080 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n",
+            "testcase": "DNSSEC05",
+            "level": "INFO"
+          },
+          {
+            "testcase": "DNSSEC05",
+            "level": "INFO",
+            "module": "DNSSEC",
+            "message": "The DNSKEY with tag 15756 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n"
+          },
+          {
+            "testcase": "DNSSEC05",
+            "level": "INFO",
+            "module": "DNSSEC",
+            "message": "The DNSKEY with tag 53080 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n"
+          },
+          {
+            "message": "The DNSKEY with tag 15756 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n",
+            "module": "DNSSEC",
+            "testcase": "DNSSEC05",
+            "level": "INFO"
+          },
+          {
+            "message": "The DNSKEY with tag 53080 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n",
+            "module": "DNSSEC",
+            "level": "INFO",
+            "testcase": "DNSSEC05"
+          },
+          {
+            "level": "INFO",
+            "testcase": "DNSSEC05",
+            "module": "DNSSEC",
+            "message": "The DNSKEY with tag 15756 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n"
+          },
+          {
+            "level": "INFO",
+            "testcase": "DNSSEC05",
+            "module": "DNSSEC",
+            "message": "The DNSKEY with tag 15756 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n"
+          },
+          {
+            "testcase": "DNSSEC05",
+            "level": "INFO",
+            "message": "The DNSKEY with tag 53080 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n",
+            "module": "DNSSEC"
+          },
+          {
+            "module": "DNSSEC",
+            "message": "The DNSKEY with tag 53080 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n",
+            "testcase": "DNSSEC05",
+            "level": "INFO"
+          },
+          {
+            "testcase": "DNSSEC05",
+            "level": "INFO",
+            "message": "The DNSKEY with tag 15756 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n",
+            "module": "DNSSEC"
+          },
+          {
+            "module": "DNSSEC",
+            "message": "The DNSKEY with tag 53080 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n",
+            "level": "INFO",
+            "testcase": "DNSSEC05"
+          },
+          {
+            "module": "DNSSEC",
+            "message": "The DNSKEY with tag 15756 uses algorithm number 13 (ECDSA Curve P-256 with SHA-256),  which is OK.\n",
+            "level": "INFO",
+            "testcase": "DNSSEC05"
+          },
+          {
+            "level": "INFO",
+            "testcase": "DNSSEC10",
+            "message": "The zone has NSEC3 records. Fetched from the nameservers with IP addresses \"192.134.0.49; 192.134.4.1; 192.93.0.4; 2001:660:3005:1::1:2; 2001:660:3006:1::1:1; 2001:67c:2218:2::4:1\".\n",
+            "module": "DNSSEC"
+          },
+          {
+            "module": "DNSSEC",
+            "message": "No CDS or CDNSKEY RRsets are found on any name server.\n",
+            "testcase": "DNSSEC15",
+            "level": "INFO"
+          },
+          {
+            "message": "Nameserver ns1.nic.fr/192.134.4.1 is not a recursor.\n",
+            "module": "NAMESERVER",
+            "ns": "ns1.nic.fr/192.134.4.1",
+            "testcase": "NAMESERVER01",
+            "level": "INFO"
+          },
+          {
+            "testcase": "NAMESERVER01",
+            "level": "INFO",
+            "ns": "ns1.nic.fr/2001:67c:2218:2::4:1",
+            "module": "NAMESERVER",
+            "message": "Nameserver ns1.nic.fr/2001:67c:2218:2::4:1 is not a recursor.\n"
+          },
+          {
+            "message": "Nameserver ns2.nic.fr/192.93.0.4 is not a recursor.\n",
+            "module": "NAMESERVER",
+            "testcase": "NAMESERVER01",
+            "ns": "ns2.nic.fr/192.93.0.4",
+            "level": "INFO"
+          },
+          {
+            "ns": "ns2.nic.fr/2001:660:3005:1::1:2",
+            "testcase": "NAMESERVER01",
+            "level": "INFO",
+            "module": "NAMESERVER",
+            "message": "Nameserver ns2.nic.fr/2001:660:3005:1::1:2 is not a recursor.\n"
+          },
+          {
+            "module": "NAMESERVER",
+            "message": "Nameserver ns3.nic.fr/192.134.0.49 is not a recursor.\n",
+            "testcase": "NAMESERVER01",
+            "level": "INFO",
+            "ns": "ns3.nic.fr/192.134.0.49"
+          },
+          {
+            "message": "Nameserver ns3.nic.fr/2001:660:3006:1::1:1 is not a recursor.\n",
+            "module": "NAMESERVER",
+            "testcase": "NAMESERVER01",
+            "level": "INFO",
+            "ns": "ns3.nic.fr/2001:660:3006:1::1:1"
+          },
+          {
+            "level": "INFO",
+            "testcase": "NAMESERVER02",
+            "ns": "All",
+            "message": "The following nameservers support EDNS0 : ns1.nic.fr/2001:67c:2218:2::4:1; ns3.nic.fr/192.134.0.49; ns1.nic.fr/192.134.4.1; ns3.nic.fr/2001:660:3006:1::1:1; ns2.nic.fr/192.93.0.4; ns2.nic.fr/2001:660:3005:1::1:2.\n",
+            "module": "NAMESERVER"
+          },
+          {
+            "module": "NAMESERVER",
+            "message": "AXFR not available on nameserver ns1.nic.fr/192.134.4.1.\n",
+            "testcase": "NAMESERVER03",
+            "level": "INFO",
+            "ns": "ns1.nic.fr/192.134.4.1"
+          },
+          {
+            "ns": "ns1.nic.fr/2001:67c:2218:2::4:1",
+            "testcase": "NAMESERVER03",
+            "level": "INFO",
+            "module": "NAMESERVER",
+            "message": "AXFR not available on nameserver ns1.nic.fr/2001:67c:2218:2::4:1.\n"
+          },
+          {
+            "message": "AXFR not available on nameserver ns2.nic.fr/192.93.0.4.\n",
+            "module": "NAMESERVER",
+            "level": "INFO",
+            "testcase": "NAMESERVER03",
+            "ns": "ns2.nic.fr/192.93.0.4"
+          },
+          {
+            "testcase": "NAMESERVER03",
+            "ns": "ns2.nic.fr/2001:660:3005:1::1:2",
+            "level": "INFO",
+            "message": "AXFR not available on nameserver ns2.nic.fr/2001:660:3005:1::1:2.\n",
+            "module": "NAMESERVER"
+          },
+          {
+            "testcase": "NAMESERVER03",
+            "ns": "ns3.nic.fr/192.134.0.49",
+            "level": "INFO",
+            "module": "NAMESERVER",
+            "message": "AXFR not available on nameserver ns3.nic.fr/192.134.0.49.\n"
+          },
+          {
+            "level": "INFO",
+            "testcase": "NAMESERVER03",
+            "ns": "ns3.nic.fr/2001:660:3006:1::1:1",
+            "message": "AXFR not available on nameserver ns3.nic.fr/2001:660:3006:1::1:1.\n",
+            "module": "NAMESERVER"
+          },
+          {
+            "testcase": "NAMESERVER04",
+            "ns": "All",
+            "level": "INFO",
+            "message": "All nameservers reply with same IP used to query them.\n",
+            "module": "NAMESERVER"
+          },
+          {
+            "message": "The following nameservers answer AAAA queries without problems : ns3.nic.fr/2001:660:3006:1::1:1; ns1.nic.fr/192.134.4.1; ns3.nic.fr/192.134.0.49; ns1.nic.fr/2001:67c:2218:2::4:1; ns2.nic.fr/192.93.0.4; ns2.nic.fr/2001:660:3005:1::1:2.\n",
+            "module": "NAMESERVER",
+            "level": "INFO",
+            "testcase": "NAMESERVER05",
+            "ns": "All"
+          },
+          {
+            "ns": "All",
+            "testcase": "NAMESERVER06",
+            "level": "INFO",
+            "message": "All nameservers succeeded to resolve to an IP address.\n",
+            "module": "NAMESERVER"
+          },
+          {
+            "level": "INFO",
+            "testcase": "NAMESERVER07",
+            "ns": "All",
+            "module": "NAMESERVER",
+            "message": "None of the following nameservers returns an upward referral : ns1.nic.fr; ns2.nic.fr; ns3.nic.fr.\n"
+          },
+          {
+            "testcase": "NAMESERVER08",
+            "level": "INFO",
+            "ns": "ns1.nic.fr/192.134.4.1",
+            "message": "Nameserver ns1.nic.fr/192.134.4.1 preserves original case of queried names (WwW.afNiC.fr).\n",
+            "module": "NAMESERVER"
+          },
+          {
+            "testcase": "NAMESERVER08",
+            "ns": "ns1.nic.fr/2001:67c:2218:2::4:1",
+            "level": "INFO",
+            "message": "Nameserver ns1.nic.fr/2001:67c:2218:2::4:1 preserves original case of queried names (WwW.afNiC.fr).\n",
+            "module": "NAMESERVER"
+          },
+          {
+            "module": "NAMESERVER",
+            "message": "Nameserver ns2.nic.fr/192.93.0.4 preserves original case of queried names (WwW.afNiC.fr).\n",
+            "level": "INFO",
+            "testcase": "NAMESERVER08",
+            "ns": "ns2.nic.fr/192.93.0.4"
+          },
+          {
+            "message": "Nameserver ns2.nic.fr/2001:660:3005:1::1:2 preserves original case of queried names (WwW.afNiC.fr).\n",
+            "module": "NAMESERVER",
+            "level": "INFO",
+            "testcase": "NAMESERVER08",
+            "ns": "ns2.nic.fr/2001:660:3005:1::1:2"
+          },
+          {
+            "testcase": "NAMESERVER08",
+            "ns": "ns3.nic.fr/192.134.0.49",
+            "level": "INFO",
+            "module": "NAMESERVER",
+            "message": "Nameserver ns3.nic.fr/192.134.0.49 preserves original case of queried names (WwW.afNiC.fr).\n"
+          },
+          {
+            "level": "INFO",
+            "testcase": "NAMESERVER08",
+            "ns": "ns3.nic.fr/2001:660:3006:1::1:1",
+            "message": "Nameserver ns3.nic.fr/2001:660:3006:1::1:1 preserves original case of queried names (WwW.afNiC.fr).\n",
+            "module": "NAMESERVER"
+          },
+          {
+            "ns": "All",
+            "testcase": "NAMESERVER09",
+            "level": "INFO",
+            "message": "When asked for SOA records on \"www.afnic.fr\" with different cases,  all servers reply consistently.\n",
+            "module": "NAMESERVER"
+          },
+          {
+            "module": "SYNTAX",
+            "message": "No illegal characters in the domain name (afnic.fr).\n",
+            "level": "INFO",
+            "testcase": "SYNTAX01"
+          },
+          {
+            "message": "Neither end of any label in the domain name (afnic.fr) has a hyphen.\n",
+            "module": "SYNTAX",
+            "level": "INFO",
+            "testcase": "SYNTAX02"
+          },
+          {
+            "message": "Domain name (afnic.fr) has no label with a double hyphen ('--') in position 3 and 4 (with a prefix which is not 'xn--').\n",
+            "module": "SYNTAX",
+            "testcase": "SYNTAX03",
+            "level": "INFO"
+          },
+          {
+            "testcase": "SYNTAX04",
+            "level": "INFO",
+            "module": "SYNTAX",
+            "message": "Nameserver (ns1.nic.fr) syntax is valid.\n"
+          },
+          {
+            "testcase": "SYNTAX04",
+            "level": "INFO",
+            "message": "Nameserver (ns2.nic.fr) syntax is valid.\n",
+            "module": "SYNTAX"
+          },
+          {
+            "module": "SYNTAX",
+            "message": "Nameserver (ns3.nic.fr) syntax is valid.\n",
+            "testcase": "SYNTAX04",
+            "level": "INFO"
+          },
+          {
+            "module": "SYNTAX",
+            "message": "There is no misused '@' character in the SOA RNAME field (hostmaster.nic.fr.).\n",
+            "level": "INFO",
+            "testcase": "SYNTAX05"
+          },
+          {
+            "message": "The SOA RNAME field (hostmaster@nic.fr) is compliant with RFC2822.\n",
+            "module": "SYNTAX",
+            "level": "INFO",
+            "testcase": "SYNTAX06"
+          },
+          {
+            "level": "INFO",
+            "testcase": "SYNTAX07",
+            "message": "SOA MNAME (dnsmaster.nic.fr) syntax is valid.\n",
+            "module": "SYNTAX"
+          },
+          {
+            "testcase": "SYNTAX08",
+            "level": "INFO",
+            "module": "SYNTAX",
+            "message": "Domain name MX (mx4.nic.fr) syntax is valid.\n"
+          },
+          {
+            "testcase": "SYNTAX08",
+            "level": "INFO",
+            "message": "Domain name MX (mx5.nic.fr) syntax is valid.\n",
+            "module": "SYNTAX"
+          },
+          {
+            "message": "SOA 'mname' nameserver dnsmaster.nic.fr/192.134.4.2 does not respond.\n",
+            "module": "ZONE",
+            "level": "NOTICE",
+            "testcase": "ZONE01"
+          },
+          {
+            "testcase": "ZONE01",
+            "level": "NOTICE",
+            "message": "SOA 'mname' nameserver (dnsmaster.nic.fr) is not listed in \"parent\" NS records for tested zone (ns1.nic.fr; ns2.nic.fr; ns3.nic.fr).\n",
+            "module": "ZONE"
+          },
+          {
+            "module": "ZONE",
+            "message": "SOA 'refresh' value (7200) is less than the recommended one (14400).\n",
+            "level": "NOTICE",
+            "testcase": "ZONE02"
+          },
+          {
+            "testcase": "ZONE03",
+            "level": "INFO",
+            "message": "SOA 'refresh' value (7200) is higher than the SOA 'retry' value (1800).\n",
+            "module": "ZONE"
+          },
+          {
+            "testcase": "ZONE04",
+            "level": "NOTICE",
+            "module": "ZONE",
+            "message": "SOA 'retry' value (1800) is less than the recommended one (3600).\n"
+          },
+          {
+            "level": "INFO",
+            "testcase": "ZONE05",
+            "message": "SOA 'expire' value (2419200) is higher than the minimum recommended value (604800) and not lower than the 'refresh' value (7200).\n",
+            "module": "ZONE"
+          },
+          {
+            "module": "ZONE",
+            "message": "SOA 'minimum' value (5400) is between the recommended ones (300/86400).\n",
+            "testcase": "ZONE06",
+            "level": "INFO"
+          },
+          {
+            "testcase": "ZONE07",
+            "level": "INFO",
+            "module": "ZONE",
+            "message": "SOA 'mname' value (dnsmaster.nic.fr) refers to a NS which is not an alias (CNAME).\n"
+          },
+          {
+            "level": "INFO",
+            "testcase": "ZONE07",
+            "module": "ZONE",
+            "message": "SOA 'mname' value (dnsmaster.nic.fr) refers to a NS which is not an alias (CNAME).\n"
+          },
+          {
+            "level": "INFO",
+            "testcase": "ZONE08",
+            "module": "ZONE",
+            "message": "MX record for the domain is not pointing to a CNAME.\n"
+          },
+          {
+            "testcase": "ZONE08",
+            "level": "INFO",
+            "message": "MX record for the domain is not pointing to a CNAME.\n",
+            "module": "ZONE"
+          },
+          {
+            "module": "ZONE",
+            "message": "Mail targets in the MX RRset \"mx5.nic.fr.; mx4.nic.fr.\" returned from name servers \"2001:660:3006:1::1:1; 2001:67c:2218:2::4:1; 192.134.4.1; 2001:660:3005:1::1:2; 192.93.0.4; 192.134.0.49\".\n",
+            "testcase": "ZONE09",
+            "level": "INFO"
+          },
+          {
+            "module": "ZONE",
+            "message": "A unique SOA record is returned by all nameservers of the zone.\n",
+            "level": "INFO",
+            "testcase": "ZONE10"
+          }
+        ]
       }
     }
   },

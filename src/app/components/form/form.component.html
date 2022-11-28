@@ -1,15 +1,15 @@
-<form class="domain mb-2" (ngSubmit)="runDomainCheck();" [formGroup]="form">
+<form class="domain mb-2" (ngSubmit)="submitForm();" [formGroup]="form">
   <div class="container-fuild">
     <div class="row mb-1">
       <div class="col-sm-10 offset-sm-1 text-center">
-        <h1 i18n>Domain name</h1>
+        <h1 i18n>Run domain test</h1>
         <div class="row mb-2">
           <div class="col domain-input-container">
             <input type="text"
                 class="form-control form-control-lg"
                 [class.is-invalid]="domain.invalid && (domain.dirty || domain.touched)"
-                id="domain_check_name"
-                name="domain_check_name"
+                id="input_domain_form"
+                name="input_domain_form"
                 formControlName="domain"
                 i18n-placeholder placeholder="Domain name"
                 i18n-aria-label aria-label="Domain name"
@@ -25,7 +25,7 @@
 
             <p class="reset-form d-none d-sm-block" *ngIf="domain.value.length > 0 && !showProgressBar" >
               <button
-                (click)="resetDomainForm();"
+                (click)="resetForm();"
                 type="button"
                 i18n-title
                 title="Clear domain input"
@@ -37,11 +37,11 @@
             <p class="progress-result d-block" *ngIf="showProgressBar">
               <ngb-progressbar
                 type="info"
-                [value]="domainTestProgression"
+                [value]="formProgression"
                 [striped]="true"
                 [animated]="true"
               >
-                <span class="progress-value">{{domainTestProgression}}%</span>
+                <span class="progress-value">{{formProgression}}%</span>
               </ngb-progressbar>
             </p>
           </div>
@@ -50,7 +50,7 @@
                     class="launch btn btn-lg text-white"
                     type="submit"
                     [disabled]="form.disabled">
-              Check
+                Run
             </button>
           </div>
         </div>
@@ -59,11 +59,11 @@
     <div class="row">
       <div class="advanced col-sm-10 offset-sm-1">
         <div class="switch-input-container">
-          <button type="button" class="switch-toggle" id="advanced-toggle" (click)="toggleOptions()" [class.enabled]="isAdvancedOptionsEnabled" aria-controls="advanced-options" [attr.aria-expanded]="isAdvancedOptionsEnabled"></button>
+          <button type="button" class="switch-toggle" id="advanced-toggle" (click)="toggleOptions()" [class.enabled]="isAdvancedOptionEnabled" aria-controls="advanced-options" [attr.aria-expanded]="isAdvancedOptionEnabled"></button>
           <label for="advanced-toggle" i18n>Options</label>
         </div>
 
-        <div *ngIf="isAdvancedOptionsEnabled" id="advanced-options">
+        <div *ngIf="isAdvancedOptionEnabled" id="advanced-options">
           <fieldset>
             <legend i18n>Nameservers</legend>
 
