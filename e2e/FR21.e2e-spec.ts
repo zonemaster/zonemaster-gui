@@ -34,7 +34,7 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
   });
 
   test('should display number of each level',  async () => {
-    const expectedCounts = ['123', '118', '4', '0', '1', '0'];
+    const expectedCounts = ['52', '49', '3', '0', '0', '0'];
     const messageCountBadges = page.locator('.nav.nav-pills.vertical-align.filter > li > a > span.badge');
 
     for (const idx in expectedCounts) {

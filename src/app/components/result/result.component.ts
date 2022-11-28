@@ -24,21 +24,26 @@ export class ResultComponent implements OnInit, OnDestroy {
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
   public result = [];
   public modules: any;
-  public module_items: any = {};
-  public modulesKeys;
+  public severity_icons = {
+    'info': 'fa-check',
+    'notice': 'fa-exclamation',
+    'warning': 'fa-exclamation-triangle',
+    'error': 'fa-times-circle',
+    'critical': 'fa-times-circle'
+  }
   public searchQueryLength = 0;
   public test: any = {params: {ipv4: false, ipv6: false}};
   public isCollapsed = [];
-  public ns_list;
-  public ds_list;
-  public level_items = {
-    info: [],
-    notice: [],
-    warning: [],
-    error: [],
-    critical: [],
+  public testCasesCount = {
+    all: 0,
+    info: 0,
+    notice: 0,
+    warning: 0,
+    error: 0,
+    critical: 0,
   };
-  public result_filter = {
+  public testCasesCountByModule = {};
+  public resultFilter = {
     all: true,
     info: false,
     notice: false,
@@ -47,10 +52,17 @@ export class ResultComponent implements OnInit, OnDestroy {
     critical: false,
     search: ''
   };
+  public severityLevels = {
+    info: 0,
+    notice: 1,
+    warning: 2,
+    error: 3,
+    critical: 4,
+  };
+  public testCaseDescriptions = {};
   public historyQuery: object;
   public history: any[];
   public navHeight: Number;
-  private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
   private navHeightSubscription: Subscription;
 
@@ -80,7 +92,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       this.testId = params['testId'];
-      this.displayResult(this.testId);
+      this.fetchResult(this.testId);
     });
 
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
@@ -102,6 +114,14 @@ export class ResultComponent implements OnInit, OnDestroy {
     }, (reason) => {
       console.log(reason);
     });
+  }
+
+  public onCallapsableKeyDownEvent(event, testCaseId) {
+    switch (event.key) {
+      case 'Enter':
+        this.isCollapsed[testCaseId] = !this.isCollapsed[testCaseId];
+        break;
+    }
   }
 
   public onModuleKeyDownEvent(event, moduleKey) {
@@ -129,8 +149,8 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
-   private displayResult(testId: string, resetCollapsed = true) {
-     this.dnsCheckService.getTestResults(testId).then(data => {
+  private fetchResult(testId: string, resetCollapsed = true) {
+    this.dnsCheckService.getTestResults(testId).then(data => {
       // TODO clean
 
       this.test = {
@@ -140,51 +160,117 @@ export class ResultComponent implements OnInit, OnDestroy {
       };
 
       this.historyQuery = data['params'];
-
       this.result = data['results'];
-
-      this.setItemsColors(this.result);
-      this.setModulesColors(data['results']);
-
-      this.modulesKeys = Object.keys(this.modules);
-
-      for (let moduleName of this.modulesKeys) {
-        if (resetCollapsed || !(moduleName in this.isCollapsed)) {
-          this.isCollapsed[moduleName] = true;
-        }
-        this.module_items[moduleName] = [];
-      }
-
-      for (const item of data['results']) {
-        this.module_items[item.module].push(item);
-      }
-
-      this.level_items = {
-        info: [],
-        notice: [],
-        warning: [],
-        error: [],
-        critical: [],
-      };
-      for (const item of data['results']) {
-        this.level_items[item['level'].toLowerCase()].push(item);
-      }
-
-      for (const module in this.module_items) {
-        this.module_items[module].sort((msg1, msg2) => {
-          // sort messages by descending severity level
-          return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
-        })
-      }
-
       this.form = data['params'];
-      this.ns_list = data['ns_list'];
-      this.ds_list = data['ds_list'];
+      this.testCaseDescriptions = data['testcase_descriptions'];
+
+      this.testCasesCount = this.displayResult(this.result, resetCollapsed);
+
+      this.testCasesCountByModule = {};
+
+      for (const module of this.modules) {
+        const levels = {};
+        for (const testcase of module.testcases) {
+          const level = testcase.level;
+
+          if (!(level in levels)) {
+            levels[level] = 0;
+          }
+
+          levels[level] ++;
+        }
+
+        this.testCasesCountByModule[module.name] = Object.entries(this.severityLevels).sort(([, numLevel1], [_, numLevel2]) => numLevel2 - numLevel1)
+          .filter(([levelId, _]) => levelId in levels)
+          .map(([levelId, _]) => {
+            return {
+              name: levelId,
+              value: levels[levelId]
+            }
+          });
+      }
 
       this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
     }, error => {
       this.alertService.error($localize `No data for this test`)
     });
+  }
+
+  private displayResult(results: Array<Object>, resetCollapsed: boolean) {
+    const testCasesCount = {
+      'all': 0,
+      'info': 0,
+      'notice': 0,
+      'warning': 0,
+      'error': 0,
+      'critical': 0,
+    }
+
+    this.modules = [];
+    const modulesMap = {};
+
+    for (const entry of results) {
+      const currentModule = entry['module'];
+      const currentTestcase = entry['testcase'];
+      const currentLevel = entry['level'].toLowerCase();
+      const numLevel = this.severityLevels[currentLevel];
+
+      entry['level'] = currentLevel;
+
+      if (!(currentModule in modulesMap)) {
+        modulesMap[currentModule] = {name: currentModule, testcases: [], testcasesMap: {}}
+
+        this.modules.push(modulesMap[currentModule]);
+      }
+
+      if (!(currentTestcase in modulesMap[currentModule].testcasesMap)) {
+        modulesMap[currentModule].testcasesMap[currentTestcase] = {
+          id: currentTestcase,
+          entries: [],
+          level: 'info'
+        }
+
+        modulesMap[currentModule].testcases.push(modulesMap[currentModule].testcasesMap[currentTestcase]);
+
+        if (resetCollapsed || !(currentTestcase in this.isCollapsed)) {
+          this.isCollapsed[currentTestcase] = true;
+          this.isCollapsed[currentModule] = true;
+        }
+      }
+
+      modulesMap[currentModule].testcasesMap[currentTestcase].entries.push(entry);
+
+      if (numLevel > this.severityLevels[modulesMap[currentModule].testcasesMap[currentTestcase].level]) {
+        modulesMap[currentModule].testcasesMap[currentTestcase].level = currentLevel;
+      }
+    }
+
+    for (const module in modulesMap) {
+      modulesMap[module].testcases.sort((testcase1, testcase2) => {
+        // sort messages by descending severity level, unspecified messages always on top
+        if (testcase1.id == 'UNSPECIFIED') {
+          return 1;
+        }
+        if (testcase2.id == 'UNSPECIFIED') {
+          return 1;
+        }
+        return this.severityLevels[testcase2.level] - this.severityLevels[testcase1.level];
+      })
+      for (const testcase in modulesMap[module].testcasesMap) {
+        const level = modulesMap[module].testcasesMap[testcase].level;
+
+        testCasesCount[level] ++;
+        testCasesCount['all'] ++;
+        modulesMap[module].testcasesMap[testcase].entries.sort((msg1, msg2) => {
+          // sort messages by descending severity level
+          return this.severityLevels[msg2.level] - this.severityLevels[msg1.level];
+        })
+      }
+    }
+
+    this.isCollapsed['UNSPECIFIED'] = false;
+
+    return testCasesCount;
   }
 
   public getHistory() {
@@ -342,51 +428,52 @@ export class ResultComponent implements OnInit, OnDestroy {
     return str;
   }
 
-  private setItemsColors(data): void {
-    for (const item in data) {
-      if (['WARNING'].includes(this.result[item].level)) {
-        this.result[item].color = this.result[item].level.toLowerCase();
-      } else if (['ERROR', 'CRITICAL'].includes(this.result[item].level)) {
-        this.result[item].color = 'danger';
-      } else if (['NOTICE'].includes(this.result[item].level)) {
-        this.result[item].color = 'success';
-      } else {
-        this.result[item].color = '';
-      }
-    }
-  }
-
-  public setModulesColors(result): void {
-      this.modules =  result.reduce((modules, item) => {
-      if (typeof modules[item.module] === 'undefined') {
-        modules[item.module] = '';
-      }
-
-      const itemLevel = this.levelSeverity.indexOf(item.level);
-      const moduleLevel = this.levelSeverity.indexOf(modules[item.module]);
-      const maxLevel = Math.max(moduleLevel, itemLevel);
-      modules[item.module] = this.levelSeverity[maxLevel];
-      return modules;
-    }, {});
-  }
-
-
   public togglePillFilter(name) {
-    this.result_filter[name] = !this.result_filter[name];
-    const atLeastOneActive = Object.keys(this.result_filter).slice(1, -1).filter(el => this.result_filter[el]);
+    this.resultFilter[name] = !this.resultFilter[name];
+    const atLeastOneActive = Object.keys(this.resultFilter).slice(1, -1).filter(el => this.resultFilter[el]);
     this.searchQueryLength = atLeastOneActive.length;
 
     if (atLeastOneActive.length < 1) {
-      this.result_filter['all'] = true;
+      this.resultFilter['all'] = true;
     } else if (name === 'all') {
-      for (const index of Object.keys(this.result_filter).slice(1, -1)) {
-        this.result_filter[index] = false;
+      for (const index of Object.keys(this.resultFilter).slice(1, -1)) {
+        this.resultFilter[index] = false;
       }
-      this.result_filter['all'] = true;
+      this.resultFilter['all'] = true;
       this.searchQueryLength = -1;
     } else {
-      this.result_filter['all'] = false;
+      this.resultFilter['all'] = false;
     }
+
+    this.filterResults()
+  }
+
+  public filterResults() {
+    const filteredResults = this.filterResultsSearch(
+      this.filterResultsLevel(this.result, this.resultFilter),
+      this.resultFilter['search']
+    );
+    this.displayResult(filteredResults, false);
+  }
+
+  private filterResultsLevel(results: any[], levelFilter: Object) {
+    if (levelFilter['all']) {
+      return results;
+    } else {
+      const levels = Object.entries(levelFilter)
+        .filter(([_key, value]) => value === true)
+        .map(([key, _value]) => key);
+
+      return results.filter(entry => levels.includes(entry.level.toLowerCase()));
+    }
+  }
+
+  private filterResultsSearch(results: any[], query: string) {
+    if (!query) {
+      return results;
+    }
+    const queryLower = query.toLocaleLowerCase()
+    return results.filter(entry => entry.message.toLowerCase().includes(queryLower));
   }
 
   // inspired from

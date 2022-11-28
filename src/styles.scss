@@ -5,6 +5,10 @@ html, body {
   padding:0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
 main {
   flex-grow: 2;
 }
@@ -18,6 +22,10 @@ main {
 .progress {
   height: 64px !important;
   opacity: .3;
+}
+
+footer .tooltip {
+  --bs-tooltip-max-width: auto;
 }
 
 .pagination {

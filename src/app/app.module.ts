@@ -18,8 +18,6 @@ import { ResultComponent } from './components/result/result.component';
 import { HistoryComponent } from './components/history/history.component';
 import { AlertComponent } from './components/alert/alert.component';
 
-import { FilterPipe } from './pipes/filter.pipe';
-import { FilterByCategoriesPipe } from './pipes/filter-by-categories.pipe';
 import { RomanizePipe } from './pipes/romanize.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
@@ -57,8 +55,6 @@ const appRoutes: Routes = [
     NavigationComponent,
     FooterComponent,
     FormComponent,
-    FilterPipe,
-    FilterByCategoriesPipe,
     RomanizePipe,
     SafeHtmlPipe,
     ResultComponent,
