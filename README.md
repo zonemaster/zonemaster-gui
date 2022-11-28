@@ -108,5 +108,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 License
 =======
 
-The software is released under the 2-clause BSD license. See separate
-[LICENSE](LICENSE) file.
+This is free software under a 2-clause BSD license. The full text of the license can
+be found in the [LICENSE](LICENSE) file included in this respository.
