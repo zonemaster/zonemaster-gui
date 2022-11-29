@@ -78,7 +78,7 @@ export class RunTestComponent implements OnInit {
 
           if (self.runTestProgression === 100) {
             clearInterval(handle);
-            this.alertService.success($localize `Test completed`);
+            this.alertService.success($localize `Test completed`, true);
             self.testId = testId;
             self.isAdvancedOptionEnabled = false;
             self.showResult = true;

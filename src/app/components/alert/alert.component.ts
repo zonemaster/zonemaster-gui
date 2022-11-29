@@ -1,28 +1,26 @@
-import { Component, OnInit, NgZone} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { Alert, AlertType } from '../../models/index';
 import { AlertService } from '../../services/alert.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css']
 })
-export class AlertComponent implements OnInit {
+export class AlertComponent implements OnInit, OnDestroy {
 
   alerts: Alert[] = [];
-  public isShrunk = false;
+  public navHeight: number;
+  private navHeightSubscription: Subscription;
 
-  constructor(private alertService: AlertService, zone: NgZone) {
-    window.onscroll = () => {
-      zone.run(() => {
-        if (window.pageYOffset > 1) {
-          this.isShrunk = true;
-        } else {
-          this.isShrunk = false;
-        }
-      });
-    };
+  constructor(
+    private alertService: AlertService,
+    private navigationService: NavigationService
+  ) {
+
   }
 
   ngOnInit() {
@@ -36,6 +34,14 @@ export class AlertComponent implements OnInit {
 
       setTimeout(() => this.removeAlert(alert), 5000);
     });
+
+    this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: number) => {
+      this.navHeight = newHeight;
+    });
+  }
+
+  ngOnDestroy() {
+    this.navHeightSubscription.unsubscribe();
   }
 
   removeAlert(alert: Alert) {

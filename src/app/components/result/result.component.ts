@@ -80,16 +80,9 @@ export class ResultComponent implements OnInit, OnDestroy {
 
     let data = this.router.getCurrentNavigation().extras.state || {};
     this.displayForm = data.displayForm === undefined ? false : data.displayForm;
-
-    // When redirected from the domain check page we display the notification here as the other component has been destroyed
-    if (this.displayForm) {
-      this.alertService.success($localize `Test completed`);
-    }
   }
 
   ngOnInit() {
-    console.log(this.testId);
-
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
       this.testId = params['testId'];
       this.fetchResult(this.testId);
