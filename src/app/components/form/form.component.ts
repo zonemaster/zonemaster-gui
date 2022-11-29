@@ -7,8 +7,9 @@ import {
   Validators,
   AbstractControl} from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AlertService } from '../../services/alert.service';
 
 
 @Component({
@@ -17,13 +18,13 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() isAdvancedOptionEnabled;
+  @Input() isAdvancedOptionEnabled = false;
   @Input() formProgression;
   @Input() toggleFinished;
   @Input() profiles;
 
   @Output() onRunTest = new EventEmitter<object>();
-  @Output() onfetchFromParent = new EventEmitter<string>();
+  @Output() onFetchDataFromParent = new EventEmitter<[string, string]>();
   @Output() onOpenOptions = new EventEmitter<boolean>();
 
   private formConfig = {
@@ -59,7 +60,8 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private titleService: Title) {}
+    private titleService: Title,
+    private alertService: AlertService) {}
 
   ngOnInit() {
     this.titleService.setTitle('Zonemaster');
@@ -151,19 +153,31 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   get domain() { return this.form.get('domain'); }
 
   @Input()
-  set parentData(data: object) {
-    this.disable_check_button = false;
-    if (this.form) {
-      this.deleteRow('nameservers', -1);
-      data['ns_list'].forEach(ns => {
-        this.addNewRow('nameservers', ns);
-      });
+  set parentDataDS(dsList) {
+    this.setParentData(dsList, 'ds_info');
+  }
 
-      this.deleteRow('ds_info', -1);
-      data['ds_list'].forEach(digest => {
-        this.addNewRow('ds_info', digest);
-      });
+  @Input()
+  set parentDataNS(nsList) {
+    this.setParentData(nsList, 'nameservers');
+  }
+
+  private setParentData(dataList: Array<Object>, formName: string) {
+    if (this.form) {
+      this.disableForm(false);
+
+      this.deleteRow(formName, -1);
+      if (dataList.length == 0) {
+        this.addNewRow(formName);
+        this.alertService.warn($localize `No data found for the zone.`);
+      } else {
+        dataList.forEach(row => {
+          this.addNewRow(formName, row);
+        });
+        this.alertService.success($localize `Parent data fetched with success.`);
+      }
     }
+
   }
 
   @Input()
@@ -171,7 +185,9 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     if (!errors) {
       return;
     }
-    this.disable_check_button = false;
+
+    this.disableForm(false);
+
     for (let error of errors) {
       let path = error.path.split('/');
       path.shift(); // First element is ""
@@ -226,22 +242,21 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  private displayDataFromParent() {
+  private fetchDataFromParent(type) {
     this.domain.markAsTouched();
     if (this.domain.invalid) {
       return false;
     }
+    this.disableForm();
 
-    this.disable_check_button = true;
-    this.onfetchFromParent.emit(this.form.value.domain);
+    this.onFetchDataFromParent.emit([type, this.form.value.domain]);
   }
 
-  private disableForm(disable = true) {
-    this.disable_check_button = disable;
+  public disableForm(disable = true) {
     if (disable) {
-      this.domain.disable();
+      this.form.disable();
     } else {
-      this.domain.enable();
+      this.form.enable();
     }
   }
 

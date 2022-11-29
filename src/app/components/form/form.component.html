@@ -12,20 +12,27 @@
                 name="input_domain_form"
                 formControlName="domain"
                 i18n-placeholder placeholder="Domain name"
+                i18n-aria-label aria-label="Domain name"
+                aria-describedby="domain-error-required domain-error-server"
                 required>
-            <div class="invalid-feedback" *ngIf="domain.errors?.required" i18n>
+            <div id="domain-error-required" class="invalid-feedback" *ngIf="domain.errors?.required" i18n>
               Domain name required
             </div>
 
-            <div class="invalid-feedback" *ngIf="domain.errors?.serverError" >
+            <div id="domain-error-server" class="invalid-feedback" *ngIf="domain.errors?.serverError" >
               {{ domain.errors.serverError }}
             </div>
 
             <p class="reset-form d-none d-sm-block" *ngIf="domain.value.length > 0 && !showProgressBar" >
               <button
+                [disabled]="form.disabled"
                 (click)="resetForm();"
                 type="button"
-                class="btn grey"><i class="fa fa-2x fa-times-circle"></i></button>
+                i18n-title
+                title="Clear domain input"
+                class="btn grey">
+                  <i class="fa fa-2x fa-times-circle" aria-hidden="true"></i>
+              </button>
             </p>
 
             <p class="progress-result d-block" *ngIf="showProgressBar">
@@ -43,7 +50,7 @@
             <button i18n-title title="Run test" i18n
                     class="launch btn btn-lg text-white"
                     type="submit"
-                    [disabled]="disable_check_button">
+                    [disabled]="form.disabled">
                 Run
             </button>
           </div>
@@ -53,184 +60,244 @@
     <div class="row">
       <div class="advanced col-sm-10 offset-sm-1">
         <div class="switch-input-container">
-          <input class="switch-input" type="checkbox" id="advanced_checkbox" (change)="toggleOptions()" [ngModel]="isAdvancedOptionEnabled" [ngModelOptions]="{standalone: true}">
-          <label for="advanced_checkbox" i18n>Options</label>
+          <button type="button" class="switch-toggle" id="advanced-toggle" (click)="toggleOptions()" [class.enabled]="isAdvancedOptionEnabled" aria-controls="advanced-options" [attr.aria-expanded]="isAdvancedOptionEnabled"></button>
+          <label for="advanced-toggle" i18n>Options</label>
         </div>
 
-        <div *ngIf="isAdvancedOptionEnabled" class="advanced-options">
-          <div class="row protocol-form">
-            <div class="col-md-10">
-              <div [class.is-invalid]="form.errors?.noProtocol">
-                <div class="custom-control form-check form-check-inline">
-                  <input type="checkbox" class="form-check-input" formControlName="disable_ipv4" id="disable_protocol_ipv4" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv4.invalid">
-                  <label i18n class="form-check-label" for="disable_protocol_ipv4">
-                    Disable IPv4
-                  </label>
+        <div *ngIf="isAdvancedOptionEnabled" id="advanced-options">
+          <fieldset>
+            <legend i18n>Nameservers</legend>
+
+            <div formArrayName="nameservers">
+              <div class="mb-2 row" *ngFor="let ns of form.controls.nameservers.controls; let i=index" [formGroupName]="i">
+                <div class="col col-md-5">
+                  <input
+                    [attr.aria-describedby]="'ns-' + i + '-error-required ns-' + i + '-error-server'"
+                    formControlName="ns"
+                    class="form-control"
+                    i18n-aria-label aria-label="Nameserver"
+                    placeholder="NS"
+                    [class.is-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)"
+                  >
+                  <div id="ns-{{i}}-error-server" class="invalid-feedback" *ngIf="ns.controls.ns.errors?.serverError" >
+                    {{ ns.controls.ns.errors.serverError }}
+                  </div>
+                  <div id="ns-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ns.controls.ns.errors?.required" >
+                    Nameserver required
+                  </div>
                 </div>
-                <div class="custom-control form-check form-check-inline">
-                  <input type="checkbox" class="form-check-input" formControlName="disable_ipv6" id="disable_protocol_ipv6" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv6.invalid">
-                  <label i18n class="form-check-label" for="disable_protocol_ipv6">
-                    Disable IPv6
-                  </label>
+
+                <div class="col col-md-5">
+                  <input
+                    [attr.aria-describedby]="'ip-' + i + '-error-server'"
+                    formControlName="ip"
+                    class="form-control"
+                    i18n-aria-label aria-label="IP address"
+                    placeholder="IP"
+                    [class.is-invalid]="ns.controls.ip.invalid"
+                  >
+                  <div id="ip-{{i}}-error-server" class="invalid-feedback" *ngIf="ns.controls.ip.errors?.serverError" >
+                    {{ ns.controls.ip.errors.serverError }}
+                  </div>
                 </div>
-              </div>
-              <div i18n class="invalid-feedback" *ngIf="form.errors?.noProtocol">
-                Choose at least one protocol
+
+                <div class="col-auto">
+                  <button (click)="deleteRow('nameservers', i)"
+                          class="btn btn-danger delete"
+                          i18n-title
+                          title="Delete nameserver"
+                          [disabled]="form.disabled">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+
+                <div class="col-auto">
+                  <button *ngIf="i == form.controls.nameservers.length - 1"
+                          type="button"
+                          (click)="addNewRow('nameservers')"
+                          class="btn btn-success add"
+                          i18n-title
+                          title="Add new nameserver"
+                          [disabled]="form.disabled">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+            <div class="col-auto">
+              <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="fetchDataFromParent('NS')" i18n [disabled]="form.disabled">Fetch NS from parent zone</button>
+            </div>
+          </fieldset>
 
           <hr>
 
-          <h4><label for="profile" i18n>Profile</label></h4>
-          <div class="row">
-            <div class="col-md-10">
-              <select class="form-control" formControlName="profile" id="profile" [class.is-invalid]="form.controls.profile.invalid">
-                <option *ngFor="let profile of profiles" [value]="profile">{{profile}}</option>
-              </select>
-              <div class="invalid-feedback" *ngIf="form.controls.profile.errors?.serverError" >
-                {{ form.controls.profile.errors.serverError }}
+          <fieldset>
+            <legend i18n>DS records</legend>
+            <div formArrayName="ds_info">
+              <div class="row mb-2" *ngFor="let ds_info of form.controls.ds_info.controls; let i=index" [formGroupName]="i">
+                <div class="col-md-2">
+                  <input
+                    [attr.aria-describedby]="'keytag-' + i + '-error-required keytag-' + i + '-error-server'"
+                    formControlName="keytag"
+                    class="form-control"
+                    i18n-aria-label aria-label="Key Tag"
+                    i18n-placeholder placeholder="Key Tag"
+                    [class.is-invalid]="ds_info.controls.keytag.invalid && (ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched)"
+                  >
+                  <div id="keytag-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
+                    {{ ds_info.controls.keytag.errors.serverError }}
+                  </div>
+                  <div id="keytag-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.required" >
+                    Keytag required
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <select
+                    [attr.aria-describedby]="'algorithm-' + i + '-error-required algorithm-' + i + '-error-server'"
+                    formControlName="algorithm"
+                    i18n-aria-label aria-label="Algorithm"
+                    class="form-select"
+                    [class.is-invalid]="ds_info.controls.algorithm.invalid && (ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched)"
+                  >
+                    <option i18n [value]="-1" selected disabled>Algorithm</option>
+                    <option [value]="1">1 - RSAMD5</option>
+                    <option [value]="3">3 - DSA</option>
+                    <option [value]="5">5 - RSASHA1</option>
+                    <option [value]="6">6 - DSA-NSEC3-SHA1</option>
+                    <option [value]="7">7 - RSASHA1-NSEC3-SHA1</option>
+                    <option [value]="8">8 - RSASHA256</option>
+                    <option [value]="10">10 - RSASHA512</option>
+                    <option [value]="12">12 - ECC-GOST</option>
+                    <option [value]="13">13 - ECDSAP256SHA256</option>
+                    <option [value]="14">14 - ECDSAP384SHA384</option>
+                    <option [value]="15">15 - ED25519</option>
+                    <option [value]="16">16 - ED448</option>
+                  </select>
+                  <div id="algorithm-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.serverError" >
+                    {{ ds_info.controls.algorithm.errors.serverError }}
+                  </div>
+                  <div id="algorithm-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.required" >
+                    Algorithm required
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <select
+                    [attr.aria-describedby]="'digtype-' + i + '-error-required digtype-' + i + '-error-server'"
+                    formControlName="digtype"
+                    i18n-aria-label aria-label="Digest type"
+                    class="form-select"
+                    [class.is-invalid]="ds_info.controls.digtype.invalid && (ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched)"
+                  >
+                    <option i18n [value]="-1" selected disabled>Digest type</option>
+                    <option [value]="1">1 - SHA-1</option>
+                    <option [value]="2">2 - SHA-256</option>
+                    <option [value]="3">3 - GOST R 34.11-94</option>
+                    <option [value]="4">4 - SHA-384</option>
+                  </select>
+                  <div id="digtype-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.serverError" >
+                    {{ ds_info.controls.digtype.errors.serverError }}
+                  </div>
+                  <div id="digtype-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.required" >
+                    Digest type required
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <input
+                    [attr.aria-describedby]="'digest-' + i + '-error-required digest-' + i + '-error-server'"
+                    formControlName="digest"
+                    class="form-control"
+                    i18n-aria-label aria-label="Digest"
+                    i18n-placeholder placeholder="Digest"
+                    [class.is-invalid]="ds_info.controls.digest.invalid && (ds_info.controls.digest.dirty || ds_info.controls.digest.touched)"
+                  >
+                  <div id="digest-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.serverError" >
+                    {{ ds_info.controls.digest.errors.serverError }}
+                  </div>
+                  <div id="digest-{{i}}-error-required" i18n class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.required" >
+                    Digest required
+                  </div>
+                </div>
+
+                <div class="col-auto">
+                  <button
+                          (click)="deleteRow('ds_info',i)"
+                          class="btn btn-danger delete"
+                          i18n-title
+                          title="Delete DS record"
+                          [disabled]="form.disabled">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+                </div>
+
+                <div class="col-auto">
+                  <button *ngIf="i == form.controls.ds_info.controls.length - 1"
+                          type="button"
+                          (click)="addNewRow('ds_info')"
+                          class="btn btn-success add"
+                          i18n-title
+                          title="Add new DS record"
+                          [disabled]="form.disabled">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+            <div class="col-auto">
+              <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="fetchDataFromParent('DS')" i18n [disabled]="form.disabled">Fetch DS from parent zone</button>
+            </div>
+          </fieldset>
 
           <hr>
 
-          <h4 i18n>Nameservers</h4>
-
-          <div formArrayName="nameservers">
-            <div class="mb-2 row" *ngFor="let ns of form.controls.nameservers.controls; let i=index" [formGroupName]="i">
-              <div class="col col-md-5">
-                <input formControlName="ns" class="form-control" placeholder="NS" [class.is-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)">
-                <div class="invalid-feedback" *ngIf="ns.controls.ns.errors?.serverError" >
-                  {{ ns.controls.ns.errors.serverError }}
+          <fieldset>
+            <legend i18n>General</legend>
+            <div class="row">
+              <fieldset aria-describedby="protocol-error" class="col-md-5">
+                <legend class="sr-only" i18n>Protocol</legend>
+                <div class="col-form-label" [class.is-invalid]="form.errors?.noProtocol">
+                  <div class="custom-control form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" formControlName="disable_ipv4" id="disable_protocol_ipv4" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv4.invalid">
+                    <label i18n class="form-check-label" for="disable_protocol_ipv4">
+                      Disable IPv4
+                    </label>
+                  </div>
+                  <div class="custom-control form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" formControlName="disable_ipv6" id="disable_protocol_ipv6" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv6.invalid">
+                    <label i18n class="form-check-label" for="disable_protocol_ipv6">
+                      Disable IPv6
+                    </label>
+                  </div>
                 </div>
-                <div i18n class="invalid-feedback" *ngIf="ns.controls.ns.errors?.required" >
-                  NS required
+                <div id="protocol-error" i18n class="invalid-feedback" *ngIf="form.errors?.noProtocol">
+                  Cannot disable both IPv4 and IPv6
                 </div>
-              </div>
+              </fieldset>
 
-              <div class="col col-md-5">
-                <input formControlName="ip" class="form-control" placeholder="IP" [class.is-invalid]="ns.controls.ip.invalid">
-                <div class="invalid-feedback" *ngIf="ns.controls.ip.errors?.serverError" >
-                  {{ ns.controls.ip.errors.serverError }}
+
+              <div class="col-md-5" *ngIf="profiles.length > 1">
+                <div class="row">
+                  <div class="col-auto">
+                    <label for="profile" class="col-form-label" i18n>Profile</label>
+                  </div>
+                  <div class="col-auto flex-grow-1">
+                    <select class="form-select" formControlName="profile" id="profile" [class.is-invalid]="form.controls.profile.invalid">
+                      <option *ngFor="let profile of profiles" [value]="profile">{{profile}}</option>
+                    </select>
+                    <div class="invalid-feedback" *ngIf="form.controls.profile.errors?.serverError" >
+                      {{ form.controls.profile.errors.serverError }}
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              <div class="col-auto">
-                <button (click)="deleteRow('nameservers', i)"
-                class="btn btn-danger delete">
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
-              </div>
-
-              <div class="col-auto">
-                <button *ngIf="i == form.controls.nameservers.length - 1"
-                        type="button"
-                        (click)="addNewRow('nameservers')"
-                        class="btn btn-success add">
-                  <i class="fa fa-plus" aria-hidden="true"></i>
-                </button>
               </div>
             </div>
-          </div>
-
-          <hr>
-
-          <h4 i18n>Delegation Signers (DS records)</h4>
-          <div formArrayName="ds_info">
-            <div class="row mb-2" *ngFor="let ds_info of form.controls.ds_info.controls; let i=index" [formGroupName]="i">
-              <div class="col-md-2">
-                <input formControlName="keytag" class="form-control" i18n-placeholder placeholder="Key Tag"
-                       [class.is-invalid]="ds_info.controls.keytag.invalid && (ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched)">
-                <div class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
-                  {{ ds_info.controls.keytag.errors.serverError }}
-                </div>
-                <div i18n class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.required" >
-                  Keytag required
-                </div>
-              </div>
-
-              <div class="col-md-3">
-                <select formControlName="algorithm" class="form-control"
-                        [class.is-invalid]="ds_info.controls.algorithm.invalid && (ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched)">
-                  <option i18n [value]="-1" selected disabled>Algorithm</option>
-                  <option [value]="1">1 - RSAMD5</option>
-                  <option [value]="3">3 - DSA</option>
-                  <option [value]="5">5 - RSASHA1</option>
-                  <option [value]="6">6 - DSA-NSEC3-SHA1</option>
-                  <option [value]="7">7 - RSASHA1-NSEC3-SHA1</option>
-                  <option [value]="8">8 - RSASHA256</option>
-                  <option [value]="10">10 - RSASHA512</option>
-                  <option [value]="12">12 - ECC-GOST</option>
-                  <option [value]="13">13 - ECDSAP256SHA256</option>
-                  <option [value]="14">14 - ECDSAP384SHA384</option>
-                  <option [value]="15">15 - ED25519</option>
-                  <option [value]="16">16 - ED448</option>
-                </select>
-                <div class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.serverError" >
-                  {{ ds_info.controls.algorithm.errors.serverError }}
-                </div>
-                <div i18n class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.required" >
-                  Algorithm required
-                </div>
-              </div>
-
-              <div class="col-md-2">
-                <select formControlName="digtype" class="form-control"
-                        [class.is-invalid]="ds_info.controls.digtype.invalid && (ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched)">
-                  <option i18n [value]="-1" selected disabled>Digest type</option>
-                  <option [value]="1">1 - SHA-1</option>
-                  <option [value]="2">2 - SHA-256</option>
-                  <option [value]="3">3 - GOST R 34.11-94</option>
-                  <option [value]="4">4 - SHA-384</option>
-                </select>
-                <div class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.serverError" >
-                  {{ ds_info.controls.digtype.errors.serverError }}
-                </div>
-                <div i18n class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.required" >
-                  Digest type required
-                </div>
-              </div>
-
-              <div class="col-md-3">
-                <input formControlName="digest" class="form-control" i18n-placeholder placeholder="Digest"
-                       [class.is-invalid]="ds_info.controls.digest.invalid && (ds_info.controls.digest.dirty || ds_info.controls.digest.touched)">
-                <div class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.serverError" >
-                  {{ ds_info.controls.digest.errors.serverError }}
-                </div>
-                <div i18n class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.required" >
-                  Digest required
-                </div>
-              </div>
-
-              <div class="col-auto">
-                <button
-                        (click)="deleteRow('ds_info',i)"
-                        class="btn btn-danger delete">
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </button>
-              </div>
-
-              <div class="col-auto">
-                <button *ngIf="i == form.controls.ds_info.controls.length - 1"
-                        type="button"
-                        (click)="addNewRow('ds_info')"
-                        class="btn btn-success add">
-                  <i class="fa fa-plus" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <br>
+          </fieldset>
 
           <div class="row">
             <div class="col-auto">
-              <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="displayDataFromParent()" i18n>Fetch data from parent zone</button>
-            </div>
-            <div class="col-auto">
-              <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()" i18n>Reset</button>
+              <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()" i18n [disabled]="form.disabled">Reset</button>
             </div>
           </div>
 

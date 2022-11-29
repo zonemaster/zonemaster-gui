@@ -16,7 +16,7 @@ const urls = [
     url: 'https://zonemaster.net/api',
     body: {jsonrpc: '2.0', id:1643203351479, method: 'profile_names', params: {}},
     method: 'POST',
-    json: {jsonrpc: '2.0', id: 1643203351479, result: ["default"]}
+    json: {jsonrpc: '2.0', id: 1643203351479, result: ["default", "test_profile"]}
   },
 
   // FR18 - Should display progress bar

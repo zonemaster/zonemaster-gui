@@ -11,12 +11,13 @@
 <app-form [isAdvancedOptionEnabled]="isAdvancedOptionEnabled"
           [formProgression]="runTestProgression"
           [showProgressBar]="showProgressBar"
-          [parentData]="parentData"
+          [parentDataNS]="parentDataNS"
+          [parentDataDS]="parentDataDS"
           [profiles]="profiles"
           [toggleFinished]="toggleFinished"
           [formError]="requestError"
           (onRunTest)="runTest($event)"
-          (onfetchFromParent)="fetchFromParent($event)"
+          (onFetchDataFromParent)="fetchFromParent($event)"
           (onOpenOptions)="openOptions($event)"
 
 ></app-form>

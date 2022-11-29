@@ -12,26 +12,46 @@ button.launch:hover {
   background-color: #ff3c3a;
 }
 
-.advanced-options {
-  margin-top: 1em;
-}
 /* The switch - the box around the slider */
 .switch-input-container {
   display: flex;
   align-items: center;
 }
 
+#advanced-options .form-label {
+  margin-bottom: 0;
+}
+
+#advanced-options > fieldset:first-of-type {
+  margin-top: 1rem;
+}
+
+#advanced-options > fieldset:last-of-type {
+  margin-bottom: 1rem;
+}
+
+fieldset fieldset legend {
+  font-size: 1em;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+form .protocol {
+  padding-top: 0.375rem;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
 .switch-input-container label {
   margin: 0;
 }
 
-input[type=checkbox].switch-input {
+button.switch-toggle {
+  border: none;
   width: 2em;
   background-color: #ccc;
   display: inherit;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
   height: 1em;
   border-radius: 2em;
   font-size: 2em;
@@ -43,13 +63,17 @@ input[type=checkbox].switch-input {
   cursor: pointer;
 }
 
-input[type=checkbox].switch-input:checked {
+button.switch-toggle.enabled {
   background-position: right center;
   background-color: #2196f3;
 }
 
 .advanced {
   text-align: left;
+}
+
+.is-invalid label {
+  color: #b51222!important;
 }
 
 .domain .invalid-feedback {
@@ -59,7 +83,7 @@ input[type=checkbox].switch-input:checked {
   font-size: 0.875rem;
   line-height: 1.5;
   color: #fff;
-  background-color: rgba(220, 53, 69, 0.9);
+  background-color: #b51222;
   border-radius: 0.25rem;
   text-align: left;
 }
@@ -72,12 +96,17 @@ input[type=checkbox].switch-input:checked {
   position: absolute;
   right: 0;
   top: 15%;
-  opacity: 0.5;
   z-index: 100;
+  right: 0.5rem;
 }
 
-.reset-form:hover {
+.reset-form button:not(:disabled):hover {
   opacity: 1;
+}
+
+.reset-form button {
+  border: none;
+  opacity: 0.5;
 }
 
 .grey {
@@ -104,4 +133,10 @@ input[type=checkbox].switch-input:checked {
 
 .checkboxForm {
   width: inherit;
+}
+
+@media(max-width:767px){
+  fieldset .form-col:not(:first-child) {
+    margin-top: 0.5rem;
+  }
 }

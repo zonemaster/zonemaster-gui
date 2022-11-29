@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DnsCheckService } from '../../services/dns-check.service';
 import { Router} from '@angular/router';
 import { AlertService } from '../../services/alert.service';
 import { AppService } from '../../services/app.service';
 import { Title } from '@angular/platform-browser';
+import { FormComponent } from '../form/form.component';
 
 @Component({
   selector: 'app-run-test',
@@ -16,11 +17,14 @@ export class RunTestComponent implements OnInit {
   public runTestProgression = 0;
   public showResult = false;
   public showProgressBar = false;
-  public parentData: any;
+  public parentDataDS: any;
+  public parentDataNS: any;
   public testId = '';
   public profiles = [];
   public toggleFinished = false;
   public requestError: object;
+
+  @ViewChild(FormComponent) form: FormComponent;
 
   constructor(private alertService: AlertService,
     private dnsCheckService: DnsCheckService,
@@ -34,13 +38,12 @@ export class RunTestComponent implements OnInit {
     this.dnsCheckService.profileNames().then( (res: string[]) => this.profiles = res );
   }
 
-  public fetchFromParent(domain) {
+  public fetchFromParent([type, domain]) {
     this.dnsCheckService.fetchFromParent(domain).then(result => {
-      if (result['ds_list'].length === 0 && result['ns_list'].length === 0) {
-        this.alertService.warn($localize `There is no delegation for the zone`);
-      } else {
-        this.parentData = result;
-        this.alertService.success($localize `Parent data fetched with success`);
+      if (type == 'DS') {
+        this.parentDataDS = result['ds_list'];
+      } else if(type = 'NS') {
+        this.parentDataNS = result['ns_list'];
       }
     }, error => {
       if (error.error.code === "-32602" && error.error.data.constructor === Array) {
@@ -48,6 +51,7 @@ export class RunTestComponent implements OnInit {
       } else {
         console.log(error);
         this.alertService.error($localize `Error during parent data fetching`);
+        this.form.disableForm(false);
       }
   });
   }
