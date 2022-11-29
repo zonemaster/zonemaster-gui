@@ -252,7 +252,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     this.onFetchDataFromParent.emit([type, this.form.value.domain]);
   }
 
-  private disableForm(disable = true) {
+  public disableForm(disable = true) {
     if (disable) {
       this.form.disable();
     } else {

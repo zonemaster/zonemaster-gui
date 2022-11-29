@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DnsCheckService } from '../../services/dns-check.service';
 import { Router} from '@angular/router';
 import { AlertService } from '../../services/alert.service';
 import { AppService } from '../../services/app.service';
 import { Title } from '@angular/platform-browser';
+import { FormComponent } from '../form/form.component';
 
 @Component({
   selector: 'app-run-test',
@@ -22,6 +23,8 @@ export class RunTestComponent implements OnInit {
   public profiles = [];
   public toggleFinished = false;
   public requestError: object;
+
+  @ViewChild(FormComponent) form: FormComponent;
 
   constructor(private alertService: AlertService,
     private dnsCheckService: DnsCheckService,
@@ -48,6 +51,7 @@ export class RunTestComponent implements OnInit {
       } else {
         console.log(error);
         this.alertService.error($localize `Error during parent data fetching`);
+        this.form.disableForm(false);
       }
   });
   }

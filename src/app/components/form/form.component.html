@@ -25,6 +25,7 @@
 
             <p class="reset-form d-none d-sm-block" *ngIf="domain.value.length > 0 && !showProgressBar" >
               <button
+                [disabled]="form.disabled"
                 (click)="resetForm();"
                 type="button"
                 i18n-title
