@@ -10,9 +10,9 @@ export function setLang(page, lang) {
 }
 
 export async function showOptions(page) {
-  const showOptionCheckbox = page.locator('#advanced_checkbox');
-  if (!(await showOptionCheckbox.isChecked())) {
-    return showOptionCheckbox.click();
+  const showOptionSwitch = page.locator('#advanced-toggle');
+  if ((await showOptionSwitch.getAttribute('aria-expanded')) === 'false' ) {
+    return showOptionSwitch.click();
   }
 }
 

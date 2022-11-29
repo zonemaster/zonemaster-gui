@@ -255,7 +255,7 @@
             <legend i18n>General</legend>
             <div class="row">
               <fieldset aria-describedby="protocol-error" class="col-md-5">
-                <legend class="sr-only" for="profile" i18n>Protocol</legend>
+                <legend class="sr-only" i18n>Protocol</legend>
                 <div class="col-form-label" [class.is-invalid]="form.errors?.noProtocol">
                   <div class="custom-control form-check form-check-inline">
                     <input type="checkbox" class="form-check-input" formControlName="disable_ipv4" id="disable_protocol_ipv4" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv4.invalid">
