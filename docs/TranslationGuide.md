@@ -35,9 +35,9 @@ When adding new translatable strings to the GUI, they need to be added to each
 npm run i18n:extract
 ```
 
-This will update each file with the new strings by default the target value
-will be omitted. All new strings are appended to the end of the files, obsolete
-strings are removed from the files.
+This will update each file with the new strings; by default the target value
+of new strings is an empty string. All new strings are appended to the end of
+the files, obsolete strings are removed from the files.
 
 
 ## Submitting changes
