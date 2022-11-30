@@ -57,7 +57,7 @@
     <ul class="nav nav-pills vertical-align filter">
       <li class="nav-item ml-1">
         <ng-template #tooltipAll i18n="tooltip all">
-          Display all results
+          Display all results.
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipAll"
            class="btn" [ngClass]="{'active all': resultFilter.all}"
@@ -85,7 +85,7 @@
       <li class="nav-item ml-1">
         <ng-template #tooltipNotice i18n="tooltip notice">
           Notice - means something that should be known by the zone's administrator
-          but that need not necessarily be a problem at all
+          but that need not necessarily be a problem at all.
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipNotice"
            class="btn" [ngClass]="{'active notice': resultFilter.notice}"
@@ -114,7 +114,7 @@
         <ng-template #tooltipError i18n="tooltip error">
           Error - means a problem that is very likely (or possibly certain) to
           negatively affect the function of the zone being tested, but not so
-          severe that the entire zone becomes unresolvable
+          severe that the entire zone becomes unresolvable.
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipError"
            class="btn" [ngClass]="{'active error': resultFilter.error}"

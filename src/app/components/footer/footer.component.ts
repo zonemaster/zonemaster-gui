@@ -33,7 +33,7 @@ export class FooterComponent implements OnInit {
     this.dnsCheckService.versionInfo().then( res => {
       self.versions = this.setVersionsText(res as any[]);
     }, err => {
-      this.alertService.error($localize `Zonemaster Backend is not available`);
+      this.alertService.error($localize `Zonemaster Backend is not available.`);
       console.error(err);
     });
   }

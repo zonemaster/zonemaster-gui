@@ -140,8 +140,8 @@
                     [attr.aria-describedby]="'keytag-' + i + '-error-required keytag-' + i + '-error-server'"
                     formControlName="keytag"
                     class="form-control"
-                    i18n-aria-label aria-label="Key Tag"
-                    i18n-placeholder placeholder="Key Tag"
+                    i18n-aria-label aria-label="Keytag"
+                    i18n-placeholder placeholder="Keytag"
                     [class.is-invalid]="ds_info.controls.keytag.invalid && (ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched)"
                   >
                   <div id="keytag-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
