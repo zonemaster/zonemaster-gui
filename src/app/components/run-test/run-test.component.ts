@@ -93,7 +93,7 @@ export class RunTestComponent implements OnInit {
         if (error.error.code === "-32602" && error.error.data.constructor === Array) {
           this.requestError = error.error.data;
         } else {
-          this.alertService.error($localize `An unexpected error happended.`);
+          this.alertService.error($localize `An unexpected server error happened.`);
         }
     });
   }

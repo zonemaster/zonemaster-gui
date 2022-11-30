@@ -338,8 +338,8 @@
       <trans-unit id="2569213046451523868" datatype="html">
         <source>No previous tests found for this domain.</source>
       </trans-unit>
-      <trans-unit id="5867494945259253927" datatype="html">
-        <source>An unexpected error happended.</source>
+      <trans-unit id="7210131782873551503" datatype="html">
+        <source>An unexpected server error happened.</source>
       </trans-unit>
     </body>
   </file>
