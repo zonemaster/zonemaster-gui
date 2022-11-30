@@ -50,8 +50,8 @@
         <source>Domain name required</source>
         <target state="new">Nom de domaine requis</target>
       </trans-unit>
-      <trans-unit datatype="html" id="5744111782246551528">
-        <source>Error during parent data fetching</source>
+      <trans-unit datatype="html" id="4715502322841966813">
+        <source>Error during parent data fetching.</source>
         <target state="new">Erreur lors de la récupération des données parentes.</target>
       </trans-unit>
       <trans-unit datatype="html" id="5f19586aba912ec6eb123ec5ab609a3bcc073066">
@@ -74,16 +74,12 @@
         <source>History</source>
         <target state="new">Historique</target>
       </trans-unit>
-      <trans-unit datatype="html" id="7637329813318246049">
-        <source>History information request is in progress</source>
+      <trans-unit datatype="html" id="2360715491728178990">
+        <source>History information request is in progress.</source>
         <target state="new">La demande d&apos;historique est en cours.</target>
       </trans-unit>
-      <trans-unit datatype="html" id="5779341115787231384">
-        <source>Internal server error</source>
-        <target state="new">Erreur interne du serveur</target>
-      </trans-unit>
-      <trans-unit datatype="html" id="153a2d7fa70b7fb265f0aa30d3ecbf07b67c60ab">
-        <source>Key Tag</source>
+      <trans-unit datatype="html" id="81393046c8150147e2cd2312bd175040897777ba">
+        <source>Keytag</source>
         <target state="new">Identifiant</target>
       </trans-unit>
       <trans-unit datatype="html" id="ea9a4cfd79cc6b5e7be4c0f52701d54b127d89f6">
@@ -94,12 +90,8 @@
         <source>Nameservers</source>
         <target state="new">Serveurs DNS</target>
       </trans-unit>
-      <trans-unit datatype="html" id="670066086142774318">
-        <source>No data for this test</source>
-        <target state="new">Il n&apos;y a pas de résultat pour ce test</target>
-      </trans-unit>
-      <trans-unit datatype="html" id="6562028689116277067">
-        <source>No result for this query</source>
+      <trans-unit datatype="html" id="8462321971972035102">
+        <source>No data for this test.</source>
         <target state="new">Il n&apos;y a pas de résultat pour ce test</target>
       </trans-unit>
       <trans-unit datatype="html" id="7d2be22a7252a8b76dea7b3b85ab94ff86184e5d">
@@ -134,8 +126,8 @@
         <source>Reset</source>
         <target state="new">Annuler</target>
       </trans-unit>
-      <trans-unit datatype="html" id="a17349ecebaf5eb3bae3106c7c99f7978b9cb699">
-        <source>Results from previous tests are not available</source>
+      <trans-unit datatype="html" id="c6bec34adbe7628d1d4fbbc5fd85a8aab6fa8e5c">
+        <source>Results from previous tests are not available.</source>
         <target state="new">Les résultats des tests précédents ne sont pas disponibles</target>
       </trans-unit>
       <trans-unit datatype="html" id="baa5cda119114bb5fba61496780778a5fa10caf1">
@@ -150,8 +142,8 @@
         <source>Sorry, there is nothing here!</source>
         <target state="new">Désolé, il n&apos;y a rien ici!</target>
       </trans-unit>
-      <trans-unit datatype="html" id="2e52adeb40004b84f94197ec742951783fb4e377">
-        <source>Display all results</source>
+      <trans-unit datatype="html" id="113417823466ebe7cc18b89e8826c7fe3f973439">
+        <source>Display all results.</source>
         <target state="new">Afficher l&apos;ensemble des résultats</target>
         <note priority="1" from="description">tooltip all</note>
       </trans-unit>
@@ -160,8 +152,8 @@
         <target state="new">Critical - une erreur vraiment sévère</target>
         <note priority="1" from="description">tooltip critical</note>
       </trans-unit>
-      <trans-unit datatype="html" id="fff721af9d16ca1cd0983fce54d10c5e857ba341">
-        <source>Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable</source>
+      <trans-unit datatype="html" id="1a6e9b4ee9398580ded7bcb9cd3ec6c965de297f">
+        <source>Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable.</source>
         <target state="new">Error - une erreur qui a de grande change d&apos;affecter la zone testée, mais pas suffisamment pour la rendre inutilisable</target>
         <note priority="1" from="description">tooltip error</note>
       </trans-unit>
@@ -170,8 +162,8 @@
         <target state="new">Info - contient des informations qui peuvent être d&apos;intérêt pour la personne lançant le test, ces messages ne sont pas des erreurs</target>
         <note priority="1" from="description">tooltip info</note>
       </trans-unit>
-      <trans-unit datatype="html" id="5f27bfb99492b3cb2b7ae776e56665fa23c93c48">
-        <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all</source>
+      <trans-unit datatype="html" id="e863ca91edf6eb602f218bd8e04f9c06a5937e95">
+        <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all.</source>
         <target state="new">Notice - destiné à informer la personne en charge de la zone, ne correspond pas nécessairement à un problème de configuration</target>
         <note priority="1" from="description">tooltip notice</note>
       </trans-unit>
@@ -184,8 +176,8 @@
         <source>What is an undelegated domain test?</source>
         <target state="new">C&apos;est quoi un test sur un nom de domaine non délégué?</target>
       </trans-unit>
-      <trans-unit datatype="html" id="2354337809748099123">
-        <source>Zonemaster Backend is not available</source>
+      <trans-unit datatype="html" id="7221366950887162430">
+        <source>Zonemaster Backend is not available.</source>
         <target state="new">Zonemaster Backend n&apos;est pas disponible</target>
       </trans-unit>
       <trans-unit id="7b165859f6b561923cffdcf931fb3e8ec4cd755b" datatype="html">
@@ -270,8 +262,9 @@
       <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
         <source>Change language</source>
       </trans-unit>
-      <trans-unit id="1431398063810974447" datatype="html">
-        <source>Test completed</source>
+      <trans-unit id="7511049748697720259" datatype="html">
+        <source>Test completed!</source>
+        <target state="new">Test completed!</target>
       </trans-unit>
       <trans-unit id="51ec22e1dae591a194ac7448bb769dc8d49caa5f" datatype="html">
         <source>Clear domain input</source>
@@ -323,6 +316,12 @@
       </trans-unit>
       <trans-unit id="1a38bccdfebed08e1a0918aae25558b4bd561bc0" datatype="html">
         <source>Fetch DS from parent zone</source>
+      </trans-unit>
+      <trans-unit id="2569213046451523868" datatype="html">
+        <source>No previous tests found for this domain.</source>
+      </trans-unit>
+      <trans-unit id="5867494945259253927" datatype="html">
+        <source>An unexpected error happended.</source>
       </trans-unit>
     </body>
   </file>

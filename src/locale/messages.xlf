@@ -42,18 +42,11 @@
           <context context-type="linenumber">177</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5744111782246551528" datatype="html">
-        <source>Error during parent data fetching</source>
+      <trans-unit id="4715502322841966813" datatype="html">
+        <source>Error during parent data fetching.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/run-test/run-test.component.ts</context>
           <context context-type="linenumber">53</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5779341115787231384" datatype="html">
-        <source>Internal server error</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/run-test/run-test.component.ts</context>
-          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
       <trans-unit id="a434ae37bd56265a0693fbc28bd8338a38500871" datatype="html">
@@ -92,8 +85,8 @@
           <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2354337809748099123" datatype="html">
-        <source>Zonemaster Backend is not available</source>
+      <trans-unit id="7221366950887162430" datatype="html">
+        <source>Zonemaster Backend is not available.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/footer/footer.component.ts</context>
           <context context-type="linenumber">36</context>
@@ -163,8 +156,8 @@
           <context context-type="linenumber">69</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="153a2d7fa70b7fb265f0aa30d3ecbf07b67c60ab" datatype="html">
-        <source>Key Tag</source>
+      <trans-unit id="81393046c8150147e2cd2312bd175040897777ba" datatype="html">
+        <source>Keytag</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">143</context>
@@ -280,8 +273,8 @@
         </context-group>
         <note priority="1" from="description">singular undelegated</note>
       </trans-unit>
-      <trans-unit id="a17349ecebaf5eb3bae3106c7c99f7978b9cb699" datatype="html">
-        <source>Results from previous tests are not available</source>
+      <trans-unit id="c6bec34adbe7628d1d4fbbc5fd85a8aab6fa8e5c" datatype="html">
+        <source>Results from previous tests are not available.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/history/history.component.html</context>
           <context context-type="linenumber">53</context>
@@ -347,8 +340,8 @@
           <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2e52adeb40004b84f94197ec742951783fb4e377" datatype="html">
-        <source>Display all results</source>
+      <trans-unit id="113417823466ebe7cc18b89e8826c7fe3f973439" datatype="html">
+        <source>Display all results.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
           <context context-type="linenumber">59,61</context>
@@ -379,8 +372,8 @@
         </context-group>
         <note priority="1" from="description">info filter button</note>
       </trans-unit>
-      <trans-unit id="5f27bfb99492b3cb2b7ae776e56665fa23c93c48" datatype="html">
-        <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all</source>
+      <trans-unit id="e863ca91edf6eb602f218bd8e04f9c06a5937e95" datatype="html">
+        <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
           <context context-type="linenumber">86,89</context>
@@ -411,8 +404,8 @@
         </context-group>
         <note priority="1" from="description">warning filter button</note>
       </trans-unit>
-      <trans-unit id="fff721af9d16ca1cd0983fce54d10c5e857ba341" datatype="html">
-        <source>Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable</source>
+      <trans-unit id="1a6e9b4ee9398580ded7bcb9cd3ec6c965de297f" datatype="html">
+        <source>Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
           <context context-type="linenumber">114,118</context>
@@ -450,25 +443,18 @@
           <context context-type="linenumber">143</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="670066086142774318" datatype="html">
-        <source>No data for this test</source>
+      <trans-unit id="8462321971972035102" datatype="html">
+        <source>No data for this test.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
           <context context-type="linenumber">188</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7637329813318246049" datatype="html">
-        <source>History information request is in progress</source>
+      <trans-unit id="2360715491728178990" datatype="html">
+        <source>History information request is in progress.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
           <context context-type="linenumber">271</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6562028689116277067" datatype="html">
-        <source>No result for this query</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">276</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1867992058937397585" datatype="html">
@@ -520,8 +506,8 @@
           <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1431398063810974447" datatype="html">
-        <source>Test completed</source>
+      <trans-unit id="7511049748697720259" datatype="html">
+        <source>Test completed!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/run-test/run-test.component.ts</context>
           <context context-type="linenumber">81</context>
@@ -673,6 +659,20 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">241</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2569213046451523868" datatype="html">
+        <source>No previous tests found for this domain.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">276</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5867494945259253927" datatype="html">
+        <source>An unexpected error happended.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/run-test/run-test.component.ts</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit>
     </body>
