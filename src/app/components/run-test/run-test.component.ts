@@ -50,7 +50,7 @@ export class RunTestComponent implements OnInit {
         this.requestError = error.error.data;
       } else {
         console.log(error);
-        this.alertService.error($localize `Error during parent data fetching`);
+        this.alertService.error($localize `Error during parent data fetching.`);
         this.form.disableForm(false);
       }
   });
@@ -78,7 +78,7 @@ export class RunTestComponent implements OnInit {
 
           if (self.runTestProgression === 100) {
             clearInterval(handle);
-            this.alertService.success($localize `Test completed`, true);
+            this.alertService.success($localize `Test completed!`, true);
             self.testId = testId;
             self.isAdvancedOptionEnabled = false;
             self.showResult = true;
@@ -93,7 +93,7 @@ export class RunTestComponent implements OnInit {
         if (error.error.code === "-32602" && error.error.data.constructor === Array) {
           this.requestError = error.error.data;
         } else {
-          this.alertService.error($localize `Internal server error`);
+          this.alertService.error($localize `An unexpected server error happened.`);
         }
     });
   }

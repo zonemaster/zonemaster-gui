@@ -185,7 +185,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
       this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
     }, error => {
-      this.alertService.error($localize `No data for this test`)
+      this.alertService.error($localize `No data for this test.`)
     });
   }
 
@@ -268,12 +268,12 @@ export class ResultComponent implements OnInit, OnDestroy {
 
   public getHistory() {
     if (!this.history) {
-      this.alertService.info($localize `History information request is in progress`);
+      this.alertService.info($localize `History information request is in progress.`);
 
       this.dnsCheckService.getTestHistory(this.historyQuery).then(data => {
         this.history = data as any[];
         if (this.history.length === 0) {
-          this.alertService.info($localize `No result for this query`);
+          this.alertService.info($localize `No previous tests found for this domain.`);
         } else {
           this.openModal(this.historyModal);
         }
