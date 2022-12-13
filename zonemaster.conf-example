@@ -21,6 +21,9 @@
     RewriteBase ${BASE_URL}
     RewriteRule ^../index\.html$ - [L]
 
+    # Rewrite /<LANG>/assets/ to /assets to share the assets directory
+    RewriteRule ^../(assets/.+) $1 [L]
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule (..) $1/index.html [L]
