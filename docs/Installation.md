@@ -323,7 +323,7 @@ from wich the GUI is served.
 
 
 **NOTE:** Don't forget to apply the changes to the `index.html` and Web
-server configurartion after each updates as thoses files will be overwritten.
+server configuration after each updates as thoses files will be overwritten.
 
 
 ## Change default language
