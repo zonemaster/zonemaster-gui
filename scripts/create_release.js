@@ -19,6 +19,12 @@ archive.pipe(output);
 
 archive.file('zonemaster.conf-example', { name: 'zonemaster.conf-example' });
 archive.file('LICENSE', { name: 'LICENSE' });
-archive.directory('dist/', 'dist');
+
+const localizedBundles = fs.readdirSync('dist', {withFileTypes: true})
+  .filter(entry => entry.isDirectory())
+  .map(entry => entry.name);
+
+archive.glob('dist/**', {ignore: '**/assets/**'});
+archive.directory(`dist/${localizedBundles[0]}/assets`, 'dist/assets');
 
 archive.finalize();
