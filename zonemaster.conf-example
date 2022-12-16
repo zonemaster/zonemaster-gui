@@ -29,26 +29,8 @@
     RewriteRule (..) $1/index.html [L]
 
     # Redirect user based on prefered locale
-    RewriteCond %{HTTP:Accept-Language} ^da [NC]
-    RewriteRule ^$ ${BASE_URL}da/ [R,L]
-
-    RewriteCond %{HTTP:Accept-Language} ^en [NC]
-    RewriteRule ^$ ${BASE_URL}en/ [R,L]
-
-    RewriteCond %{HTTP:Accept-Language} ^es [NC]
-    RewriteRule ^$ ${BASE_URL}es/ [R,L]
-
-    RewriteCond %{HTTP:Accept-Language} ^fi [NC]
-    RewriteRule ^$ ${BASE_URL}fi/ [R,L]
-
-    RewriteCond %{HTTP:Accept-Language} ^fr [NC]
-    RewriteRule ^$ ${BASE_URL}fr/ [R,L]
-
-    RewriteCond %{HTTP:Accept-Language} ^nb [NC]
-    RewriteRule ^$ ${BASE_URL}nb/ [R,L]
-
-    RewriteCond %{HTTP:Accept-Language} ^sv [NC]
-    RewriteRule ^$ ${BASE_URL}sv/ [R,L]
+    RewriteCond %{HTTP:Accept-Language} ^(da|en|es|fi|fr|nb|sv) [NC]
+    RewriteRule ^$ ${BASE_URL}%1/ [R,L]
 
     # Default locale
     RewriteRule ^$ ${BASE_URL}en/ [R,L]
