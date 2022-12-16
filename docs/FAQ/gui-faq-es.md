@@ -4,55 +4,54 @@ Zonemaster
 1. [¿Qué es Zonemaster?](#q1)
 2. [¿Quién está detrás de Zonemaster?](#q2)
 3. [¿Cómo me puede ayudar Zonemaster?](#q3)
-4. [Zonemaster indica "Error" o "Advertencia" en mi dominio. ¿Qué significa?](#q4)
-5. [¿Cómo puede juzgar Zonemaster qué está bien y qué está mal?](#q5)
-6. [¿Zonemaster utiliza IPv6?](#q6)
-7. [¿Zonemaster entiende DNSSEC?](#q7)
+4. [Zonemaster indica "Error" o "Advertencia" en mi nombre de dominio. ¿Qué significa?](#q4)
+5. [¿Cómo puede Zonemaster distinguir entre qué está bien y qué está mal?](#q5)
+6. [¿Zonemaster soporta IPv6?](#q6)
+7. [¿Zonemaster verifica DNSSEC?](#q7)
 8. [¿Qué hace distinto a Zonemaster de otros software de validación DNS?](#q8)
 9. [Zonemaster y privacidad](#q9)
-10. [¿Por qué no puedo probar mi dominio?](#q10)
+10. [¿Por qué no puedo probar mi nombre de dominio?](#q10)
 11. [¿Qué tipo de consultas genera Zonemaster?](#q11)
 12. [¿Qué es una prueba de dominio no-delegado?](#q12)
-13. [¿Cómo puedo probar una zona reversa con Zonemaster?](#q13)
+13. [¿Puedo probar los registros DS antes de ser publicados?](#q13)
+14. [¿Cómo puedo probar una zona reversa con Zonemaster?](#q14)
 
 Zonemaster
 ----------
 
 <a name="q1"></a>
 #### 1. ¿Qué es Zonemaster?
-Zonemaster es un programa que fue diseñado para ayudar a la gente a revisar,
+Zonemaster es un programa diseñado para ayudar a la gente a revisar,
 medir y ojalá también entender cómo funciona el DNS (Sistema de Nombres de
 Dominio).
 
-Consiste de cuatro partes básicas:
+Consiste de varios componentes:
 
-  1. Motor ("Engine") - una arquitectura de pruebas que soporta toda la funcionalidad para realizar pruebas DNS.
-  2. La interfaz de línea de comandos ("CLI") hacia el Motor.
-  3. Un servidor interno ("Backend"), que permite ejecutar las pruebas de Zonemaster y guardar los resultados, usando una API JSON-RPC y una base de datos.
-  4. GUI - una interfaz web hacia el servidor interno.
+  1. "Engine" (Motor) - una arquitectura de pruebas que soporta toda la funcionalidad para realizar pruebas DNS.
+  2. "CLI" - una interfaz de línea de comandos hacia el Engine.
+  3. "Backend" - un servidor interno que permite ejecutar las pruebas de Zonemaster y guardar los resultados, usando una API JSON-RPC y una base de datos.
+  4. GUI - una interfaz web hacia el Backend.
 
-Cuando un dominio (tal como "zonemaster.net") es enviado a Zonemaster (CLI o
-GUI) este investigará el estado de salud general recorriendo el DNS desde
-su raíz (.), pasando por el TLD (Dominio de Primer Nivel, como .net) hasta
-llegar a los servidores de nombre que mantienen la información específica
-del dominio (zonemaster.net). Las distintas pruebas de sanidad conducidas
-por la herramienta Zonemaster están documentadas en el
-[Documento de Requerimientos de Pruebas](https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md) (en inglés).
+Cuando un nombre de dominio (tal como "zonemaster.net") es enviado a Zonemaster (usando la CLI o
+GUI), este verificará el estado de salud general del nombre de dominio con
+una serie de pruebas. 
+Las distintas pruebas realizadas por Zonemaster están documentadas en el
+documento de [Definición de Casos de Pruebas] (en inglés).
 
 <a name="q2"></a>
 #### 2. ¿Quién está detrás de Zonemaster?
-Zonemaster es un proyecto conjunto entre [Afnic](https://www.afnic.fr/en/)
-(operador del registro para el TLD .fr y varios otros, por ejemplo
+Zonemaster es un proyecto conjunto entre [AFNIC]
+(registro para el TLD .fr y varios otros, por ejemplo
 .re, .pm, .tf, .wf, .yt y .paris) y
-[The Swedish Internet Foundation](https://internetstiftelsen.se/en/)
-(operador del registro de los TLDs .se y .nu).
+[The Swedish Internet Foundation]
+(registro de los TLDs .se y .nu).
 
 <a name="q3"></a>
 #### 3. ¿Cómo me puede ayudar Zonemaster?
 La herramienta Zonemaster está orientada a dos categorías de usuarios:
 
   - Usuarios que entienden bien el protocolo DNS.
-  - Usuarios que solo quieren saber si los dominios que poseen o usan tienen algún problema o no.
+  - Usuarios que solo quieren saber si el nombre de dominio que poseen o usan tiene algún problema.
 
 Los usuarios de la segunda categoría deberían contactar a sus operadores
 DNS tan pronto obtengan resultados distintos a "verde" en cualquiera
@@ -60,119 +59,156 @@ de las pruebas sobre sus nombres de dominio.
 
 <a name="q4"></a>
 #### 4. Zonemaster indica "Error" o "Advertencia" en mi dominio. ¿Qué significa?
-Depende en cuál de las pruebas fallaron en su dominio.
+Depende cuáles de las pruebas fallaron en su dominio. Cada prueba está
+acompañada por uno o más mensajes que describen los problemas encontrados.
+También puede encontrar más detalles de cada prueba en el documento de
+[Definición de Casos de Pruebas] (en inglés).
 
 <a name="q5"></a>
 #### 5. ¿Cómo puede juzgar Zonemaster qué está bien y qué está mal?
-No existe un juicio final sobre la salud de un dominio que pueda ser
-certificada por cualquiera. Las personas detrás de Zonemaster no pueden
-asegurar que la herramienta esté correcta en todos sus detalles. A veces
-las opiniones difieren. Hemos hecho los mejores esfuerzos en este proyecto
-para crear reglas por defecto que atrapen los errores más evidentes.
-Esperamos que sea un buen compromiso entre un error que sea potencialmente
-peligroso y los que puedan ser vistos simplemente como un aviso o una
-advertencia. La ventaja especial de esta herramienta es que cada uno
-puede crear sus propias reglas ajustadas a su propia necesidad, agregarlas
-a un directorio, e indicar a la herramienta que use esas reglas al
-ejecutar las pruebas.
-Pero tal como muchas cosas que evolucionan como el DNS, la situación es
-cambiante en el tiempo, y lo que es un aviso hoy puede ser un error
-mañana. Si realmente crees que hemos cometido un error en nuestro
-juicio, por favor no dudes en enviarnos un email a 
-[zonemaster-users@lists.iis.se](mailto:zonemaster-users@lists.iis.se)
-(lista de correo moderada) con un enlace a tu prueba y una explicación
-por qué crees que muestra algo que consideres incorrecto.
+El criterio de Zonemaster se basa principalmente en los estándares
+DNS definidos en los [RFCs]. También basa su criterio en las mejores
+prácticas del DNS, que pueden ser definiciones un poco más vagas.
+Todas las pruebas de Zonemaster están definidas en el
+[Documento de Requerimientos de Pruebas] y [Definición de Casos de Pruebas]
+(ambos en inglés), donde se encuentran las referencias a los documentos
+de estándar relevantes para cada caso.
+
+Las descripciones de los niveles de mensaje, como *información*, *advertencia*
+y *error* se encuentran en [Definiciones de Nivel de Gravedad] (en inglés).
+￼
+A veces hay distintas interpretaciones de los estándares, u opiniones
+de lo que es una buena práctica, y el equipo de Zonemaster siempre
+está abierto a sugerencias. Si crees que hemos cometido un error de
+criterio, por favor no dudes en enviarnos un email a
+[zonemaster-users@lists.iis.se] (lista de correo moderada) con un enlace
+al resultado de tu prueba y una explicación por qué crees que muestra
+algo que consideres incorrecto.
+
 
 <a name="q6"></a>
-#### 6. ¿Zonemaster utiliza IPv6?
-Sí, por supuesto. Todas las pruebas que se ejecutan sobre IPv4 también
-se ejecutan sobre IPv6, si es que Zonemaster fue configurado para hacerlo.
+#### 6. ¿Zonemaster soporta IPv6?
+Sí.
+Por defecto Zonemaster consultará a los servidores de nombre usando
+IPv4 e IPv6, a menos que sea configurado explícitamente de otra forma.
+Esta configuración se encuentra en el botón "Opciones".
 
 <a name="q7"></a>
-#### 7. ¿Zonemaster entiende DNSSEC?
-Sí, en caso que un dominio que esté en prueba por Zonemaster tenga
+#### 7. ¿Zonemaster verifica DNSSEC?
+Sí.
+En caso que un nombre de dominio que esté en prueba por Zonemaster tenga
 soporte DNSSEC, será revisado automáticamente.
 
 <a name="q8"></a>
 #### 8. ¿Qué hace distinto a Zonemaster de otros software de validación DNS?
 Primero que todo, Zonemaster guarda toda la historia de pruebas anteriores
 basadas en el nombre del dominio probado, de tal forma que puedes ir hacia atrás
-a una prueba que hiciste hace una semana, y compararla con la prueba
+a una prueba que hiciste hace un tiempo, y compararla con la prueba
 que acabas de hacer hace unos momentos.
 
-Todas las pruebas que ejecuta Zonemaster son definidas en especificaciones
-de casos de prueba que están enlazadas desde el
-[Documento de Requerimientos de Pruebas](https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md) (en inglés).
+En segundo lugar, todas las pruebas que ejecuta Zonemaster son definidas en Especificaciones
+de Casos de Prueba que están enlazadas desde el documento
+[Definición de Casos de Pruebas] (en inglés).
 
-Zonemaster puede ser utilizado para probar dominios no-delegados. Más
-información sobre dominios no-delegados en la [Pregunta 12](#q12).
+En tercer lugar, Zonemaster puede ser utilizado para probar dominios no-delegados. Más
+información sobre dominios no-delegados en la [Pregunta 12].
+
+En cuarto lugar, Zonemaster puede usarse para probar registros DS antes
+de ser publicados en la zona padre (lo que es necesario para habilitar
+DNSSEC en una zona firmada). Ver la [Pregunta 13].
 
 Por último, esta versión de código abierto de Zonemaster fue construida
-usando código modular, lo que básicamente significa que puedes usar
-partes del software en tus propios sistemas, si así lo quisieras. Es
-muy raro que quieras instalar el programa completo para sólo probar redelegaciones
-de ejemplo.
+usando código modular, lo que básicamente significa que puedes integrar
+partes del software en tus propios sistemas, si así lo quisieras.
+Por ejemplo, es muy raro que quieras instalar un programa completo para
+sólo probar redelegaciones.
 
 <a name="q9"></a>
 #### 9. Zonemaster y privacidad
-Dado que Zonemaster es abierto a todos, es posible que cualquiera pueda
-probar tu dominio y también ver pruebas anteriores. Sin embargo, no hay
-forma de saber quién ejecutó una prueba en específico, ya que nada se
-registra en nuestros sistemas, salvo el momento en que se ejecutó.
+Dado que [Zonemaster.net] es abierto a todos, es posible que cualquiera pueda
+probar tu dominio y ver la historia de pruebas anteriores. Sin embargo, no hay
+forma de saber quién ejecutó una prueba en específico, ya que solo se
+almacena los parámetros de la prueba y sus resultados.
+En específico, no se almacenan ni las cookies ni la dirección IP del
+usuario. El usuario que inició la prueba no puede ser rastreado usando
+la información de la base de datos.
 
 <a name="q10"></a>
-#### 10. ¿Por qué no puedo probar mi dominio?
-Si descartamos la situación donde el dominio no existe, como los casos
-cuando ingresas un dominio no registrado en Zonemaster, hay dos otras
-posibilidades:
-  - Para proteger al sistema de entradas múltiples idénticas, como cuando
-    desde la misma dirección IP se pide revisar la misma zona varias veces,
-    existe una demora de 5 minutos entre pruebas idénticas subsecuentes.
-    Esto quiere decir que solo puedes probar el mismo dominio una vez cada
-    5 minutos, y si lo intentas hacer de nuevo antes de los 5 minutos del
-    último resultado, se mostrará el último resultado disponible.
-  - Debido a que Zonemaster fue hecho para revisar dominios o zonas DNS
-    (como zonemaster.net) y no para máquinas (hosts) dentro de un dominio
-    (como www.zonemaster.net), Zonemaster indicará una falla si
-    intentas probar un nombre de máquina (host) en vez de un nombre de
-    dominio que calce con una zona DNS.
+#### 10. ¿Por qué no puedo probar mi nombre de dominio?
+Puede haber varias posibilidades:
+
+- Su nombre de dominio aún no está delegado.
+- Su nombre de dominio no es alcanzable desde la Internet pública.
+- Zonemaster solo puede probar una zona DNS (por ej. 'zonemaster.net')
+y no nombres de host (por ej. 'www.zonemaster.net').
+- Existe una protección de 10 minutos entre pruebas consecutivas por
+un nombre de dominio determinado (con los mismos parámetros de pruebas).
+Al ejecutar una prueba dentro de esa ventana de tiempo, se mostrará
+el último resultado que se se obtuvo para ese nombre de dominio (con
+los mismos parámetros).
+- Ha escrito mal su nombre de dominio.
 
 <a name="q11"></a>
 #### 11. ¿Qué tipo de consultas genera Zonemaster?
 Zonemaster envía múltiples consultas DNS a los servidores de nombre que
-hospedan al nombre de dominio, y también a los servidores de nombre que
-hospedan la zona padre del nombre de dominio.
+hospedan al nombre de dominio que se está probando, y también a los
+servidores de nombre que hospedan la zona padre del nombre de dominio.
 
-Para tener una vista completa de qué consultas y respuestas se generan,
-puedes ejecutar una prueba con la interfaz de comandos (CLI) y seleccionar
-la salida completa (para esto necesitarás descargar e instalar el paquete
-completo de Zonemaster). La salida de la herramienta CLI es bastante
-técnica, así que a menos que estés acostumbrado a información de bajo
-nivel de bits y bytes, es mejor saltarse esta etapa.
+La interfaz gráfica (GUI) de Zonemaster no muestra ninguna de las
+consultas que envía, solo la interfaz CLI lo puede hacer. Si quiere
+ver esas consultas, deberá instalar localmente una instancia con
+funcionamiento mínimo de los componentes Engine y CLI (hay una imagen
+Docker disponible). Las consultas enviadas pueden mostrarse usando
+la opción de nivel 'DEBUG'. Le advertimos que la salida del CLI
+puede ser bastante compleja. Para más información ver [Usando la CLI]
+(en inglés).
 
 <a name="q12"></a>
 #### 12. ¿Qué es una prueba de dominio no-delegado?]
-Una prueba de dominio no-delegado es una prueba ejecutada sobre un dominio
-que puede o no estar completamente publicado en el DNS. Esto es muy útil
+Una prueba de dominio no-delegado es una prueba ejecutada sobre un nombre
+de dominio que puede o no estar completamente publicado en el DNS.
+Esto es muy útil
 cuando uno quiere mover un nombre de dominio desde un registrador a otro,
 por ejemplo al mover la zona example.com desde el servidor de nombres
 "ns.example.com" al servidor "ns.example.org". En este escenario, uno
 podría ejecutar una prueba de dominio no-delegado indicando la zona
-(example.com) y el servidor de nombres futuro al cual vas a mover el
-dominio (ns.example.org) *antes* de que muevas el dominio. Cuando obtengas
-los resultados de las pruebas en verde uno puede estar suficientemente
+(example.com) y el servidor de nombres futuro al cual va a mover el
+dominio (ns.example.org) *antes* de que muevas el dominio. Cuando obtenga
+los resultados de las pruebas en verde, uno puede estar suficientemente
 seguro que la nueva ubicación del dominio está funcionando correctamente.
 Sin embargo, puede haber otros problemas en los datos de la zona en
-sí mismos que esta prueba ignora.
+sí misma, que esta prueba ignora.
 
 <a name="q13"></a>
-#### 13. ¿Cómo puedo probar una zona reversa con Zonemaster?
+#### 13. ¿Puedo probar los registros DS antes de ser publicados?</a>
+Sí.
+Puede utilizar el botón "Opciones" y agregar ahí los registros
+"Delegation Signer" (DS) que quiera probar. Zonemaster los usará
+de la misma forma que si hubieran sido obtenidos desde la zona
+padre.
+
+<a name="q14">i</a>
+#### 14. ¿Cómo puedo probar una zona reversa con Zonemaster?
 Para revisar una zona "reversa" (también llamada "inversa") con Zonemaster,
-lo primero que necesitas es saber qué zona reversa es. Si quieres probar
-la zona reversa, es necesario ingresarla con el formato que tiene en el
-DNS, por ejemplo:
+lo primero que necesitas es saber qué zona reversa es, e ingresarla en
+el formato que tiene en el DNS.
+Una zona reversa se obtiene dando vuelta una dirección IP y agregándole
+un sufijo. Las direcciones IPv4 usan el sufijo "in-addr.arpa", mientras
+que las direcciones IPv6 usan "ip6.arpa".
 
-  - 3.2.1.in-addr.arpa
-  - 6.0.1.0.0.2.ip6.arpa
+Ejemplos:
+  - Para el prefijo IPv4 '198.51.100.0/24': 100.51.198.in-addr.arpa
+  - Para el prefijo IPv6 '2001:db8::/32': 8.b.d.0.1.0.0.2.ip6.arpa
 
 
+[AFNIC]:                                   https://www.afnic.fr/en/
+[Documento de Requerimientos de Pruebas]:  https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
+[Definición de Casos de Pruebas]:          https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
+[Pregunta 12]:                             #q12
+[Pregunta 13]:                             #q13
+[RFCs]:                                    https://www.ietf.org/standards/rfcs/
+[Definiciones de Nivel de Gravedad]:       https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
+[The Swedish Internet Foundation]:         https://internetstiftelsen.se/en/
+[Usando La CLI]:                           https://github.com/zonemaster/zonemaster-cli/blob/master/USING.md
+[Zonemaster.net]:                          https://zonemaster.net/
+[zonemaster-users@lists.iis.se]:           mailto:zonemaster-users@lists.iis.se
