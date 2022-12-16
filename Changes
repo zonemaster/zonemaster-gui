@@ -1,7 +1,38 @@
-Release history for Zonemaster component Zonemaster-GUI 
+Release history for Zonemaster component Zonemaster-GUI
 
 
-v3.6.1 2021-07-08 (public fix version)
+v4.0.0 2022-12-19 (public release version)
+
+ [Status]
+ - This version of Zonemaster-GUI requires Zonemaster-Backend
+   version v10.0.0 or higher.
+
+ [Features]
+ - Improves domain test form (#364)
+ - Provides a better look and feel while browsing the results
+   of a test (#341)
+ - Forces footer to the viewport's bottom (#365)
+ - Uses a drop down menu to select between languages (#337)
+ - Updates the English FAQ (#347)
+ - Makes it possible to perform a test through the URL
+   directly (#334, #339, #335)
+ - Upgrades to new version of angular and bootstrap with new
+   handling of language setting and translation (#349, #375)
+
+ [Fixes]
+ - Updates translations (#373, #370, #360, #354)
+ - Fixes notifications behaviour (#369)
+ - Updates the license wording to unify with the other
+   repositories (#367)
+ - Adds license file to distribution zip file (#368, #366)
+ - Updates Zonemaster and DNS descriptive texts (#346)
+ - Gives better keyboard navigation (#342)
+ - Updates all FAQs (#336)
+ - Fixes FAQ links when serving from custom base (#331)
+ - Fixes the logo customization key name in documentation (#332)
+
+
+v3.6.1 2022-07-08 (public fix version)
 
  [Status]
  - This fix version does not change anything in the installed GUI besides
@@ -12,7 +43,7 @@ v3.6.1 2021-07-08 (public fix version)
  - Adds missing installation instructions for CentOS Linux 7 (#325)
 
 
-v3.6.0 2021-06-10 (public release version)
+v3.6.0 2022-06-10 (public release version)
 
  [Status]
  - This version of Zonemaster-GUI only works with Zonemaster-Backend
