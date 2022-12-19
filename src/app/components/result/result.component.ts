@@ -1,9 +1,8 @@
-import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy, Inject, LOCALE_ID } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { saveAs } from 'file-saver';
-import { combineLatest, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { DnsCheckService } from '../../services/dns-check.service';
 import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
@@ -17,7 +16,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class ResultComponent implements OnInit, OnDestroy {
 
-  @Input('resultID') resultID: string;
+  @Input('testId') testId: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
 
@@ -25,21 +24,26 @@ export class ResultComponent implements OnInit, OnDestroy {
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
   public result = [];
   public modules: any;
-  public module_items: any = {};
-  public modulesKeys;
+  public severity_icons = {
+    'info': 'fa-check',
+    'notice': 'fa-exclamation',
+    'warning': 'fa-exclamation-triangle',
+    'error': 'fa-times-circle',
+    'critical': 'fa-times-circle'
+  }
   public searchQueryLength = 0;
   public test: any = {params: {ipv4: false, ipv6: false}};
   public isCollapsed = [];
-  public ns_list;
-  public ds_list;
-  public level_items = {
-    info: [],
-    notice: [],
-    warning: [],
-    error: [],
-    critical: [],
+  public testCasesCount = {
+    all: 0,
+    info: 0,
+    notice: 0,
+    warning: 0,
+    error: 0,
+    critical: 0,
   };
-  public result_filter = {
+  public testCasesCountByModule = {};
+  public resultFilter = {
     all: true,
     info: false,
     notice: false,
@@ -48,60 +52,49 @@ export class ResultComponent implements OnInit, OnDestroy {
     critical: false,
     search: ''
   };
+  public severityLevels = {
+    info: 0,
+    notice: 1,
+    warning: 2,
+    error: 3,
+    critical: 4,
+  };
+  public testCaseDescriptions = {};
   public historyQuery: object;
   public history: any[];
-  public language: string;
   public navHeight: Number;
-  private levelSeverity = ['INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL'];
   private header = ['Module', 'Level', 'Message'];
   private navHeightSubscription: Subscription;
 
-  private langChangeSubscription: Subscription;
   private routeParamsSubscription: Subscription;
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private modalService: NgbModal,
               private alertService: AlertService,
-              public translateService: TranslateService,
               private dnsCheckService: DnsCheckService,
               private navigationService: NavigationService,
               private location: Location,
-              private titleService: Title) {
+              private titleService: Title,
+              @Inject(LOCALE_ID) private language: string) {
 
     let data = this.router.getCurrentNavigation().extras.state || {};
     this.displayForm = data.displayForm === undefined ? false : data.displayForm;
-
-    // When redirected from the domain check page we display the notification here as the other component has been destroyed
-    if (this.displayForm) {
-      this.translateService.get(`Domain checked completed`).subscribe((res: string) => {
-        this.alertService.success(res);
-      });
-    }
   }
 
   ngOnInit() {
-    this.language = this.translateService.currentLang;
-    console.log(this.resultID);
-
     this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
-      this.resultID = params['resultID'];
-      this.displayResult(this.resultID, this.language);
+      this.testId = params['testId'];
+      this.fetchResult(this.testId);
     });
 
     this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: Number) => {
       this.navHeight = newHeight;
     });
-
-    this.langChangeSubscription = this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.displayResult(this.resultID, event.lang, false);
-      this.language = event.lang;
-    });
   }
 
   ngOnDestroy() {
     this.navHeightSubscription.unsubscribe();
-    this.langChangeSubscription.unsubscribe();
 
     if (this.routeParamsSubscription) {
       this.routeParamsSubscription.unsubscribe();
@@ -116,6 +109,30 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
   }
 
+  public onCallapsableKeyDownEvent(event, testCaseId) {
+    switch (event.key) {
+      case 'Enter':
+        this.isCollapsed[testCaseId] = !this.isCollapsed[testCaseId];
+        break;
+    }
+  }
+
+  public onModuleKeyDownEvent(event, moduleKey) {
+    switch (event.key) {
+      case 'Enter':
+        this.isCollapsed[moduleKey] = !this.isCollapsed[moduleKey];
+        break;
+    }
+  }
+
+  public onFilterLevelKeyDownEvent(event, level) {
+    switch (event.key) {
+      case 'Enter':
+        this.togglePillFilter(level);
+        break;
+    }
+  }
+
   public moduleCollapsed(headerRef) {
     let headerRect = headerRef.getBoundingClientRect();
 
@@ -125,78 +142,138 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
-   private displayResult(domainCheckId: string, language: string, resetCollapsed = true) {
-     this.dnsCheckService.getTestResults({id: domainCheckId, language}).then(data => {
+  private fetchResult(testId: string, resetCollapsed = true) {
+    this.dnsCheckService.getTestResults(testId).then(data => {
       // TODO clean
 
       this.test = {
         id: data['hash_id'],
         creation_time: new Date(data['created_at']),
-        location: document.location.origin + this.location.prepareExternalUrl(`/result/${domainCheckId}`)
+        location: document.location.origin + this.location.prepareExternalUrl(`/result/${testId}`)
       };
 
       this.historyQuery = data['params'];
-
       this.result = data['results'];
-
-      this.setItemsColors(this.result);
-      this.setModulesColors(data['results']);
-
-      this.modulesKeys = Object.keys(this.modules);
-
-      for (let moduleName of this.modulesKeys) {
-        if (resetCollapsed || !(moduleName in this.isCollapsed)) {
-          this.isCollapsed[moduleName] = true;
-        }
-        this.module_items[moduleName] = [];
-      }
-
-      for (const item of data['results']) {
-        this.module_items[item.module].push(item);
-      }
-
-      this.level_items = {
-        info: [],
-        notice: [],
-        warning: [],
-        error: [],
-        critical: [],
-      };
-      for (const item of data['results']) {
-        this.level_items[item['level'].toLowerCase()].push(item);
-      }
-
-      for (const module in this.module_items) {
-        this.module_items[module].sort((msg1, msg2) => {
-          // sort messages by descending severity level
-          return this.levelSeverity.indexOf(msg2.level) - this.levelSeverity.indexOf(msg1.level);
-        })
-      }
-
       this.form = data['params'];
-      this.ns_list = data['ns_list'];
-      this.ds_list = data['ds_list'];
+      this.testCaseDescriptions = data['testcase_descriptions'];
+
+      this.testCasesCount = this.displayResult(this.result, resetCollapsed);
+
+      this.testCasesCountByModule = {};
+
+      for (const module of this.modules) {
+        const levels = {};
+        for (const testcase of module.testcases) {
+          const level = testcase.level;
+
+          if (!(level in levels)) {
+            levels[level] = 0;
+          }
+
+          levels[level] ++;
+        }
+
+        this.testCasesCountByModule[module.name] = Object.entries(this.severityLevels).sort(([, numLevel1], [_, numLevel2]) => numLevel2 - numLevel1)
+          .filter(([levelId, _]) => levelId in levels)
+          .map(([levelId, _]) => {
+            return {
+              name: levelId,
+              value: levels[levelId]
+            }
+          });
+      }
 
       this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
     }, error => {
-      this.translateService.get('No data for this test').subscribe((res: string) => {
-        this.alertService.error(res)
-      });
+      this.alertService.error($localize `No data for this test.`)
     });
+  }
+
+  private displayResult(results: Array<Object>, resetCollapsed: boolean) {
+    const testCasesCount = {
+      'all': 0,
+      'info': 0,
+      'notice': 0,
+      'warning': 0,
+      'error': 0,
+      'critical': 0,
+    }
+
+    this.modules = [];
+    const modulesMap = {};
+
+    for (const entry of results) {
+      const currentModule = entry['module'];
+      const currentTestcase = entry['testcase'];
+      const currentLevel = entry['level'].toLowerCase();
+      const numLevel = this.severityLevels[currentLevel];
+
+      entry['level'] = currentLevel;
+
+      if (!(currentModule in modulesMap)) {
+        modulesMap[currentModule] = {name: currentModule, testcases: [], testcasesMap: {}}
+
+        this.modules.push(modulesMap[currentModule]);
+      }
+
+      if (!(currentTestcase in modulesMap[currentModule].testcasesMap)) {
+        modulesMap[currentModule].testcasesMap[currentTestcase] = {
+          id: currentTestcase,
+          entries: [],
+          level: 'info'
+        }
+
+        modulesMap[currentModule].testcases.push(modulesMap[currentModule].testcasesMap[currentTestcase]);
+
+        if (resetCollapsed || !(currentTestcase in this.isCollapsed)) {
+          this.isCollapsed[currentTestcase] = true;
+          this.isCollapsed[currentModule] = true;
+        }
+      }
+
+      modulesMap[currentModule].testcasesMap[currentTestcase].entries.push(entry);
+
+      if (numLevel > this.severityLevels[modulesMap[currentModule].testcasesMap[currentTestcase].level]) {
+        modulesMap[currentModule].testcasesMap[currentTestcase].level = currentLevel;
+      }
+    }
+
+    for (const module in modulesMap) {
+      modulesMap[module].testcases.sort((testcase1, testcase2) => {
+        // sort messages by descending severity level, unspecified messages always on top
+        if (testcase1.id == 'UNSPECIFIED') {
+          return 1;
+        }
+        if (testcase2.id == 'UNSPECIFIED') {
+          return 1;
+        }
+        return this.severityLevels[testcase2.level] - this.severityLevels[testcase1.level];
+      })
+      for (const testcase in modulesMap[module].testcasesMap) {
+        const level = modulesMap[module].testcasesMap[testcase].level;
+
+        testCasesCount[level] ++;
+        testCasesCount['all'] ++;
+        modulesMap[module].testcasesMap[testcase].entries.sort((msg1, msg2) => {
+          // sort messages by descending severity level
+          return this.severityLevels[msg2.level] - this.severityLevels[msg1.level];
+        })
+      }
+    }
+
+    this.isCollapsed['UNSPECIFIED'] = false;
+
+    return testCasesCount;
   }
 
   public getHistory() {
     if (!this.history) {
-      this.translateService.get('History information request is in progress').subscribe((res: string) => {
-        this.alertService.info(res);
-      });
+      this.alertService.info($localize `History information request is in progress.`);
 
       this.dnsCheckService.getTestHistory(this.historyQuery).then(data => {
         this.history = data as any[];
         if (this.history.length === 0) {
-          this.translateService.get('No result for this query').subscribe((res: string) => {
-            this.alertService.info(res);
-          });
+          this.alertService.info($localize `No previous tests found for this domain.`);
         } else {
           this.openModal(this.historyModal);
         }
@@ -219,84 +296,80 @@ export class ResultComponent implements OnInit, OnDestroy {
   }
 
   public exportHTML() {
+    let tbodyContent = '';
+    for (let item of this.result) {
+      tbodyContent += `
+        <tr>
+          <td>${item.module}</td>
+          <td>${item.level}</td>
+          <td>${item.message}</td>
+        </tr>
+      `;
+    }
 
-    combineLatest([...this.header.map(s => this.translateService.get(s))])
-      .subscribe(([moduleStr, levelStr, messageStr]) => {
-        let tbodyContent = '';
-        for (let item of this.result) {
-          tbodyContent += `
-            <tr>
-              <td>${item.module}</td>
-              <td>${item.level}</td>
-              <td>${item.message}</td>
-            </tr>
-          `;
-        }
+    const result = `
+      <!doctype html>
+      <html lang="${this.language}">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+          <title>${this.form.domain} • Zonemaster Test Result</title>
+          <style>
+            th,td {
+              text-align: left;
+              font-weight: normal;
+              padding: 0.75rem;
+            }
+            thead {
+              background-color: #212529;
+              color: #fff;
+            }
+            body td {
+              border-top: 1px solid #dee2e6;
+            }
+            body {
+              color: #212529;
+              font-family: sans;
+              margin-left: 20px;
+            }
+            table {
+              border: none;
+            }
+            tbody tr:nth-child(odd) {
+              background-color: rgba(0,0,0,.05);
+            }
+            h2 {
+              font-weight: normal;
+              font-size: 2rem;
+              margin: .5rem 0;
+            }
+          </style>
+        </head>
+        <body>
+          <header>
+            <h2>${this.form.domain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
+          </header>
+          <table cellspacing="0" cellpadding="0">
+            <thead>
+              <tr>
+                <th scope="col">${$localize `Module`}</th>
+                <th scope="col">${$localize `Level`}</th>
+                <th scope="col">${$localize `Message`}</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${tbodyContent}
+            </tbody>
+          </table>
+        </body>
+      </html>
+    `;
 
-        const result = `
-          <!doctype html>
-          <html lang="${this.language}">
-            <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-              <title>${this.form.domain} • Zonemaster Test Result</title>
-              <style>
-                th,td {
-                  text-align: left;
-                  font-weight: normal;
-                  padding: 0.75rem;
-                }
-                thead {
-                  background-color: #212529;
-                  color: #fff;
-                }
-                body td {
-                  border-top: 1px solid #dee2e6;
-                }
-                body {
-                  color: #212529;
-                  font-family: sans;
-                  margin-left: 20px;
-                }
-                table {
-                  border: none;
-                }
-                tbody tr:nth-child(odd) {
-                  background-color: rgba(0,0,0,.05);
-                }
-                h2 {
-                  font-weight: normal;
-                  font-size: 2rem;
-                  margin: .5rem 0;
-                }
-              </style>
-            </head>
-            <body>
-              <header>
-               <h2>${this.form.domain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
-              </header>
-              <table cellspacing="0" cellpadding="0">
-                <thead>
-                  <tr>
-                    <th scope="col">${moduleStr}</th>
-                    <th scope="col">${levelStr}</th>
-                    <th scope="col">${messageStr}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${tbodyContent}
-                </tbody>
-              </table>
-            </body>
-          </html>
-        `;
+    const blob = new Blob([result], {
+      type: 'text/html;charset=utf-8'
+    });
 
-        const blob = new Blob([result], {
-          type: 'text/html;charset=utf-8'
-        });
-
-        saveAs(blob, this.exportedName('html'));
-      });
+    saveAs(blob, this.exportedName('html'));
   }
 
   public exportText() {
@@ -348,51 +421,52 @@ export class ResultComponent implements OnInit, OnDestroy {
     return str;
   }
 
-  private setItemsColors(data): void {
-    for (const item in data) {
-      if (['WARNING'].includes(this.result[item].level)) {
-        this.result[item].color = this.result[item].level.toLowerCase();
-      } else if (['ERROR', 'CRITICAL'].includes(this.result[item].level)) {
-        this.result[item].color = 'danger';
-      } else if (['NOTICE'].includes(this.result[item].level)) {
-        this.result[item].color = 'success';
-      } else {
-        this.result[item].color = '';
-      }
-    }
-  }
-
-  public setModulesColors(result): void {
-      this.modules =  result.reduce((modules, item) => {
-      if (typeof modules[item.module] === 'undefined') {
-        modules[item.module] = '';
-      }
-
-      const itemLevel = this.levelSeverity.indexOf(item.level);
-      const moduleLevel = this.levelSeverity.indexOf(modules[item.module]);
-      const maxLevel = Math.max(moduleLevel, itemLevel);
-      modules[item.module] = this.levelSeverity[maxLevel];
-      return modules;
-    }, {});
-  }
-
-
   public togglePillFilter(name) {
-    this.result_filter[name] = !this.result_filter[name];
-    const atLeastOneActive = Object.keys(this.result_filter).slice(1, -1).filter(el => this.result_filter[el]);
+    this.resultFilter[name] = !this.resultFilter[name];
+    const atLeastOneActive = Object.keys(this.resultFilter).slice(1, -1).filter(el => this.resultFilter[el]);
     this.searchQueryLength = atLeastOneActive.length;
 
     if (atLeastOneActive.length < 1) {
-      this.result_filter['all'] = true;
+      this.resultFilter['all'] = true;
     } else if (name === 'all') {
-      for (const index of Object.keys(this.result_filter).slice(1, -1)) {
-        this.result_filter[index] = false;
+      for (const index of Object.keys(this.resultFilter).slice(1, -1)) {
+        this.resultFilter[index] = false;
       }
-      this.result_filter['all'] = true;
+      this.resultFilter['all'] = true;
       this.searchQueryLength = -1;
     } else {
-      this.result_filter['all'] = false;
+      this.resultFilter['all'] = false;
     }
+
+    this.filterResults()
+  }
+
+  public filterResults() {
+    const filteredResults = this.filterResultsSearch(
+      this.filterResultsLevel(this.result, this.resultFilter),
+      this.resultFilter['search']
+    );
+    this.displayResult(filteredResults, false);
+  }
+
+  private filterResultsLevel(results: any[], levelFilter: Object) {
+    if (levelFilter['all']) {
+      return results;
+    } else {
+      const levels = Object.entries(levelFilter)
+        .filter(([_key, value]) => value === true)
+        .map(([key, _value]) => key);
+
+      return results.filter(entry => levels.includes(entry.level.toLowerCase()));
+    }
+  }
+
+  private filterResultsSearch(results: any[], query: string) {
+    if (!query) {
+      return results;
+    }
+    const queryLower = query.toLocaleLowerCase()
+    return results.filter(entry => entry.message.toLowerCase().includes(queryLower));
   }
 
   // inspired from

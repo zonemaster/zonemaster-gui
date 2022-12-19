@@ -4,15 +4,15 @@ export function goToHome(page) {
 
 export function setLang(page, lang) {
   return Promise.all([
-    page.waitForSelector(`.lang > div > a.selected[lang="${lang}"]`),
-    page.locator(`.lang > div > a[lang="${lang}"]`).click(),
+    page.waitForSelector('select#languageSelection'),
+    page.locator('select#languageSelection').selectOption(lang),
   ]);
 }
 
 export async function showOptions(page) {
-  const showOptionCheckbox = page.locator('#advanced_checkbox');
-  if (!(await showOptionCheckbox.isChecked())) {
-    return page.locator('.switch').click();
+  const showOptionSwitch = page.locator('#advanced-toggle');
+  if ((await showOptionSwitch.getAttribute('aria-expanded')) === 'false' ) {
+    return showOptionSwitch.click();
   }
 }
 

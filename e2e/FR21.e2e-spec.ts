@@ -18,7 +18,7 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
 
   test('should display summary',  async () => {
     await expect(page.locator('.progress-bar')).toBeHidden();
-    await page.locator('#domain_check_name').type('results.afNiC.Fr');
+    await page.locator('#input_domain_form').type('results.afNiC.Fr');
     await page.locator('div button.launch').click();
 
     await expect(page.locator('div.result.container')).toBeVisible({ timeout: 10000 });
@@ -34,7 +34,7 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
   });
 
   test('should display number of each level',  async () => {
-    const expectedCounts = ['123', '118', '4', '0', '1', '0'];
+    const expectedCounts = ['52', '49', '3', '0', '0', '0'];
     const messageCountBadges = page.locator('.nav.nav-pills.vertical-align.filter > li > a > span.badge');
 
     for (const idx in expectedCounts) {
@@ -48,6 +48,10 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
     for (const idx of [1, 2, 3, 4, 5]) {
       await filterButtons.nth(idx).click();
     }
+
+    // wait for .2 second (color transition)
+    await page.waitForTimeout(200);
+
 
     expect(await page.screenshot()).toMatchSnapshot('results.png');
   });

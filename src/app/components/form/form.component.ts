@@ -7,8 +7,9 @@ import {
   Validators,
   AbstractControl} from '@angular/forms';
 import { Title } from '@angular/platform-browser';
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AlertService } from '../../services/alert.service';
 
 
 @Component({
@@ -17,13 +18,13 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() is_advanced_options_enabled;
-  @Input() domain_check_progression;
+  @Input() isAdvancedOptionEnabled = false;
+  @Input() formProgression;
   @Input() toggleFinished;
   @Input() profiles;
 
-  @Output() onDomainCheck = new EventEmitter<object>();
-  @Output() onfetchFromParent = new EventEmitter<string>();
+  @Output() onRunTest = new EventEmitter<object>();
+  @Output() onFetchDataFromParent = new EventEmitter<[string, string]>();
   @Output() onOpenOptions = new EventEmitter<boolean>();
 
   private formConfig = {
@@ -49,23 +50,30 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   };
 
   private _showProgressBar: boolean;
-  private langChangeSubscription: Subscription;
+
+  private routeParamsSubscription: Subscription;
 
   public history = {};
   public test = {};
   public disable_check_button = false;
   public form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private translateService: TranslateService, private titleService: Title) {}
+  constructor(private activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private titleService: Title,
+    private alertService: AlertService) {}
 
   ngOnInit() {
-    this.langChangeSubscription = this.translateService.onLangChange.subscribe((_: LangChangeEvent) => {
-      if (this.form.touched) {
-        this.runDomainCheck(false);
+    this.titleService.setTitle('Zonemaster');
+    this.generateForm();
+
+    this.routeParamsSubscription = this.activatedRoute.params.subscribe((params: Params) => {
+      if ( params['domain'] ) {
+        let domainName: string = params['domain'];
+        this.form.controls.domain.setValue(domainName);
+        this.submitRunTest();
       }
     });
-    this.generate_form();
-    this.titleService.setTitle('Zonemaster');
   }
 
   ngOnChanges(changes: { [property: string]: SimpleChange }) {
@@ -75,7 +83,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.langChangeSubscription.unsubscribe();
+    this.routeParamsSubscription.unsubscribe();
   }
 
   private static atLeastOneProtocolValidator(control: AbstractControl) {
@@ -122,7 +130,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return  null;
   };
 
-  public generate_form() {
+  private generateFormRunTest() {
     this.form = new FormGroup({
       domain: new FormControl('', Validators.required),
       disable_ipv4: new FormControl(false),
@@ -138,22 +146,38 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     this.addNewRow('ds_info');
   }
 
+  public generateForm() {
+    this.generateFormRunTest();
+  }
+
   get domain() { return this.form.get('domain'); }
 
   @Input()
-  set parentData(data: object) {
-    this.disable_check_button = false;
-    if (this.form) {
-      this.deleteRow('nameservers', -1);
-      data['ns_list'].forEach(ns => {
-        this.addNewRow('nameservers', ns);
-      });
+  set parentDataDS(dsList) {
+    this.setParentData(dsList, 'ds_info');
+  }
 
-      this.deleteRow('ds_info', -1);
-      data['ds_list'].forEach(digest => {
-        this.addNewRow('ds_info', digest);
-      });
+  @Input()
+  set parentDataNS(nsList) {
+    this.setParentData(nsList, 'nameservers');
+  }
+
+  private setParentData(dataList: Array<Object>, formName: string) {
+    if (this.form) {
+      this.disableForm(false);
+
+      this.deleteRow(formName, -1);
+      if (dataList.length == 0) {
+        this.addNewRow(formName);
+        this.alertService.warn($localize `No data found for the zone.`);
+      } else {
+        dataList.forEach(row => {
+          this.addNewRow(formName, row);
+        });
+        this.alertService.success($localize `Parent data fetched with success.`);
+      }
     }
+
   }
 
   @Input()
@@ -161,7 +185,9 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     if (!errors) {
       return;
     }
-    this.disable_check_button = false;
+
+    this.disableForm(false);
+
     for (let error of errors) {
       let path = error.path.split('/');
       path.shift(); // First element is ""
@@ -184,12 +210,12 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     return this._showProgressBar;
   }
 
-  public resetDomainForm() {
+  public resetForm() {
     this.form.controls.domain.reset('');
   }
 
   public resetFullForm() {
-    this.generate_form();
+    this.generateForm();
   }
 
   public addNewRow(formName, value = null) {
@@ -216,22 +242,21 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  private displayDataFromParent() {
+  private fetchDataFromParent(type) {
     this.domain.markAsTouched();
     if (this.domain.invalid) {
       return false;
     }
+    this.disableForm();
 
-    this.disable_check_button = true;
-    this.onfetchFromParent.emit(this.form.value.domain);
+    this.onFetchDataFromParent.emit([type, this.form.value.domain]);
   }
 
-  private disableForm(disable = true) {
-    this.disable_check_button = disable;
+  public disableForm(disable = true) {
     if (disable) {
-      this.domain.disable();
+      this.form.disable();
     } else {
-      this.domain.enable();
+      this.form.enable();
     }
   }
 
@@ -245,7 +270,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  public runDomainCheck(submitValid = true) {
+  private submitRunTest(submitValid = true) {
     this.form.markAllAsTouched();
     let param = this.form.value;
 
@@ -278,12 +303,16 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
       }});
 
     if (submitValid == this.form.valid) {
-      this.onDomainCheck.emit(param);
+      this.onRunTest.emit(param);
     }
   }
 
+  public submitForm() {
+    this.submitRunTest();
+  }
+
   public toggleOptions() {
-    this.is_advanced_options_enabled = !this.is_advanced_options_enabled
-    this.onOpenOptions.emit(this.is_advanced_options_enabled);
+    this.isAdvancedOptionEnabled = !this.isAdvancedOptionEnabled
+    this.onOpenOptions.emit(this.isAdvancedOptionEnabled);
   }
 }

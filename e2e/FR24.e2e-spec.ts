@@ -10,13 +10,13 @@ test.describe('Zonemaster test FR24 - [The list of previous runs should contain 
 
   test('should display previous run link',  async ({ page }) => {
 
-    const historyButton = page.locator('a.btn.history');
+    const historyButton = page.locator('button.history');
     await expect(historyButton).toBeVisible();
     await expect(historyButton).toHaveText('History');
     await historyButton.click();
     await expect(page.locator('ngb-modal-window')).toBeVisible();
 
-    await expect(page.locator('.list-group-item.list-group-item-action.list-group-item-success a').first()).toHaveAttribute('href', '/result/84bfac6ae74d0e62');
-    await expect(page.locator('.list-group-item.list-group-item-action.list-group-item-danger a').first()).toHaveAttribute('href', '/result/293f626579274f18');
+    await expect(page.locator('.list-group-item.list-group-item-action.list-group-item-success a').first()).toHaveAttribute('href', '/en/result/84bfac6ae74d0e62');
+    await expect(page.locator('.list-group-item.list-group-item-action.list-group-item-danger a').first()).toHaveAttribute('href', '/en/result/293f626579274f18');
   });
 });

@@ -40,7 +40,7 @@ sudo dnf -y install httpd unzip
 #### Install Zonemaster Web GUI
 
 ```sh
-curl -L -O https://github.com/zonemaster/zonemaster-gui/releases/download/v3.6.1/zonemaster_web_gui.zip
+curl -L -O https://github.com/zonemaster/zonemaster-gui/releases/download/v4.0.0/zonemaster_web_gui.zip
 sudo install -vd /var/www/html/zonemaster-web-gui
 sudo install -vd /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
@@ -95,7 +95,7 @@ sudo systemctl restart apache2
 #### Install Zonemaster Web GUI
 
 ```sh
-wget https://github.com/zonemaster/zonemaster-gui/releases/download/v3.6.1/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
+wget https://github.com/zonemaster/zonemaster-gui/releases/download/v4.0.0/zonemaster_web_gui.zip -O zonemaster_web_gui.zip
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
 sudo install -vd /var/log/zonemaster
 sudo install -v /var/www/html/zonemaster-web-gui/zonemaster.conf-example /etc/apache2/sites-available/zonemaster.conf
@@ -185,7 +185,7 @@ restart Apache.
 #### Install Zonemaster Web GUI
 
 ```sh
-fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v3.6.1/zonemaster_web_gui.zip
+fetch https://github.com/zonemaster/zonemaster-gui/releases/download/v4.0.0/zonemaster_web_gui.zip
 mkdir -p /var/www/html/zonemaster-web-gui
 mkdir -p /var/log/zonemaster
 unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
@@ -225,7 +225,7 @@ sudo yum -y install httpd unzip
 #### Install Zonemaster Web GUI
 
 ```sh
-curl -O https://github.com/zonemaster/zonemaster-gui/releases/download/v3.6.1/zonemaster_web_gui.zip
+curl -O https://github.com/zonemaster/zonemaster-gui/releases/download/v4.0.0/zonemaster_web_gui.zip
 sudo install -vd /var/www/html/zonemaster-web-gui
 sudo install -vd /var/log/zonemaster
 sudo unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui.zip
@@ -287,20 +287,23 @@ Make sure Zonemaster-GUI is properly installed.
 In some cases you may want to customize the application to change the base URL
 from wich the GUI is served.
 
-1. In the `index.html` file, (`/var/www/html/zonemaster-web-gui/dist/index.html`
+1. In the `index.html` files, (`/var/www/html/zonemaster-web-gui/dist/*/index.html`
    if you followed this installation guide), locate the line `<base href="/">`
-   and replace the `href` value with the path you want to server the GUI from,
-   e.g. `<base href="/zonemaster/">`. Don't forget the trailing `/`.
+   and replace the `href` value with the path you want to server the GUI from.
+   You can use the following command to update the base URL in all files:
+   ```
+   export BASE_URL=/zonemaster; find /var/www/html/zonemaster-web-gui/dist -name index.html | xargs sed -r "s%<base href=\"[^\"]*/([a-z]{2})/\">%<base href=\"$BASE_URL/\1/\">%" -i
+   ```
+   You can change the `BASE_URL` variable to the path (without trailing slash)
+   that you want.
 
 2. When serving the application from a different base, you will also need to
    change the Web server configuration in `zonemaster.conf` (location is found
-   in the installation instructions above) by updating `ProxyPass` and
-  `ProxyPassReverse`, and adding `Alias` as in the following example:
+   in the installation instructions above) by updating the `BASE_URL` variable
+   and adding an `Alias` directive as in the following example:
 
    ```apache
-   ProxyPass /zonemaster/api http://localhost:5000/
-   ProxyPassReverse /zonemaster/api http://localhost:5000/
-   ProxyPreserveHost On
+   Define BASE_URL "/zonemaster/"
 
    Alias "/zonemaster" "/var/www/html/zonemaster-web-gui/dist"
    ```
@@ -320,9 +323,23 @@ from wich the GUI is served.
 
 
 **NOTE:** Don't forget to apply the changes to the `index.html` and Web
-server configurartion after each updates as thoses files will be overwritten.
+server configuration after each updates as thoses files will be overwritten.
 
--------
+
+## Change default language
+
+To change the default language update the Apache configuration in `zonemaster.conf`
+that was installed in a previous section. Locate the last `RewriteRule`:
+```apache
+# Default locale
+RewriteRule ^$ /en/ [R,L]
+```
+and change it to
+```apache
+# Default locale
+RewriteRule ^$ /<LANG>/ [R,L]
+```
+where `<LANG>` is the language code of you choice.
 
 [Declaration of prerequisites]: https://github.com/zonemaster/zonemaster/blob/master/README.md#prerequisites
 [JSON-RPC API]: https://github.com/zonemaster/zonemaster-backend/blob/master/docs/API.md

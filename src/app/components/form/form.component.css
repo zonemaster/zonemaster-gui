@@ -1,24 +1,7 @@
-.fa-play-circle-o:hover {
-  color: #fff;
-}
-
-.fa-play-circle-o {
-  color: #9ad;
-}
-
-#domain_check_name {
+#input_domain_form {
   font-size:16px;
   height:64px;
-  color:#6F787E;
   border-radius:3px
-}
-
-.checkboxForm {
-  width: 100%;
-}
-
-.half-with {
-  width: 50%;
 }
 
 button.launch {
@@ -30,66 +13,67 @@ button.launch:hover {
 }
 
 /* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+.switch-input-container {
+  display: flex;
+  align-items: center;
 }
 
-/* Hide default HTML checkbox */
-.switch input {display:none;}
+#advanced-options .form-label {
+  margin-bottom: 0;
+}
 
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+#advanced-options > fieldset:first-of-type {
+  margin-top: 1rem;
+}
+
+#advanced-options > fieldset:last-of-type {
+  margin-bottom: 1rem;
+}
+
+fieldset fieldset legend {
+  font-size: 1em;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+form .protocol {
+  padding-top: 0.375rem;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.switch-input-container label {
+  margin: 0;
+}
+
+button.switch-toggle {
+  border: none;
+  width: 2em;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  display: inherit;
+  height: 1em;
+  border-radius: 2em;
+  font-size: 2em;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+  background-position: left center;
+  transition: all .25s ease-in-out;
+  margin-right: 0.2em;
+  cursor: pointer;
 }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.advanced input:checked + .slider {
-  background-color: #2196F3;
-}
-
-.advanced input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-.advanced input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
+button.switch-toggle.enabled {
+  background-position: right center;
+  background-color: #2196f3;
 }
 
 .advanced {
   text-align: left;
+}
+
+.is-invalid label {
+  color: #b51222!important;
 }
 
 .domain .invalid-feedback {
@@ -99,37 +83,49 @@ button.launch:hover {
   font-size: 0.875rem;
   line-height: 1.5;
   color: #fff;
-  background-color: rgba(220, 53, 69, 0.9);
+  background-color: #b51222;
   border-radius: 0.25rem;
   text-align: left;
+}
+
+.domain .row {
+  --bs-gutter-x: 0.5rem;
 }
 
 .reset-form {
   position: absolute;
   right: 0;
   top: 15%;
-  opacity: 0.5;
   z-index: 100;
+  right: 0.5rem;
 }
 
-.reset-form:hover {
+.reset-form button:not(:disabled):hover {
   opacity: 1;
+}
+
+.reset-form button {
+  border: none;
+  opacity: 0.5;
 }
 
 .grey {
   color: grey;
 }
 
+.domain-input-container {
+  position: relative;
+}
 .progress-value {
   display: block;
   color: #000;
   position: absolute;
-  right: 10px;
-  font-size: 30px;
+  right: 1rem;
+  font-size: 2rem;
 }
 
 .progress-result {
-  width: calc(100% - 10px);
+  width: calc(100% - var(--bs-gutter-x));
   position: absolute;
   z-index: 20;
   top: 0;
@@ -137,4 +133,10 @@ button.launch:hover {
 
 .checkboxForm {
   width: inherit;
+}
+
+@media(max-width:767px){
+  fieldset .form-col:not(:first-child) {
+    margin-top: 0.5rem;
+  }
 }

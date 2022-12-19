@@ -17,16 +17,19 @@ nav {
 .navbar-brand div {
   height: 100%;
 }
-.lang > div > a {
-  cursor: pointer;
-  color: inherit;
+.lang {
+  display: inline-flex;
+  align-items: center;
 }
-
-.lang > div > a.selected {
-  font-weight: bold;
-  text-decoration: underline solid 1px;
+.lang .icon {
+  width: 27px;
+  line-height: 27px;
+  margin: 0 5px;
+  font-size: 20pt;
 }
-
+#languageSelection{
+  width: auto;
+}
 .github {
   height: 100%;
 }
@@ -50,6 +53,10 @@ nav {
 
   nav {
     height: auto;
+  }
+
+  .lang .icon {
+    display: none;
   }
 }
 
