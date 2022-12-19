@@ -4,13 +4,13 @@ const config: PlaywrightTestConfig = {
   testDir: 'e2e',
   testMatch: 'e2e/*.e2e-spec.ts',
   webServer: {
-    command: 'npm run ng serve -- --configuration=tests --port=4201',
+    command: 'ng build --configuration=tests --localize && node scripts/test_server.js',
     port: 4201,
     reuseExistingServer: true,
   },
   expect: {
     toMatchSnapshot: {
-      threshold: 0.25,
+      maxDiffPixelRatio: 0.03,
     },
   },
   use: {

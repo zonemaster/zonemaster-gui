@@ -18,6 +18,13 @@ archive.on('error', function(err){
 archive.pipe(output);
 
 archive.file('zonemaster.conf-example', { name: 'zonemaster.conf-example' });
-archive.directory('dist/', 'dist');
+archive.file('LICENSE', { name: 'LICENSE' });
+
+const localizedBundles = fs.readdirSync('dist', {withFileTypes: true})
+  .filter(entry => entry.isDirectory())
+  .map(entry => entry.name);
+
+archive.glob('dist/**', {ignore: '**/assets/**'});
+archive.directory(`dist/${localizedBundles[0]}/assets`, 'dist/assets');
 
 archive.finalize();

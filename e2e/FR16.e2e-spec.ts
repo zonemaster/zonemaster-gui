@@ -25,6 +25,7 @@ test.describe('Zonemaster test FR16 - [The advanced view should have a text desc
 
     for (const {lang, text} of testSuite) {
       await setLang(page, lang);
+      await showOptions(page);
       await expect(page.locator('.alert.alert-info a')).toContainText(text);
     }
   });

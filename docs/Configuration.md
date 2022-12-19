@@ -19,14 +19,14 @@ The supported configuration items are the following.
   It could be either a full URL to use an API endpoint not located on the same
   origin as the one serving the GUI or just a path, like the default value, when
   both the API and GUI are served from the same origin.
-* `"defaultLanguage"`: The default language of the GUI, defined as a two letters
-  code, default `"en"`. The value must be one of the languages listed in
-  `"enabledLanguages"`.
+* `"defaultLanguage"`: (*Deprecated*) This **does not** work anymore, to change
+  the default language update the Apache configuration as mentionned in the
+  [installation instructions].
 * `"enabledLanguages"`: An array of the languages enabled in the GUI, default
   `[ "da", "en", "es", "fi", "fr", "nb", "sv" ]`.
 * `"contactAddress"`: The contact email address displayed in the footer, default
   `"contact@zonemaster.net"`.
-* `"logo`": The URL to the image displayed in the navigation bar, default
+* `"logoUrl`": The URL to the image displayed in the navigation bar, default
   `"assets/images/zonemaster_logo_2021_color.png"`.
 * `"msgBanner"`: A message to display to the user, if empty or undefined no
   banner will be shown. HTML formatting is supported (such as `<a>` tag) and
@@ -34,3 +34,6 @@ The supported configuration items are the following.
   rendered.
 * `"pollingInterval"`: Time between each test progress query in millisecond,
   default: `5000` (5 seconds).
+
+
+[installation instructions]: Installation.md#change-default-language

@@ -1,8 +1,7 @@
 .main {
   margin-bottom: 4rem;
   text-align: center;
-  color: #efefef;
-  background: linear-gradient(135deg, #1b294a, #f8f9fa);
+  background-color: #ececec;
 }
 .main > .container {
   margin: auto;
@@ -10,10 +9,11 @@
 }
 
 .info-banner {
-  padding: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0;
 }
 
 .info-banner-content {
   margin: auto;
-  max-width: 1140px;
+  max-width: 1320px;
 }

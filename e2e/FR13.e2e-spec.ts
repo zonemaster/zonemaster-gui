@@ -47,8 +47,8 @@ test.describe.serial('Zonemaster test FR13 - [The advanced view should support t
     await page.locator('label[for="disable_protocol_ipv4"]').click()
     await page.locator('label[for="disable_protocol_ipv6"]').click()
 
-    const alert = page.locator('.protocol-form .invalid-feedback');
+    const alert = page.locator('#protocol-error');
     await expect(alert).toBeVisible();
-    await expect(alert).toHaveText('Choose at least one protocol')
+    await expect(alert).toHaveText(' Cannot disable both IPv4 and IPv6');
   });
 });

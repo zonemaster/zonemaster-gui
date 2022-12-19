@@ -1,3 +1,17 @@
 footer {
   box-shadow: inset -1px 7px 5px -9px rgba(0,0,0,0.75);
 }
+
+footer .version {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 0.25rem 0.5rem;
+}
+
+footer .version div:nth-of-type(odd) {
+  text-align: start;
+}
+
+footer .version div:nth-of-type(even) {
+  text-align: end;
+}

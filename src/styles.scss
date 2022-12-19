@@ -5,13 +5,34 @@ html, body {
   padding:0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+main {
+  flex-grow: 2;
+}
+
 .main h1 {
   margin: 0;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
   font-size: 3em;
 }
 
 .progress {
   height: 64px !important;
   opacity: .3;
+}
+
+footer .tooltip {
+  --bs-tooltip-max-width: auto;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.btn.active:focus-visible,
+.btn:focus-visible {
+  outline: auto;
+  box-shadow: none;
 }
