@@ -2,3 +2,10 @@
   position: relative;
   top: -90px;
 }
+
+:host ::ng-deep .faq-dark a {
+    color: var(--zm-link-dark-color);
+}
+:host ::ng-deep .faq-dark a:hover {
+    color: var(--zm-link-dark-color-hover);
+}
