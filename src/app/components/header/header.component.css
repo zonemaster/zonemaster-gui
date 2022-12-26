@@ -1,7 +1,7 @@
 .main {
   margin-bottom: 4rem;
   text-align: center;
-  background-color: #ececec;
+  background-color: var(--zm-header-bg);
 }
 .main > .container {
   margin: auto;

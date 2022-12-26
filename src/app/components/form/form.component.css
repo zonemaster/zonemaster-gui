@@ -5,11 +5,11 @@
 }
 
 button.launch {
-  background-color: #FF5A5F;
+  background-color: var(--zm-form-btn-bg-1);
   height: 64px;
 }
 button.launch:hover {
-  background-color: #ff3c3a;
+  background-color: var(--zm-form-btn-bg-2);
 }
 
 /* The switch - the box around the slider */
@@ -50,7 +50,7 @@ form .protocol {
 button.switch-toggle {
   border: none;
   width: 2em;
-  background-color: #ccc;
+  background-color: var(--zm-form-option-off);
   display: inherit;
   height: 1em;
   border-radius: 2em;
@@ -65,7 +65,7 @@ button.switch-toggle {
 
 button.switch-toggle.enabled {
   background-position: right center;
-  background-color: #2196f3;
+  background-color: var(--zm-form-option-on);
 }
 
 .advanced {
@@ -73,7 +73,7 @@ button.switch-toggle.enabled {
 }
 
 .is-invalid label {
-  color: #b51222!important;
+  color: var(--zm-form-error)!important;
 }
 
 .domain .invalid-feedback {
@@ -83,7 +83,7 @@ button.switch-toggle.enabled {
   font-size: 0.875rem;
   line-height: 1.5;
   color: #fff;
-  background-color: #b51222;
+  background-color: var(--zm-form-error);
   border-radius: 0.25rem;
   text-align: left;
 }
