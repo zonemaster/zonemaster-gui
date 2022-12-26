@@ -10,45 +10,24 @@ article h4 {
   margin: 0;
 }
 
-.result {
-  --result-info-color: var(--zm-result-info-light);
-  --result-info-bg: var(--zm-result-info-light);
-  --result-notice-color: var(--zm-result-notice-light);
-  --result-notice-bg: var(--zm-result-notice-light);
-  --result-warning-color: var(--zm-result-warning-light-1);
-  --result-warning-bg: var(--zm-result-warning-light-2);
-  --result-error-color: var(--zm-result-error-light);
-  --result-error-bg: var(--zm-result-error-light);
-  --result-critical-color: var(--zm-result-error-light);
-  --result-critical-bg: var(--zm-result-error-light);
-}
-.result.result-dark {
-  --result-info-color: var(--zm-result-info-dark);
-  --result-notice-color: var(--zm-result-notice-dark);
-  --result-warning-color: var(--zm-result-warning-dark-1);
-  --result-error-color: var(--zm-result-error-dark);
-  --result-critical-color: var(--zm-result-error-dark);
-}
-
-
 article header.info {
-  color: var(--result-info-color);
+  color: var(--zm-result-info-color);
 }
 
 article header.notice {
-  color: var(--result-notice-color);
+  color: var(--zm-result-notice-color);
 }
 
 article header.warning {
-  color: var(--result-warning-color);
+  color: var(--zm-result-warning-color);
 }
 
 article header.error {
-  color: var(--result-error-color);
+  color: var(--zm-result-error-color);
 }
 
 article header.critical {
-  color: var(--result-critical-color);
+  color: var(--zm-result-critical-color);
 }
 
 article h4 i {
@@ -71,16 +50,12 @@ article header div {
 }
 article header .test-case-id {
   display: inline-block;
-  background-color: var(--zm-result-testcase-info-light-bg);
-  color: var(--zm-result-testcase-info-light-color);
+  background-color: var(--zm-result-testcase-info-bg);
+  color: var(--zm-result-testcase-info-color);
   margin-left: 1em;
   font-size: 0.9em;
   padding: 0.15em 0.4em;
   white-space: nowrap;
-}
-.result-dark article header .test-case-id {
-  background-color: var(--zm-result-testcase-info-dark-bg);
-  color: var(--zm-result-testcase-info-dark-color);
 }
 
 article ul li .level {
@@ -93,44 +68,41 @@ article ul li .level {
 }
 
 .filters .active.all {
-  background-color: var(--zm-result-filter-btn-light-bg);
-}
-.result-dark .filters .active.all {
-  background-color: var(--zm-result-filter-btn-dark-bg);
+  background-color: var(--zm-result-filter-btn-bg);
 }
 
 .badge.info,
 .filters .active.info,
 article ul li .level.info {
-  background: var(--result-info-bg);
+  background: var(--zm-result-info-bg);
   color: white;
 }
 
 .badge.notice,
 .filters .active.notice,
 article ul li .level.notice {
-  background: var(--result-notice-bg);
+  background: var(--zm-result-notice-bg);
   color: white;
 }
 
 .badge.warning,
 .filters .active.warning,
 article ul li .level.warning {
-  background: var(--result-warning-bg);
+  background: var(--zm-result-warning-bg);
   color: black;
 }
 
 .badge.error,
 .filters .active.error,
 article ul li .level.error {
-  background: var(--result-error-bg);;
+  background: var(--zm-result-error-bg);;
   color: white;
 }
 
 .badge.critical,
 .filters .active.critical,
 article ul li .level.critical {
-  background: var(--result-critical-bg);;
+  background: var(--zm-result-critical-bg);;
   color: white;
 }
 
@@ -192,12 +164,9 @@ article.expanded h3 i.caret {
 }
 
 .result section.details > article {
-  background: var(--zm-result-details-light-bg);
+  background: var(--zm-result-details-bg);
   padding: 0.5rem;
   margin-bottom: 1rem;
-}
-.result-dark section.details > article {
-  background: var(--zm-result-details-dark-bg);
 }
 
 #link_location {

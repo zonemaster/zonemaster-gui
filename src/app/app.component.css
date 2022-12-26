@@ -41,9 +41,50 @@
     --zm-result-testcase-info-dark-bg: #d3eeff;
     --zm-result-details-dark-bg: #313a43;
     --zm-result-filter-btn-dark-bg: #919191;
+
+    /* default light theme*/
+    --zm-body-bg: var(--zm-body-light-bg);
+    --zm-body-color: var(--zm-body-light-color);
+
+    --zm-result-info-color: var(--zm-result-info-light);
+    --zm-result-info-bg: var(--zm-result-info-light);
+    --zm-result-notice-color: var(--zm-result-notice-light);
+    --zm-result-notice-bg: var(--zm-result-notice-light);
+    --zm-result-warning-color: var(--zm-result-warning-light-1);
+    --zm-result-warning-bg: var(--zm-result-warning-light-2);
+    --zm-result-error-color: var(--zm-result-error-light);
+    --zm-result-error-bg: var(--zm-result-error-light);
+    --zm-result-critical-color: var(--zm-result-error-light);
+    --zm-result-critical-bg: var(--zm-result-error-light);
+
+    --zm-result-testcase-info-color: var(--zm-result-testcase-info-light-color);
+    --zm-result-testcase-info-bg: var(--zm-result-testcase-info-light-bg);
+    --zm-result-details-bg: var(--zm-result-details-light-bg);
+    --zm-result-filter-btn-bg: var(--zm-result-filter-btn-light-bg);
+}
+
+#theme-switch:checked ~ main {
+    --zm-body-bg: var(--zm-body-dark-bg);
+    --zm-body-color: var(--zm-body-dark-color);
+
+    --zm-result-info-color: var(--zm-result-info-dark);
+    --zm-result-info-bg: var(--zm-result-info-dark);
+    --zm-result-notice-color: var(--zm-result-notice-dark);
+    --zm-result-notice-bg: var(--zm-result-notice-dark);
+    --zm-result-warning-color: var(--zm-result-warning-dark-1);
+    --zm-result-warning-bg: var(--zm-result-warning-dark-2);
+    --zm-result-error-color: var(--zm-result-error-dark);
+    --zm-result-error-bg: var(--zm-result-error-dark);
+    --zm-result-critical-color: var(--zm-result-error-dark);
+    --zm-result-critical-bg: var(--zm-result-error-dark);
+
+    --zm-result-testcase-info-color: var(--zm-result-testcase-info-dark-color);
+    --zm-result-testcase-info-bg: var(--zm-result-testcase-info-dark-bg);
+    --zm-result-details-bg: var(--zm-result-details-dark-bg);
+    --zm-result-filter-btn-bg: var(--zm-result-filter-btn-dark-bg);
 }
 
 main {
-    background-color: var(--zm-body-dark-bg);
-    color: var(--zm-body-dark-color);
+    background-color: var(--zm-body-bg);
+    color: var(--zm-body-color);
 }
