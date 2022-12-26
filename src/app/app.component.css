@@ -6,7 +6,7 @@
     --zm-grey: #cdc7c2;
     --zm-green: #157347;
 
-    --zm-header-bg: #ececec;
+    --zm-header-light-bg: #ececec;
 
     --zm-form-btn-bg-1: #ff5a5f;
     --zm-form-btn-bg-2: #ff3c3a;
@@ -14,13 +14,13 @@
     --zm-form-option-off: #cccccc;
     --zm-form-option-on: #2196f3;
 
-    --zm-result-info: #157347;
-    --zm-result-notice: #1069c8;
-    --zm-result-warning-1: #ae5a01;
-    --zm-result-warning-2: #ff9019;
-    --zm-result-error: #bb2d3b;
-    --zm-result-testcase-info-color: #555454;
-    --zm-result-testcase-info-bg: #d3eeff;
-    --zm-result-details-bg: #f7f7f7;
-    --zm-result-filter-btn-bg: #919191;
+    --zm-result-info-light: #157347;
+    --zm-result-notice-light: #1069c8;
+    --zm-result-warning-light-1: #ae5a01;
+    --zm-result-warning-light-2: #ff9019;
+    --zm-result-error-light: #bb2d3b;
+    --zm-result-testcase-info-light-color: #555454;
+    --zm-result-testcase-info-light-bg: #d3eeff;
+    --zm-result-details-light-bg: #f7f7f7;
+    --zm-result-filter-btn-light-bg: #919191;
 }

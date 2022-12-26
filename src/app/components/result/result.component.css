@@ -11,16 +11,16 @@ article h4 {
 }
 
 .result {
-  --result-info-color: var(--zm-result-info);
-  --result-info-bg: var(--zm-result-info);
-  --result-notice-color: var(--zm-result-notice);
-  --result-notice-bg: var(--zm-result-notice);
-  --result-warning-color: var(--zm-result-warning-1);
-  --result-warning-bg: var(--zm-result-warning-2);
-  --result-error-color: var(--zm-result-error);
-  --result-error-bg: var(--zm-result-error);
-  --result-critical-color: var(--zm-result-error);
-  --result-critical-bg: var(--zm-result-error);
+  --result-info-color: var(--zm-result-info-light);
+  --result-info-bg: var(--zm-result-info-light);
+  --result-notice-color: var(--zm-result-notice-light);
+  --result-notice-bg: var(--zm-result-notice-light);
+  --result-warning-color: var(--zm-result-warning-light-1);
+  --result-warning-bg: var(--zm-result-warning-light-2);
+  --result-error-color: var(--zm-result-error-light);
+  --result-error-bg: var(--zm-result-error-light);
+  --result-critical-color: var(--zm-result-error-light);
+  --result-critical-bg: var(--zm-result-error-light);
 }
 
 article header.info {
@@ -63,8 +63,8 @@ article header div {
 }
 article header .test-case-id {
   display: inline-block;
-  background-color: var(--zm-result-testcase-info-bg);
-  color: var(--zm-result-testcase-info-color);
+  background-color: var(--zm-result-testcase-info-light-bg);
+  color: var(--zm-result-testcase-info-light-color);
   margin-left: 1em;
   font-size: 0.9em;
   padding: 0.15em 0.4em;
@@ -81,7 +81,7 @@ article ul li .level {
 }
 
 .filters .active.all {
-  background-color: var(--zm-result-filter-btn-bg);
+  background-color: var(--zm-result-filter-btn-light-bg);
 }
 
 .badge.info,
@@ -177,7 +177,7 @@ article.expanded h3 i.caret {
 }
 
 .result section.details > article {
-  background: var(--zm-result-details-bg);
+  background: var(--zm-result-details-light-bg);
   padding: 0.5rem;
   margin-bottom: 1rem;
 }
