@@ -7,6 +7,7 @@
     --zm-green: #157347;
 
     --zm-header-light-bg: #ececec;
+    --zm-header-dark-bg: var(--bs-dark);
 
     --zm-footer-light-color: var(--bs-body-color);
     --zm-footer-light-bg: #ffffff;
@@ -51,6 +52,8 @@
     --zm-body-bg: var(--zm-body-light-bg);
     --zm-body-color: var(--zm-body-light-color);
 
+    --zm-header-bg: var(--zm-header-light-bg);
+
     --zm-footer-color: var(--zm-footer-light-color);
     --zm-footer-bg: var(--zm-footer-light-bg);
 
@@ -75,6 +78,8 @@
 #theme-switch:checked ~ app-footer {
     --zm-body-bg: var(--zm-body-dark-bg);
     --zm-body-color: var(--zm-body-dark-color);
+
+    --zm-header-bg: var(--zm-header-dark-bg);
 
     --zm-footer-color: var(--zm-footer-dark-color);
     --zm-footer-bg: var(--zm-footer-dark-bg);
