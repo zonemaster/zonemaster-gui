@@ -22,6 +22,14 @@ article h4 {
   --result-critical-color: var(--zm-result-error-light);
   --result-critical-bg: var(--zm-result-error-light);
 }
+.result.result-dark {
+  --result-info-color: var(--zm-result-info-dark);
+  --result-notice-color: var(--zm-result-notice-dark);
+  --result-warning-color: var(--zm-result-warning-dark-1);
+  --result-error-color: var(--zm-result-error-dark);
+  --result-critical-color: var(--zm-result-error-dark);
+}
+
 
 article header.info {
   color: var(--result-info-color);
@@ -70,6 +78,10 @@ article header .test-case-id {
   padding: 0.15em 0.4em;
   white-space: nowrap;
 }
+.result-dark article header .test-case-id {
+  background-color: var(--zm-result-testcase-info-dark-bg);
+  color: var(--zm-result-testcase-info-dark-color);
+}
 
 article ul li .level {
   display: inline;
@@ -82,6 +94,9 @@ article ul li .level {
 
 .filters .active.all {
   background-color: var(--zm-result-filter-btn-light-bg);
+}
+.result-dark .filters .active.all {
+  background-color: var(--zm-result-filter-btn-dark-bg);
 }
 
 .badge.info,
@@ -181,6 +196,9 @@ article.expanded h3 i.caret {
   padding: 0.5rem;
   margin-bottom: 1rem;
 }
+.result-dark section.details > article {
+  background: var(--zm-result-details-dark-bg);
+}
 
 #link_location {
   width: 100%;
@@ -246,6 +264,7 @@ button.btn-clipboard > i.fa-remove {
 .filters a {
   margin: 0 0.125rem;
   border: 0;
+  color: white;
 }
 
 .export, .share, .settings {

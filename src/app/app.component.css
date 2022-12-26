@@ -28,6 +28,16 @@
     --zm-result-testcase-info-light-bg: #d3eeff;
     --zm-result-details-light-bg: #f7f7f7;
     --zm-result-filter-btn-light-bg: #919191;
+
+    --zm-result-info-dark: #1ac474;
+    --zm-result-notice-dark: #51aeff;
+    --zm-result-warning-dark-1: #f48f25;
+    --zm-result-warning-dark-2: #ff9019;
+    --zm-result-error-dark: #fd8181;
+    --zm-result-testcase-info-dark-color: #555454;
+    --zm-result-testcase-info-dark-bg: #d3eeff;
+    --zm-result-details-dark-bg: #313a43;
+    --zm-result-filter-btn-dark-bg: #919191;
 }
 
 main {
