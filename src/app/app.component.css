@@ -8,6 +8,11 @@
 
     --zm-header-light-bg: #ececec;
 
+    --zm-footer-light-color: var(--bs-body-color);
+    --zm-footer-light-bg: #ffffff;
+    --zm-footer-dark-color: var(--bs-light);
+    --zm-footer-dark-bg: var(--bs-dark);
+
     --zm-body-light-bg: #ffffff;
     --zm-body-light-color: var(--bs-body-color);
     --zm-body-dark-bg: #2C3034;
@@ -46,6 +51,9 @@
     --zm-body-bg: var(--zm-body-light-bg);
     --zm-body-color: var(--zm-body-light-color);
 
+    --zm-footer-color: var(--zm-footer-light-color);
+    --zm-footer-bg: var(--zm-footer-light-bg);
+
     --zm-result-info-color: var(--zm-result-info-light);
     --zm-result-info-bg: var(--zm-result-info-light);
     --zm-result-notice-color: var(--zm-result-notice-light);
@@ -63,9 +71,13 @@
     --zm-result-filter-btn-bg: var(--zm-result-filter-btn-light-bg);
 }
 
-#theme-switch:checked ~ main {
+#theme-switch:checked ~ main,
+#theme-switch:checked ~ app-footer {
     --zm-body-bg: var(--zm-body-dark-bg);
     --zm-body-color: var(--zm-body-dark-color);
+
+    --zm-footer-color: var(--zm-footer-dark-color);
+    --zm-footer-bg: var(--zm-footer-dark-bg);
 
     --zm-result-info-color: var(--zm-result-info-dark);
     --zm-result-info-bg: var(--zm-result-info-dark);
