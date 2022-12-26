@@ -3,9 +3,9 @@
   top: -90px;
 }
 
-:host ::ng-deep .faq-dark a {
-    color: var(--zm-link-dark-color);
+:host ::ng-deep a {
+    color: var(--zm-link-color);
 }
-:host ::ng-deep .faq-dark a:hover {
-    color: var(--zm-link-dark-color-hover);
+:host ::ng-deep a:hover {
+    color: var(--zm-link-color-hover);
 }

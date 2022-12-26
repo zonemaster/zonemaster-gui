@@ -9,6 +9,19 @@
     --zm-header-light-bg: #ececec;
     --zm-header-dark-bg: var(--bs-dark);
 
+    --zm-navbar-light-color: var(--bs-body-color);
+    --zm-navbar-light-bg: #ffffff;
+    --zm-navbar-link-light-color: rgba(0, 0, 0, 0.55);
+    --zm-navbar-link-light-color-hover: rgba(0, 0, 0, 0.7);
+    --zm-navbar-link-active-light-color: rgba(0, 0, 0, 0.9);
+
+    --zm-navbar-dark-color: var(--bs-light);
+    --zm-navbar-dark-bg: var(--bs-dark);
+    --zm-navbar-active-dark-color: #ffffff;
+    --zm-navbar-link-dark-color: rgba(255, 255, 255, 0.55);
+    --zm-navbar-link-dark-color-hover: rgba(255, 255, 255, 0.75);
+    --zm-navbar-link-active-dark-color: #ffffff;
+
     --zm-footer-light-color: var(--bs-body-color);
     --zm-footer-light-bg: #ffffff;
     --zm-footer-dark-color: var(--bs-light);
@@ -19,6 +32,8 @@
     --zm-body-dark-bg: #2C3034;
     --zm-body-dark-color: var(--bs-light);
 
+    --zm-link-light-color: var(--bs-link-color);
+    --zm-link-light-color-hover: var(--bs-link-hover-color);
     --zm-link-dark-color: #5a9dff;
     --zm-link-dark-color-hover: #8ea5ff;
 
@@ -54,8 +69,17 @@
 
     --zm-header-bg: var(--zm-header-light-bg);
 
+    --zm-navbar-color: var(--zm-navbar-light-color);
+    --zm-navbar-bg: var(--zm-navbar-light-bg);
+    --zm-navbar-link-color: var(--zm-navbar-link-light-color);
+    --zm-navbar-link-color-hover: var(--zm-navbar-link-light-color-hover);
+    --zm-navbar-link-active-color: var(--zm-navbar-link-active-light-color);
+
     --zm-footer-color: var(--zm-footer-light-color);
     --zm-footer-bg: var(--zm-footer-light-bg);
+
+    --zm-link-color: var(--zm-link-light-color);
+    --zm-link-color-hover: var(--zm-link-light-color-hover);
 
     --zm-result-info-color: var(--zm-result-info-light);
     --zm-result-info-bg: var(--zm-result-info-light);
@@ -75,25 +99,35 @@
 }
 
 #theme-switch:checked ~ main,
+#theme-switch:checked ~ app-navigation,
 #theme-switch:checked ~ app-footer {
     --zm-body-bg: var(--zm-body-dark-bg);
     --zm-body-color: var(--zm-body-dark-color);
 
     --zm-header-bg: var(--zm-header-dark-bg);
 
+    --zm-navbar-color: var(--zm-navbar-dark-color);
+    --zm-navbar-bg: var(--zm-navbar-dark-bg);
+    --zm-navbar-link-color: var(--zm-navbar-link-dark-color);
+    --zm-navbar-link-color-hover: var(--zm-navbar-link-dark-color-hover);
+    --zm-navbar-link-active-color: var(--zm-navbar-link-active-dark-color);
+
     --zm-footer-color: var(--zm-footer-dark-color);
     --zm-footer-bg: var(--zm-footer-dark-bg);
 
+    --zm-link-color: var(--zm-link-dark-color);
+    --zm-link-color-hover: var(--zm-link-dark-color-hover);
+
     --zm-result-info-color: var(--zm-result-info-dark);
-    --zm-result-info-bg: var(--zm-result-info-dark);
+    --zm-result-info-bg: var(--zm-result-info-light);
     --zm-result-notice-color: var(--zm-result-notice-dark);
-    --zm-result-notice-bg: var(--zm-result-notice-dark);
+    --zm-result-notice-bg: var(--zm-result-notice-light);
     --zm-result-warning-color: var(--zm-result-warning-dark-1);
-    --zm-result-warning-bg: var(--zm-result-warning-dark-2);
+    --zm-result-warning-bg: var(--zm-result-warning-light-2);
     --zm-result-error-color: var(--zm-result-error-dark);
-    --zm-result-error-bg: var(--zm-result-error-dark);
+    --zm-result-error-bg: var(--zm-result-error-light);
     --zm-result-critical-color: var(--zm-result-error-dark);
-    --zm-result-critical-bg: var(--zm-result-error-dark);
+    --zm-result-critical-bg: var(--zm-result-error-light);
 
     --zm-result-testcase-info-color: var(--zm-result-testcase-info-dark-color);
     --zm-result-testcase-info-bg: var(--zm-result-testcase-info-dark-bg);

@@ -5,6 +5,8 @@ nav {
   -moz-transition: 0.2s linear height;
   -o-transition: 0.2s linear height;
   transition: 0.2s linear height;
+  color: var(--zm-navbar-color);
+  background-color: var(--zm-navbar-bg);
 }
 
 .logo {
@@ -17,6 +19,18 @@ nav {
 .navbar-brand div {
   height: 100%;
 }
+
+#navBar .nav-link {
+  color: var(--zm-navbar-link-color);
+}
+#navBar .nav-link.active {
+  color: var(--zm-navbar-link-active-color);
+}
+#navBar .nav-link:hover,
+#navBar .nav-link:focus {
+  color: var(--zm-navbar-link-active-color-hover);
+}
+
 .lang {
   display: inline-flex;
   align-items: center;
