@@ -233,7 +233,7 @@ button.btn-clipboard > i.fa-remove {
 .filters a {
   margin: 0 0.125rem;
   border: 0;
-  color: white;
+  color: var(--zm-result-filter-btn-color);
 }
 
 .export, .share, .settings {

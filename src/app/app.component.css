@@ -51,6 +51,7 @@
     --zm-result-testcase-info-light-color: #555454;
     --zm-result-testcase-info-light-bg: #d3eeff;
     --zm-result-details-light-bg: #f7f7f7;
+    --zm-result-filter-btn-light-color: var(--bs-btn-color);
     --zm-result-filter-btn-light-bg: #919191;
 
     --zm-result-info-dark: #1ac474;
@@ -61,6 +62,7 @@
     --zm-result-testcase-info-dark-color: #555454;
     --zm-result-testcase-info-dark-bg: #d3eeff;
     --zm-result-details-dark-bg: #313a43;
+    --zm-result-filter-btn-dark-color: #ffffff;
     --zm-result-filter-btn-dark-bg: #919191;
 
     /* default light theme*/
@@ -95,6 +97,7 @@
     --zm-result-testcase-info-color: var(--zm-result-testcase-info-light-color);
     --zm-result-testcase-info-bg: var(--zm-result-testcase-info-light-bg);
     --zm-result-details-bg: var(--zm-result-details-light-bg);
+    --zm-result-filter-btn-color: var(--zm-result-filter-btn-light-color);
     --zm-result-filter-btn-bg: var(--zm-result-filter-btn-light-bg);
 }
 
@@ -132,6 +135,7 @@
     --zm-result-testcase-info-color: var(--zm-result-testcase-info-dark-color);
     --zm-result-testcase-info-bg: var(--zm-result-testcase-info-dark-bg);
     --zm-result-details-bg: var(--zm-result-details-dark-bg);
+    --zm-result-filter-btn-color: var(--zm-result-filter-btn-dark-color);
     --zm-result-filter-btn-bg: var(--zm-result-filter-btn-dark-bg);
 }
 
