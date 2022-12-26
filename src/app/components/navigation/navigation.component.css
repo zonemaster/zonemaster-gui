@@ -30,18 +30,9 @@ nav {
 #languageSelection{
   width: auto;
 }
-.github {
-  height: 100%;
-}
 
 @media(min-width:991px) {
   .shrink {
-    height: 60px;
-  }
-
-
-  .shrink .github {
-    width: 60px;
     height: 60px;
   }
 }
@@ -57,12 +48,6 @@ nav {
 
   .lang .icon {
     display: none;
-  }
-}
-
-@media(max-width: 1300px) {
-  .github {
-    display: none
   }
 }
 
