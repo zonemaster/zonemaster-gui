@@ -10,6 +10,8 @@
 
     --zm-body-light-bg: #ffffff;
     --zm-body-light-color: var(--bs-body-color);
+    --zm-body-dark-bg: #2C3034;
+    --zm-body-dark-color: var(--bs-light);
 
     --zm-form-btn-bg-1: #ff5a5f;
     --zm-form-btn-bg-2: #ff3c3a;
@@ -29,6 +31,6 @@
 }
 
 main {
-    background-color: var(--zm-body-light-bg);
-    color: var(--zm-body-light-color);
+    background-color: var(--zm-body-dark-bg);
+    color: var(--zm-body-dark-color);
 }
