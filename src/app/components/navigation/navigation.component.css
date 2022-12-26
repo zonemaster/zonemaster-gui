@@ -35,7 +35,7 @@ nav {
   display: inline-flex;
   align-items: center;
 }
-.lang .icon {
+.icon {
   width: 27px;
   line-height: 27px;
   margin: 0 5px;
@@ -46,6 +46,14 @@ nav {
 }
 .github {
   height: 100%;
+}
+
+label.icon.theme-switch {
+    order: 3;
+    text-align: center;
+}
+label.icon.theme-switch .fa.theme-switch::before {
+    content: var(--zm-theme-icon);
 }
 
 @media(min-width:991px) {
@@ -67,6 +75,19 @@ nav {
 
   nav {
     height: auto;
+  }
+
+  nav .container {
+    justify-content: initial;
+  }
+
+  label.icon.theme-switch {
+      order: initial;
+  }
+
+  .navbar-brand {
+      flex-grow: 2;
+      text-align: right;
   }
 
   .lang .icon {

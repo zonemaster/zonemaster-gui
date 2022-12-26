@@ -135,6 +135,31 @@
     --zm-result-filter-btn-bg: var(--zm-result-filter-btn-dark-bg);
 }
 
+#theme-switch ~ app-navigation {
+    --zm-theme-icon: "\f328"; /* Fork Awesome: moon */
+    --zm-theme-icon-border: grey;
+}
+#theme-switch:checked ~ app-navigation {
+    --zm-theme-icon: "\f329"; /* Fork Awesome: moon */
+}
+
+#theme-switch {
+    position: absolute;
+    top: 0px;
+    z-index: 0;
+    opacity: 0;
+}
+
+#theme-switch ~ app-navigation ::ng-deep label.theme-switch {
+    padding: 0.5rem;
+    width: calc(2rem + 1rem);
+    border: none;
+}
+#theme-switch:focus ~ app-navigation ::ng-deep label.theme-switch {
+    border: 0.2rem solid var(--zm-theme-icon-border);
+    border-radius: 5px;
+}
+
 main {
     background-color: var(--zm-body-bg);
     color: var(--zm-body-color);
