@@ -8,6 +8,9 @@
 
     --zm-header-light-bg: #ececec;
 
+    --zm-body-light-bg: #ffffff;
+    --zm-body-light-color: var(--bs-body-color);
+
     --zm-form-btn-bg-1: #ff5a5f;
     --zm-form-btn-bg-2: #ff3c3a;
     --zm-form-error: #b51222;
@@ -23,4 +26,9 @@
     --zm-result-testcase-info-light-bg: #d3eeff;
     --zm-result-details-light-bg: #f7f7f7;
     --zm-result-filter-btn-light-bg: #919191;
+}
+
+main {
+    background-color: var(--zm-body-light-bg);
+    color: var(--zm-body-light-color);
 }
