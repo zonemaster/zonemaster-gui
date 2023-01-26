@@ -35,7 +35,7 @@ Den består av flera delar:
 4. *GUI* - ett Webbgränssnitt mot "backend".
 
 När Zonemaster startar en test av ett domännamn, som "zonemaster.net" (genom
-"CLI" eller "GUI") så kommer det att verifiera domännamnets allmänna tillstånd
+"CLI" eller "GUI") så kommer det att kontrollera domännamnets allmänna tillstånd
 med hjälp av en serie av test. Testen som utförs av Zonemaster finns listade i
 dokumentet "[Defined Test Cases]" (*Definierade testfall*).
 
@@ -55,7 +55,8 @@ Zonemaster är framtaget för två kategorier av användare:
     har några problem eller inte.
 
 Användare av den andra kategorin bör vända sig till sin DNS-operatör
-ifall det finns fel eller varningar för någon av testen av deras domännamn.
+ifall det finns fel eller varningar när deras domännamn testats.
+
 
 <a name="q4"></a>
 #### 4. Zonemaster visar "Fel" eller "Varning" när jag testar min domän, vad betyder det?
@@ -74,7 +75,7 @@ Zonemaster baserar också sin bedömning på rekommenderade inställningar av DN
 vilka är mera löst definierade. Alla zonemastertest är definierade och finns som
 "[Test Case Specifications][Defined Test Cases]" (*testfallsspecifikationer*) i
 vilka det återfinns referenser till dokument med relevant del av DNS-standarden.
-En beskrivning av felnivåerna som används, som *notice* ("varsel"), *warning*
+En beskrivning av felnivåerna som används, som *notice* ("notering"), *warning*
 ("varning") och *error* ("fel") finns i dokumentet "[Severity Level Definitions]"
 (*Defintion av felnivåer*).
 
@@ -116,8 +117,7 @@ signerad zon (se [fråga 13][Question 13]).
 
 Och till sist, Zonemaster är öppen källkod och är modulärt uppbyggt, vilket
 betyder att man kan integrera delar av Zonemaster i sitt eget system om man
-vill. Till exempel så är det ovanligt att man vill ha ett komplett program bara
-för att kontrollera omdelegeringar.
+vill.
 
 <a name="q9"></a>
 #### 9. Zonemaster och integritet
@@ -136,7 +136,7 @@ Det kan finnas flera olika anledningar till detta:
 - Domännamnet är inte nåbart från det publika Internet.
 - Zonemaster kan bara testa det som kallas DNS-zoner (t.ex. "zonemaster.net") och
   inte enskilda datornamn (t.ex. "www.zonemaster.net").
-- Det finns ett skydd mot att start upprepade test på samma domännamn (och med
+- Det finns ett skydd mot att starta upprepade test på samma domännamn (och med
   samma testparametrar) oftare än var tionde minut. Om man försöker att starta
   ett test innan perioden har löpt ut så får man resultatet från föregående
   test för samma domännamn (och testparametrar).
@@ -165,15 +165,15 @@ namnservern "ns1.example.com" till namnserver "dns2.example.net". I detta fall
 skulle du kunna köra ett odelegerat domäntest på domänen ("example.se") med den
 namnservern du ska flytta till ("dns2.example.net") innan du genomför själva
 flytten. När resultatet på testet inte visare några fel ("error") eller varningar
-("warning") så kan vara rätt säker på att domännamnets nya plats fungerar väl.
+("warning") så kan man vara rätt säker på att domännamnets nya plats fungerar väl.
 Det kan emellertid fortfarande finnas fel i zoninformationen som dessa test inte
 känner till.
 
 <a name="q13"></a>
 #### 13. Går det att testa DS-poster innan de publiceras?
-Ja. Använd kanppen "alternativ" och lägg sedan till DS-posterna ("Delegation
+Ja. Använd knappen "alternativ" och lägg sedan till DS-posterna ("Delegation
 Signer") som ska testas. Zonemaster kommer att använda dessa på samma sätt som
-de redan fanns i moderzonen.
+om de redan fanns i moderzonen.
 
 <a name="q14"></a>
 #### 14. Hur kan jag testa en "baklängeszon" med Zonemaster?
