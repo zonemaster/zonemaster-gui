@@ -149,7 +149,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="688e4555813c90de96d11699aef24aab49d5b4af">
         <source>Critical - means a very serious error.</source>
-        <target state="translated">Allvar - betyder att det finns ett mycket allvarligt fel.</target>
+        <target state="translated">Allvarligt - betyder att det finns ett mycket allvarligt fel.</target>
         <note priority="1" from="description">tooltip critical</note>
       </trans-unit>
       <trans-unit datatype="html" id="1a6e9b4ee9398580ded7bcb9cd3ec6c965de297f">
@@ -159,12 +159,12 @@
       </trans-unit>
       <trans-unit datatype="html" id="281f2af4328daa895401b765738b1eb9cc55f489">
         <source>Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem.</source>
-        <target state="translated">Info - något som kan vara av intresse för zonens administratör men som helt klart inte tyder på att vara ett problem.</target>
+        <target state="translated">Info - något som kan vara av intresse för zonens administratör men som inte är ett problem.</target>
         <note priority="1" from="description">tooltip info</note>
       </trans-unit>
       <trans-unit datatype="html" id="e863ca91edf6eb602f218bd8e04f9c06a5937e95">
         <source>Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all.</source>
-        <target state="translated">Notering - betyder något som zonens administratör bör känna till men som inte behöver vara något problem.</target>
+        <target state="translated">Notering - betyder något som zonens administratör bör känna till men som inte behöver vara ett problem.</target>
         <note priority="1" from="description">tooltip notice</note>
       </trans-unit>
       <trans-unit datatype="html" id="5f8e2137b25e61faf62e17cea5f550a5ae2fbf9c">
@@ -182,7 +182,7 @@
       </trans-unit>
       <trans-unit id="7b165859f6b561923cffdcf931fb3e8ec4cd755b" datatype="html">
         <source>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</source>
-        <target state="translated">Copyright © AFNIC Internetstiftelsen. Alla rättigheter förbehållna</target>
+        <target state="translated">Copyright © AFNIC och Internetstiftelsen. Alla rättigheter förbehållna</target>
       </trans-unit>
       <trans-unit id="e948a3edba1bbf1a743318826b81d146d9539477" datatype="html">
         <source>Delegated</source>
@@ -242,7 +242,7 @@
       </trans-unit>
       <trans-unit id="43b83878842ed1b33e975a88ddfb5db83b5f1fe7" datatype="html">
         <source>Critical</source>
-        <target state="translated">Allvar</target>
+        <target state="translated">Allvarligt</target>
         <note priority="1" from="description">critical filter button</note>
       </trans-unit>
       <trans-unit id="1867992058937397585" datatype="html">
@@ -259,7 +259,7 @@
       </trans-unit>
       <trans-unit id="3e1042f106a9c7ded3aadadbf8fe40e7651aa353" datatype="html">
         <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called 'zone') from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root ('.') to the TLD (Top-Level Domain; e.g., '.net') for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., 'zonemaster.net'). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
-        <target state="translated">Ge ditt domännamn en fullständig kontroll! Zonemaster hjälper dig att bedöma hur ditt domännamn fungerar. Förutom det så kan du också få en bättre förståelse för hur DNS, domännamnssystemet (“Domain Name System”) fungerar. När ett domämnamn skickas till Zonemaster för att testats så kommer programmet att kontrollera tillståndet för for domännamnet (också kallat för “zon”) från toppen av DNS-trädet. Normalt så görs det genom att starta granskningen från DNS-rot till toppdomänen (t.ex. “.net”) för domännamnet, och sedan slutligen genom namnservrarna (DNS-servrarna) som hostar domännamnet i fråga (t.ex. “Zonemaster.net”). Zonemaster utför många test, som att kontrollera kryptografiska signaturer för det som kallas DNSSEC, att de olika servrarna är åtkomliga och att IP-adresserna är giltiga. Allt detta görs för att säkerställa att ditt domännamn fungerar så problemfritt som möjligt.</target>
+        <target state="translated">Ge ditt domännamn en fullständig kontroll! Zonemaster hjälper dig att bedöma hur ditt domännamn fungerar. Förutom det så kan du också få en bättre förståelse för hur DNS, domännamnssystemet (“Domain Name System”) fungerar. När ett domämnamn skickas till Zonemaster för att testas så kommer programmet att kontrollera tillståndet för domännamnet (också kallat för “zon”) från toppen av DNS-trädet ner till namnservrarna (DNS-servrarna) som hostar domännamnet i fråga (t.ex. “Zonemaster.net”). Zonemaster utför många test, som att kontrollera kryptografiska signaturer för det som kallas DNSSEC, att de olika servrarna är åtkomliga och att IP-adresserna är giltiga. Allt detta görs för att säkerställa att ditt domännamn fungerar så problemfritt som möjligt.</target>
       </trans-unit>
       <trans-unit id="78cb66330b7cd7a76d2124aca1126152d5ff9b17" datatype="html">
         <source>About the DNS</source>
@@ -267,7 +267,7 @@
       </trans-unit>
       <trans-unit id="55cae3ebe403d9eb277c9ff354297a0b34f56486" datatype="html">
         <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the 'Enter' button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
-        <target state="translated">De flesta internetanvändarna funderar inte på vad som egentligen händer när de skriver in en adress i webbläsaren och sedan trycker op ENTER-knappen. Kort beskrivet så är DNS, domännamnssystemet (“Domain Name System”) en databas som kopplar domännamn till IP-adresser på motsvarande sätt som en telefonkatalog kopplar namn till telefonnummer. IP-adresser är en lista över unika nummer som identifierar datorer som är kopplade till Internet. Det motsvarar att varje telefon har sitt eget telefonnummer i telefonnätverket. IP-adresser fungerar fint för datorer, men för vanliga människor så är de svårare att komma ihåg. För att lösa det problemet så har DNS och domännamn skapats som ett extra lager för att koppla namn, som vi kan komma ihåg, till IP-adresser som datorerna använder varje gång vi vill komma åt en specifik webbsida eller använda andra tjänster på Internet, t.ex. mail.</target>
+        <target state="translated">De flesta internetanvändarna funderar inte på vad som egentligen händer när de skriver in en adress i webbläsaren och sedan trycker på ENTER-knappen. Kort beskrivet så är DNS, domännamnssystemet (“Domain Name System”) en databas som kopplar domännamn till IP-adresser på motsvarande sätt som en telefonkatalog kopplar namn till telefonnummer. IP-adresser är en lista över unika nummer som identifierar datorer som är kopplade till Internet. Det motsvarar att varje telefon har sitt eget telefonnummer i telefonnätet. IP-adresser fungerar fint för datorer, men för vanliga människor så är de svårare att komma ihåg. För att lösa det problemet så har DNS och domännamn skapats som ett extra lager för att koppla namn, som vi kan komma ihåg, till IP-adresser som datorerna använder varje gång vi vill komma åt en specifik webbsida eller använda andra tjänster på Internet, t.ex. epost.</target>
       </trans-unit>
       <trans-unit id="ccaa538a3c6d0d421092f253668feb173578f989" datatype="html">
         <source>Run domain test</source>
@@ -283,7 +283,7 @@
       </trans-unit>
       <trans-unit id="7511049748697720259" datatype="html">
         <source>Test completed!</source>
-        <target state="translated">Teset är färdigt!</target>
+        <target state="translated">Testet är färdigt!</target>
       </trans-unit>
       <trans-unit id="51ec22e1dae591a194ac7448bb769dc8d49caa5f" datatype="html">
         <source>Clear domain input</source>
