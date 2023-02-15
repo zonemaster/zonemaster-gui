@@ -52,7 +52,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="4715502322841966813">
         <source>Error during parent data fetching.</source>
-        <target state="translated">Feil når data ble hentet fra modersonen.</target>
+        <target state="translated">Feil når data ble hentet fra foreldresonen.</target>
       </trans-unit>
       <trans-unit datatype="html" id="5f19586aba912ec6eb123ec5ab609a3bcc073066">
         <source>Export</source>
