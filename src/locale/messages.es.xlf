@@ -186,12 +186,12 @@
       </trans-unit>
       <trans-unit id="e948a3edba1bbf1a743318826b81d146d9539477" datatype="html">
         <source>Delegated</source>
-        <target state="translated">Delegado</target>
+        <target state="translated">Delegados</target>
         <note priority="1" from="description">plural delegated</note>
       </trans-unit>
       <trans-unit id="dd85d90fa412b898b4d9c806721d00fefffa3913" datatype="html">
         <source>Undelegated</source>
-        <target state="translated">No está delegado</target>
+        <target state="translated">No están delegados</target>
         <note priority="1" from="description">plural undelegated</note>
       </trans-unit>
       <trans-unit id="42ad467746ed6e8a989a9e579a481cddbb6f1ece" datatype="html">
@@ -339,7 +339,7 @@
       </trans-unit>
       <trans-unit id="2662e4cf5c1d6d26bdde95aa32848f6830aa2293" datatype="html">
         <source>Link to test</source>
-        <target state="translated">Enlace a la prueba.</target>
+        <target state="translated">Enlace a la prueba</target>
       </trans-unit>
       <trans-unit id="665692df9ab12bc228c1276f7d04e97902ff9afc" datatype="html">
         <source>Copy link to clipboard</source>
