@@ -100,7 +100,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="24813b8a3e45f0b57136c18d003027262cfe2d1f">
         <source>Options</source>
-        <target state="new">Avancert sjekk</target>
+        <target state="translated">Alternativer</target>
       </trans-unit>
       <trans-unit datatype="html" id="03354b2489337882c5a4fd033fec9b9f4b8d109f">
         <source>Page Not Found</source>
@@ -335,7 +335,7 @@
       </trans-unit>
       <trans-unit id="1899778155771790050" datatype="html">
         <source>No data found for the zone.</source>
-        <target state="translated">Fant ingen data for sonen</target>
+        <target state="translated">Fant ingen data for sonen.</target>
       </trans-unit>
       <trans-unit id="2662e4cf5c1d6d26bdde95aa32848f6830aa2293" datatype="html">
         <source>Link to test</source>
