@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+  <file source-language="en" datatype="plaintext" original="ng2.template" target-language="es">
     <body>
       <trans-unit datatype="html" id="a434ae37bd56265a0693fbc28bd8338a38500871">
         <source>About Zonemaster</source>
@@ -52,7 +52,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="4715502322841966813">
         <source>Error during parent data fetching.</source>
-        <target state="new">Error durante la obtención de datos del padre</target>
+        <target state="translated">Error durante la obtención de datos del padre.</target>
       </trans-unit>
       <trans-unit datatype="html" id="5f19586aba912ec6eb123ec5ab609a3bcc073066">
         <source>Export</source>
@@ -76,7 +76,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="2360715491728178990">
         <source>History information request is in progress.</source>
-        <target state="new">Solicitud de información histórica en progreso</target>
+        <target state="translated">Solicitud de información histórica en progreso.</target>
       </trans-unit>
       <trans-unit datatype="html" id="81393046c8150147e2cd2312bd175040897777ba">
         <source>Keytag</source>
@@ -92,7 +92,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="8462321971972035102">
         <source>No data for this test.</source>
-        <target state="new">No hay datos para esta prueba</target>
+        <target state="translated">No hay datos para esta prueba.</target>
       </trans-unit>
       <trans-unit datatype="html" id="7d2be22a7252a8b76dea7b3b85ab94ff86184e5d">
         <source>Notice! More info on undelegated test</source>
@@ -108,11 +108,11 @@
       </trans-unit>
       <trans-unit datatype="html" id="4075418865594287698">
         <source>Parent data fetched with success.</source>
-        <target state="new">Los datos del padre fueron obtenidos exitosamente</target>
+        <target state="translated">Los datos del padre fueron obtenidos exitosamente.</target>
       </trans-unit>
       <trans-unit datatype="html" id="7104935342812835081">
         <source>Please set the api endpoint</source>
-        <target state="new">Por favor defina el punto de destino de la api</target>
+        <target state="translated">Por favor defina el punto de destino ("endpoint") de la api</target>
       </trans-unit>
       <trans-unit datatype="html" id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8">
         <source>Profile</source>
@@ -128,7 +128,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="c6bec34adbe7628d1d4fbbc5fd85a8aab6fa8e5c">
         <source>Results from previous tests are not available.</source>
-        <target state="new">No están disponibles los resultados de pruebas anteriores</target>
+        <target state="translated">No están disponibles los resultados de pruebas anteriores.</target>
       </trans-unit>
       <trans-unit datatype="html" id="baa5cda119114bb5fba61496780778a5fa10caf1">
         <source>Run test</source>
@@ -144,7 +144,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="113417823466ebe7cc18b89e8826c7fe3f973439">
         <source>Display all results.</source>
-        <target state="new">Mostrar todos los resultados</target>
+        <target state="translated">Mostrar todos los resultados.</target>
         <note priority="1" from="description">tooltip all</note>
       </trans-unit>
       <trans-unit datatype="html" id="688e4555813c90de96d11699aef24aab49d5b4af">
@@ -154,22 +154,22 @@
       </trans-unit>
       <trans-unit datatype="html" id="1a6e9b4ee9398580ded7bcb9cd3ec6c965de297f">
         <source>Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable.</source>
-        <target state="new">Error - significa un problema que es muy probable (con cierta certeza) que afecta negativamente las funciones de la zona en prueba, pero no tan severo como para que toda la zona quede sin resolución</target>
+        <target state="translated">Error - significa un problema que es muy probable (con cierta certeza) que afecte negativamente el funcionamiento de la zona en prueba, pero no tan severo como para que toda la zona quede sin resolución.</target>
         <note priority="1" from="description">tooltip error</note>
       </trans-unit>
       <trans-unit datatype="html" id="281f2af4328daa895401b765738b1eb9cc55f489">
-        <source>Info - is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem.</source>
+        <source>Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem.</source>
         <target state="new">Info - es algo que puede ser de interés para el administrador de la zona, pero que definitivamente no indica un problema.</target>
         <note priority="1" from="description">tooltip info</note>
       </trans-unit>
       <trans-unit datatype="html" id="e863ca91edf6eb602f218bd8e04f9c06a5937e95">
-        <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all.</source>
-        <target state="new">Aviso - significa algo que debería ser conocido por el administrador de la zona, pero que no necesariamente indica un problema</target>
+        <source>Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all.</source>
+        <target state="translated">Aviso - significa algo que debería ser conocido por el administrador de la zona, pero que no necesariamente indica un problema.</target>
         <note priority="1" from="description">tooltip notice</note>
       </trans-unit>
       <trans-unit datatype="html" id="5f8e2137b25e61faf62e17cea5f550a5ae2fbf9c">
         <source>Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.</source>
-        <target state="new">Advertencia - significa algo que podría ser un problema bajo ciertas circunstancias, pero que es muy raro que sea advertido por un usuario casual.</target>
+        <target state="translated">Advertencia - significa algo que podría ser un problema bajo ciertas circunstancias, pero que es poco probable que sea advertido por un usuario casual.</target>
         <note priority="1" from="description">tooltip warning</note>
       </trans-unit>
       <trans-unit datatype="html" id="51c0cd045c7c68c5936905244f1a0a9c7d294ed3">
@@ -178,20 +178,20 @@
       </trans-unit>
       <trans-unit datatype="html" id="7221366950887162430">
         <source>Zonemaster Backend is not available.</source>
-        <target state="new">El servidor interno de Zonemaster no está disponible</target>
+        <target state="translated">El servidor interno de Zonemaster no está disponible.</target>
       </trans-unit>
       <trans-unit id="7b165859f6b561923cffdcf931fb3e8ec4cd755b" datatype="html">
         <source>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</source>
-        <target state="new">Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</target>
+        <target state="translated">Copyright © AFNIC y The Swedish Internet Foundation. Todos los Derechos Reservados</target>
       </trans-unit>
       <trans-unit id="e948a3edba1bbf1a743318826b81d146d9539477" datatype="html">
         <source>Delegated</source>
-        <target state="new">Delegados</target>
+        <target state="translated">Delegados</target>
         <note priority="1" from="description">plural delegated</note>
       </trans-unit>
       <trans-unit id="dd85d90fa412b898b4d9c806721d00fefffa3913" datatype="html">
         <source>Undelegated</source>
-        <target state="new">No están delegados</target>
+        <target state="translated">No están delegados</target>
         <note priority="1" from="description">plural undelegated</note>
       </trans-unit>
       <trans-unit id="42ad467746ed6e8a989a9e579a481cddbb6f1ece" datatype="html">
@@ -201,127 +201,165 @@
       </trans-unit>
       <trans-unit id="4685a7012cc5a21113aa0bc3bf7fa0742f07855d" datatype="html">
         <source>Click to return on the top page</source>
+        <target state="translated">Cliquee para volver al comienzo de la página</target>
       </trans-unit>
       <trans-unit id="c5e1258c5583ecac4ec6533453f274dcda26af9a" datatype="html">
         <source>Error 404</source>
+        <target state="translated">Error 404</target>
       </trans-unit>
       <trans-unit id="80ebb1b82fed892345531fff2ba095160972dd86" datatype="html">
         <source>Result</source>
+        <target state="translated">Resultado</target>
       </trans-unit>
       <trans-unit id="f4e529ae5ffd73001d1ff4bbdeeb0a72e342e5c8" datatype="html">
         <source>Close</source>
+        <target state="translated">Cerrar</target>
       </trans-unit>
       <trans-unit id="dfc3c34e182ea73c5d784ff7c8135f087992dac1" datatype="html">
         <source>All</source>
+        <target state="translated">Todos</target>
         <note priority="1" from="description">all filter button</note>
       </trans-unit>
       <trans-unit id="321e4419a943044e674beb55b8039f42a9761ca5" datatype="html">
         <source>Info</source>
+        <target state="translated">Información</target>
         <note priority="1" from="description">info filter button</note>
       </trans-unit>
       <trans-unit id="bafecf51738eee6e4a0d7b62cbc5dc156be6cf3d" datatype="html">
         <source>Notice</source>
+        <target state="translated">Aviso</target>
         <note priority="1" from="description">notice filter button</note>
       </trans-unit>
       <trans-unit id="a8059e31694578c1b0344a76a345357dd60e8f01" datatype="html">
         <source>Warning</source>
+        <target state="translated">Advertencia</target>
         <note priority="1" from="description">warning filter button</note>
       </trans-unit>
       <trans-unit id="6080b77234e92ad41bb52653b239c4c4f851317d" datatype="html">
         <source>Error</source>
+        <target state="translated">Error</target>
         <note priority="1" from="description">error filter button</note>
       </trans-unit>
       <trans-unit id="43b83878842ed1b33e975a88ddfb5db83b5f1fe7" datatype="html">
         <source>Critical</source>
+        <target state="translated">Crítico</target>
         <note priority="1" from="description">critical filter button</note>
       </trans-unit>
       <trans-unit id="1867992058937397585" datatype="html">
         <source>Module</source>
+        <target state="translated">Módulo</target>
       </trans-unit>
       <trans-unit id="3733215288982610673" datatype="html">
         <source>Level</source>
+        <target state="translated">Nivel</target>
       </trans-unit>
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
+        <target state="translated">Mensaje</target>
       </trans-unit>
       <trans-unit id="3e1042f106a9c7ded3aadadbf8fe40e7651aa353" datatype="html">
-        <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called &apos;zone&apos;) from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root (&apos;.&apos;) to the TLD (Top-Level Domain; e.g., &apos;.net&apos;) for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., &apos;zonemaster.net&apos;). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
+        <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called 'zone') from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root ('.') to the TLD (Top-Level Domain; e.g., '.net') for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., 'zonemaster.net'). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
+        <target state="translated">¡Dele a su dominio una revisión completa! Zonemaster le ayuda a evaluar cómo lo está haciendo su nombre de dominio. Además, podrás entender mejor cómo funciona el sistema de nombres de dominio, el DNS. Cuando un nombre de dominio es enviado a Zonemaster para su revisión, el programa investiga el estado del nombre de dominio (a veces llamado 'zona') de arriba a abajo en el árbol DNS. Específicamente, se examina los datos DNS desde la raíz (.), pasando por el TLD (dominio de primer-nivel, por ejemplo, .net), para llegar finalmente a los servidores DNS que tienen la información específica del nombre de dominio (por ejemplo, zonemaster.net). Zonemaster realiza muchas pruebas, por ejemplo revisar las firmas DNSSEC, o que los distintos servidores sean alcanzables, y que todas las direcciones IP sean válidas. Todo esto para asegurar que su nombre de dominio funcione tan bien como sea posible.</target>
       </trans-unit>
       <trans-unit id="78cb66330b7cd7a76d2124aca1126152d5ff9b17" datatype="html">
         <source>About the DNS</source>
+        <target state="translated">Acerca del DNS</target>
       </trans-unit>
       <trans-unit id="55cae3ebe403d9eb277c9ff354297a0b34f56486" datatype="html">
-        <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the &apos;Enter&apos; button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
+        <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the 'Enter' button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
+        <target state="translated">La mayoría de las personas que usan Internet nunca se preguntan qué sucede realmente cuando uno escribe una dirección en su navegador web y presiona el botón 'Intro'. Simplificadamente, el Sistema de Nombres de Dominio (DNS), es una base de datos que asocia nombres de dominio a direcciones IP (Protocolo Internet), de la misma forma que una libreta de teléfonos asocia nombres a números de teléfono. Una dirección IP es una serie de números únicos que identifica a todos los computadores que están conectados a Internet. Es similar a la forma en que cada teléfono tiene su número propio en la red telefónica. Una serie larga de números funciona bien para computadores, pero es difícil de memorizar para las personas. Por lo tanto, se desarrolló el DNS como una capa extra que mapea entre nombres que podemos recordar mejor, y direcciones IP que son usadas por computadores, para cualquier momento que queramos llegar a un servidor web en específico, o usar otros servicios en Internet (por ej., email).</target>
       </trans-unit>
       <trans-unit id="ccaa538a3c6d0d421092f253668feb173578f989" datatype="html">
         <source>Run domain test</source>
+        <target state="translated">Ejecutar prueba de dominio</target>
       </trans-unit>
       <trans-unit id="b23b7b874559732067ac282a864c98562cdbb435" datatype="html">
         <source>Run</source>
+        <target state="translated">Ejecutar</target>
       </trans-unit>
       <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
         <source>Change language</source>
+        <target state="translated">Cambiar idioma</target>
       </trans-unit>
       <trans-unit id="7511049748697720259" datatype="html">
         <source>Test completed!</source>
-        <target state="new">Test completed!</target>
+        <target state="translated">¡Prueba completa!</target>
       </trans-unit>
       <trans-unit id="51ec22e1dae591a194ac7448bb769dc8d49caa5f" datatype="html">
         <source>Clear domain input</source>
+        <target state="translated">Limpiar entrada de dominio</target>
       </trans-unit>
       <trans-unit id="c4d8a11a168d1bed37bc5a1cf302dfeb2bc62d6c" datatype="html">
         <source>Nameserver</source>
+        <target state="translated">Servidor de nombre</target>
       </trans-unit>
       <trans-unit id="94f7a0a482e16dafb093eff9c64bdffc40dc0636" datatype="html">
         <source>Nameserver required</source>
+        <target state="translated">Servidor de nombre necesario</target>
       </trans-unit>
       <trans-unit id="e8096ea93b6627c620ffbb208d7ad49235ffc2fd" datatype="html">
         <source>IP address</source>
+        <target state="translated">Dirección IP</target>
       </trans-unit>
       <trans-unit id="9e654b8e014437daf59581aeab2425a7cd0c0007" datatype="html">
         <source>Delete nameserver</source>
+        <target state="translated">Borrar servidor de nombre</target>
       </trans-unit>
       <trans-unit id="8e28ba95684e8704a43f67ac1d33bb2e2a9c54fd" datatype="html">
         <source>Add new nameserver</source>
+        <target state="translated">Agregar nuevo servidor de nombre</target>
       </trans-unit>
       <trans-unit id="469bd9b4d935f4b60b0fb10af4dba592c6c14f5a" datatype="html">
         <source>DS records</source>
+        <target state="translated">Registros DS</target>
       </trans-unit>
       <trans-unit id="a35d390f659821874ed1913ccf54b9a2d0d79b2a" datatype="html">
         <source>Delete DS record</source>
+        <target state="translated">Eliminar registro DS</target>
       </trans-unit>
       <trans-unit id="ea59270a53cba963d581a60e32c464a0339e2c12" datatype="html">
         <source>Add new DS record</source>
+        <target state="translated">Agregar nuevo registro DS</target>
       </trans-unit>
       <trans-unit id="3d53f64033c4b76fdc1076ba15955d913209866c" datatype="html">
         <source>General</source>
+        <target state="translated">General</target>
       </trans-unit>
       <trans-unit id="acc04ca445d64958d843622f9ce95c0378198c24" datatype="html">
         <source>Protocol</source>
+        <target state="translated">Protocolo</target>
       </trans-unit>
       <trans-unit id="0d4c8c660bb078b6ebb294da1f03d813885fe1d2" datatype="html">
         <source>Cannot disable both IPv4 and IPv6</source>
+        <target state="translated">No puede deshabilitar ambos IPv4 e IPv6</target>
       </trans-unit>
       <trans-unit id="1899778155771790050" datatype="html">
         <source>No data found for the zone.</source>
+        <target state="translated">No se encontraron datos para la zona.</target>
       </trans-unit>
       <trans-unit id="2662e4cf5c1d6d26bdde95aa32848f6830aa2293" datatype="html">
         <source>Link to test</source>
+        <target state="translated">Enlace a la prueba</target>
       </trans-unit>
       <trans-unit id="665692df9ab12bc228c1276f7d04e97902ff9afc" datatype="html">
         <source>Copy link to clipboard</source>
+        <target state="translated">Copiar enlace al portapapeles</target>
       </trans-unit>
       <trans-unit id="cdcc2fb9c903c66da8871772fcea46419ceba196" datatype="html">
         <source>Filter results</source>
+        <target state="translated">Filtrar resultados</target>
       </trans-unit>
       <trans-unit id="1a38bccdfebed08e1a0918aae25558b4bd561bc0" datatype="html">
         <source>Fetch DS from parent zone</source>
+        <target state="translated">Obtener DS desde la zona padre</target>
       </trans-unit>
       <trans-unit id="2569213046451523868" datatype="html">
         <source>No previous tests found for this domain.</source>
+        <target state="translated">No se encontraron pruebas anteriores para este dominio.</target>
       </trans-unit>
       <trans-unit id="7210131782873551503" datatype="html">
         <source>An unexpected server error happened.</source>
+        <target state="translated">Ha ocurrido un error inesperado en el servidor.</target>
       </trans-unit>
     </body>
   </file>
