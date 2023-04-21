@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy, Inject, LOCALE_ID } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { saveAs } from 'file-saver';
@@ -12,7 +13,8 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
-  styleUrls: ['./result.component.css']
+  styleUrls: ['./result.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ResultComponent implements OnInit, OnDestroy {
 

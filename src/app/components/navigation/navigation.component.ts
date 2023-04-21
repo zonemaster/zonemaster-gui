@@ -1,4 +1,5 @@
 import { Component, OnInit, NgZone, AfterViewInit, ViewChild, ElementRef, LOCALE_ID, Inject} from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 import { NavigationService } from '../../services/navigation.service';
 import { AppService } from '../../services/app.service';
 import { NavigationEnd, Router } from '@angular/router';
@@ -9,6 +10,7 @@ import { filter, take } from "rxjs/internal/operators";
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class NavigationComponent implements OnInit, AfterViewInit {
   public logoUrl: string;
