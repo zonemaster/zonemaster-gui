@@ -2,4 +2,169 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    --zm-grey: #cdc7c2;
+    --zm-green: #157347;
+
+    --zm-header-light-bg: #ececec;
+    --zm-header-dark-bg: var(--bs-dark);
+
+    --zm-navbar-light-color: var(--bs-body-color);
+    --zm-navbar-light-bg: #ffffff;
+    --zm-navbar-link-light-color: rgba(0, 0, 0, 0.55);
+    --zm-navbar-link-light-color-hover: rgba(0, 0, 0, 0.7);
+    --zm-navbar-link-active-light-color: rgba(0, 0, 0, 0.9);
+
+    --zm-navbar-dark-color: var(--bs-light);
+    --zm-navbar-dark-bg: var(--bs-dark);
+    --zm-navbar-active-dark-color: #ffffff;
+    --zm-navbar-link-dark-color: rgba(255, 255, 255, 0.55);
+    --zm-navbar-link-dark-color-hover: rgba(255, 255, 255, 0.75);
+    --zm-navbar-link-active-dark-color: #ffffff;
+
+    --zm-footer-light-color: var(--bs-body-color);
+    --zm-footer-light-bg: #ffffff;
+    --zm-footer-dark-color: var(--bs-light);
+    --zm-footer-dark-bg: var(--bs-dark);
+
+    --zm-body-light-bg: #ffffff;
+    --zm-body-light-color: var(--bs-body-color);
+    --zm-body-dark-bg: #2C3034;
+    --zm-body-dark-color: var(--bs-light);
+
+    --zm-link-light-color: var(--bs-link-color);
+    --zm-link-light-color-hover: var(--bs-link-hover-color);
+    --zm-link-dark-color: #5a9dff;
+    --zm-link-dark-color-hover: #8ea5ff;
+
+    --zm-form-btn-bg-1: #ff5a5f;
+    --zm-form-btn-bg-2: #ff3c3a;
+    --zm-form-error: #b51222;
+    --zm-form-option-off: #cccccc;
+    --zm-form-option-on: #2196f3;
+
+    --zm-result-info-light: #157347;
+    --zm-result-notice-light: #1069c8;
+    --zm-result-warning-light-1: #ae5a01;
+    --zm-result-warning-light-2: #ff9019;
+    --zm-result-error-light: #bb2d3b;
+    --zm-result-testcase-info-light-color: #555454;
+    --zm-result-testcase-info-light-bg: #d3eeff;
+    --zm-result-details-light-bg: #f7f7f7;
+    --zm-result-filter-btn-light-color: var(--bs-btn-color);
+    --zm-result-filter-btn-light-bg: #919191;
+
+    --zm-result-info-dark: #1ac474;
+    --zm-result-notice-dark: #51aeff;
+    --zm-result-warning-dark-1: #f48f25;
+    --zm-result-warning-dark-2: #ff9019;
+    --zm-result-error-dark: #fd8181;
+    --zm-result-testcase-info-dark-color: #555454;
+    --zm-result-testcase-info-dark-bg: #d3eeff;
+    --zm-result-details-dark-bg: #313a43;
+    --zm-result-filter-btn-dark-color: #ffffff;
+    --zm-result-filter-btn-dark-bg: #919191;
+
+    /* default light theme*/
+    --zm-body-bg: var(--zm-body-light-bg);
+    --zm-body-color: var(--zm-body-light-color);
+
+    --zm-header-bg: var(--zm-header-light-bg);
+
+    --zm-navbar-color: var(--zm-navbar-light-color);
+    --zm-navbar-bg: var(--zm-navbar-light-bg);
+    --zm-navbar-link-color: var(--zm-navbar-link-light-color);
+    --zm-navbar-link-color-hover: var(--zm-navbar-link-light-color-hover);
+    --zm-navbar-link-active-color: var(--zm-navbar-link-active-light-color);
+
+    --zm-footer-color: var(--zm-footer-light-color);
+    --zm-footer-bg: var(--zm-footer-light-bg);
+
+    --zm-link-color: var(--zm-link-light-color);
+    --zm-link-color-hover: var(--zm-link-light-color-hover);
+
+    --zm-result-info-color: var(--zm-result-info-light);
+    --zm-result-info-bg: var(--zm-result-info-light);
+    --zm-result-notice-color: var(--zm-result-notice-light);
+    --zm-result-notice-bg: var(--zm-result-notice-light);
+    --zm-result-warning-color: var(--zm-result-warning-light-1);
+    --zm-result-warning-bg: var(--zm-result-warning-light-2);
+    --zm-result-error-color: var(--zm-result-error-light);
+    --zm-result-error-bg: var(--zm-result-error-light);
+    --zm-result-critical-color: var(--zm-result-error-light);
+    --zm-result-critical-bg: var(--zm-result-error-light);
+
+    --zm-result-testcase-info-color: var(--zm-result-testcase-info-light-color);
+    --zm-result-testcase-info-bg: var(--zm-result-testcase-info-light-bg);
+    --zm-result-details-bg: var(--zm-result-details-light-bg);
+    --zm-result-filter-btn-color: var(--zm-result-filter-btn-light-color);
+    --zm-result-filter-btn-bg: var(--zm-result-filter-btn-light-bg);
+}
+
+#theme-switch:checked ~ main,
+#theme-switch:checked ~ app-navigation,
+#theme-switch:checked ~ app-footer {
+    --zm-body-bg: var(--zm-body-dark-bg);
+    --zm-body-color: var(--zm-body-dark-color);
+
+    --zm-header-bg: var(--zm-header-dark-bg);
+
+    --zm-navbar-color: var(--zm-navbar-dark-color);
+    --zm-navbar-bg: var(--zm-navbar-dark-bg);
+    --zm-navbar-link-color: var(--zm-navbar-link-dark-color);
+    --zm-navbar-link-color-hover: var(--zm-navbar-link-dark-color-hover);
+    --zm-navbar-link-active-color: var(--zm-navbar-link-active-dark-color);
+
+    --zm-footer-color: var(--zm-footer-dark-color);
+    --zm-footer-bg: var(--zm-footer-dark-bg);
+
+    --zm-link-color: var(--zm-link-dark-color);
+    --zm-link-color-hover: var(--zm-link-dark-color-hover);
+
+    --zm-result-info-color: var(--zm-result-info-dark);
+    --zm-result-info-bg: var(--zm-result-info-light);
+    --zm-result-notice-color: var(--zm-result-notice-dark);
+    --zm-result-notice-bg: var(--zm-result-notice-light);
+    --zm-result-warning-color: var(--zm-result-warning-dark-1);
+    --zm-result-warning-bg: var(--zm-result-warning-light-2);
+    --zm-result-error-color: var(--zm-result-error-dark);
+    --zm-result-error-bg: var(--zm-result-error-light);
+    --zm-result-critical-color: var(--zm-result-error-dark);
+    --zm-result-critical-bg: var(--zm-result-error-light);
+
+    --zm-result-testcase-info-color: var(--zm-result-testcase-info-dark-color);
+    --zm-result-testcase-info-bg: var(--zm-result-testcase-info-dark-bg);
+    --zm-result-details-bg: var(--zm-result-details-dark-bg);
+    --zm-result-filter-btn-color: var(--zm-result-filter-btn-dark-color);
+    --zm-result-filter-btn-bg: var(--zm-result-filter-btn-dark-bg);
+}
+
+#theme-switch ~ app-navigation {
+    --zm-theme-icon: "\f328"; /* Fork Awesome: moon */
+    --zm-theme-icon-border: grey;
+}
+#theme-switch:checked ~ app-navigation {
+    --zm-theme-icon: "\f329"; /* Fork Awesome: moon */
+}
+
+#theme-switch {
+    position: absolute;
+    top: 0px;
+    z-index: 0;
+    opacity: 0;
+}
+
+#theme-switch ~ app-navigation ::ng-deep label.theme-switch {
+    padding: 0.5rem;
+    width: calc(2rem + 1rem);
+    border: none;
+}
+#theme-switch:focus ~ app-navigation ::ng-deep label.theme-switch {
+    border: 0.2rem solid var(--zm-theme-icon-border);
+    border-radius: 5px;
+}
+
+main {
+    background-color: var(--zm-body-bg);
+    color: var(--zm-body-color);
 }

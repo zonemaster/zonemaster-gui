@@ -2,3 +2,10 @@
   position: relative;
   top: -90px;
 }
+
+:host ::ng-deep a {
+    color: var(--zm-link-color);
+}
+:host ::ng-deep a:hover {
+    color: var(--zm-link-color-hover);
+}

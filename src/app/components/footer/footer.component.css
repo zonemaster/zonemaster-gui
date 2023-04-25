@@ -1,5 +1,11 @@
 footer {
   box-shadow: inset -1px 7px 5px -9px rgba(0,0,0,0.75);
+  background-color: var(--zm-footer-bg);
+  color: var(--zm-footer-color);
+}
+
+footer a {
+  color: var(--zm-footer-color);
 }
 
 footer .version {
