@@ -373,6 +373,9 @@
         <source>
           <x id="INTERPOLATION" equiv-text="rogress bar."/>
         </source>
+        <target state="translated">
+          <x id="INTERPOLATION" equiv-text="rogress bar."/>
+        </target>
       </trans-unit>
     </body>
   </file>
