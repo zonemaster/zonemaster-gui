@@ -731,6 +731,15 @@
           <context context-type="linenumber">338</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="ngb.progressbar.value" datatype="html">
+        <source>
+          <x id="INTERPOLATION" equiv-text="rogress bar."/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/progressbar/progressbar.ts</context>
+          <context context-type="linenumber">64,67</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

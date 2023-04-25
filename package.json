@@ -13,7 +13,7 @@
     "e2e:install": "playwright install chromium",
     "e2e:install-deps": "playwright install-deps chromium",
     "e2e:test-server": "ng build --configuration=tests --localize && node scripts/test_server.js",
-    "i18n:extract": "ng extract-i18n --remove-ids-with-prefix ngb.datepicker --remove-ids-with-prefix ngb.carousel --remove-ids-with-prefix ngb.alert --remove-ids-with-prefix ngb.progressbar --remove-ids-with-prefix ngb.timepicker --remove-ids-with-prefix ngb.toast --output-path src/locale --trim --new-translation-targets-blank omit"
+    "i18n:extract": "ng extract-i18n --remove-ids-with-prefix ngb.datepicker --remove-ids-with-prefix ngb.carousel --remove-ids-with-prefix ngb.alert --remove-ids-with-prefix ngb.timepicker --remove-ids-with-prefix ngb.toast --output-path src/locale --trim --new-translation-targets-blank omit"
   },
   "private": false,
   "dependencies": {

@@ -369,6 +369,11 @@
       <trans-unit id="ngb.pagination.last-aria" datatype="html">
         <source>Last</source>
       </trans-unit>
+      <trans-unit id="ngb.progressbar.value" datatype="html">
+        <source>
+          <x id="INTERPOLATION" equiv-text="rogress bar."/>
+        </source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
