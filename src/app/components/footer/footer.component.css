@@ -2,16 +2,36 @@ footer {
   box-shadow: inset -1px 7px 5px -9px rgba(0,0,0,0.75);
 }
 
-footer .version {
+footer dl.version {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 0.25rem 0.5rem;
+  margin: 0;
 }
 
-footer .version div:nth-of-type(odd) {
+footer dl.version dt {
   text-align: start;
+  font-weight: normal;
 }
 
-footer .version div:nth-of-type(even) {
+footer dl.version dd {
   text-align: end;
+  margin: 0;
+}
+
+footer .copyright {
+  color: #4d5357;
+}
+
+footer i.fa {
+  margin-right: .25rem;
+}
+
+footer nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+footer nav li {
+  list-style: none;
 }
