@@ -7,7 +7,7 @@
   padding-top: 20px;
 }
 
-:host {
+.container.alert {
   position: sticky;
   top: 0;
   z-index: 1020;

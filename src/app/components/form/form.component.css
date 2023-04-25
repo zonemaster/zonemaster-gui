@@ -4,16 +4,16 @@
   border-radius:3px
 }
 
-button.launch {
+.domain button.launch {
   background-color: #FF5A5F;
   height: 64px;
 }
-button.launch:hover {
+.domain button.launch:hover {
   background-color: #ff3c3a;
 }
 
 /* The switch - the box around the slider */
-.switch-input-container {
+.domain .switch-input-container {
   display: flex;
   align-items: center;
 }
@@ -30,24 +30,24 @@ button.launch:hover {
   margin-bottom: 1rem;
 }
 
-fieldset fieldset legend {
+.domain fieldset fieldset legend {
   font-size: 1em;
   margin-bottom: 0;
   font-weight: normal;
 }
 
-form .protocol {
+.domain form .protocol {
   padding-top: 0.375rem;
   display: flex;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
 
-.switch-input-container label {
+.domain .switch-input-container label {
   margin: 0;
 }
 
-button.switch-toggle {
+.domain button.switch-toggle {
   border: none;
   width: 2em;
   background-color: #ccc;
@@ -63,16 +63,16 @@ button.switch-toggle {
   cursor: pointer;
 }
 
-button.switch-toggle.enabled {
+.domain button.switch-toggle.enabled {
   background-position: right center;
   background-color: #2196f3;
 }
 
-.advanced {
+.domain .advanced {
   text-align: left;
 }
 
-.is-invalid label {
+.domain .is-invalid label {
   color: #b51222!important;
 }
 
@@ -92,7 +92,7 @@ button.switch-toggle.enabled {
   --bs-gutter-x: 0.5rem;
 }
 
-.reset-form {
+.domain .reset-form {
   position: absolute;
   right: 0;
   top: 15%;
@@ -100,23 +100,23 @@ button.switch-toggle.enabled {
   right: 0.5rem;
 }
 
-.reset-form button:not(:disabled):hover {
+.domain .reset-form button:not(:disabled):hover {
   opacity: 1;
 }
 
-.reset-form button {
+.domain .reset-form button {
   border: none;
   opacity: 0.5;
 }
 
-.grey {
+.domain .grey {
   color: grey;
 }
 
-.domain-input-container {
+.domain .domain-input-container {
   position: relative;
 }
-.progress-value {
+.domain .progress-value {
   display: block;
   color: #000;
   position: absolute;
@@ -124,19 +124,19 @@ button.switch-toggle.enabled {
   font-size: 2rem;
 }
 
-.progress-result {
+.domain .progress-result {
   width: calc(100% - var(--bs-gutter-x));
   position: absolute;
   z-index: 20;
   top: 0;
 }
 
-.checkboxForm {
+.domain .checkboxForm {
   width: inherit;
 }
 
 @media(max-width:767px){
-  fieldset .form-col:not(:first-child) {
+  .domain fieldset .form-col:not(:first-child) {
     margin-top: 0.5rem;
   }
 }

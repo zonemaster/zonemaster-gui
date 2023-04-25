@@ -1,4 +1,4 @@
-nav {
+.main-navigation nav {
   height: 80px;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.75);
   -webkit-transition: 0.2s linear height;
@@ -7,61 +7,61 @@ nav {
   transition: 0.2s linear height;
 }
 
-.logo {
+.main-navigation .logo {
   height: 70px;
   image-rendering: -webkit-optimize-contrast;
   transition: 0.2s linear height;
   padding: 0.5rem;
 }
 
-.navbar-brand div {
+.main-navigation .navbar-brand div {
   height: 100%;
 }
-.lang {
+.main-navigation .lang {
   display: inline-flex;
   align-items: center;
 }
-.lang .icon {
+.main-navigation .lang .icon {
   width: 27px;
   line-height: 27px;
   margin: 0 5px;
   font-size: 20pt;
 }
-#languageSelection{
+#languageSelection {
   width: auto;
 }
-.github {
+.main-navigation .github {
   height: 100%;
 }
 
 @media(min-width:991px) {
-  .shrink {
+  .main-navigation .shrink {
     height: 60px;
   }
 
 
-  .shrink .github {
+  .main-navigation .shrink .github {
     width: 60px;
     height: 60px;
   }
 }
 
 @media(max-width: 991px) {
-  .logo {
+  .main-navigation .logo {
     height: 55px;
   }
 
-  nav {
+  .main-navigation nav {
     height: auto;
   }
 
-  .lang .icon {
+  .main-navigation .lang .icon {
     display: none;
   }
 }
 
 @media(max-width: 1300px) {
-  .github {
+  .main-navigation .github {
     display: none
   }
 }
