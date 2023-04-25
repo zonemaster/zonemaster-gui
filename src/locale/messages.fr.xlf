@@ -12,7 +12,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="dfb71f4aa0784b7ddcc0511e4d2ed664bbf24830">
         <source>Algorithm required</source>
-        <target state="translated">L'algorithme est obligatoire</target>
+        <target state="translated">L&apos;algorithme est obligatoire</target>
       </trans-unit>
       <trans-unit datatype="html" id="6f38d53bf6192c4d83d21fc84478cf97c2bc81c2">
         <source>All</source>
@@ -76,7 +76,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="2360715491728178990">
         <source>History information request is in progress.</source>
-        <target state="translated">La demande d'historique est en cours.</target>
+        <target state="translated">La demande d&apos;historique est en cours.</target>
       </trans-unit>
       <trans-unit datatype="html" id="81393046c8150147e2cd2312bd175040897777ba">
         <source>Keytag</source>
@@ -92,11 +92,11 @@
       </trans-unit>
       <trans-unit datatype="html" id="8462321971972035102">
         <source>No data for this test.</source>
-        <target state="translated">Il n'y a pas de résultat pour ce test.</target>
+        <target state="translated">Il n&apos;y a pas de résultat pour ce test.</target>
       </trans-unit>
       <trans-unit datatype="html" id="7d2be22a7252a8b76dea7b3b85ab94ff86184e5d">
         <source>Notice! More info on undelegated test</source>
-        <target state="translated">Plus d'information sur les tests non délégués</target>
+        <target state="translated">Plus d&apos;information sur les tests non délégués</target>
       </trans-unit>
       <trans-unit datatype="html" id="24813b8a3e45f0b57136c18d003027262cfe2d1f">
         <source>Options</source>
@@ -112,7 +112,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="7104935342812835081">
         <source>Please set the api endpoint</source>
-        <target state="translated">Merci de contacter l'administrateur, un point d'accès est nécessaire</target>
+        <target state="translated">Merci de contacter l&apos;administrateur, un point d&apos;accès est nécessaire</target>
       </trans-unit>
       <trans-unit datatype="html" id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8">
         <source>Profile</source>
@@ -140,11 +140,11 @@
       </trans-unit>
       <trans-unit datatype="html" id="a119d6c78f3f291d3be8bac176f93afe0757f615">
         <source>Sorry, there is nothing here!</source>
-        <target state="translated">Désolé, il n'y a rien ici !</target>
+        <target state="translated">Désolé, il n&apos;y a rien ici !</target>
       </trans-unit>
       <trans-unit datatype="html" id="113417823466ebe7cc18b89e8826c7fe3f973439">
         <source>Display all results.</source>
-        <target state="translated">Afficher l'ensemble des résultats.</target>
+        <target state="translated">Afficher l&apos;ensemble des résultats.</target>
         <note priority="1" from="description">tooltip all</note>
       </trans-unit>
       <trans-unit datatype="html" id="688e4555813c90de96d11699aef24aab49d5b4af">
@@ -158,12 +158,12 @@
         <note priority="1" from="description">tooltip error</note>
       </trans-unit>
       <trans-unit datatype="html" id="281f2af4328daa895401b765738b1eb9cc55f489">
-        <source>Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem.</source>
+        <source>Info - is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem.</source>
         <target state="translated">Info – une information pouvant être utile pour la personne administrant la zone mais qui n’est en aucun cas une anomalie.</target>
         <note priority="1" from="description">tooltip info</note>
       </trans-unit>
       <trans-unit datatype="html" id="e863ca91edf6eb602f218bd8e04f9c06a5937e95">
-        <source>Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all.</source>
+        <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all.</source>
         <target state="translated">Note - un élément dont la personne administrant la zone devrait prendre connaissance sans qu’il ne s’agisse nécessairement d’un problème de configuration.</target>
         <note priority="1" from="description">tooltip notice</note>
       </trans-unit>
@@ -174,11 +174,11 @@
       </trans-unit>
       <trans-unit datatype="html" id="51c0cd045c7c68c5936905244f1a0a9c7d294ed3">
         <source>What is an undelegated domain test?</source>
-        <target state="translated">Qu'est-ce qu'un test sur un nom de domaine non délégué ?</target>
+        <target state="translated">Qu&apos;est-ce qu&apos;un test sur un nom de domaine non délégué ?</target>
       </trans-unit>
       <trans-unit datatype="html" id="7221366950887162430">
         <source>Zonemaster Backend is not available.</source>
-        <target state="translated">Zonemaster Backend n'est pas disponible.</target>
+        <target state="translated">Zonemaster Backend n&apos;est pas disponible.</target>
       </trans-unit>
       <trans-unit id="7b165859f6b561923cffdcf931fb3e8ec4cd755b" datatype="html">
         <source>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</source>
@@ -258,20 +258,20 @@
         <target state="translated">Message</target>
       </trans-unit>
       <trans-unit id="3e1042f106a9c7ded3aadadbf8fe40e7651aa353" datatype="html">
-        <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called 'zone') from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root ('.') to the TLD (Top-Level Domain; e.g., '.net') for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., 'zonemaster.net'). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
-        <target state="translated">Donnez à votre nom de domaine un examen complet ! Zonemaster vous aide à évaluer l’état de votre nom de domaine. En plus, vous pouvez aussi apprendre à mieux comprendre comment le DNS (Domain Name System) fonctionne. Lorsqu’un domaine est envoyé à Zonemaster pour être testé, le programme examine l’état du nom de domaine (également appelé « zone ») du haut vers le bas de l’arbre DNS. Plus précisément, cela est généralement fait en examinant les données du DNS depuis la racine (« . »), en passant par le TLD (Top-Level Domain, domaine de premier niveau; par exemple « .net ») de ce domaine, et enfin jusqu’aux serveurs de noms contenant les informations faisant autorité pour le domaine spécifié (par exemple « zonemaster.net »). Zonemaster réalise plusieurs tests, tels que la vérification des signatures DNSSEC, ou que différents serveurs sont accessibles et que les adresses IP sont valides. Tout cela pour s’assurer que votre nom de domaine fonctionne aussi bien que possible.</target>
+        <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called &apos;zone&apos;) from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root (&apos;.&apos;) to the TLD (Top-Level Domain; e.g., &apos;.net&apos;) for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., &apos;zonemaster.net&apos;). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
+        <target state="translated">Donnez à votre nom de domaine un examen complet ! Zonemaster vous aide à évaluer l’état de votre nom de domaine. En plus, vous pouvez aussi apprendre à mieux comprendre comment le DNS (Domain Name System) fonctionne. Lorsqu’un domaine est envoyé à Zonemaster pour être testé, le programme examine l’état du nom de domaine (également appelé « zone ») du haut vers le bas de l’arbre DNS. Plus précisément, cela est généralement fait en examinant les données du DNS depuis la racine (« . »), en passant par le TLD (Top-Level Domain, domaine de premier niveau; par exemple « .net ») de ce domaine, et enfin jusqu’aux serveurs de noms contenant les informations faisant autorité pour le domaine spécifié (par exemple « zonemaster.net »). Zonemaster réalise plusieurs tests, tels que la vérification des signatures DNSSEC, ou que différents serveurs sont accessibles et que les adresses IP sont valides. Tout cela pour s’assurer que votre nom de domaine fonctionne aussi bien que possible.</target>
       </trans-unit>
       <trans-unit id="78cb66330b7cd7a76d2124aca1126152d5ff9b17" datatype="html">
         <source>About the DNS</source>
         <target state="translated">À propos du DNS</target>
       </trans-unit>
       <trans-unit id="55cae3ebe403d9eb277c9ff354297a0b34f56486" datatype="html">
-        <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the 'Enter' button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
-        <target state="translated">La plupart des personnes qui utilisent Internet ne se sont jamais demandées ce qui se passe réellement quand elles tapent une adresse dans leur navigateur Web et appuient ensuite sur la touche « entrée ». En résumé le DNS (Domain Name System) est une base de données qui associe des noms de domaine à des adresses IP (Internet Protocol), de la même manière qu’un annuaire associe des noms à des numéros de téléphone. Une adresse IP est un identifiant numérique unique qui identifie chaque ordinateur connecté à Internet, de la même manière que chaque téléphone a son propre numéro dans le réseau téléphonique. Ces identifiants numériques complexes conviennent parfaitement aux ordinateurs, mais sont beaucoup plus difficiles à mémoriser pour des humains. C’est pour cela que le DNS a été développé, pour établir une correspondance entre des noms que nous pouvons plus facilement retenir et les adresses IP utilisées par les ordinateurs lorsqu’on veut accéder à un site Web ou utiliser d’autres services sur Internet (comme le courriel).</target>
+        <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the &apos;Enter&apos; button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
+        <target state="translated">La plupart des personnes qui utilisent Internet ne se sont jamais demandées ce qui se passe réellement quand elles tapent une adresse dans leur navigateur Web et appuient ensuite sur la touche « entrée ». En résumé le DNS (Domain Name System) est une base de données qui associe des noms de domaine à des adresses IP (Internet Protocol), de la même manière qu’un annuaire associe des noms à des numéros de téléphone. Une adresse IP est un identifiant numérique unique qui identifie chaque ordinateur connecté à Internet, de la même manière que chaque téléphone a son propre numéro dans le réseau téléphonique. Ces identifiants numériques complexes conviennent parfaitement aux ordinateurs, mais sont beaucoup plus difficiles à mémoriser pour des humains. C’est pour cela que le DNS a été développé, pour établir une correspondance entre des noms que nous pouvons plus facilement retenir et les adresses IP utilisées par les ordinateurs lorsqu’on veut accéder à un site Web ou utiliser d’autres services sur Internet (comme le courriel).</target>
       </trans-unit>
       <trans-unit id="ccaa538a3c6d0d421092f253668feb173578f989" datatype="html">
         <source>Run domain test</source>
-        <target state="translated">Lancer un test d'un domaine</target>
+        <target state="translated">Lancer un test d&apos;un domaine</target>
       </trans-unit>
       <trans-unit id="b23b7b874559732067ac282a864c98562cdbb435" datatype="html">
         <source>Run</source>
@@ -283,7 +283,7 @@
       </trans-unit>
       <trans-unit id="7511049748697720259" datatype="html">
         <source>Test completed!</source>
-        <target state="translated">Test terminé !</target>
+        <target state="translated">Test terminé !</target>
       </trans-unit>
       <trans-unit id="51ec22e1dae591a194ac7448bb769dc8d49caa5f" datatype="html">
         <source>Clear domain input</source>
@@ -315,7 +315,7 @@
       </trans-unit>
       <trans-unit id="a35d390f659821874ed1913ccf54b9a2d0d79b2a" datatype="html">
         <source>Delete DS record</source>
-        <target state="translated">Supprimer l'enregistrement DS</target>
+        <target state="translated">Supprimer l&apos;enregistrement DS</target>
       </trans-unit>
       <trans-unit id="ea59270a53cba963d581a60e32c464a0339e2c12" datatype="html">
         <source>Add new DS record</source>
