@@ -1,4 +1,4 @@
-<div class="container alert">
+<div class="container">
   <div class="row alert-area" [ngStyle]="{'margin-top': navHeight + 'px'}">
     <div *ngFor="let alert of alerts" class="{{ cssClass(alert) }} alert-dismissible" role="alert">
       {{alert.message}}
