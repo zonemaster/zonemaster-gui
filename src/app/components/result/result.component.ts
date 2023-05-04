@@ -245,8 +245,8 @@ export class ResultComponent implements OnInit, OnDestroy {
     if (!this.history) {
       this.alertService.info($localize `History information request is in progress.`);
 
-      this.dnsCheckService.getTestHistory(this.historyQuery).then(data => {
-        this.history = data as any[];
+      this.dnsCheckService.getTestHistory(this.historyQuery).then(({ history }) => {
+        this.history = history as any[];
         if (this.history.length === 0) {
           this.alertService.info($localize `No previous tests found for this domain.`);
         } else {

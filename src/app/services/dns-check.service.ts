@@ -53,39 +53,40 @@ export class DnsCheckService {
 
   // API Implementation from https://github.com/zonemaster/zonemaster-backend/blob/master/docs/API.md
   public versionInfo() {
-    return this.RPCRequest('version_info', {}, false);
+    return this.RPCRequest('system_versions', {}, false);
   }
 
   public profileNames() {
-    return this.RPCRequest('profile_names', {}, false);
+    return this.RPCRequest('conf_profiles', {}, false);
   }
 
   public startDomainTest(data) {
-    return this.RPCRequest('start_domain_test', {
+    return this.RPCRequest('job_create', {
       language: this.locale,
       ...data
     });
   }
 
   public testProgress(testId) {
-    return this.RPCRequest('test_progress', {'test_id': testId}, false);
+    return this.RPCRequest('job_status', {'test_id': testId}, false);
   }
 
   public getTestResults(testId: string) {
-    return this.RPCRequest('get_test_results', { id: testId, language: this.locale }, false);
+    return this.RPCRequest('job_results', { id: testId, language: this.locale }, false);
   }
 
   public getTestHistory(data, offset = 0, limit = 100, filter = 'all') {
     const domain = data["domain"];
-    return this.RPCRequest('get_test_history', {
+    return this.RPCRequest('domain_history', {
       offset,
       limit,
       filter,
-      'frontend_params': {domain}}, false);
+      frontend_params: { domain },
+    }, false);
   }
 
   public fetchFromParent(domain) {
-    return this.RPCRequest('get_data_from_parent_zone', {
+    return this.RPCRequest('lookup_delegation_data', {
       language: this.locale,
       domain: domain
     }, false);
