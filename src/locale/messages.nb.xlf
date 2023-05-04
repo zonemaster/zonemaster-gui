@@ -158,12 +158,12 @@
         <note priority="1" from="description">tooltip error</note>
       </trans-unit>
       <trans-unit datatype="html" id="281f2af4328daa895401b765738b1eb9cc55f489">
-        <source>Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem.</source>
+        <source>Info - is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem.</source>
         <target state="new">Info - er noe som kan være av interesse for sonens administrator, men som definitivt ikke indikerer et problem.</target>
         <note priority="1" from="description">tooltip info</note>
       </trans-unit>
       <trans-unit datatype="html" id="e863ca91edf6eb602f218bd8e04f9c06a5937e95">
-        <source>Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all.</source>
+        <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all.</source>
         <target state="new">Merknad - betyr noe som bør være kjent av sonens administrator, men som ikke nødvendigvis trenger å være et problem i det hele tatt.</target>
         <note priority="1" from="description">tooltip notice</note>
       </trans-unit>
@@ -258,16 +258,16 @@
         <target state="translated">Melding</target>
       </trans-unit>
       <trans-unit id="3e1042f106a9c7ded3aadadbf8fe40e7651aa353" datatype="html">
-        <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called 'zone') from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root ('.') to the TLD (Top-Level Domain; e.g., '.net') for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., 'zonemaster.net'). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
-        <target state="translated">Gi ditt domenenavn en fullstendig sjekk! Zonemaster hjelper deg med å vurdere hvordan det går med domenenavnet ditt. Dessuten kan du også få en bedre forståelse av hvordan DNS (Domain Name System) fungerer. Når et domenenavn sendes til Zonemaster for testing, undersøker programmet tilstanden til domenenavnet (noen ganger kalt 'sone') fra topp til bunn av DNS-treet. Spesifikt gjøres dette vanligvis ved å undersøke DNS-data fra roten ('.') til TLD (Top-Level Domain; f.eks. '.net') for det domenenavnet, og deretter til slutt gjennom DNS-serverne som inneholder autoritativ informasjon om det angitte domenenavnet (f.eks. 'zonemaster.net'). Zonemaster utfører mange tester, som å sjekke DNSSEC-signaturer, eller at forskjellige navnetjenere kan nås og at IP-adresser er gyldige. Dette er alt for å sikre at domenenavnet ditt fungerer så smidig som mulig.</target>
+        <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called &apos;zone&apos;) from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root (&apos;.&apos;) to the TLD (Top-Level Domain; e.g., &apos;.net&apos;) for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., &apos;zonemaster.net&apos;). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
+        <target state="translated">Gi ditt domenenavn en fullstendig sjekk! Zonemaster hjelper deg med å vurdere hvordan det går med domenenavnet ditt. Dessuten kan du også få en bedre forståelse av hvordan DNS (Domain Name System) fungerer. Når et domenenavn sendes til Zonemaster for testing, undersøker programmet tilstanden til domenenavnet (noen ganger kalt &apos;sone&apos;) fra topp til bunn av DNS-treet. Spesifikt gjøres dette vanligvis ved å undersøke DNS-data fra roten (&apos;.&apos;) til TLD (Top-Level Domain; f.eks. &apos;.net&apos;) for det domenenavnet, og deretter til slutt gjennom DNS-serverne som inneholder autoritativ informasjon om det angitte domenenavnet (f.eks. &apos;zonemaster.net&apos;). Zonemaster utfører mange tester, som å sjekke DNSSEC-signaturer, eller at forskjellige navnetjenere kan nås og at IP-adresser er gyldige. Dette er alt for å sikre at domenenavnet ditt fungerer så smidig som mulig.</target>
       </trans-unit>
       <trans-unit id="78cb66330b7cd7a76d2124aca1126152d5ff9b17" datatype="html">
         <source>About the DNS</source>
         <target state="translated">Om DNS</target>
       </trans-unit>
       <trans-unit id="55cae3ebe403d9eb277c9ff354297a0b34f56486" datatype="html">
-        <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the 'Enter' button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
-        <target state="translated">De fleste som bruker Internett har aldri reflektert over hva som faktisk skjer når man skriver inn en adresse i nettleseren og deretter klikker "Enter"-knappen. Kort fortalt er DNS (Domain Name System) en database som knytter domenenavn til IP (Internet Protocol)-adresser, på samme måte som en telefonbok knytter navn til telefonnumre. En IP-adresse er en unik tallserie som identifiserer hver datamaskin som er koblet til Internett. Det ligner på måten hver telefon har sitt eget nummer i telefonnettet. Slike lange serier med tall fungerer fint for datamaskiner, men for folk er det mye vanskeligere å huske. Dermed er DNS utviklet som et ekstra lag for å kartlegge mellom navn som vi kan huske bedre og IP-adresser som brukes av datamaskiner når vi ønsker å nå en bestemt nettside eller bruke andre tjenester på Internett (f.eks. post).</target>
+        <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the &apos;Enter&apos; button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
+        <target state="translated">De fleste som bruker Internett har aldri reflektert over hva som faktisk skjer når man skriver inn en adresse i nettleseren og deretter klikker &quot;Enter&quot;-knappen. Kort fortalt er DNS (Domain Name System) en database som knytter domenenavn til IP (Internet Protocol)-adresser, på samme måte som en telefonbok knytter navn til telefonnumre. En IP-adresse er en unik tallserie som identifiserer hver datamaskin som er koblet til Internett. Det ligner på måten hver telefon har sitt eget nummer i telefonnettet. Slike lange serier med tall fungerer fint for datamaskiner, men for folk er det mye vanskeligere å huske. Dermed er DNS utviklet som et ekstra lag for å kartlegge mellom navn som vi kan huske bedre og IP-adresser som brukes av datamaskiner når vi ønsker å nå en bestemt nettside eller bruke andre tjenester på Internett (f.eks. post).</target>
       </trans-unit>
       <trans-unit id="ccaa538a3c6d0d421092f253668feb173578f989" datatype="html">
         <source>Run domain test</source>
@@ -360,6 +360,42 @@
       <trans-unit id="7210131782873551503" datatype="html">
         <source>An unexpected server error happened.</source>
         <target state="translated">Det skjedde en uventet serverfeil.</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first" datatype="html">
+        <source>««</source>
+        <target state="translated">««</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous" datatype="html">
+        <source>«</source>
+        <target state="translated">«</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next" datatype="html">
+        <source>»</source>
+        <target state="translated">»</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last" datatype="html">
+        <source>»»</source>
+        <target state="translated">»»</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first-aria" datatype="html">
+        <source>First</source>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous-aria" datatype="html">
+        <source>Previous</source>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next-aria" datatype="html">
+        <source>Next</source>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last-aria" datatype="html">
+        <source>Last</source>
+      </trans-unit>
+      <trans-unit id="ngb.progressbar.value" datatype="html">
+        <source>
+          <x id="INTERPOLATION" equiv-text="rogress bar."/>
+        </source>
+        <target state="translated">
+          <x id="INTERPOLATION" equiv-text="rogress bar."/>
+        </target>
       </trans-unit>
     </body>
   </file>
