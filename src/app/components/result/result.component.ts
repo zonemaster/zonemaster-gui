@@ -109,36 +109,11 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onCallapsableKeyDownEvent(event, testCaseId) {
-    switch (event.key) {
-      case 'Enter':
-        this.isCollapsed[testCaseId] = !this.isCollapsed[testCaseId];
-        break;
-    }
-  }
-
-  public onModuleKeyDownEvent(event, moduleKey) {
-    switch (event.key) {
-      case 'Enter':
-        this.isCollapsed[moduleKey] = !this.isCollapsed[moduleKey];
-        break;
-    }
-  }
-
   public onFilterLevelKeyDownEvent(event, level) {
     switch (event.key) {
       case 'Enter':
         this.togglePillFilter(level);
         break;
-    }
-  }
-
-  public moduleCollapsed(headerRef) {
-    let headerRect = headerRef.getBoundingClientRect();
-
-    if (headerRect.top < 0) {
-      let style = window.getComputedStyle(headerRef);
-      window.scrollBy(0, headerRect.top - parseInt(style.top, 10) )
     }
   }
 
