@@ -34,6 +34,7 @@ The supported configuration items are the following.
   rendered.
 * `"pollingInterval"`: Time between each test progress query in millisecond,
   default: `5000` (5 seconds).
-
+* `"footerLogo"`: Optional logotype at the right side of the footer, default
+  none (""), but else path to file.
 
 [installation instructions]: Installation.md#change-default-language
