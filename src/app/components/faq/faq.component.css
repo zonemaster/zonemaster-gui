@@ -1,4 +1,4 @@
-:host ::ng-deep a[name^=q] {
+.faq a[name^=q] {
   position: relative;
   top: -90px;
 }

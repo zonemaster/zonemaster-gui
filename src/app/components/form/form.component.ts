@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Input, Output, SimpleChanges, OnChanges, SimpleChange, OnDestroy} from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 import {
   FormGroup,
   FormControl,
@@ -15,7 +16,8 @@ import { AlertService } from '../../services/alert.service';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
   @Input() isAdvancedOptionEnabled = false;
