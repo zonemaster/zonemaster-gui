@@ -359,6 +359,12 @@
           <x id="INTERPOLATION" equiv-text="rogress bar."/>
         </target>
       </trans-unit>
+      <trans-unit id="b8f95913582a5f09936f754769f3cd7553190924" datatype="html">
+        <source>Source code</source>
+      </trans-unit>
+      <trans-unit id="fcfd4675b4c90f08d18d3abede9a9a4dff4cfdc7" datatype="html">
+        <source>Documentation</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
