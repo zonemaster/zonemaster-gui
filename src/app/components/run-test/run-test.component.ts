@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 import { DnsCheckService } from '../../services/dns-check.service';
 import { Router} from '@angular/router';
 import { AlertService } from '../../services/alert.service';
@@ -9,7 +10,8 @@ import { FormComponent } from '../form/form.component';
 @Component({
   selector: 'app-run-test',
   templateUrl: './run-test.component.html',
-  styleUrls: ['./run-test.component.css']
+  styleUrls: ['./run-test.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RunTestComponent implements OnInit {
   private intervalTime: number;

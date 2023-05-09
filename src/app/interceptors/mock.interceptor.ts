@@ -8,7 +8,7 @@ const urls = [
     url: 'https://zonemaster.net/api',
     body: {jsonrpc: '2.0', id: 1643203570632, method:'version_info', params: {}},
     method: 'POST',
-    json: {jsonrpc: '2.0', id: 1643203570632, result: {zonemaster_engine: 'e2e-test', zonemaster_backend: 'e2e-test'}}
+    json: {jsonrpc: '2.0', id: 1643203570632, result: {zonemaster_engine: 'e2e-test', zonemaster_backend: 'e2e-test', zonemaster_ldns: 'e2e-test'}}
   },
 
   // Profile list in option

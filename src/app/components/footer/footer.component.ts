@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AppService} from '../../services/app.service';
 import {AlertService} from '../../services/alert.service';
@@ -6,7 +7,8 @@ import {AlertService} from '../../services/alert.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FooterComponent implements OnInit {
   public version: string;
