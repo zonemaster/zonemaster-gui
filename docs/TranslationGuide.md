@@ -94,15 +94,14 @@ language code instead of `en`. The code must be in lower case. Then
 translate the file using English as the model.
 
 It is important to preserve the structure of the file. There must be a
-table of contents linking to the question plus answer below. The anchor
-names must be "q1" etc and nothing else. There are links in the code
-that assume this model, where the `<a>` tag is just before the heading.
+table of contents linking to the question plus answer below. The header
+of the answer must start with `####` and then `<span id="q1"></span>`.
+The id must be `q1` etc matching the id in the question and nothing else.
 
 ```
 1. [What is Zonemaster?](#q1)
 
-<a name="q1"></a>
-#### 1. What is Zonemaster?
+#### <span id="q1"></span>1. What is Zonemaster?
 ```
 
 ## Adding a new language

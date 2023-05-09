@@ -1,4 +1,3 @@
-:host ::ng-deep a[name^=q] {
-  position: relative;
-  top: -90px;
+.faq {
+  overflow-anchor: none;
 }

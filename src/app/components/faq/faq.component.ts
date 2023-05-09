@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked, OnDestroy, Inject, LOCALE_ID } from '@angular/core';
+Aimport { Component, OnInit, AfterViewChecked, OnDestroy, Inject, LOCALE_ID } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
@@ -32,10 +32,15 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    try {
-      document.querySelector('a[name="' + this.fragment + '"]').scrollIntoView();
+    if (!this.fragment) {
+      return
+    }
+
+    const faqEntry = document.getElementById(this.fragment);
+    if (faqEntry !== null) {
+      faqEntry.scrollIntoView();
       this.fragment = '';
-    } catch (e) {}
+    }
   }
 
   loadFaq(lang) {
