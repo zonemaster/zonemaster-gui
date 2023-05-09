@@ -6,5 +6,6 @@
     "logoUrl": "assets/images/zonemaster_logo_2021_color.png",
     "msgBanner": "",
     "pollingInterval": 5000,
-    "footerLogo": ""
+    "footerLogo": "",
+    "footerLogoAlt": ""
 }

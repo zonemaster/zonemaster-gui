@@ -5,6 +5,7 @@ export const common = {
   contactAddress: 'contact@zonemaster.net',
   logoUrl: 'assets/images/zonemaster_logo_2021_color.png',
   footerLogo: '',
+  footerLogoAlt: '',
   defaultLanguage: 'en',
   languages: {
     'da': 'Dansk',
