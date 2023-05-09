@@ -30,18 +30,9 @@ app-navigation .lang .icon {
 #languageSelection {
   width: auto;
 }
-app-navigation .github {
-  height: 100%;
-}
 
 @media(min-width:991px) {
   app-navigation .shrink {
-    height: 60px;
-  }
-
-
-  app-navigation .shrink .github {
-    width: 60px;
     height: 60px;
   }
 }
@@ -57,12 +48,6 @@ app-navigation .github {
 
   app-navigation .lang .icon {
     display: none;
-  }
-}
-
-@media(max-width: 1300px) {
-  app-navigation .github {
-    display: none
   }
 }
 
