@@ -57,6 +57,7 @@
   color: inherit;
   padding: 0;
   text-align: left;
+  display: flex;
 }
 
 .result article header  {
@@ -247,6 +248,7 @@ article ul li .level.warning {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
+  gap: .25rem;
 }
 
 .result .filters {
@@ -258,58 +260,32 @@ article ul li .level.warning {
   margin-top: 1rem;
 }
 
-/* TODO: check if needed */
 .result .filters a {
   margin: 0 0.125rem;
   border: 0;
 }
 
-.result .export, .share, .settings {
-  margin-left: 0.25rem;
-}
-
-.result .history > i,
-.result .export > i,
-.result .share > i,
-.result .settings > i {
+.result .actions-btn > button > i.fa,
+.result .actions-btn > div > button > i.fa {
   margin-right: 0.25rem;
 }
 
 
 @media(max-width:767px){
-  .result .result-header {
-    width: 100%;
-  }
-
-  .result .result .module-name {
-    display: none;
-  }
-
-  .result .result section .entry div.severity {
-    min-width: 30%;
-  }
-
-  .result .result section > div {
-    padding-left: 20px;
-  }
-
-  .result .actions-btn > div {
+  .result .actions-btn {
     width: 100%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
   }
 
-  .result .actions-btn > div > * {
+  .result .actions-btn > *,
+  .result .actions-btn > div > button {
     flex-grow: 1;
   }
 
-  .result .actions-btn > div > div {
+  .result .actions-btn > div {
     display: flex!important;
-  }
-
-  .result .actions-btn > div > div > button {
-    flex-grow: 1;
   }
 
   .result article header {
@@ -321,7 +297,7 @@ article ul li .level.warning {
     margin-bottom: .75rem;
   }
 
-  .result article header div > i.fa {
+  .result article header button > i.fa {
     margin-right: 1.5rem;
   }
 

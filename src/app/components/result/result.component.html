@@ -12,44 +12,42 @@
       <i>{{ test.creation_time | date:'yyyy-MM-dd HH:mm zzzz' }}</i>
     </div>
     <div class="actions-btn">
-      <div>
-        <button type="button" class="btn btn-secondary history" (click)="getHistory()" tabindex="0">
-          <i class="fa fa-history text-white" aria-hidden="true"></i>
-          <span class="text-white" i18n>History</span>
+      <button type="button" class="btn btn-secondary history" (click)="getHistory()" tabindex="0">
+        <i class="fa fa-history text-white" aria-hidden="true"></i>
+        <span class="text-white" i18n>History</span>
+      </button>
+
+      <div ngbDropdown placement="bottom" class="d-inline-block">
+        <button type="button" class="btn btn-secondary export" id="exportDropdownResult" ngbDropdownToggle>
+          <i class="fa fa-cloud-download text-white" aria-hidden="true"></i>
+          <span class="text-white" i18n>Export</span>
         </button>
-
-        <div ngbDropdown placement="bottom" class="d-inline-block">
-          <button type="button" class="btn btn-secondary export" id="exportDropdownResult" ngbDropdownToggle>
-            <i class="fa fa-cloud-download text-white" aria-hidden="true"></i>
-            <span class="text-white" i18n>Export</span>
-          </button>
-          <div ngbDropdownMenu aria-labelledby="exportDropdownResult">
-            <div class="dropdown-body">
-              <button class="btn" (click)="exportJson()"> JSON </button>
-              <button class="btn" (click)="exportCSV()"> CSV </button>
-              <button class="btn" (click)="exportHTML()"> HTML </button>
-              <button class="btn" (click)="exportText()"> TEXT </button>
-            </div>
+        <div ngbDropdownMenu aria-labelledby="exportDropdownResult">
+          <div class="dropdown-body">
+            <button class="btn" (click)="exportJson()"> JSON </button>
+            <button class="btn" (click)="exportCSV()"> CSV </button>
+            <button class="btn" (click)="exportHTML()"> HTML </button>
+            <button class="btn" (click)="exportText()"> TEXT </button>
           </div>
         </div>
-
-        <div ngbDropdown placement="bottom-end" class="d-inline-block">
-          <button type="button" class="btn btn-secondary share" id="shareDropdownResult" ngbDropdownToggle>
-            <i class="fa fa-share text-white" aria-hidden="true"></i>
-            <span class="text-white" i18n>Share</span>
-          </button>
-          <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
-            <div class="dropdown-body">
-              <input i18n-aria-label aria-label="Link to test" readonly="" type="text" id="link_location" name="link_location" class="form-inline" value="{{test.location}}">
-              <button class="btn btn-clipboard" (click)="copyLinkToClipboard(test.location)" title="Copy link to clipboard" i18n-title>
-                  <i class="fa fa-clipboard" aria-hidden="true"></i>
-                  <span i18n class="sr-only">Copy link to clipboard</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <div ngbDropdown placement="bottom-end" class="d-inline-block">
+        <button type="button" class="btn btn-secondary share" id="shareDropdownResult" ngbDropdownToggle>
+          <i class="fa fa-share text-white" aria-hidden="true"></i>
+          <span class="text-white" i18n>Share</span>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
+          <div class="dropdown-body">
+            <input i18n-aria-label aria-label="Link to test" readonly="" type="text" id="link_location" name="link_location" class="form-inline" value="{{test.location}}">
+            <button class="btn btn-clipboard" (click)="copyLinkToClipboard(test.location)" title="Copy link to clipboard" i18n-title>
+                <i class="fa fa-clipboard" aria-hidden="true"></i>
+                <span i18n class="sr-only">Copy link to clipboard</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
