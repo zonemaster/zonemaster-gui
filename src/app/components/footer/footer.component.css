@@ -40,5 +40,6 @@ footer nav li {
     width: 100%;
     max-width: 150px;
     height: auto;
+    margin-bottom: 0.5rem;
 }
 
