@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AlertService} from '../../services/alert.service';
 
@@ -6,7 +7,8 @@ import {AlertService} from '../../services/alert.service';
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
-  styleUrls: ['./history.component.css']
+  styleUrls: ['./history.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HistoryComponent implements OnInit {
 

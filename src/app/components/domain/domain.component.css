@@ -2,6 +2,6 @@ aside.about article {
     display: flex;
 }
 
-aside {
+aside.about {
     padding: 0;
 }

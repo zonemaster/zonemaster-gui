@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewChecked, OnDestroy, Inject, LOCALE_ID } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
@@ -7,7 +8,8 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.css']
+  styleUrls: ['./faq.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
   private fragment: string;
