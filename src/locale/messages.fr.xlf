@@ -379,15 +379,19 @@
       </trans-unit>
       <trans-unit id="ngb.pagination.first-aria" datatype="html">
         <source>First</source>
+        <target state="translated">Aller au début</target>
       </trans-unit>
       <trans-unit id="ngb.pagination.previous-aria" datatype="html">
         <source>Previous</source>
+        <target state="translated">Précédent</target>
       </trans-unit>
       <trans-unit id="ngb.pagination.next-aria" datatype="html">
         <source>Next</source>
+        <target state="translated">Suivant</target>
       </trans-unit>
       <trans-unit id="ngb.pagination.last-aria" datatype="html">
         <source>Last</source>
+        <target state="translated">Aller à la fin</target>
       </trans-unit>
       <trans-unit id="ngb.progressbar.value" datatype="html">
         <source>
