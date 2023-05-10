@@ -37,7 +37,7 @@ export class RunTestComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.dnsCheckService.profileNames().then( (res: string[]) => this.profiles = res );
+    this.dnsCheckService.profileNames().then( ({ profiles }) => this.profiles = profiles );
   }
 
   public fetchFromParent([type, domain]) {
@@ -67,16 +67,16 @@ export class RunTestComponent implements OnInit {
 
     const self = this;
 
-    this.dnsCheckService.startDomainTest(data).then(id => {
-      testId = id as string;
+    this.dnsCheckService.startDomainTest(data).then(({ job_id }) => {
+      testId = job_id as string;
       this.showProgressBar = true;
 
       this.titleService.setTitle(`${data['domain']} · Zonemaster`);
 
       const handle = setInterval(() => {
-        self.dnsCheckService.testProgress(testId).then(res => {
+        self.dnsCheckService.testProgress(testId).then(({ progress  }) => {
 
-          self.runTestProgression = parseInt(res as string, 10) as number;
+          self.runTestProgression = parseInt(progress as string, 10) as number;
 
           if (self.runTestProgression === 100) {
             clearInterval(handle);
