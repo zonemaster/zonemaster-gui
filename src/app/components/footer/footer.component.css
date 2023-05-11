@@ -35,3 +35,11 @@ footer nav ul {
 footer nav li {
   list-style: none;
 }
+
+.footer-logotype {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+

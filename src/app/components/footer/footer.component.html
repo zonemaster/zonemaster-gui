@@ -1,30 +1,37 @@
 <footer class="pb-0 pt-2 bg-light">
   <div class="container">
-    <nav class="row justify-content-between">
-      <ul class="row">
-        <li class="col-md">
+    <div class="col-12">
+      <nav class="row justify-content-between">
+        <ul class="row">
+          <li class="col-md">
             <span placement="top" [ngbTooltip]="tipContent" i18n tabindex="0">Program versions</span>
-        </li>
-        <li class="col-md-auto">
-          <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <a class="text-dark" href="mailto:{{contactAddress}}">{{contactAddress}}</a>
-        </li>
-        <li class="col-md-auto">
-          <i class="fa fa-code" aria-hidden="true"></i>
-          <a class="text-dark" href="https://github.com/zonemaster/zonemaster" i18n>Source code</a>
-        </li>
-        <li class="col-md-auto">
-          <i class="fa fa-book" aria-hidden="true"></i>
-          <a class="text-dark" href="https://github.com/zonemaster/zonemaster#documentation" i18n>Documentation</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="row">
-      <div class="col-md-auto">
-        <p class="copyright small" i18n>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</p>
+          </li>
+          <li class="col-md-auto">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <a class="text-dark" href="mailto:{{contactAddress}}">{{contactAddress}}</a>
+          </li>
+          <li class="col-md-auto">
+            <i class="fa fa-code" aria-hidden="true"></i>
+            <a class="text-dark" href="https://github.com/zonemaster/zonemaster" i18n>Source code</a>
+          </li>
+          <li class="col-md-auto">
+            <i class="fa fa-book" aria-hidden="true"></i>
+            <a class="text-dark" href="https://github.com/zonemaster/zonemaster#documentation" i18n>Documentation</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="row">
+        <div class="col-md-auto">
+          <p class="copyright small" i18n>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</p>
+        </div>
       </div>
+
     </div>
+
+    <div class="col-12" *ngIf="footerLogo !== ''">
+      <img src="{{footerLogo}}" alt="{{footerLogoAlt}}" class="footer-logotype">
+    </div>
+
   </div>
 </footer>
 
@@ -36,3 +43,4 @@
     </ng-container>
   </dl>
 </ng-template>
+

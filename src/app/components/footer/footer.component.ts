@@ -15,6 +15,8 @@ export class FooterComponent implements OnInit {
   public versions: any[];
   public contactAddress: string;
   public clientInfo: object;
+  public footerLogo: string;
+  public footerLogoAlt: string;
   private nameMap = {
     'zonemaster_ldns': 'Zonemaster-LDNS',
     'zonemaster_engine': 'Zonemaster-Engine',
@@ -24,6 +26,8 @@ export class FooterComponent implements OnInit {
   constructor(private dnsCheckService: DnsCheckService, private alertService: AlertService, appService: AppService) {
     this.contactAddress = appService.getConfig('contactAddress');
     this.clientInfo = appService.getClientInfo();
+    this.footerLogo = appService.getConfig('footerLogo');
+    this.footerLogoAlt = appService.getConfig('footerLogoAlt');
   }
 
   ngOnInit() {
