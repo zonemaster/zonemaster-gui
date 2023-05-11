@@ -34,6 +34,9 @@ The supported configuration items are the following.
   rendered.
 * `"pollingInterval"`: Time between each test progress query in millisecond,
   default: `5000` (5 seconds).
-
+* `"footerLogo"`: Optional logotype in the footer, default none (""), but else
+  path to file.
+* `"footerLogoAlt"`: Optional alternative text for the "footerLogo", only meaningful
+  if "footerLogo" is defined. Typical "footerLogoAlt" is the name in "footerLogo".
 
 [installation instructions]: Installation.md#change-default-language
