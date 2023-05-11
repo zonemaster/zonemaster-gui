@@ -19,8 +19,7 @@ Zonemaster
 Zonemaster
 ----------
 
-<a name="q1"></a>
-#### 1. Hva er Zonemaster?
+#### <span id="q1"></span>1. Hva er Zonemaster?
 Zonemaster er et verktøy for å overvåke, måle og forstå hvordan domenenavnsystemet (DNS) virker. Zonemaster består av flere deler:
 
   1. Motoren (kode som utfører testene).
@@ -34,26 +33,22 @@ Zonemaster utfører også flere andre tester. Disse er dokumentert her, [Definie
 
 Zonemaster kan teste både publiserte og upubliserte (ikke delegerte) domener.
 
-<a name="q2"></a>
-#### 2. Hvem har utviklet Zonemaster?
+#### <span id="q2"></span>2. Hvem har utviklet Zonemaster?
 Verktøyet er utviklet i et samarbeid mellom registreringstjenestene
 [AFNIC] (.fr TLD og flere andre TLDs, f.eks. .re, .pm, .tf, .wf, .yt og .paris) og
 [Internetstiftelsen] (.se og .nu TLDs).
 
-<a name="q3"></a>
-#### 3. Hvem er verktøyet laget for?
+#### <span id="q3"></span>3. Hvem er verktøyet laget for?
 Zonemaster er beregnet på profesjonelle brukere som vet hvordan DNS-protokollen fungerer. En vanlig domeneabonnent anbefales å kontakte sin domeneforhandler eller internettleverandør for å få tatt en helsesjekk på sine domener.
 
 Zonemaster er basert på åpen kildekode og er modulær. Som bruker kan du gjenbruke deler av koden i dine egne systemer hvis du ønsker det.
 
-<a name="q4"></a>
-#### 4. Zonemaster returnerer "Error" eller "Warning" på mitt domene. Hva betyr det?
+#### <span id="q4"></span>4. Zonemaster returnerer "Error" eller "Warning" på mitt domene. Hva betyr det?
 Det beror på hvilket test som gikk galt for domenet.
 Hvert testsvar innholder informasjon om hva som gikk galt med testen.
 Mer informasjon om hva som testes finnes i dokumentet [Definierte tester].
 
-<a name="q5"></a>
-#### 5. Hvordan avgjør Zonemaster hva som er rett eller feil?
+#### <span id="q5"></span>5. Hvordan avgjør Zonemaster hva som er rett eller feil?
 Det er viktig å understreke at ingen kan gi en endelig uttalelse om helsen til et domene. Zonemaster er ikke alltid fullstendig korrekt, og resultatene kan gi rom for tolkning. De som står bak testen understreker at de har gjort sitt aller beste for å utvikle en best mulig policy for vurdering av ulike feil før de blir presentert for deg som bruker verktøyet. Denne policy er basert på DNS-standarder som er definiert i ulike [RFCs].
 Alle tester er definiert i [Definierte tester]. Der er også alle referanser til forskjelling RFCer dokumentert.
 
@@ -61,16 +56,13 @@ Beskrivelse av de ulike nivåene på feilmeldinger, *notice*, *warning*, og *err
 
 Hvis du syns at et testresultat er feil så oppfordrer vi til å sende en e-post til [zonemaster-users@lists.iis.se] (moderert e-postliste) med en lenke til testresultatet og forklar hvorfor du synes testen er feil.
 
-<a name="q6"></a>
-#### 6. Håndterer Zonemaster IPv6?
+#### <span id="q6"></span>6. Håndterer Zonemaster IPv6?
 Ja, alle tester kjøres på både IPv4 og IPv6. Man kan endre på dette ved å slå på "Avansert sjekk".
 
-<a name="q7"></a>
-#### 7. Håndterer Zonemaster DNSSEC?
+#### <span id="q7"></span>7. Håndterer Zonemaster DNSSEC?
 Ja, hvis DNSSEC er konfigurert for et domene blir det automatiskt testet av Zonemaster.
 
-<a name="q8"></a>
-#### 8. Hva er det for forskjell på Zonemaster og andre DNS-testverktøy?
+#### <span id="q8"></span>8. Hva er det for forskjell på Zonemaster og andre DNS-testverktøy?
 For det første lagrer Zonemaster all historikk fra tidligere tester basert på det testede domenet. Det betyr at du kan gå tilbake til en test du gjorde for en uke siden og sammenligne den med testen du kjørte for et øyeblikk siden.
 
 Alle tester som Zonemaster kjører er definert i test-spesifikasjoner som
@@ -83,14 +75,12 @@ Zonemaster kan brukes til å teste DS-poster innen de er publisert i foreldreson
 
 Til slutt ble denne open source-versjonen av Zonemaster bygget ved hjelp av modulkode som i utgangspunktet betyr at du kan bruke deler av den i systemene dine hvis du ønsker det. Det er ganske sjelden at du har et komplett program bare for å sjekke for eksempel omlegeringer.
 
-<a name="q9"></a>
-#### 9. Zonemaster og personvern
+#### <span id="q9"></span>9. Zonemaster og personvern
 Zonemaster lagrer all historikk. Det betyr at du kan gå tilbake og se på en test du gjorde for en uke siden og sammenligne med en test du nettopp har gjort.
 
 Zonemaster er tilgjengelig for alle, dermed er det også mulig for alle å teste ditt domene og også se testhistorikk for domenet. Det er imidlertid ingen som kan se hvem som har gjort en test. Det eneste som er logget, er tidspunktet da testen ble utført. Hverken IP-adresse eller informasjonskapsler (cookies) blir lagret.
 
-<a name="q10"></a>
-#### 10. Hvorfor kan jeg ikke teste mitt domene?
+#### <span id="q10"></span>10. Hvorfor kan jeg ikke teste mitt domene?
 Det er flere muligheter:
   - Ditt domene er ikke delegert.
   - Ditt domene er ikke tilgjengelig fra internett.
@@ -100,23 +90,19 @@ Det er flere muligheter:
     His du prøver å teste det igjen innen 10 minutter vil det forrige resultatet vises i stedet.
   - Du har feilstavet ditt domene.
 
-<a name="q11"></a>
-#### 11. Hvilke typer spørringer genererer Zonemaster?
+#### <span id="q11"></span>11. Hvilke typer spørringer genererer Zonemaster?
 Zonemaster vil generere forskjellige typer spørringer avhengig av hvordan DNS-serverne svarer.
 
 For å få en full visning av hvilke spørsmål og resultater som genereres, kan du kjøre CLI-grensesnittet og velg full utdata. For å kunne kjøre CLI-grensesnittet må du laste ned pakke og installer både CLI- og Engine-komponenten. Det finnes også en Docker image.
 Resultatet fra CLI-verktøyet er ganske tungt teknisk så med mindre du er interessert i bit og byte, vil du kanskje hoppe over dette trinnet. For mer informasjon se [Bruk av CLI].
 
-<a name="q12"></a>
-#### 12. Hva er et udelegert test?
+#### <span id="q12"></span>12. Hva er et udelegert test?
 Du kan sjekke domener og navnetjenere som ikke er publisert i DNS, eller endringer av navnetjenere for et domene før endringen er publisert. Hvis testen er feilfri, kan du regne med at navnetjeneren vil svare på spørringer om domenet. Det kan imidlertid fortsatt være feil i soneinformasjonen som denne testen ikke kjenner til.
 
-<a name="q13"></a>
-#### 13. Kan jeg teste DS-poster innen de er publisert?
+#### <span id="q13"></span>13. Kan jeg teste DS-poster innen de er publisert?
 Ja, bruk valget "Avansert sjekk" for å kunne legge inn DS-poster du vil sjekke. Zonemaster bruker da de i steden for å hendte dem fra foreldresonen.
 
-<a name="q14"></a>
-#### 14. Hvordan kan jeg teste revers-soner med Zonemaster?
+#### <span id="q14"></span>14. Hvordan kan jeg teste revers-soner med Zonemaster?
 Et reversoppslag kan brukes til å finne ut hvilket domenenavn som er knyttet til en IP-adresse.
 
 For en IPv4-adresse må du først finne nettverksadressen til systemet. Denne ender oftest med en 0 (null). Du sletter siste 0 (null), deretter endrer du rekkefølgen på sifrene du har mottatt og legger til suffikset in-addr.arpa. Du gjør det samme med en IPv6-adresse, men legger til suffikset ip6.arpa.

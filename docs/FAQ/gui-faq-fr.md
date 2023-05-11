@@ -18,8 +18,7 @@ Zonemaster
 
 Zonemaster
 ----------
-<a name="q1"></a>
-#### 1. Qu'est-ce que Zonemaster ?
+#### <span id="q1"></span>1. Qu'est-ce que Zonemaster ?
 
 Zonemaster est un programme conçu pour aider à vérifier, mesurer et peut-être
 aussi aider à la compréhension du fonctionnement du DNS (_Domain Name
@@ -41,16 +40,14 @@ tests. L'ensemble des tests réalisés par Zonemaster est décrit dans le
 document intitulé [Defined Test Cases] (« cas de tests définis », document
 rédigé en anglais).
 
-<a name="q2"></a>
-#### 2. Qui se cache derrière Zonemaster ?
+#### <span id="q2"></span>2. Qui se cache derrière Zonemaster ?
 
 Zonemaster est un projet conjoint entre l'[Afnic], registre du TLD « .fr »
 ainsi que d'autres TLD, comme « .re », « .pm », « .tf », « .wf », « .yt » et
 « .paris » et [The Swedish Internet Foundation], registre suédois des TLD
 « .se » et « .nu ».
 
-<a name="q3"></a>
-#### 3. Qu'est-ce que Zonemaster peut faire pour moi ?
+#### <span id="q3"></span>3. Qu'est-ce que Zonemaster peut faire pour moi ?
 
 Zonemaster a été conçu pour deux types de publics :
 
@@ -62,16 +59,14 @@ Les utilisateurs de la seconde catégorie devraient contacter leur opérateur
 DNS si le moindre test de leur nom de domaine rapporte une erreur ou un
 avertissement.
 
-<a name="q4"></a>
-#### 4. Zonemaster indique des « Erreurs » ou « Avertissements » sur mon nom de domaine. Qu'est-ce que cela signifie ?
+#### <span id="q4"></span>4. Zonemaster indique des « Erreurs » ou « Avertissements » sur mon nom de domaine. Qu'est-ce que cela signifie ?
 
 Cela dépend du test ayant échoué pour votre nom de domaine. Chaque test est
 accompagné d'un ou plusieurs messages décrivant les problèmes qui ont été
 trouvés. Vous pouvez également trouver des détails supplémentaires sur chaque
 test dans le document intitulé [Defined Test Cases].
 
-<a name="q5"></a>
-#### 5. Comment Zonemaster discerne-t-il le bon du mauvais ?
+#### <span id="q5"></span>5. Comment Zonemaster discerne-t-il le bon du mauvais ?
 
 Le jugement de Zonemaster repose principalement sur les normes techniques du
 DNS telles qu'elles sont définies dans les [RFC]. Le jugement est également
@@ -92,8 +87,7 @@ e-mail à [zonemaster-users@lists.iis.se] (liste de diffusion modérée) avec un
 lien vers le résultat de votre test et en expliquant pourquoi vous pensez que
 Zonemaster affiche quelque chose que vous considérez comme incorrect.
 
-<a name="q6"></a>
-#### 6. Zonemaster prend-il en charge IPv6 ?
+#### <span id="q6"></span>6. Zonemaster prend-il en charge IPv6 ?
 
 Oui.
 Par défaut, Zonemaster interroge les serveurs de noms aussi bien en IPv4 qu'en
@@ -101,15 +95,13 @@ IPv6, sauf si un paramètre de configuration prescrit le contraire.
 De tels paramètres de configuration sont accessibles à travers le bouton « Options ».
 
 
-<a name="q7"></a>
-#### 7. Zonemaster vérifie-t-il DNSSEC ?
+#### <span id="q7"></span>7. Zonemaster vérifie-t-il DNSSEC ?
 
 Oui.
 Si DNSSEC est disponible pour un domaine testé par Zonemaster, des tests
 DNSSEC seront effectués automatiquement.
 
-<a name="q8"></a>
-#### 8. Qu'est-ce qui distingue Zonemaster des autres outils existants ?
+#### <span id="q8"></span>8. Qu'est-ce qui distingue Zonemaster des autres outils existants ?
 
 Premièrement, Zonemaster conserve tout l'historique des tests réalisés sur un
 nom de domaine, ce qui signifie que vous pouvez revenir en arrière pour
@@ -133,8 +125,7 @@ de Zonemaster dans vos propres systèmes, si vous le souhaitez. Par exemple, on
 souhaite rarement utiliser un logiciel complet juste pour vérifier des
 redélégations.
 
-<a name="q9"></a>
-#### 9. Zonemaster et le respect de la vie privée
+#### <span id="q9"></span>9. Zonemaster et le respect de la vie privée
 
 Puisque Zonemaster est accessible à tous, n'importe qui peut vérifier votre
 nom de domaine et consulter son historique de tests.
@@ -145,8 +136,7 @@ l'utilisateur ne sont conservés dans la base de données. L'initiateur d'un
 test ne peut pas être retrouvé à partir des informations dans la base de
 données.
 
- <a name="q10"></a>
-#### 10. Pourquoi mon nom de domaine n'a-t-il pas pu être testé ?
+ #### <span id="q10"></span>10. Pourquoi mon nom de domaine n'a-t-il pas pu être testé ?
 
 Il y a plusieurs possibilités :
 
@@ -162,8 +152,7 @@ Il y a plusieurs possibilités :
   test ;
 - Vous avez fait une faute de frappe dans le nom de domaine.
 
-<a name="q11"></a>
-#### 11. Quel genre de requêtes Zonemaster génère-t-il ?
+#### <span id="q11"></span>11. Quel genre de requêtes Zonemaster génère-t-il ?
 
 Zonemaster envoie plusieurs requêtes DNS aux serveurs de noms hébergeant le
 nom de domaine à tester ainsi qu'aux serveurs de noms hébergant la zone
@@ -179,8 +168,7 @@ affichées par l'interface en ligne de commande peut être très volumineuse.
 Pour plus d'informations, voir [Utilisation de l'interface en ligne de
 commandes] (document rédigé en anglais).
 
-<a name="q12"></a>
-#### 12. Qu'est-ce qu'un test sur un nom de domaine non délégué ?
+#### <span id="q12"></span>12. Qu'est-ce qu'un test sur un nom de domaine non délégué ?
 
 Un test sur un nom de domaine non délégué est un test effectué sur un nom de
 domaine qui peut ne pas être entièrement publié dans le DNS. Ce type de test
@@ -195,15 +183,13 @@ peut être relativement certain que le nouvel emplacement du domaine fonctionne
 bien. Mais cela n'exclut pas l'existence d'autres problèmes dans les données
 elles-mêmes de la zone que ce test n'aurait pas décelés.
 
-<a name="q13"></a>
-#### 13. Peut-on tester des enregistrements DS avant leur publication ?
+#### <span id="q13"></span>13. Peut-on tester des enregistrements DS avant leur publication ?
 
 Oui.
 Pour cela, utilisez le bouton « Options » et ajoutez-y les entrées *Delegation Signer* (DS) à tester.
 Zonemaster utilisera ces entrées-là comme si elles avaient déjà été ajoutées dans la zone parent.
 
-<a name="q14"></a>
-#### 14. Comment tester une zone inverse avec Zonemaster ?
+#### <span id="q14"></span>14. Comment tester une zone inverse avec Zonemaster ?
 
 Pour tester une zone inverse, il faut d'abord déterminer le nom de la zone
 inverse, puis la saisir dans le format qu'elle a dans le DNS. Une zone inverse

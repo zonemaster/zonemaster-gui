@@ -34,10 +34,15 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    try {
-      document.querySelector('a[name="' + this.fragment + '"]').scrollIntoView();
+    if (!this.fragment) {
+      return
+    }
+
+    const faqEntry = document.getElementById(this.fragment);
+    if (faqEntry !== null) {
+      faqEntry.scrollIntoView();
       this.fragment = '';
-    } catch (e) {}
+    }
   }
 
   loadFaq(lang) {

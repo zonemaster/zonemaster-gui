@@ -1,4 +1,8 @@
-.faq a[name^=q] {
+.faq span[id^=q] {
   position: relative;
   top: -90px;
+}
+
+.faq {
+  overflow-anchor: none;
 }

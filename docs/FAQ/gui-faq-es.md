@@ -19,8 +19,7 @@ Zonemaster
 Zonemaster
 ----------
 
-<a name="q1"></a>
-#### 1. ¿Qué es Zonemaster?
+#### <span id="q1"></span>1. ¿Qué es Zonemaster?
 Zonemaster es un programa diseñado para ayudar a la gente a revisar,
 medir y ojalá también entender cómo funciona el DNS (Sistema de Nombres de
 Dominio).
@@ -38,16 +37,14 @@ una serie de pruebas.
 Las distintas pruebas realizadas por Zonemaster están documentadas en el
 documento de [Definición de Casos de Pruebas] (en inglés).
 
-<a name="q2"></a>
-#### 2. ¿Quién está detrás de Zonemaster?
+#### <span id="q2"></span>2. ¿Quién está detrás de Zonemaster?
 Zonemaster es un proyecto conjunto entre [AFNIC]
 (registro para el TLD .fr y varios otros, por ejemplo
 .re, .pm, .tf, .wf, .yt y .paris) y
 [The Swedish Internet Foundation]
 (registro de los TLDs .se y .nu).
 
-<a name="q3"></a>
-#### 3. ¿Cómo me puede ayudar Zonemaster?
+#### <span id="q3"></span>3. ¿Cómo me puede ayudar Zonemaster?
 La herramienta Zonemaster está orientada a dos categorías de usuarios:
 
   - Usuarios que entienden bien el protocolo DNS.
@@ -57,15 +54,13 @@ Los usuarios de la segunda categoría deberían contactar a sus operadores
 DNS tan pronto obtengan resultados distintos a "verde" en cualquiera
 de las pruebas sobre sus nombres de dominio.
 
-<a name="q4"></a>
-#### 4. Zonemaster indica "Error" o "Advertencia" en mi dominio. ¿Qué significa?
+#### <span id="q4"></span>4. Zonemaster indica "Error" o "Advertencia" en mi dominio. ¿Qué significa?
 Depende cuáles de las pruebas fallaron en su dominio. Cada prueba está
 acompañada por uno o más mensajes que describen los problemas encontrados.
 También puede encontrar más detalles de cada prueba en el documento de
 [Definición de Casos de Pruebas] (en inglés).
 
-<a name="q5"></a>
-#### 5. ¿Cómo puede juzgar Zonemaster qué está bien y qué está mal?
+#### <span id="q5"></span>5. ¿Cómo puede juzgar Zonemaster qué está bien y qué está mal?
 El criterio de Zonemaster se basa principalmente en los estándares
 DNS definidos en los [RFCs]. También basa su criterio en las mejores
 prácticas del DNS, que pueden ser definiciones un poco más vagas.
@@ -86,21 +81,18 @@ al resultado de tu prueba y una explicación por qué crees que muestra
 algo que consideres incorrecto.
 
 
-<a name="q6"></a>
-#### 6. ¿Zonemaster soporta IPv6?
+#### <span id="q6"></span>6. ¿Zonemaster soporta IPv6?
 Sí.
 Por defecto Zonemaster consultará a los servidores de nombre usando
 IPv4 e IPv6, a menos que sea configurado explícitamente de otra forma.
 Esta configuración se encuentra en el botón "Opciones".
 
-<a name="q7"></a>
-#### 7. ¿Zonemaster verifica DNSSEC?
+#### <span id="q7"></span>7. ¿Zonemaster verifica DNSSEC?
 Sí.
 En caso que un nombre de dominio que esté en prueba por Zonemaster tenga
 soporte DNSSEC, será revisado automáticamente.
 
-<a name="q8"></a>
-#### 8. ¿Qué hace distinto a Zonemaster de otros software de validación DNS?
+#### <span id="q8"></span>8. ¿Qué hace distinto a Zonemaster de otros software de validación DNS?
 Primero que todo, Zonemaster guarda toda la historia de pruebas anteriores
 basadas en el nombre del dominio probado, de tal forma que puedes ir hacia atrás
 a una prueba que hiciste hace un tiempo, y compararla con la prueba
@@ -123,8 +115,7 @@ partes del software en tus propios sistemas, si así lo quisieras.
 Por ejemplo, es muy raro que quieras instalar un programa completo para
 sólo probar redelegaciones.
 
-<a name="q9"></a>
-#### 9. Zonemaster y privacidad
+#### <span id="q9"></span>9. Zonemaster y privacidad
 Dado que [Zonemaster.net] es abierto a todos, es posible que cualquiera pueda
 probar tu dominio y ver la historia de pruebas anteriores. Sin embargo, no hay
 forma de saber quién ejecutó una prueba en específico, ya que solo se
@@ -133,8 +124,7 @@ En específico, no se almacenan ni las cookies ni la dirección IP del
 usuario. El usuario que inició la prueba no puede ser rastreado usando
 la información de la base de datos.
 
-<a name="q10"></a>
-#### 10. ¿Por qué no puedo probar mi nombre de dominio?
+#### <span id="q10"></span>10. ¿Por qué no puedo probar mi nombre de dominio?
 Puede haber varias posibilidades:
 
 - Su nombre de dominio aún no está delegado.
@@ -148,8 +138,7 @@ el último resultado que se se obtuvo para ese nombre de dominio (con
 los mismos parámetros).
 - Ha escrito mal su nombre de dominio.
 
-<a name="q11"></a>
-#### 11. ¿Qué tipo de consultas genera Zonemaster?
+#### <span id="q11"></span>11. ¿Qué tipo de consultas genera Zonemaster?
 Zonemaster envía múltiples consultas DNS a los servidores de nombre que
 hospedan al nombre de dominio que se está probando, y también a los
 servidores de nombre que hospedan la zona padre del nombre de dominio.
@@ -163,8 +152,7 @@ la opción de nivel 'DEBUG'. Le advertimos que la salida del CLI
 puede ser bastante compleja. Para más información ver [Usando la CLI]
 (en inglés).
 
-<a name="q12"></a>
-#### 12. ¿Qué es una prueba de dominio no-delegado?]
+#### <span id="q12"></span>12. ¿Qué es una prueba de dominio no-delegado?]
 Una prueba de dominio no-delegado es una prueba ejecutada sobre un nombre
 de dominio que puede o no estar completamente publicado en el DNS.
 Esto es muy útil
@@ -179,16 +167,14 @@ seguro que la nueva ubicación del dominio está funcionando correctamente.
 Sin embargo, puede haber otros problemas en los datos de la zona en
 sí misma, que esta prueba ignora.
 
-<a name="q13"></a>
-#### 13. ¿Puedo probar los registros DS antes de ser publicados?</a>
+#### <span id="q13"></span>13. ¿Puedo probar los registros DS antes de ser publicados?</a>
 Sí.
 Puede utilizar el botón "Opciones" y agregar ahí los registros
 "Delegation Signer" (DS) que quiera probar. Zonemaster los usará
 de la misma forma que si hubieran sido obtenidos desde la zona
 padre.
 
-<a name="q14">i</a>
-#### 14. ¿Cómo puedo probar una zona reversa con Zonemaster?
+#### <span id="q14"></span>14. ¿Cómo puedo probar una zona reversa con Zonemaster?
 Para revisar una zona "reversa" (también llamada "inversa") con Zonemaster,
 lo primero que necesitas es saber qué zona reversa es, e ingresarla en
 el formato que tiene en el DNS.
