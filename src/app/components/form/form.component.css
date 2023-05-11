@@ -5,11 +5,7 @@
 }
 
 .domain button.launch {
-  background-color: #FF5A5F;
   height: 64px;
-}
-.domain button.launch:hover {
-  background-color: #ff3c3a;
 }
 
 /* The switch - the box around the slider */
@@ -65,7 +61,7 @@
 
 .domain button.switch-toggle.enabled {
   background-position: right center;
-  background-color: #2196f3;
+  background-color: #0d6efd;
 }
 
 .domain .advanced {
@@ -134,6 +130,16 @@
 .domain .checkboxForm {
   width: inherit;
 }
+
+.domain .info-notice {
+  width: auto;
+  text-align: center;
+  margin: 1rem auto 0 auto;
+  display: flex;
+  align-items: center;
+
+}
+
 
 @media(max-width:767px){
   .domain fieldset .form-col:not(:first-child) {

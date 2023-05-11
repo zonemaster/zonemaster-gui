@@ -1,13 +1,3 @@
-
-<div class="row" *ngIf="isAdvancedOptionEnabled">
-  <div class="text-center m-auto info-notice">
-    <div class="alert alert-info">
-      <span i18n>Notice! More info on undelegated test</span>
-      <br>
-      <a routerLink="/faq" fragment="q12" i18n>What is an undelegated domain test?</a>
-    </div>
-  </div>
-</div>
 <app-form [isAdvancedOptionEnabled]="isAdvancedOptionEnabled"
           [formProgression]="runTestProgression"
           [showProgressBar]="showProgressBar"
