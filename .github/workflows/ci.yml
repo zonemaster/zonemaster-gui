@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+      - 'releases/**'
+  pull_request:
+    branches:
+      - develop
+      - master
+      - 'releases/**'
+jobs:
+  tests_e2e:
+    name: Run end-to-end tests
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        node-version: 16.x
+        cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install e2e dependencies
+        run: npm run e2e:install-deps
+
+      - name: Run e2e browsers
+        run: npm run e2e:install
+
+      - name: Run e2e tests
+        run: npm run e2e
