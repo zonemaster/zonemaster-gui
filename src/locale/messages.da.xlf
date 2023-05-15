@@ -64,7 +64,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="ca33ee6b36abb05c3132faae24aa707bf4393377">
         <source>Fetch NS from parent zone</source>
-        <target state="new">Hent data fra forældrezonen</target>
+        <target state="new">Hent NS fra forældrezonen</target>
       </trans-unit>
       <trans-unit datatype="html" id="80ae0c040fa413750521d66c0ef3e537f2866121">
         <source>Filter text</source>
@@ -201,127 +201,165 @@
       </trans-unit>
       <trans-unit id="4685a7012cc5a21113aa0bc3bf7fa0742f07855d" datatype="html">
         <source>Click to return on the top page</source>
+        <target state="new">Klik for at vende tilbage til toppen af siden</target>
       </trans-unit>
       <trans-unit id="c5e1258c5583ecac4ec6533453f274dcda26af9a" datatype="html">
         <source>Error 404</source>
+        <target state="new">Fejl 404</target>
       </trans-unit>
       <trans-unit id="80ebb1b82fed892345531fff2ba095160972dd86" datatype="html">
         <source>Result</source>
+        <target state="new">Resultat</target>
       </trans-unit>
       <trans-unit id="f4e529ae5ffd73001d1ff4bbdeeb0a72e342e5c8" datatype="html">
         <source>Close</source>
+        <target state="new">Luk</target>
       </trans-unit>
       <trans-unit id="dfc3c34e182ea73c5d784ff7c8135f087992dac1" datatype="html">
         <source>All</source>
+        <target state="new">Alle</target>
         <note priority="1" from="description">all filter button</note>
       </trans-unit>
       <trans-unit id="321e4419a943044e674beb55b8039f42a9761ca5" datatype="html">
         <source>Info</source>
+        <target state="new">Info</target>
         <note priority="1" from="description">info filter button</note>
       </trans-unit>
       <trans-unit id="bafecf51738eee6e4a0d7b62cbc5dc156be6cf3d" datatype="html">
         <source>Notice</source>
+        <target state="new">Bemærk</target>
         <note priority="1" from="description">notice filter button</note>
       </trans-unit>
       <trans-unit id="a8059e31694578c1b0344a76a345357dd60e8f01" datatype="html">
         <source>Warning</source>
+        <target state="new">Advarsel</target>
         <note priority="1" from="description">warning filter button</note>
       </trans-unit>
       <trans-unit id="6080b77234e92ad41bb52653b239c4c4f851317d" datatype="html">
         <source>Error</source>
+        <target state="new">Fejl</target>
         <note priority="1" from="description">error filter button</note>
       </trans-unit>
       <trans-unit id="43b83878842ed1b33e975a88ddfb5db83b5f1fe7" datatype="html">
         <source>Critical</source>
+        <target state="new">Kritisk</target>
         <note priority="1" from="description">critical filter button</note>
       </trans-unit>
       <trans-unit id="1867992058937397585" datatype="html">
         <source>Module</source>
+        <target state="new">Modul</target>
       </trans-unit>
       <trans-unit id="3733215288982610673" datatype="html">
         <source>Level</source>
+        <target state="new">Niveau</target>
       </trans-unit>
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
+        <target state="new">Besked</target>
       </trans-unit>
       <trans-unit id="3e1042f106a9c7ded3aadadbf8fe40e7651aa353" datatype="html">
         <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called &apos;zone&apos;) from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root (&apos;.&apos;) to the TLD (Top-Level Domain; e.g., &apos;.net&apos;) for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., &apos;zonemaster.net&apos;). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
+        <target state="new">Giv dit domænenavn et komplet tjek! Zonemaster hjælper dig med at vurdere, hvordan dit domænenavn klarer sig. Derudover kan du også få en bedre forståelse af, hvordan DNS (Domain Name System) fungerer. Når et domænenavn sendes til Zonemaster til test, undersøger programmet tilstanden af domænenavnet (nogle gange kaldet &apos;zone&apos;) fra top til bund af DNS-træet. Specifikt gøres dette normalt ved at undersøge DNS-data fra roden (&apos;.&apos;) til TLD (Top-Level Domain; f.eks. &apos;.net&apos;) for det pågældende domænenavn og derefter til sidst gennem de DNS-servere, der indeholde autoritative oplysninger om det angivne domænenavn (f.eks. &apos;zonemaster.net&apos;). Zonemaster udfører mange tests, såsom kontrol af DNSSEC-signaturer, eller at forskellige værter kan tilgås, og at IP-adresser er gyldige. Dette er alt sammen for at sikre, at dit domænenavn fungerer så smertefrit som muligt.</target>
       </trans-unit>
       <trans-unit id="78cb66330b7cd7a76d2124aca1126152d5ff9b17" datatype="html">
         <source>About the DNS</source>
+        <target state="new">Om DNS</target>
       </trans-unit>
       <trans-unit id="55cae3ebe403d9eb277c9ff354297a0b34f56486" datatype="html">
         <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the &apos;Enter&apos; button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
+        <target state="new">De fleste mennesker, der bruger internettet, har aldrig reflekteret over, hvad der rent faktisk sker, når man indtaster en adresse i sin webbrowser og derefter klikker på &apos;Enter&apos; knap. Kort sagt er DNS (Domain Name System) en database, der knytter domænenavne til IP (Internet Protocol) adresser, på samme måde som en telefonbog forbinder navne med telefonnumre. En IP-adresse er en unik række af tal, der identificerer hver computer, der er forbundet til internettet. Det svarer til den måde, hver telefon har sit eget nummer i telefonnettet. Sådanne lange rækker af tal fungerer fint til computere, men for folk er det langt sværere at huske. DNS'en er således udviklet som et ekstra lag til at kortlægge mellem navne, som vi bedre kan huske, og IP-adresser, der bruges af computere, når vi ønsker at nå en bestemt hjemmeside eller bruge andre tjenester på internettet (f.eks. mail).</target>
       </trans-unit>
       <trans-unit id="ccaa538a3c6d0d421092f253668feb173578f989" datatype="html">
         <source>Run domain test</source>
+        <target state="new">Kør domænetest</target>
       </trans-unit>
       <trans-unit id="b23b7b874559732067ac282a864c98562cdbb435" datatype="html">
         <source>Run</source>
+        <target state="new">Kør</target>
       </trans-unit>
       <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
         <source>Change language</source>
+        <target state="new">Skift sprog</target>
       </trans-unit>
       <trans-unit id="7511049748697720259" datatype="html">
         <source>Test completed!</source>
-        <target state="new">Test completed!</target>
+        <target state="new">Test afsluttet!</target>
       </trans-unit>
       <trans-unit id="51ec22e1dae591a194ac7448bb769dc8d49caa5f" datatype="html">
         <source>Clear domain input</source>
+        <target state="new">Ryd domæne</target>
       </trans-unit>
       <trans-unit id="c4d8a11a168d1bed37bc5a1cf302dfeb2bc62d6c" datatype="html">
         <source>Nameserver</source>
+        <target state="new">Navneserver</target>
       </trans-unit>
       <trans-unit id="94f7a0a482e16dafb093eff9c64bdffc40dc0636" datatype="html">
         <source>Nameserver required</source>
+        <target state="new">Navneserver påkrævet</target>
       </trans-unit>
       <trans-unit id="e8096ea93b6627c620ffbb208d7ad49235ffc2fd" datatype="html">
         <source>IP address</source>
+        <target state="new">IP-adresse</target>
       </trans-unit>
       <trans-unit id="9e654b8e014437daf59581aeab2425a7cd0c0007" datatype="html">
         <source>Delete nameserver</source>
+        <target state="new">Slet navneserver</target>
       </trans-unit>
       <trans-unit id="8e28ba95684e8704a43f67ac1d33bb2e2a9c54fd" datatype="html">
         <source>Add new nameserver</source>
+        <target state="new">Tilføj navneserver</target>
       </trans-unit>
       <trans-unit id="469bd9b4d935f4b60b0fb10af4dba592c6c14f5a" datatype="html">
         <source>DS records</source>
+        <target state="new">DS-record</target>
       </trans-unit>
       <trans-unit id="a35d390f659821874ed1913ccf54b9a2d0d79b2a" datatype="html">
         <source>Delete DS record</source>
+        <target state="new">Slet DS-record</target>
       </trans-unit>
       <trans-unit id="ea59270a53cba963d581a60e32c464a0339e2c12" datatype="html">
         <source>Add new DS record</source>
+        <target state="new">Tilføj DS-record</target>
       </trans-unit>
       <trans-unit id="3d53f64033c4b76fdc1076ba15955d913209866c" datatype="html">
         <source>General</source>
+        <target state="new">Generelt</target>
       </trans-unit>
       <trans-unit id="acc04ca445d64958d843622f9ce95c0378198c24" datatype="html">
         <source>Protocol</source>
+        <target state="new">Protokol</target>
       </trans-unit>
       <trans-unit id="0d4c8c660bb078b6ebb294da1f03d813885fe1d2" datatype="html">
         <source>Cannot disable both IPv4 and IPv6</source>
+        <target state="new">Kan ikke deaktivere både IPv4 og IPv6</target>
       </trans-unit>
       <trans-unit id="1899778155771790050" datatype="html">
         <source>No data found for the zone.</source>
+        <target state="new">Ingen data fundet for zonen</target>
       </trans-unit>
       <trans-unit id="2662e4cf5c1d6d26bdde95aa32848f6830aa2293" datatype="html">
         <source>Link to test</source>
+        <target state="new">Link til testen</target>
       </trans-unit>
       <trans-unit id="665692df9ab12bc228c1276f7d04e97902ff9afc" datatype="html">
         <source>Copy link to clipboard</source>
+        <target state="new">Kopier link til udklipsholder</target>
       </trans-unit>
       <trans-unit id="cdcc2fb9c903c66da8871772fcea46419ceba196" datatype="html">
         <source>Filter results</source>
+        <target state="new">Filtrer resultater</target>
       </trans-unit>
       <trans-unit id="1a38bccdfebed08e1a0918aae25558b4bd561bc0" datatype="html">
         <source>Fetch DS from parent zone</source>
+        <target state="new">Hent DS-record fra forældrezonen</target>
       </trans-unit>
       <trans-unit id="2569213046451523868" datatype="html">
         <source>No previous tests found for this domain.</source>
+        <target state="new">Ingen tidligere tests fundet for dette domænenavn</target>
       </trans-unit>
       <trans-unit id="7210131782873551503" datatype="html">
         <source>An unexpected server error happened.</source>
+        <target state="new">En uventet fejl opstod</target>
       </trans-unit>
       <trans-unit id="ngb.pagination.first" datatype="html">
         <source>««</source>
@@ -341,15 +379,19 @@
       </trans-unit>
       <trans-unit id="ngb.pagination.first-aria" datatype="html">
         <source>First</source>
+        <target state="new">Første</target>
       </trans-unit>
       <trans-unit id="ngb.pagination.previous-aria" datatype="html">
         <source>Previous</source>
+        <target state="new">Forrige</target>
       </trans-unit>
       <trans-unit id="ngb.pagination.next-aria" datatype="html">
         <source>Next</source>
+        <target state="new">Næste</target>
       </trans-unit>
       <trans-unit id="ngb.pagination.last-aria" datatype="html">
         <source>Last</source>
+        <target state="new">Sidste</target>
       </trans-unit>
       <trans-unit id="ngb.progressbar.value" datatype="html">
         <source>
@@ -361,9 +403,11 @@
       </trans-unit>
       <trans-unit id="b8f95913582a5f09936f754769f3cd7553190924" datatype="html">
         <source>Source code</source>
+        <target state="new">Kildekode</target>
       </trans-unit>
       <trans-unit id="fcfd4675b4c90f08d18d3abede9a9a4dff4cfdc7" datatype="html">
         <source>Documentation</source>
+        <target state="new">Dokumentation</target>
       </trans-unit>
     </body>
   </file>
