@@ -46,7 +46,7 @@ Jälkimmäiseen ryhmään kuuluvien käyttäjien tulee kääntyä DNS-operaattor
 #### <span id="q4"></span>4. Zonemaster näyttää virheilmoitusta tai varoitusta, kun testaan verkkotunnustani. Mitä se tarkoittaa?
 
 Riippuu siitä, mikä testi on kyseessä. Jokaiseen testiin liittyy yksi tai useampi viesti, jossa kuvataan löydetyt ongelmat.
-Voit myös saada lisätietoa jokaisesta testistä [Määritetyt testitapaukset] -dokumentista.
+Voit myös saada lisätietoa jokaisesta testistä [Määritetyt testitapaukset][Defined Test Cases]-dokumentista.
 
 #### <span id="q5"></span>5. Miten Zonemaster selvittää, mikä on oikein ja mikä väärin määritetty?
 
@@ -120,11 +120,7 @@ Jotta voisit testata käänteisverkkotunnuksen (reverse zone), sinun on tiedett�
 [Internetstiftelsen]:                    https://internetstiftelsen.se/
 [Question 12]:                           #q12
 [Question 13]:                           #q13
-[RFCs]:                                  https://www.ietf.org/standards/rfcs/
 [Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
 [Test Requirements document]:            https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md
-[The Swedish Internet Foundation]:       https://internetstiftelsen.se/en/
-[Using The CLI]:                         https://github.com/zonemaster/zonemaster-cli/blob/master/USING.md
-[Zonemaster.net]:                        https://zonemaster.net/
 [zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se
-[www.zonemaster.net]:                    http://www.zonemaster.net/
+[www.zonemaster.net]:                    https://www.zonemaster.net/
