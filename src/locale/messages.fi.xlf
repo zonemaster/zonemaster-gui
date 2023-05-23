@@ -379,16 +379,19 @@
       </trans-unit>
       <trans-unit id="ngb.pagination.first-aria" datatype="html">
         <source>First</source>
-        <target state="needs-translation"/>
+        <target state="translated"> Ensimmäinen</target>
       </trans-unit>
       <trans-unit id="ngb.pagination.previous-aria" datatype="html">
         <source>Previous</source>
+        <target state="translated">Edellinen</target>
       </trans-unit>
       <trans-unit id="ngb.pagination.next-aria" datatype="html">
         <source>Next</source>
+        <target state="translated">Seuraava</target>
       </trans-unit>
       <trans-unit id="ngb.pagination.last-aria" datatype="html">
         <source>Last</source>
+        <target state="translated">Viimeinen</target>
       </trans-unit>
       <trans-unit id="ngb.progressbar.value" datatype="html">
         <source>
@@ -397,9 +400,11 @@
       </trans-unit>
       <trans-unit id="b8f95913582a5f09936f754769f3cd7553190924" datatype="html">
         <source>Source code</source>
+        <target state="translated">Lähdekoodi</target>
       </trans-unit>
       <trans-unit id="fcfd4675b4c90f08d18d3abede9a9a4dff4cfdc7" datatype="html">
         <source>Documentation</source>
+        <target state="translated">Dokumentaatio</target>
       </trans-unit>
     </body>
   </file>
