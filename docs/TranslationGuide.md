@@ -244,6 +244,6 @@ const testSuite = [
 [translators guide for Engine]:                            https://github.com/zonemaster/zonemaster-engine/blob/develop/docs/Translation-translators.md
 [src/environments/common.ts]:                              ../src/environments/common.ts
 [src/assets/app.config.sample.json]:                       ../src/assets/app.config.sample.json
-[Configuration.md]:                                        https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/backend/rpcapi-reference.md
+[Configuration.md]:                                        https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
 [zonemaster.conf-example]:                                 ../zonemaster.conf-example
 [Poedit]:                                                  https://poedit.net
