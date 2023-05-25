@@ -115,10 +115,10 @@ The new language must be added to the following source files:
 
 and the following documentation file:
 
+* [Configuration.md].
+
 Then run `npm run i18n:extract` to create and populate the new
 translation file.
-
-* [Configuration.md].
 
 ### angular.json
 
@@ -217,10 +217,10 @@ RewriteCond %{HTTP:Accept-Language} ^<LANG> [NC]
 RewriteRule ^$ /<LANG>/ [R,L]
 ```
 
-### Configuration.md
+### Configuration
 
 Add the new language's two-letter code to the list of default values for
-`"enabledLanguages"`.
+`"enabledLanguages"` in the [Configuration.md] documentation file.
 
 ## Add e2e test script for the language
 
