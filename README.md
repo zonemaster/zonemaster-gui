@@ -6,24 +6,25 @@ This module is the Web Interface part of the Zonemaster project.
 
 ### Installation
 
-Follow the detailed [installation instructions](docs/Installation.md).
+Follow the detailed [installation instructions].
 
 ##### Prerequisites
-Before you install the Zonemaster Web GUI module, you need the
-Zonemaster Engine test framework installed. Please see the
-[Zonemaster Engine installation instructions](https://github.com/zonemaster/zonemaster-engine/blob/master/docs/Installation.md)
 
-And also the the zonemaster-backend module installed. Please see the [Zonemaster
-Backend installation](https://github.com/zonemaster/zonemaster-backend/blob/master/docs/Installation.md)
+Before you install the Zonemaster Web GUI module, you need the Zonemaster
+Engine test framework installed. Please see the [Zonemaster-Engine
+installation] document.
+
+And also the the zonemaster-backend module installed. Please see the
+[Zonemaster-Backend installation] document.
 
 
 ##### Configuration
 
 Texts for configuring the backend are found in the [installation
-instructions](docs/Installation.md).
+instructions].
 
-The configuration instructions for the GUI can be found in the [configuration
-documentation](docs/Configuration.md).
+The configuration instructions for the GUI can be found in the [GUI
+configuration] document.
 
 
 ### Contribution
@@ -110,3 +111,9 @@ License
 
 This is free software under a 2-clause BSD license. The full text of the license can
 be found in the [LICENSE](LICENSE) file included in this respository.
+
+
+[GUI Configuration]:                https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
+[Installation instructions]:        https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-gui.md
+[Zonemaster-Engine installation]:   https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-engine.md
+[Zonemaster-Backend installation]:  https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-backend.md
