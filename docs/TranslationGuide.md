@@ -42,10 +42,10 @@ the files, obsolete strings are removed from the files.
 
 ## Submitting changes
 
-Below are instructions for how to add or modify files. Preferably,
-submit the new or updated file as a pull request to Github (see
-[translators guide for Engine]). Contact the Zonemaster Group if
-that does not work.
+Below are instructions for how to add or modify files. Preferably, submit the
+new or updated file as a pull request to Github (see [translators guide] for
+Zonemaster-Engine, -CLI and -Backend). Contact the Zonemaster Group if that
+does not work.
 
 The translator must always create or update the `messages.<LANG>.xlf` and
 the `gui-faq-<LANG>.md`. The other changes are only done when
@@ -241,7 +241,7 @@ const testSuite = [
 [FR05-en.e2e-spec.ts]:                                     ../e2e/FR05-en.e2e-spec.ts
 [angular.json]:                                            ../angular.json
 [src/locale]:                                              ../src/locale
-[translators guide for Engine]:                            https://github.com/zonemaster/zonemaster-engine/blob/develop/docs/Translation-translators.md
+[Translators guide]:                                       https://github.com/zonemaster/zonemaster/blob/master/docs/internal/maintenance/Instructions-for-translators.md
 [src/environments/common.ts]:                              ../src/environments/common.ts
 [src/assets/app.config.sample.json]:                       ../src/assets/app.config.sample.json
 [GUI Configuration]:                                       https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
