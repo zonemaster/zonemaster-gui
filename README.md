@@ -20,8 +20,8 @@ And also the the zonemaster-backend module installed. Please see the
 
 ##### Configuration
 
-Texts for configuring the backend are found in the [installation
-instructions].
+The configuration instructions for the backend can be found in the [Backend
+configuration] document.
 
 The configuration instructions for the GUI can be found in the [GUI
 configuration] document.
@@ -113,6 +113,7 @@ This is free software under a 2-clause BSD license. The full text of the license
 be found in the [LICENSE](LICENSE) file included in this respository.
 
 
+[Backend Configuration]:            https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/backend.md
 [GUI Configuration]:                https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
 [Installation instructions]:        https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-gui.md
 [Zonemaster-Engine installation]:   https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-engine.md
