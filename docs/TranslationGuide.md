@@ -115,7 +115,7 @@ The new language must be added to the following source files:
 
 and the following documentation file:
 
-* [Configuration.md].
+* [GUI Configuration].
 
 Then run `npm run i18n:extract` to create and populate the new
 translation file.
@@ -220,7 +220,7 @@ RewriteRule ^$ /<LANG>/ [R,L]
 ### Configuration
 
 Add the new language's two-letter code to the list of default values for
-`"enabledLanguages"` in the [Configuration.md] documentation file.
+`"enabledLanguages"` in the [GUI Configuration] documentation file.
 
 ## Add e2e test script for the language
 
@@ -244,6 +244,6 @@ const testSuite = [
 [translators guide for Engine]:                            https://github.com/zonemaster/zonemaster-engine/blob/develop/docs/Translation-translators.md
 [src/environments/common.ts]:                              ../src/environments/common.ts
 [src/assets/app.config.sample.json]:                       ../src/assets/app.config.sample.json
-[Configuration.md]:                                        https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
+[GUI Configuration]:                                       https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
 [zonemaster.conf-example]:                                 ../zonemaster.conf-example
 [Poedit]:                                                  https://poedit.net
