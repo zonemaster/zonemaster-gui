@@ -14,9 +14,8 @@ Before you install the Zonemaster Web GUI module, you need the Zonemaster
 Engine test framework installed. Please see the [Zonemaster-Engine
 installation] document.
 
-And also the the zonemaster-backend module installed. Please see the
+You also need a running Zonemaster-Backend component. Please see the
 [Zonemaster-Backend installation] document.
-
 
 ##### Configuration
 
@@ -94,9 +93,8 @@ Run 'npm run release' to create a zip file with dist folder and zonemaster.conf 
 
 ### Documentation
 
-Basically, the GUI is a serverless Angular application which use the Backend JSONRC API.
-
-Other than the installation file, the [docs directory](docs/), contains a translation guide for the GUI
+There is a [public documentation]. Some more specific documents can be found in
+the [docs directory](docs/).
 
 #### Security of our dependencies
 Based on the output of [david](https://david-dm.org/) and [npm audit](https://docs.npmjs.com/cli/audit), we reguraly
@@ -116,5 +114,6 @@ be found in the [LICENSE](LICENSE) file included in this respository.
 [Backend Configuration]:            https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/backend.md
 [GUI Configuration]:                https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
 [Installation instructions]:        https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-gui.md
+[Public documentation]:             https://github.com/zonemaster/zonemaster/blob/master/README.md#documentation
 [Zonemaster-Engine installation]:   https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-engine.md
 [Zonemaster-Backend installation]:  https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-backend.md
