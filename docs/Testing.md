@@ -37,7 +37,7 @@ npm run e2e:update
 exit
 ```
 
-[build environment]: https://github.com/zonemaster/zonemaster/blob/master/docs/internal-documentation/distrib-testing/Ubuntu-Node.js-build-environment.md
+[build environment]: https://github.com/zonemaster/zonemaster/blob/master/docs/internal/distrib-testing/Ubuntu-Node.js-build-environment.md
 [playwright]: https://playwright.dev/docs/intro
 
 ## Test server
