@@ -5,7 +5,7 @@ Zonemaster
 2. [Hvem står bag Zonemaster?](#q2)
 3. [Hvordan kan Zonemaster hjælpe mig?](#q3)
 4. [Zonemaster rapporterer advarsler/fejl på mit domænenavn, hvad betyder det?](#q4)
-5. [Hvordan kan Zonemaster afgøre hvad der er rigtigt og forkert?](#q5)
+5. [Hvordan kan Zonemaster skelne mellem, hvad der er rigtigt og forkert?](#q5)
 6. [Understøtter Zonemaster IPv6?](#q6)
 7. [Understøtter Zonemaster DNSSEC?](#q7) 
 8. [Hvad gør Zonemaster forkellig fra andre tilsvarende test-værktøjer?](#q8)
