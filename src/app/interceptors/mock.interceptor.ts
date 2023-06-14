@@ -6,7 +6,7 @@ const urls = [
   // Version info
   {
     url: 'https://zonemaster.net/api',
-    body: {jsonrpc: '2.0', id: 1643203570632, method:'system_versions', params: {}},
+    body: {jsonrpc: '2.0', id: 1643203570632, method:'version_info', params: {}},
     method: 'POST',
     json: {jsonrpc: '2.0', id: 1643203570632, result: {zonemaster_engine: 'e2e-test', zonemaster_backend: 'e2e-test', zonemaster_ldns: 'e2e-test'}}
   },
@@ -14,42 +14,42 @@ const urls = [
   // Profile list in option
   {
     url: 'https://zonemaster.net/api',
-    body: {jsonrpc: '2.0', id:1643203351479, method: 'conf_profiles', params: {}},
+    body: {jsonrpc: '2.0', id:1643203351479, method: 'profile_names', params: {}},
     method: 'POST',
-    json: {jsonrpc: '2.0', id: 1643203351479, result: { profiles: ["default", "test_profile"] }}
+    json: {jsonrpc: '2.0', id: 1643203351479, result: ["default", "test_profile"]}
   },
 
   // FR18 - Should display progress bar
   // FR26 - Should display progress bar
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'job_create', 'params':
+    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
         'language':'en', 'domain': 'progress.afNiC.Fr', 'profile': 'default',
         'nameservers': [], 'ds_info': []
       }
     },
     method: 'POST',
-    json: {jsonrpc: '2.0', id: 1572254767685, result: { job_id: '2005cf23e9fb24b6' } }
+    json: {'jsonrpc': '2.0', 'id': 1572254767685, 'result': '2005cf23e9fb24b6'}
   },
 
   // FR19 - Should display progress bar when we add a NS name
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'job_create', 'params':
+    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
         'language':'en', 'domain': 'progress.afNiC.Fr', 'profile': 'default',
         'nameservers': [{"ns": "ns1.nic.fr"}], 'ds_info': []
       }
     },
     method: 'POST',
-    json: {jsonrpc: '2.0', id: 1572254767685, result: {job_id: '2005cf23e9fb24b6' }}
+    json: {'jsonrpc': '2.0', 'id': 1572254767685, 'result': '2005cf23e9fb24b6'}
   },
 
   // FR19 - should NOT display progress bar when we add a NS ip
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'job_create', 'params':
+    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
         'language':'en', 'domain': 'progress.afNiC.Fr', 'profile': 'default',
         'nameservers': [{"ns":"", "ip": "192.134.4.1"}], 'ds_info': []
@@ -57,8 +57,8 @@ const urls = [
     },
     method: 'POST',
     json: {
-      jsonrpc: "2.0",
-      error: {
+      "jsonrpc": "2.0",
+      "error": {
         "message": "Invalid method parameter(s).",
         "code": "-32602",
         "data": [
@@ -75,7 +75,7 @@ const urls = [
   // FR20 - should display progress bar when we add a DS entry and launch a test
   {
     url: 'https://zonemaster.net/api',
-    body:{'jsonrpc': '2.0', 'id': 1572277567967, 'method': 'job_create', 'params':
+    body:{'jsonrpc': '2.0', 'id': 1572277567967, 'method': 'start_domain_test', 'params':
       {
         'language':'en', 'domain': 'progress.afNiC.Fr', 'profile': 'default',
         'nameservers': [], 'ds_info': [{
@@ -87,7 +87,7 @@ const urls = [
       }
     },
     method: 'POST',
-    json: {jsonrpc: '2.0', id: 1572277567967, result: { job_id: '2005cf23e9fb24b6' }}
+    json: {'jsonrpc': '2.0', 'id': 1572277567967, 'result': '2005cf23e9fb24b6'}
   },
 
   // FR18 - Should display progress bar
@@ -96,9 +96,9 @@ const urls = [
   // FR26 - Should display progress bar
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254972236, 'method': 'job_status', 'params': {'test_id': '2005cf23e9fb24b6'}},
+    body: {'jsonrpc': '2.0', 'id': 1572254972236, 'method': 'test_progress', 'params': {'test_id': '2005cf23e9fb24b6'}},
     method: 'POST',
-    json: {'jsonrpc': '2.0', 'id': 1572254972236, 'result': { progress: 50 }}
+    json: {'jsonrpc': '2.0', 'id': 1572254972236, 'result': 50}
   },
 
 
@@ -106,49 +106,49 @@ const urls = [
   // FR22 - Should display full messages
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'job_create', 'params':
+    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
         'language':'en', 'domain': 'results.afNiC.Fr', 'profile': 'default',
         'nameservers': [], 'ds_info': []
       }
     },
     method: 'POST',
-    json: {jsonrpc: '2.0', id: 1572254767685, result: { job_id: '226f6d4f44ae3f80' }}
+    json: {'jsonrpc': '2.0', 'id': 1572254767685, 'result': '226f6d4f44ae3f80'}
   },
 
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'job_create', 'params':
+    body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
       {
         'language':'en', 'domain': 'empty-results.afNiC.Fr', 'profile': 'default',
         'nameservers': [], 'ds_info': []
       }
     },
     method: 'POST',
-    json: {jsonrpc: '2.0', id: 1572254767685, result: { job_id: 'a0fbcbf6c5ff5842' }}
+    json: {'jsonrpc': '2.0', 'id': 1572254767685, 'result': 'a0fbcbf6c5ff5842'}
   },
 
   // FR21 - Should display summary
   // FR22 - Should display full messages
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254972236, 'method': 'job_status', 'params': {'test_id': '226f6d4f44ae3f80'}},
+    body: {'jsonrpc': '2.0', 'id': 1572254972236, 'method': 'test_progress', 'params': {'test_id': '226f6d4f44ae3f80'}},
     method: 'POST',
-    json: {'jsonrpc': '2.0', 'id': 1572254972236, 'result': { progress: 100 }}
+    json: {'jsonrpc': '2.0', 'id': 1572254972236, 'result': 100}
   },
 
 
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254972236, 'method': 'job_status', 'params': {'test_id': 'a0fbcbf6c5ff5842'}},
+    body: {'jsonrpc': '2.0', 'id': 1572254972236, 'method': 'test_progress', 'params': {'test_id': 'a0fbcbf6c5ff5842'}},
     method: 'POST',
-    json: {'jsonrpc': '2.0', 'id': 1572254972236, 'result': { progress: 100 }}
+    json: {'jsonrpc': '2.0', 'id': 1572254972236, 'result': 100}
   },
 
 
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254972327, 'method': 'job_results', 'params': {'id': 'a0fbcbf6c5ff5842', 'language': 'en'}},
+    body: {'jsonrpc': '2.0', 'id': 1572254972327, 'method': 'get_test_results', 'params': {'id': 'a0fbcbf6c5ff5842', 'language': 'en'}},
     method: 'POST',
     json: {'jsonrpc': '2.0', 'id': 1572254972327, 'result': {
         'params': {'profile' : 'default', 'priority': 10, 'ipv6': true, 'ipv4': true, 'client_id': 'Zonemaster GUI',
@@ -168,7 +168,7 @@ const urls = [
   // FR25 - Should open a modal that contains four export possibilities
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572254972327, 'method': 'job_results', 'params': {'id': '226f6d4f44ae3f80', 'language': 'en'}},
+    body: {'jsonrpc': '2.0', 'id': 1572254972327, 'method': 'get_test_results', 'params': {'id': '226f6d4f44ae3f80', 'language': 'en'}},
     method: 'POST',
     json: {'jsonrpc': '2.0', 'id': 1572254972327, 'result': {
         'params': {
@@ -870,9 +870,9 @@ const urls = [
   // FR25 - Should open a modal that contains four export possibilities
   {
     url: 'https://zonemaster.net/api',
-    body: {'jsonrpc': '2.0', 'id': 1572271917712, 'method': 'domain_history', 'params': {'offset': 0, 'limit': 100, 'filter': 'all', 'frontend_params': {'domain': 'results.afNiC.Fr'}}},
+    body: {'jsonrpc': '2.0', 'id': 1572271917712, 'method': 'get_test_history', 'params': {'offset': 0, 'limit': 100, 'filter': 'all', 'frontend_params': {'domain': 'results.afNiC.Fr'}}},
     method: 'POST',
-    json: {jsonrpc: '2.0', id: 1572271917712, result: { history: [
+    json: {'jsonrpc': '2.0', 'id': 1572271917712, 'result': [
       {'overall_result': 'error', 'created_at': '2019-10-28T09:24:57Z', 'creation_time': '2019-10-28 09:42:42.432378', 'id': '293f626579274f18'},
       {'overall_result': 'ok', 'created_at': '2019-10-28T09:24:57Z', 'creation_time': '2019-10-28 09:24:57.395431', 'id': '84bfac6ae74d0e62'},
       {'overall_result': 'ok', 'created_at': '2019-10-24T07:49:48Z', 'creation_time': '2019-10-24 07:49:48.079617', 'id': 'efe0931716b0068c'},
@@ -898,7 +898,7 @@ const urls = [
       {'overall_result': 'ok', 'created_at': '2019-10-23T14:52:56Z', 'creation_time': '2019-10-23 14:52:56.823486', 'id': '497ce5549e80d6d1'},
       {'overall_result': 'ok', 'created_at': '2019-10-23T14:39:25Z', 'creation_time': '2019-10-23 14:39:25.259204', 'id': '470e62da84dcbd16'},
       {'overall_result': 'error', 'created_at': '2019-10-23T14:26:35Z', 'creation_time': '2019-10-23 14:26:35.853106', 'id': '9b8e25c35dc365ac'}
-    ] }}
+    ]}
   },
 ];
 
