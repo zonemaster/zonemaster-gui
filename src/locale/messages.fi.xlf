@@ -1,345 +1,410 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template">
+  <file source-language="en" datatype="plaintext" original="ng2.template" target-language="fi-FI">
     <body>
       <trans-unit datatype="html" id="a434ae37bd56265a0693fbc28bd8338a38500871">
         <source>About Zonemaster</source>
-        <target state="new">Tietoja Zonemasterista</target>
+        <target state="translated">Zonemasterista</target>
       </trans-unit>
       <trans-unit datatype="html" id="6c6f25c47da62ec597c6057a36ddfc3209811ec5">
         <source>Algorithm</source>
-        <target state="new">Algoritmi</target>
+        <target state="translated">Algoritmi</target>
       </trans-unit>
       <trans-unit datatype="html" id="dfb71f4aa0784b7ddcc0511e4d2ed664bbf24830">
         <source>Algorithm required</source>
-        <target state="new">Algoritmi vaaditaan</target>
+        <target state="translated">Algoritmi vaaditaan</target>
       </trans-unit>
       <trans-unit datatype="html" id="6f38d53bf6192c4d83d21fc84478cf97c2bc81c2">
         <source>All</source>
-        <target state="new">Kaikki</target>
+        <target state="translated">Kaikki</target>
       </trans-unit>
       <trans-unit datatype="html" id="ae50a7291ac86efaefeefaaf53afff3b8b8c088b">
         <source>Digest</source>
-        <target state="new">Tiiviste</target>
+        <target state="translated">Tiiviste</target>
       </trans-unit>
       <trans-unit datatype="html" id="aafb5b89839f9af24b0f7b61208d25361f11b293">
         <source>Digest required</source>
-        <target state="new">Tiiviste (Digest) tarvitaan</target>
+        <target state="translated">Tiiviste (Digest) vaaditaan</target>
       </trans-unit>
       <trans-unit datatype="html" id="3530c857805fc74fe628dcc56456fa90ff9128d1">
         <source>Digest type</source>
-        <target state="new">Tiivisteen tyyppi</target>
+        <target state="translated">Tiivisteen (Digest) tyyppi</target>
       </trans-unit>
       <trans-unit datatype="html" id="a8ccbfc31e1cfe3c97e9d017ca41a8f091d0a8d3">
         <source>Digest type required</source>
-        <target state="new">Tiivisteen tyyppi vaaditaan</target>
+        <target state="translated">Tiivisteen (Digest) tyyppi vaaditaan</target>
       </trans-unit>
       <trans-unit datatype="html" id="e6016cc16f7146d05fb4b3d8d4a9cf3aa894d8a6">
         <source>Disable IPv4</source>
-        <target state="new">Poista IPv4 käytöstä</target>
+        <target state="translated">Poista IPv4 käytöstä</target>
       </trans-unit>
       <trans-unit datatype="html" id="5fbd1b623677ff4abe8ff5a57603a17b2e5d2800">
         <source>Disable IPv6</source>
-        <target state="new">Poista IPv6 käytöstä</target>
+        <target state="translated">Poista IPv6 käytöstä</target>
       </trans-unit>
       <trans-unit datatype="html" id="a80323a72217e6e51ab903d5109e12c69ed70b79">
         <source>Domain name</source>
-        <target state="new">Verkkotunnus</target>
+        <target state="translated">Verkkotunnus</target>
       </trans-unit>
       <trans-unit datatype="html" id="d97fc0ce0c1d83a43448e9253f3b93f91b844b8c">
         <source>Domain name required</source>
-        <target state="new">Verkkotunnus ilmoitettava</target>
+        <target state="translated">Verkkotunnus vaaditaan</target>
       </trans-unit>
       <trans-unit datatype="html" id="4715502322841966813">
         <source>Error during parent data fetching.</source>
-        <target state="new">Virhe haettaessa dataa pääverkkotunnuksesta</target>
+        <target state="translated">Virhe haettaessa tietoja pääverkkotunnuksesta.</target>
       </trans-unit>
       <trans-unit datatype="html" id="5f19586aba912ec6eb123ec5ab609a3bcc073066">
         <source>Export</source>
-        <target state="new">Vie</target>
+        <target state="translated">Vie</target>
       </trans-unit>
       <trans-unit datatype="html" id="zm.faq.title">
         <source>FAQ</source>
-        <target state="new">Usein kysytyt kysymykset</target>
+        <target state="translated">Usein kysytyt kysymykset (FAQ)</target>
       </trans-unit>
       <trans-unit datatype="html" id="ca33ee6b36abb05c3132faae24aa707bf4393377">
         <source>Fetch NS from parent zone</source>
-        <target state="new">Hae dataa pääverkkotunnuksesta</target>
+        <target state="translated">Hae NS-tietueet pääverkkotunnuksesta</target>
       </trans-unit>
       <trans-unit datatype="html" id="80ae0c040fa413750521d66c0ef3e537f2866121">
         <source>Filter text</source>
-        <target state="new">Suodata viestit</target>
+        <target state="translated">Suodata tekstit</target>
       </trans-unit>
       <trans-unit datatype="html" id="efac3af0b32e953279c25b6519cae256811e0fe8">
         <source>History</source>
-        <target state="new">Historia</target>
+        <target state="translated">Historia</target>
       </trans-unit>
       <trans-unit datatype="html" id="2360715491728178990">
         <source>History information request is in progress.</source>
-        <target state="new">Aiempien testitulosten haku käynnissä</target>
+        <target state="translated">Aiempien testitulosten haku käynnissä.</target>
       </trans-unit>
       <trans-unit datatype="html" id="81393046c8150147e2cd2312bd175040897777ba">
         <source>Keytag</source>
-        <target state="new">Keytag</target>
+        <target state="translated">Keytag</target>
       </trans-unit>
       <trans-unit datatype="html" id="ea9a4cfd79cc6b5e7be4c0f52701d54b127d89f6">
         <source>Keytag required</source>
-        <target state="new">Keytag tarvitaan</target>
+        <target state="translated">Keytag vaaditaan</target>
       </trans-unit>
       <trans-unit datatype="html" id="ace1918547e0a85b94282b0fa6ba429bf82e704f">
         <source>Nameservers</source>
-        <target state="new">Nimipalvelin</target>
+        <target state="translated">Nimipalvelimet</target>
       </trans-unit>
       <trans-unit datatype="html" id="8462321971972035102">
         <source>No data for this test.</source>
-        <target state="new">Ei dataa tätä testiä varten</target>
+        <target state="translated">Ei dataa tätä testiä varten.</target>
       </trans-unit>
       <trans-unit datatype="html" id="7d2be22a7252a8b76dea7b3b85ab94ff86184e5d">
         <source>Notice! More info on undelegated test</source>
-        <target state="new">Ilmoitus! Lisätietoja delegoimattomasta testistä</target>
+        <target state="translated">Huomaa! Lisätietoja delegoimattoman verkkotunnuksen testistä</target>
       </trans-unit>
       <trans-unit datatype="html" id="24813b8a3e45f0b57136c18d003027262cfe2d1f">
         <source>Options</source>
-        <target state="new">Options</target>
+        <target state="translated">Valinnat</target>
       </trans-unit>
       <trans-unit datatype="html" id="03354b2489337882c5a4fd033fec9b9f4b8d109f">
         <source>Page Not Found</source>
-        <target state="new">Sivua ei löytynyt</target>
+        <target state="translated">Sivua ei löytynyt</target>
       </trans-unit>
       <trans-unit datatype="html" id="4075418865594287698">
         <source>Parent data fetched with success.</source>
-        <target state="new">Data haettiin pääverkkotunnuksesta ongelmitta</target>
+        <target state="translated">Data haettiin pääverkkotunnuksesta ongelmitta.</target>
       </trans-unit>
       <trans-unit datatype="html" id="7104935342812835081">
         <source>Please set the api endpoint</source>
-        <target state="new">Aseta API endpoint</target>
+        <target state="translated">Aseta API endpoint</target>
       </trans-unit>
       <trans-unit datatype="html" id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8">
         <source>Profile</source>
-        <target state="new">Profiili</target>
+        <target state="translated">Profiili</target>
       </trans-unit>
       <trans-unit datatype="html" id="918f28cae009f8e67af8ca86f26b47ed2ce0ae5e">
         <source>Program versions</source>
-        <target state="new">Ohjelman versiot</target>
+        <target state="translated">Ohjelman versiot</target>
       </trans-unit>
       <trans-unit datatype="html" id="06c663bf1474713f57551123a46b34318543b67d">
         <source>Reset</source>
-        <target state="new">Tyhjennä valinnat</target>
+        <target state="translated">Tyhjennä valinnat</target>
       </trans-unit>
       <trans-unit datatype="html" id="c6bec34adbe7628d1d4fbbc5fd85a8aab6fa8e5c">
         <source>Results from previous tests are not available.</source>
-        <target state="new">Ei aiempia testituloksia</target>
+        <target state="translated">Ei aiempia testituloksia.</target>
       </trans-unit>
       <trans-unit datatype="html" id="baa5cda119114bb5fba61496780778a5fa10caf1">
         <source>Run test</source>
-        <target state="new">Suorita testi</target>
+        <target state="translated">Suorita testi</target>
       </trans-unit>
       <trans-unit datatype="html" id="0bd8b27f60a1f098a53e06328426d818e3508ff9">
         <source>Share</source>
-        <target state="new">Jaa</target>
+        <target state="translated">Jaa</target>
       </trans-unit>
       <trans-unit datatype="html" id="a119d6c78f3f291d3be8bac176f93afe0757f615">
         <source>Sorry, there is nothing here!</source>
-        <target state="new">Ikävä kyllä täällä ei ole mitään!</target>
+        <target state="translated">Ikävä kyllä täällä ei ole mitään!</target>
       </trans-unit>
       <trans-unit datatype="html" id="113417823466ebe7cc18b89e8826c7fe3f973439">
         <source>Display all results.</source>
-        <target state="new">Näytä kaikki tulokset</target>
+        <target state="translated">Näytä kaikki tulokset.</target>
         <note priority="1" from="description">tooltip all</note>
       </trans-unit>
       <trans-unit datatype="html" id="688e4555813c90de96d11699aef24aab49d5b4af">
         <source>Critical - means a very serious error.</source>
-        <target state="new">Critical - vakava virhe, joka voi estää verkkotunnuksen toiminnan</target>
+        <target state="translated">Critical - vakava virhe, joka voi estää verkkotunnuksen toiminnan.</target>
         <note priority="1" from="description">tooltip critical</note>
       </trans-unit>
       <trans-unit datatype="html" id="1a6e9b4ee9398580ded7bcb9cd3ec6c965de297f">
         <source>Error - means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable.</source>
-        <target state="new">Error - virhe joka ei kuitenkaan vaikuta verkkotunnuksen toimintaan merkittävästi. Virheet kannattaa käydä läpi</target>
+        <target state="translated">Error - virhe joka ei kuitenkaan vaikuta verkkotunnuksen toimintaan merkittävästi. Virheet kannattaa käydä läpi.</target>
         <note priority="1" from="description">tooltip error</note>
       </trans-unit>
       <trans-unit datatype="html" id="281f2af4328daa895401b765738b1eb9cc55f489">
-        <source>Info - is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem.</source>
-        <target state="new">Info - Sisältää tietoa joka saattaa kiinnostaa, nämä eivät ole virheitä</target>
+        <source>Info - is something that may be of interest to the zone's administrator but that definitely does not indicate a problem.</source>
+        <target state="translated">Info - Sisältää tietoa joka saattaa kiinnostaa, nämä eivät ole virheitä.</target>
         <note priority="1" from="description">tooltip info</note>
       </trans-unit>
       <trans-unit datatype="html" id="e863ca91edf6eb602f218bd8e04f9c06a5937e95">
-        <source>Notice - means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all.</source>
-        <target state="new">Notice - Tarkoitettu verkkotunnuksen nimipalveluista vastaavalle, ei välttämättä konfigurointivirhe</target>
+        <source>Notice - means something that should be known by the zone's administrator but that need not necessarily be a problem at all.</source>
+        <target state="translated">Notice - Tarkoitettu verkkotunnuksen nimipalveluista vastaavalle, ei ole välttämättä ongelma ollenkaan.</target>
         <note priority="1" from="description">tooltip notice</note>
       </trans-unit>
       <trans-unit datatype="html" id="5f8e2137b25e61faf62e17cea5f550a5ae2fbf9c">
         <source>Warning - means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.</source>
-        <target state="new">Warning - Tarkoitettu tietyissä käyttötapauksissa havaittuihin virheisiin</target>
+        <target state="translated">Warning - Tarkoittaa jotain joka voi joissain olosuhteissa olla ongelma, mutta todennäköisesti ei koske millään tavoin tavallista käyttäjää.</target>
         <note priority="1" from="description">tooltip warning</note>
       </trans-unit>
       <trans-unit datatype="html" id="51c0cd045c7c68c5936905244f1a0a9c7d294ed3">
         <source>What is an undelegated domain test?</source>
-        <target state="new">Mikä on delegoimattoman verkkotunnuksen testi?</target>
+        <target state="translated">Mikä on delegoimattoman verkkotunnuksen testi?</target>
       </trans-unit>
       <trans-unit datatype="html" id="7221366950887162430">
         <source>Zonemaster Backend is not available.</source>
-        <target state="new">Zonemaster Backend ei ole käytettävissä</target>
+        <target state="translated">Zonemaster Backend ei ole käytettävissä.</target>
       </trans-unit>
       <trans-unit id="7b165859f6b561923cffdcf931fb3e8ec4cd755b" datatype="html">
         <source>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</source>
-        <target state="new">Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</target>
+        <target state="translated">Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</target>
       </trans-unit>
       <trans-unit id="e948a3edba1bbf1a743318826b81d146d9539477" datatype="html">
         <source>Delegated</source>
-        <target state="new">Delegoitu</target>
+        <target state="translated">Delegoitu</target>
         <note priority="1" from="description">plural delegated</note>
       </trans-unit>
       <trans-unit id="dd85d90fa412b898b4d9c806721d00fefffa3913" datatype="html">
         <source>Undelegated</source>
-        <target state="new">Delegoinnit puuttuvat</target>
+        <target state="translated">Delegointi puuttuu</target>
         <note priority="1" from="description">plural undelegated</note>
       </trans-unit>
       <trans-unit id="42ad467746ed6e8a989a9e579a481cddbb6f1ece" datatype="html">
         <source>Undelegated</source>
-        <target state="new">Delegointi puuttuu</target>
+        <target state="translated">Delegointi puuttuu</target>
         <note priority="1" from="description">singular undelegated</note>
       </trans-unit>
       <trans-unit id="4685a7012cc5a21113aa0bc3bf7fa0742f07855d" datatype="html">
         <source>Click to return on the top page</source>
+        <target state="translated">Valitse palataksesi yläsivulle</target>
       </trans-unit>
       <trans-unit id="c5e1258c5583ecac4ec6533453f274dcda26af9a" datatype="html">
         <source>Error 404</source>
+        <target state="translated">Virhe 404</target>
       </trans-unit>
       <trans-unit id="80ebb1b82fed892345531fff2ba095160972dd86" datatype="html">
         <source>Result</source>
+        <target state="translated">Tulos</target>
       </trans-unit>
       <trans-unit id="f4e529ae5ffd73001d1ff4bbdeeb0a72e342e5c8" datatype="html">
         <source>Close</source>
+        <target state="translated">Sulje</target>
       </trans-unit>
       <trans-unit id="dfc3c34e182ea73c5d784ff7c8135f087992dac1" datatype="html">
         <source>All</source>
+        <target state="translated">Kaikki</target>
         <note priority="1" from="description">all filter button</note>
       </trans-unit>
       <trans-unit id="321e4419a943044e674beb55b8039f42a9761ca5" datatype="html">
         <source>Info</source>
+        <target state="translated">Info</target>
         <note priority="1" from="description">info filter button</note>
       </trans-unit>
       <trans-unit id="bafecf51738eee6e4a0d7b62cbc5dc156be6cf3d" datatype="html">
         <source>Notice</source>
+        <target state="translated">Ilmoitus</target>
         <note priority="1" from="description">notice filter button</note>
       </trans-unit>
       <trans-unit id="a8059e31694578c1b0344a76a345357dd60e8f01" datatype="html">
         <source>Warning</source>
+        <target state="translated">Varoitus</target>
         <note priority="1" from="description">warning filter button</note>
       </trans-unit>
       <trans-unit id="6080b77234e92ad41bb52653b239c4c4f851317d" datatype="html">
         <source>Error</source>
+        <target state="translated">Virhe</target>
         <note priority="1" from="description">error filter button</note>
       </trans-unit>
       <trans-unit id="43b83878842ed1b33e975a88ddfb5db83b5f1fe7" datatype="html">
         <source>Critical</source>
+        <target state="translated">Kriittinen</target>
         <note priority="1" from="description">critical filter button</note>
       </trans-unit>
       <trans-unit id="1867992058937397585" datatype="html">
         <source>Module</source>
+        <target state="translated">Moduuli</target>
       </trans-unit>
       <trans-unit id="3733215288982610673" datatype="html">
         <source>Level</source>
+        <target state="translated">Taso</target>
       </trans-unit>
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
+        <target state="translated">Viesti</target>
       </trans-unit>
       <trans-unit id="3e1042f106a9c7ded3aadadbf8fe40e7651aa353" datatype="html">
-        <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called &apos;zone&apos;) from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root (&apos;.&apos;) to the TLD (Top-Level Domain; e.g., &apos;.net&apos;) for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., &apos;zonemaster.net&apos;). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
+        <source>Give your domain name a complete checkup! Zonemaster helps you assess how your domain name is doing. Besides, you can also get a better understanding of how the DNS (Domain Name System) works. When a domain name is sent to Zonemaster for testing, the program investigates the state of the domain name (sometimes called 'zone') from top to bottom of the DNS tree. Specifically, this is usually done by examining DNS data from the root ('.') to the TLD (Top-Level Domain; e.g., '.net') for that domain name, and then finally through the DNS servers that contain authoritative information about the specified domain name (e.g., 'zonemaster.net'). Zonemaster performs many tests, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
+        <target state="translated">Tee verkkotunnuksellesi täydellinen tarkistus! Zonemaster auttaa sinua arvioimaan, kuinka verkkotunnuksesi toimii. Lisäksi voit myös saada paremman käsityksen siitä, kuinka Nimipalvelu (DNS, Domain Name System) toimii. Kun verkkotunnus testataan Zonemasterissa, ohjelma tutkii verkkotunnuksen (joskus kutsutaan nimellä "alue") DNS-puun ylhäältä alas. Tämä tehdään yleensä tarkastelemalla DNS-tietoja alkaen juurivyöhykkeestä ('.') kyseisen verkkotunnuksen TLD:n kautta (Top-Level Domain; esim. '.fi') aina verkkotunnuksen (esim. 'zonemaster.fi') määrittelyt sisältäviin autoritäärisiin nimipalvelimiin asti Zonemaster suorittaa suuren määrän testejä, kuten testaa DNSSEC allekirjoituksia, testaa että eri hosteja voidaan käyttää tai testaa sen että IP-osoitteet ovat kelvollisia. Tämä kaikki varmistaa, että verkkotunnuksesi toimii mahdollisimman sujuvasti.</target>
       </trans-unit>
       <trans-unit id="78cb66330b7cd7a76d2124aca1126152d5ff9b17" datatype="html">
         <source>About the DNS</source>
+        <target state="translated">Tietoja DNS:stä</target>
       </trans-unit>
       <trans-unit id="55cae3ebe403d9eb277c9ff354297a0b34f56486" datatype="html">
-        <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the &apos;Enter&apos; button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
+        <source>Most people who use the Internet have never reflected on what actually happens when one types an address in their web browser and then clicks the 'Enter' button. In short, the DNS (Domain Name System) is a database that associates domain names to IP (Internet Protocol) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet (e.g., mail).</source>
+        <target state="translated">Useimmat Internetiä käyttävät ihmiset eivät ole koskaan miettineet, mitä tapahtuu, kun joku kirjoittaa osoitteen verkkoselaimeensa ja sitten napsauttaa Enter-painiketta. Lyhyesti sanottuna DNS (Domain Name System) on tietokanta, joka yhdistää verkkotunnukset IP-osoitteisiin (Internet Protocol) samalla tavalla kuin puhelinluettelo liittää nimet puhelinnumeroihin. IP-osoite on ainutlaatuinen numerosarja, joka yksilöi jokaisen Internetiin yhdistetyn tietokoneen. Sitä voi verrata vaikka siihen että jokaisella puhelimella on oma numeronsa puhelinverkossa. Tällaiset pitkät numerosarjat toimivat hyvin tietokoneissa, mutta ihmisille ne ovat paljon vaikeampia muistaa. Siksi DNS on kehitetty lisä kerrokseksi yhdistämään muistamamme nimet ja tietokoneiden käyttämät IP-osoitteet aina, kun haluamme päästä tietylle verkkosivustolle tai haluamme käyttää muita Internetin palveluita (esim. sähköpostia).</target>
       </trans-unit>
       <trans-unit id="ccaa538a3c6d0d421092f253668feb173578f989" datatype="html">
         <source>Run domain test</source>
+        <target state="translated">Suorita verkkotunnus testi</target>
       </trans-unit>
       <trans-unit id="b23b7b874559732067ac282a864c98562cdbb435" datatype="html">
         <source>Run</source>
-        <target state="new">Run</target>
+        <target state="translated">Suorita</target>
       </trans-unit>
       <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
         <source>Change language</source>
+        <target state="translated">Vaihda kieli</target>
       </trans-unit>
       <trans-unit id="7511049748697720259" datatype="html">
         <source>Test completed!</source>
-        <target state="new">Test completed!</target>
+        <target state="translated">Testi on valmis!</target>
       </trans-unit>
       <trans-unit id="51ec22e1dae591a194ac7448bb769dc8d49caa5f" datatype="html">
         <source>Clear domain input</source>
-        <target state="new"/>
+        <target state="translated">Tyhjennä sisältö</target>
       </trans-unit>
       <trans-unit id="c4d8a11a168d1bed37bc5a1cf302dfeb2bc62d6c" datatype="html">
         <source>Nameserver</source>
-        <target state="new"/>
+        <target state="translated">Nimipalvelin</target>
       </trans-unit>
       <trans-unit id="94f7a0a482e16dafb093eff9c64bdffc40dc0636" datatype="html">
         <source>Nameserver required</source>
-        <target state="new"/>
+        <target state="translated">Nimipalvelin vaaditaan</target>
       </trans-unit>
       <trans-unit id="e8096ea93b6627c620ffbb208d7ad49235ffc2fd" datatype="html">
         <source>IP address</source>
-        <target state="new"/>
+        <target state="translated">IP-osoite</target>
       </trans-unit>
       <trans-unit id="9e654b8e014437daf59581aeab2425a7cd0c0007" datatype="html">
         <source>Delete nameserver</source>
-        <target state="new"/>
+        <target state="translated">Poista nimipalvelin</target>
       </trans-unit>
       <trans-unit id="8e28ba95684e8704a43f67ac1d33bb2e2a9c54fd" datatype="html">
         <source>Add new nameserver</source>
-        <target state="new"/>
+        <target state="translated">Lisää uusi nimipalvelin</target>
       </trans-unit>
       <trans-unit id="469bd9b4d935f4b60b0fb10af4dba592c6c14f5a" datatype="html">
         <source>DS records</source>
-        <target state="new"/>
+        <target state="translated">DS tietue</target>
       </trans-unit>
       <trans-unit id="a35d390f659821874ed1913ccf54b9a2d0d79b2a" datatype="html">
         <source>Delete DS record</source>
-        <target state="new"/>
+        <target state="translated">Poista DS-tietue</target>
       </trans-unit>
       <trans-unit id="ea59270a53cba963d581a60e32c464a0339e2c12" datatype="html">
         <source>Add new DS record</source>
-        <target state="new"/>
+        <target state="translated">Lisää uusi DS-tietue</target>
       </trans-unit>
       <trans-unit id="3d53f64033c4b76fdc1076ba15955d913209866c" datatype="html">
         <source>General</source>
-        <target state="new"/>
+        <target state="translated">Yleinen</target>
       </trans-unit>
       <trans-unit id="acc04ca445d64958d843622f9ce95c0378198c24" datatype="html">
         <source>Protocol</source>
-        <target state="new"/>
+        <target state="translated">Protokolla</target>
       </trans-unit>
       <trans-unit id="0d4c8c660bb078b6ebb294da1f03d813885fe1d2" datatype="html">
         <source>Cannot disable both IPv4 and IPv6</source>
-        <target state="new"/>
+        <target state="translated">Ei pysty poistamaan käytöstä molempia, sekä IPv4 että IPv6</target>
       </trans-unit>
       <trans-unit id="1899778155771790050" datatype="html">
         <source>No data found for the zone.</source>
-        <target state="new"/>
+        <target state="translated">Vyöhykkeelle (zone) ei löytynyt dataa.</target>
       </trans-unit>
       <trans-unit id="2662e4cf5c1d6d26bdde95aa32848f6830aa2293" datatype="html">
         <source>Link to test</source>
-        <target state="new"/>
+        <target state="translated">Linkki testiin</target>
       </trans-unit>
       <trans-unit id="665692df9ab12bc228c1276f7d04e97902ff9afc" datatype="html">
         <source>Copy link to clipboard</source>
-        <target state="new"/>
+        <target state="translated">Kopioi linkki työpöydälle</target>
       </trans-unit>
       <trans-unit id="cdcc2fb9c903c66da8871772fcea46419ceba196" datatype="html">
         <source>Filter results</source>
-        <target state="new"/>
+        <target state="translated">Suodata tulokset</target>
       </trans-unit>
       <trans-unit id="1a38bccdfebed08e1a0918aae25558b4bd561bc0" datatype="html">
         <source>Fetch DS from parent zone</source>
-        <target state="new"/>
+        <target state="translated">Nouda DS-tietueet ylemmältä tasolta</target>
       </trans-unit>
       <trans-unit id="2569213046451523868" datatype="html">
         <source>No previous tests found for this domain.</source>
+        <target state="translated">Tälle verkkotunnukselle ei löytynyt vanhempia testejä.</target>
       </trans-unit>
       <trans-unit id="7210131782873551503" datatype="html">
         <source>An unexpected server error happened.</source>
+        <target state="translated">Tapahtui odottamaton palvelinvirhe.</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first" datatype="html">
+        <source>««</source>
+        <target state="translated">««</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous" datatype="html">
+        <source>«</source>
+        <target state="translated">«</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next" datatype="html">
+        <source>»</source>
+        <target state="translated">»</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last" datatype="html">
+        <source>»»</source>
+        <target state="translated">»»</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first-aria" datatype="html">
+        <source>First</source>
+        <target state="translated"> Ensimmäinen</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous-aria" datatype="html">
+        <source>Previous</source>
+        <target state="translated">Edellinen</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next-aria" datatype="html">
+        <source>Next</source>
+        <target state="translated">Seuraava</target>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last-aria" datatype="html">
+        <source>Last</source>
+        <target state="translated">Viimeinen</target>
+      </trans-unit>
+      <trans-unit id="ngb.progressbar.value" datatype="html">
+        <source>
+          <x id="INTERPOLATION" equiv-text="/** * The"/>
+        </source>
+      </trans-unit>
+      <trans-unit id="b8f95913582a5f09936f754769f3cd7553190924" datatype="html">
+        <source>Source code</source>
+        <target state="translated">Lähdekoodi</target>
+      </trans-unit>
+      <trans-unit id="fcfd4675b4c90f08d18d3abede9a9a4dff4cfdc7" datatype="html">
+        <source>Documentation</source>
+        <target state="translated">Dokumentaatio</target>
       </trans-unit>
     </body>
   </file>

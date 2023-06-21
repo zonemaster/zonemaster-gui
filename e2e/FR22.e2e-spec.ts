@@ -16,10 +16,12 @@ test.describe('Zonemaster test FR22 - [Provide the possibility to see more infor
     await page.locator('#input_domain_form').type('results.afNiC.Fr');
     await page.locator('div button.launch').click();
 
-    const basicHeader = page.locator('.result h3[aria-controls="module-BASIC"]');
-    const basicTestcases = page.locator('#module-BASIC article')
-    ;
-    const basic02Header = page.locator('.result div[aria-controls="testcase-entries-BASIC02 testcase-id-BASIC02"]');
+    // Basic header is the second one
+    const basicHeader = page.locator('.result h3').nth(1);
+    const basicTestcases = page.locator('#module-BASIC article');
+
+    // Basic02 header is the second one in the Basic results
+    const basic02Header = page.locator('#module-BASIC h4').nth(1);
     const basic02Messages = page.locator('#testcase-entries-BASIC02 li');
 
     await expect(basicHeader).toBeVisible({ timeout: 10000 });

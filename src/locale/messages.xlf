@@ -14,11 +14,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">201</context>
+          <context context-type="linenumber">208</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">201</context>
+          <context context-type="linenumber">208</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7d2be22a7252a8b76dea7b3b85ab94ff86184e5d" datatype="html">
@@ -75,14 +75,14 @@
         <source>Program versions</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
-          <context context-type="linenumber">5</context>
+          <context context-type="linenumber">6</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7b165859f6b561923cffdcf931fb3e8ec4cd755b" datatype="html">
         <source>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7221366950887162430" datatype="html">
@@ -323,7 +323,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">200</context>
+          <context context-type="linenumber">207</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5f19586aba912ec6eb123ec5ab609a3bcc073066" datatype="html">
@@ -447,35 +447,35 @@
         <source>No data for this test.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">188</context>
+          <context context-type="linenumber">163</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2360715491728178990" datatype="html">
         <source>History information request is in progress.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">271</context>
+          <context context-type="linenumber">246</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1867992058937397585" datatype="html">
         <source>Module</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">355</context>
+          <context context-type="linenumber">330</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3733215288982610673" datatype="html">
         <source>Level</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">356</context>
+          <context context-type="linenumber">331</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">357</context>
+          <context context-type="linenumber">332</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7104935342812835081" datatype="html">
@@ -665,7 +665,7 @@
         <source>No previous tests found for this domain.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">276</context>
+          <context context-type="linenumber">251</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7210131782873551503" datatype="html">
@@ -673,6 +673,85 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/run-test/run-test.component.ts</context>
           <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first" datatype="html">
+        <source>««</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">247,249</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.first-aria" datatype="html">
+        <source>First</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">322,323</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last" datatype="html">
+        <source>»»</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">305,307</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.last-aria" datatype="html">
+        <source>Last</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">363,365</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next" datatype="html">
+        <source>»</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">290</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.next-aria" datatype="html">
+        <source>Next</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">350</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous" datatype="html">
+        <source>«</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">266</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.pagination.previous-aria" datatype="html">
+        <source>Previous</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
+          <context context-type="linenumber">338</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.progressbar.value" datatype="html">
+        <source>
+          <x id="INTERPOLATION" equiv-text="rogress bar."/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/progressbar/progressbar.ts</context>
+          <context context-type="linenumber">64,67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b8f95913582a5f09936f754769f3cd7553190924" datatype="html">
+        <source>Source code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fcfd4675b4c90f08d18d3abede9a9a4dff4cfdc7" datatype="html">
+        <source>Documentation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
     </body>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ElementRef, ViewChild, OnDestroy, Inject, LOCALE_ID } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { saveAs } from 'file-saver';
@@ -12,7 +13,8 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-result',
   templateUrl: './result.component.html',
-  styleUrls: ['./result.component.css']
+  styleUrls: ['./result.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ResultComponent implements OnInit, OnDestroy {
 
@@ -109,36 +111,11 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onCallapsableKeyDownEvent(event, testCaseId) {
-    switch (event.key) {
-      case 'Enter':
-        this.isCollapsed[testCaseId] = !this.isCollapsed[testCaseId];
-        break;
-    }
-  }
-
-  public onModuleKeyDownEvent(event, moduleKey) {
-    switch (event.key) {
-      case 'Enter':
-        this.isCollapsed[moduleKey] = !this.isCollapsed[moduleKey];
-        break;
-    }
-  }
-
   public onFilterLevelKeyDownEvent(event, level) {
     switch (event.key) {
       case 'Enter':
         this.togglePillFilter(level);
         break;
-    }
-  }
-
-  public moduleCollapsed(headerRef) {
-    let headerRect = headerRef.getBoundingClientRect();
-
-    if (headerRect.top < 0) {
-      let style = window.getComputedStyle(headerRef);
-      window.scrollBy(0, headerRect.top - parseInt(style.top, 10) )
     }
   }
 

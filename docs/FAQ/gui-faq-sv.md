@@ -20,8 +20,7 @@ Zonemaster
 Zonemaster
 ----------
 
-<a name="q1"></a>
-#### 1. Vad är Zonemaster?
+#### <span id="q1"></span>1. Vad är Zonemaster?
 Zonemaster är ett program som är framtaget för att hjälpa användare att
 kontrollera, mäta och förhoppningsvis också bättre förstå hur DNS, "Domain Name
 System", fungerar.
@@ -39,15 +38,14 @@ När Zonemaster startar en test av ett domännamn, som "zonemaster.net" (genom
 med hjälp av en serie av test. Testen som utförs av Zonemaster finns listade i
 dokumentet "[Defined Test Cases]" (*Definierade testfall*).
 
-<a name="q2"></a>
-#### 2. Vem står bakom Zonemaster?
+
+#### <span id="q2"></span>2. Vem står bakom Zonemaster?
 Zonemaster är ett samarbetsprojekt mellan [Internetstiftelsen](https://internetstiftelsen.se/)
 (registry för .se och .nu) och [AFNIC](https://www.afnic.fr/en/)
 (registry för .fr och andra TLD:er som .re, .pm, .tf, .wf, .yt och .paris).
 
-<a name="q3"></a>
-#### 3. Hur kan Zonemaster hjälpa till?
 
+#### <span id="q3"></span>3. Hur kan Zonemaster hjälpa till?
 Zonemaster är framtaget för två kategorier av användare:
 
   - Användare med kunskap om DNS-standarden.
@@ -58,16 +56,14 @@ Användare av den andra kategorin bör vända sig till sin DNS-operatör
 ifall det finns fel eller varningar när deras domännamn testats.
 
 
-<a name="q4"></a>
-#### 4. Zonemaster visar "Fel" eller "Varning" när jag testar min domän, vad betyder det?
-
+#### <span id="q4"></span>4. Zonemaster visar "Fel" eller "Varning" när jag testar min domän, vad betyder det?
 Det beror på vilken test det gäller. Varje testfall kommer med ett eller flera
 meddelanden som beskriver det problem som har funnits. Mera detaljer om varje
 testfall kan hittas via dokumentet "[Defined Test Cases]"
 (*Definierade testfall*).
 
-<a name="q5"></a>
-#### 5. Hur kan Zonemaster bedömma vad som är rätt och fel?
+
+#### <span id="q5"></span>5. Hur kan Zonemaster bedömma vad som är rätt och fel?
 Zonemasters bedömning är i första hand baserat på DNS-standarden som den är
 definierad i [RFC:er][RFCs] (text på engelska; det finns även en
 [beskrivning av RFC i engelskspråkiga Wikipedia][Wikipedia#Engelska#RFC]).
@@ -87,20 +83,18 @@ felbedömt, tveka inte att kontakta oss på
 e-postlista) med en länk till ditt test och en förklaring av varför du anser att
 resultatet inte är korrekt.
 
-<a name="q6"></a>
-#### 6. Kan Zonemaster hantera IPv6?
 
+#### <span id="q6"></span>6. Kan Zonemaster hantera IPv6?
 Ja. Zonemaster kommer att skicka DNS frågor till namnservrarna över både IPv4
 och IPv6 om inte Zonemaster har konfigurerats på annat sätt. Under knappen
 "alternativ" så går det att ställa in detta.
 
-<a name="q7"></a>
-#### 7. Kan Zonemaster kontrollera DNSSEC?
 
+#### <span id="q7"></span>7. Kan Zonemaster kontrollera DNSSEC?
 Ja. Om en domän som testas av Zonemaster har DNSSEC konfigurerat så kommer det testas automatiskt.
 
-<a name="q8"></a>
-#### 8. Vad skiljer Zonemaster från andra program som testar domäner?
+
+#### <span id="q8"></span>8. Vad skiljer Zonemaster från andra program som testar domäner?
 För det första så sparar Zonemaster all testhistorik utifrån den testade
 domänen, vilket innebär att man kan gå tillbaka till ett tidigare test och
 jämföra med ett test som just har körts.
@@ -119,8 +113,8 @@ Och till sist, Zonemaster är öppen källkod och är modulärt uppbyggt, vilket
 betyder att man kan integrera delar av Zonemaster i sitt eget system om man
 vill.
 
-<a name="q9"></a>
-#### 9. Zonemaster och integritet
+
+#### <span id="q9"></span>9. Zonemaster och integritet
 Eftersom [Zonemaster.net] är tillgänglig för vem som helst, så kan vem som helst
 kontrollera din domän och se dess testhistorik. Å andra sidan så finns det inget
 sett att ta reda på vem som har kört ett test eftersom det bara är testparametrar
@@ -128,8 +122,8 @@ och testresultat som sparas. Specifikt så sparas inga cookies eller annan
 information om användarens IP-adress i databasen. Användaren som initierade
 testet kan inte spåras från informationen i databasen.
 
-<a name="q10"></a>
-#### 10. Varför kan jag inte testa min domän?
+
+#### <span id="q10"></span>10. Varför kan jag inte testa min domän?
 Det kan finnas flera olika anledningar till detta:
 
 - Domännamnet är ännu inte delegerat.
@@ -142,8 +136,8 @@ Det kan finnas flera olika anledningar till detta:
   test för samma domännamn (och testparametrar).
 - Domännamnet har stavats fel.
 
-<a name="q11"></a>
-#### 11. Vilken typ av DNS-frågor ställer Zonemaster?
+
+#### <span id="q11"></span>11. Vilken typ av DNS-frågor ställer Zonemaster?
 Zonemaster skickar flera DNS-frågor till namnservrarna som är hostingservrar för
 domänen som testas, men även till namnservrarna som är hostingservrar för den
 överliggande zonen till domänen som testas.
@@ -156,8 +150,8 @@ kan visas genom att välja DEBUG-nivån "--level DEBUG". Det ska poängteras att
 blir mycket som visas från CLI-gränssnittet i det fallet. För mera information se
 "[Using The CLI]" (*användardokumentet för CLI*).
 
-<a name="q12"></a>
-#### 12. Vad är ett odelegerat domäntest?
+
+#### <span id="q12"></span>12. Vad är ett odelegerat domäntest?
 Ett odelegerat domäntest är ett test som genomförs på en domän som inte
 nödvändigtvis är publicerad i DNS. Detta kan vara mycket användbart om man tänker
 flytta sin domän från en registrar till en annan, t.ex. flytta "example.se" från
@@ -169,14 +163,14 @@ flytten. När resultatet på testet inte visare några fel ("error") eller varni
 Det kan emellertid fortfarande finnas fel i zoninformationen som dessa test inte
 känner till.
 
-<a name="q13"></a>
-#### 13. Går det att testa DS-poster innan de publiceras?
+
+#### <span id="q13"></span>13. Går det att testa DS-poster innan de publiceras?
 Ja. Använd knappen "alternativ" och lägg sedan till DS-posterna ("Delegation
 Signer") som ska testas. Zonemaster kommer att använda dessa på samma sätt som
 om de redan fanns i moderzonen.
 
-<a name="q14"></a>
-#### 14. Hur kan jag testa en "baklängeszon" med Zonemaster?
+
+#### <span id="q14"></span>14. Hur kan jag testa en "baklängeszon" med Zonemaster?
 För att kunna kontrolla en "baklängeszon" (också kallad "reverszon" så måste man
 veta vilken zon det är och testa det format det har i DNS. En baklängeszon får
 man genom att vända IP-adressen och lägga på ett suffix. För IPv4-adresser

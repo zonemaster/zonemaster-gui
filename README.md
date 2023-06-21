@@ -1,4 +1,4 @@
-Zonemaster Web GUI [![Build Status](https://travis-ci.org/zonemaster/zonemaster-gui.svg?branch=master)](https://travis-ci.org/zonemaster/zonemaster-gui)
+Zonemaster Web GUI [![Build Status](https://app.travis-ci.com/zonemaster/zonemaster-gui.svg?branch=master)](https://app.travis-ci.com/zonemaster/zonemaster-gui)
 ==========
 
 ### Purpose
@@ -6,24 +6,24 @@ This module is the Web Interface part of the Zonemaster project.
 
 ### Installation
 
-Follow the detailed [installation instructions](docs/Installation.md).
+Follow the detailed [installation instructions].
 
 ##### Prerequisites
-Before you install the Zonemaster Web GUI module, you need the
-Zonemaster Engine test framework installed. Please see the
-[Zonemaster Engine installation instructions](https://github.com/zonemaster/zonemaster-engine/blob/master/docs/Installation.md)
 
-And also the the zonemaster-backend module installed. Please see the [Zonemaster
-Backend installation](https://github.com/zonemaster/zonemaster-backend/blob/master/docs/Installation.md)
+Before you install the Zonemaster Web GUI module, you need the Zonemaster
+Engine test framework installed. Please see the [Zonemaster-Engine
+installation] document.
 
+You also need a running Zonemaster-Backend component. Please see the
+[Zonemaster-Backend installation] document.
 
 ##### Configuration
 
-Texts for configuring the backend are found in the [installation
-instructions](docs/Installation.md).
+The configuration instructions for the backend can be found in the [Backend
+configuration] document.
 
-The configuration instructions for the GUI can be found in the [configuration
-documentation](docs/Configuration.md).
+The configuration instructions for the GUI can be found in the [GUI
+configuration] document.
 
 
 ### Contribution
@@ -93,9 +93,8 @@ Run 'npm run release' to create a zip file with dist folder and zonemaster.conf 
 
 ### Documentation
 
-Basically, the GUI is a serverless Angular application which use the Backend JSONRC API.
-
-Other than the installation file, the [docs directory](docs/), contains a translation guide for the GUI
+There is a [public documentation]. Some more specific documents can be found in
+the [docs directory](docs/).
 
 #### Security of our dependencies
 Based on the output of [david](https://david-dm.org/) and [npm audit](https://docs.npmjs.com/cli/audit), we reguraly
@@ -110,3 +109,11 @@ License
 
 This is free software under a 2-clause BSD license. The full text of the license can
 be found in the [LICENSE](LICENSE) file included in this respository.
+
+
+[Backend Configuration]:            https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/backend.md
+[GUI Configuration]:                https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
+[Installation instructions]:        https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-gui.md
+[Public documentation]:             https://github.com/zonemaster/zonemaster/blob/master/README.md#documentation
+[Zonemaster-Engine installation]:   https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-engine.md
+[Zonemaster-Backend installation]:  https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-backend.md

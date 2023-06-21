@@ -48,7 +48,7 @@
           </div>
           <div class="col-auto text-left">
             <button i18n-title title="Run test" i18n
-                    class="launch btn btn-lg text-white"
+                    class="launch btn-primary btn btn-lg"
                     type="submit"
                     [disabled]="form.disabled">
                 Run
@@ -65,6 +65,17 @@
         </div>
 
         <div *ngIf="isAdvancedOptionEnabled" id="advanced-options">
+          <aside class="row">
+            <div class="info-notice alert alert-info">
+              <i class="fa fa-2x fa-info-circle me-3" aria-hidden="true"></i>
+              <div>
+                <span i18n>Notice! More info on undelegated test</span>
+                <br>
+                <a routerLink="/faq" fragment="q12" class="alert-link" i18n>What is an undelegated domain test?</a>
+              </div>
+            </div>
+          </aside>
+
           <fieldset>
             <legend i18n>Nameservers</legend>
 

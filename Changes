@@ -1,5 +1,25 @@
 Release history for Zonemaster component Zonemaster-GUI
 
+v4.1.0 2023-06-21 (public release version)
+
+ [Features]
+ - Gives small improvement of the run test page (#416)
+ - Makes room for optional footer logo (#408)
+
+ [Fixes]
+ - Updates translations (#418, #419, #423, #422, #420, #406,
+   #405)
+ - Removes documentation moved to the zonemaster/zonemaster
+   repository (#424)
+ - Moves HTML anchor into header and creates valid HTML
+   for FAQs (#407)
+ - Fixes and improves result page on a small screen (#413)
+ - Removes the github logo (#411)
+ - Adds missing strings to translation files (#414)
+ - Removes randomization of attributes in Angular (#400)
+ - Improves page footer (#403)
+ - Improves accessibility of the result page (#401)
+
 
 v4.0.2 2023-03-01 (public fix version)
 

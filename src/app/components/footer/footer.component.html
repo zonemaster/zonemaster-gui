@@ -1,36 +1,46 @@
 <footer class="pb-0 pt-2 bg-light">
   <div class="container">
-    <div class="row justify-content-between">
-      <div class="col-md-4">
-          <span placement="top" [ngbTooltip]="tipContent" i18n tabindex="0">Program versions</span>
-      </div>
-      <div class="col-md-5 pull-right">
-        <div class="row">
-          <div class="col-md-6">
+    <div class="col-12">
+      <nav class="row justify-content-between">
+        <ul class="row">
+          <li class="col-md">
+            <span placement="top" [ngbTooltip]="tipContent" i18n tabindex="0">Program versions</span>
+          </li>
+          <li class="col-md-auto">
             <i class="fa fa-envelope-o" aria-hidden="true"></i>
             <a class="text-dark" href="mailto:{{contactAddress}}">{{contactAddress}}</a>
-          </div>
-          <div class="col-md-4">
-            <i class="fa fa-github" aria-hidden="true"></i>
-            <a class="text-dark" href="https://github.com/zonemaster/zonemaster">Github</a>
-          </div>
+          </li>
+          <li class="col-md-auto">
+            <i class="fa fa-code" aria-hidden="true"></i>
+            <a class="text-dark" href="https://github.com/zonemaster/zonemaster" i18n>Source code</a>
+          </li>
+          <li class="col-md-auto">
+            <i class="fa fa-book" aria-hidden="true"></i>
+            <a class="text-dark" href="https://github.com/zonemaster/zonemaster#documentation" i18n>Documentation</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="row">
+        <div class="col-md-auto">
+          <p class="copyright small" i18n>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</p>
         </div>
       </div>
+
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <p class="copyright text-muted small" i18n>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</p>
-      </div>
+    <div class="col-12" *ngIf="footerLogo !== ''">
+      <img src="{{footerLogo}}" alt="{{footerLogoAlt}}" class="footer-logotype">
     </div>
+
   </div>
 </footer>
 
 <ng-template #tipContent>
-  <div class="version">
+  <dl class="version">
     <ng-container *ngFor="let item of versions">
-      <div>{{ item[0] }}</div>
-      <div>{{ item[1] }}</div>
+      <dt>{{ item[0] }}</dt>
+      <dd>{{ item[1] }}</dd>
     </ng-container>
-  </div>
+  </dl>
 </ng-template>
+

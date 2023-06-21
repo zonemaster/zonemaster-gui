@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 import {DnsCheckService} from '../../services/dns-check.service';
 import {AppService} from '../../services/app.service';
 import {AlertService} from '../../services/alert.service';
@@ -6,13 +7,16 @@ import {AlertService} from '../../services/alert.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FooterComponent implements OnInit {
   public version: string;
   public versions: any[];
   public contactAddress: string;
   public clientInfo: object;
+  public footerLogo: string;
+  public footerLogoAlt: string;
   private nameMap = {
     'zonemaster_ldns': 'Zonemaster-LDNS',
     'zonemaster_engine': 'Zonemaster-Engine',
@@ -22,6 +26,8 @@ export class FooterComponent implements OnInit {
   constructor(private dnsCheckService: DnsCheckService, private alertService: AlertService, appService: AppService) {
     this.contactAddress = appService.getConfig('contactAddress');
     this.clientInfo = appService.getClientInfo();
+    this.footerLogo = appService.getConfig('footerLogo');
+    this.footerLogoAlt = appService.getConfig('footerLogoAlt');
   }
 
   ngOnInit() {

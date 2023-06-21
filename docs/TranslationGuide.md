@@ -42,10 +42,10 @@ the files, obsolete strings are removed from the files.
 
 ## Submitting changes
 
-Below are instructions for how to add or modify files. Preferably,
-submit the new or updated file as a pull request to Github (see
-[translators guide for Engine]). Contact the Zonemaster Group if
-that does not work.
+Below are instructions for how to add or modify files. Preferably, submit the
+new or updated file as a pull request to Github (see [translators guide] for
+Zonemaster-Engine, -CLI and -Backend). Contact the Zonemaster Group if that
+does not work.
 
 The translator must always create or update the `messages.<LANG>.xlf` and
 the `gui-faq-<LANG>.md`. The other changes are only done when
@@ -94,15 +94,14 @@ language code instead of `en`. The code must be in lower case. Then
 translate the file using English as the model.
 
 It is important to preserve the structure of the file. There must be a
-table of contents linking to the question plus answer below. The anchor
-names must be "q1" etc and nothing else. There are links in the code
-that assume this model, where the `<a>` tag is just before the heading.
+table of contents linking to the question plus answer below. The header
+of the answer must start with `####` and then `<span id="q1"></span>`.
+The id must be `q1` etc matching the id in the question and nothing else.
 
 ```
 1. [What is Zonemaster?](#q1)
 
-<a name="q1"></a>
-#### 1. What is Zonemaster?
+#### <span id="q1"></span>1. What is Zonemaster?
 ```
 
 ## Adding a new language
@@ -116,10 +115,10 @@ The new language must be added to the following source files:
 
 and the following documentation file:
 
+* [GUI Configuration].
+
 Then run `npm run i18n:extract` to create and populate the new
 translation file.
-
-* [Configuration.md].
 
 ### angular.json
 
@@ -218,10 +217,10 @@ RewriteCond %{HTTP:Accept-Language} ^<LANG> [NC]
 RewriteRule ^$ /<LANG>/ [R,L]
 ```
 
-### Configuration.md
+### Configuration
 
 Add the new language's two-letter code to the list of default values for
-`"enabledLanguages"`.
+`"enabledLanguages"` in the [GUI Configuration] documentation file.
 
 ## Add e2e test script for the language
 
@@ -242,9 +241,9 @@ const testSuite = [
 [FR05-en.e2e-spec.ts]:                                     ../e2e/FR05-en.e2e-spec.ts
 [angular.json]:                                            ../angular.json
 [src/locale]:                                              ../src/locale
-[translators guide for Engine]:                            https://github.com/zonemaster/zonemaster-engine/blob/develop/docs/Translation-translators.md
+[Translators guide]:                                       https://github.com/zonemaster/zonemaster/blob/master/docs/internal/maintenance/Instructions-for-translators.md
 [src/environments/common.ts]:                              ../src/environments/common.ts
 [src/assets/app.config.sample.json]:                       ../src/assets/app.config.sample.json
-[Configuration.md]:                                        ./Configuration.md
+[GUI Configuration]:                                       https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
 [zonemaster.conf-example]:                                 ../zonemaster.conf-example
 [Poedit]:                                                  https://poedit.net

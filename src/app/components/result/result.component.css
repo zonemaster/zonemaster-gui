@@ -1,15 +1,3 @@
-article header div > i.fa {
-  margin-right: 3rem;
-  margin-top: 0.1rem;
-  width: 1rem;
-}
-
-article h4 {
-  font-size: 1rem;
-  display: inline-block;
-  margin: 0;
-}
-
 .result {
   --result-info-color: #157347;
   --result-info-bg: var(--result-info-color);
@@ -23,27 +11,39 @@ article h4 {
   --result-critical-bg: var(--result-error-color);
 }
 
-article header.info {
+.result article header.info {
   color: var(--result-info-color);
 }
 
-article header.notice {
+.result article header.notice {
   color: var(--result-notice-color);
 }
 
-article header.warning {
+.result article header.warning {
   color: var(--result-warning-color);
 }
 
-article header.error {
+.result article header.error {
   color: var(--result-error-color);
 }
 
-article header.critical {
+.result article header.critical {
   color: var(--result-critical-color);
 }
 
-article h4 i {
+.result article header button > i.fa {
+  margin-right: 3rem;
+  margin-top: 0.1rem;
+  width: 1rem;
+}
+
+.result article h4 {
+  font-size: 1rem;
+  display: inline-block;
+  margin: 0;
+}
+
+.result article h4 .testcase-name i {
   width: 1rem;
   display: inline-block;
   text-align: center;
@@ -51,17 +51,26 @@ article h4 i {
   margin-right: 0.3rem;
 }
 
-article header  {
+.result article h4 button {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  text-align: left;
+  display: flex;
+}
+
+.result article header  {
   display: flex;
   align-items: baseline;
 }
 
-article header div {
+.result article header h4 {
   display: flex;
   cursor: pointer;
   margin: 0.25rem 0;
 }
-article header .test-case-id {
+.result article header .test-case-id {
   display: inline-block;
   background-color: #d3eeff;
   color: #555454;
@@ -71,7 +80,7 @@ article header .test-case-id {
   white-space: nowrap;
 }
 
-article ul li .level {
+.result article ul li .level {
   display: inline;
   padding: 0.2em 0.3em;
   border-radius: 0.3em;
@@ -80,100 +89,107 @@ article ul li .level {
   text-transform: uppercase;
 }
 
-.filters .active.all {
+.result .filters .active.all {
   background-color: #919191;
 }
 
-.badge.info,
-.filters .active.info,
-article ul li .level.info {
+.result .badge.info,
+.result .filters .active.info,
+.result article ul li .level.info {
   background: var(--result-info-bg);
   color: white;
 }
 
-.badge.notice,
-.filters .active.notice,
-article ul li .level.notice {
+.result .badge.notice,
+.result .filters .active.notice,
+.result article ul li .level.notice {
   background: var(--result-notice-bg);
   color: white;
 }
 
-.badge.warning,
-.filters .active.warning,
+.result .badge.warning,
+.result .filters .active.warning,
 article ul li .level.warning {
   background: var(--result-warning-bg);
   color: black;
 }
 
-.badge.error,
-.filters .active.error,
-article ul li .level.error {
+.result .badge.error,
+.result .filters .active.error,
+.result article ul li .level.error {
   background: var(--result-error-bg);;
   color: white;
 }
 
-.badge.critical,
-.filters .active.critical,
-article ul li .level.critical {
+.result .badge.critical,
+.result .filters .active.critical,
+.result article ul li .level.critical {
   background: var(--result-critical-bg);;
   color: white;
 }
 
-article li {
+.result article li {
   list-style: none;
   display: flex;
   margin-bottom: .2em;
 }
 
-article li p {
+.result article li p {
   word-break: normal;
   overflow-wrap: anywhere;
   margin: 0;
 }
 
-article ul {
+.result article ul {
   padding-left: 4em;
   margin-bottom: .8em;
 }
 
-.collapsed {
+.result .collapsed {
   display: none!important;
 }
 
-article h3 {
+.result article h3 {
+  margin-bottom: 0;
+  font-size: 1.4rem;
+}
+.result article h3 button {
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
   cursor: pointer;
-  margin-bottom: 0;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
 }
 
-article h3 div.badge:first-of-type {
-  margin-left: 1rem;
+.result article h3 .module-name {
+  margin-right: 1rem;
 }
 
-article h3 .badge {
+.result article h3 .badge {
   margin-right: 0.5rem;
   font-size: .8rem;
 }
 
-article h3 .badge i {
+.result article h3 .badge i {
   width: 1em;
 }
 
-article.expanded h3 {
+.result article.expanded h3 {
   margin-bottom: 0.5rem;
 }
 
-article h3 i.caret {
-  transform: rotate(0), translate(0, 0);
+.result article h3 i.caret {
+  transform: rotate(0);
   transition: 0.1s transform;
   display: inline-block;
   width: 1em;
 }
 
-article.expanded h3 i.caret {
-  transform: rotate(90deg) translate(0.3em, 0.15em);
+.result article.expanded h3 i.caret {
+  transform: rotate(90deg);
 }
 
 .result section.details > article {
@@ -186,134 +202,112 @@ article.expanded h3 i.caret {
   width: 100%;
 }
 
-.modal-title {
+.result .modal-title {
   color: #000;
 }
 
-.vertical-align {
+.result .vertical-align {
   display: flex;
   align-items: center;
 }
 
-.search {
+.result .search {
   flex: 1;
   min-width: 300px;
 }
 
-.nav-link {
+.result .nav-link {
   cursor: pointer;
   color: inherit;
 }
 
-.dropdown-body {
+.result .dropdown-body {
     position: relative;
     padding: 1rem;
     white-space: nowrap;
 }
 
-button.share + .dropdown-menu .dropdown-body {
+.result button.share + .dropdown-menu .dropdown-body {
     min-width: calc(min(420px, 100vw - 2rem));
     display: flex;
 }
 
-button.btn-clipboard:hover {
+.result button.btn-clipboard:hover {
     border: 1px solid #cdc7c2;
 }
 
-button.btn-clipboard > i.fa-check {
+.result button.btn-clipboard > i.fa-check {
     color: #157347;
 }
 
-button.btn-clipboard > i.fa-remove {
+.result button.btn-clipboard > i.fa-remove {
     color: #bb2d3b;
 }
 
-.actions-btn {
+.result .actions-btn {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
+  gap: .25rem;
 }
 
-.filters {
+.result .filters {
   display: flex;
   flex-wrap: wrap;
 }
 
-.filters > * {
+.result .filters > * {
   margin-top: 1rem;
 }
 
-/* TODO: check if needed */
-.filters a {
+.result .filters a {
   margin: 0 0.125rem;
   border: 0;
 }
 
-.export, .share, .settings {
-  margin-left: 0.25rem;
-}
-
-.history > i, .export > i, .share > i, .settings > i {
+.result .actions-btn > button > i.fa,
+.result .actions-btn > div > button > i.fa {
   margin-right: 0.25rem;
 }
 
 
 @media(max-width:767px){
-  .result-header {
-    width: 100%;
-  }
-
-  .result .module-name {
-    display: none;
-  }
-
-  .result section .entry div.severity {
-    min-width: 30%;
-  }
-
-  .result section > div {
-    padding-left: 20px;
-  }
-
-  .actions-btn > div {
+  .result .actions-btn {
     width: 100%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
   }
 
-  .actions-btn > div > * {
+  .result .actions-btn > *,
+  .result .actions-btn > div > button {
     flex-grow: 1;
   }
 
-  .actions-btn > div > div {
+  .result .actions-btn > div {
     display: flex!important;
   }
 
-  .actions-btn > div > div > button {
-    flex-grow: 1;
-  }
-
-  article header {
+  .result article header {
     flex-direction: column;
   }
 
-  article header .test-case-id {
+  .result article header .test-case-id {
     margin-left: 1.2rem;
     margin-bottom: .75rem;
   }
 
-  article header div > i.fa {
+  .result article header button > i.fa {
     margin-right: 1.5rem;
   }
 
-  article ul {
+  .result article ul {
     padding-left: 1.2em;
   }
 }
 
 @media(max-width:991px) {
-  .filters > ul {
+  .result .filters > ul {
     flex-grow: 1;
     display: flex;
     flex-wrap: wrap;

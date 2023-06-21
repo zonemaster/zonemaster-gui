@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
+import {ViewEncapsulation} from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { Alert, AlertType } from '../../models/index';
@@ -8,7 +9,8 @@ import { NavigationService } from '../../services/navigation.service';
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.css']
+  styleUrls: ['./alert.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AlertComponent implements OnInit, OnDestroy {
 
