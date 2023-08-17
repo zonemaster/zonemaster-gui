@@ -7,7 +7,7 @@ Zonemaster
 4. [Zonemaster rapporterer advarsler/fejl på mit domænenavn, hvad betyder det?](#q4)
 5. [Hvordan kan Zonemaster skelne mellem, hvad der er rigtigt og forkert?](#q5)
 6. [Understøtter Zonemaster IPv6?](#q6)
-7. [Understøtter Zonemaster DNSSEC?](#q7) 
+7. [Understøtter Zonemaster DNSSEC?](#q7)
 8. [Hvad gør Zonemaster forkellig fra andre tilsvarende test-værktøjer?](#q8)
 9. [Zonemaster og privatliv](#q9)
 10. [Hvorfor kan jeg ikke teste mit domænenavn?](#q10)
@@ -25,7 +25,7 @@ Zonemaster består af tre grundlæggende moduler:
 
   1. Motor (Koden der udfører alle DNS-tests),
   2. Kommandolinjeinterface (CLI),
-  3. En server, der giver dig mulighed for at køre zonemaster-test og 
+  3. En server, der giver dig mulighed for at køre zonemaster-test og
   gemme resultater ved hjælp af en JSON-RPC API,
   4. Webinterface.
 
@@ -50,7 +50,7 @@ testresultater, der ikke "lyser grønt" på egne domænenavne.
 #### <span id="q4"></span>4. Zonemaster rapporterer advarsler/fejl på mit domænenavn, hvad betyder det?
 Det kommer an på hvilke advarsler/fejl, der rapporteres.
 Hver test er ledsaget af en eller flere meddelelser, der beskriver de fundne problemer.
-Du kan også få yderligere indsigt om hver test fra dokumentet [Defined Test Cases] 
+Du kan også få yderligere indsigt om hver test fra dokumentet [Defined Test Cases]
 
 #### <span id="q5"></span>5. Hvordan kan Zonemaster skelne mellem, hvad der er rigtigt og forkert?
 Zonemasters vurdering er primært baseret på DNS-standarderne som defineret i [RFCs].
@@ -145,14 +145,14 @@ skal du indtaste den i det format, den har i DNS, f.eks.:
 
   - 3.2.1.in-addr.arpa
   - 6.0.1.0.0.2.ip6.arpa
-  
+
 [AFNIC]:                                 https://www.afnic.fr/en/
-[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
+[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases
 [spørgsmål 12]:                          #q12
 [spørgsmål 13]:                          #q13
 [RFCs]:                                  https://www.ietf.org/standards/rfcs/
-[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
+[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md
 [The Swedish Internet Foundation]:       https://internetstiftelsen.se/en/
-[Using The CLI]:                         https://github.com/zonemaster/zonemaster-cli/blob/master/USING.md
+[Using The CLI]:                         https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md
 [Zonemaster.net]:                        https://zonemaster.net/
 [zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se

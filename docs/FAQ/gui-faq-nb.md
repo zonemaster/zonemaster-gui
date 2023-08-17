@@ -112,12 +112,12 @@ Eksempel 1 - reversoppslag for et IPv4-nett: Nettadressen er 194.98.30.0 og gir 
 Eksempel 2 - reversoppslag for et IPv6-nett: Nettadressen er 2001:660:3003::0 og gir reversoppslagssonen 3.0.0.3.0.6.6.0.1.0.0.2.ip6.arpa.
 
 [AFNIC]:                                 https://www.afnic.fr/en/
-[Definierte tester]:                     https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
+[Definierte tester]:                     https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases
 [Spørsmål 12]:                           #q12
 [Spørsmål 13]:                           #q13
 [RFCs]:                                  https://www.ietf.org/standards/rfcs/
-[Definisjoner av alvorlighetsgrad]:      https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
+[Definisjoner av alvorlighetsgrad]:      https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md
 [Internetstiftelsen]:                    https://internetstiftelsen.se/en/
-[Bruk av CLI]:                           https://github.com/zonemaster/zonemaster-cli/blob/master/USING.md
+[Bruk av CLI]:                           https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md
 [Zonemaster.net]:                        https://zonemaster.net/
 [zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se

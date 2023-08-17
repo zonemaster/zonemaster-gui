@@ -61,7 +61,7 @@ It also bases its judgement on DNS best practices, which can be more loosely def
 All Zonemaster tests are defined in [Test Case Specifications][Defined Test Cases]
 in which the references to the standard documents for that test case are found.
 
-The descriptions of message levels such as *notice*, *warning* and *error* are found 
+The descriptions of message levels such as *notice*, *warning* and *error* are found
 in [Severity Level Definitions].
 
 Sometimes there are different interpretations of the standards or opinions on what is best practice,
@@ -158,12 +158,12 @@ Examples:
   - For IPv6 prefix '2001:db8::/32': 8.b.d.0.1.0.0.2.ip6.arpa
 
 [AFNIC]:                                 https://www.afnic.fr/en/
-[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
+[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases
 [Question 12]:                           #q12
 [Question 13]:                           #q13
 [RFCs]:                                  https://www.ietf.org/standards/rfcs/
-[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
+[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md
 [The Swedish Internet Foundation]:       https://internetstiftelsen.se/en/
-[Using The CLI]:                         https://github.com/zonemaster/zonemaster-cli/blob/master/USING.md
+[Using The CLI]:                         https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md
 [Zonemaster.net]:                        https://zonemaster.net/
 [zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se
