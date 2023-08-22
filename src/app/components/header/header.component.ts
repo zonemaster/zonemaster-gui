@@ -14,8 +14,7 @@ export class HeaderComponent {
   public msgBanner: string;
   public navHeight: Number;
 
-  constructor(appService: AppService,
-              private navigationService: NavigationService) {
+  constructor(appService: AppService) {
      this.msgBanner = appService.getConfig('msgBanner') || '';
   }
 

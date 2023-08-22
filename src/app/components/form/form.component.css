@@ -3,8 +3,6 @@ form.domain {
   border: 1px solid var(--primary-color-light);
   border-radius: 1rem;
   padding: 4rem;
-  width: 80%;
-  margin: auto;
 }
 
 .domain .domain-input-group {
@@ -190,12 +188,6 @@ form.domain {
 
   form.domain {
     padding: 1.5rem;
-  }
-}
-
-@media(max-width:991px) {
-  form.domain {
-    width: 100%;
   }
 }
 

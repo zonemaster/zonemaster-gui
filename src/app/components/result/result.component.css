@@ -9,6 +9,14 @@
   --result-error-bg: var(--result-error-color);
   --result-critical-color: var(--result-error-color);
   --result-critical-bg: var(--result-error-color);
+  width: 80%;
+  margin: auto;
+}
+
+@media(max-width:991px) {
+  .result {
+      width: 100%;
+  }
 }
 
 .result article header.info {
@@ -38,7 +46,7 @@
 }
 
 .result article h4 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   display: inline-block;
   margin: 0;
 }
@@ -170,7 +178,7 @@ article ul li .level.warning {
 
 .result article h3 .badge {
   margin-right: 0.5rem;
-  font-size: .8rem;
+  font-size: .6em;
 }
 
 .result article h3 .badge i {
