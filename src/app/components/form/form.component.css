@@ -157,10 +157,17 @@ form.domain {
 }
 
 .domain .progress-result {
-  width: calc(100% - var(--bs-gutter-x));
+  width: 100%;
+  height:100%;
   position: absolute;
   z-index: 20;
   top: 0;
+}
+
+
+.domain .progress-result .progress {
+  height: 100%;
+  opacity: .3;
 }
 
 .domain .checkboxForm {
