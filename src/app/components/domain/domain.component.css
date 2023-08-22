@@ -28,14 +28,11 @@ aside.about .illustration {
 }
 
 aside.about #home_illustration1 {
-    background-image: url('assets/images/home_img_1.svg');
+    background-image: url('assets/images/person_looking_at_computer.svg');
 }
 
 aside.about #home_illustration2 {
-    background-image: url('assets/images/home_img_2.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image: url('assets/images/world_connected.svg');
 }
 
 aside.about article {
