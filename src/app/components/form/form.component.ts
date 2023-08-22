@@ -178,8 +178,9 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         });
         this.alertService.success($localize `Parent data fetched with success.`);
       }
-    }
+      this.addNewRow(formName);
 
+    }
   }
 
   @Input()
@@ -222,12 +223,25 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   public addNewRow(formName, value = null) {
     const control = <FormArray>this.form.get(formName);
-
-    if (value !== null) {
-      control.push(this.formBuilder.group(value, this.formOpts[formName]));
-    } else {
-      control.push(this.formBuilder.group(this.formConfig[formName], this.formOpts[formName]));
+    const isPrefilled = value !== null;
+    if (!isPrefilled) {
+      value = this.formConfig[formName];
     }
+
+    const group = this.formBuilder.group(value, this.formOpts[formName]);
+
+    if (!isPrefilled) {
+      const valueChangesSubscription = group.valueChanges.subscribe((e) => {
+        if (group.pristine === false) {
+          this.addNewRow(formName);
+          valueChangesSubscription.unsubscribe();
+        }
+      });
+    } else {
+      group.markAsDirty();
+    }
+
+    control.push(group);
   }
 
   public deleteRow(formName, index: number) {
@@ -237,11 +251,15 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         control.removeAt(i);
       }
     } else {
-      control.removeAt(index);
+      if (index < control.length) {
+        control.removeAt(index);
+      }
+
       if (control.length === 0) {
         this.addNewRow(formName);
       }
     }
+    return false;
   }
 
   private fetchDataFromParent(type) {

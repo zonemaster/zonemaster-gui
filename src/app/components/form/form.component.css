@@ -24,12 +24,6 @@ form.domain {
 .domain button.launch {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  /*background-color: var(--primary-color);
-  border-color: var(--primary-color-dark);*/
-}
-
-.domain button.launch:hover {
-  /*background-color: var(--primary-color-dark);*/
 }
 
 /* The switch - the box around the slider */

@@ -119,7 +119,7 @@
           </div>
         </div>
         <div class="col-auto">
-          <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="fetchDataFromParent('NS')" i18n [disabled]="form.disabled">Fetch NS from parent zone</button>
+          <button type="button" class="btn btn-secondary" (click)="fetchDataFromParent('NS')" i18n [disabled]="form.disabled">Fetch NS from parent zone</button>
         </div>
       </fieldset>
 
@@ -229,7 +229,7 @@
           </div>
         </div>
         <div class="col-auto">
-          <button type="button" class="btn btn-secondary fetchDataFromParent" (click)="fetchDataFromParent('DS')" i18n [disabled]="form.disabled">Fetch DS from parent zone</button>
+          <button type="button" class="btn btn-secondary" (click)="fetchDataFromParent('DS')" i18n [disabled]="form.disabled">Fetch DS from parent zone</button>
         </div>
       </fieldset>
 
@@ -238,7 +238,7 @@
       <fieldset>
         <legend i18n>General</legend>
         <div class="row">
-          <fieldset aria-describedby="protocol-error" class="col-md-5">
+          <fieldset aria-describedby="protocol-error" class="col-md">
             <legend class="sr-only" i18n>Protocol</legend>
             <div class="col-form-label" [class.is-invalid]="form.errors?.noProtocol">
               <div class="custom-control form-check form-check-inline">
@@ -260,7 +260,7 @@
           </fieldset>
 
 
-          <div class="col-md-5" *ngIf="profiles.length > 1">
+          <div class="col-md" *ngIf="profiles.length > 1">
             <div class="row">
               <div class="col-auto">
                 <label for="profile" class="col-form-label" i18n>Profile</label>
@@ -280,7 +280,7 @@
 
       <div class="row">
         <div class="col-auto">
-          <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()" i18n [disabled]="form.disabled">Reset</button>
+          <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()" i18n [disabled]="form.disabled">Reset form</button>
         </div>
       </div>
 
