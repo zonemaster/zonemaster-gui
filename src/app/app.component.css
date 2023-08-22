@@ -3,3 +3,65 @@ app-root {
     display: flex;
     flex-direction: column;
 }
+
+body {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    font-family: "Open Sans";
+}
+
+:root {
+    --primary-color-lighter: #edebff;
+    --primary-color-light: #b2aafb;
+    --primary-color-light-rgb: 178, 170, 251;
+    --primary-color: #887bff;
+    --primary-color-rgb: 136, 123, 255;
+    --primary-color-dark: #5442fb;
+
+    --outline-focus-color: #ff8a47;
+    --secondary-color: #e8e8e8;
+    --secondary-color-dark: #c6c6c6;
+    --secondary-color-darker: #848484;
+}
+
+*:focus-visible {
+    outline: .3rem solid var(--outline-focus-color);
+}
+
+button:focus-visible,
+button.btn:focus-visible {
+    outline: 0;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem var(--outline-focus-color);
+}
+
+.form-check-input.is-invalid:focus,
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus,
+.form-select:focus,
+.form-check-input:focus,
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem var(--outline-focus-color)
+}
+
+.btn.btn-primary {
+    --bs-btn-hover-border-color: var(--primary-color);
+    --bs-btn-hover-bg: var(--primary-color-dark);
+    --bs-btn-border-color: var(--primary-color-dark);
+    --bs-btn-bg: var(--primary-color);
+}
+
+.btn.btn-secondary {
+    --bs-btn-color: auto;
+    --bs-btn-bg: var(--secondary-color);
+    --bs-btn-hover-color: auto;
+    --bs-btn-hover-bg: var(--secondary-color-dark);
+}
+
+.btn.btn-danger {
+    --bs-btn-color: auto;
+    --bs-btn-bg: #ffc2c8;
+    --bs-btn-hover-color: auto;
+    --bs-btn-hover-bg: #ff8d98;
+}

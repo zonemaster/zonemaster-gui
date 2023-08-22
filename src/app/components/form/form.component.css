@@ -1,11 +1,35 @@
+form.domain {
+  background-color: var(--primary-color-lighter);
+  border: 1px solid var(--primary-color-light);
+  border-radius: 1rem;
+  padding: 4rem;
+  width: 80%;
+  margin: auto;
+}
+
+.domain .domain-input-group {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.domain .domain-form-container > label {
+  font-size: 1.25rem;
+}
+
 #input_domain_form {
-  font-size:16px;
-  height:64px;
-  border-radius:3px
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .domain button.launch {
-  height: 64px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  /*background-color: var(--primary-color);
+  border-color: var(--primary-color-dark);*/
+}
+
+.domain button.launch:hover {
+  /*background-color: var(--primary-color-dark);*/
 }
 
 /* The switch - the box around the slider */
@@ -46,10 +70,11 @@
 .domain button.switch-toggle {
   border: none;
   width: 2em;
-  background-color: #ccc;
+  background-color: var(--secondary-color-dark);
   display: inherit;
   height: 1em;
   border-radius: 2em;
+  border: 1px solid var(--secondary-color-darker);
   font-size: 2em;
   background-repeat: no-repeat;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
@@ -59,9 +84,25 @@
   cursor: pointer;
 }
 
+
+.domain button.switch-toggle:focus-visible,
+.domain button.switch-toggle:hover {
+  background-color: var(--secondary-color-darker);
+}
+
+.domain button.switch-toggle.enabled:focus-visible,
+.domain button.switch-toggle.enabled:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.domain button.switch-toggle:focus-visible {
+  border-color: var(--primary-color);
+}
+
 .domain button.switch-toggle.enabled {
   background-position: right center;
-  background-color: #0d6efd;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color-dark);
 }
 
 .domain .advanced {
@@ -90,8 +131,7 @@
 
 .domain .reset-form {
   position: absolute;
-  right: 0;
-  top: 15%;
+  top: calc(0.5em + 1px);
   z-index: 100;
   right: 0.5rem;
 }
@@ -103,6 +143,7 @@
 .domain .reset-form button {
   border: none;
   opacity: 0.5;
+  padding: 0;
 }
 
 .domain .grey {
@@ -111,6 +152,7 @@
 
 .domain .domain-input-container {
   position: relative;
+  flex: 1;
 }
 .domain .progress-value {
   display: block;
@@ -140,9 +182,36 @@
 
 }
 
-
 @media(max-width:767px){
   .domain fieldset .form-col:not(:first-child) {
     margin-top: 0.5rem;
   }
+
+  form.domain {
+    padding: 1.5rem;
+  }
+}
+
+@media(max-width:991px) {
+  form.domain {
+    width: 100%;
+  }
+}
+
+.domain button.delete {
+  font-size: calc(1.5rem - 2px);
+  padding: .0rem .5rem;
+  border: none;
+  border: 1px solid transparent;
+}
+
+.domain button.delete:focus-visible,
+.domain button.delete:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem var(--outline-focus-color);
+}
+
+hr {
+  opacity: 1;
+  border-color: var(--primary-color-light);
 }

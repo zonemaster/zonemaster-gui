@@ -1,5 +1,6 @@
 footer {
-  box-shadow: inset -1px 7px 5px -9px rgba(0,0,0,0.75);
+  background-color: var(--primary-color-lighter);
+  border-top: 1px solid var(--primary-color-light);
 }
 
 footer dl.version {
@@ -42,4 +43,3 @@ footer nav li {
     height: auto;
     margin-bottom: 0.5rem;
 }
-

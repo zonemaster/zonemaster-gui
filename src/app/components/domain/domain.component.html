@@ -1,42 +1,47 @@
 <app-header>
+  <h1 i18n>Check how your domain is doing</h1>
   <app-run-test></app-run-test>
 </app-header>
-<aside class="container-fluid about">
+<aside class="container about">
   <article>
-    <div class="container">
+    <div class="illustration" id="home_illustration1"></div>
+    <div class="about-content">
       <h4 i18n>About Zonemaster</h4>
+      <h5>
+        Give your domain name a complete checkup! <strong>Zonemaster helps you assess how your domain
+        name is doing.</strong>
+        </h5>
       <p i18n>
-        Give your domain name a complete checkup! Zonemaster helps you assess how your domain 
-        name is doing. Besides, you can also get a better understanding of how the DNS 
-        (Domain Name System) works. When a domain name is sent to Zonemaster for testing, 
-        the program investigates the state of the domain name (sometimes called 'zone') 
-        from top to bottom of the DNS tree. Specifically, this is usually done by 
-        examining DNS data from the root ('.') to the TLD (Top-Level Domain; e.g., '.net') 
-        for that domain name, and then finally through the DNS servers that contain authoritative 
-        information about the specified domain name (e.g., 'zonemaster.net'). 
-        Zonemaster performs many tests, such as checking DNSSEC signatures, or that different 
-        hosts can be accessed and that IP addresses are valid. This is all to make sure that 
+        When a domain name is sent to Zonemaster for testing,
+        Zonemaster investigates the state of the domain name
+        from the top to the bottom of the DNS tree. This is usually done by
+        examining DNS data from the root, '.', to the Top-Level Domain (TLD)
+        for that domain name, like '.net', and then finally through the DNS servers that contain authoritative
+        information about the specified domain name.
+      </p>
+      <p>
+        <strong>Zonemaster performs many tests</strong>, such as checking DNSSEC signatures, or that different
+        hosts can be accessed and that IP addresses are valid. This is all to make sure that
         your domain name runs as smoothly as possible.
       </p>
     </div>
   </article>
 
-  <article class="pt-2">
-    <div class="container">
+  <article>
+    <div class="about-content">
       <h4 i18n>About the DNS</h4>
       <p i18n>
-        Most people who use the Internet have never reflected on what actually happens 
-        when one types an address in their web browser and then clicks the 'Enter' button. 
-        In short, the DNS (Domain Name System) is a database that associates domain names 
-        to IP (Internet Protocol) addresses, the same way a phone book associates names 
-        to phone numbers. An IP address is a unique series of numbers that identifies every 
-        computer that is connected to the Internet. It is similar to the way every telephone 
-        has its own number in the telephone network. Such long series of numbers work fine 
-        for computers, but for people it is way more difficult to memorize. Thus, the DNS has 
-        been developed as an extra layer to map between names that we can remember better and 
-        IP addresses used by computers whenever we want to reach a specific website or use 
-        other services on the Internet (e.g., mail).
+        The Domain Name System (DNS) is a database that associates domain names
+        to Internet Protocol (IP) addresses, the same way a phone book associates names
+        to phone numbers. An IP address is a unique series of numbers that identifies every
+        computer that is connected to the Internet. It is similar to the way every telephone
+        has its own number in the telephone network. Such long series of numbers work fine
+        for computers, but for people it is way more difficult to memorize. Thus, the DNS has
+        been developed as an extra layer to map between names that we can remember better and
+        IP addresses used by computers whenever we want to reach a specific website or use
+        other services on the Internet (e.g., e-mail).
       </p>
     </div>
+    <div class="illustration" id="home_illustration2"></div>
   </article>
 </aside>
