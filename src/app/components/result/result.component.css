@@ -101,10 +101,26 @@
   background-color: #919191;
 }
 
+.result .filters .active input {
+  mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+.result .filters .active.info input,
+.result .filters .active.notice input,
+.result .filters .active.error input,
+.result .filters .active.critical input {
+  background: white;
+}
+
+.result .filters .active.all input,
+.result .filters .active.warning input {
+  background: black;
+}
+
 .result .badge.info,
 .result .filters .active.info,
 .result article ul li .level.info {
-  background: var(--result-info-bg);
+  background-color: var(--result-info-bg);
   color: white;
 }
 
@@ -252,6 +268,10 @@ article ul li .level.warning {
     color: #bb2d3b;
 }
 
+.result .badge {
+  --bs-badge-font-size: .8em;
+}
+
 .result .actions-btn {
   flex-grow: 1;
   display: flex;
@@ -260,17 +280,32 @@ article ul li .level.warning {
 }
 
 .result .filters {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.result .filters > * {
   margin-top: 1rem;
 }
 
-.result .filters a {
-  margin: 0 0.125rem;
-  border: 0;
+.result .filters .severity-levels {
+  margin: .75rem 0;
+}
+
+.result .filters .severity-levels legend {
+  font-size: inherit;
+}
+
+.result .filters .severity-level-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.result .filters .severity-level-inputs .form-check-inline {
+  padding: 0.5em 0.5em 0.5em 2em;
+  border-radius: 0.5rem;
+}
+
+.result .filters .severity-level-help {
+  display: grid;
+  grid: auto-flow / 1fr auto;
+  grid-gap: .4rem;
 }
 
 .result .actions-btn > button > i.fa,
@@ -278,6 +313,21 @@ article ul li .level.warning {
   margin-right: 0.25rem;
 }
 
+.result .result-metadata {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.result .result-metadata .result-test-datetime {
+  margin: 0;
+}
+
+.result .result-control-buttons {
+  align-items: end;
+  display: flex;
+  gap: 0.2rem;
+}
 
 @media(max-width:767px){
   .result .actions-btn {

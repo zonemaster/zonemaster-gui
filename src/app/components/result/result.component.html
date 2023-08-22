@@ -7,51 +7,143 @@
 
 <section class="result">
   <div>
-    <div class="result-header">
+    <div>
       <h2>Test result for <strong>{{ form.domain }}</strong></h2>
-      <i>{{ test.creation_time | date:'yyyy-MM-dd HH:mm zzzz' }}</i>
-    </div>
-    <div class="actions-btn">
-      <button type="button" class="btn btn-secondary history" (click)="getHistory()" tabindex="0">
-        <i class="fa fa-history" aria-hidden="true"></i>
-        <span i18n>History</span>
-      </button>
+      <div class="result-metadata">
+        <p class="result-test-datetime">Created on <time [dateTime]="test.creation_time.toISOString()"></time>{{ test.creation_time | date:'medium' }}</p>
 
-      <div ngbDropdown placement="bottom" class="d-inline-block">
-        <button type="button" class="btn btn-secondary export" id="exportDropdownResult" ngbDropdownToggle>
-          <i class="fa fa-cloud-download" aria-hidden="true"></i>
-          <span i18n>Export</span>
-        </button>
-        <div ngbDropdownMenu aria-labelledby="exportDropdownResult">
-          <div class="dropdown-body">
-            <button class="btn" (click)="exportJson()"> JSON </button>
-            <button class="btn" (click)="exportCSV()"> CSV </button>
-            <button class="btn" (click)="exportHTML()"> HTML </button>
-            <button class="btn" (click)="exportText()"> TEXT </button>
-          </div>
-        </div>
-      </div>
-
-      <div ngbDropdown placement="bottom-end" class="d-inline-block">
-        <button type="button" class="btn btn-secondary share" id="shareDropdownResult" ngbDropdownToggle>
-          <i class="fa fa-share" aria-hidden="true"></i>
-          <span i18n>Share</span>
-        </button>
-        <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
-          <div class="dropdown-body">
-            <input i18n-aria-label aria-label="Link to test" readonly="" type="text" id="link_location" name="link_location" class="form-inline form-control" value="{{test.location}}">
-            <button class="btn btn-clipboard" (click)="copyLinkToClipboard(test.location)" title="Copy link to clipboard" i18n-title>
-                <i class="fa fa-clipboard" aria-hidden="true"></i>
-                <span i18n class="sr-only">Copy link to clipboard</span>
+        <div class="actions-btn">
+          <div>
+            <button type="button" class="btn btn-secondary history" (click)="getHistory()" tabindex="0">
+              <i class="fa fa-history" aria-hidden="true"></i>
+              <span i18n>History</span>
             </button>
           </div>
-        </div>
-      </div>
 
+          <div ngbDropdown placement="bottom" class="d-inline-block">
+            <button type="button" class="btn btn-secondary export" id="exportDropdownResult" ngbDropdownToggle>
+              <i class="fa fa-cloud-download" aria-hidden="true"></i>
+              <span i18n>Export</span>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="exportDropdownResult">
+              <div class="dropdown-body">
+                <button class="btn" (click)="exportJson()"> JSON </button>
+                <button class="btn" (click)="exportCSV()"> CSV </button>
+                <button class="btn" (click)="exportHTML()"> HTML </button>
+                <button class="btn" (click)="exportText()"> TEXT </button>
+              </div>
+            </div>
+          </div>
+
+          <div ngbDropdown placement="bottom-end" class="d-inline-block">
+            <button type="button" class="btn btn-secondary share" id="shareDropdownResult" ngbDropdownToggle>
+              <i class="fa fa-share" aria-hidden="true"></i>
+              <span i18n>Share</span>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
+              <div class="dropdown-body">
+                <input i18n-aria-label aria-label="Link to test" readonly="" type="text" id="link_location" name="link_location" class="form-inline form-control" value="{{test.location}}">
+                <button class="btn btn-clipboard" (click)="copyLinkToClipboard(test.location)" title="Copy link to clipboard" i18n-title>
+                    <i class="fa fa-clipboard" aria-hidden="true"></i>
+                    <span i18n class="sr-only">Copy link to clipboard</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
+
+
+
   </div>
 
-  <div class="filters">
+  <fieldset class="filters">
+    <legend class="sr-only" i18n>
+      Filter result
+    </legend>
+
+    <fieldset class="severity-levels">
+      <legend i18n>Filter severity levels</legend>
+
+      <aside>
+        <dl class="severity-level-help alert alert-info">
+            <dt>Info</dt>
+            <dd>
+              The message is something that may be of interest to the zone's administrator
+              but that definitely does not indicate a problem.
+            </dd>
+            <dt>Notice</dt>
+            <dd>
+              The message means something that should be known by the zone's administrator
+              but that need not necessarily be a problem at all.
+            </dd>
+            <dt>Warning</dt>
+            <dd>
+              The message means something that will under some circumstances be a problem,
+              but that is unlikely to be noticed by a casual user.
+            </dd>
+            <dt>Error</dt>
+            <dd>
+              The message means a problem that is very likely (or possibly certain) to
+              negatively affect the function of the zone being tested, but not so
+              severe that the entire zone becomes unresolvable.
+            </dd>
+            <dt>Critical</dt>
+            <dd>
+              The message means a very serious error.
+            </dd>
+        </dl>
+      </aside>
+
+      <div class="severity-level-inputs">
+        <div class="form-check form-check-inline" [ngClass]="{'active all': resultFilter.all}">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [checked]="resultFilter.all" (change)="togglePillFilter('all')">
+            <ng-container i18n="all filter button">All</ng-container>
+            &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['all']}}</span>
+          </label>
+        </div>
+        <div class="form-check form-check-inline" [ngClass]="{'active info': resultFilter.info}">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [checked]="resultFilter.info" (change)="togglePillFilter('info')">
+            <ng-container i18n="info filter button">Info</ng-container>
+            &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['info']}}</span>
+          </label>
+        </div>
+        <div class="form-check form-check-inline" [ngClass]="{'active notice': resultFilter.notice}">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [checked]="resultFilter.notice" (change)="togglePillFilter('notice')">
+            <ng-container i18n="notice filter button">Notice</ng-container>
+            &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['notice']}}</span>
+          </label>
+        </div>
+        <div class="form-check form-check-inline" [ngClass]="{'active warning': resultFilter.warning}">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [checked]="resultFilter.warning" (change)="togglePillFilter('warning')">
+            <ng-container i18n="warning filter button">Warning</ng-container>
+            &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['warning']}}</span>
+          </label>
+        </div>
+        <div class="form-check form-check-inline" [ngClass]="{'active error': resultFilter.error}">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [checked]="resultFilter.error" (change)="togglePillFilter('error')">
+            <ng-container i18n="error filter button">Error</ng-container>
+            &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['error']}}</span>
+          </label>
+        </div>
+        <div class="form-check form-check-inline" [ngClass]="{'active critical': resultFilter.critical}">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [checked]="resultFilter.critical" (change)="togglePillFilter('critical')">
+            <ng-container i18n="critical filter button">Critical</ng-container>
+            &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['critical']}}</span>
+          </label>
+        </div>
+      </div>
+    </fieldset>
+<!--
     <ul class="nav nav-pills vertical-align filter">
       <li class="nav-item ml-1">
         <ng-template #tooltipAll i18n="tooltip all">
@@ -61,15 +153,14 @@
            class="btn" [ngClass]="{'active all': resultFilter.all}"
            (click)="togglePillFilter('all')"
            (keydown)="onFilterLevelKeyDownEvent($event, 'all')"
-           [(ngModel)]="resultFilter  .all" tabindex="0" ngDefaultControl>
+            tabindex="0" ngDefaultControl>
            <ng-container i18n="all filter button">All</ng-container>
            &nbsp;<span class="badge rounded-pill bg-secondary">{{testCasesCount['all']}}</span>
         </a>
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipInfo i18n="tooltip info">
-          Info - is something that may be of interest to the zone's administrator
-          but that definitely does not indicate a problem.
+
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipInfo"
            class="btn" [ngClass]="{'active info': resultFilter.info}"
@@ -82,8 +173,7 @@
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipNotice i18n="tooltip notice">
-          Notice - means something that should be known by the zone's administrator
-          but that need not necessarily be a problem at all.
+          Notice -
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipNotice"
            class="btn" [ngClass]="{'active notice': resultFilter.notice}"
@@ -96,8 +186,7 @@
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipWarning i18n="tooltip warning">
-          Warning - means something that will under some circumstances be a problem,
-          but that is unlikely to be noticed by a casual user.
+          Warning -
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipWarning"
            class="btn" [ngClass]="{'active warning': resultFilter.warning}"
@@ -110,9 +199,7 @@
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipError i18n="tooltip error">
-          Error - means a problem that is very likely (or possibly certain) to
-          negatively affect the function of the zone being tested, but not so
-          severe that the entire zone becomes unresolvable.
+          Error -
         </ng-template>
         <a placement="top" [ngbTooltip]="tooltipError"
            class="btn" [ngClass]="{'active error': resultFilter.error}"
@@ -125,10 +212,9 @@
       </li>
       <li class="nav-item ml-1">
         <ng-template #tooltipCritical i18n="tooltip critical">
-          Critical - means a very serious error.
+          Critical -
         </ng-template>
-        <a placement="top" [ngbTooltip]="tooltipCritical"
-           class="btn" [ngClass]="{'active critical': resultFilter.critical}"
+        <a placement="top" class="btn" [ngClass]="{'active critical': resultFilter.critical}"
            (click)="togglePillFilter('critical')"
            (keydown)="onFilterLevelKeyDownEvent($event, 'critical')"
            [(ngModel)]="resultFilter.critical" tabindex="0" ngDefaultControl>
@@ -137,13 +223,23 @@
         </a>
       </li>
     </ul>
-    <div class="input-group search">
-      <input type="text" [(ngModel)]="resultFilter.search" (ngModelChange)='filterResults()' class="form-control" i18n-placeholder placeholder="Filter text" i18n-aria-label aria-label="Filter results">
-      <div class="input-group-text">
-        <i class="fa fa-filter" aria-hidden="true"></i>
+    -->
+    <div class="row">
+      <div class="col">
+        <label class="form-label" for="result-search">Search text in messages</label>
+        <div class="input-group search">
+          <input type="text" [(ngModel)]="resultFilter.search" (ngModelChange)='filterResults()' class="form-control" id="result-search">
+          <div class="input-group-text">
+            <i class="fa fa-filter" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-auto result-control-buttons">
+        <button i18n class="btn btn-secondary">Expand all</button>
+        <button i18n class="btn btn-secondary">Collapse all</button>
       </div>
     </div>
-  </div>
+  </fieldset>
 
   <section class="mt-3 details">
     <article *ngFor="let module of modules" [class.expanded]="!isCollapsed[module.name]">
