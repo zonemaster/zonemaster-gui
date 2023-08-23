@@ -111,11 +111,15 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onFilterLevelKeyDownEvent(event, level) {
-    switch (event.key) {
-      case 'Enter':
-        this.togglePillFilter(level);
-        break;
+  public expandAll() {
+    for (const module of this.modules) {
+      this.isCollapsed[module.name] = false;
+    }
+  }
+
+  public collapseAll() {
+    for (const module of this.modules) {
+      this.isCollapsed[module.name] = true;
     }
   }
 

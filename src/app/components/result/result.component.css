@@ -98,7 +98,7 @@
 }
 
 .result .filters .active.all {
-  background-color: #919191;
+  background-color: #c4c4c4;
 }
 
 .result .filters .active input {
@@ -291,18 +291,83 @@ article ul li .level.warning {
   font-size: inherit;
 }
 
+.result .filters details {
+  margin-bottom: 0.5rem;
+}
+
+.result .filters details summary {
+  transition: .3s all;
+  list-style: none;
+  margin: 0;
+  background-color: var(--primary-color-lighter);
+  border: 1px solid var(--primary-color-light);
+  padding: .5em .75em;
+  border-radius: .5em;
+}
+
+.result .filters details[open] summary,
+.result .filters details summary:hover {
+  color: var(--primary-color-dark);
+  background-color: var(--primary-color-lighter-hover);
+}
+
+.result .filters details summary .control {
+  margin-right: 1em;
+  transform: rotate(0);
+  transition: 0.1s transform;
+}
+
+.result .filters details[open] summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.result .filters details[open] summary ~ * {
+  padding: .5em .75em;
+  background-color: var(--primary-color-lighter);
+  border: 1px solid var(--primary-color-light);
+  border-radius: .5em;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+}
+
+.result .filters details[open] summary .control {
+  transform: rotate(90deg);
+}
+
 .result .filters .severity-level-inputs {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+}
+
+.result .filters .severity-level-inputs label {
+  padding: 0.5em 0.5em 0.5em .5em;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+}
+
+.result .filters .severity-level-inputs label:focus-within {
+
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem var(--outline-focus-color)
+}
+
+.result .filters .severity-level-inputs label:focus-within input[type=checkbox] {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.25);
 }
 
 .result .filters .severity-level-inputs .form-check-inline {
-  padding: 0.5em 0.5em 0.5em 2em;
-  border-radius: 0.5rem;
+  padding-left: 0;
+}
+.result .filters .severity-level-inputs input[type=checkbox] {
+  float: none;
+  margin-left: auto;
+  margin-right: .5em;
 }
 
-.result .filters .severity-level-help {
+.result .filters #severity-level-help dl {
   display: grid;
   grid: auto-flow / 1fr auto;
   grid-gap: .4rem;
@@ -326,7 +391,14 @@ article ul li .level.warning {
 .result .result-control-buttons {
   align-items: end;
   display: flex;
-  gap: 0.2rem;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+@media(min-width:1400px) {
+  .result .filters .severity-level-inputs {
+    gap: 1rem;
+  }
 }
 
 @media(max-width:767px){
