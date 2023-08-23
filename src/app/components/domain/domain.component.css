@@ -1,16 +1,20 @@
-aside.about article {
+.about article {
     display: flex;
 }
 
-aside.about {
+.about {
     padding: 0;
 }
 
-aside h4 {
+.about h2 {
     display: inline-block;
 }
 
-aside h4::after {
+.about h3 {
+    font-size: calc(1.2rem + 0.5vw);
+}
+
+.about h2::after {
     content: '';
     display: block;
     width: 60%;
@@ -21,42 +25,48 @@ aside h4::after {
     border-radius: 0.5rem;
 }
 
-aside.about .illustration {
+.about .illustration {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-aside.about #home_illustration1 {
+.about #home_illustration1 {
     background-image: url('assets/images/person_looking_at_computer.svg');
 }
 
-aside.about #home_illustration2 {
+.about #home_illustration2 {
     background-image: url('assets/images/world_connected.svg');
 }
 
-aside.about article {
+.about article {
     margin-bottom: 5rem;
     display: flex;
     gap: 2rem;
 }
 
-aside.about article > * {
+.about article > * {
     flex: 1;
 }
 
+@media(min-width:1200px) {
+    .about h3 {
+        font-size: 1.5rem;
+    }
+}
+
 @media(max-width:991px) {
-    aside.about .illustration {
+    .about .illustration {
         flex-basis: 30%;
     }
 
-    aside.about .about-content {
+    .about .about-content {
         flex-basis: 70%;
     }
 }
 
 @media(max-width: 767px) {
-    aside.about .illustration {
+    .about .illustration {
         display: none;
     }
 }
