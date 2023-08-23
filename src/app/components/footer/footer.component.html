@@ -4,19 +4,25 @@
       <nav class="row justify-content-between">
         <ul class="row">
           <li class="col-md">
-            <span placement="top" [ngbTooltip]="tipContent" i18n tabindex="0">Program versions</span>
+            <a placement="top" [ngbTooltip]="tipContent" triggers="click:blur" i18n tabindex="0">Program versions</a>
           </li>
           <li class="col-md-auto">
-            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-            <a class="text-dark" href="mailto:{{contactAddress}}">{{contactAddress}}</a>
+            <a href="mailto:{{contactAddress}}">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+              {{contactAddress}}
+            </a>
           </li>
           <li class="col-md-auto">
-            <i class="fa fa-code" aria-hidden="true"></i>
-            <a class="text-dark" href="https://github.com/zonemaster/zonemaster" i18n>Source code</a>
+            <a href="https://github.com/zonemaster/zonemaster" i18n>
+              <i class="fa fa-code" aria-hidden="true"></i>
+              Source code
+            </a>
           </li>
           <li class="col-md-auto">
-            <i class="fa fa-book" aria-hidden="true"></i>
-            <a class="text-dark" href="https://github.com/zonemaster/zonemaster#documentation" i18n>Documentation</a>
+            <a href="https://github.com/zonemaster/zonemaster#documentation" i18n>
+              <i class="fa fa-book" aria-hidden="true"></i>
+              Documentation
+            </a>
           </li>
         </ul>
       </nav>

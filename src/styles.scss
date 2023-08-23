@@ -88,3 +88,94 @@ footer .tooltip {
 .pagination {
   justify-content: center;
 }
+
+
+details {
+  margin-bottom: 0.5rem;
+}
+
+details summary {
+  transition: .3s all;
+  list-style: none;
+  margin: 0;
+  background-color: var(--primary-color-lighter);
+  border: 1px solid var(--primary-color-light);
+  padding: .75em .75em;
+  border-radius: .5em;
+  display: flex;
+  align-items: center;
+}
+
+details summary * {
+  margin: 0;
+}
+
+details[open] summary,
+details summary:hover {
+  color: var(--primary-color-dark);
+  background-color: var(--primary-color-lighter-hover);
+}
+
+details summary .control {
+  margin-right: 1em;
+  transform: rotate(0);
+  transition: 0.1s transform;
+}
+
+details[open] summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+details[open] summary ~ * {
+  padding: .5em .75em;
+  background-color: var(--primary-color-lighter);
+  border: 1px solid var(--primary-color-light);
+  border-radius: .5em;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+}
+
+details[open] summary .control {
+  transform: rotate(90deg);
+}
+
+h2 {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 0.2rem;
+  background-color: var(--primary-color);
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+h3 {
+  font-size: calc(1.2rem + 0.5vw);
+}
+
+a.nav-link {
+  color: rgba(0, 0, 0, .7);
+}
+
+a {
+  color: #2d258e;
+  text-decoration-thickness: 0.1em;
+}
+
+a:hover {
+  color: var(--primary-color-dark);
+}
+@media(min-width:1200px) {
+  .about h3 {
+      font-size: 1.5rem;
+  }
+}

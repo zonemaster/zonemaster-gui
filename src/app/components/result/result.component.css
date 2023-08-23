@@ -291,51 +291,6 @@ article ul li .level.warning {
   font-size: inherit;
 }
 
-.result .filters details {
-  margin-bottom: 0.5rem;
-}
-
-.result .filters details summary {
-  transition: .3s all;
-  list-style: none;
-  margin: 0;
-  background-color: var(--primary-color-lighter);
-  border: 1px solid var(--primary-color-light);
-  padding: .5em .75em;
-  border-radius: .5em;
-}
-
-.result .filters details[open] summary,
-.result .filters details summary:hover {
-  color: var(--primary-color-dark);
-  background-color: var(--primary-color-lighter-hover);
-}
-
-.result .filters details summary .control {
-  margin-right: 1em;
-  transform: rotate(0);
-  transition: 0.1s transform;
-}
-
-.result .filters details[open] summary {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.result .filters details[open] summary ~ * {
-  padding: .5em .75em;
-  background-color: var(--primary-color-lighter);
-  border: 1px solid var(--primary-color-light);
-  border-radius: .5em;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-top: none;
-}
-
-.result .filters details[open] summary .control {
-  transform: rotate(90deg);
-}
-
 .result .filters .severity-level-inputs {
   display: flex;
   flex-wrap: wrap;

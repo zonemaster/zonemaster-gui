@@ -17,6 +17,7 @@ import { FormComponent } from './components/form/form.component';
 import { ResultComponent } from './components/result/result.component';
 import { HistoryComponent } from './components/history/history.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { FaqQuestionComponent } from './components/faq-question/faq-question.component';
 
 import { RomanizePipe } from './pipes/romanize.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
@@ -60,7 +61,8 @@ const appRoutes: Routes = [
     ResultComponent,
     HistoryComponent,
     AlertComponent,
-    HeaderComponent
+    HeaderComponent,
+    FaqQuestionComponent,
   ],
   imports: [
     BrowserModule,

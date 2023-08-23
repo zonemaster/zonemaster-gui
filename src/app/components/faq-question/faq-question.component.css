@@ -1,0 +1,8 @@
+details.faq-question {
+  margin-bottom: 1rem;
+}
+
+details.faq-question h3 {
+  display: inline-block;
+  font-size: 1.2rem;
+}

@@ -1,7 +1,6 @@
-import { Component, OnInit, AfterViewChecked, OnDestroy, Inject, LOCALE_ID } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, OnDestroy } from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 
@@ -18,14 +17,11 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   private fragmentSubscription: Subscription;
 
-  constructor(private _http: HttpClient,
-              private route: ActivatedRoute,
-              private titleService: Title,
-              @Inject(LOCALE_ID) private language: string) {
+  constructor(private route: ActivatedRoute,
+              private titleService: Title) {
   }
 
   ngOnInit() {
-    this.loadFaq(this.language);
     this.fragmentSubscription = this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
   }
 
@@ -45,14 +41,7 @@ export class FaqComponent implements OnInit, OnDestroy, AfterViewChecked {
     }
   }
 
-  loadFaq(lang) {
-    this.url = `assets/faqs/gui-faq-${lang}.html`;
-
-    this._http.get(this.url, {responseType: 'text'})
-      .subscribe(data => {
-        this.faqTemplate = data;
-      });
-
+  loadFaq() {
     this.titleService.setTitle(`${$localize `:@@zm.faq.title:FAQ`} · Zonemaster`);
   }
 }
