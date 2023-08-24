@@ -1,9 +1,11 @@
-<details class="faq-question">
-  <summary>
-    <i class="fa fa-chevron-right control" aria-hidden="true"></i>
-    <h3><ng-content select="[title]"></ng-content></h3>
-  </summary>
-  <div>
+<article class="faq-question" id="{{questionId}}" [class.open]="isOpen" #entry>
+  <header>
+    <a class="nav-link" routerLink="/faq" fragment="{{questionId}}" [attr.aria-controls]="'faq-entry-' + questionId" [attr.aria-expanded]="isOpen" (click)="toggleOpenEntry()">
+      <i class="fa fa-chevron-right control" aria-hidden="true"></i>
+      <h3 #title><ng-content select="[title]"></ng-content></h3>
+    </a>
+  </header>
+  <div class="faq-content" id="faq-entry-{{ questionId }}">
     <ng-content></ng-content>
   </div>
-</details>
+</article>

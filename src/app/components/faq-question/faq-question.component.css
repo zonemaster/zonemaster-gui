@@ -1,8 +1,17 @@
-details.faq-question {
+.faq-question {
   margin-bottom: 1rem;
 }
 
-details.faq-question h3 {
+.faq-question h3 {
   display: inline-block;
   font-size: 1.2rem;
+}
+
+.faq-question header {
+  padding: 0;
+}
+
+.faq-question header a {
+  padding: .75em;
+  width: 100%;
 }
