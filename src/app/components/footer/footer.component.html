@@ -1,44 +1,39 @@
 <footer class="pb-0 pt-2">
   <div class="container">
-    <div class="col-12">
-      <nav class="row justify-content-between">
-        <ul class="row">
-          <li class="col-md">
-            <a placement="top" [ngbTooltip]="tipContent" triggers="click:blur" i18n tabindex="0">Program versions</a>
-          </li>
-          <li class="col-md-auto">
-            <a href="mailto:{{contactAddress}}">
-              <i class="fa fa-envelope-o" aria-hidden="true"></i>
-              {{contactAddress}}
-            </a>
-          </li>
-          <li class="col-md-auto">
-            <a href="https://github.com/zonemaster/zonemaster" i18n>
-              <i class="fa fa-code" aria-hidden="true"></i>
-              Source code
-            </a>
-          </li>
-          <li class="col-md-auto">
-            <a href="https://github.com/zonemaster/zonemaster#documentation" i18n>
-              <i class="fa fa-book" aria-hidden="true"></i>
-              Documentation
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="row">
-        <div class="col-md-auto">
-          <p class="copyright small" i18n>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</p>
-        </div>
-      </div>
+    <nav class="row justify-content-between">
+      <ul class="row">
+        <li class="col-lg">
+          <a placement="top-start" [ngbTooltip]="tipContent" triggers="click:blur" i18n tabindex="0" class="program-versions">Program versions</a>
+        </li>
+        <li class="col-md-auto">
+          <a href="mailto:{{contactAddress}}">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>{{contactAddress}}
+          </a>
+        </li>
+        <li class="col-md-auto">
+          <a href="https://github.com/zonemaster/zonemaster" i18n>
+            <i class="fa fa-code" aria-hidden="true"></i>Source code
+          </a>
+        </li>
+        <li class="col-md-auto">
+          <a href="https://github.com/zonemaster/zonemaster#documentation" i18n>
+            <i class="fa fa-book" aria-hidden="true"></i>Documentation
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-    </div>
-
-    <div class="col-12" *ngIf="footerLogo !== ''">
-      <img src="{{footerLogo}}" alt="{{footerLogoAlt}}" class="footer-logotype">
-    </div>
+    <p class="copyright small">
+      <span i18n>Copyright © AFNIC and The Swedish Internet Foundation</span><br>
+      <span>Font <a href="https://www.luciole-vision.com/luciole-en.html">Luciole</a> © Laurent Bourcellier & Jonathan Perez, <a href="https://creativecommons.org/licenses/by/4.0/legalcode">CC-BY-SA</a></span>
+    </p>
 
   </div>
+
+  <div class="col-12" *ngIf="footerLogo !== ''">
+    <img src="{{footerLogo}}" alt="{{footerLogoAlt}}" class="footer-logotype">
+  </div>
+
 </footer>
 
 <ng-template #tipContent>

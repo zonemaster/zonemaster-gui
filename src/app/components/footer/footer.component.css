@@ -1,6 +1,11 @@
 footer {
   background-color: var(--primary-color-lighter);
   border-top: 1px solid var(--primary-color-light);
+  display: flex;
+}
+
+footer a.program-versions {
+  cursor: pointer;
 }
 
 footer dl.version {
@@ -21,11 +26,11 @@ footer dl.version dd {
 }
 
 footer .copyright {
-  color: #4d5357;
+  margin-top: 1rem;
 }
 
-footer i.fa {
-  margin-right: .25rem;
+footer a i.fa {
+  margin-right: .4rem;
 }
 
 footer nav ul {
