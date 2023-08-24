@@ -75,8 +75,12 @@ button.btn:focus-visible {
 }
 
 .btn.btn-primary {
+  --bs-btn-disabled-bg: var(--primary-color-dark);
+  --bs-btn-disabled-border-color: var(--primary-color-dark);
+
   --bs-btn-hover-border-color: var(--primary-color);
   --bs-btn-hover-bg: var(--primary-color-dark);
+
   --bs-btn-border-color: var(--primary-color-dark);
   --bs-btn-bg: var(--primary-color);
 }
@@ -84,6 +88,8 @@ button.btn:focus-visible {
 .btn.btn-secondary {
   --bs-btn-color: auto;
   --bs-btn-bg: var(--secondary-color);
+  --bs-btn-border-color: var(--secondary-color-dark);
+
   --bs-btn-hover-color: auto;
   --bs-btn-hover-bg: var(--secondary-color-dark);
 }
@@ -91,6 +97,8 @@ button.btn:focus-visible {
 .btn.btn-danger {
   --bs-btn-color: auto;
   --bs-btn-bg: #ffc2c8;
+  --bs-btn-border-color: #ff8d98;
+
   --bs-btn-hover-color: auto;
   --bs-btn-hover-bg: #ff8d98;
 }
