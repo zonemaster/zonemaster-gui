@@ -1,3 +1,5 @@
+/* General rules */
+
 form.domain {
   background-color: var(--primary-color-lighter);
   border: 1px solid var(--primary-color-light);
@@ -5,30 +7,35 @@ form.domain {
   padding: 4rem;
 }
 
-.domain .domain-input-group {
-  display: flex;
-  margin-bottom: 1em;
+
+@media(max-width:767px){
+  form.domain {
+    padding: 1.5rem;
+  }
 }
 
-.domain .domain-form-container > label {
-  font-size: 1.25rem;
+.domain .is-invalid label {
+  color: #b51222!important;
 }
 
-#input_domain_form {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.domain .invalid-feedback {
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #b51222;
+  border-radius: 0.25rem;
+  text-align: left;
 }
 
-.domain button.launch {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+.domain .row {
+  --bs-gutter-x: 0.5rem;
 }
 
-/* The switch - the box around the slider */
-.domain .switch-input-container {
-  display: flex;
-  align-items: center;
-}
+
+/* Advanced options */
 
 #advanced-options .form-label {
   margin-bottom: 0;
@@ -42,17 +49,129 @@ form.domain {
   margin-bottom: 1rem;
 }
 
-.domain fieldset fieldset legend {
-  font-size: 1em;
-  margin-bottom: 0;
-  font-weight: normal;
+.domain .info-notice {
+  width: auto;
+  text-align: center;
+  margin: 1rem auto 0 auto;
+  display: flex;
+  align-items: center;
+
 }
 
-.domain form .protocol {
-  padding-top: 0.375rem;
+.domain button.delete {
+  font-size: calc(1.5rem - 2px);
+  padding: .0rem .5rem;
+  border: none;
+  border: 1px solid transparent;
+}
+
+.domain button.delete:focus-visible,
+.domain button.delete:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem var(--outline-focus-color);
+}
+
+hr {
+  opacity: 1;
+  border-color: var(--primary-color-light);
+}
+
+.domain .form-section fieldset {
   display: flex;
-  flex-wrap: nowrap;
-  white-space: nowrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.domain .domain-input-group {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+/* Advanced options responsivity */
+
+@media(min-width:768px) {
+  /* Hide Legends and Labels from screen on wide screens but keep them for screen reader */
+  .domain .form-section fieldset:not(:first-child) label,
+  .domain .form-section fieldset legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+
+  .domain .form-section fieldset .form-input-group > * {
+    flex: 1;
+  }
+
+  .domain .form-section fieldset .form-input-group {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .domain .form-section fieldset:first-child .form-input-group {
+    display: grid;
+    grid-auto-flow: column;
+
+  }
+
+  .domain .form-section.nameservers fieldset:first-child .form-input-group {
+    grid-template: auto auto / 1fr 1fr;
+  }
+
+  .domain .form-section.ds-records fieldset:first-child .form-input-group {
+    grid-template: auto auto / 1fr 1fr 1fr 1fr;
+  }
+
+  .domain .form-section fieldset:first-child .delete-button-container {
+    margin-top: 2.2rem;
+  }
+}
+
+@media(max-width:767px) {
+  .domain .form-section fieldset legend {
+    font-size: 1.1em;
+    margin-bottom: 0;
+  }
+
+  .domain .form-section fieldset {
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .domain .form-section fieldset:not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 50%;
+    margin: auto;
+    margin-top: 1rem;
+    background: var(--primary-color-light);
+  }
+
+  .domain .form-section fieldset .form-input-group {
+    display: grid;
+    grid: auto / auto 1fr;
+    gap: 0.5rem;
+  }
+
+  .domain .form-section fieldset .delete-button-container {
+    position: absolute;
+    top: -.25rem;
+    right: 0;
+  }
+}
+
+/* Advanced option switch */
+
+.domain .switch-input-container {
+  display: flex;
+  align-items: center;
 }
 
 .domain .switch-input-container label {
@@ -97,28 +216,24 @@ form.domain {
   border-color: var(--primary-color-dark);
 }
 
-.domain .advanced {
-  text-align: left;
+/* Domain input */
+.domain .domain-input-container {
+  position: relative;
+  flex: 1;
 }
 
-.domain .is-invalid label {
-  color: #b51222!important;
+.domain .domain-form-container > label {
+  font-size: 1.25rem;
 }
 
-.domain .invalid-feedback {
-  width: 100%;
-  padding: 0.25rem 0.5rem;
-  margin-top: 0.1rem;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: #fff;
-  background-color: #b51222;
-  border-radius: 0.25rem;
-  text-align: left;
+#input-domain-form {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
-.domain .row {
-  --bs-gutter-x: 0.5rem;
+.domain button.launch {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .domain .reset-form {
@@ -138,14 +253,6 @@ form.domain {
   padding: 0;
 }
 
-.domain .grey {
-  color: grey;
-}
-
-.domain .domain-input-container {
-  position: relative;
-  flex: 1;
-}
 .domain .progress-value {
   display: block;
   color: #000;
@@ -162,49 +269,7 @@ form.domain {
   top: 0;
 }
 
-
 .domain .progress-result .progress {
   height: 100%;
   opacity: .3;
-}
-
-.domain .checkboxForm {
-  width: inherit;
-}
-
-.domain .info-notice {
-  width: auto;
-  text-align: center;
-  margin: 1rem auto 0 auto;
-  display: flex;
-  align-items: center;
-
-}
-
-@media(max-width:767px){
-  .domain fieldset .form-col:not(:first-child) {
-    margin-top: 0.5rem;
-  }
-
-  form.domain {
-    padding: 1.5rem;
-  }
-}
-
-.domain button.delete {
-  font-size: calc(1.5rem - 2px);
-  padding: .0rem .5rem;
-  border: none;
-  border: 1px solid transparent;
-}
-
-.domain button.delete:focus-visible,
-.domain button.delete:hover {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.25rem var(--outline-focus-color);
-}
-
-hr {
-  opacity: 1;
-  border-color: var(--primary-color-light);
 }
