@@ -8,6 +8,7 @@ footer .program-versions,
 footer .program-versions:hover {
   border: none;
   background: none;
+  padding: 0;
 }
 
 footer dl.version {

@@ -62,6 +62,7 @@ app-navigation .lang .icon {
   app-navigation #navBar a {
     border-bottom: .3rem solid transparent;
   }
+
   app-navigation #navBar a:focus,
   app-navigation #navBar a:hover,
   app-navigation #navBar a.active {

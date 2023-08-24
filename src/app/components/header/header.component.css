@@ -1,16 +1,12 @@
-.main {
+app-header {
   margin-bottom: 4rem;
+  display: block;
 }
 
-.main > .container {
-  margin: auto;
-  padding: 0;
-}
-
-.main h1 {
+app-header h1 {
   text-align: center;
   margin-bottom: 4rem;
-  margin-top: 4rem;
+  font-size: 3rem;
 }
 
 .info-banner {

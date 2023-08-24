@@ -21,9 +21,12 @@
 }
 
 .about article {
-    margin-bottom: 5rem;
     display: flex;
     gap: 2rem;
+}
+
+.about article:not(:last-of-type) {
+    margin-bottom: 4rem;
 }
 
 .about article > * {

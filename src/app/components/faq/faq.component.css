@@ -1,6 +1,7 @@
 .faq-header .main h1 {
   margin-bottom: 2rem;
 }
+
 .faq-description {
   max-width: 30rem;
   text-align: center;
@@ -15,6 +16,6 @@
   margin-top: 1rem;
 }
 
-.faq-category {
+.faq-category:not(:last-of-type) {
   margin-bottom: 4rem;
 }
