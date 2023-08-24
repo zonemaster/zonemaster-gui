@@ -32,10 +32,13 @@ main {
   --primary-color-rgb: 114, 85, 217;
   --primary-color-dark: #593fb7;
 
-  --outline-focus-color: #ff8a47;
   --secondary-color: #e8e8e8;
   --secondary-color-dark: #c6c6c6;
   --secondary-color-darker: #848484;
+
+  --outline-focus-color: #ff8a47;
+  --link-color: #2d258e;
+  --link-color-hover: var(--primary-color-dark);
 }
 
 *:focus-visible {
@@ -188,13 +191,16 @@ a.nav-link {
   color: rgba(0, 0, 0, .7);
 }
 
+.link,
 a {
-  color: #2d258e;
+  color: var(--link-color);
+  text-decoration: underline;
   text-decoration-thickness: 0.1em;
 }
 
+.link:hover,
 a:hover {
-  color: var(--primary-color-dark);
+  color: var(--link-color-hover);
 }
 @media(min-width:1200px) {
   .about h3 {

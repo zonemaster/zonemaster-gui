@@ -4,8 +4,10 @@ footer {
   display: flex;
 }
 
-footer a.program-versions {
-  cursor: pointer;
+footer .program-versions,
+footer .program-versions:hover {
+  border: none;
+  background: none;
 }
 
 footer dl.version {
