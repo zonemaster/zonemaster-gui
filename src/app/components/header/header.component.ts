@@ -1,8 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import {ViewEncapsulation} from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AppService } from '../../services/app.service';
-import { NavigationService } from '../../services/navigation.service';
+import { Component } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -11,11 +8,4 @@ import { NavigationService } from '../../services/navigation.service';
   encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
-  public msgBanner: string;
-  public navHeight: Number;
-
-  constructor(appService: AppService) {
-     this.msgBanner = appService.getConfig('msgBanner') || '';
-  }
-
 }

@@ -8,13 +8,3 @@ app-header h1 {
   margin-bottom: 4rem;
   font-size: 3rem;
 }
-
-.info-banner {
-  padding: 0.5rem;
-  border-radius: 0;
-}
-
-.info-banner-content {
-  margin: auto;
-  max-width: 1320px;
-}

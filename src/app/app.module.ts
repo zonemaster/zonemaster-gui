@@ -18,6 +18,7 @@ import { ResultComponent } from './components/result/result.component';
 import { HistoryComponent } from './components/history/history.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { FaqQuestionComponent } from './components/faq-question/faq-question.component';
+import { MessageBannerComponent } from './components/message-banner/message-banner.component';
 
 import { RomanizePipe } from './pipes/romanize.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
@@ -63,6 +64,7 @@ const appRoutes: Routes = [
     AlertComponent,
     HeaderComponent,
     FaqQuestionComponent,
+    MessageBannerComponent,
   ],
   imports: [
     BrowserModule,

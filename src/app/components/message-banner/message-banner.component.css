@@ -1,0 +1,17 @@
+.message-banner {
+    text-align: center;
+    background: var(--primary-color);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-banner p {
+    margin: .75rem 0;
+}
+
+.message-banner a,
+.message-banner a:hover {
+    color: #fff;
+    font-weight: bold;
+}
