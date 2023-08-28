@@ -579,8 +579,8 @@
         <note priority="1" from="meaning">faq question</note>
       </trans-unit>
       <trans-unit id="e1935c4d591b115d82ea9f237d48f79ef6081687" datatype="html">
-        <source> Zonemaster is a joint project between <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://www.afnic.fr/en/&quot;&gt;"/>AFNIC<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, the registry of &apos;.fr&apos; TLD and several other TLDs like &apos;.re&apos;, &apos;.pm&apos;, &apos;.tf&apos;, &apos;.wf&apos;, &apos;.yt&apos; and &apos;.paris&apos;, and <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://internetstiftelsen.se/en/&quot;&gt;"/>The Swedish Internet Foundation<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, the registry of &apos;.se&apos; and &apos;.nu&apos; TLDs. </source>
-        <target state="new"> Zonemaster is a joint project between <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://www.afnic.fr/en/&quot;&gt;"/>AFNIC<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, the registry of &apos;.fr&apos; TLD and several other TLDs like &apos;.re&apos;, &apos;.pm&apos;, &apos;.tf&apos;, &apos;.wf&apos;, &apos;.yt&apos; and &apos;.paris&apos;, and <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://internetstiftelsen.se/en/&quot;&gt;"/>The Swedish Internet Foundation<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, the registry of &apos;.se&apos; and &apos;.nu&apos; TLDs. </target>
+        <source> Zonemaster is a joint project between <x id="START_LINK" ctype="x-a" equiv-text="&lt;a i18n-href=&quot;Afnic link&quot; href=&quot;https://www.afnic.fr/en/&quot;&gt;"/>AFNIC<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, the registry of &apos;.fr&apos; TLD and several other TLDs like &apos;.re&apos;, &apos;.pm&apos;, &apos;.tf&apos;, &apos;.wf&apos;, &apos;.yt&apos; and &apos;.paris&apos;, and <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://internetstiftelsen.se/en/&quot;&gt;"/>The Swedish Internet Foundation<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, the registry of &apos;.se&apos; and &apos;.nu&apos; TLDs. </source>
+        <target state="new"> Zonemaster is a joint project between <x id="START_LINK" ctype="x-a" equiv-text="&lt;a i18n-href=&quot;Afnic link&quot; href=&quot;https://www.afnic.fr/en/&quot;&gt;"/>AFNIC<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, the registry of &apos;.fr&apos; TLD and several other TLDs like &apos;.re&apos;, &apos;.pm&apos;, &apos;.tf&apos;, &apos;.wf&apos;, &apos;.yt&apos; and &apos;.paris&apos;, and <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://internetstiftelsen.se/en/&quot;&gt;"/>The Swedish Internet Foundation<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, the registry of &apos;.se&apos; and &apos;.nu&apos; TLDs. </target>
         <note priority="1" from="meaning">faq answer</note>
       </trans-unit>
       <trans-unit id="63eb3f75f62bd6f370fde794f9bf78fd05abf09c" datatype="html">
@@ -832,6 +832,11 @@
         <source>Documentation</source>
         <target state="new">Documentation</target>
         <note priority="1" from="meaning">footer</note>
+      </trans-unit>
+      <trans-unit id="8cb0e28165b27b862dee9ee8e11a527bed59661a" datatype="html">
+        <source>https://www.afnic.fr/en/</source>
+        <target state="new">https://www.afnic.fr/en/</target>
+        <note priority="1" from="description">Afnic link</note>
       </trans-unit>
     </body>
   </file>
