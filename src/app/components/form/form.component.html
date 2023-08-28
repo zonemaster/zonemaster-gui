@@ -45,7 +45,7 @@
         </div>
       </div>
       <div>
-        <button i18n-title title="Run test" i18n
+        <button i18n-title title="Run the test" i18n
                 class="launch btn-primary btn btn-lg"
                 type="submit"
                 [disabled]="form.disabled">
@@ -76,9 +76,9 @@
 
         <div class="form-section nameservers" formArrayName="nameservers">
           <fieldset *ngFor="let ns of form.controls.nameservers.controls; let i=index" [formGroupName]="i">
-            <legend>Nameserver #{{ i + 1}}</legend>
+            <legend i18n>Nameserver #{{ i + 1}}</legend>
             <div class="form-input-group">
-              <label id="ns-{{i}}-name-label" for="ns-{{i}}-name-input">
+              <label id="ns-{{i}}-name-label" for="ns-{{i}}-name-input" i18n>
                 Name
               </label>
               <div>
@@ -99,7 +99,7 @@
                 </div>
               </div>
 
-              <label id="ns-{{i}}-address-label" for="ns-{{i}}-address-input">
+              <label id="ns-{{i}}-address-label" for="ns-{{i}}-address-input" i18n>
                 Address <small>(optional)</small>
               </label>
               <div>
@@ -141,9 +141,9 @@
         <legend i18n>DS records</legend>
         <div class="form-section ds-records" formArrayName="ds_info">
           <fieldset *ngFor="let ds_info of form.controls.ds_info.controls; let i=index" [formGroupName]="i">
-            <legend>DS record #{{ i + 1}}</legend>
+            <legend i18n>DS record #{{ i + 1}}</legend>
             <div class="form-input-group">
-              <label id="ds-{{i}}-keytag-label" for="ds-{{i}}-keytag-input">
+              <label id="ds-{{i}}-keytag-label" for="ds-{{i}}-keytag-input" i18n>
                 Keytag
               </label>
               <div>
@@ -165,7 +165,7 @@
                 </div>
               </div>
 
-              <label id="ds-{{i}}-algorithm-label" for="ds-{{i}}-algorithm-input">
+              <label id="ds-{{i}}-algorithm-label" for="ds-{{i}}-algorithm-input" i18n>
                 Algorithm
               </label>
               <div>
@@ -178,7 +178,7 @@
                   class="form-select"
                   [class.is-invalid]="ds_info.controls.algorithm.invalid && (ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched)"
                 >
-                  <option i18n [value]="-1" selected disabled>Select algorithm</option>
+                  <option i18n [value]="-1" selected disabled i18n>Select the algorithm</option>
                   <option [value]="1">1 - RSAMD5</option>
                   <option [value]="3">3 - DSA</option>
                   <option [value]="5">5 - RSASHA1</option>
@@ -200,7 +200,7 @@
                 </div>
               </div>
 
-              <label id="ds-{{i}}-digtype-label" for="ds-{{i}}-digtype-input">
+              <label id="ds-{{i}}-digtype-label" for="ds-{{i}}-digtype-input" i18n>
                 Digest type
               </label>
               <div>
@@ -213,7 +213,7 @@
                   class="form-select"
                   [class.is-invalid]="ds_info.controls.digtype.invalid && (ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched)"
                 >
-                  <option i18n [value]="-1" selected disabled>Select digest type</option>
+                  <option i18n [value]="-1" selected disabled i18n>Select the digest type</option>
                   <option [value]="1">1 - SHA-1</option>
                   <option [value]="2">2 - SHA-256</option>
                   <option [value]="3">3 - GOST R 34.11-94</option>
@@ -227,7 +227,7 @@
                 </div>
               </div>
 
-              <label id="ds-{{i}}-digest-label" for="ds-{{i}}-digest-input">
+              <label id="ds-{{i}}-digest-label" for="ds-{{i}}-digest-input" i18n>
                 Digest
               </label>
               <div>
