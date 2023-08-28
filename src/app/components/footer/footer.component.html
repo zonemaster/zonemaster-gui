@@ -3,7 +3,7 @@
     <nav class="row justify-content-between">
       <ul class="row">
         <li class="col-lg">
-          <button placement="top-start" [ngbTooltip]="tipContent" triggers="click:click click:blur" i18n tabindex="0" class="program-versions link">Program versions</button>
+          <button placement="top-start" [ngbTooltip]="tipContent" triggers="click:click click:blur" i18n tabindex="0" class="program-versions link" i18n="footer|">Program versions</button>
         </li>
         <li class="col-md-auto">
           <a href="mailto:{{contactAddress}}">
@@ -11,19 +11,19 @@
           </a>
         </li>
         <li class="col-md-auto">
-          <a href="https://github.com/zonemaster/zonemaster" i18n>
-            <i class="fa fa-code" aria-hidden="true"></i>Source code
+          <a href="https://github.com/zonemaster/zonemaster">
+            <i class="fa fa-code" aria-hidden="true"></i><ng-container i18n="footer|">Source code</ng-container>
           </a>
         </li>
         <li class="col-md-auto">
-          <a href="https://github.com/zonemaster/zonemaster#documentation" i18n>
-            <i class="fa fa-book" aria-hidden="true"></i>Documentation
+          <a href="https://github.com/zonemaster/zonemaster#documentation">
+            <i class="fa fa-book" aria-hidden="true"></i><ng-container i18n="footer|">Documentation</ng-container>
           </a>
         </li>
       </ul>
     </nav>
 
-    <p class="copyright small" i18n>
+    <p class="copyright small" i18n="footer|">
       Copyright © AFNIC and The Swedish Internet Foundation
     </p>
 

@@ -43,11 +43,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="zm.faq.title" datatype="html">
-        <source>Frequently asked questions</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
-          <context context-type="linenumber">2</context>
-        </context-group>
+        <source>FAQ</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/faq/faq.component.ts</context>
           <context context-type="linenumber">20</context>
@@ -79,7 +75,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="062fa49b0aa933a36de705e468e3d511c899b7da" datatype="html">
-        <source>Domain name required</source>
+        <source> Domain name required </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">16,18</context>
@@ -100,14 +96,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="ebe557b077774e9b3995e27b01e4097a04e16366" datatype="html">
-        <source>Disable IPv4</source>
+        <source> Disable IPv4 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">280,282</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6edbf2a9aa6e33cbd849ac2da981ef106516ba88" datatype="html">
-        <source>Disable IPv6</source>
+        <source> Disable IPv6 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">286,288</context>
@@ -128,14 +124,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3594d5d645662a4450900869925651bd0ad9cb5f" datatype="html">
-        <source>Keytag</source>
+        <source> Keytag </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">146,148</context>
         </context-group>
       </trans-unit>
       <trans-unit id="d6c4b18a2e3878c97bc5bc6bef7fcfb0d1b85715" datatype="html">
-        <source>Keytag required</source>
+        <source> Keytag required </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">163,165</context>
@@ -149,7 +145,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="c6e800ae7bc17f6c913bb85159017b5b8d31ce1d" datatype="html">
-        <source>Algorithm required</source>
+        <source> Algorithm required </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">198,200</context>
@@ -163,7 +159,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6decc246adf8fa54408bb99010015ff3fa27f059" datatype="html">
-        <source>Digest type required</source>
+        <source> Digest type required </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">225,227</context>
@@ -177,7 +173,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="41a92d5e8a530001a958246408f411ccabfe3595" datatype="html">
-        <source>Digest required</source>
+        <source> Digest required </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">246,248</context>
@@ -191,21 +187,21 @@
         </context-group>
       </trans-unit>
       <trans-unit id="0018d160c0efe19593cfcdaf555d82012e64dc14" datatype="html">
-        <source>Digest</source>
+        <source> Digest </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">230,232</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6f38d53bf6192c4d83d21fc84478cf97c2bc81c2" datatype="html">
-        <source>All</source>
+        <source> All </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/history/history.component.html</context>
           <context context-type="linenumber">9,11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="e948a3edba1bbf1a743318826b81d146d9539477" datatype="html">
-        <source>Delegated</source>
+        <source> Delegated </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/history/history.component.html</context>
           <context context-type="linenumber">17,19</context>
@@ -213,7 +209,7 @@
         <note priority="1" from="description">plural delegated</note>
       </trans-unit>
       <trans-unit id="dd85d90fa412b898b4d9c806721d00fefffa3913" datatype="html">
-        <source>Undelegated</source>
+        <source> Undelegated </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/history/history.component.html</context>
           <context context-type="linenumber">25,27</context>
@@ -411,14 +407,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="a02979056908a4eb0f9103c92bc7e61ef06c0a2e" datatype="html">
-        <source>Name</source>
+        <source> Name </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">81,83</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8a07986996fd9946493818d5a4107edd67c84283" datatype="html">
-        <source>Cannot disable both IPv4 and IPv6</source>
+        <source> Cannot disable both IPv4 and IPv6 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">291,293</context>
@@ -571,21 +567,21 @@
         </context-group>
       </trans-unit>
       <trans-unit id="02de72ecb8a333fc270d81e7979f5f16ad51bd15" datatype="html">
-        <source>When a domain name is sent to Zonemaster for testing, Zonemaster investigates the state of the domain name from the top to the bottom of the DNS tree. This is usually done by examining DNS data from the root, &apos;.&apos;, to the Top-Level Domain (TLD) for that domain name, like &apos;.net&apos;, and then finally through the DNS servers that contain authoritative information about the specified domain name.</source>
+        <source> When a domain name is sent to Zonemaster for testing, Zonemaster investigates the state of the domain name from the top to the bottom of the DNS tree. This is usually done by examining DNS data from the root, &apos;.&apos;, to the Top-Level Domain (TLD) for that domain name, like &apos;.net&apos;, and then finally through the DNS servers that contain authoritative information about the specified domain name. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain/domain.component.html</context>
           <context context-type="linenumber">16,23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="037b7f3f1a44295df940a73648887fbaf2a11a5c" datatype="html">
-        <source>Algorithm</source>
+        <source> Algorithm </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">168,170</context>
         </context-group>
       </trans-unit>
       <trans-unit id="08d618cac3fb7211daea88b1f94346e12a66db93" datatype="html">
-        <source>More information on undelegated test:</source>
+        <source>More information on undelegated test: </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">68</context>
@@ -627,14 +623,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3307b69827f1ca8380285b6dce1949e7f9aa10ca" datatype="html">
-        <source>Run the test!</source>
+        <source> Run the test! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">51,53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3c97472170a2aa53a2b6d79f97cb5136aed906b2" datatype="html">
-        <source>The name of nameserver is required</source>
+        <source> The name of nameserver is required </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">97,99</context>
@@ -647,26 +643,13 @@
           <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="49749821446f62f524b812b051058ebe3cbeddd5" datatype="html">
-        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fa fa-code&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Source code</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
-          <context context-type="linenumber">15,16</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="49e6fcb4fa3c682d1b0eacffc7ff794b38afae77" datatype="html">
-        <source>Copyright © AFNIC and The Swedish Internet Foundation</source>
+      <trans-unit id="255d96131461b1ca39042ed189d413ca36787cd9" datatype="html">
+        <source> Copyright © AFNIC and The Swedish Internet Foundation </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
           <context context-type="linenumber">26,28</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="5e9d525fa39db80e64e7a93e75f99efaeae9d36f" datatype="html">
-        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fa fa-book&quot; aria-hidden=&quot;true&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Documentation</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
-          <context context-type="linenumber">20,21</context>
-        </context-group>
+        <note priority="1" from="meaning">footer</note>
       </trans-unit>
       <trans-unit id="5f39808253bf1249710d31122c137f6bee478e3f" datatype="html">
         <source>Delete DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
@@ -676,7 +659,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="619fbde2bffa8e734b01d735b2648c3f24118df9" datatype="html">
-        <source>Digest type</source>
+        <source> Digest type </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">203,205</context>
@@ -690,14 +673,14 @@
         </context-group>
       </trans-unit>
       <trans-unit id="6dd0700bd23a499a79881d0655ea184b2a0417f1" datatype="html">
-        <source>Address <x id="START_SMALL_TEXT" ctype="x-small" equiv-text="&lt;small&gt;"/>(optional)<x id="CLOSE_SMALL_TEXT" ctype="x-small" equiv-text="&lt;/small&gt;"/></source>
+        <source> Address <x id="START_SMALL_TEXT" ctype="x-small" equiv-text="&lt;small&gt;"/>(optional)<x id="CLOSE_SMALL_TEXT" ctype="x-small" equiv-text="&lt;/small&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">102,103</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7ee5780420cd764b9f266d8948e999f38288c0e1" datatype="html">
-        <source>The Domain Name System (DNS) is a database that associates domain names to Internet Protocol (IP) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet, like e-mail.</source>
+        <source> The Domain Name System (DNS) is a database that associates domain names to Internet Protocol (IP) addresses, the same way a phone book associates names to phone numbers. An IP address is a unique series of numbers that identifies every computer that is connected to the Internet. It is similar to the way every telephone has its own number in the telephone network. Such long series of numbers work fine for computers, but for people it is way more difficult to memorize. Thus, the DNS has been developed as an extra layer to map between names that we can remember better and IP addresses used by computers whenever we want to reach a specific website or use other services on the Internet, like e-mail. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/domain/domain.component.html</context>
           <context context-type="linenumber">35,45</context>
@@ -757,6 +740,722 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
           <context context-type="linenumber">144</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="07b9a5d3eebe133bf68b072466716a99dfe197f0" datatype="html">
+        <source> Does Zonemaster support IPv6? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">175,177</context>
+        </context-group>
+        <note priority="1" from="meaning">faq question</note>
+      </trans-unit>
+      <trans-unit id="0d5f5ad5239ea374caa37a5bb861af864bda09c9" datatype="html">
+        <source> Can I test the DS records before they are published? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">193,195</context>
+        </context-group>
+        <note priority="1" from="meaning">faq question</note>
+      </trans-unit>
+      <trans-unit id="0d7a9fc8b4f70faf02a5f9a36e40d0950a1c5ed3" datatype="html">
+        <source>Documentation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="meaning">footer</note>
+      </trans-unit>
+      <trans-unit id="16206a3e6364027059420a04cce2449775b2bc36" datatype="html">
+        <source> What makes Zonemaster different from other DNS zone validating software? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">59,61</context>
+        </context-group>
+        <note priority="1" from="meaning">faq question</note>
+      </trans-unit>
+      <trans-unit id="1e9841ac0f9d12956aac3e7f8185495ad8cbd339" datatype="html">
+        <source> To check a reverse zone with Zonemaster, one first needs to know what the reverse zone is, and enter it in the format it has in the DNS. A reserve zone is obtained by reversing an IP address and adding a suffix. IPv4 addresses use the suffix &quot;in-addr.arpa&quot; while IPv6 addresses use &quot;ip6.arpa&quot;. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">205,207</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="215930c9a2283b23e50fd03348284e08d6a01578" datatype="html">
+        <source> There are several possibilities. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">137,139</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="24d608a6918e84d7997379857ad6548615fdc86b" datatype="html">
+        <source>The ambition of the Zonemaster project is to develop and maintain an open source DNS validation tool, offering improved performance over existing tools and providing extensive documentation which could be re-used by similar projects in the future.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="2739f1ca22f363a5a4af17c6ca240348e86783ea" datatype="html">
+        <source> Yes. If DNSSEC is available for a domain name that is tested by Zonemaster, it will be checked automatically. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">187,189</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="27c27c772e16a7016eed0e1e9adb245dffb9fe9d" datatype="html">
+        <source> Zonemaster and privacy </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">118,120</context>
+        </context-group>
+        <note priority="1" from="meaning">faq response</note>
+      </trans-unit>
+      <trans-unit id="283ed49960e425770bbb1e573cd8d3231e9fe52d" datatype="html">
+        <source><x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster-cli&quot;&gt;"/>CLI<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>,a command-line interface to the Engine;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="2b34e4dbee55af5dd196b076dccd161ce8f08c77" datatype="html">
+        <source> Nothing beside the test domain, other test parameters and the result is stored in the database. Specifically we do not store any information that could link a test to the user who initiated it. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">121,123</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="2dfbdb274c9ce121f7c3fa2557219062b495f650" datatype="html">
+        <source> How can Zonemaster distinguish between what is right and wrong? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">82,84</context>
+        </context-group>
+        <note priority="1" from="meaning">faq question</note>
+      </trans-unit>
+      <trans-unit id="31278856630af7de09a12cecc71ea39ec21fbe2f" datatype="html">
+        <source>The components will help different types of users to check domain servers for configuration errors and generate a report that will assist in fixing the errors.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="3576312d1c167a67839eb824a4d1aa3b8250c0b3" datatype="html">
+        <source> The judgement of Zonemaster is primarily based on the DNS standards as defined in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://en.wikipedia.org/wiki/Request_for_Comments&quot;&gt;"/>RFCs<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. It also bases its judgement on DNS best practices, which can be more loosely defined. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">85,87</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="36a1a72ffdcb50a674cdfbcc747e4988f471f675" datatype="html">
+        <source> This can be quite useful if one is going to migrate one&apos;s domain from one registrar to another, for example, migrate zone &apos;example.com&apos; from the name server &apos;ns.example.com&apos; to the name server &apos;ns.example.org&apos;. In this scenario one could perform an undelegated domain test providing the zone (&apos;example.com&apos;) and the name server you are migrating to (&apos;ns.example.org&apos;) before you migrate your domain. When the results of the test doesn&apos;t show any errors or warnings one can be fairly certain that the domain&apos;s new location is working well. However there might still be other problems in the zone data itself that this test is unaware of. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">169,171</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="3836c7707c6672eba22476eb5cef56914afb4670" datatype="html">
+        <source> Zonemaster can be used to test <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#&quot;&gt;"/>DS records before their publication<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in the parent zone. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">72,74</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="38978ef4b993dd4b709f66bb79e8c0627c4efcaa" datatype="html">
+        <source>Using Zonemaster</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">131</context>
+        </context-group>
+        <note priority="1" from="meaning">faq section header</note>
+      </trans-unit>
+      <trans-unit id="38baed6d191a30dd7045aa0b24cb29318fbbd4d4" datatype="html">
+        <source><x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster-engine&quot;&gt;"/>GUI<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, a web interface to the Backend.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="43c80504e6b4e033fd823d017db579cb6af1612e" datatype="html">
+        <source> Zonemaster send multiple DNS queries to the name servers hosting the domain name being tested and also to the name servers hosting the parent zone of that domain name. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">105,107</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="48c56f1d1d8eb59257b26cf40fe9c2d5d412f46a" datatype="html">
+        <source> Who is behind Zonemaster? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">34,36</context>
+        </context-group>
+        <note priority="1" from="meaning">faq question</note>
+      </trans-unit>
+      <trans-unit id="4a794ce05db8322357a10bb732f93d73707b392e" datatype="html">
+        <source>Users of the second category should contact their DNS operator in case there are errors or warnings for any test of their domain name.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="4c618532eb893f2ce956f42d0518b4f4482b15b4" datatype="html">
+        <source>Your domain name is not reachable from public Internet.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="4d3229eeca3aa9257b4c8f62afad7b397eaee5fe" datatype="html">
+        <source>Frequently asked questions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="meaning">faq header</note>
+      </trans-unit>
+      <trans-unit id="4dd2dbf5b7050cd0fb0b6ab3702c38b44689e366" datatype="html">
+        <source>Your domain name is not yet delegated.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="528daf319e348c9d4dd204a36dc2d59fcbe57c95" datatype="html">
+        <source> You can also get further insight about each test from the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications&quot;&gt;"/>Test Case Specification documents<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">156,158</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="53a4fb3673a539a03274d1fc1106988766ffc0c3" datatype="html">
+        <source> This open source version of Zonemaster was built using modular code which basically means that you can integrate parts of it in your own systems, if you wish. For example, it is quite rare that you would want a complete program just to check for redelegations. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">75,77</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="5477d254a6d4820622aac5b2f0193e5fbf071742" datatype="html">
+        <source>Zonemaster can only test what is called a DNS zone, for example &apos;zonemaster.net&apos;, and not host names, like &apos;www.zonemaster.net&apos;.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="54cee1be94c7b7f2b359548195a3e77b4b94b0d5" datatype="html">
+        <source> Queries sent can be shown using the &apos;DEBUG&apos; level option. Fair warning, the output from the CLI can be quite heavy. For more information see <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md&quot;&gt;"/>CLI usage documentation<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">111,113</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="56a21bdcd76a6ac5dd60c17f5170b999b63e0ac0" datatype="html">
+        <source>Source code</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="meaning">footer</note>
+      </trans-unit>
+      <trans-unit id="5a37078f61575bffc58f356b353e96853bad78ad" datatype="html">
+        <source> How can I test a &quot;reverse&quot; zone with Zonemaster? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">202,204</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="5df60c2d115531927a3694d1f03a62a2d48bf7d5" datatype="html">
+        <source> Find answers to common questions about Zonemaster here. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">3,5</context>
+        </context-group>
+        <note priority="1" from="meaning">faq header</note>
+      </trans-unit>
+      <trans-unit id="5e22c8ce207a117450e86fbb6ca984a7849092cc" datatype="html">
+        <source>Zonemaster consists of several modules or components:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="63dd11f4c26480c89edd8c252396f53e963e76ab" datatype="html">
+        <source> An undelegated domain test is a test performed on a domain name that may, or may not, be fully published in the DNS. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">166,168</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="63eb3f75f62bd6f370fde794f9bf78fd05abf09c" datatype="html">
+        <source> How can Zonemaster help me? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">44,46</context>
+        </context-group>
+        <note priority="1" from="meaning">faq question</note>
+      </trans-unit>
+      <trans-unit id="6756a6ad040a820c54631eefddfe3ccb92049ca9" datatype="html">
+        <source>General information</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="meaning">faq section header</note>
+      </trans-unit>
+      <trans-unit id="6b05252e6314cbe28817bca7ff54f0158d2e0e76" datatype="html">
+        <source> Zonemaster returns &quot;Error&quot; or &quot;Warning&quot; for my domain name. What does it mean? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">150,152</context>
+        </context-group>
+        <note priority="1" from="meaning">faq response</note>
+      </trans-unit>
+      <trans-unit id="6d8d061c6b394ceb40fefa5b56b897cc3a66a3dd" datatype="html">
+        <source><x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster-backend&quot;&gt;"/>Bakend<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, a server that allows you to run Zonemaster tests and save results using a JSON-RPC API and a database;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="79eb0dfaada58f50d4718846f3a57baee7ff6c9e" datatype="html">
+        <source> What is Zonemaster? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+        <note priority="1" from="meaning">faq question</note>
+      </trans-unit>
+      <trans-unit id="7a5d7ddadfbd80a4f75047413c7ff7e339e0845e" datatype="html">
+        <source>DNS operators, experts and beginners alike, who want to check their DNS configuration;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="975f845671a01d1dad34cabd63cbf2f907ba073d" datatype="html">
+        <source> All Zonemaster tests are defined in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications&quot;&gt;"/>Test Case Specification documents<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in which the references to the standard documents for that test case are found. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">89,91</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="990eafebba6d6aa5a9d04f33005ee4bf01e83a20" datatype="html">
+        <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster performs many tests<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/domain/domain.component.html</context>
+          <context context-type="linenumber">25,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a22f6820cfb367cd116755df289fd44c24aed1e8" datatype="html">
+        <source> The web interface of Zonemaster does not show the queries that were sent, only the CLI interface can. If you want to see such queries, you will have to locally install a minimally working Zonemaster instance with both the Engine and CLI components. See the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-cli.md&quot;&gt;"/>CLI installation document<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> for more information, or if you prefer a <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md#Invoking-the-command-line-tool-using-Docker&quot;&gt;"/>Docker image<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> is also available. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">108,110</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="a242c4db73325ae9e5b4943dbbe31b32d9b02a90" datatype="html">
+        <source> Sometimes there are different interpretations of the standards or opinions on what is best practice, and the Zonemaster team is always open to input. If you think we have made a mistake in our judgement please do not hesitate to send us an email at <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;mailto:zonemaster-users@lists.iis.se&quot;&gt;"/>zonemaster-users@lists.iis.se<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (moderated mailing list) with a link to your test result and an explanation as to why you think it shows something that you consider incorrect. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">96,98</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="a34405efc2401645d78d2056bf2902628256c05c" datatype="html">
+        <source> Does Zonemaster verify DNSSEC? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">184,186</context>
+        </context-group>
+        <note priority="1" from="meaning">faq question</note>
+      </trans-unit>
+      <trans-unit id="a866de81fd55cfe8ac86202ed37286c630729549" datatype="html">
+        <source>users who want to know whether the domain name they own or use have any issues or not.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="a86fc365726bf8a894cd98b0815926390763b6b8" datatype="html">
+        <source>You have misspelled your domain name.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="aaf16bc892257c68570faaece1ae7c328d4ea574" datatype="html">
+        <source> Give your domain name a complete checkup! <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster helps you assess how your domain name is doing.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/domain/domain.component.html</context>
+          <context context-type="linenumber">12,14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ac2a70e1bd5b9dc88fa250bffd4c6345ad3fe51b" datatype="html">
+        <source> What kind of DNS queries does Zonemaster generate? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">102,104</context>
+        </context-group>
+        <note priority="1" from="meaning">faq question</note>
+      </trans-unit>
+      <trans-unit id="ae74d9b4696e9a25efd0a5b908c38daf3dd0c2e8" datatype="html">
+        <source> However, since <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://zonemaster.net&quot;&gt;"/>zonemaster.net<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, like other public instances, is open to everyone, it is possible for anyone to test your domain and view its history of tests. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">124,126</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="b064f0b1b815245f4f35dca1035af2b8021d15b0" datatype="html">
+        <source> Zonemaster saves all history from earlier tests based on the tested domain name, which means you can go back to a test you did some time ago and compare it to the test you ran just a moment ago. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">63,65</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="c07982f6b0ef2f46082b87d3372e42f0cf048795" datatype="html">
+        <source> You still don&apos;t find the information you are looking for?<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/> You can contact the Zonemaster project team using the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://lists.iis.se/postorius/lists/zonemaster-users.lists.iis.se&quot;&gt;"/>user mailing list<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/issues&quot;&gt;"/>the issue tracker<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> or <x id="START_LINK_2" equiv-text="&lt;a href=&quot;mailto:zonemaster@zonemaster.net.&quot;&gt;"/>the contact e-mail address<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">6,9</context>
+        </context-group>
+        <note priority="1" from="meaning">faq header</note>
+      </trans-unit>
+      <trans-unit id="c858a4fe8cd97d68a408f4a1d7e869a519ef59ef" datatype="html">
+        <source><x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster-engine&quot;&gt;"/>Engine<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, a test framework that supports all functionality to perform DNS tests;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="cb65326e91f15bf0a40f53282cbe7959228209df" datatype="html">
+        <source> It depends on which test failed for your domain name. Each test is accompanied with one or several messages describing the issues found. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">153,155</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="cf2e640e17d8ce2e8a8c820cc6cfa70ad1b6b6d2" datatype="html">
+        <source>Zonemaster is a software package that validates the quality of a DNS delegation.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="cf5c99d7e5527bd31742c827050a9e5bfcf595a5" datatype="html">
+        <source>for IPv6 prefix &apos;2001:db8::/32&apos;: 8.b.d.0.1.0.0.2.ip6.arpa.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">211</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="d59f734d0c0cf1f2c16d8dca91f06c9556c0e807" datatype="html">
+        <source>for IPv4 prefix &apos;198.51.100.0/24&apos;: 100.51.198.in-addr.arpa;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="d9f9354ad0f100da215e272658d8479bf91b86fd" datatype="html">
+        <source>There is a 10 minutes protection between consecutive tests for a given domain name, with same test parameters. Running a test within that window will instead show the last available test for that domain name, and parameters.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="dad444f90d5cf9f7b09370b18acaf2963c4cae78" datatype="html">
+        <source>Example:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">208</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="df5cb66ea2b0483daea741a13df04e84a1620b31" datatype="html">
+        <source> Yes. By default Zonemaster will query name servers both over IPv4 and IPv6, unless explicitly configured otherwise. Such configuration is accessible through the &quot;Options&quot; button. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">178,180</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="e03bb3da306b8e849d49732f94896249e256fe46" datatype="html">
+        <source> Zonemaster can be used to test <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#&quot;&gt;"/>undelegated domain names<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">69,71</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="e1935c4d591b115d82ea9f237d48f79ef6081687" datatype="html">
+        <source> Zonemaster is a joint project between <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://www.afnic.fr/en/&quot;&gt;"/>AFNIC<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, the registry of &apos;.fr&apos; TLD and several other TLDs like &apos;.re&apos;, &apos;.pm&apos;, &apos;.tf&apos;, &apos;.wf&apos;, &apos;.yt&apos; and &apos;.paris&apos;, and <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://internetstiftelsen.se/en/&quot;&gt;"/>The Swedish Internet Foundation<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, the registry of &apos;.se&apos; and &apos;.nu&apos; TLDs. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">38,40</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="e868a9c50d6c60b6e152912c7d3b46f9dd49a6a0" datatype="html">
+        <source> How come my domain name cannot be tested? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">134,136</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="ec4620ea277220f0041d335136fe354f61aa728f" datatype="html">
+        <source>The Zonemaster tool could help different kind of users:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="f5e3747bce8a0dd4a870fc09e6610c14cf701cf8" datatype="html">
+        <source> The descriptions of message levels such as notice, warning and error are found in Severity Level Definitions. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">92,94</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="f8e73f393167c7504c4d347c67a73cc8d3ef4bac" datatype="html">
+        <source> All tests that Zonemaster runs are defined in the Test Case Specification documents that can be found in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications&quot;&gt;"/>Test Case Specification documents<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">66,67</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="f990446516fb1d7f189319fb5cb8f957fe82624d" datatype="html">
+        <source> What is an undelegated domain test? </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">163,165</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="fdadeea89c4fa91e1d9da2e0a71948a04bac6f88" datatype="html">
+        <source> Yes. Use the &quot;Options&quot; button and there add the Delegation Signer (DS) records to be tested. Zonemaster will then use those in the same way as if they were already added in the parent zone. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">196,198</context>
+        </context-group>
+        <note priority="1" from="meaning">faq answer</note>
+      </trans-unit>
+      <trans-unit id="ngb.alert.close" datatype="html">
+        <source>Close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/alert/alert.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.next" datatype="html">
+        <source>Next</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/carousel/carousel.ts</context>
+          <context context-type="linenumber">200</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.previous" datatype="html">
+        <source>Previous</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/carousel/carousel.ts</context>
+          <context context-type="linenumber">178,181</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.carousel.slide-number" datatype="html">
+        <source> Slide <x id="INTERPOLATION" equiv-text="** * If `tru"/> of <x id="INTERPOLATION_1" equiv-text="with carousel"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/carousel/carousel.ts</context>
+          <context context-type="linenumber">150,157</context>
+        </context-group>
+        <note priority="1" from="description">Currently selected slide number read by screen reader</note>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.next-month" datatype="html">
+        <source>Next month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/datepicker/datepicker-navigation.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/datepicker/datepicker-navigation.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.previous-month" datatype="html">
+        <source>Previous month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/datepicker/datepicker-navigation.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/datepicker/datepicker-navigation.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.select-month" datatype="html">
+        <source>Select month</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/datepicker/datepicker-navigation-select.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/datepicker/datepicker-navigation-select.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.datepicker.select-year" datatype="html">
+        <source>Select year</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/datepicker/datepicker-navigation-select.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/datepicker/datepicker-navigation-select.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.AM" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">295</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-hours" datatype="html">
+        <source>Decrement hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">229,230</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-minutes" datatype="html">
+        <source>Decrement minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">272,274</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.decrement-seconds" datatype="html">
+        <source>Decrement seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">295</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.HH" datatype="html">
+        <source>HH</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.hours" datatype="html">
+        <source>Hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">155,158</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-hours" datatype="html">
+        <source>Increment hours</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">206,208</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-minutes" datatype="html">
+        <source>Increment minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">250,254</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.increment-seconds" datatype="html">
+        <source>Increment seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">295</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.minutes" datatype="html">
+        <source>Minutes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">190</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.MM" datatype="html">
+        <source>MM</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">178</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.PM" datatype="html">
+        <source>
+          <x id="INTERPOLATION"/>
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">295</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.seconds" datatype="html">
+        <source>Seconds</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">295</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.timepicker.SS" datatype="html">
+        <source>SS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/timepicker/timepicker.ts</context>
+          <context context-type="linenumber">289</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ngb.toast.close-aria" datatype="html">
+        <source>Close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">node_modules/src/toast/toast.ts</context>
+          <context context-type="linenumber">108</context>
         </context-group>
       </trans-unit>
     </body>
