@@ -264,7 +264,7 @@
                 <label i18n="form label" class="form-check-label" for="disable_protocol_ipv6">Disable IPv6</label>
               </div>
             </div>
-            <div id="protocol-error" i18n class="invalid-feedback" *ngIf="form.errors?.noProtocol">
+            <div id="protocol-error" class="invalid-feedback" *ngIf="form.errors?.noProtocol">
               <ng-container i18n="form error">Cannot disable both IPv4 and IPv6</ng-container>
             </div>
           </fieldset>
