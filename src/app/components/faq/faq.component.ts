@@ -13,7 +13,8 @@ import { first } from 'rxjs/operators';
 })
 export class FaqComponent implements OnInit {
 
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title, private route: ActivatedRoute ) {
+
   }
 
   ngOnInit() {

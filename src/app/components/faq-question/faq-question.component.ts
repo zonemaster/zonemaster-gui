@@ -1,6 +1,7 @@
-import { AfterViewChecked, Component, Input, OnChanges, ViewChild } from '@angular/core';
+import { Component, Input, AfterViewInit, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-faq-question',
@@ -8,28 +9,39 @@ import { Router } from '@angular/router';
   styleUrls: ['./faq-question.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class FaqQuestionComponent implements OnChanges, AfterViewChecked {
+export class FaqQuestionComponent implements AfterViewInit, OnInit, OnDestroy {
   @Input('questionId') questionId;
   @ViewChild('entry') entryElement;
   public isOpen: boolean = false;
   private fragment: string = null;
+  private fragmentSub: Subscription;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.fragment = this.router.getCurrentNavigation().extractedUrl.fragment;
+    this.fragmentSub = route.fragment.subscribe(this.checkQuestionState.bind(this));
   }
 
-  ngOnChanges() {
-    if (!this.isOpen && this.fragment !== null) {
-      this.isOpen = this.fragment === this.questionId;
-    }
+  ngOnInit() {
+    this.checkQuestionState(this.fragment);
   }
 
-  ngAfterViewChecked() {
-    if (this.isOpen && this.fragment === this.questionId) {
+  ngOnDestroy() {
+    this.fragmentSub.unsubscribe();
+  }
+
+  ngAfterViewInit(){
+    if (this.isOpen) {
       this.entryElement.nativeElement.scrollIntoView();
     }
+  }
 
-    this.fragment = null;
+  private checkQuestionState(newFragment) {
+    if (newFragment === this.questionId) {
+      this.isOpen = true;
+      if (this.entryElement) {
+        this.entryElement.nativeElement.scrollIntoView();
+      }
+    }
   }
 
   public toggleOpenEntry() {
