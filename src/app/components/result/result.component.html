@@ -1,7 +1,7 @@
 <app-header>
-  <h1 i18n>Result</h1>
+  <h1 i18n="result header">Result</h1>
   <app-run-test *ngIf="displayForm">
-    <h2 i18n>Test another domain</h2>
+    <h2 i18n="result subheader">Test another domain</h2>
   </app-run-test>
 </app-header>
 
@@ -16,14 +16,14 @@
           <div>
             <button type="button" class="btn btn-secondary history" (click)="getHistory()" tabindex="0">
               <i class="fa fa-history" aria-hidden="true"></i>
-              <span i18n>History</span>
+              <span i18n="result button">History</span>
             </button>
           </div>
 
           <div ngbDropdown placement="bottom-end" class="d-inline-block">
             <button type="button" class="btn btn-secondary export" id="exportDropdownResult" ngbDropdownToggle>
               <i class="fa fa-cloud-download" aria-hidden="true"></i>
-              <span i18n>Export</span>
+              <span i18n="result button">Export</span>
             </button>
             <div ngbDropdownMenu aria-labelledby="exportDropdownResult">
               <div class="dropdown-body">
@@ -38,14 +38,14 @@
           <div ngbDropdown placement="bottom-end" class="d-inline-block">
             <button type="button" class="btn btn-secondary share" id="shareDropdownResult" ngbDropdownToggle>
               <i class="fa fa-share" aria-hidden="true"></i>
-              <span i18n>Share</span>
+              <span i18n="form button">Share</span>
             </button>
             <div ngbDropdownMenu aria-labelledby="shareDropdownResult">
               <div class="dropdown-body">
-                <input i18n-aria-label aria-label="Link to test" readonly="" type="text" id="link_location" name="link_location" class="form-inline form-control" value="{{test.location}}">
-                <button class="btn btn-clipboard" (click)="copyLinkToClipboard(test.location)" title="Copy link to clipboard" i18n-title>
+                <input i18n-aria-label="result label" aria-label="Link to test" readonly="" type="text" id="link_location" name="link_location" class="form-inline form-control" value="{{test.location}}">
+                <button class="btn btn-clipboard" (click)="copyLinkToClipboard(test.location)" title="Copy link to clipboard" i18n-title="result button">
                     <i class="fa fa-clipboard" aria-hidden="true"></i>
-                    <span i18n class="sr-only">Copy link to clipboard</span>
+                    <span i18n="result button" class="sr-only">Copy link to clipboard</span>
                 </button>
               </div>
             </div>
@@ -62,7 +62,7 @@
 
   <div class="filters">
     <fieldset class="severity-levels" aria-details="severity-level-help">
-      <legend i18n>Filter severity levels</legend>
+      <legend i18n="resut filter section">Filter severity levels</legend>
 
 
       <div class="severity-level-inputs">
@@ -115,32 +115,32 @@
       <summary>
         <i class="fa fa-chevron-right control" aria-hidden="true"></i>
         <i class="fa fa-info-circle me-1" aria-hidden="true"></i>
-        What is the meaning of the severity levels?
+        <ng-container i18n="result info">What is the meaning of the severity levels?</ng-container>
       </summary>
       <dl>
-          <dt>Info</dt>
-          <dd>
+          <dt i18n="result security level">Info</dt>
+          <dd i18n="result security level description">
             The message is something that may be of interest to the zone's administrator
             but that definitely does not indicate a problem.
           </dd>
-          <dt>Notice</dt>
-          <dd>
+          <dt i18n="result security level">Notice</dt>
+          <dd i18n="result security level description">
             The message means something that should be known by the zone's administrator
             but that need not necessarily be a problem at all.
           </dd>
-          <dt>Warning</dt>
-          <dd>
+          <dt i18n="result security level">Warning</dt>
+          <dd i18n="result security level description">
             The message means something that will under some circumstances be a problem,
             but that is unlikely to be noticed by a casual user.
           </dd>
-          <dt>Error</dt>
-          <dd>
+          <dt i18n="result security level">Error</dt>
+          <dd i18n="result security level description">
             The message means a problem that is very likely (or possibly certain) to
             negatively affect the function of the zone being tested, but not so
             severe that the entire zone becomes unresolvable.
           </dd>
-          <dt>Critical</dt>
-          <dd>
+          <dt i18n="result security level">Critical</dt>
+          <dd i18n="result security level description">
             The message means a very serious error.
           </dd>
       </dl>
@@ -148,7 +148,7 @@
 
     <div class="row">
       <div class="col">
-        <label class="form-label" for="result-search">Search text in messages</label>
+        <label class="form-label" for="result-search" i18n="result filter messages">Search text in messages</label>
         <div class="input-group search">
           <input type="text" [(ngModel)]="resultFilter.search" (ngModelChange)='filterResults()' class="form-control" id="result-search">
           <div class="input-group-text">
@@ -157,8 +157,8 @@
         </div>
       </div>
       <div class="col-auto result-control-buttons">
-        <button i18n class="btn btn-secondary"(click)="expandAll()">Expand all</button>
-        <button i18n class="btn btn-secondary" (click)="collapseAll()">Collapse all</button>
+        <button i18n="result filter messages" class="btn btn-secondary"(click)="expandAll()">Expand all</button>
+        <button i18n="result filter messages" class="btn btn-secondary" (click)="collapseAll()">Collapse all</button>
       </div>
     </div>
   </div>
@@ -176,8 +176,7 @@
           >
             <i class="fa fa-caret-right caret" aria-hidden="true"></i>
             <span class="module-name">
-              {{module.name}}
-              <span class="sr-only">:</span>
+              {{module.name}}<span class="sr-only" i18n="result colon">:</span>
             </span>
             <span *ngFor="let count of testCasesCountByModule[module.name]; let last = last;" class="badge badge-pill rounded-pill {{ count.name }}" title="{{ count.name | titlecase }} ({{ count.value }})">
               <span aria-hidden="true">
@@ -222,8 +221,8 @@
 
 <ng-template #historyModal let-c="close" let-d="dismiss">
   <header class="modal-header">
-    <h4 class="modal-title" i18n>History</h4>
-    <button type="button" class="btn-close" i18n-aria-label aria-label="Close" i18n-title title="Close" (click)="d('Cross click')"></button>
+    <h4 class="modal-title" i18n="result history modal">History</h4>
+    <button type="button" class="btn-close" i18n-aria-label="result history modal" aria-label="Close" i18n-title="result history modal" title="Close" (click)="d('Cross click')"></button>
   </header>
   <div class="modal-body">
     <app-history [history]="history"></app-history>

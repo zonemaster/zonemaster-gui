@@ -12,17 +12,17 @@
       <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navBar">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/run-test" routerLinkActive="active" i18n>Run a test</a>
+            <a class="nav-link" routerLink="/run-test" routerLinkActive="active" i18n="nav link">Run a test</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/faq" routerLinkActive="active" i18n="@@zm.faq.title">FAQ</a>
+            <a class="nav-link" routerLink="/faq" routerLinkActive="active" i18n="nav link|@@zm.faq.title">FAQ</a>
           </li>
         </ul>
 
-        <div class="lang" i18n-title title="Change language">
+        <div class="lang" i18n-title="nav label" title="Change language">
           <label for="languageSelection" class="icon">
               <i class="fa fa-language" aria-hidden="true"></i>
-              <span class="sr-only" i18n>Change language</span>
+              <span class="sr-only" i18n="nav label">Change language</span>
           </label>
           <div class="d-block">
             <select name="lang" [(ngModel)]="lang" (change)="setLanguage(lang)" class="form-select" id="languageSelection">
@@ -36,6 +36,6 @@
     </div>
   </nav>
 </header>
-<button (click)="backToTop()" class="btn btn-primary btn-lg" [ngClass]="{'d-none': !activeBackToTop, 'back-to-top': activeBackToTop}" role="button" i18n-title title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
+<button (click)="backToTop()" class="btn btn-primary btn-lg" [ngClass]="{'d-none': !activeBackToTop, 'back-to-top': activeBackToTop}" role="button" i18n-title="nav button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">
   <i class="fa fa-arrow-up" aria-hidden="true"></i>
 </button>

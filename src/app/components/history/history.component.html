@@ -2,29 +2,23 @@
   <div class="btn-group mb-3">
     <div class="btn-group btn-group-toggle" role="group">
       <button
-        i18n
+        i18n="history button|"
         type="button"
         class="btn btn-secondary"
         [class.active]="filter === 'all'"
-        (click)="filterHistory('all')">
-        All
-      </button>
+        (click)="filterHistory('all')">All</button>
       <button
-        i18n="plural delegated"
+        i18n="history button|plural delegated"
         type="button"
         class="btn btn-secondary"
         [class.active]="filter === 'delegated'"
-        (click)="filterHistory('delegated')">
-        Delegated
-      </button>
+        (click)="filterHistory('delegated')">Delegated</button>
       <button
-        i18n="plural undelegated"
+        i18n="history button|plural undelegated"
         type="button"
         class="btn btn-secondary"
         [class.active]="filter === 'undelegated'"
-        (click)="filterHistory('undelegated')">
-        Undelegated
-      </button>
+        (click)="filterHistory('undelegated')">Undelegated</button>
     </div>
   </div>
 
@@ -33,7 +27,7 @@
       <a routerLink="/result/{{item.id}}">
         {{ item.local_creation_time | date:'yyyy-MM-dd HH:mm zzzz' }}
       </a>
-      <small i18n="singular undelegated" *ngIf="item.undelegated" class="text-muted">Undelegated</small>
+      <small i18n="history info|singular undelegated" *ngIf="item.undelegated" class="text-muted">Undelegated</small>
     </li>
   </ul>
 
@@ -50,5 +44,5 @@
 </div>
 
 <ng-template #noHistory>
-  <p i18n class="text-dark">Results from previous tests are not available.</p>
+  <p i18n="history info" class="text-dark">Results from previous tests are not available.</p>
 </ng-template>
