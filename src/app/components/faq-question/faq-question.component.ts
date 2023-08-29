@@ -15,6 +15,7 @@ export class FaqQuestionComponent implements AfterViewInit, OnInit, OnDestroy {
   public isOpen: boolean = false;
   private fragment: string = null;
   private fragmentSub: Subscription;
+  private clicked: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute) {
     this.fragment = this.router.getCurrentNavigation().extractedUrl.fragment;
@@ -36,7 +37,9 @@ export class FaqQuestionComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   private checkQuestionState(newFragment) {
-    if (newFragment === this.questionId) {
+    if (this.clicked) {
+      this.clicked = false;
+    } else if (newFragment === this.questionId) {
       this.isOpen = true;
       if (this.entryElement) {
         this.entryElement.nativeElement.scrollIntoView();
@@ -52,6 +55,7 @@ export class FaqQuestionComponent implements AfterViewInit, OnInit, OnDestroy {
     }
 
     this.isOpen = !this.isOpen;
+    this.clicked = true;
   }
 
 }
