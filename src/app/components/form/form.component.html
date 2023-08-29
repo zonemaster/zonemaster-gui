@@ -1,6 +1,6 @@
 <form class="domain mb-2" (ngSubmit)="submitForm();" [formGroup]="form">
   <div class="domain-form-container">
-    <label i18n="form label" for="input-domain-form">My domain name</label>
+    <label i18n="form label" for="input-domain-form">Domain name</label>
     <div class="domain-input-group">
       <div class="domain-input-container">
         <input type="text"
@@ -9,7 +9,6 @@
             id="input-domain-form"
             name="input-domain-form"
             formControlName="domain"
-            placeholder="example.org"
             aria-describedby="domain-error-required domain-error-server"
             required>
         <div id="domain-error-required" class="invalid-feedback" *ngIf="domain.errors?.required" i18n="form error">Domain name required</div>
@@ -42,8 +41,7 @@
         </div>
       </div>
       <div>
-        <button i18n="form button" class="launch btn-primary btn btn-lg" type="submit" [disabled]="form.disabled">Run the test!
-        </button>
+        <button i18n="form button" class="launch btn-primary btn btn-lg" type="submit" [disabled]="form.disabled">Run the test</button>
       </div>
     </div>
   </div>
@@ -79,7 +77,6 @@
                   [attr.aria-describedby]="'ns-' + i + '-error-required ns-' + i + '-error-server'"
                   formControlName="ns"
                   class="form-control"
-                  placeholder="ns{{ i + 1}}.example.org"
                   [class.is-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)"
                 >
                 <div id="ns-{{i}}-error-server" class="invalid-feedback" *ngIf="ns.controls.ns.errors?.serverError" >
@@ -91,7 +88,7 @@
               </div>
 
               <label id="ns-{{i}}-address-label" for="ns-{{i}}-address-input">
-                <ng-container i18n="form label">Address</ng-container> <small i18n="form info">(optional)</small>
+                <ng-container i18n="form label">Address</ng-container>&nbsp;<small i18n="form info">(optional)</small>
               </label>
               <div>
                 <input
@@ -100,7 +97,6 @@
                   [attr.aria-describedby]="'ip-' + i + '-error-server'"
                   formControlName="ip"
                   class="form-control"
-                  placeholder="2001:db8::1312:{{ i + 1}}"
                   [class.is-invalid]="ns.controls.ip.invalid"
                 >
                 <div id="ip-{{i}}-error-server" class="invalid-feedback" *ngIf="ns.controls.ip.errors?.serverError" >
@@ -122,7 +118,7 @@
 
         </div>
         <div class="col-auto">
-          <button type="button" class="btn btn-secondary" (click)="fetchDataFromParent('NS')" i18n="form button" [disabled]="form.disabled">Fetch NS from parent zone</button>
+          <button type="button" class="btn btn-secondary" (click)="fetchDataFromParent('NS')" i18n="form button" [disabled]="form.disabled">Fetch nameservers from parent zone</button>
         </div>
       </fieldset>
 
@@ -290,7 +286,7 @@
 
       <div class="row">
         <div class="col-auto">
-          <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()" i18n="form button" [disabled]="form.disabled">Reset form</button>
+          <button type="button" class="btn btn-danger resetFullForm" (click)="resetFullForm()" i18n="form button" [disabled]="form.disabled">Reset the form</button>
         </div>
       </div>
 
