@@ -5,46 +5,52 @@
       <trans-unit datatype="html" id="6c6f25c47da62ec597c6057a36ddfc3209811ec5">
         <source>Algorithm</source>
         <target state="translated">Algoritme</target>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
-      <trans-unit datatype="html" id="c6e800ae7bc17f6c913bb85159017b5b8d31ce1d">
-        <source> Algorithm required </source>
+      <trans-unit datatype="html" id="60f65ef88b3b7d4e4fdd6a9637314c0ea28efce7">
+        <source>Algorithm required</source>
         <target state="new">Algoritme påkrævet</target>
+        <note priority="1" from="description">form error</note>
       </trans-unit>
-      <trans-unit datatype="html" id="6f38d53bf6192c4d83d21fc84478cf97c2bc81c2">
-        <source> All </source>
+      <trans-unit datatype="html" id="455d418945d38adcf1be938b7611936d9eaae897">
+        <source>All</source>
         <target state="new">Alle</target>
+        <note priority="1" from="meaning">history button</note>
       </trans-unit>
       <trans-unit datatype="html" id="ae50a7291ac86efaefeefaaf53afff3b8b8c088b">
         <source>Digest</source>
         <target state="translated">Digest</target>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
-      <trans-unit datatype="html" id="41a92d5e8a530001a958246408f411ccabfe3595">
-        <source> Digest required </source>
+      <trans-unit datatype="html" id="273d8126a0879b8f5f549e8f5afb10d64763dc69">
+        <source>Digest required</source>
         <target state="new">Digest påkrævet</target>
+        <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit datatype="html" id="3530c857805fc74fe628dcc56456fa90ff9128d1">
         <source>Digest type</source>
         <target state="translated">Digest type</target>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
-      <trans-unit datatype="html" id="6decc246adf8fa54408bb99010015ff3fa27f059">
-        <source> Digest type required </source>
+      <trans-unit datatype="html" id="3170ad5c24c751337fadf616001812682533f6bf">
+        <source>Digest type required</source>
         <target state="new">Digest type påkrævet</target>
+        <note priority="1" from="description">form error</note>
       </trans-unit>
-      <trans-unit datatype="html" id="ebe557b077774e9b3995e27b01e4097a04e16366">
-        <source> Disable IPv4 </source>
+      <trans-unit datatype="html" id="1a59ce56e34ee3e09cdb464315fd929a35e4a579">
+        <source>Disable IPv4</source>
         <target state="new">Deaktiver IPv4</target>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
-      <trans-unit datatype="html" id="6edbf2a9aa6e33cbd849ac2da981ef106516ba88">
-        <source> Disable IPv6 </source>
+      <trans-unit datatype="html" id="57f5db833c6a316988ee4a737cfb06cc826b7f33">
+        <source>Disable IPv6</source>
         <target state="new">Deaktiver IPv6</target>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
-      <trans-unit datatype="html" id="a80323a72217e6e51ab903d5109e12c69ed70b79">
-        <source>Domain name</source>
-        <target state="translated">Domænenavn</target>
-      </trans-unit>
-      <trans-unit datatype="html" id="062fa49b0aa933a36de705e468e3d511c899b7da">
-        <source> Domain name required </source>
+      <trans-unit datatype="html" id="a6973efdb8db02137e8882b2e0761e8d0ce0f8bb">
+        <source>Domain name required</source>
         <target state="new">Domænenavn påkrævet</target>
+        <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit datatype="html" id="4715502322841966813">
         <source>Error during parent data fetching.</source>
@@ -53,6 +59,7 @@
       <trans-unit datatype="html" id="5f19586aba912ec6eb123ec5ab609a3bcc073066">
         <source>Export</source>
         <target state="translated">Eksporter</target>
+        <note priority="1" from="description">result button</note>
       </trans-unit>
       <trans-unit datatype="html" id="zm.faq.title">
         <source>FAQ</source>
@@ -61,26 +68,31 @@
       <trans-unit datatype="html" id="ca33ee6b36abb05c3132faae24aa707bf4393377">
         <source>Fetch NS from parent zone</source>
         <target state="translated">Hent NS fra forældrezonen</target>
+        <note priority="1" from="description">form button</note>
       </trans-unit>
       <trans-unit datatype="html" id="efac3af0b32e953279c25b6519cae256811e0fe8">
         <source>History</source>
         <target state="translated">Historik</target>
+        <note priority="1" from="description">result button</note>
       </trans-unit>
       <trans-unit datatype="html" id="2360715491728178990">
         <source>History information request is in progress.</source>
         <target state="translated">Hitorisk information er undervejs.</target>
       </trans-unit>
-      <trans-unit datatype="html" id="3594d5d645662a4450900869925651bd0ad9cb5f">
-        <source> Keytag </source>
+      <trans-unit datatype="html" id="81393046c8150147e2cd2312bd175040897777ba">
+        <source>Keytag</source>
         <target state="new">Key tag</target>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
-      <trans-unit datatype="html" id="d6c4b18a2e3878c97bc5bc6bef7fcfb0d1b85715">
-        <source> Keytag required </source>
+      <trans-unit datatype="html" id="75b9bd26c857ae07ee476407b62139afc742ee0d">
+        <source>Keytag required</source>
         <target state="new">Keytag påkrævet</target>
+        <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit datatype="html" id="ace1918547e0a85b94282b0fa6ba429bf82e704f">
         <source>Nameservers</source>
         <target state="translated">Navneservere</target>
+        <note priority="1" from="description">form section</note>
       </trans-unit>
       <trans-unit datatype="html" id="8462321971972035102">
         <source>No data for this test.</source>
@@ -89,6 +101,7 @@
       <trans-unit datatype="html" id="24813b8a3e45f0b57136c18d003027262cfe2d1f">
         <source>Options</source>
         <target state="translated">Valgmuligheder</target>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
       <trans-unit datatype="html" id="03354b2489337882c5a4fd033fec9b9f4b8d109f">
         <source>Page Not Found</source>
@@ -105,26 +118,26 @@
       <trans-unit datatype="html" id="994363f08f9fbfa3b3994ff7b35c6904fdff18d8">
         <source>Profile</source>
         <target state="translated">Profil</target>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
       <trans-unit datatype="html" id="918f28cae009f8e67af8ca86f26b47ed2ce0ae5e">
         <source>Program versions</source>
         <target state="translated">Programversioner</target>
       </trans-unit>
-      <trans-unit datatype="html" id="0018d160c0efe19593cfcdaf555d82012e64dc14">
-        <source> Digest </source>
-        <target state="new">Nulstil</target>
-      </trans-unit>
       <trans-unit datatype="html" id="c6bec34adbe7628d1d4fbbc5fd85a8aab6fa8e5c">
         <source>Results from previous tests are not available.</source>
         <target state="translated">Resultater fra tidligere test er ikke tilgængelige.</target>
+        <note priority="1" from="description">history info</note>
       </trans-unit>
       <trans-unit datatype="html" id="d2ad3cfb2e9fdfd4639cfafdf499de2d8474c6a4">
         <source>Run a test</source>
         <target state="new">Kør test</target>
+        <note priority="1" from="description">nav link</note>
       </trans-unit>
       <trans-unit datatype="html" id="0bd8b27f60a1f098a53e06328426d818e3508ff9">
         <source>Share</source>
         <target state="translated">Del</target>
+        <note priority="1" from="description">form button</note>
       </trans-unit>
       <trans-unit datatype="html" id="a119d6c78f3f291d3be8bac176f93afe0757f615">
         <source>Sorry, there is nothing here!</source>
@@ -133,29 +146,34 @@
       <trans-unit datatype="html" id="51c0cd045c7c68c5936905244f1a0a9c7d294ed3">
         <source>What is an undelegated domain test?</source>
         <target state="translated">Hvad er en ikke-delegeret test?</target>
+        <note priority="1" from="description">form info</note>
       </trans-unit>
       <trans-unit datatype="html" id="7221366950887162430">
         <source>Zonemaster Backend is not available.</source>
         <target state="translated">Zonemaster Backend er ikke tilgængelig.</target>
       </trans-unit>
-      <trans-unit id="e948a3edba1bbf1a743318826b81d146d9539477" datatype="html">
-        <source> Delegated </source>
+      <trans-unit id="b3dfbf046af68ba1b52e0694cef6a4c41a3b625a" datatype="html">
+        <source>Delegated</source>
         <target state="new">Delegerede</target>
         <note priority="1" from="description">plural delegated</note>
+        <note priority="1" from="meaning">history button</note>
       </trans-unit>
-      <trans-unit id="dd85d90fa412b898b4d9c806721d00fefffa3913" datatype="html">
-        <source> Undelegated </source>
-        <target state="new">Ikke-delegerede</target>
-        <note priority="1" from="description">plural undelegated</note>
-      </trans-unit>
-      <trans-unit id="42ad467746ed6e8a989a9e579a481cddbb6f1ece" datatype="html">
+      <trans-unit id="7844a0832e0fd678c3b1045126b88c6754503177" datatype="html">
         <source>Undelegated</source>
-        <target state="translated">Ikke-delegeret</target>
+        <target state="new">Ikke-delegerede</target>
         <note priority="1" from="description">singular undelegated</note>
+        <note priority="1" from="meaning">history info</note>
+      </trans-unit>
+      <trans-unit id="afe335e79bd416e2d490a0915be4df532a5281ac" datatype="html">
+        <source>Undelegated</source>
+        <target state="new">Ikke-delegeret</target>
+        <note priority="1" from="description">plural undelegated</note>
+        <note priority="1" from="meaning">history button</note>
       </trans-unit>
       <trans-unit id="4685a7012cc5a21113aa0bc3bf7fa0742f07855d" datatype="html">
         <source>Click to return on the top page</source>
         <target state="translated">Klik for at vende tilbage til toppen af siden</target>
+        <note priority="1" from="description">nav button</note>
       </trans-unit>
       <trans-unit id="c5e1258c5583ecac4ec6533453f274dcda26af9a" datatype="html">
         <source>Error 404</source>
@@ -164,6 +182,7 @@
       <trans-unit id="80ebb1b82fed892345531fff2ba095160972dd86" datatype="html">
         <source>Result</source>
         <target state="translated">Resultat</target>
+        <note priority="1" from="description">result header</note>
       </trans-unit>
       <trans-unit id="f4e529ae5ffd73001d1ff4bbdeeb0a72e342e5c8" datatype="html">
         <source>Close</source>
@@ -215,13 +234,15 @@
         <source>A word about the DNS</source>
         <target state="new">Om DNS</target>
       </trans-unit>
-      <trans-unit id="a02979056908a4eb0f9103c92bc7e61ef06c0a2e" datatype="html">
-        <source> Name </source>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
         <target state="new">Kør</target>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
       <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
         <source>Change language</source>
         <target state="translated">Skift sprog</target>
+        <note priority="1" from="description">nav label</note>
       </trans-unit>
       <trans-unit id="7511049748697720259" datatype="html">
         <source>Test completed!</source>
@@ -230,22 +251,27 @@
       <trans-unit id="51ec22e1dae591a194ac7448bb769dc8d49caa5f" datatype="html">
         <source>Clear domain input</source>
         <target state="translated">Ryd domæne</target>
+        <note priority="1" from="description">form button</note>
       </trans-unit>
       <trans-unit id="469bd9b4d935f4b60b0fb10af4dba592c6c14f5a" datatype="html">
         <source>DS records</source>
         <target state="translated">DS-record</target>
+        <note priority="1" from="description">form section</note>
       </trans-unit>
       <trans-unit id="3d53f64033c4b76fdc1076ba15955d913209866c" datatype="html">
         <source>General</source>
         <target state="translated">Generelt</target>
+        <note priority="1" from="description">form section</note>
       </trans-unit>
       <trans-unit id="acc04ca445d64958d843622f9ce95c0378198c24" datatype="html">
         <source>Protocol</source>
         <target state="translated">Protokol</target>
+        <note priority="1" from="description">form section</note>
       </trans-unit>
-      <trans-unit id="8a07986996fd9946493818d5a4107edd67c84283" datatype="html">
-        <source> Cannot disable both IPv4 and IPv6 </source>
+      <trans-unit id="119524f05ad7b4c4893076cc4f104b9b316451a5" datatype="html">
+        <source>Cannot disable both IPv4 and IPv6</source>
         <target state="new">Kan ikke deaktivere både IPv4 og IPv6</target>
+        <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit id="1899778155771790050" datatype="html">
         <source>No data found for the zone.</source>
@@ -254,14 +280,17 @@
       <trans-unit id="2662e4cf5c1d6d26bdde95aa32848f6830aa2293" datatype="html">
         <source>Link to test</source>
         <target state="translated">Link til testen</target>
+        <note priority="1" from="description">result label</note>
       </trans-unit>
       <trans-unit id="665692df9ab12bc228c1276f7d04e97902ff9afc" datatype="html">
         <source>Copy link to clipboard</source>
         <target state="translated">Kopier link til udklipsholder</target>
+        <note priority="1" from="description">result button</note>
       </trans-unit>
       <trans-unit id="1a38bccdfebed08e1a0918aae25558b4bd561bc0" datatype="html">
         <source>Fetch DS from parent zone</source>
         <target state="translated">Hent DS-record fra forældrezonen</target>
+        <note priority="1" from="description">form button</note>
       </trans-unit>
       <trans-unit id="2569213046451523868" datatype="html">
         <source>No previous tests found for this domain.</source>
@@ -335,69 +364,66 @@
       </trans-unit>
       <trans-unit id="d342222581850cdef8cc857b8a6aa8354cac5ffa" datatype="html">
         <source>My domain name</source>
-      </trans-unit>
-      <trans-unit id="0153345a543af95a9a4f2448b62d2cbd7fc3e2a2" datatype="html">
-        <source>example.org</source>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
       <trans-unit id="08d618cac3fb7211daea88b1f94346e12a66db93" datatype="html">
         <source>More information on undelegated test: </source>
         <target state="new">More information on undelegated test: </target>
+        <note priority="1" from="description">form info</note>
       </trans-unit>
       <trans-unit id="2ab292382051ee24f6ab19bc30bbc9441b87a0c0" datatype="html">
         <source>Nameserver #<x id="INTERPOLATION" equiv-text="{{ i + 1}}"/></source>
+        <note priority="1" from="description">form section</note>
       </trans-unit>
-      <trans-unit id="3c97472170a2aa53a2b6d79f97cb5136aed906b2" datatype="html">
-        <source> The name of nameserver is required </source>
-        <target state="new"> The name of nameserver is required </target>
-      </trans-unit>
-      <trans-unit id="6dd0700bd23a499a79881d0655ea184b2a0417f1" datatype="html">
-        <source> Address <x id="START_SMALL_TEXT" ctype="x-small" equiv-text="&lt;small&gt;"/>(optional)<x id="CLOSE_SMALL_TEXT" ctype="x-small" equiv-text="&lt;/small&gt;"/></source>
-        <target state="new"> Address <x id="START_SMALL_TEXT" ctype="x-small" equiv-text="&lt;small&gt;"/>(optional)<x id="CLOSE_SMALL_TEXT" ctype="x-small" equiv-text="&lt;/small&gt;"/></target>
+      <trans-unit id="351be4ee5c5d1b5e7ef0c9bcb249afbb0ab29817" datatype="html">
+        <source>The name of nameserver is required</source>
+        <target state="new">The name of nameserver is required</target>
+        <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit id="224e64301b59f664f2c12cc122af4a74c1e7c861" datatype="html">
         <source>Delete nameserver #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
+        <note priority="1" from="description">form button</note>
       </trans-unit>
       <trans-unit id="f665bbb30747f14509b02e1cce43151825679ede" datatype="html">
         <source>DS record #<x id="INTERPOLATION" equiv-text="{{ i + 1}}"/></source>
-      </trans-unit>
-      <trans-unit id="037b7f3f1a44295df940a73648887fbaf2a11a5c" datatype="html">
-        <source> Algorithm </source>
-        <target state="new"> Algorithm </target>
+        <note priority="1" from="description">form section</note>
       </trans-unit>
       <trans-unit id="e7f4b2bbdff587e9c3a5522ad557c6cc80afa3d0" datatype="html">
         <source>Select the algorithm</source>
-      </trans-unit>
-      <trans-unit id="619fbde2bffa8e734b01d735b2648c3f24118df9" datatype="html">
-        <source> Digest type </source>
-        <target state="new"> Digest type </target>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
       <trans-unit id="d0ef3bf3b47bf926f7903adc4b6f3253125b4137" datatype="html">
         <source>Select the digest type</source>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
       <trans-unit id="5f39808253bf1249710d31122c137f6bee478e3f" datatype="html">
         <source>Delete DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
+        <note priority="1" from="description">form button</note>
       </trans-unit>
       <trans-unit id="c8c4ddb58314c49a79e4442d75278f9dd564cb09" datatype="html">
         <source>Test another domain</source>
+        <note priority="1" from="description">result subheader</note>
       </trans-unit>
       <trans-unit id="c5618b693f35bb00c293795ced3f249ead76902f" datatype="html">
         <source>Filter severity levels</source>
+        <note priority="1" from="description">resut filter section</note>
       </trans-unit>
       <trans-unit id="1f8e926cdad26808d3176cb86eeeb229a777a026" datatype="html">
         <source>Expand all</source>
+        <note priority="1" from="description">result filter messages</note>
       </trans-unit>
       <trans-unit id="869de38138d7f0575f2e8b8de63a09edb3b00d3e" datatype="html">
         <source>Collapse all</source>
+        <note priority="1" from="description">result filter messages</note>
       </trans-unit>
-      <trans-unit id="448ad69d25fc4a4d6b3278a08df7a5d56bdb3a60" datatype="html">
-        <source>Run the test</source>
-      </trans-unit>
-      <trans-unit id="3307b69827f1ca8380285b6dce1949e7f9aa10ca" datatype="html">
-        <source> Run the test! </source>
-        <target state="new"> Run the test! </target>
+      <trans-unit id="16c524d367257c456b953c221cc13ac2853742ed" datatype="html">
+        <source>Run the test! </source>
+        <target state="new">Run the test! </target>
+        <note priority="1" from="description">form button</note>
       </trans-unit>
       <trans-unit id="169f2780022394b9d611871fe34c2cb87f759ed2" datatype="html">
         <source>Reset form</source>
+        <note priority="1" from="description">form button</note>
       </trans-unit>
       <trans-unit id="ngb.alert.close" datatype="html">
         <source>Close</source>
@@ -837,6 +863,56 @@
         <source>https://www.afnic.fr/en/</source>
         <target state="new">https://www.afnic.fr/en/</target>
         <note priority="1" from="description">Afnic link</note>
+      </trans-unit>
+      <trans-unit id="729754dd19eb9ce0670b0aeb5a6ae60574c2c563" datatype="html">
+        <source>Address</source>
+        <target state="new">Address</target>
+        <note priority="1" from="description">form label</note>
+      </trans-unit>
+      <trans-unit id="2e73b2661c3d6ae412b570bce223fb58b42246e1" datatype="html">
+        <source>(optional)</source>
+        <target state="new">(optional)</target>
+        <note priority="1" from="description">form info</note>
+      </trans-unit>
+      <trans-unit id="87d46545583105db21fb77d7385e902d661c2df0" datatype="html">
+        <source>What is the meaning of the severity levels?</source>
+        <target state="new">What is the meaning of the severity levels?</target>
+        <note priority="1" from="description">result info</note>
+      </trans-unit>
+      <trans-unit id="5cf4e8619e7768ddf7a7cdad1aa5e6749b03b4da" datatype="html">
+        <source> The message is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem. </source>
+        <target state="new"> The message is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem. </target>
+        <note priority="1" from="description">result security level description</note>
+      </trans-unit>
+      <trans-unit id="4762a0de396f9cd1aff598bcf8a6c2da7a73df7a" datatype="html">
+        <source> The message means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all. </source>
+        <target state="new"> The message means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all. </target>
+        <note priority="1" from="description">result security level description</note>
+      </trans-unit>
+      <trans-unit id="6e9c0eea7c3d5eea9e23e74ab88c1bee04b15c7c" datatype="html">
+        <source> The message means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user. </source>
+        <target state="new"> The message means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user. </target>
+        <note priority="1" from="description">result security level description</note>
+      </trans-unit>
+      <trans-unit id="a77034e6d6ab1e4aaa7bb0669cf726a27b2957c5" datatype="html">
+        <source> The message means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable. </source>
+        <target state="new"> The message means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable. </target>
+        <note priority="1" from="description">result security level description</note>
+      </trans-unit>
+      <trans-unit id="d69885612ebddfbf7d35a2ce83d5baeff7ad241c" datatype="html">
+        <source> The message means a very serious error. </source>
+        <target state="new"> The message means a very serious error. </target>
+        <note priority="1" from="description">result security level description</note>
+      </trans-unit>
+      <trans-unit id="b6a5620e80cd7a316d7d1d35141b233b5f8c8033" datatype="html">
+        <source>Search text in messages</source>
+        <target state="new">Search text in messages</target>
+        <note priority="1" from="description">result filter messages</note>
+      </trans-unit>
+      <trans-unit id="521683f96e95e165cd852c6a1850b468b4f49237" datatype="html">
+        <source>:</source>
+        <target state="new">:</target>
+        <note priority="1" from="description">result colon</note>
       </trans-unit>
     </body>
   </file>
