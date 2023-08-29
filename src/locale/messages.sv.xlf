@@ -612,9 +612,9 @@
         <target state="new">The Zonemaster tool could help different kind of users:</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
-      <trans-unit id="533e3f9fc1bbc3bbcec3816e43cee3eeab7dde29" datatype="html">
-        <source>DNS operators, experts and beginners alike, who want to check their DNS configuration;</source>
-        <target state="new">DNS operators, experts and beginners alike, who want to check their DNS configuration;</target>
+      <trans-unit id="34d009ab9be7fd622ac9e49201cf5c6bdf747234" datatype="html">
+        <source>DNS administrator, experts and beginners alike, who want to check their DNS configuration;</source>
+        <target state="new">DNS administrator, experts and beginners alike, who want to check their DNS configuration;</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="07641f98e2977d5ceaea98ceac94a82f0787e6fc" datatype="html">
@@ -643,13 +643,13 @@
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="92585a3d52e50d27907f2141840ef9d5800403f3" datatype="html">
-        <source> Zonemaster can be used to test <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#&quot;&gt;"/>undelegated domain names<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
-        <target state="new"> Zonemaster can be used to test <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#&quot;&gt;"/>undelegated domain names<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </target>
+        <source> Zonemaster can be used to test <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#what-is-an-undelegated-domain-test&quot;&gt;"/>undelegated domain names<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <target state="new"> Zonemaster can be used to test <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#what-is-an-undelegated-domain-test&quot;&gt;"/>undelegated domain names<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="715189970a83f785ee5d931b3a2b33c6b60bc33f" datatype="html">
-        <source> Zonemaster can be used to test <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#&quot;&gt;"/>DS records before their publication<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in the parent zone. </source>
-        <target state="new"> Zonemaster can be used to test <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#&quot;&gt;"/>DS records before their publication<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in the parent zone. </target>
+        <source> Zonemaster can be used to test <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#can-i-test-the-ds-records-before-they-are-published&quot;&gt;"/>DS records before their publication<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in the parent zone. </source>
+        <target state="new"> Zonemaster can be used to test <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#can-i-test-the-ds-records-before-they-are-published&quot;&gt;"/>DS records before their publication<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in the parent zone. </target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="865aac49d53d372537909b1df21a9d111d50c9f1" datatype="html">
@@ -667,14 +667,9 @@
         <target state="new"> The judgement of Zonemaster is primarily based on the DNS standards as defined in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a i18n-href=&quot;RFC Wikipedia link&quot; href=&quot;https://en.wikipedia.org/wiki/Request_for_Comments&quot;&gt;"/>RFCs<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. It also bases its judgement on DNS best practices, which can be more loosely defined. </target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
-      <trans-unit id="b2901d6b1f7207fd71e1fa77a3ba27a4c10a6dbe" datatype="html">
-        <source> All Zonemaster tests are defined in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications&quot;&gt;"/>Test Case Specification documents<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in which the references to the standard documents for that test case are found. </source>
-        <target state="new"> All Zonemaster tests are defined in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications&quot;&gt;"/>Test Case Specification documents<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in which the references to the standard documents for that test case are found. </target>
-        <note priority="1" from="description">faq answer</note>
-      </trans-unit>
-      <trans-unit id="d25de1f9113bf1dbaaa323e103a22682e0261d6c" datatype="html">
-        <source> The descriptions of message levels such as notice, warning and error are found in Severity Level Definitions. </source>
-        <target state="new"> The descriptions of message levels such as notice, warning and error are found in Severity Level Definitions. </target>
+      <trans-unit id="d42eedec9f66855cb398b2adc1f100ac8367a9cc" datatype="html">
+        <source> All Zonemaster tests are defined in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications&quot;&gt;"/>Test Case Specification documents<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in which the references to the standard documents for each test case are found. </source>
+        <target state="new"> All Zonemaster tests are defined in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications&quot;&gt;"/>Test Case Specification documents<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in which the references to the standard documents for each test case are found. </target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="7d2a11619babe460976bf5e38e5e920cbbf968cd" datatype="html">
@@ -827,9 +822,9 @@
         <target state="new"> To check a reverse zone with Zonemaster, one first needs to know what the reverse zone is, and enter it in the format it has in the DNS. A reserve zone is obtained by reversing an IP address and adding a suffix. IPv4 addresses use the suffix &quot;in-addr.arpa&quot; while IPv6 addresses use &quot;ip6.arpa&quot;. </target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
-      <trans-unit id="5473e36f5102e2ae22ce4c6620cacc40cc98da95" datatype="html">
-        <source>Example:</source>
-        <target state="new">Example:</target>
+      <trans-unit id="a23358df7e314fa4acf55b527319f91acbb25a81" datatype="html">
+        <source>Examples:</source>
+        <target state="new">Examples:</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="f391e31fd1b3fb7063c9048af39cb6a95aa0a193" datatype="html">
@@ -926,6 +921,11 @@
         <source>Expand all modules</source>
         <target state="new">Expand all modules</target>
         <note priority="1" from="description">result filter messages</note>
+      </trans-unit>
+      <trans-unit id="99a0620d495f0d1ab864174f77a560140c5e214a" datatype="html">
+        <source> The descriptions of message levels such as <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>notice<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>warning<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> and <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>error<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> are found in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md&quot;&gt;"/>Severity Level Definitions<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </source>
+        <target state="new"> The descriptions of message levels such as <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>notice<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>warning<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> and <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>error<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> are found in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md&quot;&gt;"/>Severity Level Definitions<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. </target>
+        <note priority="1" from="description">faq answer</note>
       </trans-unit>
     </body>
   </file>
