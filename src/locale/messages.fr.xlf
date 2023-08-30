@@ -489,7 +489,7 @@
           <context context-type="linenumber">72</context>
         </context-group>
         <note priority="1" from="description">form label</note>
-        <target state="translated">Lancer</target>
+        <target state="translated">Nom</target>
       </trans-unit>
       <trans-unit id="119524f05ad7b4c4893076cc4f104b9b316451a5" datatype="html">
         <source>Cannot disable both IPv4 and IPv6</source>
