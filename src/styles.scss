@@ -27,6 +27,7 @@ main {
   --primary-color-rgb: 114, 85, 217;
   --primary-color-dark: #593fb7;
 
+  --secondary-color-light: #f7f7f7;
   --secondary-color: #e8e8e8;
   --secondary-color-dark: #c6c6c6;
   --secondary-color-darker: #848484;
@@ -69,21 +70,23 @@ button.btn:focus-visible {
 }
 
 .btn.btn-secondary {
-  --bs-btn-color: auto;
+  --bs-btn-color: inherited;
   --bs-btn-bg: var(--secondary-color);
   --bs-btn-border-color: var(--secondary-color-dark);
 
-  --bs-btn-hover-color: auto;
-  --bs-btn-hover-bg: var(--secondary-color-dark);
+  --bs-btn-hover-color: inherited;
+  --bs-btn-hover-bg: var(--secondary-color-light);
+  --bs-btn-hover-border-color: var(--secondary-color-dark);
 }
 
 .btn.btn-danger {
-  --bs-btn-color: auto;
+  --bs-btn-color: inherited;
   --bs-btn-bg: #ffc2c8;
   --bs-btn-border-color: #ff8d98;
 
-  --bs-btn-hover-color: auto;
-  --bs-btn-hover-bg: #ff8d98;
+  --bs-btn-hover-color: inherited;
+  --bs-btn-hover-bg: #ffe1e3;
+  --bs-btn-hover-border-color: #ff8d98;
 }
 
 footer .tooltip {

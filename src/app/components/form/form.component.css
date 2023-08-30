@@ -189,24 +189,35 @@ hr {
 .domain button.switch-toggle {
   border: none;
   width: 2em;
-  background-color: var(--secondary-color-dark);
+  background-color: var(--secondary-color);
   display: inherit;
   height: 1em;
   border-radius: 2em;
   border: 1px solid var(--secondary-color-darker);
   font-size: 2em;
-  background-repeat: no-repeat;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-  background-position: left center;
-  transition: background-position .25s ease-in-out, background-color .25s ease-in-out,;
+  transition: background-color .25s ease-in-out,;
   margin-right: 0.2em;
   cursor: pointer;
+  position: relative;
 }
 
+.domain button.switch-toggle::after {
+  content: '';
+  display: block;
+  width: .8em;
+  height: .8em;
+  background-color: #fff;
+  border: 1px solid var(--secondary-color-darker);
+  left: calc(.1em - 1px);
+  top: calc(.1em - 1px);
+  position: absolute;
+  transition: all .25s ease-in-out;
+  border-radius: .8em;
+}
 
 .domain button.switch-toggle:focus-visible,
 .domain button.switch-toggle:hover {
-  background-color: var(--secondary-color-darker);
+  background-color: var(--secondary-color-dark);
 }
 
 .domain button.switch-toggle.enabled:focus-visible,
@@ -222,6 +233,11 @@ hr {
   background-position: right center;
   background-color: var(--primary-color);
   border-color: var(--primary-color-dark);
+}
+
+.domain button.switch-toggle.enabled::after {
+  left: calc(100% - .9em);
+  border: 1px solid var(--primary-color-dark);
 }
 
 /* Domain input */
