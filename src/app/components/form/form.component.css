@@ -55,7 +55,13 @@ form.domain {
   margin: 1rem auto 0 auto;
   display: flex;
   align-items: center;
+}
 
+.domain .info-notice div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  white-space: pre-wrap;
 }
 
 .domain button.delete {

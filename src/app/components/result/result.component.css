@@ -344,7 +344,7 @@ article ul li .level.warning {
 }
 
 .result .result-control-buttons {
-  align-items: end;
+  align-items: flex-end;
   display: flex;
   gap: 0.4rem;
   margin-top: 0.4rem;
