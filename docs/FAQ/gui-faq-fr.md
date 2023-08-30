@@ -136,7 +136,7 @@ l'utilisateur ne sont conservés dans la base de données. L'initiateur d'un
 test ne peut pas être retrouvé à partir des informations dans la base de
 données.
 
- #### <span id="q10"></span>10. Pourquoi mon nom de domaine n'a-t-il pas pu être testé ?
+#### <span id="q10"></span>10. Pourquoi mon nom de domaine n'a-t-il pas pu être testé ?
 
 Il y a plusieurs possibilités :
 
@@ -203,12 +203,12 @@ Exemples :
   - Pour le préfixe IPv6 « 2001:db8::/32 » : 8.b.d.0.1.0.0.2.ip6.arpa.
 
 [Afnic]:                                 https://www.afnic.fr/fr/
-[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
+[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases
 [Question 12]:                           #q12
 [Question 13]:                           #q13
 [RFC]:                                   https://www.ietf.org/standards/rfcs/
-[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
+[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md
 [The Swedish Internet Foundation]:       https://internetstiftelsen.se/en/
-[Utilisation de l'interface en ligne de commandes]: https://github.com/zonemaster/zonemaster-cli/blob/master/USING.md
+[Utilisation de l'interface en ligne de commandes]: https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md
 [Zonemaster.net]:                        https://zonemaster.net/
 [zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se

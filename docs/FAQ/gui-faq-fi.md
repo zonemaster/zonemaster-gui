@@ -93,13 +93,13 @@ Zonemaster lähettää useita DNS-kyselyitä verkkotunnuksen nimipalvelimille se
 Zonemasterin graafinen käyttöliittymä ei näytä lähetettyjä kyselyjä, vain CLI rajapinta voi näyttää lähetetyt kyselyt.
 Jos haluat nähdä tällaisia kyselyitä, sinun on asennettava paikallisesti toimiva minimaalinen Zonemaster-instanssi, jossa on sekä Engine- että CLI-komponentit (saatavilla on myös Docker image).
 Lähetetyt kyselyt voidaan näyttää käyttämällä 'DEBUG'-tason vaihtoehtoa. Varoituksena, tulokset voivat olla aika raskaita.  Lisätietoja on kohdassa [CLI:n käyttäminen].
-Tätä vaihtoehtoa voi suositella vain teknisesti edistyneille käyttäjille. 
+Tätä vaihtoehtoa voi suositella vain teknisesti edistyneille käyttäjille.
 
 #### <span id="q12"></span>12. Mikä on delegoimattoman verkkotunnuksen testi?
 
-Delegoimaton verkkotunnustesti tehdään verkkotunnukselle, jota ei tarvitse välttämättä olla julkaistu DNS:ssä. Se voi olla varsin hyödyllistä, jos aiot siirtää verkkotunnuksesi verkkotunnusvälittäjältä toiselle. 
-Jos esimerkiksi verkkotunnus esimerkki.se aiotaan siirtää nimipalvelimelta &#39;ns.nic.se&#39; nimipalvelimelle &#39;ns.iis.se&#39;, voit tehdä verkkotunnukselle (esimerkki.se) delegoimattoman 
-verkkotunnustestin sillä nimipalvelimella, johon aiot siirtää sen (ns.iis.se), ennen kuin toteutat siirron. Jos testi näyttää vihreää valoa, voit olla melko varma siitä, että verkkotunnuksesi uudessa 
+Delegoimaton verkkotunnustesti tehdään verkkotunnukselle, jota ei tarvitse välttämättä olla julkaistu DNS:ssä. Se voi olla varsin hyödyllistä, jos aiot siirtää verkkotunnuksesi verkkotunnusvälittäjältä toiselle.
+Jos esimerkiksi verkkotunnus esimerkki.se aiotaan siirtää nimipalvelimelta &#39;ns.nic.se&#39; nimipalvelimelle &#39;ns.iis.se&#39;, voit tehdä verkkotunnukselle (esimerkki.se) delegoimattoman
+verkkotunnustestin sillä nimipalvelimella, johon aiot siirtää sen (ns.iis.se), ennen kuin toteutat siirron. Jos testi näyttää vihreää valoa, voit olla melko varma siitä, että verkkotunnuksesi uudessa
 kodissa on kaikki kunnossa. Verkkotunnuksen määrityksissä voi kuitenkin olla virheitä, joita testi ei löydä.
 
 #### <span id="q13"></span>13. Voinko testata DS-tietueet ennen niiden julkaisua?
@@ -114,13 +114,13 @@ Jotta voisit testata käänteisverkkotunnuksen (reverse zone), sinun on tiedett�
 
   - 3.2.1.in-addr.arpa
   - 6.0.1.0.0.2.ip6.arpa
-  
+
 [AFNIC]:                                 https://www.afnic.fr/en/
-[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
+[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases
 [Internetstiftelsen]:                    https://internetstiftelsen.se/
 [Question 12]:                           #q12
 [Question 13]:                           #q13
-[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
+[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md
 [Test Requirements document]:            https://github.com/zonemaster/zonemaster/blob/master/docs/requirements/TestRequirements.md
 [zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se
 [www.zonemaster.net]:                    https://www.zonemaster.net/

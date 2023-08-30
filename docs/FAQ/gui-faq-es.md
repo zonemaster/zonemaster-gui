@@ -33,7 +33,7 @@ Consiste de varios componentes:
 
 Cuando un nombre de dominio (tal como "zonemaster.net") es enviado a Zonemaster (usando la CLI o
 GUI), este verificará el estado de salud general del nombre de dominio con
-una serie de pruebas. 
+una serie de pruebas.
 Las distintas pruebas realizadas por Zonemaster están documentadas en el
 documento de [Definición de Casos de Pruebas] (en inglés).
 
@@ -188,13 +188,13 @@ Ejemplos:
 
 
 [AFNIC]:                                   https://www.afnic.fr/en/
-[Documento de Requerimientos de Pruebas]:  https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
-[Definición de Casos de Pruebas]:          https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
+[Documento de Requerimientos de Pruebas]:  https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases
+[Definición de Casos de Pruebas]:          https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases
 [Pregunta 12]:                             #q12
 [Pregunta 13]:                             #q13
 [RFCs]:                                    https://www.ietf.org/standards/rfcs/
-[Definiciones de Nivel de Gravedad]:       https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
+[Definiciones de Nivel de Gravedad]:       https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md
 [The Swedish Internet Foundation]:         https://internetstiftelsen.se/en/
-[Usando La CLI]:                           https://github.com/zonemaster/zonemaster-cli/blob/master/USING.md
+[Usando La CLI]:                           https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md
 [Zonemaster.net]:                          https://zonemaster.net/
 [zonemaster-users@lists.iis.se]:           mailto:zonemaster-users@lists.iis.se
