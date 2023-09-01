@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en" datatype="plaintext" original="ng2.template" target-language="fi-FI">
+  <file source-language="en" datatype="plaintext" original="ng2.template" target-language="fi">
     <body>
       <trans-unit datatype="html" id="a434ae37bd56265a0693fbc28bd8338a38500871">
         <source>About Zonemaster</source>
