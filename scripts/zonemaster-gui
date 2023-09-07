@@ -1,0 +1,6 @@
+#!/usr/bin/env perl
+use Dancer2;
+use Zonemaster::GUI;
+
+Zonemaster::GUI::build_app;
+start;

@@ -39,7 +39,7 @@
             "allowedCommonJsDependencies": [
               "file-saver"
             ],
-            "outputPath": "dist",
+            "outputPath": "share/dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
@@ -49,8 +49,8 @@
               "src/.htaccess"
             ],
             "styles": [
-              "node_modules/fork-awesome/css/fork-awesome.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/fork-awesome/css/fork-awesome.min.css"
             ],
             "scripts": [],
             "aot": true,
@@ -72,7 +72,14 @@
             },
             "production": {
               "localize": true,
-              "optimization": true,
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
