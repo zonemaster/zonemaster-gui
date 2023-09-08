@@ -182,14 +182,13 @@ Exempel:
 
 
 [AFNIC]:                                 https://www.afnic.fr/en/
-[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/specifications/tests#list-of-defined-test-cases
+[Defined Test Cases]:                    https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases
 [Question 12]:                           #q12
 [Question 13]:                           #q13
 [RFCs]:                                  https://www.ietf.org/standards/rfcs/
-[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/specifications/tests/SeverityLevelDefinitions.md
+[Severity Level Definitions]:            https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md
 [The Swedish Internet Foundation]:       https://internetstiftelsen.se/en/
-[Using The CLI]:                         https://github.com/zonemaster/zonemaster-cli/blob/master/USING.md
+[Using The CLI]:                         https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md
 [Zonemaster.net]:                        https://zonemaster.net/
 [zonemaster-users@lists.iis.se]:         mailto:zonemaster-users@lists.iis.se
 [Wikipedia#Engelska#RFC]:                https://en.wikipedia.org/wiki/Request_for_Comments
-
