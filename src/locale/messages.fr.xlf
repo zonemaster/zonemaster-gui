@@ -691,7 +691,7 @@
       <trans-unit id="87d46545583105db21fb77d7385e902d661c2df0" datatype="html">
         <source>What is the meaning of the severity levels?</source>
         <note priority="1" from="description">result info</note>
-        <target state="translated">Que signifie les niveaux de sévérité ?</target>
+        <target state="translated">Que signifient les niveaux de sévérité ?</target>
       </trans-unit>
       <trans-unit id="a77034e6d6ab1e4aaa7bb0669cf726a27b2957c5" datatype="html">
         <source>The message means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable.</source>
