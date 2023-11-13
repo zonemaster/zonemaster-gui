@@ -188,7 +188,7 @@
       </h3>
       <div id="module-{{ module.name }}" role="region" [attr.aria-labelledby]="'control-module-' + module.name">
         <section class="testcase" *ngFor="let testcase of module.testcases" [class.collapsed]="isCollapsed[module.name]">
-          <header class="{{testcase.level}}" *ngIf="testcase.id != 'UNSPECIFIED'">
+          <header class="{{testcase.level}}" *ngIf="testcase.id.toUpperCase() != 'UNSPECIFIED'">
             <h4>
               <button
                 type="button"
