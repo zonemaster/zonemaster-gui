@@ -24,10 +24,10 @@ app-navigation .lang {
 }
 
 app-navigation .lang .icon {
-  width: 27px;
-  line-height: 27px;
-  margin: 0 5px;
-  font-size: 20pt;
+  width: 1em;
+  line-height: 1em;
+  margin: 0 .2em;
+  font-size: 1.5em;
 }
 
 #languageSelection {
