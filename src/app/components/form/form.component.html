@@ -6,11 +6,13 @@
         <input type="text"
             class="form-control form-control-lg"
             [class.is-invalid]="domain.invalid && (domain.dirty || domain.touched)"
+            [attr.aria-invalid]="domain.invalid && (domain.dirty || domain.touched)"
             id="input-domain-form"
             name="input-domain-form"
             formControlName="domain"
             aria-describedby="domain-error-required domain-error-server"
-            required>
+            aria-required="true"
+          >
         <div id="domain-error-required" class="invalid-feedback" *ngIf="domain.errors?.required" i18n="form error">Domain name required</div>
 
         <div id="domain-error-server" class="invalid-feedback" *ngIf="domain.errors?.serverError" >
@@ -69,15 +71,17 @@
           <fieldset *ngFor="let ns of form.controls.nameservers.controls; let i=index" [formGroupName]="i">
             <legend i18n="form section">Nameserver #{{ i + 1}}</legend>
             <div class="form-input-group">
-              <label id="ns-{{i}}-name-label" for="ns-{{i}}-name-input" i18n="form label">Name</label>
+              <label for="ns-{{i}}-name-input" i18n="form label">Name</label>
               <div>
                 <input
                   id="ns-{{i}}-name-input"
-                  [attr.aria-labelledby]="'ns-' + i + '-name-label'"
                   [attr.aria-describedby]="'ns-' + i + '-error-required ns-' + i + '-error-server'"
                   formControlName="ns"
                   class="form-control"
+                  i18n-title="form label"
+                  title="Name of nameserver #{{i + 1}}"
                   [class.is-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)"
+                  [attr.aria-invalid]="ns.controls.ns.invalid && (ns.controls.ns.dirty || ns.controls.ns.touched)"
                 >
                 <div id="ns-{{i}}-error-server" class="invalid-feedback" *ngIf="ns.controls.ns.errors?.serverError" >
                   {{ ns.controls.ns.errors.serverError }}
@@ -87,17 +91,19 @@
                 </div>
               </div>
 
-              <label id="ns-{{i}}-address-label" for="ns-{{i}}-address-input">
+              <label for="ns-{{i}}-address-input">
                 <ng-container i18n="form label">Address</ng-container>&nbsp;<small i18n="form info">(optional)</small>
               </label>
               <div>
                 <input
                   id="ns-{{i}}-address-input"
-                  [attr.aria-labelledby]="'ns-' + i + '-address-label'"
                   [attr.aria-describedby]="'ip-' + i + '-error-server'"
                   formControlName="ip"
                   class="form-control"
+                  i18n-title="form label"
+                  title="Address of nameserver #{{i + 1}}"
                   [class.is-invalid]="ns.controls.ip.invalid"
+                  [attr.aria-invalid]="ns.controls.ip.invalid"
                 >
                 <div id="ip-{{i}}-error-server" class="invalid-feedback" *ngIf="ns.controls.ip.errors?.serverError" >
                   {{ ns.controls.ip.errors.serverError }}
@@ -106,11 +112,13 @@
             </div>
 
             <div class="delete-button-container">
-              <button (click)="deleteRow('nameservers', i)"
-                      class="btn delete"
-                      i18n-title="form button"
-                      title="Delete nameserver #{{i + 1}}"
-                      [disabled]="form.disabled">
+              <button
+                (click)="deleteRow('nameservers', i)"
+                class="btn delete"
+                i18n-title="form button"
+                title="Delete nameserver #{{i + 1}}"
+                [disabled]="form.disabled"
+              >
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </div>
@@ -130,17 +138,19 @@
           <fieldset *ngFor="let ds_info of form.controls.ds_info.controls; let i=index" [formGroupName]="i">
             <legend i18n="form section">DS record #{{ i + 1}}</legend>
             <div class="form-input-group">
-              <label id="ds-{{i}}-keytag-label" for="ds-{{i}}-keytag-input" i18n="form label">Keytag</label>
+              <label for="ds-{{i}}-keytag-input" i18n="form label">Keytag</label>
               <div>
                 <input
-                  type="number"
-                  min="0"
+                  inputmode="numeric"
+                  pattern="\d*"
                   id="ds-{{i}}-keytag-input"
-                  [attr.aria-labelledby]="'ds-' + i + '-keytag-label'"
                   [attr.aria-describedby]="'keytag-' + i + '-error-required keytag-' + i + '-error-server'"
                   formControlName="keytag"
                   class="form-control"
+                  i18n-title="form label"
+                  title="Key tag of DS record #{{i + 1}}"
                   [class.is-invalid]="ds_info.controls.keytag.invalid && (ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched)"
+                  [attr.aria-invalid]="ds_info.controls.keytag.invalid && (ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched)"
                 >
                 <div id="keytag-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
                   {{ ds_info.controls.keytag.errors.serverError }}
@@ -158,9 +168,11 @@
                   [attr.aria-describedby]="'algorithm-' + i + '-error-required algorithm-' + i + '-error-server'"
                   formControlName="algorithm"
                   class="form-select"
+                  i18n-title="form label"
+                  title="Algorithm of DS record #{{i + 1}}"
                   [class.is-invalid]="ds_info.controls.algorithm.invalid && (ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched)"
+                  [attr.aria-invalid]="ds_info.controls.algorithm.invalid && (ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched)"
                 >
-                  <option i18n="form label" [value]="-1" selected disabled>Select the algorithm</option>
                   <option [value]="1">1 - RSAMD5</option>
                   <option [value]="3">3 - DSA</option>
                   <option [value]="5">5 - RSASHA1</option>
@@ -182,17 +194,18 @@
                 </div>
               </div>
 
-              <label id="ds-{{i}}-digtype-label" for="ds-{{i}}-digtype-input" i18n="form label">Digest type</label>
+              <label for="ds-{{i}}-digtype-input" i18n="form label">Digest type</label>
               <div>
                 <select
                   id="ds-{{i}}-digtype-input"
-                  [attr.aria-labelledby]="'ds-' + i + '-digtype-label'"
                   [attr.aria-describedby]="'digtype-' + i + '-error-required digtype-' + i + '-error-server'"
                   formControlName="digtype"
                   class="form-select"
+                  i18n-title="form label"
+                  title="Digest type of DS record #{{i + 1}}"
                   [class.is-invalid]="ds_info.controls.digtype.invalid && (ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched)"
+                  [attr.aria-invalid]="ds_info.controls.digtype.invalid && (ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched)"
                 >
-                  <option [value]="-1" selected disabled i18n="form label">Select the digest type</option>
                   <option [value]="1">1 - SHA-1</option>
                   <option [value]="2">2 - SHA-256</option>
                   <option [value]="3">3 - GOST R 34.11-94</option>
@@ -206,15 +219,17 @@
                 </div>
               </div>
 
-              <label id="ds-{{i}}-digest-label" for="ds-{{i}}-digest-input" i18n="form label">Digest</label>
+              <label for="ds-{{i}}-digest-input" i18n="form label">Digest</label>
               <div>
                 <input
                   id="ds-{{i}}-digest-input"
-                  [attr.aria-labelledby]="'ds-' + i + '-digest-label'"
                   [attr.aria-describedby]="'digest-' + i + '-error-required digest-' + i + '-error-server'"
                   formControlName="digest"
                   class="form-control"
+                  i18n-title="form label"
+                  title="Digest of DS record #{{i + 1}}"
                   [class.is-invalid]="ds_info.controls.digest.invalid && (ds_info.controls.digest.dirty || ds_info.controls.digest.touched)"
+                  [attr.aria-invalid]="ds_info.controls.digest.invalid && (ds_info.controls.digest.dirty || ds_info.controls.digest.touched)"
                 >
                 <div id="digest-{{i}}-error-server" class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.serverError" >
                   {{ ds_info.controls.digest.errors.serverError }}
@@ -227,11 +242,12 @@
 
             <div class="delete-button-container">
               <button
-                      (click)="deleteRow('ds_info',i)"
-                      class="btn delete"
-                      i18n-title="form button"
-                      title="Delete DS record #{{i + 1}}"
-                      [disabled]="form.disabled">
+                (click)="deleteRow('ds_info',i)"
+                class="btn delete"
+                i18n-title="form button"
+                title="Delete DS record #{{i + 1}}"
+                [disabled]="form.disabled"
+              >
                 <i class="fa fa-trash" aria-hidden="true"></i>
               </button>
             </div>
@@ -252,11 +268,27 @@
             <legend class="sr-only" i18n="form section">Protocol</legend>
             <div class="col-form-label" [class.is-invalid]="form.errors?.noProtocol">
               <div class="custom-control form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" formControlName="disable_ipv4" id="disable_protocol_ipv4" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv4.invalid">
+                <input
+                  aria-describedby="protocol-error"
+                  type="checkbox"
+                  class="form-check-input"
+                  formControlName="disable_ipv4"
+                  id="disable_protocol_ipv4"
+                  [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv4.invalid"
+                  [attr.aria-invalid]="form.errors?.noProtocol || form.controls.disable_ipv4.invalid"
+                >
                 <label i18n="form label" class="form-check-label" for="disable_protocol_ipv4">Disable IPv4</label>
               </div>
               <div class="custom-control form-check form-check-inline">
-                <input type="checkbox" class="form-check-input" formControlName="disable_ipv6" id="disable_protocol_ipv6" [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv6.invalid">
+                <input
+                  aria-describedby="protocol-error"
+                  type="checkbox"
+                  class="form-check-input"
+                  formControlName="disable_ipv6"
+                  id="disable_protocol_ipv6"
+                  [class.is-invalid]="form.errors?.noProtocol || form.controls.disable_ipv6.invalid"
+                  [attr.aria-invalid]="form.errors?.noProtocol || form.controls.disable_ipv6.invalid"
+                >
                 <label i18n="form label" class="form-check-label" for="disable_protocol_ipv6">Disable IPv6</label>
               </div>
             </div>
@@ -272,10 +304,18 @@
                 <label for="profile" class="col-form-label" i18n="form label">Profile</label>
               </div>
               <div class="col-auto flex-grow-1">
-                <select class="form-select" formControlName="profile" id="profile" [class.is-invalid]="form.controls.profile.invalid">
+                <select
+                  class="form-select"
+                  formControlName="profile"
+                  id="profile"
+                  aria-describedby="profile-error"
+                  aria-required="true"
+                  [class.is-invalid]="form.controls.profile.invalid"
+                  [attr.aria-invalid]="form.controls.profile.invalid"
+                >
                   <option *ngFor="let profile of profiles" [value]="profile">{{profile}}</option>
                 </select>
-                <div class="invalid-feedback" *ngIf="form.controls.profile.errors?.serverError" >
+                <div id="profile-error" class="invalid-feedback" *ngIf="form.controls.profile.errors?.serverError" >
                   {{ form.controls.profile.errors.serverError }}
                 </div>
               </div>
