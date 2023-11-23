@@ -136,7 +136,7 @@ hr {
   .domain .form-section fieldset:first-child .delete-button-container {
     margin-top: 2.2rem;
     display: flex;
-    align-items: center;
+    align-items: baseline;
   }
 }
 
