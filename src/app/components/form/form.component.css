@@ -88,11 +88,6 @@ hr {
   margin-bottom: 0.5rem;
 }
 
-.domain .domain-input-group {
-  display: flex;
-  margin-bottom: 1em;
-}
-
 /* Advanced options responsivity */
 
 @media(min-width:768px) {
@@ -186,58 +181,22 @@ hr {
   margin: 0;
 }
 
-.domain button.switch-toggle {
+.domain button#advanced-toggle {
+  background: none;
   border: none;
-  width: 2em;
-  background-color: var(--secondary-color);
-  display: inherit;
-  height: 1em;
-  border-radius: 2em;
-  border: 1px solid var(--secondary-color-darker);
-  font-size: 2em;
-  transition: background-color .25s ease-in-out,;
-  margin-right: 0.2em;
-  cursor: pointer;
-  position: relative;
+  padding: 0;
+  font-weight: bold;
 }
 
-.domain button.switch-toggle::after {
-  content: '';
-  display: block;
-  width: .8em;
-  height: .8em;
-  background-color: #fff;
-  border: 1px solid var(--secondary-color-darker);
-  left: calc(.1em - 1px);
-  top: calc(.1em - 1px);
-  position: absolute;
-  transition: all .25s ease-in-out;
-  border-radius: .8em;
+.domain button#advanced-toggle i {
+  width: 1em;
+  margin-right: .25em;
+  transform: rotate(0);
+  transition: 0.1s transform;
 }
 
-.domain button.switch-toggle:focus-visible,
-.domain button.switch-toggle:hover {
-  background-color: var(--secondary-color-dark);
-}
-
-.domain button.switch-toggle.enabled:focus-visible,
-.domain button.switch-toggle.enabled:hover {
-  background-color: var(--primary-color-dark);
-}
-
-.domain button.switch-toggle:focus-visible {
-  border-color: var(--primary-color);
-}
-
-.domain button.switch-toggle.enabled {
-  background-position: right center;
-  background-color: var(--primary-color);
-  border-color: var(--primary-color-dark);
-}
-
-.domain button.switch-toggle.enabled::after {
-  left: calc(100% - .9em);
-  border: 1px solid var(--primary-color-dark);
+.domain button#advanced-toggle[aria-expanded="true"] i {
+  transform: rotate(90deg);
 }
 
 /* Domain input */
@@ -250,31 +209,34 @@ hr {
   font-size: 1.25rem;
 }
 
-#input-domain-form {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.domain .advanced {
+  margin: 0.5em 0;
 }
 
-.domain button.launch {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+.domain .advanced > .col {
+  padding: 0;
 }
 
 .domain .reset-form {
   position: absolute;
-  top: calc(0.5em + 1px);
+  top: calc(0.5em);
   z-index: 100;
   right: 0.5rem;
 }
 
-.domain .reset-form button:not(:disabled):hover {
+.domain .reset-form button:not(:disabled):hover i {
   opacity: 1;
 }
 
 .domain .reset-form button {
   border: none;
-  opacity: 0.5;
+  color: inherit;
   padding: 0;
+}
+
+.domain .reset-form button i {
+  opacity: .5;
+  transition: opacity 0.1s;
 }
 
 .domain .progress-value {

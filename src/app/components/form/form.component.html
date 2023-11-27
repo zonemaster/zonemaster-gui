@@ -1,56 +1,61 @@
 <form class="domain mb-2" (ngSubmit)="submitForm();" [formGroup]="form">
   <div class="domain-form-container">
     <label i18n="form label" for="input-domain-form">Domain name</label>
-    <div class="domain-input-group">
-      <div class="domain-input-container">
-        <input type="text"
-            class="form-control form-control-lg"
-            [class.is-invalid]="domain.invalid && (domain.dirty || domain.touched)"
-            [attr.aria-invalid]="domain.invalid && (domain.dirty || domain.touched)"
-            id="input-domain-form"
-            name="input-domain-form"
-            formControlName="domain"
-            aria-describedby="domain-error-required domain-error-server"
-            aria-required="true"
-          >
-        <div id="domain-error-required" class="invalid-feedback" *ngIf="domain.errors?.required" i18n="form error">Domain name required</div>
+    <div class="domain-input-container">
+      <input type="text"
+          class="form-control form-control-lg"
+          [class.is-invalid]="domain.invalid && (domain.dirty || domain.touched)"
+          [attr.aria-invalid]="domain.invalid && (domain.dirty || domain.touched)"
+          id="input-domain-form"
+          name="input-domain-form"
+          formControlName="domain"
+          aria-describedby="domain-error-required domain-error-server"
+          aria-required="true"
+        >
+      <div id="domain-error-required" class="invalid-feedback" *ngIf="domain.errors?.required" i18n="form error">Domain name required</div>
 
-        <div id="domain-error-server" class="invalid-feedback" *ngIf="domain.errors?.serverError" >
-          {{ domain.errors.serverError }}
-        </div>
-
-        <div class="reset-form d-none d-sm-block" *ngIf="domain.value.length > 0 && !showProgressBar" >
-          <button
-            [disabled]="form.disabled"
-            (click)="resetForm();"
-            type="button"
-            i18n-title="form button"
-            title="Clear domain input"
-            class="btn grey">
-              <i class="fa fa-2x fa-times-circle" aria-hidden="true"></i>
-          </button>
-        </div>
-
-        <div class="progress-result d-block" *ngIf="showProgressBar">
-          <ngb-progressbar
-            type="info"
-            [value]="formProgression"
-            [striped]="true"
-            [animated]="true"
-          >
-            <span class="progress-value">{{formProgression}}%</span>
-          </ngb-progressbar>
-        </div>
+      <div id="domain-error-server" class="invalid-feedback" *ngIf="domain.errors?.serverError" >
+        {{ domain.errors.serverError }}
       </div>
-      <div>
-        <button i18n="form button" class="launch btn-primary btn btn-lg" type="submit" [disabled]="form.disabled">Run the test</button>
+
+      <div class="reset-form d-none d-sm-block" *ngIf="domain.value.length > 0 && !showProgressBar" >
+        <button
+          [disabled]="form.disabled"
+          (click)="resetForm();"
+          type="button"
+          i18n-title="form button"
+          title="Clear domain input"
+          class="btn grey">
+            <i class="fa fa-2x fa-times-circle" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="progress-result d-block" *ngIf="showProgressBar">
+        <ngb-progressbar
+          type="info"
+          [value]="formProgression"
+          [striped]="true"
+          [animated]="true"
+        >
+          <span class="progress-value">{{formProgression}}%</span>
+        </ngb-progressbar>
       </div>
     </div>
   </div>
   <div class="row advanced">
-    <div class="switch-input-container">
-      <button type="button" class="switch-toggle" id="advanced-toggle" (click)="toggleOptions()" [class.enabled]="isAdvancedOptionEnabled" aria-controls="advanced-options" [attr.aria-expanded]="isAdvancedOptionEnabled"></button>
-      <label for="advanced-toggle" i18n="form label">Options</label>
+    <div class="col">
+      <button
+        type="button"
+        id="advanced-toggle"
+        (click)="toggleOptions()"
+        [class.enabled]="isAdvancedOptionEnabled"
+        aria-controls="advanced-options"
+        [attr.aria-expanded]="isAdvancedOptionEnabled"
+      >
+        <i class="fa fa-caret-right caret" aria-hidden="true"></i>
+        <ng-container i18n="form options" *ngIf="!isAdvancedOptionEnabled">Show options</ng-container>
+        <ng-container i18n="form options" *ngIf="isAdvancedOptionEnabled">Hide options</ng-container>
+      </button>
     </div>
 
     <div *ngIf="isAdvancedOptionEnabled" id="advanced-options">
@@ -330,6 +335,11 @@
         </div>
       </div>
 
+    </div>
+  </div>
+  <div class="row launch-test">
+    <div class="col text-center">
+      <button i18n="form button" class="launch btn-primary btn btn-lg" type="submit" [disabled]="form.disabled">Run the test</button>
     </div>
   </div>
 </form>
