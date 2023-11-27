@@ -297,14 +297,13 @@ article ul li .level.warning {
 }
 
 .result .filters .severity-level-inputs label {
-  padding: 0.5em 0.5em 0.5em .5em;
+  padding: 0.3em;
   border-radius: 0.5rem;
-  border: 1px solid transparent;
+  border: 0.2em solid transparent;
 }
 
 .result .filters .severity-level-inputs label:focus-within {
-
-  border-color: var(--primary-color);
+  border-color: white;
   box-shadow: 0 0 0 0.2rem var(--outline-focus-color)
 }
 
