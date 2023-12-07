@@ -41,11 +41,6 @@
         <note priority="1" from="description">nav link</note>
         <target state="translated">Lancer un test</target>
       </trans-unit>
-      <trans-unit id="24813b8a3e45f0b57136c18d003027262cfe2d1f" datatype="html">
-        <source>Options</source>
-        <note priority="1" from="description">form label</note>
-        <target state="translated">Options</target>
-      </trans-unit>
       <trans-unit id="1a59ce56e34ee3e09cdb464315fd929a35e4a579" datatype="html">
         <source>Disable IPv4</source>
         <note priority="1" from="description">form label</note>
@@ -410,20 +405,10 @@
         <note priority="1" from="description">result subheader</note>
         <target state="translated">Tester un autre domaine</target>
       </trans-unit>
-      <trans-unit id="d0ef3bf3b47bf926f7903adc4b6f3253125b4137" datatype="html">
-        <source>Select the digest type</source>
-        <note priority="1" from="description">form label</note>
-        <target state="translated">Sélectionner le type de condensat</target>
-      </trans-unit>
       <trans-unit id="a80323a72217e6e51ab903d5109e12c69ed70b79" datatype="html">
         <source>Domain name</source>
         <note priority="1" from="description">form label</note>
         <target state="translated">Nom de domaine</target>
-      </trans-unit>
-      <trans-unit id="e7f4b2bbdff587e9c3a5522ad557c6cc80afa3d0" datatype="html">
-        <source>Select the algorithm</source>
-        <note priority="1" from="description">form label</note>
-        <target state="translated">Sélectionner l&apos;algorithme</target>
       </trans-unit>
       <trans-unit id="f665bbb30747f14509b02e1cce43151825679ede" datatype="html">
         <source>DS record #<x id="INTERPOLATION" equiv-text="{{ i + 1}}"/></source>
@@ -780,12 +765,14 @@
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="93e3b326e8c6a335517ce06fd8e4fb60b32022d6" datatype="html">
-        <source>Thirdly, Zonemaster can be used to test undelegated domain names. See <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#what-is-an-undelegated-domain-test&quot;&gt;"/>Question 12<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <source>Thirdly, Zonemaster can be used to test undelegated domain names. See <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;faq#what-is-an-undelegated-domain-test&quot;&gt;"/>Question 12<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
         <note priority="1" from="description">faq answer</note>
+        <target state="new">Thirdly, Zonemaster can be used to test undelegated domain names. See <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;faq#what-is-an-undelegated-domain-test&quot;&gt;"/>Question 12<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
       </trans-unit>
       <trans-unit id="d935513e236ca268ce40c309a7e3dc8ffdb4644b" datatype="html">
-        <source>Fourthly, Zonemaster can be used to test DS records before their publication in the parent zone (which is required to enable DNSSEC for a signed zone). See <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;#can-i-test-the-ds-records-before-they-are-published&quot;&gt;"/>Question 13<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <source>Fourthly, Zonemaster can be used to test DS records before their publication in the parent zone (which is required to enable DNSSEC for a signed zone). See <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;faq#can-i-test-the-ds-records-before-they-are-published&quot;&gt;"/>Question 13<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
         <note priority="1" from="description">faq answer</note>
+        <target state="new">Fourthly, Zonemaster can be used to test DS records before their publication in the parent zone (which is required to enable DNSSEC for a signed zone). See <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;faq#can-i-test-the-ds-records-before-they-are-published&quot;&gt;"/>Question 13<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
       </trans-unit>
       <trans-unit id="d64e48938dc174ff3a27321a096a8aed44cb55cf" datatype="html">
         <source>The judgement of Zonemaster is primarily based on the DNS standards as defined in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a i18n-href=&quot;RFC Wikipedia link&quot; href=&quot;https://en.wikipedia.org/wiki/Request_for_Comments&quot;&gt;"/>RFCs<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. It also bases its judgement on DNS best practices, which can be more loosely defined. All Zonemaster tests are defined in <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases&quot;&gt;"/>Test Case Specifications<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in which the references to the standard documents for that test case are found.</source>
@@ -802,6 +789,38 @@
       <trans-unit id="35616e74e8222cbe39e0e9e1d4451538fe760238" datatype="html">
         <source>It depends on which test failed for your domain name. Each test are accompanied with one or several messages describing the issues found. You can also get further insight about each test from the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases&quot;&gt;"/>Defined Test Cases<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> document.</source>
         <note priority="1" from="description">faq answer</note>
+      </trans-unit>
+      <trans-unit id="67f7a9ad43bbcaca9531388e8a49fcc6edcaed74" datatype="html">
+        <source>Show options</source>
+        <note priority="1" from="description">form options</note>
+      </trans-unit>
+      <trans-unit id="df56a78c043a7fb2730cbcb1698feca73dfcbe9b" datatype="html">
+        <source>Hide options</source>
+        <note priority="1" from="description">form options</note>
+      </trans-unit>
+      <trans-unit id="20082569eb8efb8fc83ba9dab9d5a82f2ec776f4" datatype="html">
+        <source>Name of nameserver #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
+        <note priority="1" from="description">form label</note>
+      </trans-unit>
+      <trans-unit id="3be32b3a3d71b821a0d39849b776262d3d146f78" datatype="html">
+        <source>Address of nameserver #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
+        <note priority="1" from="description">form label</note>
+      </trans-unit>
+      <trans-unit id="287aebdc3541209e5c1dea27066081343f43d851" datatype="html">
+        <source>Key tag of DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
+        <note priority="1" from="description">form label</note>
+      </trans-unit>
+      <trans-unit id="43636ed69534e24f236d7ffc4c270d4fbbd1e598" datatype="html">
+        <source>Algorithm of DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
+        <note priority="1" from="description">form label</note>
+      </trans-unit>
+      <trans-unit id="c70f88d82a261690a8fab72cc64eb45ce2701a83" datatype="html">
+        <source>Digest type of DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
+        <note priority="1" from="description">form label</note>
+      </trans-unit>
+      <trans-unit id="c8519a4a202001557a05f640963735dbf5f07b33" datatype="html">
+        <source>Digest of DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
+        <note priority="1" from="description">form label</note>
       </trans-unit>
     </body>
   </file>
