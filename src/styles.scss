@@ -170,17 +170,6 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-h2::after {
-  content: '';
-  display: block;
-  width: 60%;
-  height: 0.2rem;
-  background-color: var(--primary-color);
-  margin-top: 0.5rem;
-  margin-bottom: 0.3rem;
-  border-radius: 0.5rem;
-}
-
 h3 {
   font-size: calc(1.2rem + 0.5vw);
 }
