@@ -110,6 +110,9 @@ License
 This is free software under a 2-clause BSD license. The full text of the license can
 be found in the [LICENSE](LICENSE) file included in this respository.
 
+Images `src/assets/images/person_looking_at_computer.svg` and `src/assets/images/world_connected.svg`
+are taken from <https://undraw.co>, [full license](https://undraw.co/license).
+
 
 [Backend Configuration]:            https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/backend.md
 [GUI Configuration]:                https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
