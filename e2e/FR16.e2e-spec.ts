@@ -10,10 +10,10 @@ test.describe('Zonemaster test FR16 - [The advanced view should have a text desc
   });
 
   test('should have a link to the proper faq answer', async ({ page }) => {
-    const alert = page.locator('.alert.alert-info');
+    const alert = page.locator('#advanced-options aside .alert');
     await expect(alert).toBeVisible();
     await expect(alert.locator('a')).toHaveAttribute('routerlink', '/faq');
-    await expect(alert.locator('a')).toHaveAttribute('fragment', 'q12');
+    await expect(alert.locator('a')).toHaveAttribute('fragment', 'what-is-an-undelegated-domain-test');
   });
 
   test('should have a description text in multi languages', async ({ page }) => {
@@ -26,7 +26,7 @@ test.describe('Zonemaster test FR16 - [The advanced view should have a text desc
     for (const {lang, text} of testSuite) {
       await setLang(page, lang);
       await showOptions(page);
-      await expect(page.locator('.alert.alert-info a')).toContainText(text);
+      await expect(page.locator('#advanced-options aside .alert a')).toContainText(text);
     }
   });
 });

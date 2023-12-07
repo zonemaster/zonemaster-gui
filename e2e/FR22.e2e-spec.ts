@@ -13,12 +13,12 @@ test.describe('Zonemaster test FR22 - [Provide the possibility to see more infor
   test('should display full messages',  async({ page }) => {
     await expect(page.locator('.progress-bar')).toBeHidden();
 
-    await page.locator('#input_domain_form').type('results.afNiC.Fr');
-    await page.locator('div button.launch').click();
+    await page.locator('#input-domain-form').type('results.afNiC.Fr');
+    await page.locator('button.launch').click();
 
     // Basic header is the second one
     const basicHeader = page.locator('.result h3').nth(1);
-    const basicTestcases = page.locator('#module-BASIC article');
+    const basicTestcases = page.locator('#module-BASIC section');
 
     // Basic02 header is the second one in the Basic results
     const basic02Header = page.locator('#module-BASIC h4').nth(1);
