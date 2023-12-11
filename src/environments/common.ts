@@ -2,7 +2,7 @@
 // You can override those in environment configuration files
 
 export const common = {
-  contactAddress: 'zonemaster@zonemaster.net',
+  contactAddress: 'contact@zonemaster.net',
   logoUrl: 'assets/images/zonemaster_logo_2021_color.png',
   footerLogo: '',
   footerLogoAlt: '',
