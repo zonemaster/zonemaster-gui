@@ -1,13 +1,16 @@
-<app-form [isAdvancedOptionEnabled]="isAdvancedOptionEnabled"
-          [formProgression]="runTestProgression"
-          [showProgressBar]="showProgressBar"
-          [parentDataNS]="parentDataNS"
-          [parentDataDS]="parentDataDS"
-          [profiles]="profiles"
-          [toggleFinished]="toggleFinished"
-          [formError]="requestError"
-          (onRunTest)="runTest($event)"
-          (onFetchDataFromParent)="fetchFromParent($event)"
-          (onOpenOptions)="openOptions($event)"
+<section class="run-test">
+    <ng-content></ng-content>
+    <app-form [isAdvancedOptionEnabled]="isAdvancedOptionEnabled"
+            [formProgression]="runTestProgression"
+            [showProgressBar]="showProgressBar"
+            [parentDataNS]="parentDataNS"
+            [parentDataDS]="parentDataDS"
+            [profiles]="profiles"
+            [toggleFinished]="toggleFinished"
+            [formError]="requestError"
+            (onRunTest)="runTest($event)"
+            (onFetchDataFromParent)="fetchFromParent($event)"
+            (onOpenOptions)="openOptions($event)"
 
-></app-form>
+    ></app-form>
+</section>

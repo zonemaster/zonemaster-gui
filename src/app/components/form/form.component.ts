@@ -36,8 +36,8 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     },
     'ds_info': {
       keytag: '',
-      algorithm: -1,
-      digtype: -1,
+      algorithm: '',
+      digtype: '',
       digest: ''
     }
   };
@@ -102,11 +102,11 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     const digest = control.get('digest');
     const digtype = control.get('digtype');
 
-    if (keytag.value || digest.value || (algorithm.value > -1) || (digtype.value > -1)) {
+    if (keytag.value || digest.value || algorithm.value || digtype.value ) {
       if (!keytag.value) keytag.setErrors({required: true});
       if (!digest.value) digest.setErrors({required: true});
-      if (algorithm.value <= 0) algorithm.setErrors({required: true});
-      if (digtype.value <= 0) digtype.setErrors({required: true});
+      if (!algorithm.value) algorithm.setErrors({required: true});
+      if (!digtype.value) digtype.setErrors({required: true});
     } else { // reset errors on children
       keytag.setErrors(null);
       digest.setErrors(null);
@@ -178,8 +178,9 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         });
         this.alertService.success($localize `Parent data fetched with success.`);
       }
-    }
+      this.addNewRow(formName);
 
+    }
   }
 
   @Input()
@@ -222,12 +223,25 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   public addNewRow(formName, value = null) {
     const control = <FormArray>this.form.get(formName);
-
-    if (value !== null) {
-      control.push(this.formBuilder.group(value, this.formOpts[formName]));
-    } else {
-      control.push(this.formBuilder.group(this.formConfig[formName], this.formOpts[formName]));
+    const isPrefilled = value !== null;
+    if (!isPrefilled) {
+      value = this.formConfig[formName];
     }
+
+    const group = this.formBuilder.group(value, this.formOpts[formName]);
+
+    if (!isPrefilled) {
+      const valueChangesSubscription = group.valueChanges.subscribe((e) => {
+        if (group.pristine === false) {
+          this.addNewRow(formName);
+          valueChangesSubscription.unsubscribe();
+        }
+      });
+    } else {
+      group.markAsDirty();
+    }
+
+    control.push(group);
   }
 
   public deleteRow(formName, index: number) {
@@ -237,11 +251,15 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         control.removeAt(i);
       }
     } else {
-      control.removeAt(index);
+      if (index < control.length) {
+        control.removeAt(index);
+      }
+
       if (control.length === 0) {
         this.addNewRow(formName);
       }
     }
+    return false;
   }
 
   private fetchDataFromParent(type) {

@@ -1,8 +1,21 @@
-.faq span[id^=q] {
-  position: relative;
-  top: -90px;
+.faq-header .main h1 {
+  margin-bottom: 2rem;
 }
 
-.faq {
-  overflow-anchor: none;
+.faq-description {
+  max-width: 30rem;
+  text-align: center;
+  margin: auto;
+  font-size: 1.4em;
+}
+
+.faq-contact {
+  max-width: 45rem;
+  text-align: center;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.faq-category:not(:last-of-type) {
+  margin-bottom: 4rem;
 }

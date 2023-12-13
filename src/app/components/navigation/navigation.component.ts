@@ -12,7 +12,7 @@ import { filter, take } from "rxjs/internal/operators";
   styleUrls: ['./navigation.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class NavigationComponent implements OnInit, AfterViewInit {
+export class NavigationComponent {
   public logoUrl: string;
   public isNavbarCollapsed = true;
   public isShrunk = false;
@@ -24,9 +24,7 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   @ViewChild('navView', {static: false}) navView: ElementRef;
 
-  constructor(private navigationService: NavigationService,
-              appService: AppService,
-              private zone: NgZone,
+  constructor(appService: AppService,
               private router: Router,
               platformLocation: PlatformLocation,
               @Inject(LOCALE_ID) private language: string) {
@@ -35,22 +33,6 @@ export class NavigationComponent implements OnInit, AfterViewInit {
     this.baseUrl = platformLocation.getBaseHrefFromDOM();
 
     this.logoUrl = appService.getConfig('logoUrl');
-
-    window.addEventListener('scroll', () => {
-      zone.run(() => {
-        if (window.pageYOffset > 0) {
-          this.isShrunk = true;
-        } else {
-          this.isShrunk = false;
-        }
-
-        if (window.pageYOffset > 250) {
-          this.activeBackToTop = true;
-        } else {
-          this.activeBackToTop = false;
-        }
-      });
-    });
 
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -65,18 +47,6 @@ export class NavigationComponent implements OnInit, AfterViewInit {
           this.setLanguage(this.language);
         }
       });
-  }
-  ngAfterViewInit() {
-    let observer = new ResizeObserver(_entries => {
-      this.zone.run(() => {
-        let rect = this.navView.nativeElement.getBoundingClientRect();
-        this.navigationService.setHeight(rect.height);
-      })
-    });
-    observer.observe(this.navView.nativeElement);
-  }
-
-  ngOnInit() {
   }
 
   public backToTop() {

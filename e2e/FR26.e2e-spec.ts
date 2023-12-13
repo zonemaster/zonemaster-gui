@@ -10,8 +10,8 @@ test.describe('Zonemaster test FR26 - [Should be able to show a progress bar wit
 
   test('should display progress bar',  async ({ page }) => {
     await expect(page.locator('.progress-bar')).toBeHidden();
-    await page.locator('#input_domain_form').type('progress.afNiC.Fr');
-    await page.locator('div button.launch').click();
+    await page.locator('#input-domain-form').type('progress.afNiC.Fr');
+    await page.locator('button.launch').click();
     await expect(page.locator('.progress-bar')).toBeVisible({ timeout: 10000});
     await expect(page.locator('.progress-value')).toHaveText('50%');
   });

@@ -1,19 +1,10 @@
-.main {
+app-header {
   margin-bottom: 4rem;
+  display: block;
+}
+
+app-header h1 {
   text-align: center;
-  background-color: #ececec;
-}
-.main > .container {
-  margin: auto;
-  padding: 4rem 0;
-}
-
-.info-banner {
-    padding: 0.5rem;
-    border-radius: 0;
-}
-
-.info-banner-content {
-  margin: auto;
-  max-width: 1320px;
+  margin-bottom: 4rem;
+  font-size: 3rem;
 }

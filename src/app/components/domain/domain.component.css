@@ -1,7 +1,50 @@
-aside.about article {
+.about article {
     display: flex;
 }
 
-aside.about {
+.about {
     padding: 0;
+}
+
+.about .illustration {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.about #home_illustration1 {
+    background-image: url('assets/images/person_looking_at_computer.svg');
+}
+
+.about #home_illustration2 {
+    background-image: url('assets/images/world_connected.svg');
+}
+
+.about article {
+    display: flex;
+    gap: 2rem;
+}
+
+.about article:not(:last-of-type) {
+    margin-bottom: 4rem;
+}
+
+.about article > * {
+    flex: 1;
+}
+
+@media(max-width:991px) {
+    .about .illustration {
+        flex-basis: 30%;
+    }
+
+    .about .about-content {
+        flex-basis: 70%;
+    }
+}
+
+@media(max-width: 767px) {
+    .about .illustration {
+        display: none;
+    }
 }
