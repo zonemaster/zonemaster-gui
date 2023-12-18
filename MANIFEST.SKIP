@@ -24,6 +24,8 @@
 ^proxy\.disabled\.conf\.json$
 ^tsconfig\.json$
 ^zonemaster-gui\.toml$
+.log$
+^Zonemaster-.+\.tar\.gz$
 
 
 #!start included /usr/share/perl/5.20/ExtUtils/MANIFEST.SKIP

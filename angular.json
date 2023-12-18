@@ -45,8 +45,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/assets",
-              "src/.htaccess"
+              "src/assets/favicon",
+              "src/assets/images"
             ],
             "styles": [
               "src/styles.scss",
