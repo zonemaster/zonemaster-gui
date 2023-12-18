@@ -1,0 +1,85 @@
+^.angular/
+^.github/
+^.tmp/
+^additional/
+^dist/
+^docs/
+^e2e/
+^lib/auto/
+^inc/
+^node_modules/
+^src/
+^scripts/[^/]*\.js$
+^share/dist/[a-z]{2}/assets/app\.config(\.sample)?\.json$
+^test-results/
+
+^\.browserslistrc$
+^\.editorconfig$
+^\.gitignore$
+^angular\.json$
+^package\.json$
+^package-lock\.json$
+^playwright\.config\.ts$
+^proxy\.conf\.json$
+^proxy\.disabled\.conf\.json$
+^tsconfig\.json$
+^zonemaster-gui\.toml$
+
+
+#!start included /usr/share/perl/5.20/ExtUtils/MANIFEST.SKIP
+# Avoid version control files.
+\bRCS\b
+\bCVS\b
+\bSCCS\b
+,v$
+\B\.svn\b
+\B\.git\b
+\B\.gitignore\b
+\b_darcs\b
+\B\.cvsignore$
+
+# Avoid VMS specific MakeMaker generated files
+\bDescrip.MMS$
+\bDESCRIP.MMS$
+\bdescrip.mms$
+
+# Avoid Makemaker generated and utility files.
+\bMANIFEST\.bak
+^Makefile$
+\bblib/
+\bMakeMaker-\d
+\bpm_to_blib\.ts$
+\bpm_to_blib$
+\bblibdirs\.ts$         # 6.18 through 6.25 generated this
+
+# Avoid Module::Build generated and utility files.
+\bBuild$
+\b_build/
+\bBuild.bat$
+\bBuild.COM$
+\bBUILD.COM$
+\bbuild.com$
+
+# Avoid temp and backup files.
+~$
+\.old$
+\#$
+\b\.#
+\.bak$
+\.tmp$
+\.#
+\.rej$
+
+# Avoid OS-specific files/dirs
+# Mac OSX metadata
+\B\.DS_Store
+# Mac OSX SMB mount metadata files
+\B\._
+
+# Avoid Devel::Cover and Devel::CoverX::Covered files.
+\bcover_db\b
+\bcovered\b
+
+# Avoid MYMETA files
+^MYMETA\.
+#!end included /usr/share/perl/5.20/ExtUtils/MANIFEST.SKIP
