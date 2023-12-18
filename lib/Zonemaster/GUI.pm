@@ -5,7 +5,6 @@ use warnings;
 
 use Dancer2;
 use Carp;
-use Data::Dumper;
 use I18N::AcceptLanguage;
 use TOML::Tiny qw(from_toml);
 use File::Slurp qw( read_file );
@@ -68,7 +67,7 @@ sub build_app {
     my $config_file_name = $ENV{ZONEMASTER_GUI_CONFIG_FILE} // "zonemaster-gui.toml";
     my $config_file = read_file $config_file_name;
     my $config = from_toml($config_file);
-    my $install_directory = dist_dir('Zonemaster-GUI');
+    my $install_directory = $config->{general}->{install_directory} // dist_dir('Zonemaster-GUI');
 
     if (! exists $config->{general}->{default_language}) {
         croak "Please set `default_language` in configuration file.";
@@ -98,6 +97,35 @@ sub build_app {
 
     $client_config{defaultLanguage} = $config->{general}->{default_language};
     $client_config{enabledLanguages} = $config->{general}->{enabled_languages};
+
+    if (exists $config->{client}->{api_endpoint}) {
+        $client_config{apiEndpoint} = $config->{client}->{api_endpoint};
+    }
+
+    if (exists $config->{client}->{polling_interval}) {
+        $client_config{pollingInterval} = $config->{client}->{polling_interval};
+    }
+
+    if (exists $config->{customization}->{msg_banner}) {
+        $client_config{msgBanner} = $config->{customization}->{msg_banner};
+    }
+
+    if (exists $config->{customization}->{contact_address}) {
+        $client_config{contactAddress} = $config->{customization}->{contact_address};
+    }
+
+    if (exists $config->{customization}->{logo_url}) {
+        $client_config{logoUrl} = $config->{customization}->{logo_url};
+    }
+
+    if (exists $config->{customization}->{footer_logo}) {
+        $client_config{footerLogo} = $config->{customization}->{footer_logo};
+    }
+
+    if (exists $config->{customization}->{footer_logo_alt}) {
+        $client_config{footerLogo} = $config->{customization}->{footer_logo_alt};
+    }
+
 
     set client_config => \%client_config;
 
