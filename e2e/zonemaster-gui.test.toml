@@ -1,0 +1,5 @@
+[general]
+default_language = "en"
+enabled_languages = ["da", "en", "es", "fi", "fr", "nb", "sv"]
+
+# All client config are hardcoded in environment.tests.js
