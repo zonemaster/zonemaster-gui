@@ -1,0 +1,80 @@
+[general]
+
+# Base URL must be striped from path by reverse proxy
+# Default value: ""
+#base_url = "/zonemaster"
+
+# Directory where are GUI files are installed, replace by discovery using file share_dir
+# Default value is discovered using File::ShareDir::dist_dir
+#install_directory = "/usr/local/share/zonemaster/zonemaster-gui"
+
+# If defined, a directory that will be included as template source directory.
+# Usefull to create template overrides.
+# Default templates are in ${general.install_directory}/templates
+# Default value: ""
+#template_override_directory = "/var/lib/zonemaster/zonemaster-gui/templates"
+
+# The GUI default language to redirect to if language is unknown or unsupported
+# Must be set
+default_language = "en"
+
+# The list of accepted language
+# Accepted language code are ["da", "en", "es", "fi", "fr", "nb", "sv"]
+# Must be set
+enabled_languages = ["da", "en", "es", "fi", "fr", "nb", "sv"]
+
+[customization]
+
+# A message to display to the user, if empty or undefined no banner will be shown.
+# HTML formatting is supported (such as <a> tag), characters such as &>< need to be written as HTML entities to be properly rendered.
+# Default value: ""
+#msg_banner = ""
+
+# The contact email address displayed in the footer.
+# Default value: "contact@zonemaster.net"
+#contact_address = "contact@zonemaster.net"
+
+# URL of the Zonemaster logo in the header
+# Default value: "assets/images/zonemaster_logo_2021_color.png"
+#logo_url = "additionnal/zonemaster.png"
+
+# If defined, a URL to a logo to be included in the footer.
+# Default value: ""
+#footer_logo = "additional/footer.png"
+
+# The alternative text to the footer logo.
+# Set it if you have set `customization.footer_logo`.
+# Default value: ""
+#footer_logo_alt = ""
+
+# The directory where additional scripts and style sheets are placed.
+# File in the additional assets directory can be requested using the URL ${languageCode}/additional/${pathToFile}
+# Must be set if any kind of additional assets are used.
+#additional_assets_directory = "/var/lib/zonemaster/zonemaster-gui/additional"
+
+# A list of additional style to be included.
+# File names must be relative to `general.additional_assets_directory` and can contain query strings.
+# The files will be included in the index.html file after the default styles.
+#additional_styles = [ "my-orgnatisation-theme.css?v=1.3" ]
+
+# A list of additional scripts to be included.
+# File names must be relative to `general.additional_assets_directory` and can contain query strings.
+# The files will be included in the index.html file after the default scripts.
+#additional_scripts = [ "new-feature.js?v=0.1" ]
+
+# If true, default style will not be injected, only the additional styles
+# Default value: false
+#override_default_style = true
+
+[client]
+
+# The URL to use to contact the Zonemaster Backend RPCAPI, default "/api".
+# It could be either a full URL to use an API endpoint not located on the same origin as the one
+# serving the GUI or just a path, like the default value, when both the API and GUI are served
+# from the same origin.
+# Default value: "/api"
+#api_endpoint = "/api"
+
+# Time between each test progress query in millisecond.
+# Default value: 5000 (5 seconds)
+#polling_interval = 5000
