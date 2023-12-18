@@ -4,15 +4,9 @@
 # Default value: ""
 #base_url = "/zonemaster"
 
-# Directory where are GUI files are installed, replace by discovery using file share_dir
+# Directory where are Zonemaster GUI files are installed
 # Default value is discovered using File::ShareDir::dist_dir
 #install_directory = "/usr/local/share/zonemaster/zonemaster-gui"
-
-# If defined, a directory that will be included as template source directory.
-# Usefull to create template overrides.
-# Default templates are in ${general.install_directory}/templates
-# Default value: ""
-#template_override_directory = "/var/lib/zonemaster/zonemaster-gui/templates"
 
 # The GUI default language to redirect to if language is unknown or unsupported
 # Must be set
@@ -46,6 +40,11 @@ enabled_languages = ["da", "en", "es", "fi", "fr", "nb", "sv"]
 # Set it if you have set `customization.footer_logo`.
 # Default value: ""
 #footer_logo_alt = ""
+
+# If defined, a directory that will be included as template source directory, usefull to create template overrides.
+# Default templates are in ${general.install_directory}/templates
+# Default value: ""
+#template_override_directory = "/var/lib/zonemaster/zonemaster-gui/templates"
 
 # The directory where additional scripts and style sheets are placed.
 # File in the additional assets directory can be requested using the URL ${languageCode}/additional/${pathToFile}

@@ -136,7 +136,7 @@ sub build_app {
     my @additional_styles = map { join('/', 'additional', $_) } @{$config->{customization}->{additional_styles}};
     my @additional_scripts = map { join('/', 'additional', $_) } @{$config->{customization}->{additional_scripts}};
 
-    my $override_default_style = $config->{general}->{override_default_style} // 0;
+    my $override_default_style = $config->{customization}->{override_default_style} // 0;
 
     $final_static_resources{styles} =
         $override_default_style ?
