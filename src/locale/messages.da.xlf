@@ -226,7 +226,6 @@
       </trans-unit>
       <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
         <source>Name</source>
-        <target state="new">Kør</target>
         <note priority="1" from="description">form label</note>
       </trans-unit>
       <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
@@ -338,6 +337,7 @@
       </trans-unit>
       <trans-unit id="28c3ac557314fb526258cf6cbb8912bacb769dd6" datatype="html">
         <source>What is Zonemaster?</source>
+        <target state="translated">Hvad er Zonemaster?</target>
       </trans-unit>
       <trans-unit id="02de72ecb8a333fc270d81e7979f5f16ad51bd15" datatype="html">
         <source>When a domain name is sent to Zonemaster for testing, Zonemaster investigates the state of the domain name from the top to the bottom of the DNS tree. This is usually done by examining DNS data from the root, &apos;.&apos;, to the Top-Level Domain (TLD) for that domain name, like &apos;.net&apos;, and then finally through the DNS servers that contain authoritative information about the specified domain name.</source>
@@ -359,7 +359,7 @@
       </trans-unit>
       <trans-unit id="08d618cac3fb7211daea88b1f94346e12a66db93" datatype="html">
         <source>More information on undelegated test:</source>
-        <target state="new">More information on undelegated test:</target>
+        <target state="translated">Mere info om ikke-delegeret test:</target>
         <note priority="1" from="description">form info</note>
       </trans-unit>
       <trans-unit id="2ab292382051ee24f6ab19bc30bbc9441b87a0c0" datatype="html">
@@ -407,11 +407,11 @@
       </trans-unit>
       <trans-unit id="aaf16bc892257c68570faaece1ae7c328d4ea574" datatype="html">
         <source>Give your domain name a complete checkup! <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster helps you assess how your domain name is doing.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
-        <target state="new">Give your domain name a complete checkup! <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster helps you assess how your domain name is doing.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+        <target state="translated">Giv dit domænenavn et komplet tjek! <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster hjælper dig med at vurdere, hvordan dit domænenavn klarer sig.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
       </trans-unit>
       <trans-unit id="990eafebba6d6aa5a9d04f33005ee4bf01e83a20" datatype="html">
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster performs many tests<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
-        <target state="new"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster performs many tests<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</target>
+        <target state="translated"><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster udfører mange tests<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, såsom kontrol af DNSSEC-signaturer, eller at forskellige værter kan tilgås, og at IP-adresser er gyldige. Dette er alt sammen for at sikre, at dit domænenavn fungerer så smertefrit som muligt.</target>
       </trans-unit>
       <trans-unit id="8db253c0a29b5f46dd1ed8f52bdce7b2db5f0f06" datatype="html">
         <source>Frequently asked questions</source>
@@ -435,77 +435,77 @@
       </trans-unit>
       <trans-unit id="8b10e6ae872a96b58fbcd7261cc90f226798d756" datatype="html">
         <source>What is Zonemaster?</source>
-        <target state="new">What is Zonemaster?</target>
+        <target state="translated">Hvad er Zonemaster?</target>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
       <trans-unit id="cc001ff8c20d30dd726f8c27e010f3f97963327a" datatype="html">
         <source>Who is behind Zonemaster?</source>
-        <target state="new">Who is behind Zonemaster?</target>
+        <target state="translated">Hvem står bag Zonemaster?</target>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
       <trans-unit id="2c2546090ea5fa029ce31f5d5390dce114a5c9a8" datatype="html">
         <source>Zonemaster is a joint project between <x id="START_LINK" ctype="x-a" equiv-text="&lt;a i18n-href=&quot;Afnic link&quot; href=&quot;https://www.afnic.fr/en/&quot;&gt;"/>AFNIC<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (registry of &apos;.fr&apos; TLD and several other TLDs, e.g. &apos;.re&apos;, &apos;.pm&apos;, &apos;.tf&apos;, &apos;.wf&apos;, &apos;.yt&apos; and &apos;.paris&apos;) and <x id="START_LINK_1" equiv-text="&lt;a i18n-href=&quot;IIS link&quot; href=&quot;https://internetstiftelsen.se/en/&quot;&gt;"/>The Swedish Internet Foundation<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (registry of &apos;.se&apos; and &apos;.nu&apos; TLDs).</source>
-        <target state="new">Zonemaster is a joint project between <x id="START_LINK" ctype="x-a" equiv-text="&lt;a i18n-href=&quot;Afnic link&quot; href=&quot;https://www.afnic.fr/en/&quot;&gt;"/>AFNIC<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (registry of &apos;.fr&apos; TLD and several other TLDs, e.g. &apos;.re&apos;, &apos;.pm&apos;, &apos;.tf&apos;, &apos;.wf&apos;, &apos;.yt&apos; and &apos;.paris&apos;) and <x id="START_LINK_1" equiv-text="&lt;a i18n-href=&quot;IIS link&quot; href=&quot;https://internetstiftelsen.se/en/&quot;&gt;"/>The Swedish Internet Foundation<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (registry of &apos;.se&apos; and &apos;.nu&apos; TLDs).</target>
+        <target state="translated">Zonemaster er et fælles projekt mellem <x id="START_LINK" ctype="x-a" equiv-text="&lt;a i18n-href=&quot;Afnic link&quot; href=&quot;https://www.afnic.fr/en/&quot;&gt;"/>AFNIC<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (administrator af .fr samt mange andre TLD&apos;er, herunder .re, .pm, .tf, .yt og .paris) og <x id="START_LINK_1" equiv-text="&lt;a i18n-href=&quot;IIS link&quot; href=&quot;https://internetstiftelsen.se/en/&quot;&gt;"/>The Swedish Internet Foundation<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (administrator af .se og .nu).</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="e2bf4547393abb2e5e4c77cfaaeb79e8f85a541c" datatype="html">
         <source>How can Zonemaster help me?</source>
-        <target state="new">How can Zonemaster help me?</target>
+        <target state="translated">Hvordan kan Zonemaster hjælpe mig?</target>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
       <trans-unit id="fdca9ec2c5041bd0c8bc200d1bb56ace1920f8f2" datatype="html">
         <source>The Zonemaster tool could help different kind of users:</source>
-        <target state="new">The Zonemaster tool could help different kind of users:</target>
+        <target state="translated">Zonemaster er orienteret mod to forskellige brugere:</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="90e55bb71b57ffa3d778c6a9e676c505d4b897cb" datatype="html">
         <source>Users who just want to know whether the domain name they own or use have any issues or not.</source>
-        <target state="new">Users who just want to know whether the domain name they own or use have any issues or not.</target>
+        <target state="translated">Brugere som gerne vil vide, om et givent domænenavn er konfigureret korrekt.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="7f82cd00cb66740b1e8e6695ceb6987d951e38e5" datatype="html">
         <source>Users of the second category should contact their DNS operator in case there are errors or warnings for any test of their domain name.</source>
-        <target state="new">Users of the second category should contact their DNS operator in case there are errors or warnings for any test of their domain name.</target>
+        <target state="translated">Den anden kategori kan med fordel kontakte deres DNS-udbyder med spørgsmål til testresultater, der ikke &quot;lyser grønt&quot; på egne domænenavne.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="8dbcc14f18696f9d909524ca7364f9988cf901b8" datatype="html">
         <source>What makes Zonemaster different from other DNS zone validating software?</source>
-        <target state="new">What makes Zonemaster different from other DNS zone validating software?</target>
+        <target state="translated">Hvad gør Zonemaster forkellig fra andre tilsvarende test-værktøjer?</target>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
       <trans-unit id="3942f9186d69777597c1fba63f78762033da2ee4" datatype="html">
         <source>Firstly, Zonemaster saves all history from earlier tests based on the tested domain name, which means you can go back to a test you did some time ago and compare it to the test you ran just a moment ago.</source>
-        <target state="new">Firstly, Zonemaster saves all history from earlier tests based on the tested domain name, which means you can go back to a test you did some time ago and compare it to the test you ran just a moment ago.</target>
+        <target state="translated">For det første gemmer Zonemaster al historik fra tidligere test baseret på de testede domænenavn, hvilket betyder, at du kan gå tilbage til en test, du lavede for noget tid siden, og sammenligne den til den test, du kørte for et øjeblik siden.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="5bad6b87847399d805291b8a8d89a84ef6576c42" datatype="html">
         <source>Lastly, this open source version of Zonemaster was built using modular code which basically means that you can integrate parts of it in your own systems, if you wish. For example, it is quite rare that you would want a complete program just to check for redelegations.</source>
-        <target state="new">Lastly, this open source version of Zonemaster was built using modular code which basically means that you can integrate parts of it in your own systems, if you wish. For example, it is quite rare that you would want a complete program just to check for redelegations.</target>
+        <target state="translated">Endelig blev denne open source-version af Zonemaster bygget ved hjælp af modulær kode hvilket i bund og grund betyder, at du kan integrere dele af det i dine egne systemer, hvis du ønsker det. For eksempel er det ret sjældent, at du vil have et komplet program bare for at tjekke efter redelegationer.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="f3a7aab6d6b07e6db0c1ba7e4b88f53430d5ce81" datatype="html">
         <source>How can Zonemaster distinguish between what is right and wrong?</source>
-        <target state="new">How can Zonemaster distinguish between what is right and wrong?</target>
+        <target state="translated">Hvordan kan Zonemaster skelne mellem, hvad der er rigtigt og forkert?</target>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
       <trans-unit id="7d2a11619babe460976bf5e38e5e920cbbf968cd" datatype="html">
         <source>Sometimes there are different interpretations of the standards or opinions on what is best practice, and the Zonemaster team is always open to input. If you think we have made a mistake in our judgement please do not hesitate to send us an email at <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;mailto:zonemaster-users@lists.iis.se&quot;&gt;"/>zonemaster-users@lists.iis.se<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (moderated mailing list) with a link to your test result and an explanation as to why you think it shows something that you consider incorrect.</source>
-        <target state="new">Sometimes there are different interpretations of the standards or opinions on what is best practice, and the Zonemaster team is always open to input. If you think we have made a mistake in our judgement please do not hesitate to send us an email at <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;mailto:zonemaster-users@lists.iis.se&quot;&gt;"/>zonemaster-users@lists.iis.se<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (moderated mailing list) with a link to your test result and an explanation as to why you think it shows something that you consider incorrect.</target>
+        <target state="translated">Nogle gange er der forskellige fortolkninger af standarderne eller meninger om, hvad der er bedste praksis, og Zonemaster-teamet er altid åbent for input. Hvis du mener, at vi har lavet en fejl i vores vurdering, så tøv ikke med at sende os en e-mail på <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;mailto:zonemaster-users@lists.iis.se&quot;&gt;"/>zonemaster-users@lists.iis.se<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (modereret mailingliste) med et link til dit testresultat og en forklaring på, hvorfor du mener, det viser noget, som du anser for forkert.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="076e3c1beadaa4e6ba7989124471ab3d14bbc523" datatype="html">
         <source>What kind of queries does Zonemaster generate?</source>
-        <target state="new">What kind of queries does Zonemaster generate?</target>
+        <target state="translated">Hvilke typer af forespørgsler genererer Zonemaster?</target>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
       <trans-unit id="56c265f73e958064c7bcfee6e566516e03066c1a" datatype="html">
         <source>Zonemaster send multiple DNS queries to the name servers hosting the domain name being tested and also to the name servers hosting the parent zone of that domain name.</source>
-        <target state="new">Zonemaster send multiple DNS queries to the name servers hosting the domain name being tested and also to the name servers hosting the parent zone of that domain name.</target>
+        <target state="translated">Zonemaster sender flere DNS-forespørgsler til de navneservere, der hoster domænenavnet, der testes og også til de navneservere, der er vært for det pågældende domænenavns overordnede zone.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="441b723a458aa167da55ee24002ef0a38ac81a96" datatype="html">
         <source>Zonemaster and privacy</source>
-        <target state="new">Zonemaster and privacy</target>
+        <target state="translated">Zonemaster og privatliv</target>
         <note priority="1" from="description">faq response</note>
       </trans-unit>
       <trans-unit id="0c82e2cf51eabccbfebc06f15066ea674e03b5ba" datatype="html">
@@ -515,92 +515,92 @@
       </trans-unit>
       <trans-unit id="87b80f57df949b82582bceaf5fd07567657d83a3" datatype="html">
         <source>How come my domain name cannot be tested?</source>
-        <target state="new">How come my domain name cannot be tested?</target>
+        <target state="translated">Hvorfor kan jeg ikke teste mit domænenavn?</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="67269fee7f44c79618ab1c709d8dd53949545984" datatype="html">
         <source>There are several possibilities:</source>
-        <target state="new">There are several possibilities:</target>
+        <target state="translated">Der er flere muligheder:</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="5ade768ec4a2e175bdcc18687d04ef22efa461da" datatype="html">
         <source>Your domain name is not yet delegated.</source>
-        <target state="new">Your domain name is not yet delegated.</target>
+        <target state="translated">Dit domænenavn er endnu ikke delegeret.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="455236713205c5803658d6e4c2735241a62a06a5" datatype="html">
         <source>Your domain name is not reachable from public Internet.</source>
-        <target state="new">Your domain name is not reachable from public Internet.</target>
+        <target state="translated">Dit domænenavn er ikke tilgængeligt fra det offentlige internet.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="2c3a34d5c350d025523503260d7b7fd2be5bd297" datatype="html">
         <source>Zonemaster can only test what is called a DNS zone (e.g. &apos;zonemaster.net&apos;) and not host names (e.g. &apos;www.zonemaster.net&apos;)</source>
-        <target state="new">Zonemaster can only test what is called a DNS zone (e.g. &apos;zonemaster.net&apos;) and not host names (e.g. &apos;www.zonemaster.net&apos;)</target>
+        <target state="translated">Zonemaster kan kun teste det, der kaldes en DNS-zone (f.eks. &apos;zonemaster.net&apos;) og ikke hostnavne (f.eks. &apos;www.zonemaster.net&apos;)</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="eb42d0a7485a530b74a81467195b779cdb447607" datatype="html">
         <source>There is a 10 minutes protection between consecutive tests for a given domain name (with same test parameters). Running a test within that window will instead show the last available test for that domain name (and parameters).</source>
-        <target state="new">There is a 10 minutes protection between consecutive tests for a given domain name (with same test parameters). Running a test within that window will instead show the last available test for that domain name (and parameters).</target>
+        <target state="translated">Der er 10 minutters beskyttelse mellem på hinanden følgende tests for et givet domænenavn (med samme testparametre). Kørsel af en test i det vindue vil i stedet vise den sidste tilgængelige test for det pågældende domænenavn (og parametre).</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="3fa205532eeda5bef22a1c0268e823b691682f2e" datatype="html">
         <source>You have misspelled your domain name.</source>
-        <target state="new">You have misspelled your domain name.</target>
+        <target state="translated">Du har stavet dit domænenavn forkert.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="017a18b1b16fe7d0fbcb10ff395b3dd8c4ae6a15" datatype="html">
         <source>Zonemaster returns &quot;Error&quot; or &quot;Warning&quot; for my domain name. What does it mean?</source>
-        <target state="new">Zonemaster returns &quot;Error&quot; or &quot;Warning&quot; for my domain name. What does it mean?</target>
+        <target state="translated">Zonemaster rapporterer advarsler/fejl på mit domænenavn, hvad betyder det?</target>
         <note priority="1" from="description">faq response</note>
       </trans-unit>
       <trans-unit id="42250f7733996b993b937350f4e1cb0df5a60561" datatype="html">
         <source>What is an undelegated domain test?</source>
-        <target state="new">What is an undelegated domain test?</target>
+        <target state="translated">Hvad er en &quot;ikke-delegeret&quot; test?</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="e9e0008a5b47b371cc2f592e2b07f7f436f69579" datatype="html">
         <source>An undelegated domain test is a test performed on a domain name that may, or may not, be fully published in the DNS. This can be quite useful if one is going to migrate one&apos;s domain from one registrar to another, e.g., migrate zone &apos;example.com&apos; from the name server &apos;ns.example.com&apos; to the name server &apos;ns.example.org&apos;. In this scenario one could perform an undelegated domain test providing the zone (&apos;example.com&apos;) and the name server you are migrating to (&apos;ns.example.org&apos;) before you migrate your domain. When the results of the test doesn&apos;t show any errors or warnings one can be fairly certain that the domain&apos;s new location is working well. However there might still be other problems in the zone data itself that this test is unaware of.</source>
-        <target state="new">An undelegated domain test is a test performed on a domain name that may, or may not, be fully published in the DNS. This can be quite useful if one is going to migrate one&apos;s domain from one registrar to another, e.g., migrate zone &apos;example.com&apos; from the name server &apos;ns.example.com&apos; to the name server &apos;ns.example.org&apos;. In this scenario one could perform an undelegated domain test providing the zone (&apos;example.com&apos;) and the name server you are migrating to (&apos;ns.example.org&apos;) before you migrate your domain. When the results of the test doesn&apos;t show any errors or warnings one can be fairly certain that the domain&apos;s new location is working well. However there might still be other problems in the zone data itself that this test is unaware of.</target>
+        <target state="translated">En &quot;ikke-delegeret&quot; test af et domænenavn betyder, at testen udføres på et domænenavn, der måske eller måske ikke er offentliggjort i DNS. Dette kan være ganske nyttigt, såfremt man ønsker at udskifte navneservere bag et domænenavn (redelegering af domænenavnet), og ønsker at teste opsætningen af den nye zone inden redelegering. Såfremt Zonemasters testresultat er &quot;grønt&quot;, er der stor sandsynlighed for, at de nye navneservere er konfigureret korrekt, og en redelegering vil kunne udføres med succes.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="714b9a1e26a0fb83903c47c5861168eb802f14c8" datatype="html">
         <source>Does Zonemaster support IPv6?</source>
-        <target state="new">Does Zonemaster support IPv6?</target>
+        <target state="translated">Understøtter Zonemaster IPv6?</target>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
       <trans-unit id="e202abce3d27b876ce27b42e2c65c4109d902e00" datatype="html">
         <source>Yes. By default Zonemaster will query name servers both over IPv4 and IPv6, unless explicitly configured otherwise. Such configuration is accessible through the &quot;Options&quot; button.</source>
-        <target state="new">Yes. By default Zonemaster will query name servers both over IPv4 and IPv6, unless explicitly configured otherwise. Such configuration is accessible through the &quot;Options&quot; button.</target>
+        <target state="translated">Ja. Som udgangspunkt vil Zonemaster forespørge navneservere over IPv4 og IPv6, medmindre andet er konfigureret under &quot;Valgmuligheder&quot;.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="0a5f5612b4d2dfb3a9bf032f9815e6228d0721a6" datatype="html">
         <source>Does Zonemaster verify DNSSEC?</source>
-        <target state="new">Does Zonemaster verify DNSSEC?</target>
+        <target state="translated">Understøtter Zonemaster DNSSEC?</target>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
       <trans-unit id="0874420d71f7584ca97473e73ab7c592f0b30aa8" datatype="html">
         <source>Yes. If DNSSEC is available for a domain name that is tested by Zonemaster, it will be checked automatically.</source>
-        <target state="new">Yes. If DNSSEC is available for a domain name that is tested by Zonemaster, it will be checked automatically.</target>
+        <target state="translated">Ja. Hvis DNSSEC er tilgængeligt på et domænenavn, vil det automtisk blive testet.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="e2237b52ebfa3de41c77020cec38616f433af690" datatype="html">
         <source>Can I test the DS records before they are published?</source>
-        <target state="new">Can I test the DS records before they are published?</target>
+        <target state="translated">Kan jeg test DS-records før de offentliggøres?</target>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
       <trans-unit id="2e3dcb30f608294a8ca15718a32604ced7555f7a" datatype="html">
         <source>Yes. Use the &quot;Options&quot; button and there add the Delegation Signer (DS) records to be tested. Zonemaster will then use those in the same way as if they were already added in the parent zone.</source>
-        <target state="new">Yes. Use the &quot;Options&quot; button and there add the Delegation Signer (DS) records to be tested. Zonemaster will then use those in the same way as if they were already added in the parent zone.</target>
+        <target state="translated">Ja. Brug knappen &quot;Valgmuligheder&quot;, og tilføj de DS-records, der skal testes. Zonemaster vil derefter bruge dem på samme måde, som hvis de allerede var tilføjet i den overordnede zone.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="794667cd8ae08bd15b1d9943e03f8b2886ee6f65" datatype="html">
         <source>How can I test a &quot;reverse&quot; zone with Zonemaster?</source>
-        <target state="new">How can I test a &quot;reverse&quot; zone with Zonemaster?</target>
+        <target state="translated">Hvordan tester jeg en &quot;reverse&quot; zone med Zonemaster?</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="b789969c61b2104694bf51c0d99f6d4865f3bdf6" datatype="html">
         <source>To check a reverse zone with Zonemaster, one first needs to know what the reverse zone is, and enter it in the format it has in the DNS. A reserve zone is obtained by reversing an IP address and adding a suffix. IPv4 addresses use the suffix &quot;in-addr.arpa&quot; while IPv6 addresses use &quot;ip6.arpa&quot;.</source>
-        <target state="new">To check a reverse zone with Zonemaster, one first needs to know what the reverse zone is, and enter it in the format it has in the DNS. A reserve zone is obtained by reversing an IP address and adding a suffix. IPv4 addresses use the suffix &quot;in-addr.arpa&quot; while IPv6 addresses use &quot;ip6.arpa&quot;.</target>
+        <target state="translated">For at kontrollere en &quot;reverse&quot; zone med Zonemaster, skal man først vide, hvad en &quot;reverse&quot; zone er. Hvis du vil kontrollere en &quot;reverse&quot; zone, skal du indtaste den i det format, den har i DNS.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="a23358df7e314fa4acf55b527319f91acbb25a81" datatype="html">
@@ -620,17 +620,17 @@
       </trans-unit>
       <trans-unit id="56a21bdcd76a6ac5dd60c17f5170b999b63e0ac0" datatype="html">
         <source>Source code</source>
-        <target state="new">Source code</target>
+        <target state="translated">Kildekode</target>
         <note priority="1" from="meaning">footer</note>
       </trans-unit>
       <trans-unit id="0d7a9fc8b4f70faf02a5f9a36e40d0950a1c5ed3" datatype="html">
         <source>Documentation</source>
-        <target state="new">Documentation</target>
+        <target state="translated">Dokumentation</target>
         <note priority="1" from="meaning">footer</note>
       </trans-unit>
       <trans-unit id="8cb0e28165b27b862dee9ee8e11a527bed59661a" datatype="html">
         <source>https://www.afnic.fr/en/</source>
-        <target state="new">https://www.afnic.fr/en/</target>
+        <target state="translated">https://www.afnic.fr/en/</target>
         <note priority="1" from="description">Afnic link</note>
       </trans-unit>
       <trans-unit id="729754dd19eb9ce0670b0aeb5a6ae60574c2c563" datatype="html">
@@ -680,17 +680,17 @@
       </trans-unit>
       <trans-unit id="521683f96e95e165cd852c6a1850b468b4f49237" datatype="html">
         <source>:</source>
-        <target state="new">:</target>
+        <target state="translated">:</target>
         <note priority="1" from="description">result colon</note>
       </trans-unit>
       <trans-unit id="43f466d9ffc7d0c6590b0f2b10bd60dca832ef61" datatype="html">
         <source>https://internetstiftelsen.se/en/</source>
-        <target state="new">https://internetstiftelsen.se/en/</target>
+        <target state="translated">https://internetstiftelsen.se/en/</target>
         <note priority="1" from="description">IIS link</note>
       </trans-unit>
       <trans-unit id="a7f350306ae4832b697a4992036635dcd3e3d066" datatype="html">
         <source>https://en.wikipedia.org/wiki/Request_for_Comments</source>
-        <target state="new">https://en.wikipedia.org/wiki/Request_for_Comments</target>
+        <target state="translated">https://da.wikipedia.org/wiki/Request_for_Comments</target>
         <note priority="1" from="description">RFC Wikipedia link</note>
       </trans-unit>
       <trans-unit id="5372fde550a1fdc4c86332c79d988bb0554f03b3" datatype="html">
@@ -705,7 +705,7 @@
       </trans-unit>
       <trans-unit id="99a0620d495f0d1ab864174f77a560140c5e214a" datatype="html">
         <source>The descriptions of message levels such as <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>notice<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>warning<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> and <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>error<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> are found in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md&quot;&gt;"/>Severity Level Definitions<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
-        <target state="new">The descriptions of message levels such as <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>notice<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>warning<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> and <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>error<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> are found in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md&quot;&gt;"/>Severity Level Definitions<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
+        <target state="translated">Beskrivelserne af meddelelsesniveauer såsom <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>notice<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>warning<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> og <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>error<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> findes i <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md&quot;&gt;"/>Severity Level Definitions<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="6d41e759de3c0117413b5a6e5b5cd3f44ecb4676" datatype="html">
@@ -718,64 +718,77 @@
       </trans-unit>
       <trans-unit id="c51835a3345882fb12374bddfd2e4b73e4f69db8" datatype="html">
         <source>Zonemaster is a program designed to help people check, measure and hopefully also understand how the DNS (Domain Name System) works.</source>
+        <target state="translated">Zonemaster er et program designet til at hjælpe med at tjekke, måle og forhåbentlig også forstå DNS (Domain Name System).</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="11aba2484b1af47b7dcd308237d231d0dd666d65" datatype="html">
         <source>It consists of several components:</source>
+        <target state="translated">Zonemaster består af tre grundlæggende moduler:</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="cd1f6944c474bd4875b37226edbe8ed0b802ef1a" datatype="html">
         <source>Engine - a test framework that supports all functionality to perform DNS tests.</source>
+        <target state="translated">Motor (Koden der udfører alle DNS-tests),</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="8f95b69eb8b7f2620f2bf39028a754efbb02e17c" datatype="html">
         <source>CLI - a command-line interface to the Engine.</source>
+        <target state="translated">Kommandolinjeinterface (CLI),</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="fdfa7928b51beb9b7143d33143bf10e6330e0f84" datatype="html">
         <source>Bakend - a server that allows you to run Zonemaster tests and save results using a JSON-RPC API and a database.</source>
+        <target state="translated">En server, der giver dig mulighed for at køre zonemaster-test og gemme resultater ved hjælp af en JSON-RPC API,</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="f607354c1d0aba750b042d6f9c715efb699b5b7e" datatype="html">
         <source>GUI - a web interface to the Backend.</source>
+        <target state="translated">Webinterface.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="57c82df8ab9888592cfd3419caf75ec72c794db6" datatype="html">
         <source>When a domain name (such as &apos;zonemaster.net&apos;) is submitted to Zonemaster (using CLI or GUI), it will verify the domain name’s general health with a series of tests. The tests conducted by Zonemaster can be found in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases&quot;&gt;"/>the Defined Test Cases<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> document.</source>
+        <target state="translated">Når et domænenavn (som eksempelvis zonemaster.dk) afleveres til Zonemaster (CLI eller Webinterface) vil Zonemaster undersøge domænenavnets generelle sundhed på baggrund af en serie test. De forskellige sundhedstjek foretaget af Zonemaster er dokumenteret i <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases&quot;&gt;"/>Defined Test Cases<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="1072f67587614ba02bf775b31fcf47604c0a74d9" datatype="html">
         <source>Users who are knowledgable about the DNS protocol.</source>
+        <target state="translated">Brugere som ved hvordan DNS fungerer.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="bcc9e8cca9979fe26d8cc69c1b7dda20d67fb6ec" datatype="html">
         <source>Secondly, all tests that Zonemaster runs are defined in Test Case specifications that can be found in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases&quot;&gt;"/>Defined Test Cases<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> document.</source>
+        <target state="translated">For det andet er alle test, som Zonemaster kører, defineret i Test Case specifikationer kan findes i dokumentet <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases&quot;&gt;"/>Defined Test Cases<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="93e3b326e8c6a335517ce06fd8e4fb60b32022d6" datatype="html">
         <source>Thirdly, Zonemaster can be used to test undelegated domain names. See <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;faq#what-is-an-undelegated-domain-test&quot;&gt;"/>Question 12<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
         <note priority="1" from="description">faq answer</note>
-        <target state="new">Thirdly, Zonemaster can be used to test undelegated domain names. See <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;faq#what-is-an-undelegated-domain-test&quot;&gt;"/>Question 12<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
+        <target state="translated">For det tredje kan Zonemaster bruges til at teste ikke-delegerede domænenavne. Se <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;faq#what-is-an-undelegated-domain-test&quot;&gt;"/>spørgsmål 12<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
       </trans-unit>
       <trans-unit id="d935513e236ca268ce40c309a7e3dc8ffdb4644b" datatype="html">
         <source>Fourthly, Zonemaster can be used to test DS records before their publication in the parent zone (which is required to enable DNSSEC for a signed zone). See <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;faq#can-i-test-the-ds-records-before-they-are-published&quot;&gt;"/>Question 13<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
         <note priority="1" from="description">faq answer</note>
-        <target state="new">Fourthly, Zonemaster can be used to test DS records before their publication in the parent zone (which is required to enable DNSSEC for a signed zone). See <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;faq#can-i-test-the-ds-records-before-they-are-published&quot;&gt;"/>Question 13<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
+        <target state="translated">For det fjerde kan Zonemaster bruges til at teste DS-records, før de offentliggøres i den overordnede zone (som er påkrævet for at aktivere DNSSEC for en signeret zone). Se <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;faq#can-i-test-the-ds-records-before-they-are-published&quot;&gt;"/>spørgsmål 13<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
       </trans-unit>
       <trans-unit id="d64e48938dc174ff3a27321a096a8aed44cb55cf" datatype="html">
         <source>The judgement of Zonemaster is primarily based on the DNS standards as defined in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a i18n-href=&quot;RFC Wikipedia link&quot; href=&quot;https://en.wikipedia.org/wiki/Request_for_Comments&quot;&gt;"/>RFCs<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. It also bases its judgement on DNS best practices, which can be more loosely defined. All Zonemaster tests are defined in <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases&quot;&gt;"/>Test Case Specifications<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in which the references to the standard documents for that test case are found.</source>
+        <target state="translated">Zonemasters vurdering er primært baseret på DNS-standarderne som defineret i <x id="START_LINK" ctype="x-a" equiv-text="&lt;a i18n-href=&quot;RFC Wikipedia link&quot; href=&quot;https://en.wikipedia.org/wiki/Request_for_Comments&quot;&gt;"/>RFCs<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>. Den baserer også sin vurdering på DNS best practices, som kan defineres mere løst. Alle Zonemaster-tests er defineret i <x id="START_LINK_1" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases&quot;&gt;"/>Test Case Specifications<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> hvori referencerne til standarddokumenterne for den pågældende testcase findes.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="b37b77d5a9ec277db643fecb7e0d9e6ced910cfd" datatype="html">
         <source>The GUI interface of Zonemaster does not show any queries sent, only the CLI interface can. If you want to see such queries, you will have to locally install a minimally working Zonemaster instance with both the Engine and CLI components (a Docker image is also available). Queries sent can be shown using the &apos;DEBUG&apos; level option. Fair warning, the output from the CLI can be quite heavy. For more information see <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md&quot;&gt;"/>Using The CLI<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <target state="translated">Zonemasters GUI-grænseflade viser ingen sendte forespørgsler, det kan kun CLI-grænsefladen. Hvis du vil se sådanne forespørgsler, skal du installere lokalt en minimalt fungerende Zonemaster-instans med både Engine- og CLI-komponenterne (et Docker-image er også tilgængeligt). Sendte forespørgsler kan vises ved at bruge indstillingen &apos;DEBUG&apos; niveau. Advarsel: Output fra CLI kan være ret omfattende. For mere information se <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md&quot;&gt;"/>Using The CLI<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="3e875c84ab956c8df30ae1965dc0cde70364441f" datatype="html">
         <source>Since <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://zonemaster.net/&quot;&gt;"/>Zonemaster.net<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> is open to everyone it is possible for anyone to check your domain and its history of tests. However there is no way to tell who has run a specific test since nothing more than the test parameters and results are stored. Specifically, no cookies or information on the user&apos;s IP address is stored in the database. The user who initiated the test cannot be traced back from the information in the database.</source>
+        <target state="translated">Da <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://zonemaster.net/&quot;&gt;"/>Zonemaster.net<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> er åbent for alle, er det muligt for alle at tjekke dit domæne og dets testhistorie. Der er dog ingen måde at sige, hvem der har kørt en specifik test, da intet andet end testen parametre og resultater gemmes. Konkret gemmes ingen cookies eller oplysninger om brugerens IP-adresse i databasen. Den bruger, der påbegyndte testen, kan ikke spores tilbage fra oplysningerne i databasen.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="35616e74e8222cbe39e0e9e1d4451538fe760238" datatype="html">
         <source>It depends on which test failed for your domain name. Each test are accompanied with one or several messages describing the issues found. You can also get further insight about each test from the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases&quot;&gt;"/>Defined Test Cases<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> document.</source>
+        <target state="translated">Det kommer an på hvilke advarsler/fejl, der rapporteres. Hver test er ledsaget af en eller flere meddelelser, der beskriver de fundne problemer. Du kan også få yderligere indsigt om hver test fra dokumentet <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases&quot;&gt;"/>Defined Test Cases<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="67f7a9ad43bbcaca9531388e8a49fcc6edcaed74" datatype="html">
