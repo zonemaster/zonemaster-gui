@@ -16,17 +16,18 @@
       What is Zonemaster?
     </ng-container>
 
-    <p i18n="faq answer">Zonemaster is a program designed to help people check, measure and hopefully also understand how the DNS (Domain Name System) works.</p>
+    <p i18n="faq answer">Zonemaster is a software package that validates the quality of a DNS delegation.</p>
+    <p i18n="faq answer">The ambition of the Zonemaster project is to develop and maintain an open source DNS validation tool, offering improved performance over existing tools and providing extensive documentation which could be re-used by similar projects in the future.</p>
 
-    <p i18n="faq answer">It consists of several components:</p>
+    <p i18n="faq answer">Zonemaster consists of several modules or components:</p>
     <ul>
-      <li i18n="faq answer">Engine - a test framework that supports all functionality to perform DNS tests.</li>
-      <li i18n="faq answer">CLI - a command-line interface to the Engine.</li>
-      <li i18n="faq answer">Bakend - a server that allows you to run Zonemaster tests and save results using a JSON-RPC API and a database.</li>
-      <li i18n="faq answer">GUI - a web interface to the Backend.</li>
+      <li i18n="faq answer"><a href="https://github.com/zonemaster/zonemaster-engine">Engine</a>, a test framework that supports all functionality to perform DNS tests;</li>
+      <li i18n="faq answer"><a href="https://github.com/zonemaster/zonemaster-cli">CLI</a>, a command-line interface to the Engine;</li>
+      <li i18n="faq answer"><a href="https://github.com/zonemaster/zonemaster-backend">Bakend</a>, a server that allows you to run Zonemaster tests and save results using a JSON-RPC API and a database;</li>
+      <li i18n="faq answer"><a href="https://github.com/zonemaster/zonemaster-engine">GUI</a>, a web interface to the Backend.</li>
     </ul>
 
-    <p i18n="faq answer">When a domain name (such as 'zonemaster.net') is submitted to Zonemaster (using CLI or GUI), it will verify the domain name’s general health with a series of tests. The tests conducted by Zonemaster can be found in <a href="https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases">the Defined Test Cases</a> document.</p>
+    <p i18n="faq answer">The components will help different types of users to check domain servers for configuration errors and generate a report that will assist in fixing the errors.</p>
   </app-faq-question>
 
   <app-faq-question questionId="who-is-behind-zonemaster">
@@ -35,7 +36,7 @@
     </ng-container>
 
     <p i18n="faq answer">
-      Zonemaster is a joint project between <a i18n-href="Afnic link" href="https://www.afnic.fr/en/">AFNIC</a> (registry of '.fr' TLD and several other TLDs, e.g. '.re', '.pm', '.tf', '.wf', '.yt' and '.paris') and <a i18n-href="IIS link" href="https://internetstiftelsen.se/en/">The Swedish Internet Foundation</a> (registry of '.se' and '.nu' TLDs).
+      Zonemaster is a joint project between <a i18n-href="Afnic link" href="https://www.afnic.fr/en/">AFNIC</a>, the registry of '.fr' TLD and several other TLDs like '.re', '.pm', '.tf', '.wf', '.yt' and '.paris', and <a i18n-href="IIS link" href="https://internetstiftelsen.se/en/">The Swedish Internet Foundation</a>, the registry of '.se' and '.nu' TLDs.
     </p>
   </app-faq-question>
 
@@ -47,8 +48,8 @@
     <p i18n="faq answer">The Zonemaster tool could help different kind of users:</p>
 
     <ul>
-      <li i18n="faq answer">Users who are knowledgable about the DNS protocol.</li>
-      <li i18n="faq answer">Users who just want to know whether the domain name they own or use have any issues or not.</li>
+      <li i18n="faq answer">DNS administrator, experts and beginners alike, who want to check their DNS configuration;</li>
+      <li i18n="faq answer">users who want to know whether the domain name they own or use have any issues or not.</li>
     </ul>
 
     <p i18n="faq answer">Users of the second category should contact their DNS operator in case there are errors or warnings for any test of their domain name.</p>
@@ -58,22 +59,23 @@
     <ng-container title i18n="faq question">
       What makes Zonemaster different from other DNS zone validating software?
     </ng-container>
-
-    <p i18n="faq answer">
-      Firstly, Zonemaster saves all history from earlier tests based on the tested domain name, which means you can go back to a test you did some time ago and compare it to the test you ran just a moment ago.
-    </p>
-    <p i18n="faq answer">
-      Secondly, all tests that Zonemaster runs are defined in Test Case specifications that can be found in the <a href="https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases">Defined Test Cases</a> document.
-    </p>
-    <p i18n="faq answer">
-      Thirdly, Zonemaster can be used to test undelegated domain names. See <a href="faq#what-is-an-undelegated-domain-test">Question 12</a>.
-    </p>
-    <p i18n="faq answer">
-      Fourthly, Zonemaster can be used to test DS records before their publication in the parent zone (which is required to enable DNSSEC for a signed zone). See <a href="faq#can-i-test-the-ds-records-before-they-are-published">Question 13</a>.
-    </p>
-    <p i18n="faq answer">
-      Lastly, this open source version of Zonemaster was built using modular code which basically means that you can integrate parts of it in your own systems, if you wish. For example, it is quite rare that you would want a complete program just to check for redelegations.
-    </p>
+    <ul>
+      <li i18n="faq answer">
+        Zonemaster saves all history from earlier tests based on the tested domain name, which means you can go back to a test you did some time ago and compare it to the test you ran just a moment ago.
+      </li>
+      <li i18n="faq answer">
+        All tests that Zonemaster runs are defined in the Test Case Specification documents that can be found in the <a href="https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications">Test Case Specification documents</a>.
+      </li>
+      <li i18n="faq answer">
+        Zonemaster can be used to test <a href="./faq#what-is-an-undelegated-domain-test">undelegated domain names</a>.
+      </li>
+      <li i18n="faq answer">
+        Zonemaster can be used to test <a href="./faq#can-i-test-the-ds-records-before-they-are-published">DS records before their publication</a> in the parent zone.
+      </li>
+      <li i18n="faq answer">
+        This open source version of Zonemaster was built using modular code which basically means that you can integrate parts of it in your own systems, if you wish. For example, it is quite rare that you would want a complete program just to check for redelegations.
+      </li>
+    </ul>
   </app-faq-question>
 
   <app-faq-question questionId="how-can-zonemaster-distinguish-between-what-is-right-and-wrong">
@@ -81,11 +83,14 @@
       How can Zonemaster distinguish between what is right and wrong?
     </ng-container>
     <p i18n="faq answer">
-      The judgement of Zonemaster is primarily based on the DNS standards as defined in <a i18n-href="RFC Wikipedia link" href="https://en.wikipedia.org/wiki/Request_for_Comments">RFCs</a>. It also bases its judgement on DNS best practices, which can be more loosely defined. All Zonemaster tests are defined in <a href="https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases">Test Case Specifications</a> in which the references to the standard documents for that test case are found.
+      The judgement of Zonemaster is primarily based on the DNS standards as defined in <a i18n-href="RFC Wikipedia link" href="https://en.wikipedia.org/wiki/Request_for_Comments">RFCs</a>. It also bases its judgement on DNS best practices, which can be more loosely defined.
     </p>
 
     <p i18n="faq answer">
-      The descriptions of message levels such as <i>notice</i>, <i>warning</i> and <i>error</i> are found in <a href="https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md">Severity Level Definitions</a>.
+      All Zonemaster tests are defined in the <a href="https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications">Test Case Specification documents</a> in which the references to the standard documents for each test case are found.
+    </p>
+    <p i18n="faq answer">
+      The descriptions of message levels such as <i>NOTICE</i>, <i>WARNING</i> and <i>ERROR</i> are found in <a href="https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md">Severity Level Definitions</a>.
     </p>
 
     <p i18n="faq answer">
@@ -93,15 +98,18 @@
     </p>
   </app-faq-question>
 
-  <app-faq-question questionId="what-kind-of-queries-does-zonemaster-generate">
+  <app-faq-question questionId="what-kind-of-dns-queries-does-zonemaster-generate">
     <ng-container title i18n="faq question">
-      What kind of queries does Zonemaster generate?
+      What kind of DNS queries does Zonemaster generate?
     </ng-container>
     <p i18n="faq answer">
-      Zonemaster send multiple DNS queries to the name servers hosting the domain name being tested and also to the name servers hosting the parent zone of that domain name.
+      Zonemaster sends multiple DNS queries to the name servers hosting the domain name being tested and also to the name servers hosting the parent zone of that domain name.
     </p>
     <p i18n="faq answer">
-      The GUI interface of Zonemaster does not show any queries sent, only the CLI interface can. If you want to see such queries, you will have to locally install a minimally working Zonemaster instance with both the Engine and CLI components (a Docker image is also available). Queries sent can be shown using the 'DEBUG' level option. Fair warning, the output from the CLI can be quite heavy. For more information see <a href="https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md">Using The CLI</a>.
+      The web interface of Zonemaster does not show the queries that were sent, only the CLI interface can. If you want to see such queries, you will have to locally install a minimally working Zonemaster instance with both the Engine and CLI components. See the <a href="https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-cli.md">CLI installation document</a> for more information, or if you prefer a <a href="https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md#Invoking-the-command-line-tool-using-Docker">Docker image</a> is also available.
+    </p>
+    <p i18n="faq answer">
+      Queries sent can be shown using the 'DEBUG' level option. Fair warning, the output from the CLI can be quite heavy. For more information see <a href="https://github.com/zonemaster/zonemaster/blob/master/docs/public/using/cli.md">CLI usage documentation</a>.
     </p>
   </app-faq-question>
 
@@ -111,7 +119,10 @@
       Zonemaster and privacy
     </ng-container>
     <p i18n="faq answer">
-      Since <a href="https://zonemaster.net/">Zonemaster.net</a> is open to everyone it is possible for anyone to check your domain and its history of tests. However there is no way to tell who has run a specific test since nothing more than the test parameters and results are stored. Specifically, no cookies or information on the user's IP address is stored in the database. The user who initiated the test cannot be traced back from the information in the database.
+      Nothing besides the test domain, other test parameters and the result is stored in the database. Specifically we do not store any information that could link a test to the user who initiated it.
+    </p>
+    <p i18n="faq answer">
+      However, since <a href="https://zonemaster.net">zonemaster.net</a>, like other public instances, is open to everyone, it is possible for anyone to test your domain and view its history of tests.
     </p>
   </app-faq-question>
 </section>
@@ -124,13 +135,13 @@
       How come my domain name cannot be tested?
     </ng-container>
     <p i18n="faq answer">
-      There are several possibilities:
+      There are several possibilities.
     </p>
     <ul>
       <li i18n="faq answer">Your domain name is not yet delegated.</li>
       <li i18n="faq answer">Your domain name is not reachable from public Internet.</li>
-      <li i18n="faq answer">Zonemaster can only test what is called a DNS zone (e.g. 'zonemaster.net') and not host names (e.g. 'www.zonemaster.net')</li>
-      <li i18n="faq answer">There is a 10 minutes protection between consecutive tests for a given domain name (with same test parameters). Running a test within that window will instead show the last available test for that domain name (and parameters).</li>
+      <li i18n="faq answer">Zonemaster can only test what is called a DNS zone, for example 'zonemaster.net', and not host names, like 'www.zonemaster.net'.</li>
+      <li i18n="faq answer">There is a 10 minutes protection between consecutive tests for a given domain name, with same test parameters. Running a test within that window will instead show the last available test for that domain name, and parameters.</li>
       <li i18n="faq answer">You have misspelled your domain name.</li>
     </ul>
   </app-faq-question>
@@ -140,7 +151,10 @@
       Zonemaster returns "Error" or "Warning" for my domain name. What does it mean?
     </ng-container>
     <p i18n="faq answer">
-      It depends on which test failed for your domain name. Each test are accompanied with one or several messages describing the issues found. You can also get further insight about each test from the <a href="https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#list-of-defined-test-cases">Defined Test Cases</a> document.
+      It depends on which test failed for your domain name. Each test is accompanied with one or several messages describing the issues found.
+    </p>
+    <p i18n="faq answer">
+      You can also get further insight about each test from the <a href="https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications">Test Case Specification documents</a>.
     </p>
   </app-faq-question>
 
@@ -150,7 +164,13 @@
       What is an undelegated domain test?
     </ng-container>
     <p i18n="faq answer">
-      An undelegated domain test is a test performed on a domain name that may, or may not, be fully published in the DNS. This can be quite useful if one is going to migrate one's domain from one registrar to another, e.g., migrate zone 'example.com' from the name server 'ns.example.com' to the name server 'ns.example.org'. In this scenario one could perform an undelegated domain test providing the zone ('example.com') and the name server you are migrating to ('ns.example.org') before you migrate your domain. When the results of the test doesn't show any errors or warnings one can be fairly certain that the domain's new location is working well. However there might still be other problems in the zone data itself that this test is unaware of.
+      An undelegated domain test is a test performed on a domain name that may, or may not, be fully published in the DNS.
+    </p>
+    <p i18n="faq answer">
+      This can be quite useful if one is going to migrate one's domain from one registrar to another, for example, migrate zone 'example.com' from the name server 'ns.example.com' to the name server 'ns.example.org'. In this scenario one could perform an undelegated domain test providing the zone ('example.com') and the name server you are migrating to ('ns.example.org') before you migrate your domain.
+    </p>
+    <p i18n="faq answer">
+      When the results of the test doesn't show any errors or warnings one can be fairly certain that the domain's new location is working well. However there might still be other problems in the zone data itself that this test is unaware of.
     </p>
   </app-faq-question>
 
@@ -159,7 +179,7 @@
       Does Zonemaster support IPv6?
     </ng-container>
     <p i18n="faq answer">
-      Yes. By default Zonemaster will query name servers both over IPv4 and IPv6, unless explicitly configured otherwise. Such configuration is accessible through the "Options" button.
+      Yes. By default Zonemaster will query name servers both over IPv4 and IPv6, unless explicitly configured otherwise. Such configuration is accessible through the "Show options" button.
     </p>
   </app-faq-question>
 
@@ -177,7 +197,7 @@
       Can I test the DS records before they are published?
     </ng-container>
     <p i18n="faq answer">
-      Yes. Use the "Options" button and there add the Delegation Signer (DS) records to be tested. Zonemaster will then use those in the same way as if they were already added in the parent zone.
+      Yes. Use the "Show options" button and there add the Delegation Signer (DS) records to be tested. Zonemaster will then use those in the same way as if they were already added in the parent zone.
     </p>
   </app-faq-question>
 
@@ -190,8 +210,8 @@
     </p>
     <p i18n="faq answer">Examples:</p>
     <ul>
-      <li i18n="faq answer">For IPv4 prefix '198.51.100.0/24': 100.51.198.in-addr.arpa</li>
-      <li i18n="faq answer">For IPv6 prefix '2001:db8::/32': 8.b.d.0.1.0.0.2.ip6.arpa</li>
+      <li i18n="faq answer">for IPv4 prefix '198.51.100.0/24': 100.51.198.in-addr.arpa;</li>
+      <li i18n="faq answer">for IPv6 prefix '2001:db8::/32': 8.b.d.0.1.0.0.2.ip6.arpa.</li>
     </ul>
   </app-faq-question>
 </section>
