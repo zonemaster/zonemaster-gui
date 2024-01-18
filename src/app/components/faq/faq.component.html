@@ -22,7 +22,7 @@
     <p i18n="faq answer">Zonemaster consists of several modules or components:</p>
     <ul>
       <li i18n="faq answer"><a href="https://github.com/zonemaster/zonemaster-engine">Engine</a>, a test framework that supports all functionality to perform DNS tests;</li>
-      <li i18n="faq answer"><a href="https://github.com/zonemaster/zonemaster-cli">CLI</a>,a command-line interface to the Engine;</li>
+      <li i18n="faq answer"><a href="https://github.com/zonemaster/zonemaster-cli">CLI</a>, a command-line interface to the Engine;</li>
       <li i18n="faq answer"><a href="https://github.com/zonemaster/zonemaster-backend">Bakend</a>, a server that allows you to run Zonemaster tests and save results using a JSON-RPC API and a database;</li>
       <li i18n="faq answer"><a href="https://github.com/zonemaster/zonemaster-engine">GUI</a>, a web interface to the Backend.</li>
     </ul>
@@ -64,7 +64,7 @@
         Zonemaster saves all history from earlier tests based on the tested domain name, which means you can go back to a test you did some time ago and compare it to the test you ran just a moment ago.
       </li>
       <li i18n="faq answer">
-        All tests that Zonemaster runs are defined in the Test Case Specification documents that can be found in the <a href="https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications">Test Case Specification documents</a>
+        All tests that Zonemaster runs are defined in the Test Case Specification documents that can be found in the <a href="https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications">Test Case Specification documents</a>.
       </li>
       <li i18n="faq answer">
         Zonemaster can be used to test <a href="#what-is-an-undelegated-domain-test">undelegated domain names</a>.
@@ -90,7 +90,7 @@
       All Zonemaster tests are defined in the <a href="https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications">Test Case Specification documents</a> in which the references to the standard documents for each test case are found.
     </p>
     <p i18n="faq answer">
-      The descriptions of message levels such as <i>notice</i>, <i>warning</i> and <i>error</i> are found in <a href="https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md">Severity Level Definitions</a>.
+      The descriptions of message levels such as <i>NOTICE</i>, <i>WARNING</i> and <i>ERROR</i> are found in <a href="https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md">Severity Level Definitions</a>.
     </p>
 
     <p i18n="faq answer">
@@ -167,7 +167,10 @@
       An undelegated domain test is a test performed on a domain name that may, or may not, be fully published in the DNS.
     </p>
     <p i18n="faq answer">
-      This can be quite useful if one is going to migrate one's domain from one registrar to another, for example, migrate zone 'example.com' from the name server 'ns.example.com' to the name server 'ns.example.org'. In this scenario one could perform an undelegated domain test providing the zone ('example.com') and the name server you are migrating to ('ns.example.org') before you migrate your domain. When the results of the test doesn't show any errors or warnings one can be fairly certain that the domain's new location is working well. However there might still be other problems in the zone data itself that this test is unaware of.
+      This can be quite useful if one is going to migrate one's domain from one registrar to another, for example, migrate zone 'example.com' from the name server 'ns.example.com' to the name server 'ns.example.org'. In this scenario one could perform an undelegated domain test providing the zone ('example.com') and the name server you are migrating to ('ns.example.org') before you migrate your domain.
+    </p>
+    <p i18n="faq answer">
+      When the results of the test doesn't show any errors or warnings one can be fairly certain that the domain's new location is working well. However there might still be other problems in the zone data itself that this test is unaware of.
     </p>
   </app-faq-question>
 
@@ -176,7 +179,7 @@
       Does Zonemaster support IPv6?
     </ng-container>
     <p i18n="faq answer">
-      Yes. By default Zonemaster will query name servers both over IPv4 and IPv6, unless explicitly configured otherwise. Such configuration is accessible through the "Options" button.
+      Yes. By default Zonemaster will query name servers both over IPv4 and IPv6, unless explicitly configured otherwise. Such configuration is accessible through the "Show options" button.
     </p>
   </app-faq-question>
 
@@ -194,7 +197,7 @@
       Can I test the DS records before they are published?
     </ng-container>
     <p i18n="faq answer">
-      Yes. Use the "Options" button and there add the Delegation Signer (DS) records to be tested. Zonemaster will then use those in the same way as if they were already added in the parent zone.
+      Yes. Use the "Show options" button and there add the Delegation Signer (DS) records to be tested. Zonemaster will then use those in the same way as if they were already added in the parent zone.
     </p>
   </app-faq-question>
 
