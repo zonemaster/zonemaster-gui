@@ -498,7 +498,7 @@
       <trans-unit id="865aac49d53d372537909b1df21a9d111d50c9f1" datatype="html">
         <source>This open source version of Zonemaster was built using modular code which basically means that you can integrate parts of it in your own systems, if you wish. For example, it is quite rare that you would want a complete program just to check for redelegations.</source>
         <note priority="1" from="description">faq answer</note>
-        <target state="translated">Enfin, cette version « open source » de Zonemaster a été écrite de manière modulaire, ce qui signifie en résumé qu&apos;il est possible d&apos;intégrer des parties de Zonemaster dans vos propres systèmes, si vous le souhaitez. Par exemple, on souhaite rarement utiliser un logiciel complet juste pour vérifier des redélégations.</target>
+        <target state="translated">Cette version « open source » de Zonemaster a été écrite de manière modulaire, ce qui signifie en résumé qu&apos;il est possible d&apos;intégrer des parties de Zonemaster dans vos propres systèmes, si vous le souhaitez. Par exemple, on souhaite rarement utiliser un logiciel complet juste pour vérifier des redélégations.</target>
       </trans-unit>
       <trans-unit id="af5d964bcd860fb4c49b4df68b7cbe3aa7d3b8a4" datatype="html">
         <source>Zonemaster can only test what is called a DNS zone, for example &apos;zonemaster.net&apos;, and not host names, like &apos;www.zonemaster.net&apos;.</source>
@@ -805,7 +805,7 @@
       </trans-unit>
       <trans-unit id="fdc6b1d33f90c73b6ed81e0b6af07e4109d4dea7" datatype="html">
         <source>DNS administrators, experts and beginners alike, who want to check their DNS configuration;</source>
-        <target state="translated">Administrateurs et administratrices DNS, expertes comme débutants, qui veulent vérifier leur configuration DNS ;</target>
+        <target state="translated">les administrateurs et administratrices DNS, expertes comme débutants, qui veulent vérifier leur configuration DNS ;</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="f54e9dd707ef19b613b8e24eb27ff8c665a39e5d" datatype="html">
