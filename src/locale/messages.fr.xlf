@@ -775,7 +775,7 @@
       </trans-unit>
       <trans-unit id="51e39416d99fddd056c99788c01f9bc7b66f2037" datatype="html">
         <source>Zonemaster consists of several modules or components:</source>
-        <target state="translated">Zonemaster est composé de plusieurs modules ou composants&nbsp;:</target>
+        <target state="translated">Zonemaster est composé de plusieurs modules ou composants :</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="e4f6c60a296bfd008d340c5dfff98bba363d3e82" datatype="html">
@@ -790,7 +790,7 @@
       </trans-unit>
       <trans-unit id="6243d9cc093f3028c2496eea665f5be144f5638b" datatype="html">
         <source><x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster-backend&quot;&gt;"/>Backend<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, a server that allows you to run Zonemaster tests and save results using a JSON-RPC API and a database;</source>
-        <target state="new"><x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster-backend&quot;&gt;"/>Backend<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, un serveur permettant l&apos;exécution de tests et la sauvegarde de résultats au moyen d&apos;une API JSON-RPC et d&apos;une base de données ;</target>
+        <target state="translated"><x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster-backend&quot;&gt;"/>Backend<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>, un serveur permettant l&apos;exécution de tests et la sauvegarde de résultats au moyen d&apos;une API JSON-RPC et d&apos;une base de données ;</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="333892b5f3094578ceccffb29e7498c1c5fdf3b5" datatype="html">
@@ -803,8 +803,8 @@
         <target state="translated">Ces composants aideront différents types d&apos;utilisateurs et utilisatrices à vérifier les erreurs de configuration des serveurs de domaine et à générer un rapport qui aidera à corriger les erreurs.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
-      <trans-unit id="34d009ab9be7fd622ac9e49201cf5c6bdf747234" datatype="html">
-        <source>DNS administrator, experts and beginners alike, who want to check their DNS configuration;</source>
+      <trans-unit id="fdc6b1d33f90c73b6ed81e0b6af07e4109d4dea7" datatype="html">
+        <source>DNS administrators, experts and beginners alike, who want to check their DNS configuration;</source>
         <target state="translated">Administrateurs et administratrices DNS, expertes comme débutants, qui veulent vérifier leur configuration DNS ;</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
