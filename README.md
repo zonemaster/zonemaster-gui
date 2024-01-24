@@ -21,7 +21,7 @@ Follow the detailed [installation instructions].
 
 ### Configuration
 
-The configuration instructions for the backend can be found in the [Backend
+The configuration instructions for the Backend can be found in the [Backend
 configuration] document.
 
 The configuration instructions for the GUI can be found in the [GUI
@@ -34,35 +34,35 @@ the [docs directory](docs/).
 
 ### Contribution
 
-This project was generate with Angular-CLI 1.6.8 and then updating.
-It use the Angular 2+ framework with all its tools.
+This project was generated with Angular-CLI 1.6.8.
+It uses the Angular 2+ framework with all its tools.
 
 The source code of the application is available in `./src/app` folder.
 
 The `components` folder is composed of subfolders that represent the main
-components. Each folder of component contain three files :
+components. Each folder of component contain three files:
 
-  * `*.component.css` : The component's style
-  * `*.component.html` : The component's html
-  * `*.component.ts` : The component's typescript
+  * `*.component.css`: the component's style configuration;
+  * `*.component.html`: the component's HTML code;
+  * `*.component.ts`: the component's TypeScript code.
 
-All assets are available in `src/assets` folder. It's split by concern, the
-style in the `css`, images are in the ``images`` folder, etc.
+All assets are available in the `src/assets` folder. It is split by concern;
+the style configurations are in the `css`, images are in the `images` folder, etc.
 
-All translation files are in the `src/locale` folder
+All translation files are in the `src/locale` folder.
 
 The environment defaults of the application are in the `src/environments`
-folder. `environment.ts` is use for development purpose, the
+folder. `environment.ts` is used for development purposes, the
 `environment.prod.ts` for production, and the `environment.test.ts` for testing.
 
-In order to contribute
+In order to contribute:
 
 * Install [Nodejs](https://nodejs.org)
 * Fork the Zonemaster GUI repository on Github into your own user on Github.
 * Clone your fork to your working environment.
 * Go to the folder and install project dependencies with `npm install`
-* Update configuration files in `src/assets/app.config.json` to add a backend
-  api endpoint (or leave the default)
+* Update configuration files in `src/assets/app.config.json` to add a Backend
+  API endpoint (or leave the default)
 * Make your changes, test them and push them to your fork on Github
 * From your fork, make a Pull Request against the zonemaster/zonemaster-gui
   repository. Please always make the Pull Request against the develop branch.
@@ -70,7 +70,8 @@ In order to contribute
 
 #### Development server
 
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/en`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/en`.
+The app will automatically reload if you change any of the source files.
 
 #### Build
 
@@ -92,7 +93,7 @@ are taken from <https://undraw.co>, [full license](https://undraw.co/license).
 [Backend Configuration]:            https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/backend.md
 [GUI Configuration]:                https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
 [Installation instructions]:        https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-gui.md
-[Public documentation]:             https://github.com/zonemaster/zonemaster/blob/master/README.md#documentation
+[Public documentation]:             https://github.com/zonemaster/zonemaster/blob/master/docs/public/README.md
 [Zonemaster-Engine installation]:   https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-engine.md
 [Zonemaster-Backend installation]:  https://github.com/zonemaster/zonemaster/blob/master/docs/public/installation/zonemaster-backend.md
 [Zonemaster repository]:            https://github.com/zonemaster/zonemaster
