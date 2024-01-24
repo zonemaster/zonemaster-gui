@@ -1013,14 +1013,6 @@
         </context-group>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
-      <trans-unit id="34d009ab9be7fd622ac9e49201cf5c6bdf747234" datatype="html">
-        <source>DNS administrator, experts and beginners alike, who want to check their DNS configuration;</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
-          <context context-type="linenumber">51</context>
-        </context-group>
-        <note priority="1" from="description">faq answer</note>
-      </trans-unit>
       <trans-unit id="d42eedec9f66855cb398b2adc1f100ac8367a9cc" datatype="html">
         <source>All Zonemaster tests are defined in the <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications&quot;&gt;"/>Test Case Specification documents<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> in which the references to the standard documents for each test case are found.</source>
         <context-group purpose="location">
@@ -1464,6 +1456,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
           <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">faq answer</note>
+      </trans-unit>
+      <trans-unit id="fdc6b1d33f90c73b6ed81e0b6af07e4109d4dea7" datatype="html">
+        <source>DNS administrators, experts and beginners alike, who want to check their DNS configuration;</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/faq/faq.component.html</context>
+          <context context-type="linenumber">51</context>
         </context-group>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
