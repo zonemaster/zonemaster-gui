@@ -2,7 +2,7 @@
   <div class="domain-form-container">
     <label i18n="form label" for="input-domain-form">Domain name</label>
     <div class="domain-input-container">
-      <input type="text"
+      <input #domainInput type="text"
           class="form-control form-control-lg"
           [class.is-invalid]="domain.invalid && (domain.dirty || domain.touched)"
           [attr.aria-invalid]="domain.invalid && (domain.dirty || domain.touched)"
@@ -26,7 +26,7 @@
           i18n-title="form button"
           title="Clear domain input"
           class="btn grey">
-            <i class="fa fa-2x fa-times-circle" aria-hidden="true"></i>
+            <i class="fa fa-times" aria-hidden="true"></i>
         </button>
       </div>
 

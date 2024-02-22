@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Input, Output, SimpleChanges, OnChanges, SimpleChange, OnDestroy} from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output, OnChanges, SimpleChange, OnDestroy, ViewChild, ElementRef} from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
 import {
   FormGroup,
@@ -20,6 +20,8 @@ import { AlertService } from '../../services/alert.service';
   encapsulation: ViewEncapsulation.None
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
+  @ViewChild('domainInput') domainInput!: ElementRef<HTMLInputElement>;
+
   @Input() isAdvancedOptionEnabled = false;
   @Input() formProgression;
   @Input() toggleFinished;
@@ -215,6 +217,8 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   public resetForm() {
     this.form.controls.domain.reset('');
+    this.domainInput.nativeElement.focus();
+
   }
 
   public resetFullForm() {

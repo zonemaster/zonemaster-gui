@@ -229,14 +229,21 @@ hr {
 }
 
 .domain .reset-form button {
-  border: none;
   color: inherit;
   padding: 0;
+  border-radius: 1em;
+  line-height: 1;
+  height: 2em;
+  width: 2em;
+  border: .2em solid white;
+  background-color: #939393;
 }
 
 .domain .reset-form button i {
-  opacity: .5;
-  transition: opacity 0.1s;
+  color: white;
+  width: 1em;
+  height: 1em;
+  font-size: 1.3em;
 }
 
 .domain .progress-value {
