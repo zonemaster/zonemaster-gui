@@ -44,21 +44,15 @@
   </div>
   <div class="row advanced">
     <div class="col">
-      <button
-        type="button"
-        id="advanced-toggle"
-        (click)="toggleOptions()"
-        [class.enabled]="isAdvancedOptionEnabled"
-        aria-controls="advanced-options"
-        [attr.aria-expanded]="isAdvancedOptionEnabled"
-      >
-        <i class="fa fa-caret-right caret" aria-hidden="true"></i>
-        <ng-container i18n="form options" *ngIf="!isAdvancedOptionEnabled">Show options</ng-container>
-        <ng-container i18n="form options" *ngIf="isAdvancedOptionEnabled">Hide options</ng-container>
-      </button>
     </div>
 
-    <div *ngIf="isAdvancedOptionEnabled" id="advanced-options">
+    <details id="advanced-options">
+      <summary id="advanced-toggle">
+        <i class="fa fa-caret-right control" aria-hidden="true"></i>
+        <span i18n="form options" class="closed-label">Show options</span>
+        <span i18n="form options" class="opened-label">Hide options</span>
+      </summary>
+
       <aside class="row">
         <div class="info-notice alert alert-light">
           <i class="fa fa-2x fa-info-circle me-3" aria-hidden="true"></i>
@@ -69,11 +63,11 @@
         </div>
       </aside>
 
-      <fieldset>
+      <fieldset #nameserversForm>
         <legend i18n="form section">Nameservers</legend>
 
         <div class="form-section nameservers" formArrayName="nameservers">
-          <fieldset *ngFor="let ns of form.controls.nameservers.controls; let i=index" [formGroupName]="i">
+          <fieldset *ngFor="let ns of nameserversArray.controls; let i=index" [formGroupName]="i">
             <legend i18n="form section">Nameserver #{{ i + 1}}</legend>
             <div class="form-input-group">
               <label for="ns-{{i}}-name-input" i18n="form label">Name</label>
@@ -118,6 +112,7 @@
 
             <div class="delete-button-container">
               <button
+                type="button"
                 (click)="deleteRow('nameservers', i)"
                 class="btn delete"
                 i18n-title="form button"
@@ -137,10 +132,10 @@
 
       <hr>
 
-      <fieldset>
+      <fieldset #dsInfoForm>
         <legend i18n="form section">DS records</legend>
         <div class="form-section ds-records" formArrayName="ds_info">
-          <fieldset *ngFor="let ds_info of form.controls.ds_info.controls; let i=index" [formGroupName]="i">
+          <fieldset *ngFor="let ds_info of dsInfoArray.controls; let i=index" [formGroupName]="i">
             <legend i18n="form section">DS record #{{ i + 1}}</legend>
             <div class="form-input-group">
               <label for="ds-{{i}}-keytag-input" i18n="form label">Keytag</label>
@@ -247,6 +242,7 @@
 
             <div class="delete-button-container">
               <button
+                type="button"
                 (click)="deleteRow('ds_info',i)"
                 class="btn delete"
                 i18n-title="form button"
@@ -335,7 +331,7 @@
         </div>
       </div>
 
-    </div>
+    </details>
   </div>
   <div class="row launch-test">
     <div class="col text-center">

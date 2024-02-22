@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Input, Output, OnChanges, SimpleChange, OnDestroy, ViewChild, ElementRef} from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output, OnChanges, SimpleChange, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import {ViewEncapsulation} from '@angular/core';
 import {
   FormGroup,
@@ -20,16 +20,18 @@ import { AlertService } from '../../services/alert.service';
   encapsulation: ViewEncapsulation.None
 })
 export class FormComponent implements OnInit, OnChanges, OnDestroy {
-  @ViewChild('domainInput') domainInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('domainInput') domainInputView!: ElementRef<HTMLInputElement>;
+  @ViewChild('nameserversForm') nameserversFormView!: ElementRef<HTMLInputElement>;
+  @ViewChild('dsInfoForm') dsInfoFormView!: ElementRef<HTMLInputElement>;
 
-  @Input() isAdvancedOptionEnabled = false;
   @Input() formProgression;
   @Input() toggleFinished;
   @Input() profiles;
 
   @Output() onRunTest = new EventEmitter<object>();
   @Output() onFetchDataFromParent = new EventEmitter<[string, string]>();
-  @Output() onOpenOptions = new EventEmitter<boolean>();
+
+  private groupWithSubscription = new WeakSet();
 
   private formConfig = {
     'nameservers': {
@@ -65,7 +67,8 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private titleService: Title,
-    private alertService: AlertService) {}
+    private alertService: AlertService) {
+    }
 
   ngOnInit() {
     this.titleService.setTitle('Zonemaster');
@@ -88,6 +91,14 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnDestroy() {
     this.routeParamsSubscription.unsubscribe();
+  }
+
+  get nameserversArray() {
+    return this.form.get('nameservers') as FormArray;
+  }
+
+  get dsInfoArray() {
+    return this.form.get('ds_info') as FormArray;
   }
 
   private static atLeastOneProtocolValidator(control: AbstractControl) {
@@ -217,8 +228,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   public resetForm() {
     this.form.controls.domain.reset('');
-    this.domainInput.nativeElement.focus();
-
+    this.domainInputView.nativeElement.focus();
   }
 
   public resetFullForm() {
@@ -235,12 +245,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     const group = this.formBuilder.group(value, this.formOpts[formName]);
 
     if (!isPrefilled) {
-      const valueChangesSubscription = group.valueChanges.subscribe((e) => {
-        if (group.pristine === false) {
-          this.addNewRow(formName);
-          valueChangesSubscription.unsubscribe();
-        }
-      });
+      this.addRowIfFormChange(group, formName);
     } else {
       group.markAsDirty();
     }
@@ -255,18 +260,46 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         control.removeAt(i);
       }
     } else {
-      if (index < control.length) {
+      const formElement = formName === 'nameservers' ?
+        this.nameserversFormView.nativeElement :
+        this.dsInfoFormView.nativeElement;
+
+      if (control.length === 1 || (index === control.length - 1 && !control.at(index - 1).pristine)) {
+        control.at(index).reset();
+      } else {
         control.removeAt(index);
+
+        const buttons = formElement.querySelectorAll<HTMLInputElement>('button.delete');
+
+        if (index < buttons.length - 1) {
+          buttons[index + 1].focus();
+        } else {
+          buttons[index - 1].focus();
+        }
       }
 
-      if (control.length === 0) {
-        this.addNewRow(formName);
-      }
+      this.addRowIfFormChange(control.at(control.length - 1), formName);
     }
+
     return false;
   }
 
-  private fetchDataFromParent(type) {
+  private addRowIfFormChange(group, formName) {
+    if (group.pristine && !this.groupWithSubscription.has(group)) {
+      const valueChangesSubscription = group.valueChanges.subscribe((e) => {
+        if (group.pristine === false) {
+          this.addNewRow(formName);
+          valueChangesSubscription.unsubscribe();
+          this.groupWithSubscription.delete(group);
+        }
+      });
+
+      // Avoid subscribing the event multiple times
+      this.groupWithSubscription.add(group);
+    }
+  }
+
+  public fetchDataFromParent(type) {
     this.domain.markAsTouched();
     if (this.domain.invalid) {
       return false;
@@ -332,11 +365,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public submitForm() {
+    console.log('submited')
     this.submitRunTest();
-  }
-
-  public toggleOptions() {
-    this.isAdvancedOptionEnabled = !this.isAdvancedOptionEnabled
-    this.onOpenOptions.emit(this.isAdvancedOptionEnabled);
   }
 }

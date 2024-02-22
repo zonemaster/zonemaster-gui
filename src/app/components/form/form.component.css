@@ -181,22 +181,25 @@ hr {
   margin: 0;
 }
 
-.domain button#advanced-toggle {
-  background: none;
-  border: none;
-  padding: 0;
+.domain summary#advanced-toggle {
   font-weight: bold;
+  list-style-type: none;
 }
 
-.domain button#advanced-toggle i {
-  width: 1em;
-  margin-right: .25em;
-  transform: rotate(0);
-  transition: 0.1s transform;
+.domain summary#advanced-toggle i {
+  margin-right: .5em;
 }
 
-.domain button#advanced-toggle[aria-expanded="true"] i {
-  transform: rotate(90deg);
+.domain details#advanced-options summary#advanced-toggle .opened-label {
+  display: none;
+}
+
+.domain details#advanced-options[open] summary#advanced-toggle .opened-label {
+  display: initial;
+}
+
+.domain details#advanced-options[open] summary#advanced-toggle .closed-label {
+  display: none;
 }
 
 /* Domain input */
@@ -224,10 +227,6 @@ hr {
   right: 0.5rem;
 }
 
-.domain .reset-form button:not(:disabled):hover i {
-  opacity: 1;
-}
-
 .domain .reset-form button {
   color: inherit;
   padding: 0;
@@ -237,6 +236,11 @@ hr {
   width: 2em;
   border: .2em solid white;
   background-color: #939393;
+}
+
+.domain .reset-form button:not(:disabled):hover,
+.domain .reset-form button:not(:disabled):focus {
+  background-color: black;
 }
 
 .domain .reset-form button i {
