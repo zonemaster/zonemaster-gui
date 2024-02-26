@@ -71,8 +71,11 @@ form.domain {
   border: 1px solid transparent;
 }
 
-.domain button.delete:focus-visible,
 .domain button.delete:hover {
+  border-color: var(--primary-color);
+}
+
+.domain button.delete:focus-visible {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 0.25rem var(--outline-focus-color);
 }
@@ -214,10 +217,6 @@ hr {
 
 .domain .advanced {
   margin: 0.5em 0;
-}
-
-.domain .advanced > .col {
-  padding: 0;
 }
 
 .domain .reset-form {
