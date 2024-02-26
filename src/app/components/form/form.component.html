@@ -140,7 +140,7 @@
                   inputmode="numeric"
                   pattern="\d*"
                   id="ds_info-{{i}}-keytag-input"
-                  [attr.aria-describedby]="'ds_info-' + i + '-keytag-error-required ds_info-' + i + '-keytag-error-server'"
+                  [attr.aria-describedby]="'ds_info-' + i + '-keytag-error-required ds_info-' + i + '-keytag-error-pattern ds_info-' + i + '-keytag-error-server'"
                   formControlName="keytag"
                   class="form-control"
                   i18n-title="form label"
@@ -153,6 +153,9 @@
                 </div>
                 <div id="ds_info-{{i}}-keytag-error-required" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.required" >
                   <ng-container i18n="form error">Keytag required</ng-container>
+                </div>
+                <div id="ds_info-{{i}}-keytag-error-pattern" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.pattern" >
+                  <ng-container i18n="form error">The keytag must be a positive integer between 0 and 65535</ng-container>
                 </div>
               </div>
 
