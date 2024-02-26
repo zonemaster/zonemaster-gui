@@ -214,11 +214,14 @@ to add the new language. In the following example, `...` are used to mark
 existing language codes.
 
 ```apache
+# Redirect everything to index.html
 RewriteRule "^(...|<LANG>)" $1/index.html [L]
 
+# Rewrite path to new language scheme using preferred locale
 RewriteCond $1 "!^(...|<LANG>|assets)"
 RewriteCond %{HTTP:Accept-Language} ^(...|<LANG>) [NC]
 
+# Redirect user based on prefered locale
 RewriteCond %{HTTP:Accept-Language} ^(...|<LANG>) [NC]
 ```
 
