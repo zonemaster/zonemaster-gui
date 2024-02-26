@@ -209,12 +209,17 @@ and append the new two-letter language code of the new language.
 
 ### zonemaster.conf-example
 
-In the Apache example configuration add a rewrite rule to redirect the
-user to the new language:
+In the Apache example configuration, update the rewrite rules and conditions
+to add the new language. In the following example, `...` are used to mark
+existing language codes.
 
 ```apache
-RewriteCond %{HTTP:Accept-Language} ^<LANG> [NC]
-RewriteRule ^$ /<LANG>/ [R,L]
+RewriteRule "^(...|<LANG>)" $1/index.html [L]
+
+RewriteCond $1 "!^(...|<LANG>|assets)"
+RewriteCond %{HTTP:Accept-Language} ^(...|<LANG>) [NC]
+
+RewriteCond %{HTTP:Accept-Language} ^(...|<LANG>) [NC]
 ```
 
 ### Configuration
