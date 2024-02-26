@@ -213,6 +213,8 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
       }
       currentForm.setErrors({'serverError': error.message})
     }
+
+    this.focusFirstError();
   }
 
   @Input()
@@ -327,7 +329,12 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
     }
   }
 
-  private submitRunTest(submitValid = true) {
+  private focusFirstError() {
+    // small hack to execute this at the next tick when DOM has been updated
+    window.setTimeout(() => document.querySelector<HTMLInputElement>('[aria-invalid="true"]').focus(), 0)
+  }
+
+  private submitRunTest() {
     this.form.markAllAsTouched();
     let param = this.form.value;
 
@@ -359,8 +366,10 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
         digest: ds.digest
       }});
 
-    if (submitValid == this.form.valid) {
+    if (this.form.valid) {
       this.onRunTest.emit(param);
+    } else {
+      this.focusFirstError();
     }
   }
 
