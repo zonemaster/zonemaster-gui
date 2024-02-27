@@ -25,7 +25,7 @@ test.describe('Zonemaster test FR22 - [Provide the possibility to see more infor
     const basic02Messages = page.locator('#testcase-entries-BASIC02 li');
 
     await expect(basicHeader).toBeVisible({ timeout: 10000 });
-    await expect(basicHeader).toHaveText(/BASIC/);
+    await expect(basicHeader).toHaveText(/Basic/i);
 
     await expect(basicTestcases).toHaveCount(3);
 
