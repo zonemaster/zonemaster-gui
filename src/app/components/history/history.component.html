@@ -24,7 +24,7 @@
 
   <ul *ngIf="filteredHistory.length > 0;else noHistory" class="list-group mb-3">
     <li *ngFor="let item of historyItems" class="list-group-item list-group-item-action list-group-item-{{item.color}} d-flex justify-content-between">
-      <a routerLink="/result/{{item.id}}">
+      <a routerLink="/result/{{item.id}}" (click)="onTestClicked.emit(item.id)">
         {{ item.local_creation_time | date:'yyyy-MM-dd HH:mm zzzz' }}
       </a>
       <small i18n="history info|singular undelegated" *ngIf="item.undelegated" class="text-muted">Undelegated</small>
