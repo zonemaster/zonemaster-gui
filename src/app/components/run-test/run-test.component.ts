@@ -6,6 +6,7 @@ import { AlertService } from '../../services/alert.service';
 import { AppService } from '../../services/app.service';
 import { Title } from '@angular/platform-browser';
 import { FormComponent } from '../form/form.component';
+import * as punycode from 'punycode/';
 
 @Component({
   selector: 'app-run-test',
@@ -71,7 +72,9 @@ export class RunTestComponent implements OnInit {
       testId = id as string;
       this.showProgressBar = true;
 
-      this.titleService.setTitle(`${data['domain']} · Zonemaster`);
+      const unicodeDomain = punycode.toUnicode(data['domain']);
+
+      this.titleService.setTitle(`${unicodeDomain} · Zonemaster`);
 
       const handle = setInterval(() => {
         self.dnsCheckService.testProgress(testId).then(res => {

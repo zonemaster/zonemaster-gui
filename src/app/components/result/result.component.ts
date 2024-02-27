@@ -9,6 +9,7 @@ import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
 import { formatDate, Location } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import * as punycode from 'punycode/';
 
 @Component({
   selector: 'app-result',
@@ -24,6 +25,7 @@ export class ResultComponent implements OnInit, OnDestroy {
 
   public displayForm = false;
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
+  public unicodeDomain = '';
   public result = [];
   public modules: any;
   public severity_icons = {
@@ -136,6 +138,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.historyQuery = data['params'];
       this.result = data['results'];
       this.form = data['params'];
+      this.unicodeDomain = punycode.toUnicode(this.form.domain);
       this.testCaseDescriptions = data['testcase_descriptions'];
 
       this.testCasesCount = this.displayResult(this.result, resetCollapsed);
@@ -164,7 +167,7 @@ export class ResultComponent implements OnInit, OnDestroy {
           });
       }
 
-      this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
+      this.titleService.setTitle(`${this.unicodeDomain} · Zonemaster`);
     }, error => {
       this.alertService.error($localize `No data for this test.`)
     });
