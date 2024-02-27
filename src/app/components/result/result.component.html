@@ -5,10 +5,10 @@
   </app-run-test>
 </app-header>
 
-<section class="result" tabindex="-1" aria-labelledby="result-heading result-creation-time" #resultSection>
+<section class="result">
   <div>
     <div>
-      <h2 id="result-heading"><ng-container i18n="result subheader">Test result for</ng-container>&nbsp;<strong>{{ form.domain }}</strong></h2>
+      <h2 id="result-heading" tabindex="-1" #resultSectionHeading aria-describedby="result-creation-time"><ng-container i18n="result subheader">Test result for</ng-container>&nbsp;<strong>{{ form.domain }}</strong></h2>
       <div class="result-metadata">
         <p id="result-creation-time" class="result-test-datetime"><ng-container i18n="result test metadata">Created on</ng-container>&nbsp;<time [dateTime]="test.creation_time ? test.creation_time.toISOString() : ''">{{ test.creation_time | date:'medium' }}</time></p>
 
