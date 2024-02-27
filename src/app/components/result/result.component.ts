@@ -32,7 +32,26 @@ export class ResultComponent implements OnInit, OnDestroy {
     'warning': 'fa-exclamation-triangle',
     'error': 'fa-times-circle',
     'critical': 'fa-times-circle'
-  }
+  };
+  public severityLevelNames = {
+    'info': $localize `Info`,
+    'notice': $localize `Notice`,
+    'warning': $localize `Warning`,
+    'error': $localize `Error`,
+    'critical': $localize `Critical`,
+  };
+  public moduleNames = {
+    'system': $localize `System`,
+    'basic': $localize `Basic`,
+    'address': $localize `Address`,
+    'connectivity': $localize `Connectivity`,
+    'consistency': $localize `Consistency`,
+    'delegation': $localize `Delegation`,
+    'dnssec': $localize `DNSSEC`,
+    'nameserver': $localize `Nameserver`,
+    'syntax': $localize `Syntax`,
+    'zone': $localize `Zone`,
+  };
   public searchQueryLength = 0;
   public test: any = {params: {ipv4: false, ipv6: false}};
   public isCollapsed = [];
