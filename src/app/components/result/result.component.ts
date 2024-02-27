@@ -22,7 +22,7 @@ export class ResultComponent implements OnInit, OnDestroy {
   @Input('testId') testId: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
-  @ViewChild('resultSection', {static: false}) resultSection: ElementRef;
+  @ViewChild('resultSectionHeading', {static: false}) resultSectionHeading: ElementRef;
 
   public displayForm = false;
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
@@ -112,7 +112,7 @@ export class ResultComponent implements OnInit, OnDestroy {
       console.log(result);
       // NOTE: this is a hack, I don't like it.
       // angular-bootstrap move the focus back to the history button, we move it to the result section at next tick
-      window.setTimeout(() => this.resultSection.nativeElement.focus(), 0);
+      window.setTimeout(() => this.resultSectionHeading.nativeElement.focus(), 0);
     }, (reason) => {
       console.log(reason);
     });

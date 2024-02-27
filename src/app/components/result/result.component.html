@@ -5,10 +5,10 @@
   </app-run-test>
 </app-header>
 
-<section class="result" tabindex="-1" aria-labelledby="result-heading result-creation-time" #resultSection>
+<section class="result">
   <div>
     <div>
-      <h2 id="result-heading">
+      <h2 id="result-heading" tabindex="-1" #resultSectionHeading aria-describedby="result-creation-time">
         <ng-container i18n="result subheader">Test result for</ng-container>
         <strong> {{ unicodeDomain }}</strong>
         <ng-container *ngIf="asciiDomain !== unicodeDomain"> ({{ asciiDomain }})</ng-container>
