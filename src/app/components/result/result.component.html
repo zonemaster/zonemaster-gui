@@ -8,9 +8,13 @@
 <section class="result">
   <div>
     <div>
-      <h2><ng-container i18n="result subheader">Test result for</ng-container>&nbsp;<strong>{{ form.domain }}</strong></h2>
+      <h2>
+        <ng-container i18n="result subheader">Test result for</ng-container>
+        <strong> {{ unicodeDomain }}</strong>
+        <ng-container *ngIf="asciiDomain !== unicodeDomain"> ({{ asciiDomain }})</ng-container>
+      </h2>
       <div class="result-metadata">
-        <p class="result-test-datetime"><ng-container i18n="result test metadata">Created on</ng-container>&nbsp;<time [dateTime]="test.creation_time ? test.creation_time.toISOString() : ''">{{ test.creation_time | date:'medium' }}</time></p>
+        <p class="result-test-datetime"><ng-container i18n="result test metadata">Created on</ng-container><time [dateTime]="test.creation_time ? test.creation_time.toISOString() : ''"> {{ test.creation_time | date:'medium' }}</time></p>
 
         <div class="actions-btn">
           <div>
