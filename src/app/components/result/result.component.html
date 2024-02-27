@@ -8,9 +8,9 @@
 <section class="result">
   <div>
     <div>
-      <h2><ng-container i18n="result subheader">Test result for</ng-container>&nbsp;<strong>{{ form.domain }}</strong></h2>
+      <h2 id="result-heading" tabindex="-1" #resultSectionHeading aria-describedby="result-creation-time"><ng-container i18n="result subheader">Test result for</ng-container>&nbsp;<strong>{{ form.domain }}</strong></h2>
       <div class="result-metadata">
-        <p class="result-test-datetime"><ng-container i18n="result test metadata">Created on</ng-container>&nbsp;<time [dateTime]="test.creation_time ? test.creation_time.toISOString() : ''">{{ test.creation_time | date:'medium' }}</time></p>
+        <p id="result-creation-time" class="result-test-datetime"><ng-container i18n="result test metadata">Created on</ng-container>&nbsp;<time [dateTime]="test.creation_time ? test.creation_time.toISOString() : ''">{{ test.creation_time | date:'medium' }}</time></p>
 
         <div class="actions-btn">
           <div>
@@ -225,6 +225,6 @@
     <button type="button" class="btn-close" i18n-aria-label="result history modal" aria-label="Close" i18n-title="result history modal" title="Close" (click)="d('Cross click')"></button>
   </header>
   <div class="modal-body">
-    <app-history [history]="history"></app-history>
+    <app-history [history]="history" (onTestClicked)="c($event)"></app-history>
   </div>
 </ng-template>
