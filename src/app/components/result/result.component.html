@@ -182,7 +182,7 @@
               <span aria-hidden="true">
                 <i class="fa {{severity_icons[count.name]}}"></i> {{ count.value }}
               </span>
-              <span class="sr-only">{{ count.name }} ({{ count.value }})<ng-container *ngIf="!last">, </ng-container></span>
+              <span class="sr-only">{{ severityLevelNames[count.name] | lowercase }} ({{ count.value }})<ng-container *ngIf="!last">, </ng-container></span>
             </span>
           </button>
       </h3>
