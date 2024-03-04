@@ -11,7 +11,7 @@
           aria-describedby="domain-error-required domain-error-server"
           aria-required="true"
         >
-      <div id="domain-error-required" class="invalid-feedback" *ngIf="domain.errors?.required" i18n="form error">Domain name required</div>
+      <div id="domain-error-required" class="invalid-feedback" *ngIf="(domain.dirty || domain.touched) && domain.errors?.required" i18n="form error">Domain name required</div>
 
       <div id="domain-error-server" class="invalid-feedback" *ngIf="domain.errors?.serverError" >
         {{ domain.errors.serverError }}
@@ -81,7 +81,7 @@
                 <div id="nameservers-{{i}}-ns-error-server" class="invalid-feedback" *ngIf="nameserver.controls.ns.errors?.serverError" >
                   {{ nameserver.controls.ns.errors.serverError }}
                 </div>
-                <div id="nameservers-{{i}}-ns-error-required" class="invalid-feedback" *ngIf="nameserver.controls.ns.errors?.required" >
+                <div id="nameservers-{{i}}-ns-error-required" class="invalid-feedback" *ngIf="(nameserver.controls.ns.dirty || nameserver.controls.ns.touched) && nameserver.controls.ns.errors?.required" >
                   <ng-container i18n="form error">The name of nameserver is required</ng-container>
                 </div>
               </div>
@@ -97,8 +97,8 @@
                   class="form-control"
                   i18n-title="form label"
                   title="Address of nameserver #{{i + 1}}"
-                  [class.is-invalid]="nameserver.controls.ip.invalid"
-                  [attr.aria-invalid]="nameserver.controls.ip.invalid"
+                  [class.is-invalid]="nameserver.controls.ip.invalid && (nameserver.controls.ip.dirty || nameserver.controls.ip.touched)"
+                  [attr.aria-invalid]="nameserver.controls.ip.invalid && (nameserver.controls.ip.dirty || nameserver.controls.ip.touched)"
                 >
                 <div id="nameservers-{{i}}-ip-error-server" class="invalid-feedback" *ngIf="nameserver.controls.ip.errors?.serverError" >
                   {{ nameserver.controls.ip.errors.serverError }}
@@ -151,10 +151,10 @@
                 <div id="ds_info-{{i}}-keytag-error-server" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.serverError" >
                   {{ ds_info.controls.keytag.errors.serverError }}
                 </div>
-                <div id="ds_info-{{i}}-keytag-error-required" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.required" >
+                <div id="ds_info-{{i}}-keytag-error-required" class="invalid-feedback" *ngIf="(ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched) && ds_info.controls.keytag.errors?.required" >
                   <ng-container i18n="form error">Keytag required</ng-container>
                 </div>
-                <div id="ds_info-{{i}}-keytag-error-pattern" class="invalid-feedback" *ngIf="ds_info.controls.keytag.errors?.pattern" >
+                <div id="ds_info-{{i}}-keytag-error-pattern" class="invalid-feedback" *ngIf="(ds_info.controls.keytag.dirty || ds_info.controls.keytag.touched) && ds_info.controls.keytag.errors?.pattern" >
                   <ng-container i18n="form error">The keytag must be a positive integer between 0 and 65535</ng-container>
                 </div>
               </div>
@@ -187,7 +187,7 @@
                 <div id="ds_info-{{i}}-algorithm-error-server" class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.serverError" >
                   {{ ds_info.controls.algorithm.errors.serverError }}
                 </div>
-                <div id="ds_info-{{i}}-algorithm-error-required" class="invalid-feedback" *ngIf="ds_info.controls.algorithm.errors?.required" >
+                <div id="ds_info-{{i}}-algorithm-error-required" class="invalid-feedback" *ngIf="(ds_info.controls.algorithm.dirty || ds_info.controls.algorithm.touched) && ds_info.controls.algorithm.errors?.required" >
                   <ng-container i18n="form error">Algorithm required</ng-container>
                 </div>
               </div>
@@ -212,7 +212,7 @@
                 <div id="ds_info-{{i}}-digtype-error-server" class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.serverError" >
                   {{ ds_info.controls.digtype.errors.serverError }}
                 </div>
-                <div id="ds_info-{{i}}-digtype-error-required" class="invalid-feedback" *ngIf="ds_info.controls.digtype.errors?.required" >
+                <div id="ds_info-{{i}}-digtype-error-required" class="invalid-feedback" *ngIf="(ds_info.controls.digtype.dirty || ds_info.controls.digtype.touched) && ds_info.controls.digtype.errors?.required" >
                   <ng-container i18n="form error">Digest type required</ng-container>
                 </div>
               </div>
@@ -232,7 +232,7 @@
                 <div id="ds_info-{{i}}-digest-error-server" class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.serverError" >
                   {{ ds_info.controls.digest.errors.serverError }}
                 </div>
-                <div id="ds_info-{{i}}-digest-error-required" class="invalid-feedback" *ngIf="ds_info.controls.digest.errors?.required" >
+                <div id="ds_info-{{i}}-digest-error-required" class="invalid-feedback" *ngIf="(ds_info.controls.digest.dirty || ds_info.controls.digest.touched) && ds_info.controls.digest.errors?.required" >
                   <ng-container i18n="form error">Digest required</ng-container>
                 </div>
               </div>
