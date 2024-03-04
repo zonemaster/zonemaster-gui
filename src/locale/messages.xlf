@@ -360,35 +360,35 @@
         <source>No data for this test.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">169</context>
+          <context context-type="linenumber">188</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2360715491728178990" datatype="html">
         <source>History information request is in progress.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">256</context>
+          <context context-type="linenumber">275</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1867992058937397585" datatype="html">
         <source>Module</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">340</context>
+          <context context-type="linenumber">359</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3733215288982610673" datatype="html">
         <source>Level</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">341</context>
+          <context context-type="linenumber">360</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">342</context>
+          <context context-type="linenumber">361</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7104935342812835081" datatype="html">
@@ -511,7 +511,7 @@
         <source>No previous tests found for this domain.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">261</context>
+          <context context-type="linenumber">280</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7210131782873551503" datatype="html">
@@ -1466,6 +1466,111 @@
           <context context-type="linenumber">51</context>
         </context-group>
         <note priority="1" from="description">faq answer</note>
+      </trans-unit>
+      <trans-unit id="1519954996184640001" datatype="html">
+        <source>Error</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2437478124199610198" datatype="html">
+        <source>Critical</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3042471551767868839" datatype="html">
+        <source>Notice</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="314315645942131479" datatype="html">
+        <source>Info</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6759205696902713848" datatype="html">
+        <source>Warning</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2887948366226336935" datatype="html">
+        <source>Connectivity</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="29832309535656200" datatype="html">
+        <source>System</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3001437232085577983" datatype="html">
+        <source>Consistency</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4378147649219625174" datatype="html">
+        <source>Zone</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5757082283695749077" datatype="html">
+        <source>Delegation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5797351340797536" datatype="html">
+        <source>Syntax</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6304432362546770951" datatype="html">
+        <source>Address</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6477785032659147345" datatype="html">
+        <source>DNSSEC</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6534302992540929721" datatype="html">
+        <source>Nameserver</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">51</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8643289769990675407" datatype="html">
+        <source>Basic</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

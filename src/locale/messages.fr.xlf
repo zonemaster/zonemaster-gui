@@ -878,6 +878,66 @@
         <target state="translated">Si le résultat du test ne comporte aucune erreur ni avertissement, on peut être relativement certain que le nouvel emplacement du domaine fonctionne bien. Mais cela n&apos;exclut pas l&apos;existence d&apos;autres problèmes dans les données elles-mêmes de la zone que ce test n&apos;aurait pas décelés.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
+      <trans-unit id="314315645942131479" datatype="html">
+        <source>Info</source>
+        <target state="translated">Info</target>
+      </trans-unit>
+      <trans-unit id="3042471551767868839" datatype="html">
+        <source>Notice</source>
+        <target state="translated">Note</target>
+      </trans-unit>
+      <trans-unit id="6759205696902713848" datatype="html">
+        <source>Warning</source>
+        <target state="translated">Avertissement</target>
+      </trans-unit>
+      <trans-unit id="1519954996184640001" datatype="html">
+        <source>Error</source>
+        <target state="translated">Erreur</target>
+      </trans-unit>
+      <trans-unit id="2437478124199610198" datatype="html">
+        <source>Critical</source>
+        <target state="translated">Critique</target>
+      </trans-unit>
+      <trans-unit id="29832309535656200" datatype="html">
+        <source>System</source>
+        <target state="translated">Système</target>
+      </trans-unit>
+      <trans-unit id="8643289769990675407" datatype="html">
+        <source>Basic</source>
+        <target state="translated">Basique</target>
+      </trans-unit>
+      <trans-unit id="6304432362546770951" datatype="html">
+        <source>Address</source>
+        <target state="translated">Adresse</target>
+      </trans-unit>
+      <trans-unit id="2887948366226336935" datatype="html">
+        <source>Connectivity</source>
+        <target state="translated">Connectivité</target>
+      </trans-unit>
+      <trans-unit id="3001437232085577983" datatype="html">
+        <source>Consistency</source>
+        <target state="translated">Cohérence</target>
+      </trans-unit>
+      <trans-unit id="5757082283695749077" datatype="html">
+        <source>Delegation</source>
+        <target state="translated">Délégation</target>
+      </trans-unit>
+      <trans-unit id="6477785032659147345" datatype="html">
+        <source>DNSSEC</source>
+        <target state="translated">DNSSEC</target>
+      </trans-unit>
+      <trans-unit id="6534302992540929721" datatype="html">
+        <source>Nameserver</source>
+        <target state="translated">Serveur de nom</target>
+      </trans-unit>
+      <trans-unit id="5797351340797536" datatype="html">
+        <source>Syntax</source>
+        <target state="translated">Syntaxe</target>
+      </trans-unit>
+      <trans-unit id="4378147649219625174" datatype="html">
+        <source>Zone</source>
+        <target state="translated">Zone</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
