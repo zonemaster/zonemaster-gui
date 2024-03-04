@@ -373,7 +373,7 @@
   }
 
   .result section.testcase header {
-    flex-direction: column;
+    flex-wrap: wrap;
   }
 
   .result section.testcase header .test-case-id {
