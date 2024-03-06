@@ -227,25 +227,24 @@ hr {
 }
 
 .domain .reset-form button {
-  color: inherit;
+  color: white;
   padding: 0;
   border-radius: 1em;
-  line-height: 1;
   height: 2em;
   width: 2em;
   border: .2em solid white;
   background-color: #939393;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .domain .reset-form button:not(:disabled):hover,
 .domain .reset-form button:not(:disabled):focus {
-  background-color: black;
+  background-color: rgb(48, 48, 48);
 }
 
 .domain .reset-form button i {
-  color: white;
-  width: 1em;
-  height: 1em;
   font-size: 1.3em;
 }
 
