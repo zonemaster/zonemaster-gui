@@ -4,14 +4,14 @@
     <div class="domain-input-container">
       <input #domainInput type="text"
           class="form-control form-control-lg"
-          [class.is-invalid]="domain.invalid && (domain.dirty || domain.touched)"
-          [attr.aria-invalid]="domain.invalid && (domain.dirty || domain.touched)"
+          [class.is-invalid]="domain.invalid && domain.dirty"
+          [attr.aria-invalid]="domain.invalid && domain.dirty"
           id="domain-input"
           formControlName="domain"
           aria-describedby="domain-error-required domain-error-server"
           aria-required="true"
         >
-      <div id="domain-error-required" class="invalid-feedback" *ngIf="(domain.dirty || domain.touched) && domain.errors?.required" i18n="form error">Domain name required</div>
+      <div id="domain-error-required" class="invalid-feedback" *ngIf="domain.dirty && domain.errors?.required" i18n="form error">Domain name required</div>
 
       <div id="domain-error-server" class="invalid-feedback" *ngIf="domain.errors?.serverError" >
         {{ domain.errors.serverError }}

@@ -336,6 +336,7 @@ export class FormComponent implements OnInit, OnChanges, OnDestroy {
 
   private submitRunTest() {
     this.form.markAllAsTouched();
+    this.form.controls.domain.markAsDirty();
     let param = this.form.value;
 
     param.domain = this.sanitizeDomain(param.domain);
