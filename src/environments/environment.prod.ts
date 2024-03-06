@@ -4,5 +4,6 @@ export const environment = {
   ...common,
   production: true,
   apiEndpoint: '/api',
-  mock: false
+  mock: false,
+  extraProvider: [],
 };

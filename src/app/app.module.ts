@@ -1,7 +1,7 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
@@ -28,11 +28,6 @@ import { DnsCheckService } from './services/dns-check.service';
 import { AlertService } from './services/alert.service';
 import { NavigationService } from './services/navigation.service';
 import { HeaderComponent } from './components/header/header.component';
-
-import { HttpRequestInterceptor } from './interceptors/request.interceptor';
-import { HttpMockRequestInterceptor } from './interceptors/mock.interceptor';
-
-export const isMock = environment.mock;
 
 const appRoutes: Routes = [
   { path: 'run-test/:domain', component: DomainComponent },
@@ -83,18 +78,14 @@ const appRoutes: Routes = [
     AlertService,
     NavigationService,
     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: isMock ? HttpMockRequestInterceptor : HttpRequestInterceptor,
-      multi: true
-    },
-    {
       provide: APP_INITIALIZER,
       useFactory: (appService: AppService) => {
         return () => appService.loadConfig()
       },
       multi: true,
       deps: [AppService]
-    }
+    },
+    ...environment.extraProvider,
   ],
   bootstrap: [AppComponent]
 })
