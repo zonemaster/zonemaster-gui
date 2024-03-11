@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "node scripts/faq.js && ng build --configuration production",
+    "build": "ng build --configuration production",
     "release": "npm run build && node scripts/create_release.js",
     "lint": "ng lint",
     "e2e": "playwright test",
@@ -31,7 +31,6 @@
     "file-saver": "^2.0.2",
     "fork-awesome": "^1.2.0",
     "rxjs": "^6.6.0",
-    "showdown": "^1.9.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },

@@ -47,9 +47,9 @@ new or updated file as a pull request to Github (see [translators guide] for
 Zonemaster-Engine, -CLI and -Backend). Contact the Zonemaster Group if that
 does not work.
 
-The translator must always create or update the `messages.<LANG>.xlf` and
-the `gui-faq-<LANG>.md`. The other changes are only done when
-a language is added and will be completed by the Zonemaster Group.
+The translator must always create or update the `messages.<LANG>.xlf`. The
+other changes are only done when a language is added and will be completed
+by the Zonemaster Group.
 
 
 ## messages.\<LANG\>.xlf
@@ -80,29 +80,6 @@ To help translating the locale files, tools like [Poedit] can be used.
 In Poedit, the translator can see the new strings to translated in an accent
 color. Additional context for translation, if available, is shown in the
 bottom left corner of the window under "Notes for translators".
-
-## gui-faq-\<LANG\>.md
-
-The FAQ document holds questions and answers on Zonemaster, and there
-is one document per language, e.g. `gui-faq-en.md`.
-
-The files are located in the [docs/FAQ] folder, one file for each supported
-language.
-
-When creating a new FAQ file, make a copy of `gui-faq-en.md` with the new
-language code instead of `en`. The code must be in lower case. Then
-translate the file using English as the model.
-
-It is important to preserve the structure of the file. There must be a
-table of contents linking to the question plus answer below. The header
-of the answer must start with `####` and then `<span id="q1"></span>`.
-The id must be `q1` etc matching the id in the question and nothing else.
-
-```
-1. [What is Zonemaster?](#q1)
-
-#### <span id="q1"></span>1. What is Zonemaster?
-```
 
 ## Adding a new language
 
@@ -236,7 +213,6 @@ const testSuite = [
 
 
 [ISO 639-1]:                                               https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-[docs/FAQ]:                                                FAQ
 [e2e]:                                                     ../e2e
 [FR05-en.e2e-spec.ts]:                                     ../e2e/FR05-en.e2e-spec.ts
 [angular.json]:                                            ../angular.json
