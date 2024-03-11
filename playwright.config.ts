@@ -4,7 +4,7 @@ const config: PlaywrightTestConfig = {
   testDir: 'e2e',
   testMatch: 'e2e/*.e2e-spec.ts',
   webServer: {
-    command: 'ng build --configuration=tests --localize && node scripts/test_server.js',
+    command: 'ng build --configuration=tests --localize && node scripts/create_manifest.js && ZONEMASTER_GUI_CONFIG_FILE=e2e/zonemaster-gui.test.toml plackup ./scripts/zonemaster-gui --port 4201 --access-log zonemaster-gui.test.log',
     port: 4201,
     reuseExistingServer: true,
   },
