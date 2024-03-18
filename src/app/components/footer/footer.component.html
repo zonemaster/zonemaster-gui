@@ -1,38 +1,38 @@
-<footer class="pb-0 pt-2 bg-light">
+<footer class="pb-0 pt-2">
   <div class="container">
-    <div class="col-12">
-      <nav class="row justify-content-between">
-        <ul class="row">
-          <li class="col-md">
-            <span placement="top" [ngbTooltip]="tipContent" i18n tabindex="0">Program versions</span>
-          </li>
-          <li class="col-md-auto">
-            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-            <a class="text-dark" href="mailto:{{contactAddress}}">{{contactAddress}}</a>
-          </li>
-          <li class="col-md-auto">
-            <i class="fa fa-code" aria-hidden="true"></i>
-            <a class="text-dark" href="https://github.com/zonemaster/zonemaster" i18n>Source code</a>
-          </li>
-          <li class="col-md-auto">
-            <i class="fa fa-book" aria-hidden="true"></i>
-            <a class="text-dark" href="https://github.com/zonemaster/zonemaster#documentation" i18n>Documentation</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="row">
-        <div class="col-md-auto">
-          <p class="copyright small" i18n>Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved</p>
-        </div>
-      </div>
+    <nav class="row justify-content-between">
+      <ul class="row">
+        <li class="col-lg">
+          <button placement="top-start" [ngbTooltip]="tipContent" triggers="click:click click:blur" i18n tabindex="0" class="program-versions link" i18n="footer|">Program versions</button>
+        </li>
+        <li class="col-md-auto">
+          <a href="mailto:{{contactAddress}}">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>{{contactAddress}}
+          </a>
+        </li>
+        <li class="col-md-auto">
+          <a href="https://github.com/zonemaster/zonemaster">
+            <i class="fa fa-code" aria-hidden="true"></i><ng-container i18n="footer|">Source code</ng-container>
+          </a>
+        </li>
+        <li class="col-md-auto">
+          <a href="https://github.com/zonemaster/zonemaster#documentation">
+            <i class="fa fa-book" aria-hidden="true"></i><ng-container i18n="footer|">Documentation</ng-container>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-    </div>
-
-    <div class="col-12" *ngIf="footerLogo !== ''">
-      <img src="{{footerLogo}}" alt="{{footerLogoAlt}}" class="footer-logotype">
-    </div>
+    <p class="copyright small" i18n="footer|">
+      Copyright © AFNIC and The Swedish Internet Foundation
+    </p>
 
   </div>
+
+  <div class="col-12" *ngIf="footerLogo !== ''">
+    <img src="{{footerLogo}}" alt="{{footerLogoAlt}}" class="footer-logotype">
+  </div>
+
 </footer>
 
 <ng-template #tipContent>
@@ -43,4 +43,3 @@
     </ng-container>
   </dl>
 </ng-template>
-

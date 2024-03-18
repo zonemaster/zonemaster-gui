@@ -1,10 +1,8 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
-import {ViewEncapsulation} from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 
 import { Alert, AlertType } from '../../models/index';
 import { AlertService } from '../../services/alert.service';
-import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-alert',
@@ -12,15 +10,13 @@ import { NavigationService } from '../../services/navigation.service';
   styleUrls: ['./alert.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AlertComponent implements OnInit, OnDestroy {
+export class AlertComponent implements OnInit {
 
   alerts: Alert[] = [];
   public navHeight: number;
-  private navHeightSubscription: Subscription;
 
   constructor(
     private alertService: AlertService,
-    private navigationService: NavigationService
   ) {
 
   }
@@ -36,14 +32,6 @@ export class AlertComponent implements OnInit, OnDestroy {
 
       setTimeout(() => this.removeAlert(alert), 5000);
     });
-
-    this.navHeightSubscription = this.navigationService.height.subscribe((newHeight: number) => {
-      this.navHeight = newHeight;
-    });
-  }
-
-  ngOnDestroy() {
-    this.navHeightSubscription.unsubscribe();
   }
 
   removeAlert(alert: Alert) {

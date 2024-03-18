@@ -1,6 +1,22 @@
 Release history for Zonemaster component Zonemaster-GUI
 
 
+v4.2.0 2024-03-18 (public release version)
+
+ [Release information]
+ - Translations have not been fully updated in this release. They will
+   be updated in an upcoming fix release.
+
+ [Features]
+ - Improves GUI design (#434)
+
+ [Fixes]
+ - Updates FAQ (#443, #456, #457)
+ - Fixe handling of unspecified test module (#444)
+ - Updates French translation (#450)
+ - Updates README file (#455)
+
+
 v4.1.1 2023-09-08 (public fix version)
 
  [Fixes]

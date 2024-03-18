@@ -1,0 +1,10 @@
+.run-test {
+    width: 80%;
+    margin: auto;
+}
+
+@media(max-width:991px) {
+    .run-test {
+        width: 100%;
+    }
+}

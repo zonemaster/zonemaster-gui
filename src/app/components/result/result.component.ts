@@ -111,11 +111,15 @@ export class ResultComponent implements OnInit, OnDestroy {
     });
   }
 
-  public onFilterLevelKeyDownEvent(event, level) {
-    switch (event.key) {
-      case 'Enter':
-        this.togglePillFilter(level);
-        break;
+  public expandAll() {
+    for (const module of this.modules) {
+      this.isCollapsed[module.name] = false;
+    }
+  }
+
+  public collapseAll() {
+    for (const module of this.modules) {
+      this.isCollapsed[module.name] = true;
     }
   }
 
@@ -218,10 +222,10 @@ export class ResultComponent implements OnInit, OnDestroy {
     for (const module in modulesMap) {
       modulesMap[module].testcases.sort((testcase1, testcase2) => {
         // sort messages by descending severity level, unspecified messages always on top
-        if (testcase1.id == 'UNSPECIFIED') {
+        if (testcase1.id.toUpperCase() == 'UNSPECIFIED') {
           return 1;
         }
-        if (testcase2.id == 'UNSPECIFIED') {
+        if (testcase2.id.toUpperCase() == 'UNSPECIFIED') {
           return 1;
         }
         return this.severityLevels[testcase2.level] - this.severityLevels[testcase1.level];
@@ -238,7 +242,11 @@ export class ResultComponent implements OnInit, OnDestroy {
       }
     }
 
-    this.isCollapsed['UNSPECIFIED'] = false;
+    for (const testCase in this.isCollapsed) {
+      if (testCase.toUpperCase() == 'UNSPECIFIED') {
+        this.isCollapsed[testCase] = false;
+      }
+    }
 
     return testCasesCount;
   }

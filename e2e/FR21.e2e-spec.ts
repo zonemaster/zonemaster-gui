@@ -18,15 +18,15 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
 
   test('should display summary',  async () => {
     await expect(page.locator('.progress-bar')).toBeHidden();
-    await page.locator('#input_domain_form').type('results.afNiC.Fr');
+    await page.locator('#input-domain-form').type('results.afNiC.Fr');
     await page.locator('div button.launch').click();
 
-    await expect(page.locator('div.result.container')).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('section.result')).toBeVisible({ timeout: 10000 });
 
-    const messageCountBadges = page.locator('.nav.nav-pills.vertical-align.filter > li > a');
+    const messageCountBadges = page.locator('fieldset.severity-levels label');
     const expectedLabels = ['All', 'Info', 'Notice', 'Warning', 'Error', 'Critical'];
 
-    await expect(messageCountBadges).toHaveCount(6);
+    await expect(messageCountBadges).toHaveCount(expectedLabels.length);
 
     for (const idx in expectedLabels) {
       await expect(messageCountBadges.nth(idx)).toContainText(expectedLabels[idx]);
@@ -35,7 +35,7 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
 
   test('should display number of each level',  async () => {
     const expectedCounts = ['52', '49', '3', '0', '0', '0'];
-    const messageCountBadges = page.locator('.nav.nav-pills.vertical-align.filter > li > a > span.badge');
+    const messageCountBadges = page.locator('fieldset.severity-levels label span.badge');
 
     for (const idx in expectedCounts) {
       await expect(messageCountBadges.nth(idx)).toHaveText(expectedCounts[idx]);
@@ -43,7 +43,7 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
   });
 
   test('should display summary with good colors',  async () => {
-    const filterButtons = page.locator('.nav.nav-pills.vertical-align.filter > li > a');
+    const filterButtons = page.locator('fieldset.severity-levels input[type="checkbox"]');
 
     for (const idx of [1, 2, 3, 4, 5]) {
       await filterButtons.nth(idx).click();

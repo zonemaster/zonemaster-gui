@@ -1,71 +1,17 @@
-#input_domain_form {
-  font-size:16px;
-  height:64px;
-  border-radius:3px
+/* General rules */
+
+form.domain {
+  background-color: var(--primary-color-lighter);
+  border: 1px solid var(--primary-color-light);
+  border-radius: 1rem;
+  padding: 4rem;
 }
 
-.domain button.launch {
-  height: 64px;
-}
 
-/* The switch - the box around the slider */
-.domain .switch-input-container {
-  display: flex;
-  align-items: center;
-}
-
-#advanced-options .form-label {
-  margin-bottom: 0;
-}
-
-#advanced-options > fieldset:first-of-type {
-  margin-top: 1rem;
-}
-
-#advanced-options > fieldset:last-of-type {
-  margin-bottom: 1rem;
-}
-
-.domain fieldset fieldset legend {
-  font-size: 1em;
-  margin-bottom: 0;
-  font-weight: normal;
-}
-
-.domain form .protocol {
-  padding-top: 0.375rem;
-  display: flex;
-  flex-wrap: nowrap;
-  white-space: nowrap;
-}
-
-.domain .switch-input-container label {
-  margin: 0;
-}
-
-.domain button.switch-toggle {
-  border: none;
-  width: 2em;
-  background-color: #ccc;
-  display: inherit;
-  height: 1em;
-  border-radius: 2em;
-  font-size: 2em;
-  background-repeat: no-repeat;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-  background-position: left center;
-  transition: all .25s ease-in-out;
-  margin-right: 0.2em;
-  cursor: pointer;
-}
-
-.domain button.switch-toggle.enabled {
-  background-position: right center;
-  background-color: #0d6efd;
-}
-
-.domain .advanced {
-  text-align: left;
+@media(max-width:767px){
+  form.domain {
+    padding: 1.5rem;
+  }
 }
 
 .domain .is-invalid label {
@@ -88,30 +34,211 @@
   --bs-gutter-x: 0.5rem;
 }
 
+
+/* Advanced options */
+
+#advanced-options .form-label {
+  margin-bottom: 0;
+}
+
+#advanced-options > fieldset:first-of-type {
+  margin-top: 1rem;
+}
+
+#advanced-options > fieldset:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.domain .info-notice {
+  width: auto;
+  text-align: center;
+  margin: 1rem auto 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.domain .info-notice div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  white-space: pre-wrap;
+}
+
+.domain button.delete {
+  font-size: calc(1.5rem - 2px);
+  padding: .0rem .5rem;
+  border: none;
+  border: 1px solid transparent;
+}
+
+.domain button.delete:focus-visible,
+.domain button.delete:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem var(--outline-focus-color);
+}
+
+hr {
+  opacity: 1;
+  border-color: var(--primary-color-light);
+}
+
+.domain .form-section fieldset {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Advanced options responsivity */
+
+@media(min-width:768px) {
+  /* Hide Legends and Labels from screen on wide screens but keep them for screen reader */
+  .domain .form-section fieldset:not(:first-child) label,
+  .domain .form-section fieldset legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+
+  .domain .form-section fieldset .form-input-group > * {
+    flex: 1;
+  }
+
+  .domain .form-section fieldset .form-input-group {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .domain .form-section fieldset:first-child .form-input-group {
+    display: grid;
+    grid-auto-flow: column;
+
+  }
+
+  .domain .form-section.nameservers fieldset:first-child .form-input-group {
+    grid-template: auto auto / 1fr 1fr;
+  }
+
+  .domain .form-section.ds-records fieldset:first-child .form-input-group {
+    grid-template: auto auto / 1fr 1fr 1fr 1fr;
+  }
+
+  .domain .form-section fieldset:first-child .delete-button-container {
+    margin-top: 2.2rem;
+    display: flex;
+    align-items: baseline;
+  }
+}
+
+@media(max-width:767px) {
+  .domain .form-section fieldset legend {
+    font-size: 1.1em;
+    margin-bottom: 0;
+  }
+
+  .domain .form-section fieldset {
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .domain .form-section fieldset:not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 50%;
+    margin: auto;
+    margin-top: 1rem;
+    background: var(--primary-color-light);
+  }
+
+  .domain .form-section fieldset .form-input-group {
+    display: grid;
+    grid: auto / auto 1fr;
+    gap: 0.5rem;
+  }
+
+  .domain .form-section fieldset .delete-button-container {
+    position: absolute;
+    top: -.25rem;
+    right: 0;
+  }
+}
+
+/* Advanced option switch */
+
+.domain .switch-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.domain .switch-input-container label {
+  margin: 0;
+}
+
+.domain button#advanced-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+}
+
+.domain button#advanced-toggle i {
+  width: 1em;
+  margin-right: .25em;
+  transform: rotate(0);
+  transition: 0.1s transform;
+}
+
+.domain button#advanced-toggle[aria-expanded="true"] i {
+  transform: rotate(90deg);
+}
+
+/* Domain input */
+.domain .domain-input-container {
+  position: relative;
+  flex: 1;
+}
+
+.domain .domain-form-container > label {
+  font-size: 1.25rem;
+}
+
+.domain .advanced {
+  margin: 0.5em 0;
+}
+
+.domain .advanced > .col {
+  padding: 0;
+}
+
 .domain .reset-form {
   position: absolute;
-  right: 0;
-  top: 15%;
+  top: calc(0.5em);
   z-index: 100;
   right: 0.5rem;
 }
 
-.domain .reset-form button:not(:disabled):hover {
+.domain .reset-form button:not(:disabled):hover i {
   opacity: 1;
 }
 
 .domain .reset-form button {
   border: none;
-  opacity: 0.5;
+  color: inherit;
+  padding: 0;
 }
 
-.domain .grey {
-  color: grey;
+.domain .reset-form button i {
+  opacity: .5;
+  transition: opacity 0.1s;
 }
 
-.domain .domain-input-container {
-  position: relative;
-}
 .domain .progress-value {
   display: block;
   color: #000;
@@ -121,28 +248,14 @@
 }
 
 .domain .progress-result {
-  width: calc(100% - var(--bs-gutter-x));
+  width: 100%;
+  height:100%;
   position: absolute;
   z-index: 20;
   top: 0;
 }
 
-.domain .checkboxForm {
-  width: inherit;
-}
-
-.domain .info-notice {
-  width: auto;
-  text-align: center;
-  margin: 1rem auto 0 auto;
-  display: flex;
-  align-items: center;
-
-}
-
-
-@media(max-width:767px){
-  .domain fieldset .form-col:not(:first-child) {
-    margin-top: 0.5rem;
-  }
+.domain .progress-result .progress {
+  height: 100%;
+  opacity: .3;
 }

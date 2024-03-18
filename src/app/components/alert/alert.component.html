@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row alert-area" [ngStyle]="{'margin-top': navHeight + 'px'}">
+  <div class="container row alert-area">
     <div *ngFor="let alert of alerts" class="{{ cssClass(alert) }} alert-dismissible" role="alert">
       {{alert.message}}
       <button type="button" class="btn-close" (click)="removeAlert(alert)" i18n-title title="Close" i18n-aria-label aria-label="Close"></button>

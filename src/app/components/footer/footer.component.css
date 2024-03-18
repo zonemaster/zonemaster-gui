@@ -1,5 +1,14 @@
 footer {
-  box-shadow: inset -1px 7px 5px -9px rgba(0,0,0,0.75);
+  background-color: var(--primary-color-lighter);
+  border-top: 1px solid var(--primary-color-light);
+  display: flex;
+}
+
+footer .program-versions,
+footer .program-versions:hover {
+  border: none;
+  background: none;
+  padding: 0;
 }
 
 footer dl.version {
@@ -20,11 +29,11 @@ footer dl.version dd {
 }
 
 footer .copyright {
-  color: #4d5357;
+  margin-top: 1rem;
 }
 
-footer i.fa {
-  margin-right: .25rem;
+footer a i.fa {
+  margin-right: .4rem;
 }
 
 footer nav ul {
@@ -42,4 +51,3 @@ footer nav li {
     height: auto;
     margin-bottom: 0.5rem;
 }
-

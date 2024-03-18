@@ -9,41 +9,49 @@
   --result-error-bg: var(--result-error-color);
   --result-critical-color: var(--result-error-color);
   --result-critical-bg: var(--result-error-color);
+  width: 80%;
+  margin: auto;
 }
 
-.result article header.info {
+@media(max-width:991px) {
+  .result {
+      width: 100%;
+  }
+}
+
+.result section.testcase header.info {
   color: var(--result-info-color);
 }
 
-.result article header.notice {
+.result section.testcase header.notice {
   color: var(--result-notice-color);
 }
 
-.result article header.warning {
+.result section.testcase header.warning {
   color: var(--result-warning-color);
 }
 
-.result article header.error {
+.result section.testcase header.error {
   color: var(--result-error-color);
 }
 
-.result article header.critical {
+.result section.testcase header.critical {
   color: var(--result-critical-color);
 }
 
-.result article header button > i.fa {
+.result section.testcase header button > i.fa {
   margin-right: 3rem;
   margin-top: 0.1rem;
   width: 1rem;
 }
 
-.result article h4 {
-  font-size: 1rem;
+.result section.testcase h4 {
+  font-size: 1.1rem;
   display: inline-block;
   margin: 0;
 }
 
-.result article h4 .testcase-name i {
+.result section.testcase h4 .testcase-name i {
   width: 1rem;
   display: inline-block;
   text-align: center;
@@ -51,7 +59,7 @@
   margin-right: 0.3rem;
 }
 
-.result article h4 button {
+.result section.testcase h4 button {
   background: none;
   border: none;
   color: inherit;
@@ -60,17 +68,17 @@
   display: flex;
 }
 
-.result article header  {
+.result section.testcase header {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
 }
 
-.result article header h4 {
+.result section.testcase header h4 {
   display: flex;
   cursor: pointer;
   margin: 0.25rem 0;
 }
-.result article header .test-case-id {
+.result section.testcase header .test-case-id {
   display: inline-block;
   background-color: #d3eeff;
   color: #555454;
@@ -80,7 +88,7 @@
   white-space: nowrap;
 }
 
-.result article ul li .level {
+.result section.testcase ul li .level {
   display: inline;
   padding: 0.2em 0.3em;
   border-radius: 0.3em;
@@ -90,58 +98,74 @@
 }
 
 .result .filters .active.all {
-  background-color: #919191;
+  background-color: #c4c4c4;
+}
+
+.result .filters .active input {
+  mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+.result .filters .active.info input,
+.result .filters .active.notice input,
+.result .filters .active.error input,
+.result .filters .active.critical input {
+  background: white;
+}
+
+.result .filters .active.all input,
+.result .filters .active.warning input {
+  background: black;
 }
 
 .result .badge.info,
 .result .filters .active.info,
-.result article ul li .level.info {
-  background: var(--result-info-bg);
+.result section.testcase ul li .level.info {
+  background-color: var(--result-info-bg);
   color: white;
 }
 
 .result .badge.notice,
 .result .filters .active.notice,
-.result article ul li .level.notice {
+.result section.testcase ul li .level.notice {
   background: var(--result-notice-bg);
   color: white;
 }
 
 .result .badge.warning,
 .result .filters .active.warning,
-article ul li .level.warning {
+.result section.testcase ul li .level.warning {
   background: var(--result-warning-bg);
   color: black;
 }
 
 .result .badge.error,
 .result .filters .active.error,
-.result article ul li .level.error {
+.result section.testcase ul li .level.error {
   background: var(--result-error-bg);;
   color: white;
 }
 
 .result .badge.critical,
 .result .filters .active.critical,
-.result article ul li .level.critical {
+.result section.testcase ul li .level.critical {
   background: var(--result-critical-bg);;
   color: white;
 }
 
-.result article li {
+.result section.testcase li {
   list-style: none;
   display: flex;
   margin-bottom: .2em;
 }
 
-.result article li p {
+.result section.testcase li p {
   word-break: normal;
   overflow-wrap: anywhere;
   margin: 0;
 }
 
-.result article ul {
-  padding-left: 4em;
+.result section.testcase ul {
+  padding-left: 3.7em;
   margin-bottom: .8em;
 }
 
@@ -149,11 +173,11 @@ article ul li .level.warning {
   display: none!important;
 }
 
-.result article h3 {
+.result section.module h3 {
   margin-bottom: 0;
   font-size: 1.4rem;
 }
-.result article h3 button {
+.result section.module h3 button {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -164,35 +188,35 @@ article ul li .level.warning {
   color: inherit;
 }
 
-.result article h3 .module-name {
+.result section.module h3 .module-name {
   margin-right: 1rem;
 }
 
-.result article h3 .badge {
+.result section.module h3 .badge {
   margin-right: 0.5rem;
-  font-size: .8rem;
+  font-size: .6em;
 }
 
-.result article h3 .badge i {
+.result section.module h3 .badge i {
   width: 1em;
 }
 
-.result article.expanded h3 {
+.result section.module.expanded h3 {
   margin-bottom: 0.5rem;
 }
 
-.result article h3 i.caret {
+.result section.module h3 i.caret {
   transform: rotate(0);
   transition: 0.1s transform;
   display: inline-block;
   width: 1em;
 }
 
-.result article.expanded h3 i.caret {
+.result section.module.expanded h3 i.caret {
   transform: rotate(90deg);
 }
 
-.result section.details > article {
+.result section.details > section.module {
   background: #f7f7f7;
   padding: 0.5rem;
   margin-bottom: 1rem;
@@ -244,6 +268,10 @@ article ul li .level.warning {
     color: #bb2d3b;
 }
 
+.result .badge {
+  --bs-badge-font-size: .8em;
+}
+
 .result .actions-btn {
   flex-grow: 1;
   display: flex;
@@ -252,17 +280,51 @@ article ul li .level.warning {
 }
 
 .result .filters {
+  margin-top: 1rem;
+}
+
+.result .filters .severity-levels {
+  margin: .75rem 0;
+}
+
+.result .filters .severity-levels legend {
+  font-size: inherit;
+}
+
+.result .filters .severity-level-inputs {
   display: flex;
   flex-wrap: wrap;
 }
 
-.result .filters > * {
-  margin-top: 1rem;
+.result .filters .severity-level-inputs label {
+  padding: 0.3em;
+  border-radius: 0.5rem;
+  border: 0.2em solid transparent;
 }
 
-.result .filters a {
-  margin: 0 0.125rem;
-  border: 0;
+.result .filters .severity-level-inputs label:focus-within {
+  border-color: white;
+  box-shadow: 0 0 0 0.2rem var(--outline-focus-color)
+}
+
+.result .filters .severity-level-inputs label:focus-within input[type=checkbox] {
+  box-shadow: none;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.result .filters .severity-level-inputs .form-check-inline {
+  padding-left: 0;
+}
+.result .filters .severity-level-inputs input[type=checkbox] {
+  float: none;
+  margin-left: auto;
+  margin-right: .5em;
+}
+
+.result .filters #severity-level-help dl {
+  display: grid;
+  grid: auto-flow / 1fr auto;
+  grid-gap: .4rem;
 }
 
 .result .actions-btn > button > i.fa,
@@ -270,6 +332,28 @@ article ul li .level.warning {
   margin-right: 0.25rem;
 }
 
+.result .result-metadata {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.result .result-metadata .result-test-datetime {
+  margin: 0;
+}
+
+.result .result-control-buttons {
+  align-items: flex-end;
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+@media(min-width:1400px) {
+  .result .filters .severity-level-inputs {
+    gap: 1rem;
+  }
+}
 
 @media(max-width:767px){
   .result .actions-btn {
@@ -288,20 +372,20 @@ article ul li .level.warning {
     display: flex!important;
   }
 
-  .result article header {
+  .result section.testcase header {
     flex-direction: column;
   }
 
-  .result article header .test-case-id {
+  .result section.testcase header .test-case-id {
     margin-left: 1.2rem;
     margin-bottom: .75rem;
   }
 
-  .result article header button > i.fa {
+  .result section.testcase header button > i.fa {
     margin-right: 1.5rem;
   }
 
-  .result article ul {
+  .result section.testcase ul {
     padding-left: 1.2em;
   }
 }
