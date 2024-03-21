@@ -11,7 +11,8 @@ export function setLang(page, lang) {
 
 export async function showOptions(page) {
   const showOptionSwitch = page.locator('#advanced-toggle');
-  if ((await showOptionSwitch.getAttribute('aria-expanded')) === 'false' ) {
+  const advancedOption = page.locator('#advanced-options');
+  if ((await advancedOption.getAttribute('open')) === null ) {
     return showOptionSwitch.click();
   }
 }

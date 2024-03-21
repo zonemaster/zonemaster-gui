@@ -15,7 +15,7 @@ test.describe('Zonemaster test FR10 - [On launching the URL opens with a default
   test('should have [Options] label visible and NOT selected', async ({ page }) => {
     await expect(page.locator('#advanced-toggle', { hasText: 'Show options' })).toBeVisible();
 
-    await expect(page.locator('#advanced-toggle')).toHaveAttribute('aria-expanded', 'false');
+    await expect(page.locator('#advanced-options')).not.toHaveAttribute('open');
   });
 
 

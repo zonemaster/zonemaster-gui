@@ -17,7 +17,7 @@ test.describe('Navigation should be consistent and honor browser behaviour', () 
 
     // Create a new test
     await expect(page).toHaveURL(domainCheckUrl);
-    await page.locator('#input-domain-form').type(firstDomain);
+    await page.locator('#domain-input').type(firstDomain);
     await page.locator('button.launch').click();
     // Verify that when the test finishes the browser is redirect to the result page with an url /result/<id1>.
     // The "run domain test" form is visible.
@@ -40,7 +40,7 @@ test.describe('Navigation should be consistent and honor browser behaviour', () 
     await expect(page.locator('form.domain')).toBeVisible();
     await expect(page).toHaveURL(firstTestUrl);
     // Create a second test for an other domain from the result page.
-    await page.locator('#input-domain-form').type(secondDomain);
+    await page.locator('#domain-input').type(secondDomain);
     await page.locator('div button.launch').click();
     // When the second test finishes the url should change to /result/<id2>.
     // The result for the second test should be displayed and the "run domain test" form should still be visible.

@@ -11,7 +11,7 @@ test.describe('Zonemaster test FR03 - [All appropriate fields should be writable
   test('should be able to write in the main input', async ({ page }) => {
     const testString = 'afnic.fr';
 
-    const domainInput = page.locator('#input-domain-form');
+    const domainInput = page.locator('#domain-input');
     await domainInput.type(testString);
     await expect(domainInput).toHaveValue(testString);
 

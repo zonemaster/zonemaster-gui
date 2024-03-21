@@ -99,12 +99,12 @@ footer .tooltip {
 
 
 .faq-question,
-details {
+details.details-info {
   margin-bottom: 0.5rem;
 }
 
 .faq-question header,
-details summary {
+details.details-info summary {
   transition: .3s background;
   list-style: none;
   margin: 0;
@@ -117,7 +117,7 @@ details summary {
 }
 
 .faq-question header *,
-details summary * {
+details.details-info summary * {
   margin: 0;
 }
 
@@ -128,9 +128,9 @@ details summary * {
 .faq-question.open header,
 .faq-question header:hover,
 .faq-question header:focus-within,
-details[open] summary,
-details summary:hover,
-details summary:focus {
+details.details-info[open] summary,
+details.details-info summary:hover,
+details.details-info summary:focus {
   color: var(--primary-color-dark);
   background-color: var(--primary-color-lighter-hover);
 }
@@ -143,14 +143,14 @@ details summary .control {
 }
 
 .faq-question.open header,
-details[open] summary {
+details.details-info[open] summary {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 
 .faq-question.open header ~ *,
-details[open] summary ~ * {
+details.details-info[open] summary ~ * {
   padding: .5em .75em;
   background-color: var(--primary-color-lighter);
   border: 1px solid var(--primary-color-light);
