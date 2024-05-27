@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "node scripts/faq.js && ng build --configuration production",
+    "build": "node scripts/faq.js && ng build --configuration production && node scripts/create_manifest.js ",
     "release": "npm run build && node scripts/create_release.js",
     "lint": "ng lint",
     "e2e": "playwright test",
