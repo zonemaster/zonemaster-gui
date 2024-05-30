@@ -287,6 +287,15 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
+  public getModuleName(moduleName) {
+    const moduleKey = moduleName.toLowerCase();
+    if (moduleKey in this.moduleNames) {
+      return this.moduleNames[moduleKey];
+    } else {
+      return moduleName;
+    }
+  }
+
   private exportedName(extension) {
     return `zonemaster_result_${this.form.domain}_${this.test.id}.${extension}`
   }
@@ -304,8 +313,8 @@ export class ResultComponent implements OnInit, OnDestroy {
     for (let item of this.result) {
       tbodyContent += `
         <tr>
-          <td>${item.module}</td>
-          <td>${item.level}</td>
+          <td>${this.getModuleName(item.module)}</td>
+          <td>${this.severityLevelNames[item.level.toLowerCase()]}</td>
           <td>${item.message}</td>
         </tr>
       `;
