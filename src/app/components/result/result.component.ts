@@ -9,6 +9,7 @@ import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
 import { formatDate, Location } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import * as punycode from 'punycode/';
 
 @Component({
   selector: 'app-result',
@@ -24,6 +25,8 @@ export class ResultComponent implements OnInit, OnDestroy {
 
   public displayForm = false;
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
+  public unicodeDomain = '';
+  public asciiDomain = '';
   public result = [];
   public modules: any;
   public severity_icons = {
@@ -136,6 +139,8 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.historyQuery = data['params'];
       this.result = data['results'];
       this.form = data['params'];
+      this.unicodeDomain = punycode.toUnicode(this.form.domain);
+      this.asciiDomain = punycode.toASCII(this.form.domain);
       this.testCaseDescriptions = data['testcase_descriptions'];
 
       this.testCasesCount = this.displayResult(this.result, resetCollapsed);
@@ -164,7 +169,7 @@ export class ResultComponent implements OnInit, OnDestroy {
           });
       }
 
-      this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
+      this.titleService.setTitle(`${this.unicodeDomain} · Zonemaster`);
     }, error => {
       this.alertService.error($localize `No data for this test.`)
     });
@@ -269,7 +274,7 @@ export class ResultComponent implements OnInit, OnDestroy {
   }
 
   private exportedName(extension) {
-    return `zonemaster_result_${this.form.domain}_${this.test.id}.${extension}`
+    return `zonemaster_result_${this.asciiDomain}_${this.test.id}.${extension}`
   }
 
   public exportJson() {
@@ -298,7 +303,7 @@ export class ResultComponent implements OnInit, OnDestroy {
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-          <title>${this.form.domain} • Zonemaster Test Result</title>
+          <title>${this.asciiDomain} • Zonemaster Test Result</title>
           <style>
             th,td {
               text-align: left;
@@ -332,7 +337,7 @@ export class ResultComponent implements OnInit, OnDestroy {
         </head>
         <body>
           <header>
-            <h2>${this.form.domain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
+            <h2>${this.asciiDomain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
           </header>
           <table cellspacing="0" cellpadding="0">
             <thead>
