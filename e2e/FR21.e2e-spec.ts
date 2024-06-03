@@ -18,7 +18,7 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
 
   test('should display summary',  async () => {
     await expect(page.locator('.progress-bar')).toBeHidden();
-    await page.locator('#input-domain-form').type('results.afNiC.Fr');
+    await page.locator('#domain-input').type('results.afNiC.Fr');
     await page.locator('div button.launch').click();
 
     await expect(page.locator('section.result')).toBeVisible({ timeout: 10000 });

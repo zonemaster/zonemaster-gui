@@ -15,7 +15,6 @@ import { FormComponent } from '../form/form.component';
 })
 export class RunTestComponent implements OnInit {
   private intervalTime: number;
-  public isAdvancedOptionEnabled = false;
   public runTestProgression = 0;
   public showResult = false;
   public showProgressBar = false;
@@ -58,10 +57,6 @@ export class RunTestComponent implements OnInit {
   });
   }
 
-  public openOptions(value) {
-    this.isAdvancedOptionEnabled = value;
-  }
-
   public runTest(data: object) {
     let testId: string;
 
@@ -82,7 +77,6 @@ export class RunTestComponent implements OnInit {
             clearInterval(handle);
             this.alertService.success($localize `Test completed!`, true);
             self.testId = testId;
-            self.isAdvancedOptionEnabled = false;
             self.showResult = true;
             self.showProgressBar = false;
             self.runTestProgression = 5;

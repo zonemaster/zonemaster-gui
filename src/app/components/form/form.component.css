@@ -71,8 +71,11 @@ form.domain {
   border: 1px solid transparent;
 }
 
-.domain button.delete:focus-visible,
 .domain button.delete:hover {
+  border-color: var(--primary-color);
+}
+
+.domain button.delete:focus-visible {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 0.25rem var(--outline-focus-color);
 }
@@ -181,22 +184,25 @@ hr {
   margin: 0;
 }
 
-.domain button#advanced-toggle {
-  background: none;
-  border: none;
-  padding: 0;
+.domain summary#advanced-toggle {
   font-weight: bold;
+  list-style-type: none;
 }
 
-.domain button#advanced-toggle i {
-  width: 1em;
-  margin-right: .25em;
-  transform: rotate(0);
-  transition: 0.1s transform;
+.domain summary#advanced-toggle i {
+  margin-right: .5em;
 }
 
-.domain button#advanced-toggle[aria-expanded="true"] i {
-  transform: rotate(90deg);
+.domain details#advanced-options summary#advanced-toggle .opened-label {
+  display: none;
+}
+
+.domain details#advanced-options[open] summary#advanced-toggle .opened-label {
+  display: initial;
+}
+
+.domain details#advanced-options[open] summary#advanced-toggle .closed-label {
+  display: none;
 }
 
 /* Domain input */
@@ -213,10 +219,6 @@ hr {
   margin: 0.5em 0;
 }
 
-.domain .advanced > .col {
-  padding: 0;
-}
-
 .domain .reset-form {
   position: absolute;
   top: calc(0.5em);
@@ -224,19 +226,26 @@ hr {
   right: 0.5rem;
 }
 
-.domain .reset-form button:not(:disabled):hover i {
-  opacity: 1;
+.domain .reset-form button {
+  color: white;
+  padding: 0;
+  border-radius: 1em;
+  height: 2em;
+  width: 2em;
+  border: .2em solid white;
+  background-color: #939393;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.domain .reset-form button {
-  border: none;
-  color: inherit;
-  padding: 0;
+.domain .reset-form button:not(:disabled):hover,
+.domain .reset-form button:not(:disabled):focus {
+  background-color: rgb(48, 48, 48);
 }
 
 .domain .reset-form button i {
-  opacity: .5;
-  transition: opacity 0.1s;
+  font-size: 1.3em;
 }
 
 .domain .progress-value {
