@@ -212,7 +212,7 @@ and append the new two-letter language code of the new language.
 In the Apache example configuration, `zonemaster.conf-example`, update the rewrite
 rules and conditions to add the new language. 
 
-Identify the three places in `zonemaster.conf-exampel` where there is a list of
+Identify the three places in `zonemaster.conf-example` where there is a list of
 language codes. Currently you will find `da|en|es|fi|fr|nb|sv`. Add the two-letter
 code of the new language following the same pattern. Preserve the alphabetical order
 of the language codes.
