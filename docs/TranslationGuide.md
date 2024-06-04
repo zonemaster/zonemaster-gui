@@ -209,7 +209,7 @@ and append the new two-letter language code of the new language.
 
 ### zonemaster.conf-example
 
-In the Apache example configuration, `zonemaster.conf-exampel`, update the rewrite
+In the Apache example configuration, `zonemaster.conf-example`, update the rewrite
 rules and conditions to add the new language. 
 
 Identify the three places in `zonemaster.conf-exampel` where there is a list of
