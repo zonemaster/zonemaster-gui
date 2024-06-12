@@ -27,11 +27,11 @@ npm run e2e
 If the appearance of the GUI changes some tests might fail as the baseline for
 visual comparison is no longer up to date. In this case it is required to update
 the snapshots. The following commands updates the snapshots while ensuring a
-similar environment than the one the CI runs in is used (ubuntu focal and UTC
+similar environment than the one the CI runs in is used (Ubuntu 22.04 and UTC
 time).
 
 ```sh
-docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.28.0-jammy /bin/bash
+docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.44.1-jammy /bin/bash
 npm run e2e:install
 npm run e2e:update
 exit
