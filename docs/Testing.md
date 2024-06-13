@@ -37,6 +37,11 @@ npm run e2e:update
 exit
 ```
 
+Note that this method may not always work: it could happen that the generated
+snapshots are incorrect and have slight differences (e.g. appears zoomed in/out,
+etc). In that case, repeat the above steps but outside of the Docker environment,
+and preferably on a machine that uses a similar OS/environment as the CI.
+
 [build environment]: https://github.com/zonemaster/zonemaster/blob/master/docs/internal/distrib-testing/Ubuntu-Node.js-build-environment.md
 [playwright]: https://playwright.dev/docs/intro
 
