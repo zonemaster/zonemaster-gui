@@ -13,7 +13,7 @@ test.describe('Zonemaster test FR22 - [Provide the possibility to see more infor
   test('should display full messages',  async({ page }) => {
     await expect(page.locator('.progress-bar')).toBeHidden();
 
-    await page.locator('#input-domain-form').type('results.afNiC.Fr');
+    await page.locator('#domain-input').type('results.afNiC.Fr');
     await page.locator('button.launch').click();
 
     // Basic header is the second one
@@ -25,7 +25,7 @@ test.describe('Zonemaster test FR22 - [Provide the possibility to see more infor
     const basic02Messages = page.locator('#testcase-entries-BASIC02 li');
 
     await expect(basicHeader).toBeVisible({ timeout: 10000 });
-    await expect(basicHeader).toHaveText(/BASIC/);
+    await expect(basicHeader).toHaveText(/Basic/i);
 
     await expect(basicTestcases).toHaveCount(3);
 

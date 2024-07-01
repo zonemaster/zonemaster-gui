@@ -8,9 +8,13 @@
 <section class="result">
   <div>
     <div>
-      <h2><ng-container i18n="result subheader">Test result for</ng-container>&nbsp;<strong>{{ form.domain }}</strong></h2>
+      <h2 id="result-heading" tabindex="-1" #resultSectionHeading aria-describedby="result-creation-time">
+        <ng-container i18n="result subheader">Test result for</ng-container>
+        <strong> {{ unicodeDomain }}</strong>
+        <ng-container *ngIf="asciiDomain !== unicodeDomain"> ({{ asciiDomain }})</ng-container>
+      </h2>
       <div class="result-metadata">
-        <p class="result-test-datetime"><ng-container i18n="result test metadata">Created on</ng-container>&nbsp;<time [dateTime]="test.creation_time ? test.creation_time.toISOString() : ''">{{ test.creation_time | date:'medium' }}</time></p>
+        <p id="result-creation-time" class="result-test-datetime"><ng-container i18n="result test metadata">Created on</ng-container><time [dateTime]="test.creation_time ? test.creation_time.toISOString() : ''"> {{ test.creation_time | date:'medium' }}</time></p>
 
         <div class="actions-btn">
           <div>
@@ -111,7 +115,7 @@
       </div>
     </fieldset>
 
-    <details id="severity-level-help">
+    <details id="severity-level-help" class="details-info">
       <summary>
         <i class="fa fa-chevron-right control" aria-hidden="true"></i>
         <i class="fa fa-info-circle me-1" aria-hidden="true"></i>
@@ -176,13 +180,13 @@
           >
             <i class="fa fa-caret-right caret" aria-hidden="true"></i>
             <span class="module-name">
-              {{module.name}}<span class="sr-only" i18n="result colon">:</span>
+              {{getModuleName(module.name)}}<span class="sr-only" i18n="result colon">:</span>
             </span>
-            <span *ngFor="let count of testCasesCountByModule[module.name]; let last = last;" class="badge badge-pill rounded-pill {{ count.name }}" title="{{ count.name | titlecase }} ({{ count.value }})">
+            <span *ngFor="let count of testCasesCountByModule[module.name]; let last = last;" class="badge badge-pill rounded-pill {{ count.name }}" title="{{ severityLevelNames[count.name] }} ({{ count.value }})">
               <span aria-hidden="true">
                 <i class="fa {{severity_icons[count.name]}}"></i> {{ count.value }}
               </span>
-              <span class="sr-only">{{ count.name }} ({{ count.value }})<ng-container *ngIf="!last">, </ng-container></span>
+              <span class="sr-only">{{ severityLevelNames[count.name] | lowercase }} ({{ count.value }})<ng-container *ngIf="!last">, </ng-container></span>
             </span>
           </button>
       </h3>
@@ -200,17 +204,17 @@
                 <i class="fa" aria-hidden="true" [ngClass]="{'fa-plus-square-o': isCollapsed[testcase.id],'fa-minus-square-o': !isCollapsed[testcase.id]}"></i>
 
                 <span class="testcase-name">
-                  <i class="fa {{severity_icons[testcase.level]}}" aria-hidden="true" title="{{ testcase.level | titlecase }}"></i><span class="sr-only">{{ testcase.level | titlecase }}: </span>{{ testCaseDescriptions[testcase.id] }}
+                  <i class="fa {{severity_icons[testcase.level]}}" aria-hidden="true" title="{{ severityLevelNames[testcase.level] }}"></i><span class="sr-only">{{ severityLevelNames[testcase.level] }}: </span>{{ testCaseDescriptions[testcase.id] }}
                 </span>
               </button>
             </h4>
-            <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.id]" id="testcase-id-{{testcase.id}}">
+            <span class="test-case-id" [class.collapsed]="isCollapsed[testcase.id]" id="testcase-id-{{testcase.id}}" lang="en">
               <i class="fa fa-info-circle" aria-hidden="true"></i> {{testcase.id}}
             </span>
           </header>
           <div [class.collapsed]="isCollapsed[testcase.id]" [attr.id]="testcase.id === 'UNSPECIFIED' ? null : 'testcase-entries-' + testcase.id">
             <ul>
-              <li *ngFor="let entry of testcase.entries"><div><span class="level {{entry.level|lowercase}}">{{entry.level | titlecase}}</span></div><p> {{entry.message}} </p></li>
+              <li *ngFor="let entry of testcase.entries"><div><span class="level {{entry.level|lowercase}}">{{ severityLevelNames[entry.level] }}</span></div><p> {{entry.message}} </p></li>
             </ul>
           </div>
         </section>
@@ -225,6 +229,6 @@
     <button type="button" class="btn-close" i18n-aria-label="result history modal" aria-label="Close" i18n-title="result history modal" title="Close" (click)="d('Cross click')"></button>
   </header>
   <div class="modal-body">
-    <app-history [history]="history"></app-history>
+    <app-history [history]="history" (onTestClicked)="c($event)"></app-history>
   </div>
 </ng-template>

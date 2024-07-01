@@ -9,6 +9,7 @@ import { AlertService } from '../../services/alert.service';
 import { NavigationService } from '../../services/navigation.service';
 import { formatDate, Location } from '@angular/common';
 import { Title } from '@angular/platform-browser';
+import * as punycode from 'punycode/';
 
 @Component({
   selector: 'app-result',
@@ -21,9 +22,12 @@ export class ResultComponent implements OnInit, OnDestroy {
   @Input('testId') testId: string;
   @ViewChild('resultView', {static: false}) resultView: ElementRef;
   @ViewChild('historyModal', {static: false}) historyModal: ElementRef;
+  @ViewChild('resultSectionHeading', {static: false}) resultSectionHeading: ElementRef;
 
   public displayForm = false;
   public form = {ipv4: true, ipv6: true, profile: 'default_profile', domain: ''};
+  public unicodeDomain = '';
+  public asciiDomain = '';
   public result = [];
   public modules: any;
   public severity_icons = {
@@ -32,7 +36,26 @@ export class ResultComponent implements OnInit, OnDestroy {
     'warning': 'fa-exclamation-triangle',
     'error': 'fa-times-circle',
     'critical': 'fa-times-circle'
-  }
+  };
+  public severityLevelNames = {
+    'info': $localize `Info`,
+    'notice': $localize `Notice`,
+    'warning': $localize `Warning`,
+    'error': $localize `Error`,
+    'critical': $localize `Critical`,
+  };
+  public moduleNames = {
+    'system': $localize `System`,
+    'basic': $localize `Basic`,
+    'address': $localize `Address`,
+    'connectivity': $localize `Connectivity`,
+    'consistency': $localize `Consistency`,
+    'delegation': $localize `Delegation`,
+    'dnssec': $localize `DNSSEC`,
+    'nameserver': $localize `Nameserver`,
+    'syntax': $localize `Syntax`,
+    'zone': $localize `Zone`,
+  };
   public searchQueryLength = 0;
   public test: any = {params: {ipv4: false, ipv6: false}};
   public isCollapsed = [];
@@ -105,7 +128,10 @@ export class ResultComponent implements OnInit, OnDestroy {
 
   public openModal(content) {
     this.modalService.open(content).result.then((result) => {
-      console.log(result)
+      console.log(result);
+      // NOTE: this is a hack, I don't like it.
+      // angular-bootstrap move the focus back to the history button, we move it to the result section at next tick
+      window.setTimeout(() => this.resultSectionHeading.nativeElement.focus(), 0);
     }, (reason) => {
       console.log(reason);
     });
@@ -136,6 +162,8 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.historyQuery = data['params'];
       this.result = data['results'];
       this.form = data['params'];
+      this.unicodeDomain = punycode.toUnicode(this.form.domain);
+      this.asciiDomain = punycode.toASCII(this.form.domain);
       this.testCaseDescriptions = data['testcase_descriptions'];
 
       this.testCasesCount = this.displayResult(this.result, resetCollapsed);
@@ -164,7 +192,7 @@ export class ResultComponent implements OnInit, OnDestroy {
           });
       }
 
-      this.titleService.setTitle(`${this.form.domain} · Zonemaster`);
+      this.titleService.setTitle(`${this.unicodeDomain} · Zonemaster`);
     }, error => {
       this.alertService.error($localize `No data for this test.`)
     });
@@ -268,8 +296,17 @@ export class ResultComponent implements OnInit, OnDestroy {
     }
   }
 
+  public getModuleName(moduleName) {
+    const moduleKey = moduleName.toLowerCase();
+    if (moduleKey in this.moduleNames) {
+      return this.moduleNames[moduleKey];
+    } else {
+      return moduleName;
+    }
+  }
+
   private exportedName(extension) {
-    return `zonemaster_result_${this.form.domain}_${this.test.id}.${extension}`
+    return `zonemaster_result_${this.asciiDomain}_${this.test.id}.${extension}`
   }
 
   public exportJson() {
@@ -285,8 +322,8 @@ export class ResultComponent implements OnInit, OnDestroy {
     for (let item of this.result) {
       tbodyContent += `
         <tr>
-          <td>${item.module}</td>
-          <td>${item.level}</td>
+          <td>${this.getModuleName(item.module)}</td>
+          <td>${this.severityLevelNames[item.level.toLowerCase()]}</td>
           <td>${item.message}</td>
         </tr>
       `;
@@ -298,7 +335,7 @@ export class ResultComponent implements OnInit, OnDestroy {
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-          <title>${this.form.domain} • Zonemaster Test Result</title>
+          <title>${this.asciiDomain} • Zonemaster Test Result</title>
           <style>
             th,td {
               text-align: left;
@@ -332,7 +369,7 @@ export class ResultComponent implements OnInit, OnDestroy {
         </head>
         <body>
           <header>
-            <h2>${this.form.domain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
+            <h2>${this.asciiDomain}</h2><i>${formatDate(this.test.creation_time, 'yyyy-MM-dd HH:mm zzzz', 'en')}</i>
           </header>
           <table cellspacing="0" cellpadding="0">
             <thead>

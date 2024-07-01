@@ -13,6 +13,7 @@ import {AlertService} from '../../services/alert.service';
 export class HistoryComponent implements OnInit {
 
   @Input() history: any[];
+  @Output() onTestClicked: EventEmitter<any> = new EventEmitter();
 
   public page = 1;
   public pageSize = 10;

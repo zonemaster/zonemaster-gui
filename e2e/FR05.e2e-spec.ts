@@ -26,7 +26,7 @@ test.describe('Zonemaster test FR05 - [Supports internationalization]', () => {
 
     test(`should switch to ${language}`, async ({ page }) => {
       await setLang(page, code);
-      await expect(page.locator('label[for="input-domain-form"]')).toHaveText(expected);
+      await expect(page.locator('label[for="domain-input"]')).toHaveText(expected);
     })
   }
 });

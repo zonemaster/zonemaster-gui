@@ -6,6 +6,7 @@ import { AlertService } from '../../services/alert.service';
 import { AppService } from '../../services/app.service';
 import { Title } from '@angular/platform-browser';
 import { FormComponent } from '../form/form.component';
+import * as punycode from 'punycode/';
 
 @Component({
   selector: 'app-run-test',
@@ -15,7 +16,6 @@ import { FormComponent } from '../form/form.component';
 })
 export class RunTestComponent implements OnInit {
   private intervalTime: number;
-  public isAdvancedOptionEnabled = false;
   public runTestProgression = 0;
   public showResult = false;
   public showProgressBar = false;
@@ -58,10 +58,6 @@ export class RunTestComponent implements OnInit {
   });
   }
 
-  public openOptions(value) {
-    this.isAdvancedOptionEnabled = value;
-  }
-
   public runTest(data: object) {
     let testId: string;
 
@@ -71,7 +67,9 @@ export class RunTestComponent implements OnInit {
       testId = id as string;
       this.showProgressBar = true;
 
-      this.titleService.setTitle(`${data['domain']} · Zonemaster`);
+      const unicodeDomain = punycode.toUnicode(data['domain']);
+
+      this.titleService.setTitle(`${unicodeDomain} · Zonemaster`);
 
       const handle = setInterval(() => {
         self.dnsCheckService.testProgress(testId).then(res => {
@@ -82,7 +80,6 @@ export class RunTestComponent implements OnInit {
             clearInterval(handle);
             this.alertService.success($localize `Test completed!`, true);
             self.testId = testId;
-            self.isAdvancedOptionEnabled = false;
             self.showResult = true;
             self.showProgressBar = false;
             self.runTestProgression = 5;
