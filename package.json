@@ -1,6 +1,6 @@
 {
   "name": "zonemaster-gui",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "license": "BSD-2-Clause",
   "scripts": {
     "ng": "ng",

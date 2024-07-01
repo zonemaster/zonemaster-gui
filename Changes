@@ -1,6 +1,25 @@
 Release history for Zonemaster component Zonemaster-GUI
 
 
+v4.3.0 2024-07-01 (part of Zonemaster v2024.1 release)
+
+ [Release information]
+ - Translations have not been fully updated in this release. They will
+   be updated in an upcoming release.
+
+ [Features]
+ - Improves run test form (#461)
+ - Makes IDN names being displayed as both A-label and U-label (#464)
+ - Makes severity levels and module names in result page
+   optionally being translated (#463)
+
+ [Fixes]
+ - Cleans up old FAQ architecture files (#466)
+ - Updates translation documentation (#462)
+ - Makes history modal close (#465)
+ - Avoid bundling the mock interceptor in prod environment (#448)
+
+
 v4.2.0 2024-03-18 (public release version)
 
  [Release information]
