@@ -14,18 +14,18 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">225</context>
+          <context context-type="linenumber">229</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">225</context>
+          <context context-type="linenumber">229</context>
         </context-group>
       </trans-unit>
       <trans-unit id="51c0cd045c7c68c5936905244f1a0a9c7d294ed3" datatype="html">
         <source>What is an undelegated domain test?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">67</context>
+          <context context-type="linenumber">57</context>
         </context-group>
         <note priority="1" from="description">form info</note>
       </trans-unit>
@@ -33,7 +33,7 @@
         <source>Parent data fetched with success.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.ts</context>
-          <context context-type="linenumber">179</context>
+          <context context-type="linenumber">192</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4715502322841966813" datatype="html">
@@ -72,7 +72,7 @@
         <source>Domain name required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">14</context>
         </context-group>
         <note priority="1" from="description">form error</note>
       </trans-unit>
@@ -88,7 +88,7 @@
         <source>Disable IPv4</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">285</context>
+          <context context-type="linenumber">279</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -96,7 +96,7 @@
         <source>Disable IPv6</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">297</context>
+          <context context-type="linenumber">291</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -104,7 +104,7 @@
         <source>Profile</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">309</context>
+          <context context-type="linenumber">303</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -112,7 +112,7 @@
         <source>Nameservers</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">63</context>
         </context-group>
         <note priority="1" from="description">form section</note>
       </trans-unit>
@@ -120,7 +120,7 @@
         <source>Keytag</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">146</context>
+          <context context-type="linenumber">137</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -128,7 +128,7 @@
         <source>Keytag required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">164</context>
+          <context context-type="linenumber">155</context>
         </context-group>
         <note priority="1" from="description">form error</note>
       </trans-unit>
@@ -136,7 +136,7 @@
         <source>Algorithm</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">168</context>
+          <context context-type="linenumber">162</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -144,7 +144,7 @@
         <source>Algorithm required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">198</context>
+          <context context-type="linenumber">191</context>
         </context-group>
         <note priority="1" from="description">form error</note>
       </trans-unit>
@@ -152,7 +152,7 @@
         <source>Digest type</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">202</context>
+          <context context-type="linenumber">195</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -160,7 +160,7 @@
         <source>Digest type required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">223</context>
+          <context context-type="linenumber">216</context>
         </context-group>
         <note priority="1" from="description">form error</note>
       </trans-unit>
@@ -168,7 +168,7 @@
         <source>Digest</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">227</context>
+          <context context-type="linenumber">220</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -176,7 +176,7 @@
         <source>Digest required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">243</context>
+          <context context-type="linenumber">236</context>
         </context-group>
         <note priority="1" from="description">form error</note>
       </trans-unit>
@@ -264,11 +264,11 @@
         <source>History</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">224</context>
+          <context context-type="linenumber">228</context>
         </context-group>
         <note priority="1" from="description">result button</note>
       </trans-unit>
@@ -276,7 +276,7 @@
         <source>Export</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <note priority="1" from="description">result button</note>
       </trans-unit>
@@ -284,7 +284,7 @@
         <source>Share</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">45</context>
         </context-group>
         <note priority="1" from="description">form button</note>
       </trans-unit>
@@ -292,7 +292,7 @@
         <source>All</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">72</context>
+          <context context-type="linenumber">76</context>
         </context-group>
         <note priority="1" from="description">all filter button</note>
       </trans-unit>
@@ -300,11 +300,11 @@
         <source>Info</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">83</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">121</context>
+          <context context-type="linenumber">125</context>
         </context-group>
         <note priority="1" from="description">info filter button</note>
       </trans-unit>
@@ -312,11 +312,11 @@
         <source>Notice</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">86</context>
+          <context context-type="linenumber">90</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">126</context>
+          <context context-type="linenumber">130</context>
         </context-group>
         <note priority="1" from="description">notice filter button</note>
       </trans-unit>
@@ -324,11 +324,11 @@
         <source>Warning</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">93</context>
+          <context context-type="linenumber">97</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">131</context>
+          <context context-type="linenumber">135</context>
         </context-group>
         <note priority="1" from="description">warning filter button</note>
       </trans-unit>
@@ -336,11 +336,11 @@
         <source>Error</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="linenumber">104</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">136</context>
+          <context context-type="linenumber">140</context>
         </context-group>
         <note priority="1" from="description">error filter button</note>
       </trans-unit>
@@ -348,11 +348,11 @@
         <source>Critical</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">107</context>
+          <context context-type="linenumber">111</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">142</context>
+          <context context-type="linenumber">146</context>
         </context-group>
         <note priority="1" from="description">critical filter button</note>
       </trans-unit>
@@ -360,35 +360,35 @@
         <source>No data for this test.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">188</context>
+          <context context-type="linenumber">197</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2360715491728178990" datatype="html">
         <source>History information request is in progress.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">275</context>
+          <context context-type="linenumber">284</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1867992058937397585" datatype="html">
         <source>Module</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">359</context>
+          <context context-type="linenumber">377</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3733215288982610673" datatype="html">
         <source>Level</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">360</context>
+          <context context-type="linenumber">378</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8066608938393600549" datatype="html">
         <source>Message</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">361</context>
+          <context context-type="linenumber">379</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7104935342812835081" datatype="html">
@@ -409,7 +409,7 @@
         <source>Test completed!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/run-test/run-test.component.ts</context>
-          <context context-type="linenumber">83</context>
+          <context context-type="linenumber">81</context>
         </context-group>
       </trans-unit>
       <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
@@ -428,7 +428,7 @@
         <source>Name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">79</context>
+          <context context-type="linenumber">69</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -436,7 +436,7 @@
         <source>Cannot disable both IPv4 and IPv6</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">301</context>
+          <context context-type="linenumber">295</context>
         </context-group>
         <note priority="1" from="description">form error</note>
       </trans-unit>
@@ -444,14 +444,14 @@
         <source>No data found for the zone.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.ts</context>
-          <context context-type="linenumber">174</context>
+          <context context-type="linenumber">187</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1a38bccdfebed08e1a0918aae25558b4bd561bc0" datatype="html">
         <source>Fetch DS from parent zone</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">263</context>
+          <context context-type="linenumber">257</context>
         </context-group>
         <note priority="1" from="description">form button</note>
       </trans-unit>
@@ -459,7 +459,7 @@
         <source>Link to test</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">49</context>
         </context-group>
         <note priority="1" from="description">result label</note>
       </trans-unit>
@@ -467,7 +467,7 @@
         <source>General</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">270</context>
+          <context context-type="linenumber">264</context>
         </context-group>
         <note priority="1" from="description">form section</note>
       </trans-unit>
@@ -475,7 +475,7 @@
         <source>DS records</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">141</context>
+          <context context-type="linenumber">132</context>
         </context-group>
         <note priority="1" from="description">form section</note>
       </trans-unit>
@@ -483,7 +483,7 @@
         <source>Clear domain input</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <note priority="1" from="description">form button</note>
       </trans-unit>
@@ -491,11 +491,11 @@
         <source>Copy link to clipboard</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">50</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">52</context>
         </context-group>
         <note priority="1" from="description">result button</note>
       </trans-unit>
@@ -503,7 +503,7 @@
         <source>Protocol</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">273</context>
+          <context context-type="linenumber">267</context>
         </context-group>
         <note priority="1" from="description">form section</note>
       </trans-unit>
@@ -511,56 +511,56 @@
         <source>No previous tests found for this domain.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">280</context>
+          <context context-type="linenumber">289</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7210131782873551503" datatype="html">
         <source>An unexpected server error happened.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/run-test/run-test.component.ts</context>
-          <context context-type="linenumber">98</context>
+          <context context-type="linenumber">95</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ngb.pagination.first" datatype="html">
         <source>««</source>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
-          <context context-type="linenumber">247,249</context>
+          <context context-type="linenumber">247</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ngb.pagination.first-aria" datatype="html">
         <source>First</source>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
-          <context context-type="linenumber">322,323</context>
+          <context context-type="linenumber">320</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ngb.pagination.last" datatype="html">
         <source>»»</source>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
-          <context context-type="linenumber">305,307</context>
+          <context context-type="linenumber">303</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ngb.pagination.last-aria" datatype="html">
         <source>Last</source>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
-          <context context-type="linenumber">363,365</context>
+          <context context-type="linenumber">356,357</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ngb.pagination.next" datatype="html">
         <source>»</source>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
-          <context context-type="linenumber">290</context>
+          <context context-type="linenumber">287</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ngb.pagination.next-aria" datatype="html">
         <source>Next</source>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
-          <context context-type="linenumber">350</context>
+          <context context-type="linenumber">345,347</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ngb.pagination.previous" datatype="html">
@@ -574,16 +574,16 @@
         <source>Previous</source>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/src/pagination/pagination.ts</context>
-          <context context-type="linenumber">338</context>
+          <context context-type="linenumber">334,335</context>
         </context-group>
       </trans-unit>
       <trans-unit id="ngb.progressbar.value" datatype="html">
         <source>
-          <x id="INTERPOLATION" equiv-text="rogress bar."/>
+          <x id="INTERPOLATION" equiv-text="The type of th"/>
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">node_modules/src/progressbar/progressbar.ts</context>
-          <context context-type="linenumber">64,67</context>
+          <context context-type="linenumber">62,66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="02de72ecb8a333fc270d81e7979f5f16ad51bd15" datatype="html">
@@ -597,7 +597,7 @@
         <source>More information on undelegated test:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">56</context>
         </context-group>
         <note priority="1" from="description">form info</note>
       </trans-unit>
@@ -605,7 +605,7 @@
         <source>Reset the form</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">334</context>
+          <context context-type="linenumber">328</context>
         </context-group>
         <note priority="1" from="description">form button</note>
       </trans-unit>
@@ -613,7 +613,7 @@
         <source>Delete nameserver #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">124</context>
+          <context context-type="linenumber">115</context>
         </context-group>
         <note priority="1" from="description">form button</note>
       </trans-unit>
@@ -628,7 +628,7 @@
         <source>Nameserver #<x id="INTERPOLATION" equiv-text="{{ i + 1}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">67</context>
         </context-group>
         <note priority="1" from="description">form section</note>
       </trans-unit>
@@ -636,7 +636,7 @@
         <source>Run the test</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">342</context>
+          <context context-type="linenumber">336</context>
         </context-group>
         <note priority="1" from="description">form button</note>
       </trans-unit>
@@ -644,7 +644,7 @@
         <source>The name of nameserver is required</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">95</context>
+          <context context-type="linenumber">85</context>
         </context-group>
         <note priority="1" from="description">form error</note>
       </trans-unit>
@@ -660,7 +660,7 @@
         <source>Delete DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">253</context>
+          <context context-type="linenumber">247</context>
         </context-group>
         <note priority="1" from="description">form button</note>
       </trans-unit>
@@ -689,7 +689,7 @@
         <source>Collapse all</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">161</context>
+          <context context-type="linenumber">165</context>
         </context-group>
         <note priority="1" from="description">result filter messages</note>
       </trans-unit>
@@ -697,7 +697,7 @@
         <source>Filter severity levels</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">65</context>
+          <context context-type="linenumber">69</context>
         </context-group>
         <note priority="1" from="description">resut filter section</note>
       </trans-unit>
@@ -721,7 +721,7 @@
         <source>DS record #<x id="INTERPOLATION" equiv-text="{{ i + 1}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">144</context>
+          <context context-type="linenumber">135</context>
         </context-group>
         <note priority="1" from="description">form section</note>
       </trans-unit>
@@ -1239,7 +1239,7 @@
         <source>(optional)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="linenumber">90</context>
         </context-group>
         <note priority="1" from="description">form info</note>
       </trans-unit>
@@ -1247,7 +1247,7 @@
         <source>The message means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">127,130</context>
+          <context context-type="linenumber">131,134</context>
         </context-group>
         <note priority="1" from="description">result security level description</note>
       </trans-unit>
@@ -1255,7 +1255,7 @@
         <source>:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">179</context>
+          <context context-type="linenumber">183</context>
         </context-group>
         <note priority="1" from="description">result colon</note>
       </trans-unit>
@@ -1263,7 +1263,7 @@
         <source>The message is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">122,125</context>
+          <context context-type="linenumber">126,129</context>
         </context-group>
         <note priority="1" from="description">result security level description</note>
       </trans-unit>
@@ -1271,7 +1271,7 @@
         <source>The message means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">132,135</context>
+          <context context-type="linenumber">136,139</context>
         </context-group>
         <note priority="1" from="description">result security level description</note>
       </trans-unit>
@@ -1279,7 +1279,7 @@
         <source>Address</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">100</context>
+          <context context-type="linenumber">90</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -1287,7 +1287,7 @@
         <source>What is the meaning of the severity levels?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">118</context>
+          <context context-type="linenumber">122</context>
         </context-group>
         <note priority="1" from="description">result info</note>
       </trans-unit>
@@ -1295,7 +1295,7 @@
         <source>The message means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">137,141</context>
+          <context context-type="linenumber">141,145</context>
         </context-group>
         <note priority="1" from="description">result security level description</note>
       </trans-unit>
@@ -1303,7 +1303,7 @@
         <source>Search text in messages</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">151</context>
+          <context context-type="linenumber">155</context>
         </context-group>
         <note priority="1" from="description">result filter messages</note>
       </trans-unit>
@@ -1311,7 +1311,7 @@
         <source>The message means a very serious error.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">143,145</context>
+          <context context-type="linenumber">147,149</context>
         </context-group>
         <note priority="1" from="description">result security level description</note>
       </trans-unit>
@@ -1327,7 +1327,7 @@
         <source>Fetch nameservers from parent zone</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">134</context>
+          <context context-type="linenumber">125</context>
         </context-group>
         <note priority="1" from="description">form button</note>
       </trans-unit>
@@ -1343,7 +1343,7 @@
         <source>Expand all modules</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">160</context>
+          <context context-type="linenumber">164</context>
         </context-group>
         <note priority="1" from="description">result filter messages</note>
       </trans-unit>
@@ -1359,7 +1359,7 @@
         <source>Test result for</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">12</context>
         </context-group>
         <note priority="1" from="description">result subheader</note>
       </trans-unit>
@@ -1367,7 +1367,7 @@
         <source>Created on</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.html</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <note priority="1" from="description">result test metadata</note>
       </trans-unit>
@@ -1375,7 +1375,7 @@
         <source>Name of nameserver #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">77</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -1383,7 +1383,7 @@
         <source>Key tag of DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">156</context>
+          <context context-type="linenumber">147</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -1399,7 +1399,7 @@
         <source>Address of nameserver #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">109</context>
+          <context context-type="linenumber">99</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -1407,7 +1407,7 @@
         <source>Algorithm of DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">177</context>
+          <context context-type="linenumber">170</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -1415,7 +1415,7 @@
         <source>Show options</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">48</context>
         </context-group>
         <note priority="1" from="description">form options</note>
       </trans-unit>
@@ -1431,7 +1431,7 @@
         <source>Digest type of DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">210</context>
+          <context context-type="linenumber">203</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -1439,7 +1439,7 @@
         <source>Digest of DS record #<x id="INTERPOLATION" equiv-text="{{i + 1}}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">235</context>
+          <context context-type="linenumber">228</context>
         </context-group>
         <note priority="1" from="description">form label</note>
       </trans-unit>
@@ -1447,7 +1447,7 @@
         <source>Hide options</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/form/form.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">49</context>
         </context-group>
         <note priority="1" from="description">form options</note>
       </trans-unit>
@@ -1471,106 +1471,114 @@
         <source>Error</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2437478124199610198" datatype="html">
         <source>Critical</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3042471551767868839" datatype="html">
         <source>Notice</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="314315645942131479" datatype="html">
         <source>Info</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6759205696902713848" datatype="html">
         <source>Warning</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2887948366226336935" datatype="html">
         <source>Connectivity</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">47</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="29832309535656200" datatype="html">
         <source>System</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">48</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3001437232085577983" datatype="html">
         <source>Consistency</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">48</context>
+          <context context-type="linenumber">52</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4378147649219625174" datatype="html">
         <source>Zone</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5757082283695749077" datatype="html">
         <source>Delegation</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">49</context>
+          <context context-type="linenumber">53</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5797351340797536" datatype="html">
         <source>Syntax</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6304432362546770951" datatype="html">
         <source>Address</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">50</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6477785032659147345" datatype="html">
         <source>DNSSEC</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">54</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6534302992540929721" datatype="html">
         <source>Nameserver</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">51</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8643289769990675407" datatype="html">
         <source>Basic</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/result/result.component.ts</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">49</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="c3199211132b5adf3f96f103309fa253901a1bc3" datatype="html">
+        <source>The keytag must be a positive integer between 0 and 65535</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/form/form.component.html</context>
+          <context context-type="linenumber">158</context>
+        </context-group>
+        <note priority="1" from="description">form error</note>
       </trans-unit>
     </body>
   </file>

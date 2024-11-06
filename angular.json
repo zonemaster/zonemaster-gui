@@ -26,6 +26,9 @@
           "nb": {
             "translation": "src/locale/messages.nb.xlf"
           },
+          "sl": {
+            "translation": "src/locale/messages.sl.xlf"
+          },
           "sv": {
             "translation": "src/locale/messages.sv.xlf"
           }
@@ -111,6 +114,10 @@
               "localize": ["nb"],
               "baseHref": "/nb/"
             },
+            "sl": {
+              "localize": ["sl"],
+              "baseHref": "/sl/"
+            },
             "sv": {
               "localize": ["sv"],
               "baseHref": "/sv/"
@@ -151,6 +158,9 @@
             "nb": {
               "browserTarget": "zonemaster:build:nb"
             },
+            "sl": {
+              "browserTarget": "zonemaster:build:sl"
+            },
             "sv": {
               "browserTarget": "zonemaster:build:sv"
             }
@@ -168,6 +178,7 @@
               "messages.fi.xlf",
               "messages.fr.xlf",
               "messages.nb.xlf",
+              "messages.sl.xlf",
               "messages.sv.xlf"
             ],
             "includeContext": "sourceFileOnly"

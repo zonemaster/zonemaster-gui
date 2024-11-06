@@ -14,9 +14,10 @@ export const common = {
     'fi': 'Suomi',
     'fr': 'Français',
     'nb': 'Norsk (bokmål)',
+    'sl': 'Slovenščina',
     'sv': 'Svenska'
   },
-  enabledLanguages: [ 'da', 'en', 'es', 'fi', 'fr', 'nb', 'sv' ],
+  enabledLanguages: [ 'da', 'en', 'es', 'fi', 'fr', 'nb', 'sl', 'sv' ],
   configUrl: 'assets/app.config.json',
   pollingInterval: 5 * 1000,
 }

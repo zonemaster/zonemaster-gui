@@ -324,9 +324,9 @@
       </trans-unit>
       <trans-unit id="ngb.progressbar.value" datatype="html">
         <source>
-          <x id="INTERPOLATION" equiv-text="rogress bar."/>
+          <x id="INTERPOLATION" equiv-text="The type of th"/>
         </source>
-        <target state="translated">
+        <target state="new">
           <x id="INTERPOLATION" equiv-text="rogress bar."/>
         </target>
       </trans-unit>
@@ -937,6 +937,10 @@
       <trans-unit id="4378147649219625174" datatype="html">
         <source>Zone</source>
         <target state="translated">Zone</target>
+      </trans-unit>
+      <trans-unit id="c3199211132b5adf3f96f103309fa253901a1bc3" datatype="html">
+        <source>The keytag must be a positive integer between 0 and 65535</source>
+        <note priority="1" from="description">form error</note>
       </trans-unit>
     </body>
   </file>
