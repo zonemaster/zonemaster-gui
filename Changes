@@ -9,6 +9,9 @@ v4.3.1 2024-12-09 (part of Zonemaster v2024.2 release)
    zip file has been built with updated dependencies to resolve
    potential security issues.
 
+ [Features]
+ - Updates the link in the footer to the Zonemaster documentation to point to
+   document site at doc.zonemaster.net instead of Github (#484)
 
 v4.3.0 2024-07-01 (part of Zonemaster v2024.1 release)
 
