@@ -1,12 +1,13 @@
-import { PlaywrightTestConfig, devices } from '@playwright/test';
+import {type PlaywrightTestConfig, devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   testDir: 'e2e',
   testMatch: 'e2e/*.e2e-spec.ts',
   webServer: {
-    command: 'ng build --configuration=tests --localize && node scripts/test_server.js',
-    port: 4201,
-    reuseExistingServer: true,
+    command: 'npm run preview',
+    url: 'http://localhost:4321/',
+    timeout: 120 * 1000,
+    reuseExistingServer: !process.env.CI,
   },
   expect: {
     toMatchSnapshot: {

@@ -1,5 +1,7 @@
 # Translation Guide
 
+_This guide refers to v4.* and is to be rewritten for v5.0._
+
 This guide gives instructions for how to add a new language to
 Zonemaster-GUI. The language is assumed to exist in or to be added
 to Zonemaster-Engine and Zonemaster-Backend.

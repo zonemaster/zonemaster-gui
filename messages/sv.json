@@ -1,0 +1,9 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"startTestNav": "Kör test",
+	"faqNav": "FAQ",
+	"welcome": "Välkommen till Zonemaster",
+  "startTestTitle": "Kör ett domännamnstest",
+  "runTestTitle": "Test your domain",
+	"faqTitle": "Vanliga frågor"
+}

@@ -1,0 +1,44 @@
+---
+import * as m from "../paraglide/messages.js";
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { languageTag } from '../paraglide/runtime';
+
+const currentLanguage = languageTag();
+const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
+const faqUrl = getRelativeLocaleUrl(currentLanguage, '/faq');
+const { pathname } = Astro.url;
+---
+<nav class="zm-menu">
+	<a class:list={[ 'zm-menu-item', { active: pathname === homeUrl } ]} href={homeUrl}>{m.startTestNav()}</a>
+	<a class:list={[ 'zm-menu-item', { active: pathname === faqUrl } ]} href={faqUrl}>{m.faqNav()}</a>
+</nav>
+
+<style>
+  .zm-menu {
+    display: flex;
+  }
+
+  .zm-menu-item {
+    display: flex;
+    align-items: center;
+    color: var(--color-muted);
+    font-weight: 700;
+    height: var(--site-header-height);
+    padding: 0 var(--spacing-xs);
+
+    &.active {
+      color: var(--color-text);
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: var(--color-palette-main-30);
+      }
+    }
+  }
+</style>

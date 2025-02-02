@@ -1,0 +1,12 @@
+---
+import { Image } from 'astro:assets';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import logo from "../assets/logo.png";
+import { languageTag } from '../paraglide/runtime';
+
+const currentLanguage = languageTag();
+const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
+---
+<a href={homeUrl} class="zm-logo">
+  <Image src={logo} alt="Zonemaster" height={48} loading="eager" />
+</a>

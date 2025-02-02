@@ -1,0 +1,18 @@
+---
+import * as m from "../paraglide/messages.js";
+import DomainTest from '../lib/components/DomainTest/DomainTest.svelte';
+---
+
+<h1>{m.startTestTitle()}</h1>
+<section class="zm-run-test rhythm">
+  <h2>{m.runTestTitle()}</h2>
+  <DomainTest client:load />
+</section>
+
+<style>
+  .zm-run-test {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+</style>
