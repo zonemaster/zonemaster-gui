@@ -45,9 +45,6 @@ h4 {
 h1 {
   font-size: var(--font-l);
   max-width: 30ch;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 h2 {
@@ -94,6 +91,14 @@ li + li {
 
 p {
   max-width: var(--font-body-width);
+}
+
+.preamble {
+  font-family: var(--font-preamble-family);
+  font-size: var(--font-preamble-size);
+  line-height: var(--font-preamble-line-height);
+  font-weight: var(--font-preamble-weight);
+  max-width: var(--font-preamble-width);
 }
 
 .container {

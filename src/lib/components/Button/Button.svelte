@@ -22,7 +22,7 @@
 
 <button
   type={type}
-  class="zm-button ${variant} ${size}"
+  class="zm-button"
   onclick={onClick}
   disabled={disabled}
 >

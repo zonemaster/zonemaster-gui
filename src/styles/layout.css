@@ -1,0 +1,31 @@
+.gap {
+  --gap: var(--spacing-default);
+}
+
+.gap--xxs {
+  --gap: var(--spacing-xxs);
+}
+
+.gap--xs {
+  --gap: var(--spacing-xs);
+}
+
+.gap--s {
+  --gap: var(--spacing-s);
+}
+
+.gap--m {
+  --gap: var(--spacing-m);
+}
+
+.gap--l {
+  --gap: var(--spacing-l);
+}
+
+.gap--xl {
+  --gap: var(--spacing-xl);
+}
+
+.gap--xxl {
+  --gap: var(--spacing-xxl);
+}

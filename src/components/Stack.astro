@@ -1,0 +1,128 @@
+---
+interface Props {
+  gap?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | boolean;
+  vertical?: boolean;
+  wrap?: boolean;
+  top?: boolean;
+  middle?: boolean;
+  bottom?: boolean;
+  left?: boolean;
+  center?: boolean;
+  right?: boolean;
+  spaceBetween?: boolean;
+  reverse?: boolean;
+}
+
+const {
+  gap,
+  vertical,
+  wrap,
+  top,
+  middle,
+  bottom,
+  left,
+  center,
+  right,
+  spaceBetween,
+  reverse,
+} = Astro.props;
+
+const classList = [
+  'stack',
+  {gap: gap},
+  {[`gap--${gap}`]: typeof gap === 'string'},
+  { 'stack--vertical': vertical },
+  { 'stack--wrap': wrap },
+  { 'stack--top': top },
+  { 'stack--middle': middle },
+  { 'stack--bottom': bottom },
+  { 'stack--left': left },
+  { 'stack--center': center },
+  { 'stack--right': right },
+  { 'stack--space-between': spaceBetween },
+  { 'stack--reverse': reverse },
+];
+---
+<div class:list={classList}>
+  <slot />
+</div>
+<style>
+  .stack {
+    display: flex;
+    gap: var(--gap);
+  }
+
+  .stack--wrap {
+    flex-wrap: wrap;
+  }
+
+  .stack--vertical {
+    flex-direction: column;
+  }
+
+  /**
+   *  =Horizontal Stack
+   *  ==================================== */
+  .stack:not(.stack--vertical).stack--bottom {
+    align-items: flex-end;
+  }
+
+  .stack:not(.stack--vertical).stack--middle {
+    align-items: center;
+  }
+
+  .stack:not(.stack--vertical).stack--top {
+    align-items: flex-start;
+  }
+
+  .stack:not(.stack--vertical).stack--left {
+    justify-content: flex-start;
+  }
+
+  .stack:not(.stack--vertical).stack--center {
+    justify-content: center;
+  }
+
+  .stack:not(.stack--vertical).stack--right {
+    justify-content: flex-end;
+  }
+
+  .stack:not(.stack--vertical).stack--space-between {
+    justify-content: space-between;
+  }
+
+  .stack:not(.stack--vertical).stack--reverse {
+    flex-direction: row-reverse;
+  }
+
+  /**
+   *  =Vertical Stack
+   *  ==================================== */
+  .stack--vertical.stack--bottom {
+    justify-content: flex-end;
+  }
+
+  .stack--vertical.stack--middle {
+    justify-content: center;
+  }
+
+  .stack--vertical.stack--top {
+    justify-content: flex-start;
+  }
+
+  .stack--vertical.stack--left {
+    align-items: flex-start;
+  }
+
+  .stack--vertical.stack--center {
+    align-items: center;
+  }
+
+  .stack--vertical.stack--right {
+    align-items: flex-end;
+  }
+
+  .stack--vertical.stack--reverse {
+    flex-direction: column-reverse;
+  }
+</style>

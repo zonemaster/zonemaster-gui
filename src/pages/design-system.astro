@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Grid from '@/components/Grid.astro';
+import Stack from '@/components/Stack.astro';
+import Button from '@/lib/components/Button/Button.svelte';
+---
+
+<BaseLayout>
+  <section class="screen rhythm">
+    <h1>Typography</h1>
+    <p class="preamble">Typography is a powerful tool in conveying our brand's voice and tone. Our typeface choices are not only aesthetic but also functional, ensuring legibility and readability across all mediums. We have carefully selected fonts that reflect our brand's personality and ensure a consistent and accessible user experience.</p>
+    <h2>Title/Heading</h2>
+    <p class="type-display" style="font-family: var(--font-heading-family);">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
+    <h2>Body</h2>
+    <p class="type-display" style="font-family: var(--font-body-family);">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789</p>
+  </section>
+  <section class="screen rhythm">
+    <h1>Buttons</h1>
+    <p class="preamble">Buttons are a critical component in guiding user interactions within our digital platforms. They are designed to be intuitive, visually appealing, and aligned with our brand identity. This section outlines the design principles, variations, and usage guidelines for buttons in our UI.</p>
+    <h2>Variants</h2>
+    <p>Variants are crafted to serve different purposes and indicate various actions to the user. Each variant is distinct in appearance but cohesive within the overall design language, ensuring that users can easily navigate and interact with our interfaces.</p>
+    <Grid cols={4} gap>
+      <Stack vertical left gap="xs">
+        <strong>Primary</strong>
+        <Button client:load>Button</Button>
+      </Stack>
+      <Stack vertical left gap="xs">
+        <strong>Secondary</strong>
+        <Button variant="secondary" client:load>Button</Button>
+      </Stack>
+      <Stack vertical left gap="xs">
+        <strong>Danger</strong>
+        <Button variant="danger" client:load>Button</Button>
+      </Stack>
+      <Stack vertical left gap="xs">
+        <strong>Large</strong>
+        <Button size="large" client:load>Button</Button>
+      </Stack>
+    </Grid>
+  </section>
+</BaseLayout>
+<style>
+  .screen {
+    min-height: 100vh;
+    padding: 80px;
+  }
+
+  .type-display {
+    letter-spacing: 0.4em;
+  }
+</style>

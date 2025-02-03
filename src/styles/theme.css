@@ -123,15 +123,6 @@
 
 @media screen and (max-width: 1200px) {
   :root {
-    --font-xxs: 12px;
-    --font-xs: 14px;
-    --font-s: 16px;
-    --font-m: 20px;
-    --font-l: 28px;
-    --font-xl: 36px;
-    --font-xxl: 48px;
-    --font-supersize: 72px;
-
     --spacing-xxs: 4px;
     --spacing-xs: 8px;
     --spacing-s: 12px;
