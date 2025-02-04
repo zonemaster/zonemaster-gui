@@ -4,6 +4,9 @@
 	"faqNav": "FAQ",
 	"welcome": "Velkommen til Zonemaster",
   "startTestTitle": "Kjør en domenesjekk",
-  "runTestTitle": "Test your domain",
-	"faqTitle": "FAQ"
+  "runTestTitle": "Test domenet ditt",
+	"faqTitle": "FAQ",
+  "langLabel": "Bytt språk",
+  "startTestBtn": "Start sjekk",
+  "runningTest": "Tester..."
 }

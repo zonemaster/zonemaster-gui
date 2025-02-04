@@ -3,6 +3,7 @@
   import Button from '../Button/Button.svelte';
   import Input from '../Input/Input.svelte';
   import TestAgent from '../../TestAgent';
+  import * as m from '@/paraglide/messages';
 
   let currentState = $state(TestAgent.state);
   let domain = $state('');
@@ -21,7 +22,7 @@
 <form novalidate onsubmit={startTest} class="zm-domain-test">
   <Input type="text" bind:value={domain} placeholder="Domain" />
   <Button type="submit" disabled={currentState !== 'IDLE'}>
-    {currentState === 'IDLE' ? 'Start Test' : 'Testing...'}
+    {currentState === 'IDLE' ? m.startTestBtn() : m.runningTest()}
   </Button>
 </form>
 
@@ -30,8 +31,9 @@
     background-color: var(--color-palette-main-10);
     border: 1px solid var(--color-palette-main-30);
     border-radius: var(--border-radius);
+    margin-top: calc(var(--rhythm) / 2);
     padding: var(--spacing-default);
     display: flex;
-    gap: 1rem;
+    gap: calc(var(--rhythm) / 2);
   }
 </style>

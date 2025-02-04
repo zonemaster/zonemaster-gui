@@ -2,6 +2,8 @@ html {
   box-sizing: border-box;
   height: 100%;
   background: var(--color-background);
+  margin: 0;
+  padding: 0;
 }
 
 *,
@@ -29,6 +31,7 @@ img {
   max-width: 100%;
   height: auto;
   border: 0;
+  display: block;
 }
 
 h1,
@@ -43,7 +46,7 @@ h4 {
 }
 
 h1 {
-  font-size: var(--font-l);
+  font-size: var(--font-xl);
   max-width: 30ch;
 }
 

@@ -119,6 +119,15 @@
   --layer-background: 1;
   --gap: 0;
   --site-header-height: 75px;
+
+  /* Breakpoints */
+  /* NOTE: Media queries can't use CSS-variables but these are the values used in this project */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
 }
 
 @media screen and (max-width: 1200px) {

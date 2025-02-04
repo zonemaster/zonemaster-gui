@@ -5,5 +5,8 @@
 	"welcome": "Bienvenido a Zonemaster",
   "startTestTitle": "Ejecutar prueba de dominio",
   "runTestTitle": "Test your domain",
-	"faqTitle": "FAQ"
+	"faqTitle": "FAQ",
+  "langLabel": "Cambiar idioma",
+  "startTestBtn": "Ejecutar la prueba",
+  "runningTest": "Probando..."
 }

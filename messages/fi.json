@@ -4,6 +4,9 @@
 	"faqNav": "UKK",
 	"welcome": "Tervetuloa Zonemasteriin",
   "startTestTitle": "Suorita verkkotunnus testi",
-  "runTestTitle": "Test your domain",
-	"faqTitle": "Usein kysytyt kysymykset (FAQ)"
+  "runTestTitle": "Testaa verkkotunnuksesi",
+	"faqTitle": "Usein kysytyt kysymykset (FAQ)",
+  "langLabel": "Vaihda kieli",
+  "startTestBtn": "Suorita testi",
+  "runningTest": "Testataan..."
 }

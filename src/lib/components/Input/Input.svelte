@@ -15,7 +15,7 @@
   }: Props = $props();
 </script>
 
-<input bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} />
+<input aria-labelledby="testInputHeading" bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} />
 
 <style>
   .zm-input {
@@ -28,7 +28,7 @@
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     font-family: var(--font-body-family);
-    font-size: var(--font-xs);
+    font-size: var(--font-s);
     outline: none;
     width: 100%;
     position: relative;

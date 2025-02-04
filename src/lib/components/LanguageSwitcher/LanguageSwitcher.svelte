@@ -1,5 +1,6 @@
 <script lang="ts">
   import { languageTag, sourceLanguageTag } from '../../../paraglide/runtime.js';
+  import * as m from '@/paraglide/messages';
 
   const currentLanguage = languageTag();
   const languages = {
@@ -31,14 +32,27 @@
   }
 </script>
 
-<select class="zm-language-switcher" id="languageSwitcher" onchange={switchToLanguage}>
-  {#each Object.entries(languages) as [code, label]}
-    <option lang={code} value={code} selected={currentLanguage === code}>{label}</option>
-  {/each}
-</select>
+<div class="zm-language-switcher">
+  <i class="bi bi-translate zm-language-switcher-icon"></i>
+  <label for="languageSwitcher" class="u-visually-hidden">{m.langLabel()}</label>
+  <select class="zm-language-switcher-select" id="languageSwitcher" onchange={switchToLanguage}>
+    {#each Object.entries(languages) as [code, label]}
+      <option lang={code} value={code} selected={currentLanguage === code}>{label}</option>
+    {/each}
+  </select>
+</div>
 
 <style>
   .zm-language-switcher {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .zm-language-switcher-icon {
+    font-size: var(--font-m);
+  }
+  .zm-language-switcher-select {
     display: block;
     padding: var(--spacing-xs) var(--spacing-s);
     font-size: var(--font-body-size);

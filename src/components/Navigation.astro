@@ -8,24 +8,44 @@ const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
 const faqUrl = getRelativeLocaleUrl(currentLanguage, '/faq');
 const { pathname } = Astro.url;
 ---
-<nav class="zm-menu">
-	<a class:list={[ 'zm-menu-item', { active: pathname === homeUrl } ]} href={homeUrl}>{m.startTestNav()}</a>
-	<a class:list={[ 'zm-menu-item', { active: pathname === faqUrl } ]} href={faqUrl}>{m.faqNav()}</a>
+<nav class="zm-menu" aria-label="Main navigation">
+  <ul class="zm-menu-list">
+    <li><a class:list={[ 'zm-menu-item', { active: pathname === homeUrl } ]} href={homeUrl}>{m.startTestNav()}</a></li>
+    <li><a class:list={[ 'zm-menu-item', { active: pathname === faqUrl } ]} href={faqUrl}>{m.faqNav()}</a></li>
+  </ul>
 </nav>
 
 <style>
   .zm-menu {
     display: flex;
+    margin-left: var(--spacing-default);
+  }
+
+  .zm-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .zm-menu-item {
     display: flex;
     align-items: center;
     color: var(--color-muted);
-    font-weight: 700;
     height: var(--site-header-height);
     padding: 0 var(--spacing-xs);
 
+    &.active {
+      font-weight: var(--font-heading-weight);
+    }
+
+    &:hover,
     &.active {
       color: var(--color-text);
       position: relative;
