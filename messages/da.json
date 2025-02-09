@@ -8,5 +8,8 @@
 	"faqTitle": "FAQ",
   "langLabel": "Skift sprog",
   "startTestBtn": "Kør test",
-  "runningTest": "Tester..."
+  "runningTest": "Tester...",
+  "menu": "Menu",
+  "close": "Luk",
+  "domain": "Domæne"
 }

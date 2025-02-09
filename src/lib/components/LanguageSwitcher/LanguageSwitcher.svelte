@@ -34,7 +34,7 @@
 
 <div class="zm-language-switcher">
   <i class="bi bi-translate zm-language-switcher-icon"></i>
-  <label for="languageSwitcher" class="u-visually-hidden">{m.langLabel()}</label>
+  <label for="languageSwitcher" class="zm-u-visually-hidden">{m.langLabel()}</label>
   <select class="zm-language-switcher-select" id="languageSwitcher" onchange={switchToLanguage}>
     {#each Object.entries(languages) as [code, label]}
       <option lang={code} value={code} selected={currentLanguage === code}>{label}</option>
@@ -46,7 +46,13 @@
   .zm-language-switcher {
     display: flex;
     align-items: center;
+    margin-left: 0;
+    margin-right: 0;
     gap: var(--spacing-xs);
+
+    @media screen and (min-width: 769px) {
+      margin-left: auto;
+    }
   }
 
   .zm-language-switcher-icon {

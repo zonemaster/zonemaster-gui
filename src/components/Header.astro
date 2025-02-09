@@ -2,28 +2,89 @@
 import LanguageSwitcher from '../lib/components/LanguageSwitcher/LanguageSwitcher.svelte';
 import Logo from '../components/Logo.astro';
 import Navigation from './Navigation.astro';
+import MobileMenuButton from "./MobileMenuButton.astro";
 ---
+
 <header class="zm-header">
   <div class="container">
     <div class="zm-header-group">
       <Logo />
-      <Navigation />
+      <div class="zm-header-navigation-group" id="mainMenu">
+        <Navigation />
+        <LanguageSwitcher client:load />
+      </div>
+      <MobileMenuButton />
     </div>
-    <LanguageSwitcher client:load />
   </div>
 </header>
 
 <style>
   .zm-header {
     background-color: var(--color-palette-main-10);
-    height: var(--site-header-height);
+    padding-top: var(--spacing-xs);
+    padding-bottom: var(--spacing-xs);
+
+    @media screen and (min-width: 576px) {
+      padding-top: var(--spacing-s);
+      padding-bottom: var(--spacing-s);
+    }
+
+    @media screen and (min-width: 769px) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 
-  .zm-header-group {
+  .zm-header-group,
+  .zm-header-navigation-group {
     display: flex;
     align-items: center;
-    gap: var(--spacing-default);
     width: 100%;
+  }
+
+  .zm-header-navigation-group {
+    display: none;
+
+    &[aria-hidden="true"] {
+      display: none;
+
+      @media screen and (min-width: 769px) {
+        display: flex;
+      }
+    }
+
+    &[aria-hidden="false"] {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background-color: var(--color-palette-main-30);
+      box-shadow: 0 var(--spacing-default) var(--spacing-default) rgba(0,0,0, 0.2);
+
+      @media screen and (min-width: 576px) {
+        top: 74px;
+      }
+    }
+
+    @media screen and (min-width: 769px) {
+      display: flex;
+      flex-direction: row;
+      position: static;
+      gap: var(--spacing-default);
+      box-shadow: none;
+
+      &[aria-hidden="false"] {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        align-items: center;
+        box-shadow: none;
+      }
+    }
   }
 
   .container {

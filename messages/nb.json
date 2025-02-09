@@ -1,12 +1,15 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"startTestNav": "Start sjekk",
-	"faqNav": "FAQ",
-	"welcome": "Velkommen til Zonemaster",
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "startTestNav": "Start sjekk",
+  "faqNav": "FAQ",
+  "welcome": "Velkommen til Zonemaster",
   "startTestTitle": "Kjør en domenesjekk",
   "runTestTitle": "Test domenet ditt",
-	"faqTitle": "FAQ",
+  "faqTitle": "FAQ",
   "langLabel": "Bytt språk",
   "startTestBtn": "Start sjekk",
-  "runningTest": "Tester..."
+  "runningTest": "Tester...",
+  "menu": "Meny",
+  "close": "Lukk",
+  "domain": "Domene"
 }

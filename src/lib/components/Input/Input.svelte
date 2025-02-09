@@ -15,7 +15,7 @@
   }: Props = $props();
 </script>
 
-<input aria-labelledby="testInputHeading" bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} />
+<input id="domainTest" aria-labelledby="testInputHeading" bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} />
 
 <style>
   .zm-input {

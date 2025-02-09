@@ -18,7 +18,7 @@ const { pathname } = Astro.url;
 <style>
   .zm-menu {
     display: flex;
-    margin-left: var(--spacing-default);
+    margin-left: var(--spacing-l);
   }
 
   .zm-menu-list {
@@ -26,7 +26,12 @@ const { pathname } = Astro.url;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     gap: 1rem;
+
+    @media screen and (min-width: 769px) {
+      flex-direction: row;
+    }
 
     li {
       margin: 0;

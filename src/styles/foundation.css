@@ -77,6 +77,12 @@ a {
   gap: var(--spacing-xxs);
   color: var(--color-palette-secondary-70);
   text-decoration: none;
+  background-color: transparent;
+
+  &:active,
+  &:hover {
+    outline: 0;
+  }
 }
 
 a:hover {
@@ -108,8 +114,13 @@ p {
   max-width: var(--layout-width);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--spacing-s);
-  padding-right: var(--spacing-s);
+  padding-left: var(--spacing-xs);
+  padding-right: var(--spacing-xs);
+
+  @media screen and (min-width: 576px) {
+    padding-left: var(--spacing-s);
+    padding-right: var(--spacing-s);
+  }
 }
 
 .rhythm > * + *,

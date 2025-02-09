@@ -1,9 +1,11 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import Skip from '../components/Skip.astro';
 import Header from '../components/Header.astro';
 import Content from '../components/Content.astro';
 ---
 <BaseLayout>
+  <Skip />
   <Header />
   <Content>
     <slot />

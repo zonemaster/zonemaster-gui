@@ -8,5 +8,8 @@
 	"faqTitle": "Frequently Asked Questions",
   "langLabel": "Change language",
   "startTestBtn": "Run test",
-  "runningTest": "Testing..."
+  "runningTest": "Running test...",
+  "menu": "Menu",
+  "close": "Close",
+  "domain": "Domain"
 }

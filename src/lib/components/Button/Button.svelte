@@ -27,6 +27,7 @@
   disabled={disabled}
 >
   {@render children?.()}
+  <i class="bi bi-person-walking"></i>
 </button>
 
 <style>
@@ -37,7 +38,8 @@
     align-items: center;
     justify-content: center;
     height: var(--button-size);
-    border: 2px solid var(--button-color);
+    border: 0;
+    box-shadow: 0 0 0 2px inset var(--button-color);
     border-radius: var(--border-radius);
     background: var(--button-color);
     text-decoration: none;
@@ -46,7 +48,22 @@
     font-weight: 700;
     line-height: 1;
     white-space: nowrap;
-    gap: var(--spacing-xs);
     cursor: pointer;
+
+    i {
+      display: none;
+    }
+
+    &[disabled] {
+      background: var(--color-disabled);
+      color: var(--color-muted-text);
+      box-shadow: 0 0 0 2px inset var(--button-disabled);
+      text-shadow: 0 1px 0 var(--color-palette-black-0);
+      cursor: not-allowed;
+
+      i {
+        display: initial;
+      }
+    }
   }
 </style>

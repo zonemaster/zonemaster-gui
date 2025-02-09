@@ -20,7 +20,7 @@
   });
 </script>
 <form novalidate onsubmit={startTest} class="zm-domain-test">
-  <Input type="text" bind:value={domain} placeholder="Domain" />
+  <Input type="text" bind:value={domain} placeholder="{m.domain()}" />
   <Button type="submit" disabled={currentState !== 'IDLE'}>
     {currentState === 'IDLE' ? m.startTestBtn() : m.runningTest()}
   </Button>

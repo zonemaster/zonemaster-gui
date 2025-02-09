@@ -10,3 +10,18 @@ const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
 <a href={homeUrl} class="zm-logo">
   <Image src={logo} alt="Zonemaster" height={48} loading="eager" />
 </a>
+
+<style>
+  .zm-logo img {
+    width: 150px;
+    aspect-ratio: 594 / 149
+
+    @media screen and (min-width: 769px) {
+      width: 191px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 255px;
+    }
+  }
+</style>
