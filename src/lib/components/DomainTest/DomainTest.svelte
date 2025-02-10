@@ -4,9 +4,12 @@
   import Input from '../Input/Input.svelte';
   import TestAgent from '../../TestAgent';
   import * as m from '@/paraglide/messages';
+  import Switch from "@/lib/components/Switch/Switch.svelte";
+  import Advanced from "@/lib/components/DomainTest/Advanced.svelte";
 
   let currentState = $state(TestAgent.state);
   let domain = $state('');
+  let advanced = $state(false);
 
   function startTest(e: Event) {
     e.preventDefault();
@@ -20,10 +23,20 @@
   });
 </script>
 <form novalidate onsubmit={startTest} class="zm-domain-test">
-  <Input type="text" bind:value={domain} placeholder="{m.domain()}" />
-  <Button type="submit" disabled={currentState !== 'IDLE'}>
-    {currentState === 'IDLE' ? m.startTestBtn() : m.runningTest()}
-  </Button>
+  <div class="row">
+    <Input type="text" bind:value={domain} placeholder="{m.domain()}" />
+    <Button type="submit" disabled={currentState !== 'IDLE'}>
+      {currentState === 'IDLE' ? m.startTestBtn() : m.runningTest()}
+    </Button>
+  </div>
+  <Switch id="advanced-toggle" controls="advanced-options" active={advanced} onClick={() => advanced = !advanced}>
+    Show options
+  </Switch>
+  <div id="advanced-options" hidden={!advanced}>
+    {#if advanced}
+    <Advanced />
+    {/if}
+  </div>
 </form>
 
 <style>
@@ -33,6 +46,9 @@
     border-radius: var(--border-radius);
     margin-top: calc(var(--rhythm) / 2);
     padding: var(--spacing-default);
+  }
+
+  .row {
     display: flex;
     gap: calc(var(--rhythm) / 2);
   }

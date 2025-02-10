@@ -20,7 +20,7 @@ export default defineConfig({
     }),
     svelte({
       compilerOptions: {
-        customElement: true
+        customElement: true,
       }
     })
   ]

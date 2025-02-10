@@ -4,7 +4,8 @@
     size?: 'small' | 'large';
     value?: string;
     placeholder?: string;
-    onClick?: () => void;
+    label?: string;
+    id?: string;
   };
 
   let {
@@ -12,10 +13,15 @@
     size = 'large',
     value = $bindable(),
     placeholder,
+    label,
+    id,
   }: Props = $props();
 </script>
 
-<input id="domainTest" aria-labelledby="testInputHeading" bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} />
+{#if label}
+  <label for={id} class="zm-label">{label}</label>
+{/if}
+<input id={id} bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} />
 
 <style>
   .zm-input {
