@@ -7,6 +7,7 @@
   import Switch from "@/lib/components/Switch/Switch.svelte";
   import Advanced from "@/lib/components/DomainTest/Advanced.svelte";
   import Stack from "@/lib/components/Stack/Stack.svelte";
+  import Result from "@/lib/components/DomainTest/Result.svelte";
 
   let currentState = $state(TestAgent.state);
   let domain = $state('');
@@ -39,7 +40,7 @@
     {/if}
   </div>
 </form>
-
+<Result />
 <style>
   .zm-domain-test {
     background-color: var(--color-palette-main-10);

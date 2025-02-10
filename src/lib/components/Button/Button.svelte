@@ -39,6 +39,7 @@
     padding: 0 var(--button-padding);
     align-items: center;
     justify-content: center;
+    gap: var(--spacing-xs);
     height: var(--button-size);
     border: 0;
     box-shadow: 0 0 0 2px inset var(--button-color);

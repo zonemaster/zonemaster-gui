@@ -78,7 +78,7 @@
     justify-content: flex-end;
   }
 
-  .stack:not(.vertical).space-between {
+  .stack:not(.vertical).spaceBetween {
     justify-content: space-between;
   }
 
