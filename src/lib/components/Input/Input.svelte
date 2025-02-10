@@ -23,7 +23,7 @@
 {#if label}
   <label for={id} class="zm-label">{label}</label>
 {/if}
-<input id={id} bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} on:input={onInput} />
+<input id={id} bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} oninput={onInput} />
 
 <style>
   .zm-input {

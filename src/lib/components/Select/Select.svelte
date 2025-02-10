@@ -24,7 +24,7 @@
 {#if label}
   <label for={id} class="zm-label">{label}</label>
 {/if}
-<select id={id} bind:value={value} class="zm-select" on:change={onSelect}>
+<select id={id} bind:value={value} class="zm-select" onchange={onSelect}>
   {#each options as option}
     <option value={option.value}>{option.name}</option>
   {/each}
