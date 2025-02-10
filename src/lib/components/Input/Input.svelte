@@ -6,6 +6,7 @@
     placeholder?: string;
     label?: string;
     id?: string;
+    onInput?: (event: Event & { currentTarget: EventTarget & HTMLInputElement }) => void;
   };
 
   let {
@@ -15,13 +16,14 @@
     placeholder,
     label,
     id,
+    onInput,
   }: Props = $props();
 </script>
 
 {#if label}
   <label for={id} class="zm-label">{label}</label>
 {/if}
-<input id={id} bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} />
+<input id={id} bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} on:input={onInput} />
 
 <style>
   .zm-input {

@@ -14,6 +14,7 @@
     spaceBetween?: boolean;
     reverse?: boolean;
     children?: Snippet;
+    class?: string;
   };
 
   let {
@@ -28,11 +29,12 @@
     right,
     spaceBetween,
     reverse,
-    children
+    children,
+    ...restProps
   }: Props = $props();
 </script>
 
-<div class={['stack', { [`gap--${gap}`]: gap }, { vertical }, { wrap }, { top }, { middle }, { bottom }, { left }, { center }, { right }, { spaceBetween }, { reverse }]}>
+<div class={['stack', { [`gap--${gap}`]: gap }, { vertical }, { wrap }, { top }, { middle }, { bottom }, { left }, { center }, { right }, { spaceBetween }, { reverse }, restProps.class]}>
   {@render children?.()}
 </div>
 <style>

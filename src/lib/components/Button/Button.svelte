@@ -8,6 +8,7 @@
     disabled?: boolean;
     children?: Snippet;
     onClick?: null;
+    class?: string;
   };
 
   const {
@@ -16,13 +17,14 @@
     size = 'large',
     onClick,
     disabled,
-    children
+    children,
+    ...restProps
   }: Props = $props();
 </script>
 
 <button
   type={type}
-  class="zm-button"
+  class={['zm-button', variant, size, restProps.class]}
   onclick={onClick}
   disabled={disabled}
 >
