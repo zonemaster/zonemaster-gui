@@ -5,7 +5,9 @@ const highLightClass = 'tab-highlight';
 
 function onKeyDown(e) {
   const event = e;
-  if (!event) { window.event = event; }
+  if (!event) {
+    window.event = event;
+  }
 
   const keyCode = event.keyCode || event.which;
   const tabKey = 9;

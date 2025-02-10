@@ -5,13 +5,13 @@
   var togglesMap = {};
   var targetsMap = {};
 
-  function $ (selector, context) {
+  function $(selector, context) {
     return Array.prototype.slice.call(
-      (context || document).querySelectorAll(selector)
+      (context || document).querySelectorAll(selector),
     );
   }
 
-  function getClosestToggle (element) {
+  function getClosestToggle(element) {
     if (element.closest) {
       return element.closest('[data-a11y-toggle]');
     }
@@ -27,7 +27,7 @@
     return null;
   }
 
-  function handleToggle (toggle) {
+  function handleToggle(toggle) {
     var target = toggle && targetsMap[toggle.getAttribute('aria-controls')];
 
     if (!target) {
@@ -44,7 +44,10 @@
   }
 
   var initA11yToggle = function (context) {
-    togglesMap = $('[data-a11y-toggle]', context).reduce(function (acc, toggle) {
+    togglesMap = $('[data-a11y-toggle]', context).reduce(function (
+      acc,
+      toggle,
+    ) {
       var selector = '#' + toggle.getAttribute('data-a11y-toggle');
       acc[selector] = acc[selector] || [];
       acc[selector].push(toggle);
@@ -52,23 +55,25 @@
     }, togglesMap);
 
     var targets = Object.keys(togglesMap);
-    targets.length && $(targets).forEach(function (target) {
-      var toggles = togglesMap['#' + target.id];
-      var isExpanded = target.hasAttribute('data-a11y-toggle-open');
-      var labelledby = [];
+    targets.length &&
+      $(targets).forEach(function (target) {
+        var toggles = togglesMap['#' + target.id];
+        var isExpanded = target.hasAttribute('data-a11y-toggle-open');
+        var labelledby = [];
 
-      toggles.forEach(function (toggle) {
-        toggle.id || toggle.setAttribute('id', 'a11y-toggle-' + internalId++);
-        toggle.setAttribute('aria-controls', target.id);
-        toggle.setAttribute('aria-expanded', isExpanded);
-        labelledby.push(toggle.id);
+        toggles.forEach(function (toggle) {
+          toggle.id || toggle.setAttribute('id', 'a11y-toggle-' + internalId++);
+          toggle.setAttribute('aria-controls', target.id);
+          toggle.setAttribute('aria-expanded', isExpanded);
+          labelledby.push(toggle.id);
+        });
+
+        target.setAttribute('aria-hidden', !isExpanded);
+        target.hasAttribute('aria-labelledby') ||
+          target.setAttribute('aria-labelledby', labelledby.join(' '));
+
+        targetsMap[target.id] = target;
       });
-
-      target.setAttribute('aria-hidden', !isExpanded);
-      target.hasAttribute('aria-labelledby') || target.setAttribute('aria-labelledby', labelledby.join(' '));
-
-      targetsMap[target.id] = target;
-    });
   };
 
   document.addEventListener('DOMContentLoaded', function () {

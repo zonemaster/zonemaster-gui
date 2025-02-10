@@ -3,14 +3,14 @@ import { Machine } from '@bleckert/state';
 const transitions = {
   IDLE: {
     on: {
-      startTest: 'TESTING'
-    }
+      startTest: 'TESTING',
+    },
   },
   TESTING: {
     on: {
-      finishTest: 'IDLE'
-    }
-  }
+      finishTest: 'IDLE',
+    },
+  },
 };
 
 const initialData = {};
@@ -19,7 +19,7 @@ const actions = {
     setTimeout(() => {
       m.dispatch('finishTest');
     }, 1000);
-  }
+  },
 };
 
 export default new Machine(transitions, 'IDLE', initialData, actions);

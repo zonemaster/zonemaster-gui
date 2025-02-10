@@ -10,8 +10,10 @@
   --font-supersize: clamp(3.05rem, 3.06vi + 2.29rem, 4.73rem);
   --rhythm: 1lh;
 
-
-  --font-body-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-body-family:
+    system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans',
+    'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
   --font-body-size: var(--font-s);
   --font-body-line-height: 1.5;
   --font-body-weight: 400;
