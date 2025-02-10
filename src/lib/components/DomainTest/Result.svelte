@@ -31,15 +31,15 @@
     Created on <time datetime="2025-02-10T13:04:07.000Z"> Feb 10, 2025, 2:04:07 PM</time>
   </div>
   <Stack middle gap="xs">
-    <Button variant="secondary" type="button">
+    <Button variant="secondary" size="small" type="button">
       <i class="bi bi-clock-history"></i>
       History
     </Button>
-    <Button variant="secondary" type="button">
+    <Button variant="secondary" size="small" type="button">
       <i class="bi bi-cloud-arrow-down"></i>
       Export
     </Button>
-    <Button variant="secondary" type="button">
+    <Button variant="secondary" size="small" type="button">
       <i class="bi bi-share"></i>
       Share
     </Button>

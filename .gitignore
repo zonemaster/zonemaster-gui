@@ -52,3 +52,5 @@ node_modules/
 
 # OS
 .DS_store
+
+*storybook.log

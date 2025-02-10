@@ -41,8 +41,7 @@
     justify-content: center;
     gap: var(--spacing-xs);
     height: var(--button-size);
-    border: 0;
-    box-shadow: 0 0 0 2px inset var(--button-color);
+    border: 1px solid var(--button-color);
     border-radius: var(--border-radius);
     background: var(--button-color);
     text-decoration: none;
@@ -68,5 +67,22 @@
         display: initial;
       }
     }
+  }
+
+  .secondary {
+    background: var(--color-palette-black-30);
+    border-color: var(--color-palette-black-40);
+    color: var(--color-palette-black-90);
+  }
+
+  .danger {
+    background: var(--color-palette-danger-50);
+    border-color: var(--color-palette-danger-70);
+    color: var(--color-palette-danger-0);
+  }
+
+  .small {
+    font-size: var(--button-font-size-small);
+    height: var(--button-size-small);
   }
 </style>

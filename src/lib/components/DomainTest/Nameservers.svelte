@@ -57,7 +57,7 @@
         {/if}
       </Stack>
     {/each}
-    <Button class={utils.selfLeft} variant="secondary" type="button">Fetch nameservers from parent zone</Button>
+    <Button class={utils.selfLeft} variant="secondary" size="small" type="button">Fetch nameservers from parent zone</Button>
   </Stack>
 </fieldset>
 <style>
