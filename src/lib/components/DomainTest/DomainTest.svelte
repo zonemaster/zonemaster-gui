@@ -6,6 +6,7 @@
   import * as m from '@/paraglide/messages';
   import Switch from "@/lib/components/Switch/Switch.svelte";
   import Advanced from "@/lib/components/DomainTest/Advanced.svelte";
+  import Stack from "@/lib/components/Stack/Stack.svelte";
 
   let currentState = $state(TestAgent.state);
   let domain = $state('');
@@ -23,12 +24,12 @@
   });
 </script>
 <form novalidate onsubmit={startTest} class="zm-domain-test">
-  <div class="row">
+  <Stack>
     <Input type="text" bind:value={domain} placeholder="{m.domain()}" />
     <Button type="submit" disabled={currentState !== 'IDLE'}>
       {currentState === 'IDLE' ? m.startTestBtn() : m.runningTest()}
     </Button>
-  </div>
+  </Stack>
   <Switch id="advanced-toggle" controls="advanced-options" active={advanced} onClick={() => advanced = !advanced}>
     Show options
   </Switch>
@@ -46,10 +47,5 @@
     border-radius: var(--border-radius);
     margin-top: calc(var(--rhythm) / 2);
     padding: var(--spacing-default);
-  }
-
-  .row {
-    display: flex;
-    gap: calc(var(--rhythm) / 2);
   }
 </style>
