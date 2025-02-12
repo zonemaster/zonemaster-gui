@@ -18,18 +18,19 @@
     onClick,
     disabled,
     children,
+    class: className = '',
     ...restProps
   }: Props = $props();
 </script>
 
 <button
   type={type}
-  class={['zm-button', variant, size, restProps.class]}
+  class={['zm-button', variant, size, className]}
   onclick={onClick}
   disabled={disabled}
+  {...restProps}
 >
   {@render children?.()}
-  <i class="bi bi-person-walking"></i>
 </button>
 
 <style>
@@ -51,22 +52,6 @@
     line-height: 1;
     white-space: nowrap;
     cursor: pointer;
-
-    i {
-      display: none;
-    }
-
-    &[disabled] {
-      background: var(--color-disabled);
-      color: var(--color-muted-text);
-      box-shadow: 0 0 0 2px inset var(--button-disabled);
-      text-shadow: 0 1px 0 var(--color-palette-black-0);
-      cursor: not-allowed;
-
-      i {
-        display: initial;
-      }
-    }
   }
 
   .secondary {

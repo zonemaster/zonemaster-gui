@@ -18,7 +18,11 @@ const { pathname } = Astro.url;
 <style>
   .zm-menu {
     display: flex;
-    margin-left: var(--spacing-l);
+    width: 100%;
+
+    @media screen and (min-width: 769px) {
+      margin-left: var(--spacing-l);
+    }
   }
 
   .zm-menu-list {
@@ -43,11 +47,14 @@ const { pathname } = Astro.url;
     display: flex;
     align-items: center;
     color: var(--color-muted);
-    height: var(--site-header-height);
     padding: 0 var(--spacing-xs);
 
     &.active {
       font-weight: var(--font-heading-weight);
+    }
+
+    @media screen and (min-width: 769px) {
+      height: var(--site-header-height);
     }
 
     &:hover,
@@ -55,14 +62,16 @@ const { pathname } = Astro.url;
       color: var(--color-text);
       position: relative;
 
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background-color: var(--color-palette-main-30);
+      @media screen and (min-width: 769px) {
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 5px;
+          background-color: var(--color-palette-main-30);
+        }
       }
     }
   }

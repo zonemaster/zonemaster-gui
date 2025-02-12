@@ -27,8 +27,9 @@
 <form novalidate onsubmit={startTest} class="zm-domain-test">
   <Stack>
     <Input type="text" bind:value={domain} placeholder="{m.domain()}" />
-    <Button type="submit" disabled={currentState !== 'IDLE'}>
+    <Button type="submit" disabled={currentState !== 'IDLE'} variant="primary" class="zm-domain-test-button">
       {currentState === 'IDLE' ? m.startTestBtn() : m.runningTest()}
+      <i class="bi bi-person-walking"></i>
     </Button>
   </Stack>
   <Switch id="advanced-toggle" controls="advanced-options" active={advanced} onClick={() => advanced = !advanced}>
@@ -48,5 +49,23 @@
     border-radius: var(--border-radius);
     margin-top: calc(var(--rhythm) / 2);
     padding: var(--spacing-default);
+  }
+
+  .zm-domain-test-button {
+    i {
+      display: none;
+    }
+
+    &[disabled] {
+      background: var(--color-disabled);
+      color: var(--color-muted-text);
+      box-shadow: 0 0 0 2px inset var(--button-disabled);
+      text-shadow: 0 1px 0 var(--color-palette-black-0);
+      cursor: not-allowed;
+
+      i {
+        display: initial;
+      }
+    }
   }
 </style>
