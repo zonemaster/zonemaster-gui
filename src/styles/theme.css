@@ -112,7 +112,7 @@
   --color-subtle: var(--color-palette-black-30);
   --color-text: var(--color-palette-black-90);
   --color-muted-text: var(--color-palette-black-60);
-  --color-border: var(--color-palette-black-30);
+  --color-border: var(--color-palette-main-30);
   --color-tab-highlight: #ff4069;
 
   /* Shape */

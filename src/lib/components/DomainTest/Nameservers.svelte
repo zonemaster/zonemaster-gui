@@ -37,7 +37,7 @@
   }
 </script>
 
-<fieldset>
+<fieldset class="zm-nameservers">
   <legend>Nameservers</legend>
   <Stack vertical gap="s">
     {#each nameservers as ns, i}
@@ -61,8 +61,14 @@
   </Stack>
 </fieldset>
 <style>
-  fieldset {
+  .zm-nameservers {
     all: unset;
     display: block;
+    margin-top: var(--spacing-s);
+    padding-top: calc(var(--rhythm) / 2);
+
+    legend {
+      font-weight: 700;
+    }
   }
 </style>

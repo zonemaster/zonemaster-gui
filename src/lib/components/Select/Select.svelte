@@ -51,5 +51,9 @@
     background-position: right .75rem center;
     background-size: 16px 12px;
     appearance: none;
+
+    &:focus {
+      box-shadow: 0 0 0 3px var(--color-palette-main-30);
+    }
   }
 </style>

@@ -41,7 +41,6 @@
   .stack {
     display: flex;
     gap: var(--gap);
-    flex-wrap: wrap;
   }
 
   .wrap {

@@ -45,9 +45,9 @@
     </Button>
   </Stack>
 </Stack>
-<fieldset>
+<fieldset class="zm-result">
   <legend>Filter severity levels</legend>
-  <Stack middle>
+  <Stack middle wrap>
     <FilterToggle name="filter[all]" label="All" badge="54" bind:checked={filterAll} onCheck={onCheck} value="all" />
     <FilterToggle name="filter[info]" label="Info" badge="52" bind:checked={filterInfo} onCheck={onCheck} severity="info" value="info" />
     <FilterToggle name="filter[notice]" label="Notice" badge="2" bind:checked={filterNotice} onCheck={onCheck} severity="notice" value="notice" />
@@ -56,3 +56,15 @@
     <FilterToggle name="filter[critical]" label="Critical" badge="0" bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
   </Stack>
 </fieldset>
+
+<style>
+  .zm-result {
+    border: 0;
+    margin-top: var(--spacing-s);
+    padding-top: calc(var(--rhythm) / 2);
+
+    legend {
+      font-weight: 700;
+    }
+  }
+</style>

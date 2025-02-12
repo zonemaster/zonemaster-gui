@@ -50,6 +50,7 @@
     border: 1px solid var(--color-palette-main-30);
     border-radius: var(--border-radius);
     margin-top: calc(var(--rhythm) / 2);
+    margin-bottom: var(--rhythm);
     padding: var(--spacing-default);
   }
 </style>

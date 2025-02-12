@@ -46,12 +46,16 @@
   .zm-language-switcher {
     display: flex;
     align-items: center;
-    margin-left: 0;
+    margin-left: var(--spacing-m);
     margin-right: 0;
+    margin-top: var(--spacing-m);
+    margin-bottom: var(--spacing-m);
     gap: var(--spacing-xs);
 
     @media screen and (min-width: 769px) {
       margin-left: auto;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
 
@@ -77,5 +81,9 @@
       border-color 0.15s ease-in-out,
       box-shadow 0.15s ease-in-out;
     appearance: none;
+
+    &:focus {
+      box-shadow: 0 0 0 3px var(--color-palette-main-30);
+    }
   }
 </style>

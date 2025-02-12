@@ -15,16 +15,30 @@
     active,
     controls,
     onClick,
-    children
+    children,
   }: Props = $props();
+
+  let icon = $derived(active ? 'caret-up-fill' : 'caret-down-fill');
 </script>
 <div class="zm-switch">
-  <Button type="button" id="{id}" aria-controls="{controls || null}" variant="primary" class="switch-toggle" aria-expanded={active} aria-labelledby="{id}-label" onclick={onClick}></Button>
+  <Button type="button" id="{id}" aria-controls="{controls || null}" variant="transparent" class="switch-toggle" aria-expanded={active} aria-labelledby="{id}-label" onclick={onClick}>
+    <i class="bi bi-{icon}"></i>
+  </Button>
   <label for="{id}" id="{id}-label">{@render children?.()}</label>
 </div>
 
 <style>
   .zm-switch {
+    cursor: pointer;
 
+    label {
+      cursor: pointer;
+    }
+
+    .switch-toggle[aria-expanded="true"] {
+      i {
+        transform: rotate(180deg);
+      }
+    }
   }
 </style>

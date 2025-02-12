@@ -8,7 +8,7 @@
   let disabledIpType = $state('');
 </script>
 
-<fieldset>
+<fieldset class="zm-general">
   <legend>General</legend>
   <label>
     <input type="radio" name="ipType" value="ipv4" bind:group={disabledIpType} />
@@ -20,8 +20,14 @@
   </label>
 </fieldset>
 <style>
-  fieldset {
+  .zm-general {
     all: unset;
     display: block;
+    padding-top: calc(var(--rhythm) / 2);
+    margin-bottom: var(--rhythm);
+
+    legend {
+      font-weight: 700;
+    }
   }
 </style>

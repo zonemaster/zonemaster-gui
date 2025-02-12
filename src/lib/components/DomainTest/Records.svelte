@@ -59,7 +59,7 @@
     records = records.filter((_, i) => i !== index);
   }
 </script>
-<fieldset>
+<fieldset class="zm-records">
   <legend>DS Records</legend>
   <Stack vertical gap="s">
     {#each records as r, i}
@@ -89,8 +89,13 @@
   </Stack>
 </fieldset>
 <style>
-  fieldset {
+  .zm-records {
     all: unset;
     display: block;
+    padding-top: calc(var(--rhythm) / 2);
+
+    legend {
+      font-weight: 700;
+    }
   }
 </style>

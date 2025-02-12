@@ -42,5 +42,9 @@
     position: relative;
     z-index: 1;
     color: var(--color-text);
+
+    &:focus {
+      box-shadow: 0 0 0 3px var(--color-border);
+    }
   }
 </style>

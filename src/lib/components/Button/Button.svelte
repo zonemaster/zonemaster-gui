@@ -78,4 +78,12 @@
     font-size: var(--button-font-size-small);
     height: var(--button-size-small);
   }
+
+  .transparent {
+    background: transparent;
+    border-color: transparent;
+    color: var(--color-palette-black);
+    padding-left: 0;
+    padding-right: 0;
+  }
 </style>
