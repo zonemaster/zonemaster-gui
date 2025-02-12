@@ -30,7 +30,7 @@
     <Button type="submit" disabled={currentState !== 'IDLE'} variant="primary">
       {currentState === 'IDLE' ? m.startTestBtn() : m.runningTest()}
       {#if currentState !== 'IDLE'}
-      <i class="bi bi-person-walking"></i>
+      <i class="bi bi-clock-history"></i>
       {/if}
     </Button>
   </Stack>

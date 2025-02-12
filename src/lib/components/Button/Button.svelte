@@ -56,7 +56,7 @@
     &[disabled] {
       background: var(--color-disabled);
       color: var(--color-muted-text);
-      border-color: var(--button-disabled);
+      border-color: var(--button-border-color-disabled);
       text-shadow: 0 1px 0 var(--color-palette-black-0);
       cursor: not-allowed;
     }
