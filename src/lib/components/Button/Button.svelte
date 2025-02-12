@@ -52,6 +52,14 @@
     line-height: 1;
     white-space: nowrap;
     cursor: pointer;
+
+    &[disabled] {
+      background: var(--color-disabled);
+      color: var(--color-muted-text);
+      border-color: var(--button-disabled);
+      text-shadow: 0 1px 0 var(--color-palette-black-0);
+      cursor: not-allowed;
+    }
   }
 
   .secondary {

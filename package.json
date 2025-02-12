@@ -39,6 +39,7 @@
     "prettier": "3.5.0",
     "prettier-plugin-svelte": "^3.3.3",
     "storybook": "^8.5.3",
+    "storybook-dark-mode": "^4.0.2",
     "svelte-check": "^4.1.4",
     "typescript": "^5.7.3",
     "vite": "^6.1.0"

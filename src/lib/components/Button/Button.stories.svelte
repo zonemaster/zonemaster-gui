@@ -36,3 +36,18 @@
     <Button {...args}>Click me</Button>
   {/snippet}
 </Story>
+
+<Story name="Disabled" args={{ disabled: true }}>
+  {#snippet children(args)}
+    <Button {...args}>Click me</Button>
+  {/snippet}
+</Story>
+
+<Story name="With Icon" args={{ variant: 'primary' }}>
+  {#snippet children(args)}
+    <Button {...args}>
+      Click me
+      <i class="bi bi-person-walking"></i>
+    </Button>
+  {/snippet}
+</Story>

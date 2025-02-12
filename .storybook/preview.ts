@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/svelte';
 import '../src/styles/site.css';
+import '../src/assets/fonts/bootstrap-icons.min.css';
 
 const preview: Preview = {
   parameters: {
