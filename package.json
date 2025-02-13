@@ -3,6 +3,7 @@
   "version": "5.0.0-alpha.1",
   "license": "BSD-2-Clause",
   "scripts": {
+    "start": "npm run dev",
     "dev": "astro dev",
     "build": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro build",
     "preview": "astro preview",
