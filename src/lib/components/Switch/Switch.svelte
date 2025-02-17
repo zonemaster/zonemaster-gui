@@ -21,7 +21,7 @@
   let icon = $derived(active ? 'caret-up-fill' : 'caret-down-fill');
 </script>
 <div class="zm-switch">
-  <Button type="button" id="{id}" aria-controls="{controls || null}" variant="transparent" class="switch-toggle" aria-expanded={active} aria-labelledby="{id}-label" onclick={onClick}>
+  <Button type="button" id={id} aria-controls={controls || null} variant="transparent" class="switch-toggle" aria-expanded={active} aria-labelledby="{id}-label" onclick={onClick}>
     <i class="bi bi-{icon}"></i>
   </Button>
   <label for="{id}" id="{id}-label">{@render children?.()}</label>
@@ -33,12 +33,6 @@
 
     label {
       cursor: pointer;
-    }
-
-    .switch-toggle[aria-expanded="true"] {
-      i {
-        transform: rotate(180deg);
-      }
     }
   }
 </style>

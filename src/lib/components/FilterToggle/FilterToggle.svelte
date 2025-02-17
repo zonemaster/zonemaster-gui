@@ -30,6 +30,7 @@
     --active-color: var(--color-subtle);
     --active-text-color: var(--color-text);
     --badge-color: var(--color-muted);
+    --badge-text-color: var(--color-palette-white);
 
     display: flex;
     align-items: center;
@@ -43,6 +44,7 @@
       --active-color: var(--color-palette-success-50);
       --active-text-color: var(--color-palette-success-0);
       --badge-color: var(--color-palette-success-70);
+      --badge-text-color: var(--color-palette-white);
       box-shadow: none;
     }
 
@@ -50,12 +52,14 @@
       --active-color: var(--color-palette-info-50);
       --active-text-color: var(--color-palette-info-0);
       --badge-color: var(--color-palette-info-70);
+      --badge-text-color: var(--color-palette-white);
       box-shadow: none;
     }
 
     &.active.warning {
       --active-color: var(--color-palette-warning-50);
       --badge-color: var(--color-palette-warning-70);
+      --badge-text-color: var(--color-palette-white);
       box-shadow: none;
     }
 
@@ -63,6 +67,7 @@
       --active-color: var(--color-palette-danger-50);
       --active-text-color: var(--color-palette-danger-0);
       --badge-color: var(--color-palette-danger-70);
+      --badge-text-color: var(--color-palette-white);
       box-shadow: none;
     }
 
@@ -70,6 +75,7 @@
       --active-color: var(--color-palette-danger-70);
       --active-text-color: var(--color-palette-danger-0);
       --badge-color: var(--color-palette-danger-90);
+      --badge-text-color: var(--color-palette-white);
       box-shadow: none;
     }
 
@@ -77,12 +83,14 @@
       background: var(--active-color);
       color: var(--active-text-color);
       box-shadow: 0 0 0 1px inset var(--color-palette-black-40);
+      --badge-color: var(--color-palette-info-50);
+      --badge-text-color: var(--color-palette-black);
     }
   }
 
   .zm-filter-toggle-badge {
     background: var(--badge-color);
-    color: var(--color-palette-white);
+    color: var(--badge-text-color);
     font-size: var(--font-xs);
     font-weight: bold;
     border-radius: 999px;
