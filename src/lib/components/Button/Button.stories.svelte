@@ -14,10 +14,6 @@
   });
 </script>
 
-{#snippet template()}
-  <Button>Click me</Button>
-{/snippet}
-
 <!-- More on writing stories with args: https://storybook.js.org/docs/writing-stories/args -->
 <Story name="Primary" args={{ variant: 'primary' }}>
   {#snippet children(args)}

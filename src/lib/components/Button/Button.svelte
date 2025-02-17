@@ -7,7 +7,7 @@
     size?: 'small' | 'large';
     disabled?: boolean;
     children?: Snippet;
-    onClick?: null;
+    onClick?: () => void;
     class?: string;
   };
 
