@@ -1,0 +1,15 @@
+---
+import ProgramVersions from '@/lib/components/ProgramVersions/ProgramVersions.svelte';
+---
+<footer class="zm-footer">
+  <div class="container">
+    <ProgramVersions client:idle />
+  </div>
+</footer>
+
+<style>
+  .zm-footer {
+    background-color: var(--color-palette-main-10);
+    padding: var(--spacing-xl) 0;
+  }
+</style>

@@ -1,15 +1,16 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
+  import type {Severity} from "@/lib/alert.svelte.ts";
 
   type Props = {
-    variant?: 'success' | 'info' | 'warning' | 'error';
+    severity: Severity;
     children?: Snippet;
-    onRemove?: null;
+    onRemove?: () => void;
   };
 
-  const { variant = 'info', children, onRemove }: Props = $props();
+  const { severity = 'info', children, onRemove }: Props = $props();
 </script>
-<div role="alert" class="zm-alert {variant}">
+<div role="alert" class="zm-alert {severity}">
   <p>{@render children?.()}</p>
   {#if onRemove}
     <button class="alert-close" onclick={onRemove}>

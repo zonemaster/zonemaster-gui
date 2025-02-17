@@ -9,7 +9,7 @@ type Config = {
 };
 
 const config: Config = {
-  apiBaseUrl: import.meta.env.VITE_API_URL,
+  apiBaseUrl: import.meta.env.PUBLIC_API_URL,
   clientInfo: {
     version: '4.3.1',
     id: 'Zonemaster-GUI',
