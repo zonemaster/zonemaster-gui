@@ -4,7 +4,11 @@ type RpcParams = {
   [key: string]: any;
 };
 
-export async function rpc(method: string, params: RpcParams = {}, guiInfo: boolean = true): Promise<any> {
+export async function rpc(
+  method: string,
+  params: RpcParams = {},
+  guiInfo: boolean = true,
+): Promise<any> {
   const id = Date.now();
 
   if (guiInfo) {
@@ -46,4 +50,44 @@ export async function versionInfo(): Promise<any> {
 
 export async function profileNames(): Promise<any> {
   return rpc('profile_names', {}, false);
+}
+
+export type Nameservers = {
+  ns: string;
+  ip?: string;
+};
+
+export type DSInfo = {
+  digest: string;
+  algorithm: number;
+  digtype: number;
+  keytag: number;
+};
+
+export type StartDomainTestData = {
+  domain: string;
+  ipv4?: boolean;
+  ipv6?: boolean;
+  nameservers?: Nameservers[];
+  ds_info?: DSInfo[];
+  profile?: string;
+  client_id?: string;
+  client_version?: string;
+  priority?: number;
+  queue?: number;
+  language?: string;
+};
+
+export async function startDomainTest(
+  data: StartDomainTestData,
+): Promise<string> {
+  return rpc('start_domain_test', data);
+}
+
+export type TestProgress = {
+  result: number;
+};
+
+export async function testProgress(testId: string): Promise<number> {
+  return rpc('test_progress', { test_id: testId }, false);
 }

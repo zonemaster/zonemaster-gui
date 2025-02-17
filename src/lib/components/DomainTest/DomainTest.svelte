@@ -2,35 +2,40 @@
 <script lang="ts">
   import Button from '../Button/Button.svelte';
   import Input from '../Input/Input.svelte';
-  import TestAgent from '../../TestAgent';
+  import TestAgent from '../../TestAgent.ts';
   import * as m from '@/paraglide/messages';
   import Switch from "@/lib/components/Switch/Switch.svelte";
   import Advanced from "@/lib/components/DomainTest/Advanced.svelte";
   import Stack from "@/lib/components/Stack/Stack.svelte";
   import Result from "@/lib/components/DomainTest/Result.svelte";
 
-  let currentState = $state(TestAgent.state);
+  let currentState = $state(TestAgent.getState());
+  let currentContext = $state(TestAgent.getContext());
   let domain = $state('');
   let advanced = $state(false);
 
   function startTest(e: Event) {
     e.preventDefault();
-    TestAgent.dispatch('startTest', { domain });
+    TestAgent.transition('START', { domain });
   }
 
   $effect(() => {
-    TestAgent.on('transition', (s: string) => {
+    TestAgent.subscribe((s, c) => {
       currentState = s;
+      currentContext = c;
     });
   });
 </script>
 <form novalidate onsubmit={startTest} class="zm-domain-test">
   <Stack>
     <Input type="text" bind:value={domain} placeholder="{m.domain()}" />
-    <Button type="submit" disabled={currentState !== 'IDLE'} variant="primary">
-      {currentState === 'IDLE' ? m.startTestBtn() : m.runningTest()}
-      {#if currentState !== 'IDLE'}
+    <Button type="submit" disabled={currentState !== 'idle'} variant="primary">
+      {currentState === 'idle' ? m.startTestBtn() : m.runningTest()}
+      {#if currentState !== 'idle'}
       <i class="bi bi-clock-history"></i>
+      {/if}
+      {#if currentState === 'testing'}
+        {currentContext.progress}%
       {/if}
     </Button>
   </Stack>

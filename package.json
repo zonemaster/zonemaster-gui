@@ -18,7 +18,6 @@
   "type": "module",
   "dependencies": {
     "@astrojs/svelte": "^7.0.4",
-    "@bleckert/state": "^0.3.0",
     "@inlang/paraglide-astro": "^0.3.5",
     "astro": "^5.2.5",
     "svelte": "^5.19.9"
