@@ -3,11 +3,12 @@
 
   type Props = {
     type?: 'button' | 'submit' | 'reset';
-    variant?: 'primary' | 'secondary' | 'danger';
+    variant?: 'primary' | 'secondary' | 'danger' | 'transparent';
     size?: 'small' | 'large';
     disabled?: boolean;
     children?: Snippet;
     onClick?: () => void;
+    ariaLabel?: string;
     class?: string;
   };
 
@@ -18,6 +19,7 @@
     onClick,
     disabled,
     children,
+    ariaLabel,
     class: className = '',
     ...restProps
   }: Props = $props();
@@ -28,6 +30,7 @@
   class={['zm-button', variant, size, className]}
   onclick={onClick}
   disabled={disabled}
+  aria-label={ariaLabel}
   {...restProps}
 >
   {@render children?.()}

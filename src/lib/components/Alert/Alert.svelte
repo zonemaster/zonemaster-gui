@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
   import type {Severity} from "@/lib/alert.svelte.ts";
+  import Button from '../Button/Button.svelte';
+  import * as m from '@/paraglide/messages';
 
   type Props = {
     severity: Severity;
@@ -13,9 +15,9 @@
 <div role="alert" class="zm-alert {severity}">
   <p>{@render children?.()}</p>
   {#if onRemove}
-    <button class="alert-close" onclick={onRemove}>
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <Button aria-label="{m.close()}" class="zm-button alert-close" variant="transparent" onclick={onRemove}>
+      <span aria-hidden="true"><i class="bi bi-x-lg"></i></span>
+    </Button>
   {/if}
 </div>
 

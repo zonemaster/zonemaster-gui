@@ -6,6 +6,7 @@
     placeholder?: string;
     label?: string;
     id?: string;
+    disabled?: boolean;
     onInput?: (event: Event & { currentTarget: EventTarget & HTMLInputElement }) => void;
   };
 
@@ -15,6 +16,7 @@
     value = $bindable(),
     placeholder,
     label,
+    disabled,
     id,
     onInput,
   }: Props = $props();
@@ -23,7 +25,7 @@
 {#if label}
   <label for={id} class="zm-label">{label}</label>
 {/if}
-<input id={id} bind:value={value} type={type} class="zm-input {size}" placeholder={placeholder} oninput={onInput} />
+<input id={id} bind:value={value} type={type} class="zm-input {size}" disabled={disabled} placeholder={placeholder} oninput={onInput} />
 
 <style>
   .zm-input {
@@ -45,6 +47,16 @@
 
     &:focus {
       box-shadow: 0 0 0 3px var(--color-border);
+    }
+
+    &:disabled {
+      cursor: wait;
+      position: relative;
+
+      &::placeholder {
+        color: var(--color-palette-black);
+        opacity: 1;
+      }
     }
   }
 </style>
