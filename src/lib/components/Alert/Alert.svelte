@@ -15,7 +15,7 @@
 <div role="alert" class="zm-alert {severity}">
   <p>{@render children?.()}</p>
   {#if onRemove}
-    <Button aria-label="{m.close()}" class="zm-button alert-close" variant="transparent" onclick={onRemove}>
+    <Button aria-label={m.close()} class="zm-button alert-close" variant="transparent" onclick={onRemove}>
       <span aria-hidden="true"><i class="bi bi-x-lg"></i></span>
     </Button>
   {/if}
