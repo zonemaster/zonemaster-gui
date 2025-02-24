@@ -71,6 +71,7 @@
         background-size: 80px 80px;
         animation: progress-bar-stripes 2s linear infinite;
         z-index: 2;
+        border-radius: var(--border-radius);
       }
     }
 
