@@ -3,6 +3,7 @@
   import Stack from "@/lib/components/Stack/Stack.svelte";
   import Button from "@/lib/components/Button/Button.svelte";
   import FilterToggle from "@/lib/components/FilterToggle/FilterToggle.svelte";
+  import ResultModule from "@/lib/components/DomainTest/ResultModule.svelte";
 
   type Props = {
     data: ResultData;
@@ -30,6 +31,8 @@
       filterAll = false;
     }
   }
+
+  const result = Object.groupBy(data.results, ({ module }) => module);
 </script>
 <h2>Test result for {data.params.domain}</h2>
 <Stack middle wrap spaceBetween>
@@ -51,18 +54,24 @@
     </Button>
   </Stack>
 </Stack>
-<fieldset class="zm-result">
-  <legend>Filter severity levels</legend>
-  <Stack middle wrap>
-    <FilterToggle name="filter[all]" label="All" badge={data.results.length} bind:checked={filterAll} onCheck={onCheck} value="all" />
-    <FilterToggle name="filter[info]" label="Info" badge={data.results.filter((r) => r.level === 'INFO').length} bind:checked={filterInfo} onCheck={onCheck} severity="info" value="info" />
-    <FilterToggle name="filter[notice]" label="Notice" badge={data.results.filter((r) => r.level === 'NOTICE').length} bind:checked={filterNotice} onCheck={onCheck} severity="notice" value="notice" />
-    <FilterToggle name="filter[warning]" label="Warning" badge={data.results.filter((r) => r.level === 'WARNING').length} bind:checked={filterWarning} onCheck={onCheck} severity="warning" value="warning" />
-    <FilterToggle name="filter[error]" label="Error" badge={data.results.filter((r) => r.level === 'ERROR').length} bind:checked={filterError} onCheck={onCheck} severity="error" value="error" />
-    <FilterToggle name="filter[critical]" label="Critical" badge={data.results.filter((r) => r.level === 'CRITICAL').length} bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
+<Stack vertical gap="m">
+  <fieldset class="zm-result">
+    <legend>Filter severity levels</legend>
+    <Stack middle wrap>
+      <FilterToggle name="filter[all]" label="All" badge={data.results.length} bind:checked={filterAll} onCheck={onCheck} value="all" />
+      <FilterToggle name="filter[info]" label="Info" badge={data.results.filter((r) => r.level === 'INFO').length} bind:checked={filterInfo} onCheck={onCheck} severity="info" value="info" />
+      <FilterToggle name="filter[notice]" label="Notice" badge={data.results.filter((r) => r.level === 'NOTICE').length} bind:checked={filterNotice} onCheck={onCheck} severity="notice" value="notice" />
+      <FilterToggle name="filter[warning]" label="Warning" badge={data.results.filter((r) => r.level === 'WARNING').length} bind:checked={filterWarning} onCheck={onCheck} severity="warning" value="warning" />
+      <FilterToggle name="filter[error]" label="Error" badge={data.results.filter((r) => r.level === 'ERROR').length} bind:checked={filterError} onCheck={onCheck} severity="error" value="error" />
+      <FilterToggle name="filter[critical]" label="Critical" badge={data.results.filter((r) => r.level === 'CRITICAL').length} bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
+    </Stack>
+  </fieldset>
+  <Stack vertical>
+    {#each Object.entries(result) as [module, results]}
+      <ResultModule module={module} results={results || []} />
+    {/each}
   </Stack>
-</fieldset>
-
+</Stack>
 <style>
   .zm-result {
     border: 0;
