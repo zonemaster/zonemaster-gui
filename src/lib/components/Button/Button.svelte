@@ -10,6 +10,7 @@
     onClick?: () => void;
     ariaLabel?: string;
     class?: string;
+    [key: string]: any;
   };
 
   const {
