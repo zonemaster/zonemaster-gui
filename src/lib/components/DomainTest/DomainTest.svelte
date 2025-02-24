@@ -29,7 +29,7 @@
 <form novalidate onsubmit={startTest} class="zm-domain-test testing-{currentState === 'testing'}">
   <Stack>
     <div class="zm-domain-test-progress">
-      <Input type="text" bind:value={domain} placeholder="{m.domain()}" disabled="{currentState === 'testing'}" class="{currentState === 'finished'}"/>
+      <Input type="text" bind:value={domain} placeholder={m.domain()} disabled={currentState === 'testing'} class={ currentState === 'finished' ? 'finished' : undefined }/>
       <span class="zm-domain-test-progress-bar" style="width: {currentContext.progress}%"></span>
     </div>
     <Button type="submit" disabled={currentState === 'testing'} variant="primary">
