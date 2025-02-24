@@ -26,7 +26,7 @@
 </script>
 
 <h2>Test result for zonemaster.net</h2>
-<Stack middle spaceBetween>
+<Stack middle wrap spaceBetween>
   <div>
     Created on <time datetime="2025-02-10T13:04:07.000Z"> Feb 10, 2025, 2:04:07 PM</time>
   </div>
