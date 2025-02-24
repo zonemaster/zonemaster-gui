@@ -78,6 +78,20 @@ export type StartDomainTestData = {
   language?: string;
 };
 
+export type ResultDataResult = {
+  level: 'INFO' | 'NOTICE' | 'WARNING' | 'ERROR' | 'CRITICAL';
+  message: string;
+  module: string;
+  testcase: string;
+};
+
+export type ResultData = {
+  created_at: string;
+  hash_id: string;
+  params: StartDomainTestData;
+  results: ResultDataResult[];
+};
+
 export async function startDomainTest(
   data: StartDomainTestData,
 ): Promise<string> {
@@ -90,4 +104,8 @@ export type TestProgress = {
 
 export async function testProgress(testId: string): Promise<number> {
   return rpc('test_progress', { test_id: testId }, false);
+}
+
+export async function getTestResults(testId: string): Promise<ResultData> {
+  return rpc('get_test_results', { id: testId, language: 'en' }, false);
 }

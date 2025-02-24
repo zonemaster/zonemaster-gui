@@ -2,29 +2,22 @@
 <script lang="ts">
   import Button from '../Button/Button.svelte';
   import Input from '../Input/Input.svelte';
-  import TestAgent from '../../TestAgent.ts';
   import * as m from '@/paraglide/messages';
   import Switch from "@/lib/components/Switch/Switch.svelte";
   import Advanced from "@/lib/components/DomainTest/Advanced.svelte";
   import Stack from "@/lib/components/Stack/Stack.svelte";
   import Result from "@/lib/components/DomainTest/Result.svelte";
+  import { machine, transition } from "@/lib/machine.svelte.ts";
+  import Route from "@/lib/components/Route/Route.svelte";
 
-  let currentState = $state(TestAgent.getState());
-  let currentContext = $state(TestAgent.getContext());
   let domain = $state('');
   let advanced = $state(false);
+  let { currentState, currentContext } = $derived(machine);
 
   function startTest(e: Event) {
     e.preventDefault();
-    TestAgent.transition('START', { domain });
+    transition('START', { domain });
   }
-
-  $effect(() => {
-    TestAgent.subscribe((s, c) => {
-      currentState = s;
-      currentContext = c;
-    });
-  });
 </script>
 <form novalidate onsubmit={startTest} class="zm-domain-test testing-{currentState === 'testing'}">
   <Stack>
@@ -48,7 +41,9 @@
     {/if}
   </div>
 </form>
-<Result />
+<Route path="/result/:id">
+  <Result />
+</Route>
 <style>
   .zm-domain-test {
     background-color: var(--color-palette-main-10);

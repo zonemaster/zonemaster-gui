@@ -2,7 +2,7 @@
   type Props = {
     value?: string;
     label: string;
-    badge?: string;
+    badge?: number;
     name: string;
     checked: boolean;
     severity?: 'all' | 'info' | 'notice' | 'warning' | 'error' | 'critical';

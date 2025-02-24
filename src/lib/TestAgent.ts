@@ -1,5 +1,6 @@
 import { startDomainTest, testProgress } from '@/lib/client.js';
 import StateMachine from '@/lib/StateMachine.ts';
+import { navigate } from '@/lib/router.svelte.ts';
 
 type DomainTestContext = {
   domain: string | null;
@@ -27,7 +28,7 @@ const TestAgent = new StateMachine<DomainTestContext>({
       },
     },
     testing: {
-      on: { PROGRESS: 'testing', COMPLETE: 'finished' },
+      on: { PROGRESS: 'testing', COMPLETE: 'complete' },
       actions: {
         PROGRESS: (context, payload) => {
           context.progress = payload.progress;
@@ -44,9 +45,21 @@ const TestAgent = new StateMachine<DomainTestContext>({
             }, 1000);
           }
         },
+        COMPLETE: (context) => {
+          navigate(`/result/${context.testId}`);
+
+          TestAgent.transition('RESET');
+        },
       },
     },
-    finished: {},
+    complete: {
+      on: { RESET: 'idle' },
+      actions: {
+        RESET: () => {
+          TestAgent.reset();
+        },
+      },
+    },
   },
 });
 

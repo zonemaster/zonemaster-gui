@@ -2,69 +2,31 @@
   import Stack from "@/lib/components/Stack/Stack.svelte";
   import Button from "@/lib/components/Button/Button.svelte";
   import FilterToggle from "@/lib/components/FilterToggle/FilterToggle.svelte";
+  import { location } from "@/lib/router.svelte.js";
+  import {getTestResults} from "@/lib/client.js";
+  import ResultInfo from "@/lib/components/DomainTest/ResultInfo.svelte";
 
-  let filterAll = $state(true);
-  let filterInfo = $state(false);
-  let filterNotice = $state(false);
-  let filterWarning = $state(false);
-  let filterError = $state(false);
-  let filterCritical = $state(false);
+  let id = $derived.by(() => {
+    const match = location.pathname.match(/\/result\/([^/]+)/);
+    return match ? match[1] : null;
+  });
 
-  function onCheck({ target }) {
-    const { value, checked } = target;
+  let loading = $state(true);
+  let result = $state(null);
 
-    if (value === 'all' && checked) {
-      filterInfo = false;
-      filterNotice = false;
-      filterWarning = false;
-      filterError = false;
-      filterCritical = false;
-    } else {
-      filterAll = false;
-    }
-  }
+  $effect(() => {
+    getTestResults(id)
+      .then((data) => {
+        result = data;
+      })
+      .finally(() => {
+        loading = false;
+      });
+  });
 </script>
-
-<h2>Test result for zonemaster.net</h2>
-<Stack middle wrap spaceBetween>
-  <div>
-    Created on <time datetime="2025-02-10T13:04:07.000Z"> Feb 10, 2025, 2:04:07 PM</time>
-  </div>
-  <Stack middle gap="xs">
-    <Button variant="secondary" size="small" type="button">
-      <i class="bi bi-clock-history"></i>
-      History
-    </Button>
-    <Button variant="secondary" size="small" type="button">
-      <i class="bi bi-cloud-arrow-down"></i>
-      Export
-    </Button>
-    <Button variant="secondary" size="small" type="button">
-      <i class="bi bi-share"></i>
-      Share
-    </Button>
-  </Stack>
-</Stack>
-<fieldset class="zm-result">
-  <legend>Filter severity levels</legend>
-  <Stack middle wrap>
-    <FilterToggle name="filter[all]" label="All" badge="54" bind:checked={filterAll} onCheck={onCheck} value="all" />
-    <FilterToggle name="filter[info]" label="Info" badge="52" bind:checked={filterInfo} onCheck={onCheck} severity="info" value="info" />
-    <FilterToggle name="filter[notice]" label="Notice" badge="2" bind:checked={filterNotice} onCheck={onCheck} severity="notice" value="notice" />
-    <FilterToggle name="filter[warning]" label="Warning" badge="0" bind:checked={filterWarning} onCheck={onCheck} severity="warning" value="warning" />
-    <FilterToggle name="filter[error]" label="Error" badge="0" bind:checked={filterError} onCheck={onCheck} severity="error" value="error" />
-    <FilterToggle name="filter[critical]" label="Critical" badge="0" bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
-  </Stack>
-</fieldset>
-
-<style>
-  .zm-result {
-    border: 0;
-    margin-top: var(--spacing-s);
-    padding-top: calc(var(--rhythm) / 2);
-
-    legend {
-      font-weight: 700;
-    }
-  }
-</style>
+{#if loading}
+  Loading result...
+{/if}
+{#if result}
+  <ResultInfo data={result} />
+{/if}

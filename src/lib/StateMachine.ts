@@ -16,11 +16,20 @@ export default class StateMachine<TContext> {
   private currentState: string;
   public context: TContext;
   private subscribers: TransitionCallback<TContext>[] = [];
+  public reset: () => void;
 
   constructor(config: FSMConfig<TContext>) {
     this.states = config.states;
     this.currentState = config.initial;
     this.context = config.context || ({} as TContext);
+
+    this.reset = () => {
+      console.log('reset');
+
+      this.currentState = config.initial;
+      this.context = config.context || ({} as TContext);
+      this.notifySubscribers();
+    };
   }
 
   transition(event: string, payload?: any): void {
@@ -50,8 +59,18 @@ export default class StateMachine<TContext> {
     return this.context;
   }
 
-  subscribe(callback: TransitionCallback<TContext>): void {
+  unsubscribe(callback: TransitionCallback<TContext>): void {
+    const index = this.subscribers.indexOf(callback);
+
+    if (index !== -1) {
+      this.subscribers.splice(index, 1);
+    }
+  }
+
+  subscribe(callback: TransitionCallback<TContext>): () => void {
     this.subscribers.push(callback);
+
+    return () => this.unsubscribe(callback);
   }
 
   private notifySubscribers(): void {
