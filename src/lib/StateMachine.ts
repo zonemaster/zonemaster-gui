@@ -31,6 +31,8 @@ export default class StateMachine<TContext> {
       throw new Error(`Invalid transition: ${event} from ${this.currentState}`);
     }
 
+    console.log(`${this.currentState} -> ${nextState}`, payload);
+
     this.currentState = nextState;
 
     if (stateConfig?.actions?.[event]) {
