@@ -8,6 +8,7 @@
     id?: string;
     disabled?: boolean;
     onInput?: (event: Event & { currentTarget: EventTarget & HTMLInputElement }) => void;
+    class?: string;
   };
 
   let {
@@ -19,13 +20,14 @@
     disabled,
     id,
     onInput,
+    class: className = '',
   }: Props = $props();
 </script>
 
 {#if label}
   <label for={id} class="zm-label">{label}</label>
 {/if}
-<input id={id} bind:value={value} type={type} class="zm-input {size}" disabled={disabled} placeholder={placeholder} oninput={onInput} />
+<input id={id} bind:value={value} type={type} class={['zm-input', size, className]} disabled={disabled} placeholder={placeholder} oninput={onInput} />
 
 <style>
   .zm-input {
