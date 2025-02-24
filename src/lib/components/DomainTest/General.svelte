@@ -29,5 +29,10 @@
     legend {
       font-weight: 700;
     }
+
+    label {
+      cursor: pointer;
+      margin-right: var(--rhythm);
+    }
   }
 </style>
