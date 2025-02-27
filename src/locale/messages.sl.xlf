@@ -4,7 +4,7 @@
     <body>
       <trans-unit datatype="html" id="0c82e2cf51eabccbfebc06f15066ea674e03b5ba">
         <source>Using Zonemaster</source>
-        <target state="new">O Zonemaster</target>
+        <target state="translated">O Zonemaster</target>
         <note priority="1" from="description">faq section header</note>
       </trans-unit>
       <trans-unit datatype="html" id="6c6f25c47da62ec597c6057a36ddfc3209811ec5">
@@ -14,12 +14,12 @@
       </trans-unit>
       <trans-unit datatype="html" id="60f65ef88b3b7d4e4fdd6a9637314c0ea28efce7">
         <source>Algorithm required</source>
-        <target state="new">Algoritem je obvezen</target>
+        <target state="translated">Algoritem je obvezen</target>
         <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit datatype="html" id="455d418945d38adcf1be938b7611936d9eaae897">
         <source>All</source>
-        <target state="new">Vse</target>
+        <target state="translated">Vse</target>
         <note priority="1" from="meaning">history button</note>
       </trans-unit>
       <trans-unit datatype="html" id="ae50a7291ac86efaefeefaaf53afff3b8b8c088b">
@@ -29,7 +29,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="273d8126a0879b8f5f549e8f5afb10d64763dc69">
         <source>Digest required</source>
-        <target state="new">Izvleček je obvezen</target>
+        <target state="translated">Izvleček je obvezen</target>
         <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit datatype="html" id="3530c857805fc74fe628dcc56456fa90ff9128d1">
@@ -39,17 +39,17 @@
       </trans-unit>
       <trans-unit datatype="html" id="3170ad5c24c751337fadf616001812682533f6bf">
         <source>Digest type required</source>
-        <target state="new">Tip izvlečka je obvezen</target>
+        <target state="translated">Tip izvlečka je obvezen</target>
         <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit datatype="html" id="1a59ce56e34ee3e09cdb464315fd929a35e4a579">
         <source>Disable IPv4</source>
-        <target state="new">Onemogoči IPv4</target>
+        <target state="translated">Onemogoči IPv4</target>
         <note priority="1" from="description">form label</note>
       </trans-unit>
       <trans-unit datatype="html" id="57f5db833c6a316988ee4a737cfb06cc826b7f33">
         <source>Disable IPv6</source>
-        <target state="new">Onemogoči IPv6</target>
+        <target state="translated">Onemogoči IPv6</target>
         <note priority="1" from="description">form label</note>
       </trans-unit>
       <trans-unit datatype="html" id="a80323a72217e6e51ab903d5109e12c69ed70b79">
@@ -59,7 +59,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="a6973efdb8db02137e8882b2e0761e8d0ce0f8bb">
         <source>Domain name required</source>
-        <target state="new">Domena je obvezna</target>
+        <target state="translated">Domena je obvezna</target>
         <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit datatype="html" id="4715502322841966813">
@@ -91,7 +91,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="75b9bd26c857ae07ee476407b62139afc742ee0d">
         <source>Keytag required</source>
-        <target state="new">Keytag je obvezen</target>
+        <target state="translated">Keytag je obvezen</target>
         <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit datatype="html" id="ace1918547e0a85b94282b0fa6ba429bf82e704f">
@@ -105,7 +105,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="2e73b2661c3d6ae412b570bce223fb58b42246e1">
         <source>(optional)</source>
-        <target state="new">Možnosti</target>
+        <target state="translated">(možnosti)</target>
         <note priority="1" from="description">form info</note>
       </trans-unit>
       <trans-unit datatype="html" id="03354b2489337882c5a4fd033fec9b9f4b8d109f">
@@ -131,7 +131,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="29832309535656200">
         <source>System</source>
-        <target state="new">Ponastavi</target>
+        <target state="translated">Ponastavi</target>
       </trans-unit>
       <trans-unit datatype="html" id="c6bec34adbe7628d1d4fbbc5fd85a8aab6fa8e5c">
         <source>Results from previous tests are not available.</source>
@@ -140,7 +140,7 @@
       </trans-unit>
       <trans-unit datatype="html" id="d2ad3cfb2e9fdfd4639cfafdf499de2d8474c6a4">
         <source>Run a test</source>
-        <target state="new">Zaženi test</target>
+        <target state="translated">Zaženi test</target>
         <note priority="1" from="description">nav link</note>
       </trans-unit>
       <trans-unit datatype="html" id="0bd8b27f60a1f098a53e06328426d818e3508ff9">
@@ -154,27 +154,27 @@
       </trans-unit>
       <trans-unit datatype="html" id="d69885612ebddfbf7d35a2ce83d5baeff7ad241c">
         <source>The message means a very serious error.</source>
-        <target state="new">Kritično – zelo resna napaka.</target>
+        <target state="translated">Kritično – zelo resna napaka.</target>
         <note priority="1" from="description">result security level description</note>
       </trans-unit>
       <trans-unit datatype="html" id="a77034e6d6ab1e4aaa7bb0669cf726a27b2957c5">
         <source>The message means a problem that is very likely (or possibly certain) to negatively affect the function of the zone being tested, but not so severe that the entire zone becomes unresolvable.</source>
-        <target state="new">Napaka – težava, ki bo najverjetneje negativno vplivala na delovanje testirane cone, toda ni tako resna, da bi povzročila izpad.</target>
+        <target state="translated">Napaka – težava, ki bo najverjetneje negativno vplivala na delovanje testirane cone, toda ni tako resna, da bi povzročila izpad.</target>
         <note priority="1" from="description">result security level description</note>
       </trans-unit>
       <trans-unit datatype="html" id="5cf4e8619e7768ddf7a7cdad1aa5e6749b03b4da">
         <source>The message is something that may be of interest to the zone&apos;s administrator but that definitely does not indicate a problem.</source>
-        <target state="new">Info – podatek, ki bi lahko bil zanimiv za administratorja cone, zagotovo pa ne nakazuje nobene težave.</target>
+        <target state="translated">Info – podatek, ki bi lahko bil zanimiv za administratorja cone, zagotovo pa ne nakazuje nobene težave.</target>
         <note priority="1" from="description">result security level description</note>
       </trans-unit>
       <trans-unit datatype="html" id="4762a0de396f9cd1aff598bcf8a6c2da7a73df7a">
         <source>The message means something that should be known by the zone&apos;s administrator but that need not necessarily be a problem at all.</source>
-        <target state="new">Obvestilo - podatek, s katerim bi moral administrator cone biti seznanjen, ne nakazuje pa nobene težave.</target>
+        <target state="translated">Obvestilo - podatek, s katerim bi moral administrator cone biti seznanjen, ne nakazuje pa nobene težave.</target>
         <note priority="1" from="description">result security level description</note>
       </trans-unit>
       <trans-unit datatype="html" id="6e9c0eea7c3d5eea9e23e74ab88c1bee04b15c7c">
         <source>The message means something that will under some circumstances be a problem, but that is unlikely to be noticed by a casual user.</source>
-        <target state="new">Opozorilo – nekaj, kar bi pod določenimi pogoji lahko povzročilo težave.</target>
+        <target state="translated">Opozorilo – nekaj, kar bi pod določenimi pogoji lahko povzročilo težave.</target>
         <note priority="1" from="description">result security level description</note>
       </trans-unit>
       <trans-unit datatype="html" id="51c0cd045c7c68c5936905244f1a0a9c7d294ed3">
@@ -188,19 +188,19 @@
       </trans-unit>
       <trans-unit id="b3dfbf046af68ba1b52e0694cef6a4c41a3b625a" datatype="html">
         <source>Delegated</source>
-        <target state="new">Delegirano</target>
+        <target state="translated">Delegirano</target>
         <note priority="1" from="description">plural delegated</note>
         <note priority="1" from="meaning">history button</note>
       </trans-unit>
       <trans-unit id="afe335e79bd416e2d490a0915be4df532a5281ac" datatype="html">
         <source>Undelegated</source>
-        <target state="new">Nedelegirano</target>
+        <target state="translated">Nedelegirano</target>
         <note priority="1" from="description">plural undelegated</note>
         <note priority="1" from="meaning">history button</note>
       </trans-unit>
       <trans-unit id="7844a0832e0fd678c3b1045126b88c6754503177" datatype="html">
         <source>Undelegated</source>
-        <target state="new">Nedelegirana</target>
+        <target state="translated">Nedelegirana</target>
         <note priority="1" from="description">singular undelegated</note>
         <note priority="1" from="meaning">history info</note>
       </trans-unit>
@@ -266,11 +266,11 @@
       </trans-unit>
       <trans-unit id="e8750fdb823634e13d8c76d1a3d9ddf94ceaa30e" datatype="html">
         <source>A word about the DNS</source>
-        <target state="new">O DNS</target>
+        <target state="translated">O DNS</target>
       </trans-unit>
       <trans-unit id="4378147649219625174" datatype="html">
         <source>Zone</source>
-        <target state="new">Zaženi</target>
+        <target state="translated">Zaženi</target>
       </trans-unit>
       <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
         <source>Change language</source>
@@ -288,11 +288,11 @@
       </trans-unit>
       <trans-unit id="6534302992540929721" datatype="html">
         <source>Nameserver</source>
-        <target state="new">Imenski strežnik</target>
+        <target state="translated">Imenski strežnik</target>
       </trans-unit>
       <trans-unit id="729754dd19eb9ce0670b0aeb5a6ae60574c2c563" datatype="html">
         <source>Address</source>
-        <target state="new">Naslov IP</target>
+        <target state="translated">Naslov IP</target>
         <note priority="1" from="description">form label</note>
       </trans-unit>
       <trans-unit id="469bd9b4d935f4b60b0fb10af4dba592c6c14f5a" datatype="html">
@@ -312,7 +312,7 @@
       </trans-unit>
       <trans-unit id="119524f05ad7b4c4893076cc4f104b9b316451a5" datatype="html">
         <source>Cannot disable both IPv4 and IPv6</source>
-        <target state="new">Ni možno onemogočiti IPv4 in IPv6</target>
+        <target state="translated">Ni možno onemogočiti IPv4 in IPv6</target>
         <note priority="1" from="description">form error</note>
       </trans-unit>
       <trans-unit id="1899778155771790050" datatype="html">
@@ -384,12 +384,12 @@
       </trans-unit>
       <trans-unit id="56a21bdcd76a6ac5dd60c17f5170b999b63e0ac0" datatype="html">
         <source>Source code</source>
-        <target state="new">Izvorna koda</target>
+        <target state="translated">Izvorna koda</target>
         <note priority="1" from="meaning">footer</note>
       </trans-unit>
       <trans-unit id="0d7a9fc8b4f70faf02a5f9a36e40d0950a1c5ed3" datatype="html">
         <source>Documentation</source>
-        <target state="new">Dokumentacija</target>
+        <target state="translated">Dokumentacija</target>
         <note priority="1" from="meaning">footer</note>
       </trans-unit>
       <trans-unit id="6b48c7f8dc821a21cc57e5fc802a8ba337335b23" datatype="html">
