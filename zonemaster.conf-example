@@ -26,15 +26,15 @@
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule "^(da|en|es|fi|fr|nb|sv)" $1/index.html [L]
+    RewriteRule "^(da|en|es|fi|fr|nb|sl|sv)" $1/index.html [L]
 
     # Rewrite path to new language scheme using preferred locale
-    RewriteCond $1 "!^(da|en|es|fi|fr|nb|sv|assets)"
-    RewriteCond %{HTTP:Accept-Language} ^(da|en|es|fi|fr|nb|sv) [NC]
+    RewriteCond $1 "!^(da|en|es|fi|fr|nb|sl|sv|assets)"
+    RewriteCond %{HTTP:Accept-Language} ^(da|en|es|fi|fr|nb|sl|sv) [NC]
     RewriteRule ^(.+)$ %1/index.html [L]
 
     # Redirect user based on prefered locale
-    RewriteCond %{HTTP:Accept-Language} ^(da|en|es|fi|fr|nb|sv) [NC]
+    RewriteCond %{HTTP:Accept-Language} ^(da|en|es|fi|fr|nb|sl|sv) [NC]
     RewriteRule ^$ ${BASE_URL}%1/ [R,L]
 
     # Default locale
