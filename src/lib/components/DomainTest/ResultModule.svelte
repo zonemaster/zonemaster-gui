@@ -17,8 +17,6 @@
   ).map(([level, results]) => ({ level: level as ResultLevel, count: results.length }));
   const grouped: Partial<Record<string, ResultDataResult[]>> = Object.groupBy(results, ({ testcase }) => testcase);
   let open = $state(false);
-
-  console.log('module', module, results);
 </script>
 <section class="zm-result">
   <h3>

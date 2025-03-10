@@ -24,8 +24,6 @@ export default class StateMachine<TContext> {
     this.context = config.context || ({} as TContext);
 
     this.reset = () => {
-      console.log('reset');
-
       this.currentState = config.initial;
       this.context = config.context || ({} as TContext);
       this.notifySubscribers();
