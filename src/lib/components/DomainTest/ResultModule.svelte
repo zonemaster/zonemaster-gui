@@ -4,6 +4,7 @@
   import niceName from "@/lib/niceName.ts";
   import Badge from "@/lib/components/Badge/Badge.svelte";
   import ResultGroup from "@/lib/components/DomainTest/ResultGroup.svelte";
+  import {expandedModules, toggleModule} from "@/lib/components/DomainTest/store.svelte.ts";
 
   type Props = {
     module: string;
@@ -16,11 +17,11 @@
     Object.groupBy(results, ({ level }) => level as ResultLevel)
   ).map(([level, results]) => ({ level: level as ResultLevel, count: results.length }));
   const grouped: Partial<Record<string, ResultDataResult[]>> = Object.groupBy(results, ({ testcase }) => testcase);
-  let open = $state(false);
+  let open: boolean = $derived(expandedModules[module] || false);
 </script>
 <section class="zm-result">
   <h3>
-    <button onclick={() => open = !open}>
+    <button onclick={() => toggleModule(module)}>
       <i class="bi bi-chevron-{open ? 'up' : 'down'}"></i>
       {niceName(module)}
 

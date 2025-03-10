@@ -6,6 +6,7 @@
   import ResultModule from "@/lib/components/DomainTest/ResultModule.svelte";
   import stack from '@/lib/components/Stack/stack.module.css';
   import Input from "@/lib/components/Input/Input.svelte";
+  import {collapseAll, expandAll} from "@/lib/components/DomainTest/store.svelte.ts";
 
   type Props = {
     data: ResultData;
@@ -57,6 +58,14 @@
 
     filterItems();
   }
+
+  function expandAllModules() {
+    expandAll(Object.keys(result));
+  }
+
+  function collapseAllModules() {
+    collapseAll(Object.keys(result));
+  }
 </script>
 <h2>Test result for {data.params.domain}</h2>
 <Stack middle wrap spaceBetween>
@@ -90,7 +99,7 @@
       <FilterToggle name="filter[critical]" label="Critical" badge={data.results.filter((r) => r.level === 'CRITICAL').length} bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
     </Stack>
   </fieldset>
-  <fieldset class="zm-fieldset {stack.stack} {stack.middle}">
+  <fieldset class="zm-fieldset {stack.stack} {stack.bottom} {stack['gap--xs']}">
     <div class={stack.expand}>
       <Input
         id="filterQuery"
@@ -101,6 +110,8 @@
         onInput={filterItems}
       />
     </div>
+    <Button onClick={expandAllModules} variant="secondary">Expand all modules</Button>
+    <Button onClick={collapseAllModules} variant="secondary">Collapse all</Button>
   </fieldset>
   <Stack vertical gap="xs">
     {#each Object.entries(result) as [module, results]}
