@@ -78,8 +78,10 @@ export type StartDomainTestData = {
   language?: string;
 };
 
+export type ResultLevel = 'INFO' | 'NOTICE' | 'WARNING' | 'ERROR' | 'CRITICAL';
+
 export type ResultDataResult = {
-  level: 'INFO' | 'NOTICE' | 'WARNING' | 'ERROR' | 'CRITICAL';
+  level: ResultLevel;
   message: string;
   module: string;
   testcase: string;
@@ -90,6 +92,7 @@ export type ResultData = {
   hash_id: string;
   params: StartDomainTestData;
   results: ResultDataResult[];
+  testcase_descriptions: Record<string, string>;
 };
 
 export async function startDomainTest(

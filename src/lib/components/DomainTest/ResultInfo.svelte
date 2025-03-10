@@ -17,6 +17,7 @@
   let filterWarning = $state(false);
   let filterError = $state(false);
   let filterCritical = $state(false);
+  let result = $state(Object.groupBy(data.results, ({ module }) => module));
 
   function onCheck({ target }: Event) {
     const { value, checked } = target as HTMLInputElement;
@@ -30,9 +31,29 @@
     } else {
       filterAll = false;
     }
-  }
 
-  const result = Object.groupBy(data.results, ({ module }) => module);
+    const filters = [
+      filterInfo ? 'INFO' : null,
+      filterNotice ? 'NOTICE' : null,
+      filterWarning ? 'WARNING' : null,
+      filterError ? 'ERROR' : null,
+      filterCritical ? 'CRITICAL' : null,
+    ].filter(filter => filter !== null);
+
+    if (filters.length === 0) {
+      filterAll = true;
+    }
+
+    if (filterAll) {
+      result = Object.groupBy(data.results, ({ module }) => module);
+      return;
+    }
+
+    result = Object.groupBy(
+      data.results.filter((item) => filters.includes(item.level)),
+      ({ module }) => module
+    );
+  }
 </script>
 <h2>Test result for {data.params.domain}</h2>
 <Stack middle wrap spaceBetween>
@@ -66,9 +87,11 @@
       <FilterToggle name="filter[critical]" label="Critical" badge={data.results.filter((r) => r.level === 'CRITICAL').length} bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
     </Stack>
   </fieldset>
-  <Stack vertical>
+  <Stack vertical gap="xs">
     {#each Object.entries(result) as [module, results]}
-      <ResultModule module={module} results={results || []} />
+      {#key module}
+        <ResultModule module={module} results={results || []} descriptions={data.testcase_descriptions} />
+      {/key}
     {/each}
   </Stack>
 </Stack>

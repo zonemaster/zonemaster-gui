@@ -1,7 +1,4 @@
 <script>
-  import Stack from "@/lib/components/Stack/Stack.svelte";
-  import Button from "@/lib/components/Button/Button.svelte";
-  import FilterToggle from "@/lib/components/FilterToggle/FilterToggle.svelte";
   import { location } from "@/lib/router.svelte.js";
   import {getTestResults} from "@/lib/client.js";
   import ResultInfo from "@/lib/components/DomainTest/ResultInfo.svelte";
@@ -15,6 +12,8 @@
   let result = $state(null);
 
   $effect(() => {
+    if (!id) return;
+
     getTestResults(id)
       .then((data) => {
         result = data;
@@ -24,9 +23,9 @@
       });
   });
 </script>
-{#if loading}
+{#if id && loading}
   Loading result...
 {/if}
-{#if result}
+{#if id && result}
   <ResultInfo data={result} />
 {/if}
