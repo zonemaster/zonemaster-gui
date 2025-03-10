@@ -17,9 +17,9 @@
   "private": false,
   "type": "module",
   "dependencies": {
-    "@astrojs/svelte": "^7.0.4",
+    "@astrojs/svelte": "^7.0.5",
     "@inlang/paraglide-astro": "^0.3.5",
-    "astro": "^5.2.5",
+    "astro": "^5.4.2",
     "svelte": "^5.19.9"
   },
   "devDependencies": {
