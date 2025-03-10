@@ -1,5 +1,6 @@
 <script lang="ts">
   import type {Snippet} from "svelte";
+  import styles from './stack.module.css';
 
   type Props = {
     gap?: 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | boolean;
@@ -34,86 +35,22 @@
   }: Props = $props();
 </script>
 
-<div class={['stack', { [`gap--${gap}`]: gap }, { vertical }, { wrap }, { top }, { middle }, { bottom }, { left }, { center }, { right }, { spaceBetween }, { reverse }, restProps.class]}>
+<div
+  class={[
+    styles.stack,
+    { [styles[`gap--${gap}`]]: gap },
+    { [styles.vertical]: vertical },
+    { [styles.wrap]: wrap },
+    { [styles.top]: top },
+    { [styles.middle]: middle },
+    { [styles.bottom]: bottom },
+    { [styles.left]: left },
+    { [styles.center]: center },
+    { [styles.right]: right },
+    { [styles.spaceBetween]: spaceBetween },
+    { [styles.reverse]: reverse },
+    restProps.class
+  ]}
+>
   {@render children?.()}
 </div>
-<style>
-  .stack {
-    display: flex;
-    gap: var(--gap);
-  }
-
-  .wrap {
-    flex-wrap: wrap;
-  }
-
-  .vertical {
-    flex-direction: column;
-  }
-
-  /**
-   *  =Horizontal Stack
-   *  ==================================== */
-  .stack:not(.vertical).bottom {
-    align-items: flex-end;
-  }
-
-  .stack:not(.vertical).middle {
-    align-items: center;
-  }
-
-  .stack:not(.vertical).top {
-    align-items: flex-start;
-  }
-
-  .stack:not(.vertical).left {
-    justify-content: flex-start;
-  }
-
-  .stack:not(.vertical).center {
-    justify-content: center;
-  }
-
-  .stack:not(.vertical).right {
-    justify-content: flex-end;
-  }
-
-  .stack:not(.vertical).spaceBetween {
-    justify-content: space-between;
-  }
-
-  .stack:not(.vertical).reverse {
-    flex-direction: row-reverse;
-  }
-
-  /**
-   *  =Vertical Stack
-   *  ==================================== */
-  .vertical.bottom {
-    justify-content: flex-end;
-  }
-
-  .vertical.middle {
-    justify-content: center;
-  }
-
-  .vertical.top {
-    justify-content: flex-start;
-  }
-
-  .vertical.left {
-    align-items: flex-start;
-  }
-
-  .vertical.center {
-    align-items: center;
-  }
-
-  .vertical.right {
-    align-items: flex-end;
-  }
-
-  .vertical.reverse {
-    flex-direction: column-reverse;
-  }
-</style>

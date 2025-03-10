@@ -4,6 +4,8 @@
   import Button from "@/lib/components/Button/Button.svelte";
   import FilterToggle from "@/lib/components/FilterToggle/FilterToggle.svelte";
   import ResultModule from "@/lib/components/DomainTest/ResultModule.svelte";
+  import stack from '@/lib/components/Stack/stack.module.css';
+  import Input from "@/lib/components/Input/Input.svelte";
 
   type Props = {
     data: ResultData;
@@ -11,6 +13,7 @@
 
   const { data }: Props = $props();
 
+  let query = $state('');
   let filterAll = $state(true);
   let filterInfo = $state(false);
   let filterNotice = $state(false);
@@ -18,6 +21,26 @@
   let filterError = $state(false);
   let filterCritical = $state(false);
   let result = $state(Object.groupBy(data.results, ({ module }) => module));
+
+  function filterItems() {
+    const filters = [
+      filterInfo ? 'INFO' : null,
+      filterNotice ? 'NOTICE' : null,
+      filterWarning ? 'WARNING' : null,
+      filterError ? 'ERROR' : null,
+      filterCritical ? 'CRITICAL' : null,
+    ].filter(filter => filter !== null);
+
+    const queryLower = query.toLowerCase();
+    const filtered = data.results
+      .filter((item) => filterAll || filters.includes(item.level))
+      .filter((item) => !query || item.message.toLowerCase().includes(queryLower));
+
+    result = Object.groupBy(
+      filtered,
+      ({ module }) => module
+    );
+  }
 
   function onCheck({ target }: Event) {
     const { value, checked } = target as HTMLInputElement;
@@ -32,27 +55,7 @@
       filterAll = false;
     }
 
-    const filters = [
-      filterInfo ? 'INFO' : null,
-      filterNotice ? 'NOTICE' : null,
-      filterWarning ? 'WARNING' : null,
-      filterError ? 'ERROR' : null,
-      filterCritical ? 'CRITICAL' : null,
-    ].filter(filter => filter !== null);
-
-    if (filters.length === 0) {
-      filterAll = true;
-    }
-
-    if (filterAll) {
-      result = Object.groupBy(data.results, ({ module }) => module);
-      return;
-    }
-
-    result = Object.groupBy(
-      data.results.filter((item) => filters.includes(item.level)),
-      ({ module }) => module
-    );
+    filterItems();
   }
 </script>
 <h2>Test result for {data.params.domain}</h2>
@@ -76,7 +79,7 @@
   </Stack>
 </Stack>
 <Stack vertical gap="m">
-  <fieldset class="zm-result">
+  <fieldset class="zm-fieldset">
     <legend>Filter severity levels</legend>
     <Stack middle wrap>
       <FilterToggle name="filter[all]" label="All" badge={data.results.length} bind:checked={filterAll} onCheck={onCheck} value="all" />
@@ -87,6 +90,18 @@
       <FilterToggle name="filter[critical]" label="Critical" badge={data.results.filter((r) => r.level === 'CRITICAL').length} bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
     </Stack>
   </fieldset>
+  <fieldset class="zm-fieldset {stack.stack} {stack.middle}">
+    <div class={stack.expand}>
+      <Input
+        id="filterQuery"
+        type="search"
+        placeholder="Search"
+        bind:value={query}
+        label="Search text in messages"
+        onInput={filterItems}
+      />
+    </div>
+  </fieldset>
   <Stack vertical gap="xs">
     {#each Object.entries(result) as [module, results]}
       {#key module}
@@ -96,10 +111,12 @@
   </Stack>
 </Stack>
 <style>
-  .zm-result {
+  h2 {
+    margin-bottom: var(--spacing-m);
+  }
+
+  .zm-fieldset {
     border: 0;
-    margin-top: var(--spacing-s);
-    padding-top: calc(var(--rhythm) / 2);
 
     legend {
       font-weight: 700;
