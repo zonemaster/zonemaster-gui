@@ -2,6 +2,7 @@
 import FAQ from '../../components/Faq.astro';
 import Layout from '../../layouts/Layout.astro';
 import config from '../../../astro.config.mjs';
+import {getCollection} from "astro:content";
 
 export function getStaticPaths () {
 	if (!config.i18n) {
@@ -14,8 +15,11 @@ export function getStaticPaths () {
 		.filter(lang => lang !== config?.i18n?.defaultLocale)
 		.map(lang => ({ params: { lang } }));
 }
+
+const faq = await getCollection('faq') as Array<{ data: { category: string } }>;
+const grouped = Object.groupBy(faq, (item) => item.data.category);
 ---
 
 <Layout>
-	<FAQ />
+	<FAQ data={grouped} />
 </Layout>

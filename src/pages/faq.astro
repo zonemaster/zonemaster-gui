@@ -1,8 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import FAQ from '../components/Faq.astro';
 import Layout from '../layouts/Layout.astro';
+
+const faq = await getCollection('faq') as Array<{ data: { category: string } }>;
+const grouped = Object.groupBy(faq, (item) => item.data.category);
 ---
 
 <Layout>
-	<FAQ />
+	<FAQ data={grouped} />
 </Layout>
