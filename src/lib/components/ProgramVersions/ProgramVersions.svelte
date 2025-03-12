@@ -1,6 +1,8 @@
 <script lang="ts">
   import {versionInfo} from "@/lib/client.ts";
   import {error} from "@/lib/alert.svelte.ts";
+  import Switch from '@/lib/components/Switch/Switch.svelte';
+  import Advanced from "@/lib/components/DomainTest/Advanced.svelte";
 
   type Version = {
     key: string;
@@ -13,6 +15,7 @@
 
   let versions: Version[] = $state([]);
   let loading = $state(true);
+  let version = $state(false);
 
   $effect(() => {
     versionInfo().then((data: Data) => {
@@ -24,12 +27,17 @@
     });
   });
 </script>
+
 {#if loading}
   <p>Loading...</p>
 {:else}
-<ul>
-  {#each versions as {key, value}}
-    <li>{key}: {value}</li>
-  {/each}
-</ul>
+  <Switch id="program-versions-toggle" controls="program-versions" active={version} onClick={() => version = !version}>
+    Program versions
+  </Switch>
+  <ul id="program-versions" hidden={!version}>
+    {#each versions as {key, value}}
+      <li>{key}: {value}</li>
+    {/each}
+  </ul>
 {/if}
+
