@@ -407,7 +407,7 @@
       </trans-unit>
       <trans-unit id="aaf16bc892257c68570faaece1ae7c328d4ea574" datatype="html">
         <source>Give your domain name a complete checkup! <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster helps you assess how your domain name is doing.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
-        <target state="translated">Ge ditt domännamn en fullständig kontroll! <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster hjälper dig att bedöma hur ditt domännamn fungerar.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
+        <target state="translated">Ge ditt domännamn en fullständig hälsokontroll! <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster hjälper dig bedöma hur ditt domännamn mår.<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
       </trans-unit>
       <trans-unit id="990eafebba6d6aa5a9d04f33005ee4bf01e83a20" datatype="html">
         <source><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>Zonemaster performs many tests<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>, such as checking DNSSEC signatures, or that different hosts can be accessed and that IP addresses are valid. This is all to make sure that your domain name runs as smoothly as possible.</source>
@@ -480,17 +480,17 @@
       </trans-unit>
       <trans-unit id="865aac49d53d372537909b1df21a9d111d50c9f1" datatype="html">
         <source>This open source version of Zonemaster was built using modular code which basically means that you can integrate parts of it in your own systems, if you wish. For example, it is quite rare that you would want a complete program just to check for redelegations.</source>
-        <target state="new">Och till sist, Zonemaster är öppen källkod och är modulärt uppbyggt, vilket betyder att man kan integrera delar av Zonemaster i sitt eget system om man vill.</target>
+        <target state="new">Zonemaster är öppen källkod och är modulärt uppbyggt, vilket gör det enkelt att integrera valda delar i ditt eget system.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="f3a7aab6d6b07e6db0c1ba7e4b88f53430d5ce81" datatype="html">
         <source>How can Zonemaster distinguish between what is right and wrong?</source>
-        <target state="translated">Hur kan Zonemaster bedömma vad som är rätt och fel?</target>
+        <target state="translated">Hur kan Zonemaster bedöma vad som är rätt och fel?</target>
         <note priority="1" from="description">faq question</note>
       </trans-unit>
       <trans-unit id="7d2a11619babe460976bf5e38e5e920cbbf968cd" datatype="html">
         <source>Sometimes there are different interpretations of the standards or opinions on what is best practice, and the Zonemaster team is always open to input. If you think we have made a mistake in our judgement please do not hesitate to send us an email at <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;mailto:zonemaster-users@lists.iis.se&quot;&gt;"/>zonemaster-users@lists.iis.se<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (moderated mailing list) with a link to your test result and an explanation as to why you think it shows something that you consider incorrect.</source>
-        <target state="translated">Ibland finns det olika tolkningar av standarden eller synpunkter på vad som är den rekommenderade inställningen. Zonemastergruppen välkomnar alltid synpunkter och kommentarer på detta. Om du tror du hittat något som du tycker att vi har felbedömt, tveka inte att kontakta oss på <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;mailto:zonemaster-users@lists.iis.se&quot;&gt;"/>zonemaster-users@lists.iis.se<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (modererad e-postlista) med en länk till ditt test och en förklaring av varför du anser att resultatet inte är korrekt.</target>
+        <target state="translated">Ibland finns det olika tolkningar av standarder eller synpunkter på vad som är bästa praxis, och Zonemastergruppen är alltid öppet för synpunkter. Om anser att vi har gjort en felaktig bedömning, tveka inte att kontakta oss på <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;mailto:zonemaster-users@lists.iis.se&quot;&gt;"/>zonemaster-users@lists.iis.se<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> (modererad e-postlista) med en länk till ditt testresultat och en förklaring av varför du anser att resultatet är felaktigt.</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="43b794c269088e266109a7e6325a2735fa84dea5" datatype="html">
@@ -514,7 +514,7 @@
       </trans-unit>
       <trans-unit id="87b80f57df949b82582bceaf5fd07567657d83a3" datatype="html">
         <source>How come my domain name cannot be tested?</source>
-        <target state="translated">Varför kan jag inte testa min domän?</target>
+        <target state="translated">Varför kan min domän inte testas?</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="0bdf75b30593d6ecbd74e34628d90e8530ec8e05" datatype="html">
@@ -699,7 +699,7 @@
       </trans-unit>
       <trans-unit id="1653de50d322462bc8c27d7e1735fee3836e8475" datatype="html">
         <source>The descriptions of message levels such as <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>NOTICE<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>, <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>WARNING<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> and <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>ERROR<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> are found in <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md&quot;&gt;"/>Severity Level Definitions<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
-        <target state="new">En beskrivning av felnivåerna som används, som <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>notice<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> (&quot;notering&quot;), <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>warning<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> (&quot;varning&quot;) och <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>error<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> (&quot;fel&quot;) finns i dokumentet &quot;<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md&quot;&gt;"/>Severity Level Definitions<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>&quot; (Defintion av felnivåer).</target>
+        <target state="new">En beskrivning av felnivåerna som används, som <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>notice<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> (&quot;NOTERING&quot;), <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>warning<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> (&quot;VARNING&quot;) och <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>error<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/> (&quot;FEL&quot;) finns i dokumentet &quot;<x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md&quot;&gt;"/>Severity Level Definitions<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>&quot; (Defintion av felnivåer).</target>
         <note priority="1" from="description">faq answer</note>
       </trans-unit>
       <trans-unit id="6d41e759de3c0117413b5a6e5b5cd3f44ecb4676" datatype="html">
