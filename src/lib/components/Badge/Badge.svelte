@@ -21,7 +21,7 @@
   .zm-badge {
     background: var(--color-muted);
     color: var(--color-palette-white);
-    font-size: var(--font-xs);
+    font-size: var(--font-s);
     font-weight: bold;
     border-radius: var(--border-radius);
     padding: var(--spacing-xxs) var(--spacing-xs);
@@ -36,6 +36,7 @@
 
     &.warning {
       background: var(--color-palette-warning-50);
+      color: var(--color-palette-black);
     }
 
     &.error, &.critical {
@@ -43,7 +44,8 @@
     }
 
     &.round {
-      border-radius: 999px;
+      border-radius: 50%;
+      font-size: var(--font-xs);
     }
   }
 </style>

@@ -18,7 +18,7 @@
     <header>
       <h4>
         <button onclick={() => open = !open} class={level.toLowerCase()}>
-          <i class="bi bi-{open ? 'dash' : 'plus'}-square"></i>
+          <i class="bi bi-{open ? 'dash' : 'plus'}-square-fill"></i>
           {descriptions[testcase]}
         </button>
       </h4>
@@ -51,7 +51,12 @@
     align-items: center;
     gap: var(--spacing-s);
     white-space: nowrap;
+    font-size: calc(var(--font-xs) * 1.15);
     color: var(--color-palette-success-70);
+
+    i {
+      font-size: var(--font-s);
+    }
 
     &.notice {
       color: var(--color-palette-info-70);
@@ -59,6 +64,10 @@
 
     &.warning {
       color: var(--color-palette-warning-70);
+
+      i {
+        color: var(--color-palette-warning-50);
+      }
     }
 
     &.error, &.critical {

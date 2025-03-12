@@ -22,7 +22,7 @@
 <section class="zm-result">
   <h3>
     <button onclick={() => toggleModule(module)}>
-      <i class="bi bi-chevron-{open ? 'up' : 'down'}"></i>
+      <i class="bi bi-caret-{open ? 'up' : 'down'}-fill"></i>
       {niceName(module)}
 
       {#each summary as { level, count }, i}
