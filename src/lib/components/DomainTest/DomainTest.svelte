@@ -18,12 +18,6 @@
     e.preventDefault();
     transition('START', { domain });
   }
-
-  if ( currentState !== 'testing' ) {
-    currentContext.progress = 0;
-    console.log(currentState)
-    console.log(currentContext.progress);
-  }
 </script>
 <form novalidate onsubmit={startTest} class="zm-domain-test testing-{currentState === 'testing'}">
   <Stack>
