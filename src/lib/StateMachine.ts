@@ -21,7 +21,7 @@ export default class StateMachine<TContext> {
   constructor(config: FSMConfig<TContext>) {
     this.states = config.states;
     this.currentState = config.initial;
-    this.context = config.context || ({} as TContext);
+    this.context = { ...config.context } as TContext;
 
     this.reset = () => {
       this.currentState = config.initial;
