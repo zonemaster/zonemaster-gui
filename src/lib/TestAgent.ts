@@ -34,7 +34,7 @@ const TestAgent = new StateMachine<DomainTestContext>({
           context.progress = payload.progress;
 
           if (context.progress >= 100) {
-            TestAgent.transition('COMPLETE');
+            TestAgent.transition('COMPLETE', { progress: 0 });
           } else {
             setTimeout(() => {
               if (context.testId && TestAgent.getState() === 'testing') {
