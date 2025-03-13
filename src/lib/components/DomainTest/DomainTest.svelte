@@ -18,12 +18,18 @@
     e.preventDefault();
     transition('START', { domain });
   }
+
+  if ( currentState !== 'testing' ) {
+    currentContext.progress = 0;
+    console.log(currentState)
+    console.log(currentContext.progress);
+  }
 </script>
 <form novalidate onsubmit={startTest} class="zm-domain-test testing-{currentState === 'testing'}">
   <Stack>
     <div class="zm-domain-test-progress">
       <Input type="text" bind:value={domain} placeholder={m.domain()} disabled={currentState === 'testing'} class={ currentState === 'finished' ? 'finished' : undefined }/>
-      <span class="zm-domain-test-progress-bar" style="width: {currentContext.progress}%"></span>
+        <span class="zm-domain-test-progress-bar" style="width: {currentContext.progress}%"></span>
     </div>
     <Button type="submit" disabled={currentState === 'testing'} variant="primary">
       {currentState !== 'testing' ? m.startTestBtn() : m.runningTest()}
@@ -64,14 +70,15 @@
         top: 0;
         bottom: 0;
         left: 0;
-        width: 50%;
+        width: 0%;
         opacity: 0.5;
         transition: width 0.5s linear;
         background-image: linear-gradient(45deg, var(--color-palette-main-30) 25%, transparent 25%, transparent 50%, var(--color-palette-main-30) 50%, var(--color-palette-main-30) 75%, transparent 75%, transparent);
         background-size: 80px 80px;
         animation: progress-bar-stripes 2s linear infinite;
         z-index: 2;
-        border-radius: var(--border-radius);
+        border-top-left-radius: var(--border-radius);
+        border-bottom-left-radius: var(--border-radius);
       }
     }
 

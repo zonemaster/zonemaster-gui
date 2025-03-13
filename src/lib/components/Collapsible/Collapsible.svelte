@@ -26,7 +26,7 @@
     </a>
   </header>
   <div class="zm-collapsible-content" id="faq-entry-{id}" aria-hidden="{open ? 'false' : 'true'}">
-    {@html content}
+      {@html content}
   </div>
 </article>
 <style>
@@ -49,6 +49,17 @@
     padding: var(--spacing-s);
     border-top: 1px solid var(--color-palette-secondary-30);
     background-color: var(--color-palette-white);
+  }
+
+  p,
+  ul,
+  ol,
+  h2,
+  h3,
+  h4,
+  h6,
+  h6 {
+    max-width: 60ch;
   }
 
   [aria-hidden='true'] {
