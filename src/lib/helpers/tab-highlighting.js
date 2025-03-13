@@ -4,22 +4,22 @@ const element = document.getElementsByTagName('html')[0];
 const highLightClass = 'tab-highlight';
 
 function onKeyDown(e) {
-  const event = e;
-  if (!event) {
-    window.event = event;
-  }
+    const event = e;
+    if (!event) {
+        window.event = event;
+    }
 
-  const keyCode = event.keyCode || event.which;
-  const tabKey = 9;
+    const keyCode = event.keyCode || event.which;
+    const tabKey = 9;
 
-  if (keyCode === tabKey) {
-    this.classList.add(highLightClass);
-  }
+    if (keyCode === tabKey) {
+        this.classList.add(highLightClass);
+    }
 }
 
 /* Remove class on mouse click */
 function onMouseDown() {
-  this.classList.remove(highLightClass);
+    this.classList.remove(highLightClass);
 }
 
 /* Run on events */

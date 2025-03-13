@@ -1,117 +1,117 @@
 .stack {
-  display: flex;
-  gap: var(--gap);
+    display: flex;
+    gap: var(--gap);
 }
 
 .wrap {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .vertical {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 /**
  *  =Horizontal Stack
  *  ==================================== */
 .stack:not(.vertical).bottom {
-  align-items: flex-end;
+    align-items: flex-end;
 }
 
 .stack:not(.vertical).middle {
-  align-items: center;
+    align-items: center;
 }
 
 .stack:not(.vertical).top {
-  align-items: flex-start;
+    align-items: flex-start;
 }
 
 .stack:not(.vertical).left {
-  justify-content: flex-start;
+    justify-content: flex-start;
 }
 
 .stack:not(.vertical).center {
-  justify-content: center;
+    justify-content: center;
 }
 
 .stack:not(.vertical).right {
-  justify-content: flex-end;
+    justify-content: flex-end;
 }
 
 .stack:not(.vertical).spaceBetween {
-  justify-content: space-between;
+    justify-content: space-between;
 }
 
 .stack:not(.vertical).reverse {
-  flex-direction: row-reverse;
+    flex-direction: row-reverse;
 }
 
 /**
  *  =Vertical Stack
  *  ==================================== */
 .vertical.bottom {
-  justify-content: flex-end;
+    justify-content: flex-end;
 }
 
 .vertical.middle {
-  justify-content: center;
+    justify-content: center;
 }
 
 .vertical.top {
-  justify-content: flex-start;
+    justify-content: flex-start;
 }
 
 .vertical.left {
-  align-items: flex-start;
+    align-items: flex-start;
 }
 
 .vertical.center {
-  align-items: center;
+    align-items: center;
 }
 
 .vertical.right {
-  align-items: flex-end;
+    align-items: flex-end;
 }
 
 .vertical.reverse {
-  flex-direction: column-reverse;
+    flex-direction: column-reverse;
 }
 
 .gap {
-  --gap: var(--spacing-default);
+    --gap: var(--spacing-default);
 }
 
 .gap--xxs {
-  --gap: var(--spacing-xxs);
+    --gap: var(--spacing-xxs);
 }
 
 .gap--xs {
-  --gap: var(--spacing-xs);
+    --gap: var(--spacing-xs);
 }
 
 .gap--s {
-  --gap: var(--spacing-s);
+    --gap: var(--spacing-s);
 }
 
 .gap--m {
-  --gap: var(--spacing-m);
+    --gap: var(--spacing-m);
 }
 
 .gap--l {
-  --gap: var(--spacing-l);
+    --gap: var(--spacing-l);
 }
 
 .gap--xl {
-  --gap: var(--spacing-xl);
+    --gap: var(--spacing-xl);
 }
 
 .gap--xxl {
-  --gap: var(--spacing-xxl);
+    --gap: var(--spacing-xxl);
 }
 
 /**
  *  =Items
  *  ==================================== */
 .expand {
-  flex: 1;
+    flex: 1;
 }
