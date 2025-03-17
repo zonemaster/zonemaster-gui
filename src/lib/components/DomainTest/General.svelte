@@ -1,15 +1,11 @@
-<script>
-    let disabledIpType = $state('');
-</script>
-
 <fieldset class="zm-general">
     <legend>General</legend>
     <label>
-        <input type="radio" name="ipType" value="ipv4" bind:group={disabledIpType} />
+        <input type="radio" name="disabledIpType" value="ipv4" />
         Disable IPv4
     </label>
     <label>
-        <input type="radio" name="ipType" value="ipv6" bind:group={disabledIpType} />
+        <input type="radio" name="disabledIpType" value="ipv6" />
         Disable IPv6
     </label>
 </fieldset>

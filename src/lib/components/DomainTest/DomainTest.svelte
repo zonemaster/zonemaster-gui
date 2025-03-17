@@ -9,6 +9,7 @@
     import Result from '@/lib/components/DomainTest/Result.svelte';
     import { machine, transition } from '@/lib/machine.svelte.ts';
     import Route from '@/lib/components/Route/Route.svelte';
+    import formToObj from '@/lib/formToObj.ts';
 
     let domain = $state('');
     let advanced = $state(false);
@@ -16,13 +17,33 @@
 
     function startTest(e: Event) {
         e.preventDefault();
-        transition('START', { domain });
+
+        const form = e.target as HTMLFormElement;
+
+        if (!form.reportValidity()) {
+            return;
+        }
+
+        const formData: Record<string, any> = formToObj(form);
+
+        if (!formData.domain) {
+            return;
+        }
+
+        if (formData.disabledIpType) {
+            formData.ipv4 = formData.disabledIpType !== 'ipv4';
+            formData.ipv6 = formData.disabledIpType !== 'ipv6';
+
+            delete formData.disabledIpType;
+        }
+
+        transition('START', formData);
     }
 </script>
-<form novalidate onsubmit={startTest} class="zm-domain-test testing-{currentState === 'testing'}">
+<form id="zmDomainTestForm" novalidate onsubmit={startTest} class="zm-domain-test testing-{currentState === 'testing'}">
     <Stack>
         <div class="zm-domain-test-progress">
-            <Input type="text" bind:value={domain} placeholder={m.domain()} disabled={currentState === 'testing'}
+            <Input required name="domain" type="text" bind:value={domain} placeholder={m.domain()} disabled={currentState === 'testing'}
                    class={ currentState === 'finished' ? 'finished' : undefined } />
             {#if currentState === 'testing'}
                 {#key currentState}

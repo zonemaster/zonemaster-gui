@@ -112,3 +112,19 @@ export async function testProgress(testId: string): Promise<number> {
 export async function getTestResults(testId: string): Promise<ResultData> {
     return rpc('get_test_results', { id: testId, language: 'en' }, false);
 }
+
+export type ParentZoneData = {
+    ds_list: DSInfo[];
+    ns_list: Nameservers[];
+};
+
+export async function fetchFromParent(domain: string): Promise<ParentZoneData> {
+    return rpc(
+        'get_data_from_parent_zone',
+        {
+            language: 'en',
+            domain,
+        },
+        false,
+    );
+}

@@ -5,7 +5,6 @@ export function toggleModule(module: string) {
 }
 
 export function expandAll(modules: string[]) {
-    console.log(modules);
     modules.forEach((module) => {
         expandedModules[module] = true;
         console.log(module);

@@ -7,7 +7,7 @@
         size?: 'small' | 'large';
         disabled?: boolean;
         children?: Snippet;
-        onClick?: () => void;
+        onClick?: (e: Event) => void;
         ariaLabel?: string;
         class?: string;
         [key: string]: any;
