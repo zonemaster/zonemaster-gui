@@ -128,3 +128,34 @@ export async function fetchFromParent(domain: string): Promise<ParentZoneData> {
         false,
     );
 }
+
+export type TestHistoryFilter = 'all' | 'delegated' | 'undelegated';
+
+export type TestHistoryData = {
+    domain: string;
+};
+
+export type TestHistoryItem = {
+    id: number;
+    created_at: string;
+    overall_result: 'ok' | 'warning' | 'error' | 'critical';
+    undelegated: boolean;
+};
+
+export async function getTestHistory(
+    { domain }: TestHistoryData,
+    offset: number = 0,
+    limit: number = 100,
+    filter: TestHistoryFilter = 'all',
+): Promise<TestHistoryItem[]> {
+    return rpc(
+        'get_test_history',
+        {
+            offset,
+            limit,
+            filter,
+            frontend_params: { domain },
+        },
+        false,
+    );
+}

@@ -7,6 +7,7 @@
   import stack from '@/lib/components/Stack/stack.module.css';
   import Input from "@/lib/components/Input/Input.svelte";
   import {collapseAll, expandAll} from "@/lib/components/DomainTest/store.svelte.ts";
+  import History from '@/lib/components/DomainTest/History.svelte';
 
   type Props = {
     data: ResultData;
@@ -73,10 +74,7 @@
     Created on <time datetime={data.created_at}>{new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date(data.created_at))}</time>
   </div>
   <Stack middle gap="xs">
-    <Button variant="secondary" size="small" type="button">
-      <i class="bi bi-clock-history"></i>
-      History
-    </Button>
+    <History data={data} />
     <Button variant="secondary" size="small" type="button">
       <i class="bi bi-cloud-arrow-down"></i>
       Export
