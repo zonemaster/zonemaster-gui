@@ -10,6 +10,7 @@
     import History from '@/lib/components/DomainTest/History.svelte';
     import Collapsible from '@/lib/components/Collapsible/Collapsible.svelte';
     import type { FaqItem } from '@/content.config.ts';
+    import { exportCSV, exportHTML, exportJson, exportText } from '@/lib/export.ts';
 
     type Props = {
         data: ResultData;
@@ -26,6 +27,7 @@
     let filterError = $state(false);
     let filterCritical = $state(false);
     let result = $state(Object.groupBy(data.results, ({ module }) => module));
+    let showShare = $state(false);
 
     function filterItems() {
         const filters = [
@@ -82,10 +84,32 @@
     </div>
     <Stack middle gap="xs">
         <History data={data} />
-        <Button variant="secondary" size="small" type="button">
-            <i class="bi bi-cloud-arrow-down"></i>
-            Export
-        </Button>
+        <div class="popover">
+            <Button
+                variant="secondary"
+                size="small"
+                type="button"
+                onfocus={(e) => {
+                    e.preventDefault();
+                    showShare = true;
+                }}
+                onblur={() => showShare = false}
+                onmousedown={() => {
+                   showShare = !showShare;
+                }}
+            >
+                <i class="bi bi-cloud-arrow-down"></i>
+                Export
+            </Button>
+            <div class="popover-content" style:display={showShare ? 'block' : 'none'}>
+                <div class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack['gap--s']}">
+                    <button onmousedown={() => exportJson(data)}>JSON</button>
+                    <button onmousedown={() => exportHTML(data)}>HTML</button>
+                    <button onmousedown={() => exportCSV(data)}>CSV</button>
+                    <button onmousedown={() => exportText(data)}>TEXT</button>
+                </div>
+            </div>
+        </div>
         <Button variant="secondary" size="small" type="button">
             <i class="bi bi-share"></i>
             Share
@@ -149,6 +173,27 @@
 
         legend {
             font-weight: 700;
+        }
+    }
+
+    .popover {
+        position: relative;
+    }
+
+    .popover-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        transform: translateY(var(--spacing-xs));
+        padding: var(--spacing-s);
+        background-color: var(--color-palette-white);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+
+        button {
+            all: unset;
+            cursor: pointer;
         }
     }
 </style>
