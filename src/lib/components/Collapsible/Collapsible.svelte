@@ -14,8 +14,13 @@
     }: Props = $props();
     let open = $state(false);
 
-    function onClick() {
+    function onClick(e: Event) {
+        e.preventDefault();
         open = !open;
+
+        const target = (e.target as HTMLElement).closest('a') as HTMLAnchorElement;
+        
+        window.history.pushState(null, '', target.getAttribute('href') as string);
     }
 </script>
 <article class="zm-collapsible" id={id}>
