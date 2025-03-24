@@ -108,7 +108,7 @@
                 variant="secondary"
                 size="small"
                 type="button"
-                role="dialog"
+                aria-controls="exportDialog"
                 onclick={() => {
                    showExport = !showExport;
                 }}
@@ -116,7 +116,7 @@
                 <i class="bi bi-cloud-arrow-down"></i>
                 Export
             </Button>
-            <div class="popover-content" style:display={showExport ? 'block' : 'none'}>
+            <div class="popover-content" role="dialog" id="exportDialog" style:display={showExport ? 'block' : 'none'}>
                 <div class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack['gap--s']}">
                     <button onmousedown={() => exportJson(data)}>JSON</button>
                     <button onmousedown={() => exportHTML(data)}>HTML</button>
@@ -130,7 +130,7 @@
                 variant="secondary"
                 size="small"
                 type="button"
-                role="dialog"
+                aria-controls="copyURLDialog"
                 onclick={() => {
                     showShare = !showShare;
                 }}
@@ -138,7 +138,7 @@
                 <i class="bi bi-share"></i>
                 Share
             </Button>
-            <div class="popover-content" style:display={showShare ? 'block' : 'none'}>
+            <div class="popover-content" role="dialog" id="copyURLDialog" style:display={showShare ? 'block' : 'none'}>
                 <div class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack['gap--s']}">
                     <Input size="small" type="text" readonly value={window.location.href} />
                     <Copy value={window.location.href} />
