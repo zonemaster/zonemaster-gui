@@ -8,6 +8,7 @@
   import Input from "@/lib/components/Input/Input.svelte";
   import {collapseAll, expandAll} from "@/lib/components/DomainTest/store.svelte.ts";
   import History from '@/lib/components/DomainTest/History.svelte';
+  import Collapsible from "@/lib/components/Collapsible/Collapsible.svelte";
 
   type Props = {
     data: ResultData;
@@ -97,6 +98,7 @@
       <FilterToggle name="filter[critical]" label="Critical" badge={data.results.filter((r) => r.level === 'CRITICAL').length} bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
     </Stack>
   </fieldset>
+  <Collapsible title={'What is the meaning of the severity levels?'} id={'helper'} content={'foo'}></Collapsible>
   <fieldset class="zm-fieldset {stack.stack} {stack.bottom} {stack['gap--xs']}">
     <div class={stack.expand}>
       <Input
