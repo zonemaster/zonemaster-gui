@@ -1,10 +1,18 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import FAQ from '../components/Faq.astro';
 import Layout from '../layouts/Layout.astro';
+import config from '../../astro.config.mjs';
 
-const faq = await getCollection('faq') as Array<{ data: { category: string } }>;
-const grouped = Object.groupBy(faq, (item) => item.data.category);
+const defaultLocale = config.i18n?.defaultLocale || 'en';
+const faq = await getCollection('faq', ({ id }) => {
+  return id.startsWith(`${defaultLocale}/`);
+});
+
+type FaqItem = CollectionEntry<'faq'>;
+// Object.groupBy returns a Partial<Record> which we convert to Record with a default empty array
+const groupedPartial = Object.groupBy(faq, (item: FaqItem) => item.data.category);
+const grouped = groupedPartial as Record<string, FaqItem[]>;
 ---
 
 <Layout>

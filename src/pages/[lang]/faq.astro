@@ -2,7 +2,7 @@
 import FAQ from '../../components/Faq.astro';
 import Layout from '../../layouts/Layout.astro';
 import config from '../../../astro.config.mjs';
-import {getCollection} from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
 export function getStaticPaths () {
 	if (!config.i18n) {
@@ -16,8 +16,15 @@ export function getStaticPaths () {
 		.map(lang => ({ params: { lang } }));
 }
 
-const faq = await getCollection('faq') as Array<{ data: { category: string } }>;
-const grouped = Object.groupBy(faq, (item) => item.data.category);
+const { lang } = Astro.params;
+const faq = await getCollection('faq', ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
+
+type FaqItem = CollectionEntry<'faq'>;
+// Object.groupBy returns a Partial<Record> which we convert to Record with a default empty array
+const groupedPartial = Object.groupBy(faq, (item: FaqItem) => item.data.category);
+const grouped = groupedPartial as Record<string, FaqItem[]>;
 ---
 
 <Layout>

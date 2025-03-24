@@ -1,15 +1,30 @@
 ---
 import * as m from "../paraglide/messages.js";
 import Collapsible from '@/lib/components/Collapsible/Collapsible.svelte';
-const { data } = Astro.props;
+import type { CollectionEntry } from 'astro:content';
+
+interface FaqItem extends CollectionEntry<'faq'> {
+  data: {
+    question: string;
+    category: string;
+  };
+  body: string;
+  id: string;
+}
+
+interface FaqProps {
+  data: Record<string, FaqItem[]>;
+}
+
+const { data } = Astro.props as FaqProps;
 ---
 
 <h1>{m.faqTitle()}</h1>
 {Object.keys(data).map((category) => (
   <section class="rhythm">
     <h2>{category}</h2>
-    {data[category].map((item) => (
-      <Collapsible client:load title={item.data.question} id={item.id} content={item.body} />
+    {data[category].map((item: FaqItem) => (
+      <Collapsible client:load title={item.data.question} id={item.id.split('/').pop()?.replace('.md', '')} content={item.body} />
     ))}
   </section>
 ))}
