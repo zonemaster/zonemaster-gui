@@ -2,7 +2,7 @@
   import {versionInfo} from "@/lib/client.ts";
   import {error} from "@/lib/alert.svelte.ts";
   import Switch from '@/lib/components/Switch/Switch.svelte';
-  import Advanced from "@/lib/components/DomainTest/Advanced.svelte";
+  import config from '@/config.ts';
 
   type Version = {
     key: string;
@@ -38,6 +38,7 @@
     {#each versions as {key, value}}
       <li>{key}: {value}</li>
     {/each}
+      <li>Zonemaster-GUI: {config.clientInfo.version}</li>
   </ul>
 {/if}
 
