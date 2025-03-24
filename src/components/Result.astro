@@ -12,14 +12,14 @@ const aboutLevels = await getEntry('faq', `${locale}/severity-levels`);
 
 const data: FaqItem | null = aboutLevels ? {
     question: aboutLevels.data.question,
-    answer: aboutLevels.body
+    answer: aboutLevels.rendered?.html || '',
 } : null;
 ---
 
 <h1 class="container zm-u-align-center">{m.resultTitle()}</h1>
 <section class="zm-run-test rhythm">
     <Route client:load path="/result/:id">
-        <ResultData client:load aboutLevels={aboutLevels} />
+        <ResultData client:load aboutLevels={data} />
     </Route>
 </section>
 
