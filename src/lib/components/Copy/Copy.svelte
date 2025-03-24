@@ -37,36 +37,32 @@
 >
     {#if copied}
         <div class="icon">
-            <i class="bi bi-check"></i>
+            <i class="bi bi-check-lg"></i>
         </div>
     {:else}
         <div class="icon">
-            <i class="bi bi-clipboard"></i>
+            <i class="bi bi-clipboard-fill"></i>
         </div>
     {/if}
 </button>
 
 <style>
     .copy-button {
-        background: transparent;
+        background: var(--color-palette-main-70);
         border: none;
         cursor: pointer;
-        padding: 4px;
-        border-radius: 4px;
+        padding: 0  var(--button-padding);
+        border-radius: var(--border-radius);
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        color: var(--color-text, #333);
+        color: var(--color-palette-white);
         transition: background-color 0.2s ease;
+        font-size: var(--button-font-size);
     }
 
     .copy-button:hover {
-        background-color: var(--color-background-hover, rgba(0, 0, 0, 0.05));
-    }
-
-    .copy-button:focus {
-        outline: 2px solid var(--color-primary, #4d7c0f);
-        outline-offset: 2px;
+        background: var(--color-palette-main-90);
     }
 
     .icon {

@@ -72,16 +72,16 @@
         <Button variant="secondary" size="small" type="button" onClick={() => page--} disabled={page === 1}>
             <i class="bi bi-chevron-left"></i>
         </Button>
-        
+
         {#if totalPages > 0}
             {#each Array(Math.min(5, totalPages)) as _, i}
                 {#if totalPages <= 5}
                     <!-- Show all pages if 5 or fewer total pages -->
                     {@const pageNum = i + 1}
-                    <Button 
-                        variant={pageNum === page ? "primary" : "secondary"} 
-                        size="small" 
-                        type="button" 
+                    <Button
+                        variant={pageNum === page ? "primary" : "secondary"}
+                        size="small"
+                        type="button"
                         onClick={() => goToPage(pageNum)}
                     >
                         {pageNum}
@@ -89,10 +89,10 @@
                 {:else if page <= 3}
                     <!-- First 5 pages when current page is near the beginning -->
                     {@const pageNum = i + 1}
-                    <Button 
-                        variant={pageNum === page ? "primary" : "secondary"} 
-                        size="small" 
-                        type="button" 
+                    <Button
+                        variant={pageNum === page ? "primary" : "secondary"}
+                        size="small"
+                        type="button"
                         onClick={() => goToPage(pageNum)}
                     >
                         {pageNum}
@@ -100,10 +100,10 @@
                 {:else if page >= totalPages - 2}
                     <!-- Last 5 pages when current page is near the end -->
                     {@const pageNum = totalPages - 4 + i}
-                    <Button 
-                        variant={pageNum === page ? "primary" : "secondary"} 
-                        size="small" 
-                        type="button" 
+                    <Button
+                        variant={pageNum === page ? "primary" : "secondary"}
+                        size="small"
+                        type="button"
                         onClick={() => goToPage(pageNum)}
                     >
                         {pageNum}
@@ -111,10 +111,10 @@
                 {:else}
                     <!-- Middle pages with current page in center -->
                     {@const pageNum = page - 2 + i}
-                    <Button 
-                        variant={pageNum === page ? "primary" : "secondary"} 
-                        size="small" 
-                        type="button" 
+                    <Button
+                        variant={pageNum === page ? "primary" : "secondary"}
+                        size="small"
+                        type="button"
                         onClick={() => goToPage(pageNum)}
                     >
                         {pageNum}
@@ -122,7 +122,7 @@
                 {/if}
             {/each}
         {/if}
-        
+
         <Button variant="secondary" size="small" type="button" onClick={() => page++} disabled={page === totalPages}>
             <i class="bi bi-chevron-right"></i>
         </Button>
@@ -157,7 +157,7 @@
         ul {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: calc(var(--rhythm) / 2);
 
             li {
                 padding: var(--spacing-xs) var(--spacing-s);
@@ -210,8 +210,9 @@
             width: var(--button-size-small);
             height: var(--button-size-small);
             font-size: var(--font-l);
+            cursor: pointer;
         }
-        
+
         footer {
             position: sticky;
             bottom: 0;

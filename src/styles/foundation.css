@@ -102,6 +102,10 @@ p {
     max-width: var(--font-body-width);
 }
 
+dl dt {
+    font-family: var(--font-heading-family);
+}
+
 .preamble {
     font-family: var(--font-preamble-family);
     font-size: var(--font-preamble-size);

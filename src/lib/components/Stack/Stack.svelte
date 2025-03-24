@@ -8,6 +8,7 @@
     wrap?: boolean;
     top?: boolean;
     middle?: boolean;
+    stretch?: boolean;
     bottom?: boolean;
     left?: boolean;
     center?: boolean;
@@ -24,6 +25,7 @@
     wrap,
     top,
     middle,
+    stretch,
     bottom,
     left,
     center,
@@ -43,6 +45,7 @@
     { [styles.wrap]: wrap },
     { [styles.top]: top },
     { [styles.middle]: middle },
+    { [styles.stretch]: middle },
     { [styles.bottom]: bottom },
     { [styles.left]: left },
     { [styles.center]: center },

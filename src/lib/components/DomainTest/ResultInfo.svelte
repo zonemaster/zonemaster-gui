@@ -137,7 +137,7 @@
                 Share
             </Button>
             <div class="popover-content" style:display={showShare ? 'block' : 'none'}>
-                <div class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack['gap--s']}">
+                <div class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack['gap--s']}">
                     <Input size="small" type="text" readonly value={window.location.href} />
                     <Copy value={window.location.href} />
                 </div>
@@ -219,10 +219,42 @@
         background-color: var(--color-palette-white);
         border: 1px solid var(--color-border);
         border-radius: var(--border-radius);
+        background-color: var(--color-palette-main-10);
+
+        &:after,
+        &:before {
+            bottom: 100%;
+            left: calc(100% - var(--rhythm) * 1.75);
+            border: solid transparent;
+            content: "";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        &:after {
+            border-color: rgba(237, 235, 255, 0);
+            border-bottom-color: #edebff;
+            border-width: 10px;
+            margin-left: -10px;
+        }
+
+        &:before {
+            border-color: rgba(178, 170, 251, 0);
+            border-bottom-color: #b2aafb;
+            border-width: 11px;
+            margin-left: -11px;
+        }
 
         button {
             all: unset;
             cursor: pointer;
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
         }
     }
 </style>
