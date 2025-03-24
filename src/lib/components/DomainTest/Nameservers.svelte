@@ -9,12 +9,12 @@
 
     let fetchingZoneData = $state(false);
     let nameservers = $state([
-        { name: '', address: '' }
+        { ns: '', ip: '' }
     ]);
 
     // On input change, append a new empty nameserver
     function addNameserver() {
-        nameservers = [...nameservers, { name: '', address: '' }];
+        nameservers = [...nameservers, { ns: '', ip: '' }];
     }
 
     // On input change, update the nameserver at the given index
@@ -61,8 +61,8 @@
                 }
 
                 nameservers = data.ns_list.map((ns) => ({
-                    name: ns.ns,
-                    address: ns.ip || '',
+                    ns: ns.ns,
+                    ip: ns.ip || '',
                 }));
             })
             .finally(() => {
@@ -71,7 +71,7 @@
     }
 
     function reset() {
-        nameservers = [{ name: '', address: '' }];
+        nameservers = [{ ns: '', ip: '' }];
     }
 
     $effect(() => {
@@ -91,22 +91,22 @@
                 <Grid cols={2} gap="xs">
                     <div>
                         <Input
-                            name="nameservers[{i}][name]"
+                            name="nameservers[{i}][ns]"
                             type="text"
-                            value={ns.name}
+                            value={ns.ns}
                             placeholder="ns1.example.com"
                             label={i === 0 ? 'Name' : undefined}
-                            onInput={(e) => updateNameserver(i, 'name', e.currentTarget.value)}
+                            onInput={(e) => updateNameserver(i, 'ns', e.currentTarget.value)}
                         />
                     </div>
                     <div>
                         <Input
-                            name="nameservers[{i}][address]"
-                            value={ns.address}
+                            name="nameservers[{i}][ip]"
+                            value={ns.ip}
                             type="text"
                             placeholder=""
                             label={i === 0 ? 'Address (optional)' : undefined}
-                            onInput={(e) => updateNameserver(i, 'address', e.currentTarget.value)}
+                            onInput={(e) => updateNameserver(i, 'ip', e.currentTarget.value)}
                         />
                     </div>
                 </Grid>
