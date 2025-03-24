@@ -20,7 +20,7 @@
 
         if (open) {
             const target = (e.target as HTMLElement).closest('a') as HTMLAnchorElement;
-        
+
             window.history.pushState(null, '', target.getAttribute('href') as string);
         } else {
             window.history.pushState(null, '', '#');
