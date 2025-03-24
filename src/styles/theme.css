@@ -143,6 +143,7 @@
     /* Control */
     --control-size: 32px;
     --input-height: 46px;
+    --input-height-small: 38px;
 
     /* Layout */
     --layout-width: 1440px;

@@ -44,6 +44,7 @@
         border: 1px solid var(--color-border);
         border-radius: var(--border-radius);
         font-family: var(--font-body-family);
+        min-width: 346px;
         font-size: var(--font-s);
         outline: none;
         width: 100%;
@@ -63,6 +64,10 @@
                 color: var(--color-palette-black);
                 opacity: 1;
             }
+        }
+
+        &.small {
+            height: var(--input-height-small);
         }
     }
 </style>

@@ -11,6 +11,7 @@
     import Collapsible from '@/lib/components/Collapsible/Collapsible.svelte';
     import type { FaqItem } from '@/content.config.ts';
     import { exportCSV, exportHTML, exportJson, exportText } from '@/lib/export.ts';
+    import Copy from '../Copy/Copy.svelte';
 
     type Props = {
         data: ResultData;
@@ -28,6 +29,7 @@
     let filterCritical = $state(false);
     let result = $state(Object.groupBy(data.results, ({ module }) => module));
     let showExport = $state(false);
+    let showShare = $state(false);
 
     function filterItems() {
         const filters = [
@@ -72,6 +74,23 @@
     function collapseAllModules() {
         collapseAll(Object.keys(result));
     }
+
+    // Handle popover close on click outside
+    document.addEventListener('click', (e: Event) => {
+        const target = e.target as Element;
+        if (!target.closest('.popover')) {
+            showExport = false;
+            showShare = false;
+        }
+    });
+
+    // Handle popover close on escape key
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+            showExport = false;
+            showShare = false;
+        }
+    });
 </script>
 <h2>Test result for {data.params.domain}</h2>
 <Stack middle wrap spaceBetween>
@@ -89,12 +108,7 @@
                 variant="secondary"
                 size="small"
                 type="button"
-                onfocus={(e) => {
-                    e.preventDefault();
-                    showExport = true;
-                }}
-                onblur={() => showExport = false}
-                onmousedown={() => {
+                onclick={() => {
                    showExport = !showExport;
                 }}
             >
@@ -110,10 +124,25 @@
                 </div>
             </div>
         </div>
-        <Button variant="secondary" size="small" type="button">
-            <i class="bi bi-share"></i>
-            Share
-        </Button>
+        <div class="popover">
+            <Button
+                variant="secondary"
+                size="small"
+                type="button"
+                onclick={() => {
+                    showShare = !showShare;
+                }}
+            >
+                <i class="bi bi-share"></i>
+                Share
+            </Button>
+            <div class="popover-content" style:display={showShare ? 'block' : 'none'}>
+                <div class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack['gap--s']}">
+                    <Input size="small" type="text" readonly value={window.location.href} />
+                    <Copy value={window.location.href} />
+                </div>
+            </div>
+        </div>
     </Stack>
 </Stack>
 <Stack vertical gap="m">
