@@ -1,6 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import paraglide from '@inlang/paraglide-astro';
+import remarkGfm from 'remark-gfm';
+import {
+    remarkDefinitionList,
+    defListHastHandlers,
+} from "remark-definition-list";
 
 import svelte from '@astrojs/svelte';
 
@@ -18,6 +23,11 @@ export default defineConfig({
     i18n: {
         locales: ['da', 'en', 'es', 'fi', 'fr', 'nb', 'sv'],
         defaultLocale: 'en'
+    },
+
+    markdown: {
+        remarkPlugins: [remarkGfm, remarkDefinitionList],
+        remarkRehype: { handlers: defListHastHandlers },
     },
 
     integrations: [
