@@ -21,6 +21,7 @@
         disabled,
         children,
         ariaLabel,
+        role = null,
         class: className = '',
         ...restProps
     }: Props = $props();
@@ -32,6 +33,7 @@
     onclick={onClick}
     disabled={disabled}
     aria-label={ariaLabel}
+    role={role}
     {...restProps}
 >
     {@render children?.()}

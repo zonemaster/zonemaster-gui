@@ -108,6 +108,7 @@
                 variant="secondary"
                 size="small"
                 type="button"
+                role="dialog"
                 onclick={() => {
                    showExport = !showExport;
                 }}
@@ -129,6 +130,7 @@
                 variant="secondary"
                 size="small"
                 type="button"
+                role="dialog"
                 onclick={() => {
                     showShare = !showShare;
                 }}
