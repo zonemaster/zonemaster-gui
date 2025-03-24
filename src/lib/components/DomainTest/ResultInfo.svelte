@@ -27,7 +27,7 @@
     let filterError = $state(false);
     let filterCritical = $state(false);
     let result = $state(Object.groupBy(data.results, ({ module }) => module));
-    let showShare = $state(false);
+    let showExport = $state(false);
 
     function filterItems() {
         const filters = [
@@ -91,17 +91,17 @@
                 type="button"
                 onfocus={(e) => {
                     e.preventDefault();
-                    showShare = true;
+                    showExport = true;
                 }}
-                onblur={() => showShare = false}
+                onblur={() => showExport = false}
                 onmousedown={() => {
-                   showShare = !showShare;
+                   showExport = !showExport;
                 }}
             >
                 <i class="bi bi-cloud-arrow-down"></i>
                 Export
             </Button>
-            <div class="popover-content" style:display={showShare ? 'block' : 'none'}>
+            <div class="popover-content" style:display={showExport ? 'block' : 'none'}>
                 <div class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack['gap--s']}">
                     <button onmousedown={() => exportJson(data)}>JSON</button>
                     <button onmousedown={() => exportHTML(data)}>HTML</button>
