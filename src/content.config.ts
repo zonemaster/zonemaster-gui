@@ -8,6 +8,11 @@ const faqCollection = defineCollection({
     }),
 });
 
+export type FaqItem = {
+    question: string;
+    answer: string;
+};
+
 export const collections = {
     faq: faqCollection,
 };

@@ -1,7 +1,14 @@
-<script>
+<script lang="ts">
   import { location } from "@/lib/router.svelte.js";
-  import {getTestResults} from "@/lib/client.js";
+  import { getTestResults, type ResultData } from '@/lib/client.js';
   import ResultInfo from "@/lib/components/DomainTest/ResultInfo.svelte";
+  import type { FaqItem } from '@/content.config.ts';
+
+  type Props = {
+      aboutLevels: FaqItem | null;
+  };
+
+  const { aboutLevels }: Props = $props();
 
   let id = $derived.by(() => {
     const match = location.pathname.match(/\/result\/([^/]+)/);
@@ -9,7 +16,7 @@
   });
 
   let loading = $state(true);
-  let result = $state(null);
+  let result: ResultData | null = $state(null);
 
   $effect(() => {
     if (!id) return;
@@ -27,5 +34,5 @@
   Loading result...
 {/if}
 {#if id && result}
-  <ResultInfo data={result} />
+  <ResultInfo aboutLevels={aboutLevels} data={result} />
 {/if}

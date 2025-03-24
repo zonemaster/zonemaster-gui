@@ -1,136 +1,154 @@
 <script lang="ts">
-  import type {ResultData} from "@/lib/client.ts";
-  import Stack from "@/lib/components/Stack/Stack.svelte";
-  import Button from "@/lib/components/Button/Button.svelte";
-  import FilterToggle from "@/lib/components/FilterToggle/FilterToggle.svelte";
-  import ResultModule from "@/lib/components/DomainTest/ResultModule.svelte";
-  import stack from '@/lib/components/Stack/stack.module.css';
-  import Input from "@/lib/components/Input/Input.svelte";
-  import {collapseAll, expandAll} from "@/lib/components/DomainTest/store.svelte.ts";
-  import History from '@/lib/components/DomainTest/History.svelte';
-  import Collapsible from "@/lib/components/Collapsible/Collapsible.svelte";
+    import type { ResultData } from '@/lib/client.ts';
+    import Stack from '@/lib/components/Stack/Stack.svelte';
+    import Button from '@/lib/components/Button/Button.svelte';
+    import FilterToggle from '@/lib/components/FilterToggle/FilterToggle.svelte';
+    import ResultModule from '@/lib/components/DomainTest/ResultModule.svelte';
+    import stack from '@/lib/components/Stack/stack.module.css';
+    import Input from '@/lib/components/Input/Input.svelte';
+    import { collapseAll, expandAll } from '@/lib/components/DomainTest/store.svelte.ts';
+    import History from '@/lib/components/DomainTest/History.svelte';
+    import Collapsible from '@/lib/components/Collapsible/Collapsible.svelte';
+    import type { FaqItem } from '@/content.config.ts';
 
-  type Props = {
-    data: ResultData;
-  };
+    type Props = {
+        data: ResultData;
+        aboutLevels: FaqItem | null;
+    };
 
-  const { data }: Props = $props();
+    const { data, aboutLevels }: Props = $props();
 
-  let query = $state('');
-  let filterAll = $state(true);
-  let filterInfo = $state(false);
-  let filterNotice = $state(false);
-  let filterWarning = $state(false);
-  let filterError = $state(false);
-  let filterCritical = $state(false);
-  let result = $state(Object.groupBy(data.results, ({ module }) => module));
+    let query = $state('');
+    let filterAll = $state(true);
+    let filterInfo = $state(false);
+    let filterNotice = $state(false);
+    let filterWarning = $state(false);
+    let filterError = $state(false);
+    let filterCritical = $state(false);
+    let result = $state(Object.groupBy(data.results, ({ module }) => module));
 
-  function filterItems() {
-    const filters = [
-      filterInfo ? 'INFO' : null,
-      filterNotice ? 'NOTICE' : null,
-      filterWarning ? 'WARNING' : null,
-      filterError ? 'ERROR' : null,
-      filterCritical ? 'CRITICAL' : null,
-    ].filter(filter => filter !== null);
+    function filterItems() {
+        const filters = [
+            filterInfo ? 'INFO' : null,
+            filterNotice ? 'NOTICE' : null,
+            filterWarning ? 'WARNING' : null,
+            filterError ? 'ERROR' : null,
+            filterCritical ? 'CRITICAL' : null
+        ].filter(filter => filter !== null);
 
-    const queryLower = query.toLowerCase();
-    const filtered = data.results
-      .filter((item) => filterAll || filters.includes(item.level))
-      .filter((item) => !query || item.message.toLowerCase().includes(queryLower));
+        const queryLower = query.toLowerCase();
+        const filtered = data.results
+            .filter((item) => filterAll || filters.includes(item.level))
+            .filter((item) => !query || item.message.toLowerCase().includes(queryLower));
 
-    result = Object.groupBy(
-      filtered,
-      ({ module }) => module
-    );
-  }
-
-  function onCheck({ target }: Event) {
-    const { value, checked } = target as HTMLInputElement;
-
-    if (value === 'all' && checked) {
-      filterInfo = false;
-      filterNotice = false;
-      filterWarning = false;
-      filterError = false;
-      filterCritical = false;
-    } else {
-      filterAll = false;
+        result = Object.groupBy(
+            filtered,
+            ({ module }) => module
+        );
     }
 
-    filterItems();
-  }
+    function onCheck({ target }: Event) {
+        const { value, checked } = target as HTMLInputElement;
 
-  function expandAllModules() {
-    expandAll(Object.keys(result));
-  }
+        if (value === 'all' && checked) {
+            filterInfo = false;
+            filterNotice = false;
+            filterWarning = false;
+            filterError = false;
+            filterCritical = false;
+        } else {
+            filterAll = false;
+        }
 
-  function collapseAllModules() {
-    collapseAll(Object.keys(result));
-  }
+        filterItems();
+    }
+
+    function expandAllModules() {
+        expandAll(Object.keys(result));
+    }
+
+    function collapseAllModules() {
+        collapseAll(Object.keys(result));
+    }
 </script>
 <h2>Test result for {data.params.domain}</h2>
 <Stack middle wrap spaceBetween>
-  <div>
-    Created on <time datetime={data.created_at}>{new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date(data.created_at))}</time>
-  </div>
-  <Stack middle gap="xs">
-    <History data={data} />
-    <Button variant="secondary" size="small" type="button">
-      <i class="bi bi-cloud-arrow-down"></i>
-      Export
-    </Button>
-    <Button variant="secondary" size="small" type="button">
-      <i class="bi bi-share"></i>
-      Share
-    </Button>
-  </Stack>
+    <div>
+        Created on
+        <time datetime={data.created_at}>{new Intl.DateTimeFormat('en-US', {
+            dateStyle: 'medium',
+            timeStyle: 'medium'
+        }).format(new Date(data.created_at))}</time>
+    </div>
+    <Stack middle gap="xs">
+        <History data={data} />
+        <Button variant="secondary" size="small" type="button">
+            <i class="bi bi-cloud-arrow-down"></i>
+            Export
+        </Button>
+        <Button variant="secondary" size="small" type="button">
+            <i class="bi bi-share"></i>
+            Share
+        </Button>
+    </Stack>
 </Stack>
 <Stack vertical gap="m">
-  <fieldset class="zm-fieldset">
-    <legend>Filter severity levels</legend>
-    <Stack middle wrap>
-      <FilterToggle name="filter[all]" label="All" badge={data.results.length} bind:checked={filterAll} onCheck={onCheck} value="all" />
-      <FilterToggle name="filter[info]" label="Info" badge={data.results.filter((r) => r.level === 'INFO').length} bind:checked={filterInfo} onCheck={onCheck} severity="info" value="info" />
-      <FilterToggle name="filter[notice]" label="Notice" badge={data.results.filter((r) => r.level === 'NOTICE').length} bind:checked={filterNotice} onCheck={onCheck} severity="notice" value="notice" />
-      <FilterToggle name="filter[warning]" label="Warning" badge={data.results.filter((r) => r.level === 'WARNING').length} bind:checked={filterWarning} onCheck={onCheck} severity="warning" value="warning" />
-      <FilterToggle name="filter[error]" label="Error" badge={data.results.filter((r) => r.level === 'ERROR').length} bind:checked={filterError} onCheck={onCheck} severity="error" value="error" />
-      <FilterToggle name="filter[critical]" label="Critical" badge={data.results.filter((r) => r.level === 'CRITICAL').length} bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
+    <fieldset class="zm-fieldset">
+        <legend>Filter severity levels</legend>
+        <Stack middle wrap>
+            <FilterToggle name="filter[all]" label="All" badge={data.results.length} bind:checked={filterAll}
+                          onCheck={onCheck} value="all" />
+            <FilterToggle name="filter[info]" label="Info" badge={data.results.filter((r) => r.level === 'INFO').length}
+                          bind:checked={filterInfo} onCheck={onCheck} severity="info" value="info" />
+            <FilterToggle name="filter[notice]" label="Notice"
+                          badge={data.results.filter((r) => r.level === 'NOTICE').length} bind:checked={filterNotice}
+                          onCheck={onCheck} severity="notice" value="notice" />
+            <FilterToggle name="filter[warning]" label="Warning"
+                          badge={data.results.filter((r) => r.level === 'WARNING').length} bind:checked={filterWarning}
+                          onCheck={onCheck} severity="warning" value="warning" />
+            <FilterToggle name="filter[error]" label="Error"
+                          badge={data.results.filter((r) => r.level === 'ERROR').length} bind:checked={filterError}
+                          onCheck={onCheck} severity="error" value="error" />
+            <FilterToggle name="filter[critical]" label="Critical"
+                          badge={data.results.filter((r) => r.level === 'CRITICAL').length}
+                          bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
+        </Stack>
+    </fieldset>
+    {#if aboutLevels}
+        <Collapsible title={aboutLevels.question} id={'helper'} content={aboutLevels.answer}></Collapsible>
+    {/if}
+    <fieldset class="zm-fieldset {stack.stack} {stack.bottom} {stack['gap--xs']}">
+        <div class={stack.expand}>
+            <Input
+                id="filterQuery"
+                type="search"
+                placeholder="Search"
+                bind:value={query}
+                label="Search text in messages"
+                onInput={filterItems}
+            />
+        </div>
+        <Button onClick={expandAllModules} variant="secondary">Expand all modules</Button>
+        <Button onClick={collapseAllModules} variant="secondary">Collapse all</Button>
+    </fieldset>
+    <Stack vertical gap="xs">
+        {#each Object.entries(result) as [module, results]}
+            {#key module}
+                <ResultModule module={module} results={results || []} descriptions={data.testcase_descriptions} />
+            {/key}
+        {/each}
     </Stack>
-  </fieldset>
-  <Collapsible title={'What is the meaning of the severity levels?'} id={'helper'} content={'foo'}></Collapsible>
-  <fieldset class="zm-fieldset {stack.stack} {stack.bottom} {stack['gap--xs']}">
-    <div class={stack.expand}>
-      <Input
-        id="filterQuery"
-        type="search"
-        placeholder="Search"
-        bind:value={query}
-        label="Search text in messages"
-        onInput={filterItems}
-      />
-    </div>
-    <Button onClick={expandAllModules} variant="secondary">Expand all modules</Button>
-    <Button onClick={collapseAllModules} variant="secondary">Collapse all</Button>
-  </fieldset>
-  <Stack vertical gap="xs">
-    {#each Object.entries(result) as [module, results]}
-      {#key module}
-        <ResultModule module={module} results={results || []} descriptions={data.testcase_descriptions} />
-      {/key}
-    {/each}
-  </Stack>
 </Stack>
 <style>
-  h2 {
-    margin-bottom: var(--spacing-m);
-  }
-
-  .zm-fieldset {
-    border: 0;
-
-    legend {
-      font-weight: 700;
+    h2 {
+        margin-bottom: var(--spacing-m);
     }
-  }
+
+    .zm-fieldset {
+        border: 0;
+
+        legend {
+            font-weight: 700;
+        }
+    }
 </style>

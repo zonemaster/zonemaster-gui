@@ -10,6 +10,13 @@
     import { machine, transition } from '@/lib/machine.svelte.ts';
     import Route from '@/lib/components/Route/Route.svelte';
     import formToObj from '@/lib/formToObj.ts';
+    import type { FaqItem } from '@/content.config.ts';
+
+    type Props = {
+        aboutLevels: FaqItem | null;
+    };
+
+    const { aboutLevels }: Props = $props();
 
     let domain = $state('');
     let advanced = $state(false);
@@ -68,7 +75,7 @@
     </div>
 </form>
 <Route path="/result/:id">
-    <Result />
+    <Result aboutLevels={aboutLevels} />
 </Route>
 <style>
     .zm-domain-test {
