@@ -53,6 +53,10 @@
     background: var(--color-palette-black-10);
     padding: var(--spacing-s);
     border-radius: var(--border-radius);
+
+      h3 {
+          margin-bottom: 0;
+      }
   }
 
   .zm-result-data {

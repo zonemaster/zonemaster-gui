@@ -1,6 +1,6 @@
 ---
 question: What is Zonemaster?
-category: General
+category: General information
 ---
 
 Zonemaster is a software package that validates the quality of a DNS delegation.

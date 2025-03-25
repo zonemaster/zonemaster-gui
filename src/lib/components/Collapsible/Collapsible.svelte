@@ -53,6 +53,10 @@
         header {
             padding: var(--spacing-s);
         }
+
+        h3 {
+            margin-bottom: 0;
+        }
     }
 
     .zm-collapsible + .zm-collapsible {

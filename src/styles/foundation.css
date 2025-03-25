@@ -43,6 +43,7 @@ h4 {
     font-optical-sizing: auto;
     font-weight: var(--font-heading-weight);
     max-width: var(--font-heading-width);
+    margin-bottom: var(--rhythm);
 }
 
 h1 {
@@ -100,6 +101,7 @@ li + li {
 
 p {
     max-width: var(--font-body-width);
+    margin-bottom: var(--rhythm);
 }
 
 dl dt {

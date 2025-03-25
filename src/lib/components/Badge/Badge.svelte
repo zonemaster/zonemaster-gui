@@ -39,8 +39,12 @@
             color: var(--color-palette-black);
         }
 
-        &.error, &.critical {
+        &.error {
             background: var(--color-palette-error-50);
+        }
+
+        &.critical {
+            background: var(--color-palette-error-70);
         }
 
         &.round {

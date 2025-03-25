@@ -40,6 +40,11 @@
   {/if}
 </section>
 <style>
+  .zm-result-group {
+     h4 {
+       margin-bottom: 0;
+     }
+  }
   .zm-result-group header + div {
     margin-top: var(--spacing-s);
   }
@@ -52,27 +57,36 @@
     gap: var(--spacing-s);
     white-space: nowrap;
     font-size: calc(var(--font-xs) * 1.15);
-    color: var(--color-palette-success-70);
+    color: var(--color-palette-black);
 
     i {
       font-size: var(--font-s);
+        color: var(--color-palette-success-70);
     }
 
     &.notice {
-      color: var(--color-palette-info-70);
+        i {
+            color: var(--color-palette-info-70);
+        }
     }
 
     &.warning {
-      color: var(--color-palette-warning-70);
-
       i {
-        color: var(--color-palette-warning-50);
+        color: var(--color-palette-warning-60);
       }
     }
 
-    &.error, &.critical {
-      color: var(--color-palette-error-70);
+    &.error {
+      i {
+          color: var(--color-palette-error-70);
+      }
     }
+
+     &.error, &.critical {
+       i {
+          color: var(--color-palette-error-70);
+       }
+     }
   }
 
   ul {
@@ -82,5 +96,9 @@
       display: flex;
       gap: var(--spacing-xs);
     }
+  }
+
+  p {
+      margin-bottom: 0;
   }
 </style>
