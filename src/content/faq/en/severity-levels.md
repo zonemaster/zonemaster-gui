@@ -1,6 +1,6 @@
 ---
 question: What is the meaning of the severity levels?
-category: General information
+category: Using Zonemaster
 ---
 
 Info

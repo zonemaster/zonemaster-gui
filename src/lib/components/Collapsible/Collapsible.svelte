@@ -49,6 +49,7 @@
         border: 1px solid var(--color-palette-secondary-30);
         border-radius: var(--border-radius);
         background-color: var(--color-palette-secondary-10);
+        margin-top: calc(var(--rhythm) / 2);
 
         header {
             padding: var(--spacing-s);

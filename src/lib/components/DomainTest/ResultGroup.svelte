@@ -59,9 +59,13 @@
     font-size: calc(var(--font-xs) * 1.15);
     color: var(--color-palette-black);
 
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
+
     i {
       font-size: var(--font-s);
-        color: var(--color-palette-success-70);
+      color: var(--color-palette-success-70);
     }
 
     &.notice {

@@ -25,6 +25,7 @@
         font-weight: bold;
         border-radius: var(--border-radius);
         padding: var(--spacing-xxs) var(--spacing-xs);
+        text-decoration: none;
 
         &.info {
             background: var(--color-palette-success-50);

@@ -1,6 +1,6 @@
 ---
 question: Vad betyder allvarlighetsgraderingarna?
-category: Allmänt
+category: Using Zonemaster
 ---
 
 Info

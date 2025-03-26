@@ -107,6 +107,10 @@
                 border-top-left-radius: var(--border-radius);
                 border-bottom-left-radius: var(--border-radius);
             }
+
+            .zm-domain-test-progress {
+                overflow: hidden;
+            }
         }
 
         .zm-domain-test-progress {

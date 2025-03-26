@@ -23,7 +23,7 @@
   <h3>
     <button onclick={() => toggleModule(module)}>
       <i class="bi bi-caret-{open ? 'up' : 'down'}-fill"></i>
-      {niceName(module)}
+      <span>{niceName(module)}</span>
 
       {#each summary as { level, count }, i}
         <Badge level={level} round>{count}</Badge>
@@ -56,6 +56,14 @@
 
       h3 {
           margin-bottom: 0;
+      }
+
+      button {
+          &:hover, &:focus {
+              span {
+                  text-decoration: underline;
+              }
+          }
       }
   }
 
