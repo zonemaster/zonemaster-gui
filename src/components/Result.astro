@@ -1,8 +1,7 @@
 ---
 import * as m from '../paraglide/messages.js';
 import { getEntry } from 'astro:content';
-import ResultData from '@/lib/components/DomainTest/Result.svelte';
-import Route from '@/lib/components/Route/Route.svelte';
+import DomainTest from '../lib/components/DomainTest/DomainTest.svelte';
 import config from '../../astro.config.mjs';
 import type { FaqItem } from '../content.config';
 
@@ -18,9 +17,7 @@ const data: FaqItem | null = aboutLevels ? {
 
 <h1 class="container zm-u-align-center">{m.resultTitle()}</h1>
 <section class="zm-run-test rhythm">
-    <Route client:load path="/result/:id">
-        <ResultData client:load aboutLevels={data} />
-    </Route>
+    <DomainTest aboutLevels={data} client:load />
 </section>
 
 <style>
