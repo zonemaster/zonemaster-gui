@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { languageTag, sourceLanguageTag } from '../../../paraglide/runtime.js';
+  import { languageTag, sourceLanguageTag } from '@/paraglide/runtime';
   import * as m from '@/paraglide/messages';
 
   const currentLanguage = languageTag();

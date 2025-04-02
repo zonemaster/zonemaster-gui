@@ -12,6 +12,8 @@
     import formToObj from '@/lib/formToObj.ts';
     import type { FaqItem } from '@/content.config.ts';
 
+    import '../../styles/style.css';
+
     type Props = {
         aboutLevels: FaqItem | null;
     };

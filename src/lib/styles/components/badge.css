@@ -1,0 +1,14 @@
+.zm-badge {
+    background: var(--color-muted);
+    color: var(--color-palette-white);
+    font-size: var(--font-s);
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    text-decoration: none;
+
+    &.zm-badge--round {
+        border-radius: 50%;
+        font-size: var(--font-xs);
+    }
+}
