@@ -26,13 +26,3 @@
   </Button>
   <label for="{id}" id="{id}-label">{@render children?.()}</label>
 </div>
-
-<style>
-  .zm-switch {
-    cursor: pointer;
-
-    label {
-      cursor: pointer;
-    }
-  }
-</style>
