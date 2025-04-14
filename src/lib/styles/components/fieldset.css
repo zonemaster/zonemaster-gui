@@ -1,0 +1,7 @@
+.zm-fieldset {
+    border: 0;
+
+    legend {
+        font-weight: 700;
+    }
+}

@@ -83,7 +83,7 @@
     });
 </script>
 
-<fieldset class="zm-nameservers">
+<fieldset class="zm-domain-test__nameservers">
     <legend>Nameservers</legend>
     <Stack vertical gap="s">
         {#each nameservers as ns, i}
@@ -129,15 +129,3 @@
         </Button>
     </Stack>
 </fieldset>
-<style>
-    .zm-nameservers {
-        all: unset;
-        display: block;
-        margin-top: var(--spacing-s);
-        padding-top: calc(var(--rhythm) / 2);
-
-        legend {
-            font-weight: 700;
-        }
-    }
-</style>

@@ -107,7 +107,7 @@
         };
     });
 </script>
-<fieldset class="zm-records">
+<fieldset class="zm-domain-test__records">
     <legend>DS Records</legend>
     <Stack vertical gap="s">
         {#each records as r, i}
@@ -158,14 +158,3 @@
         </Button>
     </Stack>
 </fieldset>
-<style>
-    .zm-records {
-        all: unset;
-        display: block;
-        padding-top: calc(var(--rhythm) / 2);
-
-        legend {
-            font-weight: 700;
-        }
-    }
-</style>

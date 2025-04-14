@@ -19,8 +19,8 @@
   const grouped: Partial<Record<string, ResultDataResult[]>> = Object.groupBy(results, ({ testcase }) => testcase);
   let open: boolean = $derived(expandedModules[module] || false);
 </script>
-<section class="zm-result">
-  <h3>
+<section class="zm-result__module">
+  <h3 class="zm-result__module__title">
     <button onclick={() => toggleModule(module)}>
       <i class="bi bi-caret-{open ? 'up' : 'down'}-fill"></i>
       <span>{niceName(module)}</span>
@@ -31,7 +31,7 @@
     </button>
   </h3>
   {#if open}
-  <div class="zm-result-data" id={`module-${module}`}>
+  <div class="zm-result__module__data" id={`module-${module}`}>
     <Stack vertical gap="s">
       {#each Object.entries(grouped) as [testcase, results]}
         <ResultGroup testcase={testcase} results={results} descriptions={descriptions} />
@@ -40,34 +40,3 @@
   </div>
   {/if}
 </section>
-<style>
-  h3 button {
-    all: unset;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-xs);
-    cursor: pointer;
-  }
-
-  .zm-result {
-    background: var(--color-palette-black-10);
-    padding: var(--spacing-s);
-    border-radius: var(--border-radius);
-
-      h3 {
-          margin-bottom: 0;
-      }
-
-      button {
-          &:hover, &:focus {
-              span {
-                  text-decoration: underline;
-              }
-          }
-      }
-  }
-
-  .zm-result-data {
-    margin-top: var(--spacing-s);
-  }
-</style>

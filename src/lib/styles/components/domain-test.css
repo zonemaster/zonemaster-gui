@@ -1,0 +1,96 @@
+.zm-domain-test {
+    background-color: var(--color-palette-main-10);
+    border: 1px solid var(--color-palette-main-30);
+    border-radius: var(--border-radius);
+    margin-top: calc(var(--rhythm) / 2);
+    margin-bottom: var(--rhythm);
+    padding: var(--spacing-default);
+
+    &.zm-is-testing {
+        .zm-domain-test__progress-bar {
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            opacity: 0.5;
+            transition: width 0.5s linear;
+            background-image: linear-gradient(
+                45deg,
+                var(--color-palette-main-30) 25%,
+                transparent 25%,
+                transparent 50%,
+                var(--color-palette-main-30) 50%,
+                var(--color-palette-main-30) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 80px 80px;
+            animation: progress-bar-stripes 2s linear infinite;
+            z-index: 2;
+            border-top-left-radius: var(--border-radius);
+            border-bottom-left-radius: var(--border-radius);
+        }
+
+        .zm-domain-test__progress {
+            overflow: hidden;
+        }
+    }
+}
+
+.zm-domain-test__progress-bar {
+    display: none;
+}
+
+.zm-domain-test__progress {
+    position: relative;
+    width: 100%;
+    border-radius: var(--border-radius);
+}
+
+.zm-domain-test__general {
+    all: unset;
+    display: block;
+    padding-top: calc(var(--rhythm) / 2);
+    margin-bottom: var(--rhythm);
+
+    legend {
+        font-weight: 700;
+    }
+
+    label {
+        cursor: pointer;
+        margin-right: var(--rhythm);
+    }
+}
+
+.zm-domain-test__nameservers {
+    all: unset;
+    display: block;
+    margin-top: var(--spacing-s);
+    padding-top: calc(var(--rhythm) / 2);
+
+    legend {
+        font-weight: 700;
+    }
+}
+
+.zm-domain-test__records {
+    all: unset;
+    display: block;
+    padding-top: calc(var(--rhythm) / 2);
+
+    legend {
+        font-weight: 700;
+    }
+}
+
+@keyframes progress-bar-stripes {
+    from {
+        background-position: 80px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}

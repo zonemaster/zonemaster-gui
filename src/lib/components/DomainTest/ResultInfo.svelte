@@ -78,7 +78,7 @@
     // Handle popover close on click outside
     document.addEventListener('click', (e: Event) => {
         const target = e.target as Element;
-        if (!target.closest('.popover')) {
+        if (!target.closest('.zm-popover')) {
             showExport = false;
             showShare = false;
         }
@@ -92,171 +92,107 @@
         }
     });
 </script>
-<h2>Test result for {data.params.domain}</h2>
-<Stack middle wrap spaceBetween>
-    <div>
-        Created on
-        <time datetime={data.created_at}>{new Intl.DateTimeFormat('en-US', {
-            dateStyle: 'medium',
-            timeStyle: 'medium'
-        }).format(new Date(data.created_at))}</time>
-    </div>
-    <Stack middle gap="xs">
-        <History data={data} />
-        <div class="popover">
-            <Button
-                variant="secondary"
-                size="small"
-                type="button"
-                aria-controls="exportDialog"
-                onclick={() => {
-                   showExport = !showExport;
-                }}
-            >
-                <i class="bi bi-cloud-arrow-down"></i>
-                Export
-            </Button>
-            <div class="popover-content" role="dialog" id="exportDialog" style:display={showExport ? 'block' : 'none'}>
-                <div class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack['gap--s']}">
-                    <button onmousedown={() => exportJson(data)}>JSON</button>
-                    <button onmousedown={() => exportHTML(data)}>HTML</button>
-                    <button onmousedown={() => exportCSV(data)}>CSV</button>
-                    <button onmousedown={() => exportText(data)}>TEXT</button>
+<div class="zm-result">
+    <h2 class="zm-result__title">Test result for {data.params.domain}</h2>
+    <Stack middle wrap spaceBetween>
+        <div>
+            Created on
+            <time datetime={data.created_at}>{new Intl.DateTimeFormat('en-US', {
+                dateStyle: 'medium',
+                timeStyle: 'medium'
+            }).format(new Date(data.created_at))}</time>
+        </div>
+        <Stack middle gap="xs">
+            <History data={data} />
+            <div class="zm-popover">
+                <Button
+                    variant="secondary"
+                    size="small"
+                    type="button"
+                    aria-controls="exportDialog"
+                    onclick={() => {
+                    showExport = !showExport;
+                    }}
+                >
+                    <i class="bi bi-cloud-arrow-down"></i>
+                    Export
+                </Button>
+                <div class="zm-popover__content" role="dialog" id="exportDialog" style:display={showExport ? 'block' : 'none'}>
+                    <div class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack['gap--s']}">
+                        <button onmousedown={() => exportJson(data)}>JSON</button>
+                        <button onmousedown={() => exportHTML(data)}>HTML</button>
+                        <button onmousedown={() => exportCSV(data)}>CSV</button>
+                        <button onmousedown={() => exportText(data)}>TEXT</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="popover">
-            <Button
-                variant="secondary"
-                size="small"
-                type="button"
-                aria-controls="copyURLDialog"
-                onclick={() => {
-                    showShare = !showShare;
-                }}
-            >
-                <i class="bi bi-share"></i>
-                Share
-            </Button>
-            <div class="popover-content" role="dialog" id="copyURLDialog" style:display={showShare ? 'block' : 'none'}>
-                <div class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack['gap--s']}">
-                    <Input size="small" type="text" readonly value={window.location.href} />
-                    <Copy value={window.location.href} />
+            <div class="zm-popover">
+                <Button
+                    variant="secondary"
+                    size="small"
+                    type="button"
+                    aria-controls="copyURLDialog"
+                    onclick={() => {
+                        showShare = !showShare;
+                    }}
+                >
+                    <i class="bi bi-share"></i>
+                    Share
+                </Button>
+                <div class="zm-popover__content" role="dialog" id="copyURLDialog" style:display={showShare ? 'block' : 'none'}>
+                    <div class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack['gap--s']}">
+                        <Input size="small" type="text" readonly value={window.location.href} />
+                        <Copy value={window.location.href} />
+                    </div>
                 </div>
             </div>
-        </div>
-    </Stack>
-</Stack>
-<Stack vertical gap="m">
-    <fieldset class="zm-fieldset">
-        <legend>Filter severity levels</legend>
-        <Stack middle wrap>
-            <FilterToggle name="filter[all]" label="All" badge={data.results.length} bind:checked={filterAll}
-                          onCheck={onCheck} value="all" />
-            <FilterToggle name="filter[info]" label="Info" badge={data.results.filter((r) => r.level === 'INFO').length}
-                          bind:checked={filterInfo} onCheck={onCheck} severity="info" value="info" />
-            <FilterToggle name="filter[notice]" label="Notice"
-                          badge={data.results.filter((r) => r.level === 'NOTICE').length} bind:checked={filterNotice}
-                          onCheck={onCheck} severity="notice" value="notice" />
-            <FilterToggle name="filter[warning]" label="Warning"
-                          badge={data.results.filter((r) => r.level === 'WARNING').length} bind:checked={filterWarning}
-                          onCheck={onCheck} severity="warning" value="warning" />
-            <FilterToggle name="filter[error]" label="Error"
-                          badge={data.results.filter((r) => r.level === 'ERROR').length} bind:checked={filterError}
-                          onCheck={onCheck} severity="error" value="error" />
-            <FilterToggle name="filter[critical]" label="Critical"
-                          badge={data.results.filter((r) => r.level === 'CRITICAL').length}
-                          bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
         </Stack>
-    </fieldset>
-    {#if aboutLevels}
-        <Collapsible title={aboutLevels.question} id={'helper'} content={aboutLevels.answer}></Collapsible>
-    {/if}
-    <fieldset class="zm-fieldset {stack.stack} {stack.bottom} {stack['gap--xs']}">
-        <div class={stack.expand}>
-            <Input
-                id="filterQuery"
-                type="search"
-                placeholder="Search"
-                bind:value={query}
-                label="Search text in messages"
-                onInput={filterItems}
-            />
-        </div>
-        <Button onClick={expandAllModules} variant="secondary">Expand all modules</Button>
-        <Button onClick={collapseAllModules} variant="secondary">Collapse all</Button>
-    </fieldset>
-    <Stack vertical gap="xs">
-        {#each Object.entries(result) as [module, results]}
-            {#key module}
-                <ResultModule module={module} results={results || []} descriptions={data.testcase_descriptions} />
-            {/key}
-        {/each}
     </Stack>
-</Stack>
-<style>
-    h2 {
-        margin-bottom: var(--spacing-m);
-    }
-
-    .zm-fieldset {
-        border: 0;
-
-        legend {
-            font-weight: 700;
-        }
-    }
-
-    .popover {
-        position: relative;
-    }
-
-    .popover-content {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        transform: translateY(var(--spacing-xs));
-        padding: var(--spacing-s);
-        background-color: var(--color-palette-white);
-        border: 1px solid var(--color-border);
-        border-radius: var(--border-radius);
-        background-color: var(--color-palette-main-10);
-
-        &:after,
-        &:before {
-            bottom: 100%;
-            left: calc(100% - var(--rhythm) * 1.75);
-            border: solid transparent;
-            content: "";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-        }
-
-        &:after {
-            border-color: rgba(237, 235, 255, 0);
-            border-bottom-color: #edebff;
-            border-width: 10px;
-            margin-left: -10px;
-        }
-
-        &:before {
-            border-color: rgba(178, 170, 251, 0);
-            border-bottom-color: #b2aafb;
-            border-width: 11px;
-            margin-left: -11px;
-        }
-
-        button {
-            all: unset;
-            cursor: pointer;
-
-            &:hover,
-            &:focus {
-                text-decoration: underline;
-            }
-        }
-    }
-</style>
+    <Stack vertical gap="m">
+        <fieldset class="zm-fieldset">
+            <legend>Filter severity levels</legend>
+            <Stack middle wrap>
+                <FilterToggle name="filter[all]" label="All" badge={data.results.length} bind:checked={filterAll}
+                            onCheck={onCheck} value="all" />
+                <FilterToggle name="filter[info]" label="Info" badge={data.results.filter((r) => r.level === 'INFO').length}
+                            bind:checked={filterInfo} onCheck={onCheck} severity="info" value="info" />
+                <FilterToggle name="filter[notice]" label="Notice"
+                            badge={data.results.filter((r) => r.level === 'NOTICE').length} bind:checked={filterNotice}
+                            onCheck={onCheck} severity="notice" value="notice" />
+                <FilterToggle name="filter[warning]" label="Warning"
+                            badge={data.results.filter((r) => r.level === 'WARNING').length} bind:checked={filterWarning}
+                            onCheck={onCheck} severity="warning" value="warning" />
+                <FilterToggle name="filter[error]" label="Error"
+                            badge={data.results.filter((r) => r.level === 'ERROR').length} bind:checked={filterError}
+                            onCheck={onCheck} severity="error" value="error" />
+                <FilterToggle name="filter[critical]" label="Critical"
+                            badge={data.results.filter((r) => r.level === 'CRITICAL').length}
+                            bind:checked={filterCritical} onCheck={onCheck} severity="critical" value="critical" />
+            </Stack>
+        </fieldset>
+        {#if aboutLevels}
+            <Collapsible title={aboutLevels.question} id={'helper'} content={aboutLevels.answer}></Collapsible>
+        {/if}
+        <fieldset class="zm-fieldset {stack.stack} {stack.bottom} {stack['gap--xs']}">
+            <div class={stack.expand}>
+                <Input
+                    id="filterQuery"
+                    type="search"
+                    placeholder="Search"
+                    bind:value={query}
+                    label="Search text in messages"
+                    onInput={filterItems}
+                />
+            </div>
+            <Button onClick={expandAllModules} variant="secondary">Expand all modules</Button>
+            <Button onClick={collapseAllModules} variant="secondary">Collapse all</Button>
+        </fieldset>
+        <Stack vertical gap="xs">
+            {#each Object.entries(result) as [module, results]}
+                {#key module}
+                    <ResultModule module={module} results={results || []} descriptions={data.testcase_descriptions} />
+                {/key}
+            {/each}
+        </Stack>
+    </Stack>
+</div>
