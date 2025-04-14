@@ -9,10 +9,12 @@ const { lang } = Astro.params;
 const locale = lang || config.i18n?.defaultLocale || 'en';
 const aboutLevels = await getEntry('faq', `${locale}/severity-levels`);
 
-const data: FaqItem | null = aboutLevels ? {
-    question: aboutLevels.data.question,
-    answer: aboutLevels.rendered?.html || ''
-} : null;
+const data: FaqItem | null = aboutLevels
+    ? {
+          question: aboutLevels.data.question,
+          answer: aboutLevels.rendered?.html || '',
+      }
+    : null;
 ---
 
 <h1 class="container zm-u-align-center">{m.startTestTitle()}</h1>

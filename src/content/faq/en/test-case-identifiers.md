@@ -8,15 +8,15 @@ category: Using Zonemaster
 All test cases belong to one specific test level and their names are based on
 that test level’s name. The following test levels are defined and available:
 
-* Address
-* Basic
-* Connectivity
-* Consistency
-* DNSSEC
-* Delegation
-* Nameserver
-* Syntax
-* Zone
+- Address
+- Basic
+- Connectivity
+- Consistency
+- DNSSEC
+- Delegation
+- Nameserver
+- Syntax
+- Zone
 
 The test level name is not case-sensitive, but the forms defined above
 must be used when referring to the test levels, i.e. only the first letter
@@ -35,7 +35,7 @@ test case identifier is unique. Normally the first free index is selected.
 
 Example of test case identifiers:
 
-* Address03
-* Basic04
-* DNSSEC15
-* Zone06
+- Address03
+- Basic04
+- DNSSEC15
+- Zone06

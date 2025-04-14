@@ -41,6 +41,7 @@
     "@tsconfig/svelte": "^5.0.4",
     "@types/node": "^22.13.1",
     "prettier": "3.5.0",
+    "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-svelte": "^3.3.3",
     "storybook": "^8.6.4",
     "storybook-dark-mode": "^4.0.2",

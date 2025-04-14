@@ -2,31 +2,32 @@
 import FAQ from '../../components/Faq.astro';
 import Layout from '../../layouts/Layout.astro';
 import config from '../../../astro.config.mjs';
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-export function getStaticPaths () {
-	if (!config.i18n) {
-		return [
-			{ params: { lang: 'en' } },
-		];
-	}
+export function getStaticPaths() {
+    if (!config.i18n) {
+        return [{ params: { lang: 'en' } }];
+    }
 
-	return config.i18n.locales
-		.filter(lang => lang !== config?.i18n?.defaultLocale)
-		.map(lang => ({ params: { lang } }));
+    return config.i18n.locales
+        .filter((lang) => lang !== config?.i18n?.defaultLocale)
+        .map((lang) => ({ params: { lang } }));
 }
 
 const { lang } = Astro.params;
 const faq = await getCollection('faq', ({ id }) => {
-  return id.startsWith(`${lang}/`);
+    return id.startsWith(`${lang}/`);
 });
 
 type FaqItem = CollectionEntry<'faq'>;
 // Object.groupBy returns a Partial<Record> which we convert to Record with a default empty array
-const groupedPartial = Object.groupBy(faq, (item: FaqItem) => item.data.category);
+const groupedPartial = Object.groupBy(
+    faq,
+    (item: FaqItem) => item.data.category,
+);
 const grouped = groupedPartial as Record<string, FaqItem[]>;
 ---
 
 <Layout>
-	<FAQ data={grouped} />
+    <FAQ data={grouped} />
 </Layout>

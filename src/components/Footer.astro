@@ -1,74 +1,85 @@
 ---
 import ProgramVersions from '@/lib/components/ProgramVersions/ProgramVersions.svelte';
-import Grid from "@/lib/components/Grid/Grid.svelte";
+import Grid from '@/lib/components/Grid/Grid.svelte';
 ---
-<footer class="zm-footer">
-  <div class="container">
-    <Grid client:load cols={2} gap="xs">
-      <div class="zm-footer-program-versions">
-        <ProgramVersions client:idle />
-      </div>
-      <div class="zm-footer-nav-container">
-        <nav>
-          <ul class="zm-footer-nav">
-            <li><a href="mailto:contact@zonemaster.net"><i class="bi bi-envelope-fill"></i> contact@zonemaster.net</a></li>
-            <li><a href="https://github.com/zonemaster/zonemaster"><i class="bi bi-github"></i> Source code</a></li>
-            <li><a href="https://doc.zonemaster.net/"><i class="bi bi-file-text-fill"></i> Documentation</a></li>
-          </ul>
-        </nav>
 
-      </div>
-    </Grid>
-  </div>
-  <Grid client:load cols={1}>
-    <div class="zm-footer-copyright">
-      Copyright © AFNIC and The Swedish Internet Foundation. All Rights Reserved
+<footer class="zm-footer">
+    <div class="container">
+        <Grid client:load cols={2} gap="xs">
+            <div class="zm-footer-program-versions">
+                <ProgramVersions client:idle />
+            </div>
+            <div class="zm-footer-nav-container">
+                <nav>
+                    <ul class="zm-footer-nav">
+                        <li>
+                            <a href="mailto:contact@zonemaster.net"
+                                ><i class="bi bi-envelope-fill"></i> contact@zonemaster.net</a
+                            >
+                        </li>
+                        <li>
+                            <a href="https://github.com/zonemaster/zonemaster"
+                                ><i class="bi bi-github"></i> Source code</a
+                            >
+                        </li>
+                        <li>
+                            <a href="https://doc.zonemaster.net/"
+                                ><i class="bi bi-file-text-fill"></i> Documentation</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </Grid>
     </div>
-  </Grid>
+    <Grid client:load cols={1}>
+        <div class="zm-footer-copyright">
+            Copyright © AFNIC and The Swedish Internet Foundation. All Rights
+            Reserved
+        </div>
+    </Grid>
 </footer>
 
 <style>
-  .zm-footer {
-    background-color: var(--color-palette-main-10);
-    padding: var(--spacing-m) 0 0 0;
-    position: sticky;
-    top: 100vh;
+    .zm-footer {
+        background-color: var(--color-palette-main-10);
+        padding: var(--spacing-m) 0 0 0;
+        position: sticky;
+        top: 100vh;
 
-    .zm-footer-program-versions {
-      padding-left: var(--spacing-m);
-      padding-right: var(--spacing-m);
+        .zm-footer-program-versions {
+            padding-left: var(--spacing-m);
+            padding-right: var(--spacing-m);
 
-      @media screen and (min-width: 769px) {
-        padding-left: 0;
-        padding-right: 0;
-      }
+            @media screen and (min-width: 769px) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .zm-footer-nav-container {
+            padding-left: var(--spacing-m);
+            padding-right: var(--spacing-m);
+
+            @media screen and (min-width: 769px) {
+                width: auto;
+                margin-left: auto;
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .zm-footer-nav {
+            list-style: none;
+            padding: 0.5rem 0;
+            margin: 0;
+        }
+
+        .zm-footer-copyright {
+            text-align: center;
+            margin-top: var(--spacing-m);
+            padding: var(--spacing-m);
+            background-color: var(--color-palette-main-30);
+        }
     }
-
-    .zm-footer-nav-container {
-      padding-left: var(--spacing-m);
-      padding-right: var(--spacing-m);
-
-      @media screen and (min-width: 769px) {
-        width: auto;
-        margin-left: auto;
-        padding-left: 0;
-        padding-right: 0;
-      }
-    }
-
-    .zm-footer-nav {
-      list-style: none;
-      padding: 0.5rem 0;
-      margin: 0;
-    }
-
-    .zm-footer-copyright {
-      text-align: center;
-      margin-top: var(--spacing-m);
-      padding: var(--spacing-m);
-      background-color: var(--color-palette-main-30);
-    }
-  }
-
-
 </style>

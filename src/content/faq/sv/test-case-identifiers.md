@@ -8,15 +8,15 @@ category: Använda Zonemaster
 Alla testfall tillhör en specifik testnivå och deras namn baseras på
 den testnivåns namn. Följande testnivåer är definierade och tillgängliga:
 
-* Address
-* Basic
-* Connectivity
-* Consistency
-* DNSSEC
-* Delegation
-* Nameserver
-* Syntax
-* Zone
+- Address
+- Basic
+- Connectivity
+- Consistency
+- DNSSEC
+- Delegation
+- Nameserver
+- Syntax
+- Zone
 
 Testnivåns namn är inte skiftlägeskänsligt, men de former som definieras ovan
 måste användas när man hänvisar till testnivåerna, dvs. endast den första bokstaven
@@ -34,7 +34,7 @@ testfallsidentifieraren är unik. Normalt väljs det första lediga indexet.
 
 Exempel på testfallsidentifierare:
 
-* Address03
-* Basic04
-* DNSSEC15
-* Zone06
+- Address03
+- Basic04
+- DNSSEC15
+- Zone06

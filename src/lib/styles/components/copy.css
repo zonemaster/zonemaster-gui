@@ -2,7 +2,7 @@
     background: var(--color-palette-main-70);
     border: none;
     cursor: pointer;
-    padding: 0  var(--button-padding);
+    padding: 0 var(--button-padding);
     border-radius: var(--border-radius);
     display: inline-flex;
     align-items: center;
