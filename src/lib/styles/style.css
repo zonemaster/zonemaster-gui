@@ -1,4 +1,3 @@
-@import 'colors.css';
 @import 'components/grid.css';
 @import 'components/button.css';
 @import 'components/input.css';
@@ -14,3 +13,4 @@
 @import 'components/popover.css';
 @import 'components/fieldset.css';
 @import 'components/result.css';
+@import 'colors.css';
