@@ -1,3 +1,4 @@
+<svelte:options customElement={{ tag: 'zm-program-versions', shadow: 'none' }} />
 <script lang="ts">
   import {versionInfo} from "@/lib/client.ts";
   import {error} from "@/lib/alert.svelte.ts";
