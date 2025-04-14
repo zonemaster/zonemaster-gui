@@ -1,18 +1,7 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import Skip from '../components/Skip.astro';
-import Header from '../components/Header.astro';
-import Content from '../components/Content.astro';
-import Alerts from '@/lib/components/Alert/Alerts.svelte';
-import Footer from '../components/Footer.astro';
+import LayoutComponent from './DefaultLayout.astro';
 ---
 
-<BaseLayout>
-    <Skip />
-    <Header />
-    <Content>
-        <slot />
-    </Content>
-    <Footer />
-    <Alerts client:idle />
-</BaseLayout>
+<LayoutComponent>
+    <slot />
+</LayoutComponent>
