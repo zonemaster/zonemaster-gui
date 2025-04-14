@@ -1,4 +1,4 @@
-<svelte:options customElement="zm-domain-test" />
+<svelte:options customElement={{ tag: 'zm-domain-test', shadow: 'none' }} />
 <script lang="ts">
     import Button from '../Button/Button.svelte';
     import Input from '../Input/Input.svelte';
