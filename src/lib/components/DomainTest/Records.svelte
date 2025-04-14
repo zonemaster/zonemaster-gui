@@ -119,24 +119,24 @@
                             type="text"
                             value={r.keytag}
                             label={i === 0 ? 'Keytag' : undefined}
-                            onInput={(e) => updateRow(i, 'keytag', e.currentTarget.value)}
+                            onInput={(e) => updateRow(i, 'keytag', (e.target as HTMLInputElement).value)}
                         />
                     </div>
                     <div>
                         <Select
                             name="ds_info[{i}][algorithm]"
                             value={r.algorithm} label={i === 0 ? 'Algorithm' : undefined}
-                            onSelect={(e) => updateRow(i, 'algorithm', e.currentTarget.value)}
+                            onSelect={(e) => updateRow(i, 'algorithm', (e.target as HTMLSelectElement).value)}
                             options={algorithms}
                         />
                     </div>
                     <div>
                         <Select name="ds_info[{i}][digtype]" value={r.digestType} label={i === 0 ? 'Digest Type' : undefined}
-                                onSelect={(e) => updateRow(i, 'digestType', e.target.value)} options={digestTypes} />
+                                onSelect={(e) => updateRow(i, 'digestType', (e.target as HTMLSelectElement).value as string)} options={digestTypes} />
                     </div>
                     <div>
                         <Input name="ds_info[{i}][digest]" value={r.digest} type="text" label={i === 0 ? 'Digest' : undefined}
-                               onInput={(e) => updateRow(i, 'digest', e.target.value)} />
+                               onInput={(e) => updateRow(i, 'digest', (e.target as HTMLInputElement).value)} />
                     </div>
                 </Grid>
                 {#if records.length > 1}

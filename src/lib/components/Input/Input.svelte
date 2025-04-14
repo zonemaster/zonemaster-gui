@@ -10,6 +10,7 @@
         disabled?: boolean;
         onInput?: (event: Event & { currentTarget: EventTarget & HTMLInputElement }) => void;
         class?: string;
+        [x: string]: unknown;
     };
 
     let {

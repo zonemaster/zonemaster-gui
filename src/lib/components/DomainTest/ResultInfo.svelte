@@ -141,7 +141,7 @@
                 </Button>
                 <div class="zm-popover__content" role="dialog" id="copyURLDialog" style:display={showShare ? 'block' : 'none'}>
                     <div class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack['gap--s']}">
-                        <Input size="small" type="text" readonly value={window.location.href} />
+                        <Input size="small" type="text" readonly name="url" value={window.location.href} />
                         <Copy value={window.location.href} />
                     </div>
                 </div>
@@ -179,6 +179,7 @@
                     id="filterQuery"
                     type="search"
                     placeholder="Search"
+                    name="q"
                     bind:value={query}
                     label="Search text in messages"
                     onInput={filterItems}
