@@ -7,6 +7,29 @@
     padding: var(--spacing-xxs) var(--spacing-xs);
     text-decoration: none;
 
+    &.zm-bg-info {
+        background: var(--color-palette-success-50);
+        color: var(--color-palette-black);
+    }
+
+    &.zm-bg-notice {
+        background: var(--color-palette-info-50);
+        color: var(--color-palette-black);
+    }
+
+    &.zm-bg-warning {
+        background: var(--color-palette-warning-50);
+        color: var(--color-palette-black);
+    }
+
+    &.zm-bg-error {
+        background: var(--color-palette-error-50);
+    }
+
+    &.zm-bg-critical {
+        background: var(--color-palette-error-70);
+    }
+
     &.zm-badge--round {
         border-radius: 50%;
         font-size: var(--font-xs);
