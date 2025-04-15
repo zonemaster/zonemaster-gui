@@ -44,8 +44,8 @@ The same principle applies to all ./src/components/*.astro files. If you need to
 
 ```diff
 ---
-- import Layout from '../../layouts/Layout.astro';
-+ import Layout from '../../layouts/my-theme/Layout.astro';
+- import Layout from './DefaultLayout.astro';
++ import Layout from './MyLayout.astro';
 ---
 
 <Layout>
