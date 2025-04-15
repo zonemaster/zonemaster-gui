@@ -1,7 +1,22 @@
 ---
-import * as m from '../../paraglide/messages.js';
-import Collapsible from '../../lib/components/Collapsible/Collapsible.svelte';
-import type { FaqItem, FaqProps } from '../Faq.astro';
+import * as m from '@/paraglide/messages.js';
+import type { CollectionEntry } from 'astro:content';
+import Collapsible from '@/lib/components/Collapsible/Collapsible.svelte';
+
+export interface FaqItem extends CollectionEntry<'faq'> {
+    data: {
+        question: string;
+        category: string;
+    };
+    rendered: {
+        html: string;
+    };
+    id: string;
+}
+
+export interface FaqProps {
+    data: Record<string, FaqItem[]>;
+}
 
 const { data } = Astro.props as FaqProps;
 ---

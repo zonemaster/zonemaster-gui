@@ -1,12 +1,12 @@
 ---
-import * as m from '../../paraglide/messages.js';
+import * as m from '@/paraglide/messages.js';
+import { sourceLanguageTag } from '@/paraglide/runtime';
 import { getEntry } from 'astro:content';
-import DomainTest from '../../lib/components/DomainTest/DomainTest.svelte';
-import config from '../../../astro.config.mjs';
+import DomainTest from '@/lib/components/DomainTest/DomainTest.svelte';
 import type { FaqItem } from '../../content.config';
 
 const { lang } = Astro.params;
-const locale = lang || config.i18n?.defaultLocale || 'en';
+const locale = lang || sourceLanguageTag || 'en';
 const aboutLevels = await getEntry('faq', `${locale}/severity-levels`);
 
 const data: FaqItem | null = aboutLevels

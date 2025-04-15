@@ -1,16 +1,12 @@
 ---
-import FAQ from '../../components/Faq.astro';
-import Layout from '../../layouts/Layout.astro';
-import config from '../../../astro.config.mjs';
+import FAQ from '@theme/Faq.astro';
+import Layout from '@theme/Layout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { sourceLanguageTag, availableLanguageTags } from '@/paraglide/runtime';
 
 export function getStaticPaths() {
-    if (!config.i18n) {
-        return [{ params: { lang: 'en' } }];
-    }
-
-    return config.i18n.locales
-        .filter((lang) => lang !== config?.i18n?.defaultLocale)
+    return availableLanguageTags
+        .filter((lang) => lang !== sourceLanguageTag)
         .map((lang) => ({ params: { lang } }));
 }
 

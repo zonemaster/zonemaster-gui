@@ -7,6 +7,7 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': resolve(__dirname, '../'),
+            '@theme': resolve(__dirname, '../themes/default'),
         },
     },
     build: {

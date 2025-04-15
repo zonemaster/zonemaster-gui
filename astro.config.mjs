@@ -6,12 +6,9 @@ import {
     remarkDefinitionList,
     defListHastHandlers,
 } from "remark-definition-list";
-
 import svelte from '@astrojs/svelte';
-
 import node from '@astrojs/node';
-
-console.log(process.env.NODE_ENV);
+import { resolve } from 'path';
 
 // https://astro.build/config
 export default defineConfig({

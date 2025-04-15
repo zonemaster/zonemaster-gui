@@ -8,7 +8,7 @@ That said, to avoid headaches when syncing with the original repository, we reco
 
 - Start by customizing the **theme variables** — this is enough for most use cases.
 - If that's not enough, apply **custom CSS** targeting specific elements.
-- For framework changes, **create new components** and swap references instead of modifying originals.
+- For large framework changes, **create a new theme** and update `tsconfig.json`.
 - For interactive components, **keep changes minimal** to avoid breaking functionality.
 - Use **headless mode** for major customizations or when building your own UI.
 
@@ -17,10 +17,9 @@ That said, to avoid headaches when syncing with the original repository, we reco
 
 ## Basic customization
 
-The Zonemaster UI is built around a global theme based on CSS variables (./src/styles/theme.css).
-The easiest way to make your own theme is to override theme variables in the `./src/styles/theme/theme.css` file.
+The Zonemaster UI is built around a global theme based on CSS variables (./src/themes/default/styles/theme.css).
+The easiest way to make your own theme is to override theme variables in the `./src/themes/default/styles/custom.css` file.
 You can tweak colors, fonts, spacing, and more. You'll get surprisingly far by just updating the theme variables.
-
 All class names are prefixed with `zm-` to avoid conflicts with other styles. This makes it easy to apply custom CSS on top of the theme to target specific elements.
 
 ## Modifying structure and layout
@@ -29,28 +28,24 @@ There's two layers of the UI.
 
 ### Framework
 
-The framework is the foundation of the UI and is built with [Astro](https://astro.build/). These files are located under `./src/components` and `./src/layouts`. The starting point for these imports are pages. Pages are simple, they consist of a single component wrapped inside a layout. *We suggest not modifying the page files*. Instead, create your own components and layouts. For example, ./src/components/StartTest.astro is referenced in ./src/pages/[lang]/index.astro. This file wont change when synchronizing with the original repository so you can safely modify it.
+The framework is the foundation of the UI and is built with [Astro](https://astro.build/). These files are located under `./src/themes/default`. The starting point for these imports are pages. Pages are simple, they consist of a single component wrapped inside a layout. *We suggest not modifying the page files*. Instead, create your own theme, for example `./src/themes/my-theme`. You can still reuse components from the original theme in your new theme.
+
+Then update tsconfig.json
 
 ```diff
----
-- import StartTestComponent from '../components/default/StartTest.astro';
-+ import StartTestComponent from '../components/my-theme/StartTest.astro';
----
-
-<StartTestComponent />
-```
-
-The same principle applies to all ./src/components/*.astro files. If you need to modify the layout, create your own layout in ./src/layouts/my-theme/Layout.astro. And modify ./src/layouts/Layout.astro
-
-```diff
----
-- import Layout from './DefaultLayout.astro';
-+ import Layout from './MyLayout.astro';
----
-
-<Layout>
-    <slot />
-</Layout>
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+-     "@theme/*": ["./src/themes/default/*"]
++     "@theme/*": ["./src/themes/my-theme/*"]
+    }
+  }
+}
 ```
 
 ### Interactive components
