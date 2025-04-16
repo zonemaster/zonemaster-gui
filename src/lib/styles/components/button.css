@@ -6,7 +6,7 @@
     justify-content: center;
     gap: var(--spacing-xs);
     height: var(--button-size);
-    border: 1px solid var(--button-color);
+    border: 1px solid var(--button-border-color);
     border-radius: var(--border-radius);
     background-color: var(--button-color);
     text-decoration: none;

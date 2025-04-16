@@ -111,7 +111,7 @@
     --color-palette-error-50: #ff3e50;
     --color-palette-error-70: #b30f3e;
     --color-palette-error-90: #4a071e;
-
+    
     /* Colors */
     --color-background: var(--color-palette-white);
     --color-background-overlay: rgba(250, 250, 250, 0.7);
@@ -131,7 +131,10 @@
     --button-color: var(--color-palette-main-50);
     --button-color-hover: var(--color-palette-main-70);
     --button-text-color: var(--color-palette-main-0);
+    --button-border-color: var(--color-palette-main-50);
+    --button-border-color-alternate: var(--color-palette-main-50);
     --button-border-color-disabled: var(--color-palette-black-50);
+    --border-color-hover-hover: var(--border-color-hover);
     --button-size: 46px;
     --button-font-size: var(--font-s);
     --button-padding: var(--spacing-s);
@@ -140,6 +143,10 @@
     --button-padding-small: var(--spacing-s);
     --button-icon-size: var(--font-m);
     --button-icon-size-small: var(--font-s);
+
+    /* Border */
+    --border-color: var(--color-palette-main-50);
+    --border-color-hover: var(--color-palette-main-70);
 
     /* Control */
     --control-size: 32px;
