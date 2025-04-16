@@ -1,0 +1,12 @@
+.zm-logo img {
+    width: 150px;
+    aspect-ratio: 594 / 149;
+
+    @media screen and (min-width: 769px) {
+        width: 191px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 255px;
+    }
+}

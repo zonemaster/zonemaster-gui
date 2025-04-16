@@ -15,12 +15,12 @@ const languages = {
 ---
 
 <div class="zm-language-switcher">
-    <i class="bi bi-translate zm-language-switcher-icon"></i>
+    <i class="bi bi-translate zm-language-switcher__icon"></i>
     <label for="languageSwitcher" class="zm-u-visually-hidden"
         >{m.langLabel()}</label
     >
     <select
-        class="zm-language-switcher-select"
+        class="zm-language-switcher__select"
         id="languageSwitcher"
         data-source-language={sourceLanguageTag}
         data-current-language={currentLanguage}
@@ -71,49 +71,3 @@ const languages = {
         .getElementById('languageSwitcher')
         ?.addEventListener('change', switchToLanguage);
 </script>
-<style>
-    .zm-language-switcher {
-        display: flex;
-        align-items: center;
-        margin-left: var(--spacing-m);
-        margin-right: 0;
-        margin-top: var(--spacing-m);
-        margin-bottom: var(--spacing-m);
-        gap: var(--spacing-xs);
-
-        @media screen and (min-width: 769px) {
-            margin-left: auto;
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-    }
-
-    .zm-language-switcher-icon {
-        font-size: var(--font-m);
-    }
-
-    .zm-language-switcher-select {
-        display: block;
-        padding: var(--spacing-xs) var(--spacing-s);
-        font-size: var(--font-body-size);
-        font-weight: var(--font-body-weight);
-        font-family: var(--font-body-family);
-        line-height: var(--font-body-line-height);
-        color: var(--color-text);
-        background-color: var(--color-palette-white);
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
-        background-repeat: no-repeat;
-        background-position: right 0.75rem center;
-        background-size: 16px 12px;
-        border: 1px solid var(--color-border);
-        border-radius: var(--border-radius);
-        transition:
-            border-color 0.15s ease-in-out,
-            box-shadow 0.15s ease-in-out;
-        appearance: none;
-
-        &:focus {
-            box-shadow: 0 0 0 3px var(--color-palette-main-30);
-        }
-    }
-</style>

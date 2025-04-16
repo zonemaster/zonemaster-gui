@@ -2,4 +2,11 @@
 @import 'foundation.css';
 @import 'utilities/manifest.css';
 @import 'tab-highlighting.css';
+@import 'layout.css';
+@import 'components/logo.css';
+@import 'components/mobile-menu-btn.css';
+@import 'components/language-switcher.css';
+@import 'components/run-test.css';
+@import 'components/menu.css';
+@import 'components/skip.css';
 @import 'custom.css';
