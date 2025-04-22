@@ -19,6 +19,6 @@ const data: FaqItem | null = aboutLevels
 
 <h1 class="container zm-u-align-center">{m.startTestTitle()}</h1>
 <section class="zm-run-test rhythm">
-    <h2 id="testInputHeading">{m.runTestTitle()}</h2>
+    <h2 class="u-m-b-0" id="testInputHeading">{m.runTestTitle()}</h2>
     <DomainTest aboutLevels={data} client:visible />
 </section>

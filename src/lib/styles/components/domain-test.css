@@ -6,6 +6,10 @@
     margin-bottom: var(--rhythm);
     padding: var(--spacing-default);
 
+    &:first-child {
+        margin-top: calc(var(--rhythm) / 2);
+    }
+
     &.zm-is-testing {
         .zm-domain-test__progress-bar {
             display: block;
