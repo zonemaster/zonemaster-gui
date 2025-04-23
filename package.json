@@ -8,7 +8,7 @@
     "build": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lib:build": "vite build -c src/lib/vite.config.js",
+    "lib:build": "cd src/lib && vite build -c ./vite.config.js --outDir ../../dist --emptyOutDir",
     "lib:demo": "vite serve demo -c src/lib/vite.config.js",
     "postinstall": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide",
     "storybook": "storybook dev -p 6006",
