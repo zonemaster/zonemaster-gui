@@ -1,13 +1,15 @@
-import TestAgent from '@/lib/TestAgent.ts';
+import { createTestAgent } from '@/lib/TestAgent.ts';
+
+const agent = createTestAgent();
 
 export const machine = $state({
-    currentState: TestAgent.getState(),
-    currentContext: TestAgent.getContext(),
+    currentState: agent.getState(),
+    currentContext: agent.getContext(),
 });
 
 $effect.root(() => {
     $effect(() => {
-        return TestAgent.subscribe((s, c) => {
+        return agent.subscribe((s, c) => {
             machine.currentState = s;
             machine.currentContext = c;
         });
@@ -15,5 +17,5 @@ $effect.root(() => {
 });
 
 export function transition(event: string, payload?: any): void {
-    TestAgent.transition(event, payload);
+    agent.transition(event, payload);
 }
