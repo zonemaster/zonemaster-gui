@@ -7,7 +7,7 @@
 </script>
 <Alert variant="centered">
     Notice! More info on undelegated test<br>
-    <a href="#">What is an undelegated domain test?</a>
+    <a href="/faq/">What is an undelegated domain test?</a>
 </Alert>
 <Nameservers />
 <hr />
