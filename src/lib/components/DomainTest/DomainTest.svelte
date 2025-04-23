@@ -11,6 +11,7 @@
     import Route from '@/lib/components/Route/Route.svelte';
     import formToObj from '@/lib/formToObj.ts';
     import type { FaqItem } from '@/content.config.ts';
+    import { navigate } from '@/lib/router.svelte.ts';
 
     type Props = {
         aboutLevels: FaqItem | null;
@@ -20,7 +21,7 @@
 
     let domain = $state('');
     let advanced = $state(false);
-    let { currentState, currentContext } = $derived(machine);
+    let { currentState, currentContext, previousState } = $derived(machine);
 
     function startTest(e: Event) {
         e.preventDefault();
@@ -46,6 +47,13 @@
 
         transition('START', formData);
     }
+
+    $effect(() => {
+        if (currentState === 'complete' && previousState === 'testing') {
+            navigate(`/result/${currentContext.testId}`);
+            transition('RESET');
+        }
+    });
 </script>
 <form id="zmDomainTestForm" novalidate onsubmit={startTest} class="zm-domain-test {currentState === 'testing' ? 'zm-is-testing' : ''}">
     <Stack>

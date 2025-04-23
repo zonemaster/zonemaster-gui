@@ -9,11 +9,16 @@ type FSMConfig<TContext> = {
     states: Record<string, StateConfig<TContext>>;
 };
 
-type TransitionCallback<TContext> = (state: string, context: TContext) => void;
+type TransitionCallback<TContext> = (
+    state: string,
+    context: TContext,
+    prevState: string | undefined,
+) => void;
 
 export default class StateMachine<TContext> {
     private readonly states: Record<string, StateConfig<TContext>>;
     private currentState: string;
+    private previousState?: string;
     public context: TContext;
     private subscribers: TransitionCallback<TContext>[] = [];
     public reset: () => void;
@@ -21,10 +26,12 @@ export default class StateMachine<TContext> {
     constructor(config: FSMConfig<TContext>) {
         this.states = config.states;
         this.currentState = config.initial;
+        this.previousState = undefined;
         this.context = { ...config.context } as TContext;
 
         this.reset = () => {
             this.currentState = config.initial;
+            this.previousState = undefined;
             this.context = config.context || ({} as TContext);
             this.notifySubscribers();
         };
@@ -42,6 +49,7 @@ export default class StateMachine<TContext> {
 
         console.log(`${this.currentState} -> ${nextState}`, payload);
 
+        this.previousState = this.currentState;
         this.currentState = nextState;
 
         if (stateConfig?.actions?.[event]) {
@@ -53,6 +61,10 @@ export default class StateMachine<TContext> {
 
     getState(): string {
         return this.currentState;
+    }
+
+    getPreviousState(): string | undefined {
+        return this.previousState;
     }
 
     getContext(): TContext {
@@ -75,7 +87,7 @@ export default class StateMachine<TContext> {
 
     private notifySubscribers(): void {
         for (const callback of this.subscribers) {
-            callback(this.currentState, this.context);
+            callback(this.currentState, this.context, this.previousState);
         }
     }
 }
