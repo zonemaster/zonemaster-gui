@@ -3,11 +3,15 @@ import Welcome from '@theme/StartTest.astro';
 import Layout from '@theme/Layout.astro';
 import { availableLanguageTags, sourceLanguageTag } from '@/paraglide/runtime';
 
+console.log(sourceLanguageTag);
+
 export function getStaticPaths() {
     return availableLanguageTags
         .filter((lang) => lang !== sourceLanguageTag)
         .map((lang) => ({ params: { lang } }));
 }
+
+export const prerender = true;
 ---
 
 <Layout>

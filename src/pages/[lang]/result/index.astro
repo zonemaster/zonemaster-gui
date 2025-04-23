@@ -8,6 +8,8 @@ export function getStaticPaths() {
         .filter((lang) => lang !== sourceLanguageTag)
         .map((lang) => ({ params: { lang } }));
 }
+
+export const prerender = true;
 ---
 
 <Layout>

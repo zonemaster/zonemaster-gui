@@ -22,6 +22,8 @@ const groupedPartial = Object.groupBy(
     (item: FaqItem) => item.data.category,
 );
 const grouped = groupedPartial as Record<string, FaqItem[]>;
+
+export const prerender = true;
 ---
 
 <Layout>
