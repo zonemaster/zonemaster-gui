@@ -11,6 +11,10 @@
     border: 1px solid var(--alert-border);
     border-radius: var(--border-radius);
     color: var(--alert-text-color);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .zm-alert--success {
@@ -29,4 +33,11 @@
     --alert-bg: var(--color-palette-danger-10);
     --alert-border: var(--color-palette-danger-50);
     --alert-text-color: var(--color-palette-danger-90);
+}
+
+.zm-alert--centered {
+    p {
+        text-align: center;
+        width: 100%;
+    }
 }

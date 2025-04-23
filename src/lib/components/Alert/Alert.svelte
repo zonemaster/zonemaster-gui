@@ -6,13 +6,14 @@
 
     type Props = {
         severity: Severity;
+        variant?: 'primary' | 'centered';
         children?: Snippet;
         onRemove?: () => void;
     };
 
-    const { severity = 'info', children, onRemove }: Props = $props();
+    const { severity = 'info', variant = 'primary', children, onRemove }: Props = $props();
 </script>
-<div role="alert" class="zm-alert zm-alert--{severity}">
+<div role="alert" class="zm-alert zm-alert--{severity} zm-alert--{variant}">
     <p>{@render children?.()}</p>
     {#if onRemove}
         <Button aria-label={m.close()} class="zm-button alert-close" variant="transparent" onclick={onRemove}>
