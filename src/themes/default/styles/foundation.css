@@ -104,6 +104,10 @@ p {
     margin-bottom: var(--rhythm);
 }
 
+p a {
+    text-decoration: underline;
+}
+
 dl dt {
     font-family: var(--font-heading-family);
     font-weight: var(--font-heading-weight);
