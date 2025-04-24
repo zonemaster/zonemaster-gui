@@ -7,14 +7,12 @@
     import image2 from '../../assets/images/world_connected.svg';
 ---
 
-<section class="rhythm zm-article" id="zmArticle">
-    <Stack gap="xl">
-        <Grid cols={1} gap="xl">
+<article class="rhythm zm-article">
+    <Stack gap="xl" class="zm-article__inner">
+        <Grid cols={2} gap="xl">
             <div>
-                <Image src={image1} alt="Person looking at computer" class="zm-article-image" />
+                <Image src={image1} alt={m.img1Alt()} class="zm-article-image" />
             </div>
-        </Grid>
-        <Grid cols={1} gap="xl">
             <div>
                 <h2>{m.infoHeading1()}</h2>
                 <p class="preamble">{m.infoPreamble()}</p>
@@ -24,12 +22,14 @@
         </Grid>
     </Stack>
     <Stack gap="xl">
-        <div>
-            <h2>{m.infoHeading2()}</h2>
-            <p>{m.infoTextParagraph3}</p>
-        </div>
-        <div>
-            <Image src={image2} alt="The world connected by a network" class="zm-article-image" />
-        </div>
+        <Grid cols={2} gap="xl">
+            <div>
+                <h2>{m.infoHeading2()}</h2>
+                <p>{m.infoTextParagraph3}</p>
+            </div>
+            <div>
+                <Image src={image2} alt={m.img2Alt()} class="zm-article-image" />
+            </div>
+        </Grid>
     </Stack>
-</section>
+</article>
