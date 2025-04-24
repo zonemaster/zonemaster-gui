@@ -11,7 +11,6 @@
     import Route from '@/lib/components/Route/Route.svelte';
     import formToObj from '@/lib/formToObj.ts';
     import type { FaqItem } from '@/content.config.ts';
-    import { navigate } from '@/lib/router.svelte.ts';
 
     type Props = {
         aboutLevels: FaqItem | null;
@@ -50,7 +49,7 @@
 
     $effect(() => {
         if (currentState === 'complete' && previousState === 'testing') {
-            navigate(`/result/${currentContext.testId}`);
+            document.location.href = `/result/${currentContext.testId}`;
             transition('RESET');
         }
     });
