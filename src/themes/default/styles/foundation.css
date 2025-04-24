@@ -43,12 +43,13 @@ h4 {
     font-optical-sizing: auto;
     font-weight: var(--font-heading-weight);
     max-width: var(--font-heading-width);
-    margin-bottom: var(--rhythm);
+    margin-bottom: calc(var(--rhythm) / 3);
 }
 
 h1 {
     font-size: var(--font-xl);
     max-width: 30ch;
+    margin-bottom: var(--rhythm);
 }
 
 h2 {
@@ -138,7 +139,6 @@ dl dd + dt {
     }
 }
 
-.rhythm > * + *,
 .rhythm > * + :where(astro-island, astro-slot) > *:first-child {
     margin-block-start: var(--rhythm);
 }

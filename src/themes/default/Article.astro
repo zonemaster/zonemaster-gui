@@ -1,0 +1,35 @@
+---
+    import * as m from '@/paraglide/messages';
+    import { Image } from 'astro:assets';
+    import Stack from '@/lib/components/Stack/Stack.svelte';
+    import Grid from '@/lib/components/Grid/Grid.svelte';
+    import image1 from '../../assets/images/person_looking_at_computer.svg';
+    import image2 from '../../assets/images/world_connected.svg';
+---
+
+<section class="rhythm zm-article" id="zmArticle">
+    <Stack gap="xl">
+        <Grid cols={1} gap="xl">
+            <div>
+                <Image src={image1} alt="Person looking at computer" class="zm-article-image" />
+            </div>
+        </Grid>
+        <Grid cols={1} gap="xl">
+            <div>
+                <h2>{m.infoHeading1()}</h2>
+                <p class="preamble">{m.infoPreamble()}</p>
+                <p>{m.infoTextParagraph1()}</p>
+                <p><strong>{m.infoTextStrong()}</strong> {m.infoTextParagraph2()}</p>
+            </div>
+        </Grid>
+    </Stack>
+    <Stack gap="xl">
+        <div>
+            <h2>{m.infoHeading2()}</h2>
+            <p>{m.infoTextParagraph3}</p>
+        </div>
+        <div>
+            <Image src={image2} alt="The world connected by a network" class="zm-article-image" />
+        </div>
+    </Stack>
+</section>

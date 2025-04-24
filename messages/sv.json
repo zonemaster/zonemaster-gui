@@ -37,5 +37,12 @@
     "programVersions": "Programversioner",
     "sourceCode": "Källkod",
     "documentation": "Dokumentation",
-    "copyright": "Copyright © AFNIC och Internetstiftelsen. Alla rättigheter förbehållna"
+    "copyright": "Copyright © AFNIC och Internetstiftelsen. Alla rättigheter förbehållna",
+    "infoHeading1": "Vad är Zonemaster?",
+    "infoPreamble": "Ge ditt domännamn en komplett hälsokontroll! Zonemaster hjälper dig att bedöma hur ditt domännamn mår.",
+    "infoTextParagraph1": "När ett domännamn skickas till Zonemaster för testning undersöker Zonemaster domännamnets tillstånd från toppen till botten av DNS-trädet.\nDetta görs vanligtvis genom att granska DNS-data från rotzonen, ‘.’, vidare till toppdomänen (TLD) för domännamnet, som ‘.net’, och slutligen genom de namnservrar som innehåller auktoritativ information om det angivna domännamnet.",
+    "infoTextStrong": "Zonemaster genomför många tester,",
+    "infoTextParagraph2": "Till exempel kontrolleras DNSSEC-signaturer, att olika värdar är åtkomliga och att IP-adresser är giltiga. Allt detta görs för att säkerställa att ditt domännamn fungerar så smidigt som möjligt.",
+    "infoHeading2": "Några ord om DNS",
+    "infoTextParagraph3": "Domännamnssystemet (DNS) är en databas som kopplar domännamn till IP-adresser (Internet Protocol), på samma sätt som en telefonkatalog kopplar namn till telefonnummer.\n\nEn IP-adress är en unik nummerserie som identifierar varje dator eller enhet som är ansluten till internet – ungefär som varje telefon har sitt eget nummer i telefonnätet.\n\nSådana långa nummerserier fungerar utmärkt för datorer, men är betydligt svårare för människor att komma ihåg. Därför har DNS utvecklats som ett extra lager som översätter mellan namn vi människor lättare minns och IP-adresser som används av datorer, varje gång vi vill nå en viss webbplats eller använda andra internettjänster, som e-post."
 }
