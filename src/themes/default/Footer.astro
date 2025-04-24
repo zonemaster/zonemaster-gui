@@ -1,4 +1,5 @@
 ---
+import * as m from '@/paraglide/messages';
 import ProgramVersions from '../../lib/components/ProgramVersions/ProgramVersions.svelte';
 import Grid from '../../lib/components/Grid/Grid.svelte';
 ---
@@ -13,19 +14,15 @@ import Grid from '../../lib/components/Grid/Grid.svelte';
                 <nav>
                     <ul class="zm-footer-nav">
                         <li>
-                            <a href="mailto:contact@zonemaster.net"
-                                ><i class="bi bi-envelope-fill"></i> contact@zonemaster.net</a
+                            <a href="mailto:contact@zonemaster.net">
+                                <i class="bi bi-envelope-fill"></i> contact@zonemaster.net</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/zonemaster/zonemaster"><i class="bi bi-github"></i> {m.sourceCode()}</a
                             >
                         </li>
                         <li>
-                            <a href="https://github.com/zonemaster/zonemaster"
-                                ><i class="bi bi-github"></i> Source code</a
-                            >
-                        </li>
-                        <li>
-                            <a href="https://doc.zonemaster.net/"
-                                ><i class="bi bi-file-text-fill"></i> Documentation</a
-                            >
+                            <a href="https://doc.zonemaster.net/"><i class="bi bi-file-text-fill"></i> {m.documentation()}</a>
                         </li>
                     </ul>
                 </nav>
@@ -34,8 +31,7 @@ import Grid from '../../lib/components/Grid/Grid.svelte';
     </div>
     <Grid client:load cols={1}>
         <div class="zm-footer-copyright">
-            Copyright © AFNIC and The Swedish Internet Foundation. All Rights
-            Reserved
+            {m.copyright()}
         </div>
     </Grid>
 </footer>

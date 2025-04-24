@@ -1,0 +1,5 @@
+.zm-faq-section {
+    h2 {
+        margin-top: calc(var(--rhythm) * 1.5);
+    }
+}

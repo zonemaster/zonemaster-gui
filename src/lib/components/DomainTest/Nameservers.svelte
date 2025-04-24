@@ -1,4 +1,5 @@
 <script lang="ts">
+    import * as m from '@/paraglide/messages';
     import Grid from '@/lib/components/Grid/Grid.svelte';
     import Input from '@/lib/components/Input/Input.svelte';
     import Button from '@/lib/components/Button/Button.svelte';
@@ -55,7 +56,7 @@
         fetchFromParent(domain)
             .then((data) => {
                 if (!data.ns_list || !data.ns_list.length) {
-                    warn('No nameservers found in parent zone');
+                    warn(m.noNameServers());
 
                     return;
                 }
@@ -84,7 +85,7 @@
 </script>
 
 <fieldset class="zm-domain-test__nameservers">
-    <legend>Nameservers</legend>
+    <legend>{m.nameServers()}</legend>
     <Stack vertical gap="s">
         {#each nameservers as ns, i}
             <Stack bottom gap="xs" class={utils.expand}>
@@ -95,7 +96,7 @@
                             type="text"
                             value={ns.ns}
                             placeholder="ns1.example.com"
-                            label={i === 0 ? 'Name' : undefined}
+                            label={i === 0 ? m.name() : undefined}
                             onInput={(e) => updateNameserver(i, 'ns', e.currentTarget.value)}
                         />
                     </div>
@@ -105,7 +106,7 @@
                             value={ns.ip}
                             type="text"
                             placeholder=""
-                            label={i === 0 ? 'Address (optional)' : undefined}
+                            label={i === 0 ? m.addressOptional() : undefined}
                             onInput={(e) => updateNameserver(i, 'ip', e.currentTarget.value)}
                         />
                     </div>
@@ -113,6 +114,7 @@
                 {#if nameservers.length > 1}
                     <Button variant="secondary" type="button" onClick={() => removeNameserver(i)}>
                         <i class="bi bi-trash"></i>
+                        <span class="zm-u-visually-hidden">{m.deleteRow()}</span>
                     </Button>
                 {/if}
             </Stack>
@@ -125,7 +127,7 @@
             onClick={fetch}
             disabled={fetchingZoneData}
         >
-            {fetchingZoneData ? 'Fetching...' : 'Fetch nameservers from parent zone'}
+            {fetchingZoneData ? m.fetching() : m.fetchNameservers()}
         </Button>
     </Stack>
 </fieldset>

@@ -1,5 +1,6 @@
 <svelte:options customElement={{ tag: 'zm-program-versions', shadow: 'none' }} />
 <script lang="ts">
+  import * as m from '@/paraglide/messages';
   import {versionInfo} from "@/lib/client.ts";
   import {error} from "@/lib/alert.svelte.ts";
   import Switch from '@/lib/components/Switch/Switch.svelte';
@@ -33,7 +34,7 @@
   <p>Loading...</p>
 {:else}
   <Switch id="program-versions-toggle" controls="program-versions" active={version} onClick={() => version = !version}>
-    Program versions
+      {m.programVersions()}
   </Switch>
   <ul id="program-versions" hidden={!version}>
     {#each versions as {key, value}}

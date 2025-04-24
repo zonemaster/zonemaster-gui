@@ -1,4 +1,5 @@
 <script>
+    import * as m from '@/paraglide/messages';
     import Records from '@/lib/components/DomainTest/Records.svelte';
     import Nameservers from '@/lib/components/DomainTest/Nameservers.svelte';
     import General from '@/lib/components/DomainTest/General.svelte';
@@ -6,12 +7,12 @@
     import Alert from '@/lib/components/Alert/Alert.svelte';
 </script>
 <Alert variant="centered">
-    Notice! More info on undelegated test<br>
-    <a href="/faq/">What is an undelegated domain test?</a>
+    {m.noticeHeading()}<br>
+    <a href="{m.noticeLink()}">{m.noticeText()}</a>
 </Alert>
 <Nameservers />
 <hr />
 <Records />
 <hr />
 <General />
-<Button variant="danger" type="reset">Reset the form</Button>
+<Button variant="danger" type="reset">{m.resetForm()}</Button>

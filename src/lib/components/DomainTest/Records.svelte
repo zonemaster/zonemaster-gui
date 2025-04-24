@@ -1,4 +1,5 @@
 <script lang="ts">
+    import * as m from '@/paraglide/messages';
     import Grid from '@/lib/components/Grid/Grid.svelte';
     import Input from '@/lib/components/Input/Input.svelte';
     import Button from '@/lib/components/Button/Button.svelte';
@@ -78,7 +79,7 @@
         fetchFromParent(domain)
             .then((data) => {
                 if (!data.ds_list || !data.ds_list.length) {
-                    warn('No DS records found in parent zone');
+                    warn(m.noDSRecords());
 
                     return;
                 }
@@ -108,7 +109,7 @@
     });
 </script>
 <fieldset class="zm-domain-test__records">
-    <legend>DS Records</legend>
+    <legend>{m.DSRecords()}</legend>
     <Stack vertical gap="s">
         {#each records as r, i}
             <Stack bottom gap="xs" class={utils.expand}>
@@ -118,30 +119,31 @@
                             name="ds_info[{i}][keytag]"
                             type="text"
                             value={r.keytag}
-                            label={i === 0 ? 'Keytag' : undefined}
+                            label={i === 0 ? m.keytag() : undefined}
                             onInput={(e) => updateRow(i, 'keytag', (e.target as HTMLInputElement).value)}
                         />
                     </div>
                     <div>
                         <Select
                             name="ds_info[{i}][algorithm]"
-                            value={r.algorithm} label={i === 0 ? 'Algorithm' : undefined}
+                            value={r.algorithm} label={i === 0 ? m.algorithm() : undefined}
                             onSelect={(e) => updateRow(i, 'algorithm', (e.target as HTMLSelectElement).value)}
                             options={algorithms}
                         />
                     </div>
                     <div>
-                        <Select name="ds_info[{i}][digtype]" value={r.digestType} label={i === 0 ? 'Digest Type' : undefined}
+                        <Select name="ds_info[{i}][digtype]" value={r.digestType} label={i === 0 ? m.digestType() : undefined}
                                 onSelect={(e) => updateRow(i, 'digestType', (e.target as HTMLSelectElement).value as string)} options={digestTypes} />
                     </div>
                     <div>
-                        <Input name="ds_info[{i}][digest]" value={r.digest} type="text" label={i === 0 ? 'Digest' : undefined}
+                        <Input name="ds_info[{i}][digest]" value={r.digest} type="text" label={i === 0 ? m.digest() : undefined}
                                onInput={(e) => updateRow(i, 'digest', (e.target as HTMLInputElement).value)} />
                     </div>
                 </Grid>
                 {#if records.length > 1}
                     <Button variant="secondary" type="button" onClick={() => removeRow(i)}>
                         <i class="bi bi-trash"></i>
+                        <span class="zm-u-visually-hidden">{m.deleteRow()}</span>
                     </Button>
                 {/if}
             </Stack>
@@ -154,7 +156,7 @@
             onClick={fetch}
             disabled={fetchingZoneData}
         >
-            Fetch DS from parent zone
+            {m.fetchDSRecords()}
         </Button>
     </Stack>
 </fieldset>

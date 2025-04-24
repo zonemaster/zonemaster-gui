@@ -24,7 +24,7 @@ const { data } = Astro.props as FaqProps;
 <h1>{m.faqTitle()}</h1>
 {
     Object.keys(data).map((category) => (
-        <section class="rhythm">
+        <section class="rhythm zm-faq-section">
             <h2 class="u-m-b-0">{category}</h2>
             {data[category].map((item: FaqItem) => (
                 <Collapsible
