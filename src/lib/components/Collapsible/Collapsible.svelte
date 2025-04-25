@@ -36,7 +36,7 @@
         <a class="{stack.stack} {stack.middle} {stack['gap--xs']}" onclick={onClick} aria-controls="faq-entry-{id}"
            aria-expanded="{open ? 'true' : 'false'}" href="#{id}">
             <i class="bi bi-caret-{open ? 'up' : 'down'}-fill"></i>
-            <h3>{title}</h3>
+            <h2>{title}</h2>
         </a>
     </header>
     <div class="zm-collapsible-content" id="faq-entry-{id}" aria-hidden="{open ? 'false' : 'true'}">

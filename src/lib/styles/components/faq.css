@@ -1,5 +1,8 @@
 .zm-faq-section {
-    h2 {
-        margin-top: calc(var(--rhythm) * 1.5);
+    .zm-faq-section__header {
+        font-size: var(--font-m);
+        font-family: var(--font-heading-family);
+        font-weight: var(--font-heading-weight);
+        margin-top: var(--rhythm);
     }
 }

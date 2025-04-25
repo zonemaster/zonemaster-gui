@@ -21,11 +21,13 @@ export interface FaqProps {
 const { data } = Astro.props as FaqProps;
 ---
 
-<h1>{m.faqTitle()}</h1>
+<h1 class="zm-u-align-center u-m-x-auto">{m.faqTitle()}</h1>
+<p class="preamble zm-u-align-center u-m-x-auto">{m.faqPreamble()}</p>
+<p class="zm-u-align-center u-m-x-auto">{m.faqTextParagraph1()} <a href="https://lists.iis.se/postorius/lists/zonemaster-users.lists.iis.se">{m.faqParagraph1Link()}</a></p>
 {
-    Object.keys(data).map((category) => (
+    Object.keys(data).sort().map((category) => (
         <section class="rhythm zm-faq-section">
-            <h2 class="u-m-b-0">{category}</h2>
+            <header class="u-m-b-0 zm-faq-section__header">{category}</header>
             {data[category].map((item: FaqItem) => (
                 <Collapsible
                     client:load

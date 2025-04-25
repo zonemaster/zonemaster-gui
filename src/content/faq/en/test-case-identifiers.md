@@ -3,7 +3,7 @@ question: What are Test Case Identifiers?
 category: Using Zonemaster
 ---
 
-## Test Case Identifier Specification
+### Test Case Identifier Specification
 
 All test cases belong to one specific test level and their names are based on
 that test level’s name. The following test levels are defined and available:

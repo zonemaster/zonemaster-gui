@@ -92,8 +92,9 @@ a:hover {
     color: var(--color-palette-secondary-90);
 }
 
-ul {
+ul, ol {
     margin-left: 2em;
+    margin-bottom: var(--rhythm);
 }
 
 li + li {
@@ -101,11 +102,12 @@ li + li {
 }
 
 p {
-    max-width: var(--font-body-width);
+    max-width: 60ch;
     margin-bottom: var(--rhythm);
 }
 
-p a {
+p a,
+li a {
     text-decoration: underline;
 }
 

@@ -15,8 +15,9 @@
         padding: var(--spacing-s);
     }
 
-    h3 {
+    h2 {
         margin-bottom: 0;
+        font-size: var(--font-s);
     }
 
     p,
