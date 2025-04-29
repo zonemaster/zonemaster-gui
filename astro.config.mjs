@@ -8,7 +8,6 @@ import {
 } from "remark-definition-list";
 import svelte from '@astrojs/svelte';
 import node from '@astrojs/node';
-import { resolve } from 'path';
 
 // https://astro.build/config
 export default defineConfig({
