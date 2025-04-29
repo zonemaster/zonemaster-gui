@@ -2,7 +2,9 @@
 import Layout from '@theme/Layout.astro';
 import Result from '@theme/Result.astro';
 
-export const prerender = false;
+export async function getStaticPaths() {
+    return [{ params: { id: 'id' } }];
+}
 ---
 
 <Layout>

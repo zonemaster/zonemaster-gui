@@ -40,7 +40,7 @@ export default defineConfig({
         })
     ],
 
-    adapter: node({
+    adapter: process.env.NODE_ENV === 'development' ? node({
         mode: 'standalone'
-    })
+    }) : undefined,
 });
