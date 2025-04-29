@@ -1,0 +1,25 @@
+<VirtualHost *:80>
+    DocumentRoot /var/www/zonemaster/public
+
+    <Directory /var/www/zonemaster/public>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+
+        RewriteEngine On
+
+        # Rewrite /result/{anything} to /result/id/index.html
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^result/[^/]+/?$ /result/id/index.html [L]
+
+        # Rewrite /{lang}/result/{anything} to /{lang}/result/id/index.html
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^([^/]+)/result/[^/]+/?$ /$1/result/id/index.html [L]
+    </Directory>
+
+    ProxyPass ${BASE_URL}api http://localhost:5000/
+    ProxyPassReverse ${BASE_URL}api http://localhost:5000/
+    ProxyPreserveHost On
+</VirtualHost>
