@@ -12,12 +12,17 @@ type ClientInfo = {
     id: string;
 };
 
+type SiteInfo = {
+    email: string;
+};
+
 export type Config = {
     defaultLanguage: string;
     enabledLanguages: string[];
     apiBaseUrl: string;
     pollingInterval: number;
     clientInfo: ClientInfo;
+    siteInfo: SiteInfo;
 };
 
 const config: Config = {
@@ -28,6 +33,9 @@ const config: Config = {
     clientInfo: {
         version: '5.0.0',
         id: 'Zonemaster-GUI',
+    },
+    siteInfo: {
+        email: 'contact@zonemaster.net',
     },
 };
 

@@ -2,6 +2,7 @@
 import * as m from '@/paraglide/messages';
 import ProgramVersions from '../../lib/components/ProgramVersions/ProgramVersions.svelte';
 import Grid from '../../lib/components/Grid/Grid.svelte';
+import config from '@/config';
 ---
 
 <footer class="zm-footer">
@@ -14,15 +15,22 @@ import Grid from '../../lib/components/Grid/Grid.svelte';
                 <nav>
                     <ul class="zm-footer-nav">
                         <li>
-                            <a href="mailto:contact@zonemaster.net">
-                                <i class="bi bi-envelope-fill"></i> contact@zonemaster.net</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/zonemaster/zonemaster"><i class="bi bi-github"></i> {m.sourceCode()}</a
+                            <a href=`mailto:${config.siteInfo.email}`>
+                                <i class="bi bi-envelope-fill"></i>
+                                {config.siteInfo.email}</a
                             >
                         </li>
                         <li>
-                            <a href="https://doc.zonemaster.net/"><i class="bi bi-file-text-fill"></i> {m.documentation()}</a>
+                            <a href="https://github.com/zonemaster/zonemaster"
+                                ><i class="bi bi-github"></i>
+                                {m.sourceCode()}</a
+                            >
+                        </li>
+                        <li>
+                            <a href="https://doc.zonemaster.net/"
+                                ><i class="bi bi-file-text-fill"></i>
+                                {m.documentation()}</a
+                            >
                         </li>
                     </ul>
                 </nav>
