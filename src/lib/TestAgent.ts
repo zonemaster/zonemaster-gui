@@ -1,5 +1,6 @@
 import { startDomainTest, testProgress } from '@/lib/client.js';
 import StateMachine from '@/lib/StateMachine.ts';
+import config from '@/lib/config.ts';
 
 type DomainTestContext = {
     domain: string | null;
@@ -47,7 +48,7 @@ export function createTestAgent() {
                                         });
                                     });
                                 }
-                            }, 1000);
+                            }, config.pollingInterval);
                         }
                     },
                 },
