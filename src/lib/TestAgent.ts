@@ -1,6 +1,6 @@
 import { startDomainTest, testProgress } from '@/lib/client.js';
 import StateMachine from '@/lib/StateMachine.ts';
-import config from '@/lib/config.ts';
+import config from '@/config.ts';
 
 type DomainTestContext = {
     domain: string | null;

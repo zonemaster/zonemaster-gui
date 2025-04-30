@@ -4,7 +4,7 @@
   import {versionInfo} from "@/lib/client.ts";
   import {error} from "@/lib/alert.svelte.ts";
   import Switch from '@/lib/components/Switch/Switch.svelte';
-  import config from '@/lib/config.ts';
+  import config from '@/config.ts';
 
   type Version = {
     key: string;

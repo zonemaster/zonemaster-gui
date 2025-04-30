@@ -1,4 +1,4 @@
-import config from '@/lib/config.ts';
+import config from '@/config.ts';
 
 type RpcParams = {
     [key: string]: any;
