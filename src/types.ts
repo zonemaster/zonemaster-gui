@@ -13,6 +13,7 @@ export type ClientInfo = {
 };
 
 export type SiteInfo = {
+    siteName: string;
     email: string;
 };
 

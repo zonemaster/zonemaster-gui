@@ -11,6 +11,7 @@ const config: Config = {
     },
     siteInfo: {
         email: 'contact@zonemaster.net',
+        siteName: '',
     },
 };
 
