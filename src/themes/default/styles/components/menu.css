@@ -31,6 +31,10 @@
             border-bottom: 0;
         }
     }
+
+    a {
+        text-decoration: none;
+    }
 }
 
 .zm-menu__item {
