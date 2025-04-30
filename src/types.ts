@@ -1,0 +1,26 @@
+declare global {
+    interface Window {
+        zonemaster?: {
+            apiEndpoint?: string;
+            pollingInterval?: number;
+        };
+    }
+}
+
+export type ClientInfo = {
+    version: string;
+    id: string;
+};
+
+export type SiteInfo = {
+    email: string;
+};
+
+export type Config = {
+    defaultLanguage: string;
+    enabledLanguages: string[];
+    apiBaseUrl: string;
+    pollingInterval: number;
+    clientInfo: ClientInfo;
+    siteInfo: SiteInfo;
+};
