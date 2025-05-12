@@ -1,5 +1,4 @@
-const { test, expect } = require('@playwright/test');
-
+import { test, expect } from '@playwright/test';
 import { goToHome, setLang } from './utils/app.utils';
 
 test.describe('Redirection should properly work', () => {

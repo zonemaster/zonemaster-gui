@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 import { goToHome, setLang, showOptions, clearBrowserCache } from './utils/app.utils';
 

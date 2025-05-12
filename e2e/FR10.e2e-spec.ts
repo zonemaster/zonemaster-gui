@@ -1,6 +1,6 @@
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
-import { goToHome, clearBrowserCache, showOptions } from './utils/app.utils';
+import { goToHome, clearBrowserCache } from './utils/app.utils';
 
 test.describe('Zonemaster test FR10 - [On launching the URL opens with a default simple view]', () => {
   test.beforeEach(async ({ page }) => {

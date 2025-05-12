@@ -13,7 +13,11 @@
         "lib:demo": "vite serve demo -c src/lib/vite.config.js",
         "postinstall": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "e2e": "playwright --version && playwright test",
+        "e2e:update": "playwright --version && playwright test --update-snapshots",
+        "e2e:install": "playwright install chromium",
+        "e2e:install-deps": "playwright install-deps chromium"
     },
     "private": false,
     "type": "module",
