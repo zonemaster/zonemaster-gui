@@ -1,6 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import archiver from 'archiver';
+import { readFileSync } from 'fs';
+
+// Read package.json to get version
+const packageJson = JSON.parse(
+  readFileSync(new URL('../package.json', import.meta.url))
+);
 
 export async function zipDirectory(sourceDir, outPath) {
     const output = fs.createWriteStream(outPath);
@@ -25,7 +31,8 @@ export async function zipDirectory(sourceDir, outPath) {
 // Example usage
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const inputDir = path.resolve(__dirname, '../public');
-const outputZip = path.resolve(__dirname, '../public.zip');
+const version = packageJson.version;
+const outputZip = path.resolve(__dirname, `../zonemaster_gui_${version}.zip`);
 
 zipDirectory(inputDir, outputZip)
     .then(() => console.log('Zip complete'))
