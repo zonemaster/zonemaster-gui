@@ -28,7 +28,9 @@ There's two layers of the UI.
 
 ### Framework
 
-The framework is the foundation of the UI and is built with [Astro](https://astro.build/). These files are located under `./src/themes/default`. The starting point for these imports are pages. Pages are simple, they consist of a single component wrapped inside a layout. *We suggest not modifying the page files*. Instead, create your own theme, for example `./src/themes/my-theme`. You can still reuse components from the original theme in your new theme.
+The framework is the foundation of the UI and is built with [Astro](https://astro.build/). These files are located under `./src/themes/default`. '
+The starting point for these imports are pages. Pages are simple, they consist of a single component wrapped inside a layout. 
+*We suggest not modifying the page files*. Instead, create your own theme, for example `./src/themes/my-theme`. You can still reuse components from the original theme in your new theme.
 
 Then update tsconfig.json
 
