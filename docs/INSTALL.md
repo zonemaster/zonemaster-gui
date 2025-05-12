@@ -30,4 +30,4 @@ git rebase upstream/main
 ```
 This way you have version control of your local changes and can easily update the source code from the main repository.
 
-Refer to [CUSTOMIZATION.md](CUSTOMIZATION.md) for more information on how to customize the GUI.
+Refer to [CUSTOMIZATION.md](THEMING.md) for more information on how to customize the GUI.
