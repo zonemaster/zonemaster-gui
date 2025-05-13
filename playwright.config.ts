@@ -16,7 +16,7 @@ const config: PlaywrightTestConfig = {
   },
   use: {
     headless: true,
-    baseURL: 'http://localhost:4201',
+    baseURL: 'http://localhost:4321',
     viewport: { width: 1920, height: 1080 },
   },
   projects: [
