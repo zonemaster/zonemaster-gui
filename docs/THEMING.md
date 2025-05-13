@@ -17,7 +17,7 @@ That said, to avoid headaches when syncing with the original repository, we reco
 
 ## Basic customization
 
-The Zonemaster UI is built around a global theme based on CSS variables (./src/themes/default/styles/theme.css).
+The Zonemaster UI is built around a global theme based on CSS variables (`./src/themes/default/styles/theme.css`).
 The easiest way to make your own theme is to override theme variables in the `./src/themes/default/styles/custom.css` file.
 You can tweak colors, fonts, spacing, and more. You'll get surprisingly far by just updating the theme variables.
 All class names are prefixed with `zm-` to avoid conflicts with other styles. This makes it easy to apply custom CSS on top of the theme to target specific elements.
@@ -35,7 +35,7 @@ The theme includes variables for:
 
 ### Example customization
 
-Here's a simple example of customizing the main color and font in custom.css:
+Here's a simple example of customizing the main color and font in `custom.css`:
 
 ```css
 :root {
@@ -50,7 +50,7 @@ Here's a simple example of customizing the main color and font in custom.css:
 
 ### CSS loading order
 
-The CSS files are loaded in the following order (defined in styles.css):
+The CSS files are loaded in the following order (defined in `styles.css`):
 1. theme.css (base theme variables)
 2. foundation.css and other core styles
 3. Component-specific CSS files
@@ -113,7 +113,7 @@ When making theme changes, it's important to test them across different pages an
 
 ### Common issues and solutions
 
-- **Changes not appearing**: Make sure your custom.css file is being loaded. Check the browser's developer tools to verify.
+- **Changes not appearing**: Make sure your `custom.css` file is being loaded. Check the browser's developer tools to verify.
 - **Specificity issues**: If your styles aren't overriding the defaults, you might need to increase specificity or use `!important` (sparingly).
 - **Responsive issues**: Check that your customizations work well at all breakpoints.
 - **Component styling conflicts**: If styling a specific component, target the component's class directly rather than modifying global variables.
@@ -122,6 +122,6 @@ When making theme changes, it's important to test them across different pages an
 
 For a smoother development experience:
 1. Start the development server with `npm run dev`
-2. Make changes to your custom.css file
+2. Make changes to your `custom.css` file
 3. The changes will be applied immediately thanks to hot module reloading
 4. Use browser developer tools to inspect elements and test different values
