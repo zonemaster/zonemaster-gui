@@ -13,8 +13,8 @@ export function setLang(page: Page, lang: string) {
 
 export async function showOptions(page: Page) {
   const showOptionSwitch = page.locator('#advanced-toggle');
-  const advancedOption = page.locator('#advanced-options');
-  if ((await advancedOption.getAttribute('open')) === null ) {
+
+  if ((await showOptionSwitch.getAttribute('aria-expanded')) === 'false' ) {
     return showOptionSwitch.click();
   }
 }
