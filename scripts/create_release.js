@@ -32,7 +32,7 @@ export async function zipDirectory(sourceDir, outPath) {
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const inputDir = path.resolve(__dirname, '../public');
 const version = packageJson.version;
-const outputZip = path.resolve(__dirname, `../zonemaster_gui_${version}.zip`);
+const outputZip = path.resolve(__dirname, `../zonemaster_web_gui_${version}.zip`);
 
 zipDirectory(inputDir, outputZip)
     .then(() => console.log('Zip complete'))
