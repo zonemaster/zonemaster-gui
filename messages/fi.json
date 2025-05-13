@@ -1,15 +1,15 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format",
-  "startTestNav": "Suorita testi",
-  "faqNav": "UKK",
-  "welcome": "Tervetuloa Zonemasteriin",
-  "startTestTitle": "Suorita verkkotunnus testi",
-  "runTestTitle": "Testaa verkkotunnuksesi",
-  "faqTitle": "Usein kysytyt kysymykset (FAQ)",
-  "langLabel": "Vaihda kieli",
-  "startTestBtn": "Suorita testi",
-  "runningTest": "Testataan...",
-  "menu": "Valikko",
-  "close": "Sulje",
-  "domain": "Verkkotunnus"
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "startTestNav": "Suorita testi",
+    "faqNav": "UKK",
+    "welcome": "Tervetuloa Zonemasteriin",
+    "startTestTitle": "Suorita verkkotunnus testi",
+    "runTestTitle": "Testaa verkkotunnuksesi",
+    "faqTitle": "Usein kysytyt kysymykset (FAQ)",
+    "langLabel": "Vaihda kieli",
+    "startTestBtn": "Suorita testi",
+    "runningTest": "Testataan...",
+    "menu": "Valikko",
+    "close": "Sulje",
+    "domain": "Verkkotunnus"
 }

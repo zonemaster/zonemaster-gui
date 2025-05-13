@@ -1,15 +1,15 @@
 {
-	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"startTestNav": "Kør test",
-	"faqNav": "FAQ",
-	"welcome": "Velkommen til Zonemaster",
-  "startTestTitle": "Kør domænetest",
-  "runTestTitle": "Test dit domæne",
-	"faqTitle": "FAQ",
-  "langLabel": "Skift sprog",
-  "startTestBtn": "Kør test",
-  "runningTest": "Tester...",
-  "menu": "Menu",
-  "close": "Luk",
-  "domain": "Domæne"
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "startTestNav": "Kør test",
+    "faqNav": "FAQ",
+    "welcome": "Velkommen til Zonemaster",
+    "startTestTitle": "Kør domænetest",
+    "runTestTitle": "Test dit domæne",
+    "faqTitle": "FAQ",
+    "langLabel": "Skift sprog",
+    "startTestBtn": "Kør test",
+    "runningTest": "Tester...",
+    "menu": "Menu",
+    "close": "Luk",
+    "domain": "Domæne"
 }
