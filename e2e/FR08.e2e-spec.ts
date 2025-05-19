@@ -9,6 +9,6 @@ test.describe('Zonemaster test FR08 - [Presence of a default fallback language -
   });
 
   test('should have a fallback language - English', async ({ page }) => {
-    await expect(page.locator('label[for="domain-input"]')).toHaveText('Domain name');
+    await expect(page.locator('input[name="domain"]')).toHaveAttribute('placeholder', 'Domain');
   });
 });
