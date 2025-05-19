@@ -4,7 +4,7 @@ const config: PlaywrightTestConfig = {
   testDir: 'e2e',
   testMatch: 'e2e/*.e2e-spec.ts',
   webServer: {
-    command: 'npm run preview',
+    command: 'npm run build && npm run preview',
     url: 'http://localhost:4321/',
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
