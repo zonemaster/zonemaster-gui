@@ -11,25 +11,25 @@
 
     let fetchingZoneData = $state(false);
     const algorithms = [
-        { value: '1', name: 'RSAMD5' },
-        { value: '2', name: 'DSA' },
-        { value: '5', name: 'RSASHA1' },
-        { value: '6', name: 'DSA-NSEC3-SHA1' },
-        { value: '7', name: 'RSASHA1-NSEC3-SHA1' },
-        { value: '8', name: 'RSASHA256' },
-        { value: '10', name: 'RSASHA512' },
-        { value: '12', name: 'ECC-GOST' },
-        { value: '13', name: 'ECDSAP256SHA256' },
-        { value: '14', name: 'ECDSAP384SHA384' },
-        { value: '15', name: 'ED25519' },
-        { value: '16', name: 'ED448' }
+        { value: '1', name: '1 - RSAMD5' },
+        { value: '3', name: '3 - DSA' },
+        { value: '5', name: '5 - RSASHA1' },
+        { value: '6', name: '6 - DSA-NSEC3-SHA1' },
+        { value: '7', name: '7 - RSASHA1-NSEC3-SHA1' },
+        { value: '8', name: '8 - RSASHA256' },
+        { value: '10', name: '10 - RSASHA512' },
+        { value: '12', name: '12 - ECC-GOST' },
+        { value: '13', name: '13 - ECDSAP256SHA256' },
+        { value: '14', name: '14 - ECDSAP384SHA384' },
+        { value: '15', name: '15 - ED25519' },
+        { value: '16', name: '16 - ED448' }
     ];
 
     const digestTypes = [
-        { value: '1', name: 'SHA-1' },
-        { value: '2', name: 'SHA-256' },
-        { value: '3', name: 'GOST R 34.11-94' },
-        { value: '4', name: 'SHA-384' }
+        { value: '1', name: '1 - SHA-1' },
+        { value: '2', name: '2 - SHA-256' },
+        { value: '3', name: '3 - GOST R 34.11-94' },
+        { value: '4', name: '4 - SHA-384' }
     ];
 
     let records = $state([
