@@ -98,6 +98,7 @@
                             placeholder="ns1.example.com"
                             label={i === 0 ? m.name() : undefined}
                             onInput={(e) => updateNameserver(i, 'ns', e.currentTarget.value)}
+                            required={!!ns.ip}
                         />
                     </div>
                     <div>
