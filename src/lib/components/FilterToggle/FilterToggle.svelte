@@ -21,7 +21,7 @@
 <label class={['zm-filter-toggle', { ['zm-is-active']: checked }, `zm--${severity}`]}>
   <input type="checkbox" bind:checked={checked} onchange={onCheck} value={value} />
   {label}
-  {#if badge}
+  {#if badge !== undefined}
     <span class="zm-filter-toggle__badge">{badge}</span>
   {/if}
 </label>

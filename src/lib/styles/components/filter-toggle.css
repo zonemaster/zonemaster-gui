@@ -104,5 +104,11 @@
     font-size: var(--font-xs);
     font-weight: bold;
     border-radius: 999px;
-    padding: var(--spacing-xxs) var(--spacing-xs);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1;
 }

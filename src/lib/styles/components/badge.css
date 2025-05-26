@@ -4,8 +4,13 @@
     font-size: var(--font-s);
     font-weight: bold;
     border-radius: var(--border-radius);
-    padding: var(--spacing-xxs) var(--spacing-xs);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    width: 1.8em;
+    height: 1.8em;
+    line-height: 1;
 
     &.zm-bg-info {
         background: var(--color-palette-success-50);
