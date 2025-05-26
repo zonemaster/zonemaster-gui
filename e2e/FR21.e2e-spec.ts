@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 
-import { goToHome, setLang, showOptions, clearBrowserCache } from './utils/app.utils';
+import { goToHome, setLang } from './utils/app.utils';
 
 test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized result of the test being run ' +
     '(possibility in different colours for error, warning, success etc.)]', () => {
@@ -28,8 +28,8 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
 
         await expect(messageCountBadges).toHaveCount(expectedLabels.length);
 
-        for (const idx in expectedLabels) {
-            await expect(messageCountBadges.nth(idx)).toContainText(expectedLabels[idx]);
+        for (const [idx, label] of expectedLabels.entries()) {
+            await expect(messageCountBadges.nth(idx)).toContainText(label);
         }
     });
 
