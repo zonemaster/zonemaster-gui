@@ -12,7 +12,7 @@ import config from './src/config.js';
 
 // https://astro.build/config
 export default defineConfig({
-    output: process.env.NODE_ENV === 'development' ? 'server' : 'static',
+    output: process.env.NODE_ENV === 'production' ? 'static' : 'server',
 
     outDir: './public',
     publicDir: './static',
@@ -40,7 +40,7 @@ export default defineConfig({
         })
     ],
 
-    adapter: process.env.NODE_ENV === 'development' ? node({
+    adapter: process.env.NODE_ENV === 'production' ? undefined : node({
         mode: 'standalone'
-    }) : undefined,
+    }),
 });

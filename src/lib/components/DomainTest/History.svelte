@@ -42,7 +42,7 @@
     }
 </script>
 
-<Button variant="secondary" size="small" type="button" onClick={onClick}>
+<Button variant="secondary" size="small" type="button" onClick={onClick} id="zmHistoryButton">
     <i class="bi bi-clock-history"></i>
     History
 </Button>

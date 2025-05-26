@@ -19,7 +19,7 @@
   const grouped: Partial<Record<string, ResultDataResult[]>> = Object.groupBy(results, ({ testcase }) => testcase);
   let open: boolean = $derived(expandedModules[module] || false);
 </script>
-<section class="zm-result__module">
+<section class="zm-result__module" id="zmModule-{module}">
   <h3 class="zm-result__module__title">
     <button onclick={() => toggleModule(module)}>
       <i class="bi bi-caret-{open ? 'up' : 'down'}-fill"></i>
@@ -31,7 +31,7 @@
     </button>
   </h3>
   {#if open}
-  <div class="zm-result__module__data" id={`module-${module}`}>
+  <div class="zm-result__module__data" id={`zmModule-${module}-content`}>
     <Stack vertical gap="s">
       {#each Object.entries(grouped) as [testcase, results]}
         <ResultGroup testcase={testcase} results={results} descriptions={descriptions} />

@@ -3,27 +3,29 @@ import { test, expect } from '@playwright/test';
 import { setLang } from './utils/app.utils';
 
 test.describe('Zonemaster test FR25 - [Should be able to export the result in multiple formats (HTML, CSV, JSON, TEXT)]', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('result/226f6d4f44ae3f80');
-    await setLang(page, 'en');
-  });
+    test.beforeEach(async ({ page }) => {
+        await page.goto('/');
+        await setLang(page, 'en');
+    });
 
-  test('should have an export button',  async ({ page }) => {
-    const exportButton = page.locator('button.btn.export');
-    await expect(page.locator('button.btn.export')).toBeVisible();
-    await expect(exportButton).toHaveText('Export');
-  });
+    test('should have an export button', async ({ page }) => {
+        await page.locator('input[name="domain"]').first().focus();
 
-  test('should open a modal that contains four export possibilities (HTML, CSV, HTML, TEXT)', async ({ page }) => {
-    await page.locator('button.btn.export').click();
-    await expect(page.locator('button.btn.export + div.show')).toBeVisible();
+        await page.keyboard.type('results.afNiC.Fr');
+        await page.keyboard.press('Enter');
 
-    const exportButtons = page.locator('button.btn.export + div.show button.btn');
-    await expect(exportButtons).toHaveCount(4);
+        const exportButton = page.locator('#zmExportButton');
+        const exportContent = page.locator('#zmExportDialog');
 
-    const expectedText = ['JSON', 'CSV', 'HTML', 'TEXT'];
-    for (const idx in expectedText) {
-      await expect(exportButtons.nth(idx)).toHaveText(expectedText[idx]);
-    }
-  });
+        await expect(exportButton).toBeVisible({ timeout: 10000 });
+        await expect(exportButton).toHaveText('Export');
+        await expect(exportContent).toBeHidden();
+        await exportButton.click();
+        await expect(exportContent).toBeVisible({ timeout: 1000 });
+
+        await expect(page.locator('#zmExportDialog button:nth-child(1)')).toHaveText('JSON');
+        await expect(page.locator('#zmExportDialog button:nth-child(2)')).toHaveText('HTML');
+        await expect(page.locator('#zmExportDialog button:nth-child(3)')).toHaveText('CSV');
+        await expect(page.locator('#zmExportDialog button:nth-child(4)')).toHaveText('TEXT');
+    });
 });

@@ -109,15 +109,16 @@
                     variant="secondary"
                     size="small"
                     type="button"
-                    aria-controls="exportDialog"
+                    aria-controls="zmExportDialog"
                     onclick={() => {
                     showExport = !showExport;
                     }}
+                    id="zmExportButton"
                 >
                     <i class="bi bi-cloud-arrow-down"></i>
                     Export
                 </Button>
-                <div class="zm-popover__content" role="dialog" id="exportDialog" style:display={showExport ? 'block' : 'none'}>
+                <div class="zm-popover__content" role="dialog" id="zmExportDialog" style:display={showExport ? 'block' : 'none'}>
                     <div class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack['gap--s']}">
                         <button onmousedown={() => exportJson(data)}>JSON</button>
                         <button onmousedown={() => exportHTML(data)}>HTML</button>

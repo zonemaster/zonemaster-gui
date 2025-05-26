@@ -3,51 +3,34 @@ import { test, expect } from '@playwright/test';
 import { goToHome, setLang } from './utils/app.utils';
 
 test.describe('Zonemaster test FR22 - [Provide the possibility to see more information about encountered errors ' +
-  'within the simple view]', () => {
+    'within the simple view]', () => {
 
     test.beforeEach(async ({ page }) => {
-      await goToHome(page);
-      await setLang(page, 'en');
+        await goToHome(page);
+        await setLang(page, 'en');
     });
 
-  test('should display full messages',  async({ page }) => {
-    await expect(page.locator('.progress-bar')).toBeHidden();
+    test('can toggle modules', async ({ page }) => {
+        await expect(page.locator('.zm-domain-test__progress-bar')).toHaveCount(0);
+        await page.locator('input[name="domain"]').first().focus();
 
-    await page.locator('#domain-input').type('results.afNiC.Fr');
-    await page.locator('button.launch').click();
+        await page.keyboard.type('results.afNiC.Fr');
+        await page.keyboard.press('Enter');
 
-    // Basic header is the second one
-    const basicHeader = page.locator('.result h3').nth(1);
-    const basicTestcases = page.locator('#module-BASIC section');
+        const basicHeader = page.locator('#zmModule-BASIC .zm-result__module__title');
+        const basicHeaderButton = page.locator('#zmModule-BASIC .zm-result__module__title button');
+        const basicContent = page.locator('#zmModule-BASIC-content');
 
-    // Basic02 header is the second one in the Basic results
-    const basic02Header = page.locator('#module-BASIC h4').nth(1);
-    const basic02Messages = page.locator('#testcase-entries-BASIC02 li');
+        await expect(basicHeader).toBeVisible({ timeout: 10000 });
+        await expect(basicHeader).toHaveText(/Basic/i);
+        await expect(basicContent).toHaveCount(0);
 
-    await expect(basicHeader).toBeVisible({ timeout: 10000 });
-    await expect(basicHeader).toHaveText(/Basic/i);
+        await basicHeaderButton.click();
 
-    await expect(basicTestcases).toHaveCount(3);
+        await expect(basicContent).toHaveCount(1);
 
-    for (let idx = 0; idx < 3; idx ++) {
-      await expect(basicTestcases.nth(idx)).not.toBeVisible();
-    }
+        await basicHeaderButton.click();
 
-    await basicHeader.click();
-
-    for (let idx = 0; idx < 3; idx ++) {
-      await expect(basicTestcases.nth(idx)).toBeVisible();
-    }
-
-    await expect(basic02Messages).toHaveCount(6);
-    for (let idx = 0; idx < 6; idx ++) {
-      await expect(basic02Messages.nth(idx)).not.toBeVisible();
-    }
-    await basic02Header.click();
-    for (let idx = 0; idx < 6; idx ++) {
-      await expect(basic02Messages.nth(idx)).toBeVisible();
-    }
-
-
-  });
+        await expect(basicContent).toHaveCount(0);
+    });
 });
