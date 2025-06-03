@@ -33,14 +33,14 @@
 }
 
 .zm-button--secondary {
-    background: var(--color-palette-black-30);
-    border-color: var(--color-palette-black-40);
-    color: var(--color-palette-black-90);
+    background: var(--button-secondary-color);
+    border-color: var(--button-secondary-border-color);
+    color: var(--button-secondary-text-color);
 
     &:hover,
     &:focus {
-        background: var(--color-palette-black-40);
-        border-color: var(--color-palette-black-40);
+        background: var(--button-secondary-color-hover);
+        border-color: var(--button-secondary-border-hover-color);
     }
 }
 

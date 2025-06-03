@@ -132,9 +132,16 @@
     --button-color-hover: var(--color-palette-main-70);
     --button-text-color: var(--color-palette-main-0);
     --button-border-color: var(--color-palette-main-50);
+    --button-border-hover-color: var(--border-color-hover);
+
+    --button-secondary-color: var(--color-palette-black-30);
+    --button-secondary-color-hover: var(--color-palette-black-40);
+    --button-secondary-text-color: var(--color-palette-black-90);
+    --button-secondary-border-color: var(--color-palette-black-40);
+    --button-secondary-border-hover-color: var(--color-palette-black-40);
+
     --button-border-color-alternate: var(--color-palette-main-50);
     --button-border-color-disabled: var(--color-palette-black-50);
-    --button-border-hover-color: var(--border-color-hover);
     --button-size: 46px;
     --button-font-size: var(--font-s);
     --button-padding: var(--spacing-s);
