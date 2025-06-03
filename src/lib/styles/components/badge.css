@@ -8,10 +8,8 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    height: 1.8em;
     line-height: 1;
-    padding-left: var(--spacing-xxs);
-    padding-right: var(--spacing-xxs);
+    padding: var(--spacing-xxs);
 
     &.zm-bg-info {
         background: var(--color-palette-success-50);
@@ -39,9 +37,9 @@
     &.zm-badge--round {
         border-radius: 50%;
         font-size: var(--font-xs);
-        padding-left: 0;
-        padding-right: 0;
+        padding: 0;
         width: 1.8em;
+        height: 1.8em;
         transform: translateY(0);
     }
 }
