@@ -95,3 +95,10 @@
 .zm-result__module__data {
     margin-top: var(--spacing-s);
 }
+
+.zm-result-entries {
+    li {
+        display: flex;
+        align-items: center;
+    }
+}
