@@ -137,3 +137,26 @@
         background-color: var(--color-palette-main-30);
     }
 }
+
+.zm-banner {
+    text-align: center;
+    background: var(--color-palette-main-50);
+    color: var(--color-palette-main-0);
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-s) 0;
+
+    &:empty {
+        display: none;
+    }
+
+    p {
+        margin: 0;
+        max-width: 100%;
+
+        a {
+            color: var(--color-palette-main-0);
+            font-weight: 700;
+        }
+    }
+}
