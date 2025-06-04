@@ -7,6 +7,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@theme/*": ["./src/themes/default/*"]
-    }
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   }
 }
