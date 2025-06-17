@@ -17,6 +17,11 @@
         > li {
             display: flex;
             gap: var(--spacing-xs);
+
+            > p {
+                word-break: normal;
+                overflow-wrap: anywhere;
+            }
         }
     }
 
@@ -31,7 +36,6 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-s);
-    white-space: nowrap;
     font-size: calc(var(--font-xs) * 1.15);
     color: var(--color-palette-black);
 
