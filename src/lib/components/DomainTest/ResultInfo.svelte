@@ -91,6 +91,12 @@
             showShare = false;
         }
     });
+
+    let shareUrl = window.location.href;
+
+    if (shareUrl.includes('#')) {
+        shareUrl = shareUrl.split('#')[0];
+    }
 </script>
 <div class="zm-result">
     <h2 class="zm-result__title">Test result for {data.params.domain}</h2>
@@ -111,7 +117,8 @@
                     type="button"
                     aria-controls="zmExportDialog"
                     onclick={() => {
-                    showExport = !showExport;
+                        showExport = !showExport;
+                        showShare = false;
                     }}
                     id="zmExportButton"
                 >
@@ -120,10 +127,10 @@
                 </Button>
                 <div class="zm-popover__content" role="dialog" id="zmExportDialog" style:display={showExport ? 'block' : 'none'}>
                     <div class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack['gap--s']}">
-                        <button onmousedown={() => exportJson(data)}>JSON</button>
-                        <button onmousedown={() => exportHTML(data)}>HTML</button>
-                        <button onmousedown={() => exportCSV(data)}>CSV</button>
-                        <button onmousedown={() => exportText(data)}>TEXT</button>
+                        <button class="zm-popover__plain-btn" onmousedown={() => exportJson(data)}>JSON</button>
+                        <button class="zm-popover__plain-btn" onmousedown={() => exportHTML(data)}>HTML</button>
+                        <button class="zm-popover__plain-btn" onmousedown={() => exportCSV(data)}>CSV</button>
+                        <button class="zm-popover__plain-btn" onmousedown={() => exportText(data)}>TEXT</button>
                     </div>
                 </div>
             </div>
@@ -135,6 +142,7 @@
                     aria-controls="copyURLDialog"
                     onclick={() => {
                         showShare = !showShare;
+                        showExport = false;
                     }}
                 >
                     <i class="bi bi-share"></i>
@@ -142,8 +150,8 @@
                 </Button>
                 <div class="zm-popover__content" role="dialog" id="copyURLDialog" style:display={showShare ? 'block' : 'none'}>
                     <div class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack['gap--s']}">
-                        <Input size="small" type="text" readonly name="url" value={window.location.href} />
-                        <Copy value={window.location.href} />
+                        <Input matchContentWidth size="small" type="text" readonly name="url" value={shareUrl} />
+                        <Copy value={shareUrl} />
                     </div>
                 </div>
             </div>
