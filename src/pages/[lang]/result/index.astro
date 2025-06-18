@@ -1,11 +1,11 @@
 ---
 import Result from '@/themes/default/Result.astro';
 import Layout from '@/themes/default/Layout.astro';
-import { availableLanguageTags, sourceLanguageTag } from '@/paraglide/runtime';
+import config from '@/config';
 
 export function getStaticPaths() {
-    return availableLanguageTags
-        .filter((lang) => lang !== sourceLanguageTag)
+    return config.enabledLanguages
+        .filter((lang) => lang !== config.defaultLanguage)
         .map((lang) => ({ params: { lang } }));
 }
 

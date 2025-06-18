@@ -2,11 +2,11 @@
 import FAQ from '@theme/Faq.astro';
 import Layout from '@theme/Layout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { sourceLanguageTag, availableLanguageTags } from '@/paraglide/runtime';
+import config from '@/config';
 
 export function getStaticPaths() {
-    return availableLanguageTags
-        .filter((lang) => lang !== sourceLanguageTag)
+    return config.enabledLanguages
+        .filter((lang) => lang !== config.defaultLanguage)
         .map((lang) => ({ params: { lang } }));
 }
 

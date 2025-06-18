@@ -1,6 +1,7 @@
 ---
-import { languageTag, sourceLanguageTag } from '@/paraglide/runtime';
+import { languageTag } from '@/paraglide/runtime';
 import * as m from '@/paraglide/messages';
+import config from '@/config';
 
 const currentLanguage = languageTag();
 const languages = {
@@ -22,7 +23,7 @@ const languages = {
     <select
         class="zm-language-switcher__select"
         id="languageSwitcher"
-        data-source-language={sourceLanguageTag}
+        data-source-language={config.defaultLanguage}
         data-current-language={currentLanguage}
     >
         {
