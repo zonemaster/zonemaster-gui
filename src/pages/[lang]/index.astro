@@ -1,7 +1,6 @@
 ---
 import Welcome from '@theme/StartTest.astro';
 import Layout from '@theme/Layout.astro';
-import Article from '@/themes/default/Article.astro';
 import { availableLanguageTags, sourceLanguageTag } from '@/paraglide/runtime';
 
 console.log(sourceLanguageTag);
@@ -17,5 +16,4 @@ export const prerender = true;
 
 <Layout>
     <Welcome />
-    <Article />
 </Layout>
