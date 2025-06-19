@@ -41,7 +41,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    color: var(--color-muted);
+    color: var(--color-text );
     padding: var(--spacing-s);
 
     &.active {
@@ -55,10 +55,17 @@
 
     &:hover,
     &.is-active {
-        color: var(--color-text);
+        color: var(--color-text-highlight);
+        text-decoration: underline;
+        font-weight: bold;
         position: relative;
 
         @media screen and (min-width: 769px) {
+            &:hover,
+            &.is-active {
+                text-decoration: none;
+            }
+
             &::after {
                 content: '';
                 position: absolute;
@@ -66,7 +73,7 @@
                 left: 0;
                 width: 100%;
                 height: 5px;
-                background-color: var(--color-palette-main-30);
+                background-color: var(--color-text-highlight);
             }
         }
     }
