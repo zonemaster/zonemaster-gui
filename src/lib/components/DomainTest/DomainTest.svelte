@@ -57,7 +57,8 @@
 <form id="zmDomainTestForm" novalidate onsubmit={startTest} class="zm-domain-test {currentState === 'testing' ? 'zm-is-testing' : ''}">
     <Stack>
         <div class="zm-domain-test__progress">
-            <Input required name="domain" type="text" bind:value={domain} placeholder={m.domain()} disabled={currentState === 'testing'}
+            <label class="zm-u-visually-hidden" for="domainInput">{m.domainName()}</label>
+            <Input required name="domain" id="domainInput" type="text" bind:value={domain} placeholder={m.domainName()} disabled={currentState === 'testing'}
                    class={ currentState === 'finished' ? 'finished' : undefined } />
             {#if currentState === 'testing'}
                 {#key currentState}

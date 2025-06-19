@@ -13,6 +13,7 @@
     "menu": "Menu",
     "close": "Close",
     "domain": "Domain",
+    "domainName": "Domain name",
     "showOptions": "Show options",
     "noticeHeading": "Notice! More info on undelegated test",
     "noticeLink": "/faq/#undelegated",

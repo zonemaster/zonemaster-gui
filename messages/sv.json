@@ -13,6 +13,7 @@
     "menu": "Meny",
     "close": "Stäng",
     "domain": "Domän",
+    "domainName": "Domänamn",
     "showOptions": "Fler inställningar",
     "noticeHeading": "Info! Mer info om test av odelegerad domän",
     "noticeLink": "/sv/faq/#undelegated",
