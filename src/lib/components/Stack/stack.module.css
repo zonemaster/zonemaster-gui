@@ -114,4 +114,8 @@
  *  ==================================== */
 .expand {
     flex: 1;
+
+    @media screen and (max-width: 568px) {
+        flex-basis: 100%;
+    }
 }

@@ -182,7 +182,7 @@
         {#if aboutLevels}
             <Collapsible title={aboutLevels.question} id={'helper'} content={aboutLevels.answer}></Collapsible>
         {/if}
-        <fieldset class="zm-fieldset {stack.stack} {stack.bottom} {stack['gap--xs']}">
+        <fieldset class="zm-fieldset {stack.stack} {stack.wrap} {stack.bottom} {stack['gap--xs']}">
             <div class={stack.expand}>
                 <Input
                     id="filterQuery"
