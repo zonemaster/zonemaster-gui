@@ -88,37 +88,42 @@
     <legend>{m.nameServers()}</legend>
     <Stack vertical gap="s">
         {#each nameservers as ns, i}
-            <Stack bottom gap="xs" class={utils.expand}>
-                <Grid cols={2} gap="xs">
-                    <div>
-                        <Input
-                            name="nameservers[{i}][ns]"
-                            type="text"
-                            value={ns.ns}
-                            placeholder="ns1.example.com"
-                            label={i === 0 ? m.name() : undefined}
-                            onInput={(e) => updateNameserver(i, 'ns', e.currentTarget.value)}
-                            required={!!ns.ip}
-                        />
-                    </div>
-                    <div>
-                        <Input
-                            name="nameservers[{i}][ip]"
-                            value={ns.ip}
-                            type="text"
-                            placeholder=""
-                            label={i === 0 ? m.addressOptional() : undefined}
-                            onInput={(e) => updateNameserver(i, 'ip', e.currentTarget.value)}
-                        />
-                    </div>
-                </Grid>
-                {#if nameservers.length > 1}
-                    <Button variant="danger" type="button" onClick={() => removeNameserver(i)}>
-                        <i class="bi bi-trash"></i>
-                        <span class="zm-u-visually-hidden">{m.deleteRow()}</span>
-                    </Button>
-                {/if}
-            </Stack>
+            <fieldset class="zm-domain-test__nameserver zm-fieldset" id="zmDomainTestNameserver-{ i }">
+                <legend>{m.nameserver({ index: i + 1 })}</legend>
+                <Stack bottom gap="xs" class={utils.expand}>
+                    <Grid cols={2} gap="xs">
+                        <div>
+                            <Input
+                                id="nameservers[{i}][ns]"
+                                name="nameservers[{i}][ns]"
+                                type="text"
+                                value={ns.ns}
+                                placeholder="ns1.example.com"
+                                label={m.name()}
+                                onInput={(e) => updateNameserver(i, 'ns', e.currentTarget.value)}
+                                required={!!ns.ip}
+                            />
+                        </div>
+                        <div>
+                            <Input
+                                id="nameservers[{i}][ip]"
+                                name="nameservers[{i}][ip]"
+                                value={ns.ip}
+                                type="text"
+                                placeholder=""
+                                label={m.addressOptional()}
+                                onInput={(e) => updateNameserver(i, 'ip', e.currentTarget.value)}
+                            />
+                        </div>
+                    </Grid>
+                    {#if nameservers.length > 1}
+                        <Button aria-controls="zmDomainTestNameserver-{ i }" variant="danger" type="button" onClick={() => removeNameserver(i)}>
+                            <i class="bi bi-trash"></i>
+                            <span class="zm-u-visually-hidden">{m.deleteRow()}</span>
+                        </Button>
+                    {/if}
+                </Stack>
+            </fieldset>
         {/each}
         <Button
             class={utils.selfLeft}

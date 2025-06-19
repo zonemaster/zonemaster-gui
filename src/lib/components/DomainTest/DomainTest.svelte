@@ -74,7 +74,7 @@
         </Button>
     </Stack>
     <Switch id="advanced-toggle" controls="advanced-options" active={advanced} onClick={() => advanced = !advanced}>
-        {m.showOptions()}
+        {advanced ? m.hideOptions() : m.showOptions()}
     </Switch>
     <div id="advanced-options" hidden={!advanced}>
         {#if advanced}

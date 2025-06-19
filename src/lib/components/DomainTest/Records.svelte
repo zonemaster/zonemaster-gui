@@ -112,41 +112,55 @@
     <legend>{m.DSRecords()}</legend>
     <Stack vertical gap="s">
         {#each records as r, i}
-            <Stack bottom gap="xs" class={utils.expand}>
-                <Grid cols={4} gap="xs">
-                    <div>
-                        <Input
-                            name="ds_info[{i}][keytag]"
-                            type="text"
-                            value={r.keytag}
-                            label={i === 0 ? m.keytag() : undefined}
-                            onInput={(e) => updateRow(i, 'keytag', (e.target as HTMLInputElement).value)}
-                        />
-                    </div>
-                    <div>
-                        <Select
-                            name="ds_info[{i}][algorithm]"
-                            value={r.algorithm} label={i === 0 ? m.algorithm() : undefined}
-                            onSelect={(e) => updateRow(i, 'algorithm', (e.target as HTMLSelectElement).value)}
-                            options={algorithms}
-                        />
-                    </div>
-                    <div>
-                        <Select name="ds_info[{i}][digtype]" value={r.digestType} label={i === 0 ? m.digestType() : undefined}
-                                onSelect={(e) => updateRow(i, 'digestType', (e.target as HTMLSelectElement).value as string)} options={digestTypes} />
-                    </div>
-                    <div>
-                        <Input name="ds_info[{i}][digest]" value={r.digest} type="text" label={i === 0 ? m.digest() : undefined}
-                               onInput={(e) => updateRow(i, 'digest', (e.target as HTMLInputElement).value)} />
-                    </div>
-                </Grid>
-                {#if records.length > 1}
-                    <Button variant="secondary" type="button" onClick={() => removeRow(i)}>
-                        <i class="bi bi-trash"></i>
-                        <span class="zm-u-visually-hidden">{m.deleteRow()}</span>
-                    </Button>
-                {/if}
-            </Stack>
+            <fieldset class="zm-domain-test__ds-record zm-fieldset" id="zmDsRecord-{i}">
+                <legend>{m.dsRecord({ index: i + 1 })}</legend>
+                <Stack bottom gap="xs" class={utils.expand}>
+                    <Grid cols={4} gap="xs">
+                        <div>
+                            <Input
+                                name="ds_info[{i}][keytag]"
+                                type="text"
+                                value={r.keytag}
+                                label={m.keytag()}
+                                onInput={(e) => updateRow(i, 'keytag', e.currentTarget.value)}
+                            />
+                        </div>
+                        <div>
+                            <Select
+                                name="ds_info[{i}][algorithm]"
+                                value={r.algorithm}
+                                label={m.algorithm()}
+                                onSelect={(e) => updateRow(i, 'algorithm', e.currentTarget.value)}
+                                options={algorithms}
+                            />
+                        </div>
+                        <div>
+                            <Select
+                                name="ds_info[{i}][digtype]"
+                                value={r.digestType}
+                                label={m.digestType()}
+                                onSelect={(e) => updateRow(i, 'digestType', e.currentTarget.value)}
+                                options={digestTypes}
+                            />
+                        </div>
+                        <div>
+                            <Input
+                                name="ds_info[{i}][digest]"
+                                value={r.digest}
+                                type="text"
+                                label={m.digest()}
+                                onInput={(e) => updateRow(i, 'digest', e.currentTarget.value)}
+                            />
+                        </div>
+                    </Grid>
+                    {#if records.length > 1}
+                        <Button aria-controls="zmDsRecord-{i}" variant="danger" type="button" onClick={() => removeRow(i)}>
+                            <i class="bi bi-trash"></i>
+                            <span class="zm-u-visually-hidden">{m.deleteRow()}</span>
+                        </Button>
+                    {/if}
+                </Stack>
+            </fieldset>
         {/each}
         <Button
             class={utils.selfLeft}
