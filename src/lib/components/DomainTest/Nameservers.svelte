@@ -113,7 +113,7 @@
                     </div>
                 </Grid>
                 {#if nameservers.length > 1}
-                    <Button variant="secondary" type="button" onClick={() => removeNameserver(i)}>
+                    <Button variant="danger" type="button" onClick={() => removeNameserver(i)}>
                         <i class="bi bi-trash"></i>
                         <span class="zm-u-visually-hidden">{m.deleteRow()}</span>
                     </Button>
