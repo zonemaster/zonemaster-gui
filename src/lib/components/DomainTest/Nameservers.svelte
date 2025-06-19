@@ -88,7 +88,7 @@
     <legend>{m.nameServers()}</legend>
     <Stack vertical gap="s">
         {#each nameservers as ns, i}
-            <fieldset class="zm-domain-test__nameserver zm-fieldset" id="zmDomainTestNameserver-{ i }">
+            <fieldset class="zm-domain-test__nameserver zm-fieldset" id="zmDomainTestNameserver-{ i + 1 }">
                 <legend>{m.nameserver({ index: i + 1 })}</legend>
                 <Stack bottom gap="xs" class={utils.expand}>
                     <Grid cols={2} gap="xs">
@@ -117,9 +117,9 @@
                         </div>
                     </Grid>
                     {#if nameservers.length > 1}
-                        <Button aria-controls="zmDomainTestNameserver-{ i }" variant="danger" type="button" onClick={() => removeNameserver(i)}>
+                        <Button aria-controls="zmDomainTestNameserver-{ i + 1 }" variant="danger" type="button" onClick={() => removeNameserver(i)}>
                             <i class="bi bi-trash"></i>
-                            <span class="zm-u-visually-hidden">{m.deleteRow()}</span>
+                            <span class="zm-u-visually-hidden">{m.deleteNameserver({ index: i + 1 })}</span>
                         </Button>
                     {/if}
                 </Stack>
