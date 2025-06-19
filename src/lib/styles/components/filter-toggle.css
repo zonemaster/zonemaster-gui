@@ -108,7 +108,8 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    width: 1.8em;
+    min-width: 1.8em;
     height: 1.8em;
     line-height: 1;
+    padding: 0 var(--spacing-xs);
 }

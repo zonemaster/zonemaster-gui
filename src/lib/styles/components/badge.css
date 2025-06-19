@@ -6,10 +6,11 @@
     border-radius: var(--border-radius);
     display: inline-flex;
     align-items: center;
+    gap: var(--spacing-xxs);
     justify-content: center;
     text-decoration: none;
     line-height: 1;
-    padding: var(--spacing-xxs);
+    padding: var(--spacing-xxs) var(--spacing-xs);
 
     &.zm-bg-info {
         background: var(--color-palette-success-50);
@@ -35,11 +36,7 @@
     }
 
     &.zm-badge--round {
-        border-radius: 50%;
+        border-radius: 9999px;
         font-size: var(--font-xs);
-        padding: 0;
-        width: 1.8em;
-        height: 1.8em;
-        transform: translateY(0);
     }
 }
