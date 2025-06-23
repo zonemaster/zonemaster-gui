@@ -14,10 +14,16 @@
     padding: var(--spacing-xs);
     font-weight: 500;
     border: 1px solid var(--border-color);
+    background-color: var(--color-palette-white);
 
     &:hover {
         background: var(--color-subtle);
         border-color: var(--active-border-color);
+    }
+
+    &:has(input[type="checkbox"]):focus,
+    &:has(input[type="checkbox"]):focus-within {
+        box-shadow: 0 0 0 2px var(--color-palette-white), 0 0 0 4px var(--color-tab-highlight);
     }
 
     &.zm-is-active {
