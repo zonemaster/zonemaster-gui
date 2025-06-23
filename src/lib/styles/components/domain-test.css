@@ -77,6 +77,13 @@
 
     legend {
         font-weight: 700;
+        font-size: var(--font-m);
+    }
+
+    fieldset {
+        legend {
+            font-size: var(--font-body-size);
+        }
     }
 }
 
@@ -87,6 +94,13 @@
 
     legend {
         font-weight: 700;
+        font-size: var(--font-m);
+    }
+
+    fieldset {
+        legend {
+            font-size: var(--font-body-size);
+        }
     }
 }
 
