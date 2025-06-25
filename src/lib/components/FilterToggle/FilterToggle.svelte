@@ -25,7 +25,7 @@
   {label}
   {#if badge !== undefined}
     <span class="zm-filter-toggle__badge">
-        {#if icon && checked}
+        {#if icon}
           <i class={`bi bi-${icon}`}></i>
         {/if}
         {badge}

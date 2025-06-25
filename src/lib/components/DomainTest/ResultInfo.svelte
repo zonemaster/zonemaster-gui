@@ -163,7 +163,7 @@
     <Stack vertical gap="m">
         <fieldset class="zm-fieldset">
             <legend>Filter severity levels</legend>
-            <Stack middle wrap>
+            <Stack gap="xs" middle wrap>
                 <FilterToggle
                     name="filter[all]"
                     label="All"
