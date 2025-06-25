@@ -40,7 +40,6 @@
                     <li>
                         <div>
                             <Badge level={result.level}>
-                                <i class="bi bi-{resultIcon(result.level)}"></i>
                                 {niceName(result.level)}
                             </Badge>
                         </div>

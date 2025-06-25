@@ -1,8 +1,7 @@
 .zm-badge {
     background: var(--color-muted);
     color: var(--color-palette-white);
-    font-size: var(--font-s);
-    font-weight: bold;
+    font-size: calc(var(--font-xs) * 1.2);
     border-radius: var(--border-radius);
     display: inline-flex;
     align-items: center;
@@ -45,6 +44,27 @@
     &.zm-badge--round {
         border-radius: 9999px;
         font-size: var(--font-xs);
+
+        &.zm-bg-info {
+            background: var(--color-palette-success-70);
+        }
+
+        &.zm-bg-notice {
+            background: var(--color-palette-info-70);
+        }
+
+        &.zm-bg-warning {
+            background: var(--color-palette-warning-70);
+            color: var(--color-palette-white);
+        }
+
+        &.zm-bg-error {
+            background: var(--color-palette-error-70);
+        }
+
+        &.zm-bg-critical {
+            background: var(--color-palette-error-90);
+        }
     }
 
     &.zm-badge--small {
