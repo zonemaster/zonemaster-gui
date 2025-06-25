@@ -1,0 +1,44 @@
+.zm-button-group {
+    display: inline-flex;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--button-border-color);
+    overflow: hidden;
+}
+
+.zm-button-group__button {
+    all: unset;
+    position: relative;
+    display: inline-flex;
+    padding: 0 var(--button-padding);
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    height: var(--button-size-small);
+    background-color: var(--button-color);
+    text-decoration: none;
+    color: var(--button-text-color);
+    font-size: var(--button-font-size-small);
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    margin: 0;
+    border-radius: 0;
+    flex: 1;
+}
+
+.zm-button-group__button:not(:last-child) {
+    border-right: none;
+}
+
+.zm-button-group__button:hover,
+.zm-button-group__button:focus {
+    background-color: var(--color-palette-main-70);
+    border-color: var(--color-palette-main-70);
+}
+
+.zm-button-group__button--active {
+    background-color: var(--color-palette-main-70);
+    border-color: var(--color-palette-main-70);
+    color: var(--button-text-color);
+}
