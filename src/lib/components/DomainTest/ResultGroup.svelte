@@ -2,6 +2,7 @@
     import type { ResultDataResult } from '@/lib/client.ts';
     import niceName from '@/lib/niceName.ts';
     import Badge from '@/lib/components/Badge/Badge.svelte';
+    import { resultIcon } from '@/lib/resultIcon.ts';
 
     type Props = {
         testcase: string;
@@ -38,7 +39,10 @@
                 {#each results as result}
                     <li>
                         <div>
-                            <Badge level={result.level}>{niceName(result.level)}</Badge>
+                            <Badge level={result.level}>
+                                <i class="bi bi-{resultIcon(result.level)}"></i>
+                                {niceName(result.level)}
+                            </Badge>
                         </div>
                         <p>{result.message}</p>
                     </li>
