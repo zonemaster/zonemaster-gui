@@ -22,15 +22,15 @@
 
     &::-webkit-slider-thumb {
         box-shadow:
-            0 0 0 inset rgba(colors.$color-cyberspace, 0.2),
-            0 1px 2px rgba(colors.$color-cyberspace, 0.2),
+            0 0 0 inset rgba(0,0,0,0.2),
+            0 1px 2px rgba(0,0,0,0.2),
             0 0 0 3px inset var(--color-tab-highlight) !important;
     }
 
     &::-moz-range-thumb {
         box-shadow:
-            0 0 0 inset rgba(colors.$color-cyberspace, 0.2),
-            0 1px 2px rgba(colors.$color-cyberspace, 0.2),
+            0 0 0 inset rgba(0,0,0,0.2),
+            0 1px 2px rgba(0,0,0,0.2),
             0 0 0 3px inset var(--color-tab-highlight) !important;
     }
 }
@@ -40,6 +40,6 @@
 .tab-highlight .color-inverse .has-focus {
     &,
     + label {
-        box-shadow: 0 0 0 2px inset colors.$color-snow !important;
+        box-shadow: 0 0 0 2px inset var(--color-palette-white) !important;
     }
 }
