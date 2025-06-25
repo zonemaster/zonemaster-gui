@@ -6,6 +6,7 @@
         level?: ResultLevel | 'default';
         children?: Snippet;
         round?: boolean;
+        border?: boolean;
         size?: 'small' | 'medium';
     };
 
@@ -13,9 +14,10 @@
         children,
         level = 'default',
         round = false,
-        size = 'medium'
+        size = 'medium',
+        border = false,
     }: Props = $props();
 </script>
-<span class={['zm-badge', `zm-bg-${level.toLowerCase()}`, `zm-badge--${size}`, round ? 'zm-badge--round' : false]}>
+<span class={['zm-badge', `zm-bg-${level.toLowerCase()}`, `zm-badge--${size}`, round ? 'zm-badge--round' : false, border ? 'zm-badge--border' : false]}>
   {@render children?.()}
 </span>
