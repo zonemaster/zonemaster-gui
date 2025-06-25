@@ -12,6 +12,11 @@
     line-height: 1;
     padding: var(--spacing-xxs) var(--spacing-xs);
 
+    &.zm-bg-default {
+        background: var(--color-palette-info-10);
+        color: var(--color-muted);
+    }
+
     &.zm-bg-info {
         background: var(--color-palette-success-50);
         color: var(--color-palette-black);
@@ -38,5 +43,11 @@
     &.zm-badge--round {
         border-radius: 9999px;
         font-size: var(--font-xs);
+    }
+
+    &.zm-badge--small {
+        font-size: var(--font-xs);
+        padding: var(--spacing-xxs) var(--spacing-xs);
+        border-radius: calc(var(--border-radius) / 2);
     }
 }

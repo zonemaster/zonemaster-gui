@@ -3,17 +3,19 @@
     import type { ResultLevel } from '@/lib/client.ts';
 
     type Props = {
-        level: ResultLevel
+        level?: ResultLevel | 'default';
         children?: Snippet;
         round?: boolean;
+        size?: 'small' | 'medium';
     };
 
     let {
         children,
-        level,
-        round = false
+        level = 'default',
+        round = false,
+        size = 'medium'
     }: Props = $props();
 </script>
-<span class={['zm-badge', `zm-bg-${level.toLowerCase()}`, round ? 'zm-badge--round' : false]}>
+<span class={['zm-badge', `zm-bg-${level.toLowerCase()}`, `zm-badge--${size}`, round ? 'zm-badge--round' : false]}>
   {@render children?.()}
 </span>

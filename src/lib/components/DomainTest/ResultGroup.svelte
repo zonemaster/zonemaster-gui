@@ -12,15 +12,23 @@
     const { testcase, results, descriptions }: Props = $props();
     let open = $state(testcase === 'UNSPECIFIED');
     const level = results?.[0]?.level || 'INFO';
+
+    console.log(testcase);
 </script>
 <section class="zm-result__group zm-result__group--{level.toLowerCase()}">
     {#if testcase !== 'UNSPECIFIED' && testcase in descriptions}
         <header>
-            <h4>
+            <h4 class="zm-result__group__title">
                 <button onclick={() => open = !open} class="zm-result__group__button">
                     <i class="bi bi-{open ? 'dash' : 'plus'}-square-fill"></i>
                     {descriptions[testcase]}
                 </button>
+                {#if results && open}
+                    <Badge size="small">
+                        <i class="bi bi-exclamation-circle-fill"></i>
+                        {niceName(testcase)}
+                    </Badge>
+                {/if}
             </h4>
         </header>
     {/if}
