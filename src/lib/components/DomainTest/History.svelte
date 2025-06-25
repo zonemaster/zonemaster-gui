@@ -1,4 +1,5 @@
 <script lang="ts">
+    import * as m from '@/paraglide/messages';
     import Button from '@/lib/components/Button/Button.svelte';
     import { getTestHistory, type ResultData, type TestHistoryItem } from '@/lib/client.js';
     import { navigate } from '@/lib/router.svelte';
@@ -44,11 +45,11 @@
 
 <Button variant="secondary" size="small" type="button" onClick={onClick} id="zmHistoryButton">
     <i class="bi bi-clock-history"></i>
-    History
+    {m.history()}
 </Button>
 <dialog id="historyDialog" class="zm-dialog">
     <header>
-        <h2>Test history</h2>
+        <h2>{m.testHistory()}</h2>
         <form method="dialog">
             <button aria-label="Close" class="zm-dialog__close">
                 <i class="bi bi-x"></i>
@@ -60,8 +61,11 @@
             <li class="{item.overall_result}">
                 <a href={`/result/${item.id}`} onclick={onClickLink}>
                     {item.created_at}
-                    <i class="bi bi-chevron-right"></i>
                 </a>
+                {#if item.undelegated}
+                    <span>{m.undelegated()}</span>
+                {/if}
+                <i class="bi bi-chevron-right"></i>
             </li>
         {/each}
     </ul>

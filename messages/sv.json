@@ -48,5 +48,10 @@
     "infoTextParagraph3": "Domännamnssystemet (DNS) är en databas som kopplar domännamn till IP-adresser (Internet Protocol), på samma sätt som en telefonkatalog kopplar namn till telefonnummer.\n\nEn IP-adress är en unik nummerserie som identifierar varje dator eller enhet som är ansluten till internet – ungefär som varje telefon har sitt eget nummer i telefonnätet.\n\nSådana långa nummerserier fungerar utmärkt för datorer, men är betydligt svårare för människor att komma ihåg. Därför har DNS utvecklats som ett extra lager som översätter mellan namn vi människor lättare minns och IP-adresser som används av datorer, varje gång vi vill nå en viss webbplats eller använda andra internettjänster, som e-post.",
     "img1Alt": "Person tittar på sin datorskärm",
     "img2Alt": "Världen ihopkopplad i ett nätverk",
-    "faqPreamble": "Find answers to common questions about Zonemaster here."
+    "faqPreamble": "Find answers to common questions about Zonemaster here.",
+    "history": "Historik",
+    "testHistory": "Testhistorik",
+    "undelegated": "Odelegerad",
+    "delegated": "Delegerad",
+    "historyAll": "Alla"
 }

@@ -55,5 +55,10 @@
     "img2Alt": "The world connected by a network",
     "faqPreamble": "Find answers to common questions about Zonemaster here.",
     "faqTextParagraph1": "You still don't find the information you are looking for? You can contact the Zonemaster project team using the",
-    "faqParagraph1Link": "user mailing list, the issue tracker or the contact e-mail address."
+    "faqParagraph1Link": "user mailing list, the issue tracker or the contact e-mail address.",
+    "history": "History",
+    "testHistory": "Test history",
+    "undelegated": "Undelegated",
+    "delegated": "Delegated",
+    "historyAll": "All"
 }
