@@ -25,7 +25,7 @@
                     {descriptions[testcase]}
                 </button>
                 {#if results && open}
-                    <Badge size="small" border="true">
+                    <Badge size="small" border={true}>
                         <i class="bi bi-exclamation-circle-fill"></i>
                         {niceName(testcase)}
                     </Badge>
