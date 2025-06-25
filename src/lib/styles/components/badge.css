@@ -23,12 +23,10 @@
 
     &.zm-bg-info {
         background: var(--color-palette-success-50);
-        color: var(--color-palette-black);
     }
 
     &.zm-bg-notice {
         background: var(--color-palette-info-50);
-        color: var(--color-palette-black);
     }
 
     &.zm-bg-warning {

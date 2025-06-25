@@ -3,6 +3,7 @@
     value?: string;
     label: string;
     badge?: number;
+    icon?: string;
     name: string;
     checked: boolean;
     severity?: 'all' | 'info' | 'notice' | 'warning' | 'error' | 'critical';
@@ -13,6 +14,7 @@
     badge,
     label,
     value,
+    icon,
     severity = 'all',
     checked = $bindable(false),
     onCheck = () => {},
@@ -22,6 +24,11 @@
   <input type="checkbox" bind:checked={checked} onchange={onCheck} value={value} />
   {label}
   {#if badge !== undefined}
-    <span class="zm-filter-toggle__badge">{badge}</span>
+    <span class="zm-filter-toggle__badge">
+        {#if icon && checked}
+          <i class={`bi bi-${icon}`}></i>
+        {/if}
+        {badge}
+    </span>
   {/if}
 </label>
