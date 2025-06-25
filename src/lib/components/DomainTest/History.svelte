@@ -50,7 +50,7 @@
     <header>
         <h2>Test history</h2>
         <form method="dialog">
-            <button aria-label="Close">
+            <button aria-label="Close" class="zm-dialog__close">
                 <i class="bi bi-x"></i>
             </button>
         </form>
