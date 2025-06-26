@@ -27,12 +27,15 @@
     }
 
     &.zm-is-active {
-        background: var(--active-color);
-        color: var(--active-text-color);
         --active-border-color: var(--color-palette-black-40);
         --border-color: var(--color-palette-black-40);
         --badge-color: var(--color-palette-info-50);
+        --badge-color-dark: '';
         --badge-text-color: var(--color-palette-black);
+
+        text-shadow: 0 0 25px var(--badge-color-dark);
+        background: var(--active-color);
+        color: var(--active-text-color);
 
         &:hover {
             --active-border-color: var(--color-palette-black-40);
@@ -43,6 +46,7 @@
         --active-color: var(--color-palette-success-50);
         --active-text-color: var(--color-palette-success-0);
         --badge-color: var(--color-palette-success-70);
+        --badge-color-dark: var(--color-palette-success-90);
         --badge-text-color: var(--color-palette-white);
         --border-color: var(--color-palette-success-50);
         --active-border-color: var(--color-palette-success-50);
@@ -56,6 +60,7 @@
         --active-color: var(--color-palette-info-50);
         --active-text-color: var(--color-palette-info-0);
         --badge-color: var(--color-palette-info-70);
+        --badge-color-dark: var(--color-palette-info-90);
         --badge-text-color: var(--color-palette-white);
         --border-color: var(--color-palette-info-50);
         --active-border-color: var(--color-palette-info-50);
@@ -72,6 +77,8 @@
         --border-color: var(--color-palette-warning-50);
         --active-border-color: var(--color-palette-warning-50);
 
+        text-shadow: none;
+
         &:hover {
             --active-border-color: var(--color-palette-warning-50);
         }
@@ -81,9 +88,12 @@
         --active-color: var(--color-palette-danger-50);
         --active-text-color: var(--color-palette-danger-0);
         --badge-color: var(--color-palette-danger-70);
+        --badge-color-dark: var(--color-palette-danger-90);
         --badge-text-color: var(--color-palette-white);
         --border-color: var(--color-palette-danger-50);
         --active-border-color: var(--color-palette-danger-50);
+
+
 
         &:hover {
             --active-border-color: var(--color-palette-danger-50);
@@ -94,6 +104,7 @@
         --active-color: var(--color-palette-danger-70);
         --active-text-color: var(--color-palette-danger-0);
         --badge-color: var(--color-palette-danger-90);
+        --badge-color-dark: var(--color-palette-danger-90);
         --badge-text-color: var(--color-palette-white);
         --border-color: var(--color-palette-danger-70);
         --active-border-color: var(--color-palette-danger-70);
@@ -108,7 +119,8 @@
     background: var(--badge-color);
     color: var(--badge-text-color);
     font-size: var(--font-xs);
-    font-weight: bold;
+    font-weight: 700;
+    text-shadow: none;
     border-radius: 999px;
     display: inline-flex;
     align-items: center;
