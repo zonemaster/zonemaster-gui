@@ -8,6 +8,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: calc(100vw - var(--spacing-xs) * 2);
+
     header {
         position: sticky;
         top: 0;
