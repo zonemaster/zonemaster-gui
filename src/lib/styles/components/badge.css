@@ -7,9 +7,11 @@
     align-items: center;
     gap: var(--spacing-xxs);
     justify-content: center;
+    font-weight: 700;
     text-decoration: none;
     line-height: 1;
     padding: var(--spacing-xxs) var(--spacing-xs);
+    text-shadow: 0 0 5px var(--badge-color-dark);
 
     &.zm-bg-default {
         background: var(--color-palette-info-10);
@@ -22,23 +24,28 @@
 
     &.zm-bg-info {
         background: var(--color-palette-success-50);
+        --badge-color-dark: var(--color-palette-success-70);
     }
 
     &.zm-bg-notice {
         background: var(--color-palette-info-50);
+        --badge-color-dark: var(--color-palette-info-70);
     }
 
     &.zm-bg-warning {
         background: var(--color-palette-warning-50);
         color: var(--color-palette-black);
+        --badge-color-dark: '';
     }
 
     &.zm-bg-error {
         background: var(--color-palette-error-50);
+        --badge-color-dark: var(--color-palette-error-70);
     }
 
     &.zm-bg-critical {
         background: var(--color-palette-error-70);
+        --badge-color-dark: '';
     }
 
     &.zm-badge--round {
