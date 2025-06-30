@@ -1,5 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
+import * as m from '@/paraglide/messages.js';
 import FAQ from '@theme/Faq.astro';
 import Layout from '@theme/Layout.astro';
 import config from '@/config';
@@ -18,6 +19,6 @@ const groupedPartial = Object.groupBy(
 const grouped = groupedPartial as Record<string, FaqItem[]>;
 ---
 
-<Layout>
+<Layout title={m.faqNav()}>
     <FAQ data={grouped} />
 </Layout>

@@ -34,6 +34,12 @@ export function createTestAgent() {
                     PROGRESS: (context, payload) => {
                         context.progress = payload.progress;
 
+                        document.title = config.setTitle(
+                            `${payload.progress}% ${context.domain}`,
+                        );
+
+                        console.log(context);
+
                         if (context.progress >= 100) {
                             TestAgent.transition('COMPLETE', { progress: 0 });
                         } else {

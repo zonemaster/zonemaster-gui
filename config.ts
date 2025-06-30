@@ -14,6 +14,9 @@ const config: Config = {
         email: 'contact@zonemaster.net',
         siteName: '',
     },
+    setTitle(title: string) {
+        return `${title} – Zonemaster`;
+    }
 };
 
 export default config;

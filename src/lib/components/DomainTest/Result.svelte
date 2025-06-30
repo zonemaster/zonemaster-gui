@@ -3,6 +3,7 @@
     import { getTestResults, type ResultData } from '@/lib/client.js';
     import ResultInfo from '@/lib/components/DomainTest/ResultInfo.svelte';
     import type { FaqItem } from '@/content.config.ts';
+    import config from '@/config.ts';
 
     type Props = {
         aboutLevels: FaqItem | null;
@@ -24,6 +25,8 @@
         getTestResults(id)
             .then((data) => {
                 result = data;
+
+                document.title = config.setTitle(data.params.domain);
             })
             .finally(() => {
                 loading = false;

@@ -51,6 +51,7 @@ export default class StateMachine<TContext> {
 
         this.previousState = this.currentState;
         this.currentState = nextState;
+        this.context = { ...this.context, ...payload } as TContext;
 
         if (stateConfig?.actions?.[event]) {
             stateConfig.actions[event](this.context, payload);

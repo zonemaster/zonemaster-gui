@@ -6,9 +6,15 @@ import Content from './Content.astro';
 import Alerts from '@/lib/components/Alert/Alerts.svelte';
 import Footer from './Footer.astro';
 import Banner from './Banner.astro';
+
+interface Props {
+    title?: string;
+}
+
+const { title } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
     <Skip />
     <Header />
     <Banner />

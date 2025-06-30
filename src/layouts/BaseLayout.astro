@@ -3,6 +3,13 @@ import { languageTag } from '@/paraglide/runtime';
 import '@theme/styles/styles.css';
 import '@/assets/fonts/bootstrap-icons.min.css';
 import '@/lib/styles/style.css';
+
+interface Props {
+    title?: string;
+}
+
+const { title: defaultTitle } = Astro.props;
+const title = defaultTitle ? `${defaultTitle} – Zonemaster` : `Zonemaster`;
 ---
 
 <!doctype html>
@@ -81,7 +88,7 @@ import '@/lib/styles/style.css';
             sizes="128x128"
         />
         <meta name="generator" content={Astro.generator} />
-        <title>Zonemaster</title>
+        <title>{title}</title>
         <script>
             document.querySelector('html')!.classList.remove('no-js');
             document.querySelector('html')!.classList.add('js');

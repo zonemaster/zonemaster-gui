@@ -1,4 +1,5 @@
 ---
+import * as m from '@/paraglide/messages.js';
 import Result from '@/themes/default/Result.astro';
 import Layout from '@/themes/default/Layout.astro';
 import config from '@/config';
@@ -12,6 +13,6 @@ export function getStaticPaths() {
 export const prerender = true;
 ---
 
-<Layout>
+<Layout title={m.resultTitle()}>
     <Result />
 </Layout>

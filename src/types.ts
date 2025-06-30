@@ -24,4 +24,5 @@ export type Config = {
     pollingInterval: number;
     clientInfo: ClientInfo;
     siteInfo: SiteInfo;
+    setTitle(title: string): string;
 };
