@@ -1,0 +1,17 @@
+{
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "startTestNav": "Začni test",
+    "faqNav": " Pogosta vprašanja",
+    "welcome": "Dobrodošli v Zonemaster",
+    "startTestTitle": "Preverite, kako uspešna je vaša domena",
+    "runTestTitle": "Testirajte svojo domeno",
+    "faqTitle": "Pogosto zastavljena vprašanja",
+    "resultTitle": "Rezultat testa",
+    "langLabel": "Spremeni jezik",
+    "startTestBtn": "Zaženi test",
+    "runningTest": "Testiranje poteka...",
+    "menu": "Meni",
+    "close": "Zapri",
+    "domain": "Domena",
+    "domainName": "Ime domene"
+}
