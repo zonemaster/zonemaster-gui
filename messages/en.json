@@ -60,5 +60,18 @@
     "testHistory": "Test history",
     "undelegated": "Undelegated",
     "delegated": "Delegated",
-    "historyAll": "All"
+    "historyAll": "All",
+    "all": "All",
+    "info": "Info",
+    "notice": "Notice",
+    "warning": "Warning",
+    "error": "Error",
+    "critical": "Critical",
+    "expandAll": "Expand all modules",
+    "collapseAll": "Collapse all modules",
+    "search": "Search",
+    "searchInText": "Search text in messages",
+    "testResultFor": "Test result for",
+    "createdOn": "Created on",
+    "filterSeverityLevels": "Filter severity levels"
 }

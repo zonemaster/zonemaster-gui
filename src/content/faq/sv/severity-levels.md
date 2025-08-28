@@ -15,5 +15,5 @@ Varning
 Fel
 : Meddelandet betyder ett problem som med stor sannolikhet (eller möjligen med säkerhet) kommer att påverka funktionen hos den testade zonen negativt, men inte så allvarligt att hela zonen blir olösbar.
 
-Allvarligt
-: Meddelandet betyder ett mycket allvarligt fel.
+Kritisk
+: Meddelandet betyder ett kritiskt fel.

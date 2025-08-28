@@ -13,6 +13,7 @@
     import { exportCSV, exportHTML, exportJson, exportText } from '@/lib/export.ts';
     import Copy from '../Copy/Copy.svelte';
     import { resultIcon } from '@/lib/resultIcon.ts';
+    import * as m from '@/paraglide/messages';
 
     type Props = {
         data: ResultData;
@@ -100,10 +101,10 @@
     }
 </script>
 <div class="zm-result">
-    <h2 class="zm-result__title">Test result for {data.params.domain}</h2>
+    <h2 class="zm-result__title">{m.testResultFor()} {data.params.domain}</h2>
     <Stack middle wrap spaceBetween>
         <div>
-            Created on
+            {m.createdOn()}
             <time datetime={data.created_at}>{new Intl.DateTimeFormat('en-US', {
                 dateStyle: 'medium',
                 timeStyle: 'medium'
@@ -162,11 +163,11 @@
     </Stack>
     <Stack vertical gap="m">
         <fieldset class="zm-fieldset">
-            <legend>Filter severity levels</legend>
+            <legend>{m.filterSeverityLevels()}</legend>
             <Stack gap="xs" middle wrap>
                 <FilterToggle
                     name="filter[all]"
-                    label="All"
+                    label="{m.all()}"
                     badge={data.results.length}
                     bind:checked={filterAll}
                     onCheck={onCheck}
@@ -174,7 +175,7 @@
                 />
                 <FilterToggle
                     name="filter[info]"
-                    label="Info"
+                    label="{m.info()}"
                     badge={data.results.filter((r) => r.level === 'INFO').length}
                     icon={resultIcon('INFO')}
                     bind:checked={filterInfo}
@@ -184,7 +185,7 @@
                 />
                 <FilterToggle
                     name="filter[notice]"
-                    label="Notice"
+                    label="{m.notice()}"
                     badge={data.results.filter((r) => r.level === 'NOTICE').length}
                     icon={resultIcon('NOTICE')}
                     bind:checked={filterNotice}
@@ -194,7 +195,7 @@
                 />
                 <FilterToggle
                     name="filter[warning]"
-                    label="Warning"
+                    label="{m.warning()}"
                     badge={data.results.filter((r) => r.level === 'WARNING').length}
                     icon={resultIcon('WARNING')}
                     bind:checked={filterWarning}
@@ -204,7 +205,7 @@
                 />
                 <FilterToggle
                     name="filter[error]"
-                    label="Error"
+                    label="{m.error()}"
                     badge={data.results.filter((r) => r.level === 'ERROR').length}
                     icon={resultIcon('ERROR')}
                     bind:checked={filterError}
@@ -214,7 +215,7 @@
                 />
                 <FilterToggle
                     name="filter[critical]"
-                    label="Critical"
+                    label="{m.critical()}"
                     badge={data.results.filter((r) => r.level === 'CRITICAL').length}
                     icon={resultIcon('CRITICAL')}
                     bind:checked={filterCritical}
@@ -232,15 +233,15 @@
                 <Input
                     id="filterQuery"
                     type="search"
-                    placeholder="Search"
+                    placeholder="{m.search()}"
                     name="q"
                     bind:value={query}
-                    label="Search text in messages"
+                    label="{m.searchInText()}"
                     onInput={filterItems}
                 />
             </div>
-            <Button onClick={expandAllModules} variant="secondary">Expand all modules</Button>
-            <Button onClick={collapseAllModules} variant="secondary">Collapse all</Button>
+            <Button onClick={expandAllModules} variant="secondary">{m.expandAll()}</Button>
+            <Button onClick={collapseAllModules} variant="secondary">{m.collapseAll()}</Button>
         </fieldset>
         <Stack vertical gap="xs">
             {#each Object.entries(result) as [module, results]}
