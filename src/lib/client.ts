@@ -4,6 +4,8 @@ type RpcParams = {
     [key: string]: any;
 };
 
+export let language = () => document.documentElement.lang;
+
 export async function rpc(
     method: string,
     params: RpcParams = {},
@@ -110,7 +112,7 @@ export async function testProgress(testId: string): Promise<number> {
 }
 
 export async function getTestResults(testId: string): Promise<ResultData> {
-    return rpc('get_test_results', { id: testId, language: 'en' }, false);
+    return rpc('get_test_results', { id: testId, language: language() }, false);
 }
 
 export type ParentZoneData = {
@@ -122,7 +124,7 @@ export async function fetchFromParent(domain: string): Promise<ParentZoneData> {
     return rpc(
         'get_data_from_parent_zone',
         {
-            language: 'en',
+            language: language(),
             domain,
         },
         false,
