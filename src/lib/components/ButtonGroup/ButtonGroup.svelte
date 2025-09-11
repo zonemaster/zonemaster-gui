@@ -15,13 +15,11 @@
         options = [],
         active,
         onChange = () => {},
-        ...restProps
     }: Props = $props();
 </script>
 
 <div
     class={['zm-button-group']}
-    {...restProps}
 >
     {#each options as option}
         <button

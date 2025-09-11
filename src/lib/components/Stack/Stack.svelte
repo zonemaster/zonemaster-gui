@@ -33,7 +33,7 @@
     spaceBetween,
     reverse,
     children,
-    ...restProps
+    class: className,
   }: Props = $props();
 </script>
 
@@ -52,7 +52,7 @@
     { [styles.right]: right },
     { [styles.spaceBetween]: spaceBetween },
     { [styles.reverse]: reverse },
-    restProps.class
+    className,
   ]}
 >
   {@render children?.()}

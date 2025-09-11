@@ -167,7 +167,7 @@
             <Stack gap="xs" middle wrap>
                 <FilterToggle
                     name="filter[all]"
-                    label="{m.all()}"
+                    label={m.all()}
                     badge={data.results.length}
                     bind:checked={filterAll}
                     onCheck={onCheck}
@@ -175,7 +175,7 @@
                 />
                 <FilterToggle
                     name="filter[info]"
-                    label="{m.info()}"
+                    label={m.info()}
                     badge={data.results.filter((r) => r.level === 'INFO').length}
                     icon={resultIcon('INFO')}
                     bind:checked={filterInfo}
@@ -185,7 +185,7 @@
                 />
                 <FilterToggle
                     name="filter[notice]"
-                    label="{m.notice()}"
+                    label={m.notice()}
                     badge={data.results.filter((r) => r.level === 'NOTICE').length}
                     icon={resultIcon('NOTICE')}
                     bind:checked={filterNotice}
@@ -195,7 +195,7 @@
                 />
                 <FilterToggle
                     name="filter[warning]"
-                    label="{m.warning()}"
+                    label={m.warning()}
                     badge={data.results.filter((r) => r.level === 'WARNING').length}
                     icon={resultIcon('WARNING')}
                     bind:checked={filterWarning}
@@ -205,7 +205,7 @@
                 />
                 <FilterToggle
                     name="filter[error]"
-                    label="{m.error()}"
+                    label={m.error()}
                     badge={data.results.filter((r) => r.level === 'ERROR').length}
                     icon={resultIcon('ERROR')}
                     bind:checked={filterError}
@@ -215,7 +215,7 @@
                 />
                 <FilterToggle
                     name="filter[critical]"
-                    label="{m.critical()}"
+                    label={m.critical()}
                     badge={data.results.filter((r) => r.level === 'CRITICAL').length}
                     icon={resultIcon('CRITICAL')}
                     bind:checked={filterCritical}
@@ -233,10 +233,10 @@
                 <Input
                     id="filterQuery"
                     type="search"
-                    placeholder="{m.search()}"
+                    placeholder={m.search()}
                     name="q"
                     bind:value={query}
-                    label="{m.searchInText()}"
+                    label={m.searchInText()}
                     onInput={filterItems}
                 />
             </div>
