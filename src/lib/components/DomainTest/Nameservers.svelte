@@ -56,7 +56,7 @@
         fetchFromParent(domain)
             .then((data) => {
                 if (!data.ns_list || !data.ns_list.length) {
-                    warn(m.noNameServers());
+                    warn(m.noNameservers());
 
                     return;
                 }
