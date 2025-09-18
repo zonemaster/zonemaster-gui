@@ -49,7 +49,7 @@
     }
 
     i {
-        font-size: var(--font-s);
+        font-size: var(--font-m);
         color: var(--color-palette-success-70);
     }
 }
