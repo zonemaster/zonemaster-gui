@@ -26,3 +26,5 @@ export type Config = {
     siteInfo: SiteInfo;
     setTitle(title: string): string;
 };
+
+export type ValidationError = { message: string; path: string };

@@ -11,6 +11,7 @@
     import Route from '@/lib/components/Route/Route.svelte';
     import formToObj from '@/lib/formToObj.ts';
     import type { FaqItem } from '@/content.config.ts';
+    import { getValidationErrorByPath } from '@/lib/getValidationErrorByPath.ts';
 
     type Props = {
         aboutLevels: FaqItem | null;
@@ -58,8 +59,17 @@
     <Stack>
         <div class="zm-domain-test__progress">
             <label class="zm-u-visually-hidden" for="domainInput">{m.domainName()}</label>
-            <Input required name="domain" id="domainInput" type="text" bind:value={domain} placeholder={m.domainName()} disabled={currentState === 'testing'}
-                   class={ currentState === 'finished' ? 'finished' : undefined } />
+            <Input
+                required
+                name="domain"
+                id="domainInput"
+                type="text"
+                bind:value={domain}
+                placeholder={m.domainName()}
+                disabled={currentState === 'testing'}
+                class={ currentState === 'finished' ? 'finished' : undefined }
+                error={getValidationErrorByPath(currentContext.error, '/domain')}
+            />
             {#if currentState === 'testing'}
                 {#key currentState}
                     <span class="zm-domain-test__progress-bar" style="width: {currentContext.progress}%"></span>

@@ -1,11 +1,19 @@
 import { startDomainTest, testProgress } from '@/lib/client.js';
 import StateMachine from '@/lib/StateMachine.ts';
 import config from '@/config.ts';
+import type { ValidationError } from '@/types.ts';
 
 type DomainTestContext = {
     domain: string | null;
     testId: string | null;
     progress: number;
+    error?:
+        | {
+              message: string;
+              code: string;
+              data?: ValidationError[];
+          }
+        | false;
 };
 
 export function createTestAgent() {
@@ -21,15 +29,30 @@ export function createTestAgent() {
                 on: { START: 'testing' },
                 actions: {
                     START: (context, data) => {
-                        startDomainTest(data).then((testId) => {
-                            context.testId = testId;
-                            TestAgent.transition('PROGRESS', { progress: 0 });
-                        });
+                        context.domain = data.domain;
+                        context.error = false;
+
+                        startDomainTest(data)
+                            .then((testId) => {
+                                context.testId = testId;
+                                TestAgent.transition('PROGRESS', {
+                                    progress: 0,
+                                });
+                            })
+                            .catch((error) => {
+                                context.error = error;
+
+                                TestAgent.transition('ERROR', error);
+                            });
                     },
                 },
             },
             testing: {
-                on: { PROGRESS: 'testing', COMPLETE: 'complete' },
+                on: {
+                    PROGRESS: 'testing',
+                    COMPLETE: 'complete',
+                    ERROR: 'idle',
+                },
                 actions: {
                     PROGRESS: (context, payload) => {
                         context.progress = payload.progress;
@@ -37,8 +60,6 @@ export function createTestAgent() {
                         document.title = config.setTitle(
                             `${payload.progress}% ${context.domain}`,
                         );
-
-                        console.log(context);
 
                         if (context.progress >= 100) {
                             TestAgent.transition('COMPLETE', { progress: 0 });

@@ -1,4 +1,5 @@
 import config from '@/config.ts';
+import { ClientError } from '@/lib/ClientError.ts';
 
 type RpcParams = {
     [key: string]: any;
@@ -40,7 +41,11 @@ export async function rpc(
     const json = await response.json();
 
     if (json.error) {
-        throw new Error(json.error.message);
+        throw new ClientError(
+            json.error.message,
+            json.error.code,
+            json.error.data,
+        );
     }
 
     return json.result;
@@ -100,7 +105,7 @@ export type ResultData = {
 export async function startDomainTest(
     data: StartDomainTestData,
 ): Promise<string> {
-    return rpc('start_domain_test', data);
+    return rpc('start_domain_test', { ...data, language: language() });
 }
 
 export type TestProgress = {

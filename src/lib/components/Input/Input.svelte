@@ -11,6 +11,7 @@
         onInput?: (event: Event & { currentTarget: EventTarget & HTMLInputElement }) => void;
         class?: string;
         matchContentWidth?: boolean;
+        error?: string | null | false;
         [x: string]: unknown;
     };
 
@@ -23,15 +24,24 @@
         label,
         disabled,
         id,
-        onInput,
+        onInput: onInputCb,
         class: className = '',
         matchContentWidth = false,
+        error: defaultError = null,
         ...restProps
     }: Props = $props();
 
     let inputWidth = $state(0);
+    let error = $state(defaultError);
+
+    function onInput(event: Event & { currentTarget: EventTarget & HTMLInputElement }) {
+        error = false;
+        onInputCb?.(event);
+    }
 
     $effect(() => {
+        error = defaultError;
+
         if (matchContentWidth) {
             const mirror = document.createElement('span');
 
@@ -57,3 +67,6 @@
 {/if}
 <input name={name} id={id} bind:value={value} type={type} class={['zm-input', `zm-input--${size}`, className]} disabled={disabled}
        placeholder={placeholder} oninput={onInput} style="min-width: {inputWidth}px" {...restProps} />
+{#if error}
+    <div class="zm-input-error">{error}</div>
+{/if}
