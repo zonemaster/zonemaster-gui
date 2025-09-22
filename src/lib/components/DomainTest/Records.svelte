@@ -8,7 +8,10 @@
     import Select from '@/lib/components/Select/Select.svelte';
     import { fetchFromParent } from '@/lib/client.ts';
     import { warn } from '@/lib/alert.svelte.ts';
+    import { getValidationErrorByPath } from '@/lib/getValidationErrorByPath.ts';
+    import { machine } from '@/lib/machine.svelte.ts';
 
+    let { currentContext } = $derived(machine);
     let fetchingZoneData = $state(false);
     const algorithms = [
         { value: '1', name: '1 - RSAMD5' },
@@ -123,6 +126,7 @@
                                 value={r.keytag}
                                 label={m.keytag()}
                                 onInput={(e) => updateRow(i, 'keytag', e.currentTarget.value)}
+                                error={getValidationErrorByPath(currentContext.error, `/ds_info/${i}/keytag`)}
                             />
                         </div>
                         <div>
@@ -150,6 +154,7 @@
                                 type="text"
                                 label={m.digest()}
                                 onInput={(e) => updateRow(i, 'digest', e.currentTarget.value)}
+                                error={getValidationErrorByPath(currentContext.error, `/ds_info/${i}/digest`)}
                             />
                         </div>
                     </Grid>

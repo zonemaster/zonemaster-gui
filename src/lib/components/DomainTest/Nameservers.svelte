@@ -7,7 +7,10 @@
     import utils from '@/lib/utils.module.css';
     import { fetchFromParent } from '@/lib/client.ts';
     import { warn } from '@/lib/alert.svelte.ts';
+    import { getValidationErrorByPath } from '@/lib/getValidationErrorByPath.ts';
+    import { machine } from '@/lib/machine.svelte.ts';
 
+    let { currentContext } = $derived(machine);
     let fetchingZoneData = $state(false);
     let nameservers = $state([
         { ns: '', ip: '' }
@@ -102,6 +105,7 @@
                                 label={m.name()}
                                 onInput={(e) => updateNameserver(i, 'ns', e.currentTarget.value)}
                                 required={!!ns.ip}
+                                error={getValidationErrorByPath(currentContext.error, `/nameservers/${i}/ns`)}
                             />
                         </div>
                         <div>
@@ -113,6 +117,7 @@
                                 placeholder=""
                                 label={m.addressOptional()}
                                 onInput={(e) => updateNameserver(i, 'ip', e.currentTarget.value)}
+                                error={getValidationErrorByPath(currentContext.error, `/nameservers/${i}/ip`)}
                             />
                         </div>
                     </Grid>
