@@ -32,4 +32,15 @@
     &.zm-input--small {
         height: var(--input-height-small);
     }
+
+    .zm-input--error {
+        background-color: var(--color-palette-danger-50);
+        color: var(--color-palette-white);
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+        padding-left: var(--spacing-xs);
+        padding-right: var(--spacing-xs);
+        padding-top: var(--spacing-xs);
+        margin-top: calc(var(--spacing-xs) * -1);
+    }
 }
