@@ -21,7 +21,8 @@
         Object.groupBy(results, ({ level }) => level as ResultLevel),
     ).map(([level, results]) => ({
         level: level as ResultLevel,
-        count: results.length,
+        count: Object.keys(Object.groupBy(results, ({ testcase }) => testcase))
+            .length,
     }));
     const grouped: Partial<Record<string, ResultDataResult[]>> = Object.groupBy(
         results,
