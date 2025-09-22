@@ -117,7 +117,7 @@
         {#each records as r, i}
             <fieldset class="zm-domain-test__ds-record zm-fieldset" id="zmDsRecord-{i + 1}">
                 <legend>{m.dsRecord({ index: i + 1 })}</legend>
-                <Stack bottom gap="xs" class={utils.expand}>
+                <Stack gap="xs" class={utils.expand}>
                     <Grid cols={4} gap="xs">
                         <div>
                             <Input
@@ -159,10 +159,13 @@
                         </div>
                     </Grid>
                     {#if records.length > 1}
-                        <Button aria-controls="zmDsRecord-{i + 1}" variant="danger" type="button" onClick={() => removeRow(i)}>
-                            <i class="bi bi-trash"></i>
-                            <span class="zm-u-visually-hidden">{m.deleteDSRecord({ index: i + 1 })}</span>
-                        </Button>
+                        <div>
+                            <span class="zm-label zm-label--hidden" role="presentation">–</span>
+                            <Button aria-controls="zmDsRecord-{i + 1}" variant="danger" type="button" onClick={() => removeRow(i)}>
+                                <i class="bi bi-trash"></i>
+                                <span class="zm-u-visually-hidden">{m.deleteDSRecord({ index: i + 1 })}</span>
+                            </Button>
+                        </div>
                     {/if}
                 </Stack>
             </fieldset>

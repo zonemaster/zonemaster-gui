@@ -44,3 +44,10 @@
     padding-top: var(--spacing-xs);
     margin-top: calc(var(--spacing-xs) * -1);
 }
+
+.zm-label--hidden {
+    width: 1px;
+    visibility: hidden;
+    display: block;
+    white-space: nowrap;
+}
