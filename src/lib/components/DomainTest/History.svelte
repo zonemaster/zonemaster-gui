@@ -4,6 +4,7 @@
     import ButtonGroup from '@/lib/components/ButtonGroup/ButtonGroup.svelte';
     import { getTestHistory, type ResultData, type TestHistoryItem } from '@/lib/client.js';
     import { navigate } from '@/lib/router.svelte';
+    import { formatDate } from '@/lib/formatDate.ts';
 
     type Props = {
         data: ResultData;
@@ -91,7 +92,7 @@
         {#each paginatedHistory as item}
             <li class="{item.overall_result}">
                 <a href={`/result/${item.id}`} onclick={onClickLink}>
-                    {item.created_at}
+                    {formatDate(item.created_at)}
                 </a>
                 {#if item.undelegated}
                     <span>{m.undelegated()}</span>
