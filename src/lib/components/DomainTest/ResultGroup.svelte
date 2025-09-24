@@ -2,7 +2,7 @@
     import niceName from '@/lib/niceName.ts';
     import Badge from '@/lib/components/Badge/Badge.svelte';
     import type { Testcase } from '@/types.ts';
-    import { resultIconAlt } from '@/lib/resultIcon.ts';
+    import { resultIcon } from '@/lib/resultIcon.ts';
 
     type Props = {
         testcase: string;
@@ -25,7 +25,7 @@
                 >
                     <i class="bi bi-{open ? 'dash' : 'plus'}-square-fill"></i>
                     <span>
-                        <i class="bi bi-{resultIconAlt(level)}"></i>
+                        <i class="bi bi-{resultIcon(level)}"></i>
                         {descriptions[testcase]}
                     </span>
                 </button>
