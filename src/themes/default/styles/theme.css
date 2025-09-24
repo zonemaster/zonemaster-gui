@@ -2,6 +2,7 @@
     /* Font sizes */
     --font-xxs: clamp(0.64rem, -0.01vi + 0.64rem, 0.63rem);
     --font-xs: clamp(0.8rem, 0.08vi + 0.78rem, 0.84rem);
+    --font-s-xs: clamp(0.9375rem, 0.09375vi + 0.84rem, 0.84rem);
     --font-s: clamp(1rem, 0.23vi + 0.94rem, 1.13rem);
     --font-m: clamp(1.25rem, 0.45vi + 1.14rem, 1.5rem);
     --font-l: clamp(1.56rem, 0.79vi + 1.36rem, 2rem);

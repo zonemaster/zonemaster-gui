@@ -59,7 +59,7 @@
         gap: var(--spacing-xxs);
 
         i {
-            font-size: var(--font-s);
+            font-size: var(--font-s-xs);
         }
     }
 }
