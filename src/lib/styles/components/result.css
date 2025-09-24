@@ -52,6 +52,12 @@
         font-size: var(--font-m);
         color: var(--color-palette-success-70);
     }
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
 }
 
 .zm-result__group--notice {
