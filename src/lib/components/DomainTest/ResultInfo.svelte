@@ -1,19 +1,29 @@
 <script lang="ts">
-    import type { ResultData } from '@/lib/client.ts';
+    import type { ResultData, ResultLevel } from '@/lib/client.ts';
     import Stack from '@/lib/components/Stack/Stack.svelte';
     import Button from '@/lib/components/Button/Button.svelte';
     import FilterToggle from '@/lib/components/FilterToggle/FilterToggle.svelte';
     import ResultModule from '@/lib/components/DomainTest/ResultModule.svelte';
     import stack from '@/lib/components/Stack/stack.module.css';
     import Input from '@/lib/components/Input/Input.svelte';
-    import { collapseAll, expandAll } from '@/lib/components/DomainTest/store.svelte.ts';
+    import {
+        collapseAll,
+        expandAll,
+    } from '@/lib/components/DomainTest/store.svelte.ts';
     import History from '@/lib/components/DomainTest/History.svelte';
     import Collapsible from '@/lib/components/Collapsible/Collapsible.svelte';
     import type { FaqItem } from '@/content.config.ts';
-    import { exportCSV, exportHTML, exportJson, exportText } from '@/lib/export.ts';
+    import {
+        exportCSV,
+        exportHTML,
+        exportJson,
+        exportText,
+    } from '@/lib/export.ts';
     import Copy from '../Copy/Copy.svelte';
     import { resultIcon } from '@/lib/resultIcon.ts';
     import * as m from '@/paraglide/messages';
+    import { groupResult } from '@/lib/groupResult.ts';
+    import type { ResultFilter } from '@/types.ts';
 
     type Props = {
         data: ResultData;
@@ -21,60 +31,73 @@
     };
 
     const { data, aboutLevels }: Props = $props();
-
-    let query = $state('');
-    let filterAll = $state(true);
-    let filterInfo = $state(false);
-    let filterNotice = $state(false);
-    let filterWarning = $state(false);
-    let filterError = $state(false);
-    let filterCritical = $state(false);
-    let result = $state(Object.groupBy(data.results, ({ module }) => module));
+    let filter: ResultFilter = $state({
+        levels: {
+            ALL: true,
+            INFO: false,
+            NOTICE: false,
+            WARNING: false,
+            ERROR: false,
+            CRITICAL: false,
+        },
+        query: '',
+    });
+    const rawData = $derived(data.results);
+    const result = $state(groupResult(data.results));
     let showExport = $state(false);
     let showShare = $state(false);
 
-    function filterItems() {
-        const filters = [
-            filterInfo ? 'INFO' : null,
-            filterNotice ? 'NOTICE' : null,
-            filterWarning ? 'WARNING' : null,
-            filterError ? 'ERROR' : null,
-            filterCritical ? 'CRITICAL' : null
-        ].filter(filter => filter !== null);
-
-        const queryLower = query.toLowerCase();
-        const filtered = data.results
-            .filter((item) => filterAll || filters.includes(item.level))
-            .filter((item) => !query || item.message.toLowerCase().includes(queryLower));
-
-        result = Object.groupBy(
-            filtered,
-            ({ module }) => module
+    function filterResults() {
+        const filtered = groupResult(
+            rawData.filter(
+                (r) =>
+                    (filter.levels[r.level] || filter.levels['ALL']) &&
+                    (!filter.query.length ||
+                        r.message
+                            .toLowerCase()
+                            .includes(filter.query.toLowerCase())),
+            ),
         );
+
+        result.modules = filtered.modules;
+        result.modulesMap = filtered.modulesMap;
     }
 
     function onCheck({ target }: Event) {
         const { value, checked } = target as HTMLInputElement;
+        const level = value as ResultLevel | 'ALL';
 
-        if (value === 'all' && checked) {
-            filterInfo = false;
-            filterNotice = false;
-            filterWarning = false;
-            filterError = false;
-            filterCritical = false;
+        filter.levels[level] = checked;
+
+        if (level === 'ALL' && checked) {
+            filter.levels['INFO'] = false;
+            filter.levels['NOTICE'] = false;
+            filter.levels['WARNING'] = false;
+            filter.levels['ERROR'] = false;
+            filter.levels['CRITICAL'] = false;
         } else {
-            filterAll = false;
+            filter.levels['ALL'] = false;
         }
 
-        filterItems();
+        // If no level is selected, select ALL
+        if (Object.values(filter.levels).every((v) => !v)) {
+            filter.levels['ALL'] = true;
+        }
+
+        filterResults();
+    }
+
+    function onQueryChange({ target }: Event) {
+        filter.query = (target as HTMLInputElement).value;
+        filterResults();
     }
 
     function expandAllModules() {
-        expandAll(Object.keys(result));
+        expandAll(Object.keys(result.modulesMap));
     }
 
     function collapseAllModules() {
-        collapseAll(Object.keys(result));
+        collapseAll(Object.keys(result.modulesMap));
     }
 
     // Handle popover close on click outside
@@ -100,18 +123,21 @@
         shareUrl = shareUrl.split('#')[0];
     }
 </script>
+
 <div class="zm-result">
     <h2 class="zm-result__title">{m.testResultFor()} {data.params.domain}</h2>
     <Stack middle wrap spaceBetween>
         <div>
             {m.createdOn()}
-            <time datetime={data.created_at}>{new Intl.DateTimeFormat('en-US', {
-                dateStyle: 'medium',
-                timeStyle: 'medium'
-            }).format(new Date(data.created_at))}</time>
+            <time datetime={data.created_at}
+                >{new Intl.DateTimeFormat('en-US', {
+                    dateStyle: 'medium',
+                    timeStyle: 'medium',
+                }).format(new Date(data.created_at))}</time
+            >
         </div>
         <Stack middle gap="xs">
-            <History data={data} />
+            <History {data} />
             <div class="zm-popover">
                 <Button
                     variant="secondary"
@@ -127,13 +153,33 @@
                     <i class="bi bi-cloud-arrow-down"></i>
                     Export
                 </Button>
-                <div class="zm-popover__content" role="dialog" id="zmExportDialog"
-                     style:display={showExport ? 'block' : 'none'}>
-                    <div class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack['gap--s']}">
-                        <button class="zm-popover__plain-btn" onmousedown={() => exportJson(data)}>JSON</button>
-                        <button class="zm-popover__plain-btn" onmousedown={() => exportHTML(data)}>HTML</button>
-                        <button class="zm-popover__plain-btn" onmousedown={() => exportCSV(data)}>CSV</button>
-                        <button class="zm-popover__plain-btn" onmousedown={() => exportText(data)}>TEXT</button>
+                <div
+                    class="zm-popover__content"
+                    role="dialog"
+                    id="zmExportDialog"
+                    style:display={showExport ? 'block' : 'none'}
+                >
+                    <div
+                        class="{stack.stack} {stack.middle} {stack.spaceBetween} {stack[
+                            'gap--s'
+                        ]}"
+                    >
+                        <button
+                            class="zm-popover__plain-btn"
+                            onmousedown={() => exportJson(data)}>JSON</button
+                        >
+                        <button
+                            class="zm-popover__plain-btn"
+                            onmousedown={() => exportHTML(data)}>HTML</button
+                        >
+                        <button
+                            class="zm-popover__plain-btn"
+                            onmousedown={() => exportCSV(data)}>CSV</button
+                        >
+                        <button
+                            class="zm-popover__plain-btn"
+                            onmousedown={() => exportText(data)}>TEXT</button
+                        >
                     </div>
                 </div>
             </div>
@@ -151,10 +197,25 @@
                     <i class="bi bi-share"></i>
                     Share
                 </Button>
-                <div class="zm-popover__content" role="dialog" id="copyURLDialog"
-                     style:display={showShare ? 'block' : 'none'}>
-                    <div class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack['gap--s']}">
-                        <Input matchContentWidth size="small" type="text" readonly name="url" value={shareUrl} />
+                <div
+                    class="zm-popover__content"
+                    role="dialog"
+                    id="copyURLDialog"
+                    style:display={showShare ? 'block' : 'none'}
+                >
+                    <div
+                        class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack[
+                            'gap--s'
+                        ]}"
+                    >
+                        <Input
+                            matchContentWidth
+                            size="small"
+                            type="text"
+                            readonly
+                            name="url"
+                            value={shareUrl}
+                        />
                         <Copy value={shareUrl} />
                     </div>
                 </div>
@@ -168,85 +229,101 @@
                 <FilterToggle
                     name="filter[all]"
                     label={m.all()}
-                    badge={data.results.length}
-                    bind:checked={filterAll}
-                    onCheck={onCheck}
-                    value="all"
+                    badge={result.counts.ALL}
+                    bind:checked={filter.levels.ALL}
+                    {onCheck}
+                    value="ALL"
                 />
                 <FilterToggle
                     name="filter[info]"
                     label={m.info()}
-                    badge={data.results.filter((r) => r.level === 'INFO').length}
+                    badge={result.counts.INFO}
                     icon={resultIcon('INFO')}
-                    bind:checked={filterInfo}
-                    onCheck={onCheck}
+                    bind:checked={filter.levels.INFO}
+                    {onCheck}
                     severity="info"
-                    value="info"
+                    value="INFO"
                 />
                 <FilterToggle
                     name="filter[notice]"
                     label={m.notice()}
-                    badge={data.results.filter((r) => r.level === 'NOTICE').length}
+                    badge={result.counts.NOTICE}
                     icon={resultIcon('NOTICE')}
-                    bind:checked={filterNotice}
-                    onCheck={onCheck}
+                    bind:checked={filter.levels.NOTICE}
+                    {onCheck}
                     severity="notice"
-                    value="notice"
+                    value="NOTICE"
                 />
                 <FilterToggle
                     name="filter[warning]"
                     label={m.warning()}
-                    badge={data.results.filter((r) => r.level === 'WARNING').length}
+                    badge={result.counts.WARNING}
                     icon={resultIcon('WARNING')}
-                    bind:checked={filterWarning}
-                    onCheck={onCheck}
+                    bind:checked={filter.levels.WARNING}
+                    {onCheck}
                     severity="warning"
-                    value="warning"
+                    value="WARNING"
                 />
                 <FilterToggle
                     name="filter[error]"
                     label={m.error()}
-                    badge={data.results.filter((r) => r.level === 'ERROR').length}
+                    badge={result.counts.ERROR}
                     icon={resultIcon('ERROR')}
-                    bind:checked={filterError}
-                    onCheck={onCheck}
+                    bind:checked={filter.levels.ERROR}
+                    {onCheck}
                     severity="error"
-                    value="error"
+                    value="ERROR"
                 />
                 <FilterToggle
                     name="filter[critical]"
                     label={m.critical()}
-                    badge={data.results.filter((r) => r.level === 'CRITICAL').length}
+                    badge={result.counts.CRITICAL}
                     icon={resultIcon('CRITICAL')}
-                    bind:checked={filterCritical}
-                    onCheck={onCheck}
+                    bind:checked={filter.levels.CRITICAL}
+                    {onCheck}
                     severity="critical"
-                    value="critical"
+                    value="CRITICAL"
                 />
             </Stack>
         </fieldset>
         {#if aboutLevels}
-            <Collapsible title={aboutLevels.question} id={'helper'} content={aboutLevels.answer}></Collapsible>
+            <Collapsible
+                title={aboutLevels.question}
+                id={'helper'}
+                content={aboutLevels.answer}
+            ></Collapsible>
         {/if}
-        <fieldset class="zm-fieldset {stack.stack} {stack.wrap} {stack.bottom} {stack['gap--xs']}">
+        <fieldset
+            class="zm-fieldset {stack.stack} {stack.wrap} {stack.bottom} {stack[
+                'gap--xs'
+            ]}"
+        >
             <div class={stack.expand}>
                 <Input
                     id="filterQuery"
                     type="search"
                     placeholder={m.search()}
                     name="q"
-                    bind:value={query}
+                    bind:value={filter.query}
                     label={m.searchInText()}
-                    onInput={filterItems}
+                    onInput={onQueryChange}
                 />
             </div>
-            <Button onClick={expandAllModules} variant="secondary">{m.expandAll()}</Button>
-            <Button onClick={collapseAllModules} variant="secondary">{m.collapseAll()}</Button>
+            <Button onClick={expandAllModules} variant="secondary"
+                >{m.expandAll()}</Button
+            >
+            <Button onClick={collapseAllModules} variant="secondary"
+                >{m.collapseAll()}</Button
+            >
         </fieldset>
         <Stack vertical gap="xs">
-            {#each Object.entries(result) as [module, results]}
+            {#each result.modules as module}
                 {#key module}
-                    <ResultModule module={module} results={results || []} descriptions={data.testcase_descriptions} />
+                    <ResultModule
+                        data={module}
+                        summary={result.moduleSummary[module.name]}
+                        descriptions={data.testcase_descriptions}
+                    />
                 {/key}
             {/each}
         </Stack>

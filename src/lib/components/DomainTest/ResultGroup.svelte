@@ -1,30 +1,31 @@
 <script lang="ts">
-    import type { ResultDataResult } from '@/lib/client.ts';
     import niceName from '@/lib/niceName.ts';
     import Badge from '@/lib/components/Badge/Badge.svelte';
-    import { resultIcon } from '@/lib/resultIcon.ts';
+    import type { Testcase } from '@/types.ts';
 
     type Props = {
         testcase: string;
-        results?: ResultDataResult[];
+        data?: Testcase;
         descriptions: Record<string, string>;
     };
 
-    const { testcase, results, descriptions }: Props = $props();
-    let open = $state(testcase === 'UNSPECIFIED');
-    const level = results?.[0]?.level || 'INFO';
-
-    console.log(testcase);
+    const { testcase, data, descriptions }: Props = $props();
+    let open = $state(testcase === 'Unspecified');
+    const level = data?.entries?.[0]?.level || 'INFO';
 </script>
+
 <section class="zm-result__group zm-result__group--{level.toLowerCase()}">
-    {#if testcase !== 'UNSPECIFIED' && testcase in descriptions}
+    {#if testcase !== 'Unspecified' && testcase in descriptions}
         <header>
             <h4 class="zm-result__group__title">
-                <button onclick={() => open = !open} class="zm-result__group__button">
+                <button
+                    onclick={() => (open = !open)}
+                    class="zm-result__group__button"
+                >
                     <i class="bi bi-{open ? 'dash' : 'plus'}-square-fill"></i>
                     {descriptions[testcase]}
                 </button>
-                {#if results && open}
+                {#if data && open}
                     <Badge size="small" border={true}>
                         <i class="bi bi-exclamation-circle-fill"></i>
                         {niceName(testcase)}
@@ -33,10 +34,10 @@
             </h4>
         </header>
     {/if}
-    {#if results && open}
+    {#if data && open}
         <div class="zm-result-entries" id="testcase-entries-{testcase}">
             <ul>
-                {#each results as result}
+                {#each data.entries as result}
                     <li>
                         <div>
                             <Badge level={result.level}>

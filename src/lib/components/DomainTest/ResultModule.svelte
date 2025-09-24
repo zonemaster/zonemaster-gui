@@ -1,5 +1,4 @@
 <script lang="ts">
-    import type { ResultDataResult, ResultLevel } from '@/lib/client.ts';
     import Stack from '@/lib/components/Stack/Stack.svelte';
     import niceName from '@/lib/niceName.ts';
     import Badge from '@/lib/components/Badge/Badge.svelte';
@@ -9,25 +8,16 @@
         toggleModule,
     } from '@/lib/components/DomainTest/store.svelte.ts';
     import { resultIcon } from '@/lib/resultIcon.ts';
+    import type { Module, ModuleBadge } from '@/types.ts';
 
     type Props = {
-        module: string;
-        results: ResultDataResult[];
+        data: Module;
+        summary: ModuleBadge[];
         descriptions: Record<string, string>;
     };
 
-    const { module, results, descriptions }: Props = $props();
-    const summary = Object.entries(
-        Object.groupBy(results, ({ level }) => level as ResultLevel),
-    ).map(([level, results]) => ({
-        level: level as ResultLevel,
-        count: Object.keys(Object.groupBy(results, ({ testcase }) => testcase))
-            .length,
-    }));
-    const grouped: Partial<Record<string, ResultDataResult[]>> = Object.groupBy(
-        results,
-        ({ testcase }) => testcase,
-    );
+    const { data, descriptions, summary }: Props = $props();
+    const module = data.name;
     let open: boolean = $derived(expandedModules[module] || false);
 </script>
 
@@ -37,7 +27,7 @@
             <i class="bi bi-caret-{open ? 'up' : 'down'}-fill"></i>
             <span>{niceName(module)}</span>
 
-            {#each summary as { level, count }, i}
+            {#each summary as { level, count }}
                 <Badge {level} round>
                     <i class="bi bi-{resultIcon(level)}"></i>
                     {count}
@@ -48,8 +38,8 @@
     {#if open}
         <div class="zm-result__module__data" id={`zmModule-${module}-content`}>
             <Stack vertical gap="s">
-                {#each Object.entries(grouped) as [testcase, results]}
-                    <ResultGroup {testcase} {results} {descriptions} />
+                {#each Object.entries(data.testcasesMap) as [testcase, d]}
+                    <ResultGroup {testcase} data={d} {descriptions} />
                 {/each}
             </Stack>
         </div>
