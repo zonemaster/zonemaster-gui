@@ -21,6 +21,7 @@
     &:focus {
         background-color: var(--color-palette-main-70);
         border-color: var(--color-palette-main-70);
+        color: var(--button-text-color-hover);
     }
 
     &[disabled],
@@ -43,6 +44,7 @@
     &:focus {
         background: var(--button-secondary-color-hover);
         border-color: var(--button-secondary-border-hover-color);
+        color: var(--button-secondary-text-color-hover);
     }
 }
 

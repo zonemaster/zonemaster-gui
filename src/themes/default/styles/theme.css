@@ -133,12 +133,14 @@
     --button-color: var(--color-palette-main-50);
     --button-color-hover: var(--color-palette-main-70);
     --button-text-color: var(--color-palette-main-0);
+    --button-text-color-hover: var(--color-palette-main-0);
     --button-border-color: var(--color-palette-main-50);
-    --button-border-hover-color: var(--border-color-hover);
+    --button-border-color-hover: var(--border-color-hover);
 
     --button-secondary-color: var(--color-palette-black-30);
     --button-secondary-color-hover: var(--color-palette-black-40);
     --button-secondary-text-color: var(--color-palette-black-90);
+    --button-secondary-text-color-hover: var(--color-palette-black-90);
     --button-secondary-border-color: var(--color-palette-black-40);
     --button-secondary-border-hover-color: var(--color-palette-black-40);
 
