@@ -73,5 +73,6 @@
     "searchInText": "Search text in messages",
     "testResultFor": "Test result for",
     "createdOn": "Created on",
-    "filterSeverityLevels": "Filter severity levels"
+    "filterSeverityLevels": "Filter severity levels",
+    "profile": "Profile"
 }

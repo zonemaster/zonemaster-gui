@@ -46,6 +46,7 @@
     const result = $state(groupResult(data.results));
     let showExport = $state(false);
     let showShare = $state(false);
+    let showURL = $state(false);
 
     function filterResults() {
         const filtered = groupResult(
@@ -106,6 +107,7 @@
         if (!target.closest('.zm-popover')) {
             showExport = false;
             showShare = false;
+            showURL = false;
         }
     });
 
@@ -114,6 +116,7 @@
         if (e.key === 'Escape') {
             showExport = false;
             showShare = false;
+            showURL = false;
         }
     });
 
@@ -122,6 +125,8 @@
     if (shareUrl.includes('#')) {
         shareUrl = shareUrl.split('#')[0];
     }
+
+    let TLDURL = window.location.href;
 </script>
 
 <div class="zm-result">
@@ -137,6 +142,45 @@
             >
         </div>
         <Stack middle gap="xs">
+            <div class="zm-popover">
+                <Button
+                    variant="secondary"
+                    size="small"
+                    type="button"
+                    aria-controls="copyTLDURLDialog"
+                    onclick={() => {
+                            showURL = !showURL;
+                            showExport = false;
+                            showShare = false;
+                        }}
+                    id="zmTLDURLButton"
+                >
+                    <i class="bi bi-link-45deg"></i>
+                    TLD URL
+                </Button>
+                <div
+                    class="zm-popover__content"
+                    role="dialog"
+                    id="copyTLDURLDialog"
+                    style:display={showURL ? 'block' : 'none'}
+                >
+                    <div
+                        class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack[
+                                'gap--s'
+                            ]}"
+                    >
+                        <Input
+                            matchContentWidth
+                            size="small"
+                            type="text"
+                            readonly
+                            name="url"
+                            value={TLDURL}
+                        />
+                        <Copy value={TLDURL} />
+                    </div>
+                </div>
+            </div>
             <History {data} />
             <div class="zm-popover">
                 <Button
@@ -147,6 +191,7 @@
                     onclick={() => {
                         showExport = !showExport;
                         showShare = false;
+                        showURL = false;
                     }}
                     id="zmExportButton"
                 >
@@ -192,6 +237,7 @@
                     onclick={() => {
                         showShare = !showShare;
                         showExport = false;
+                        showURL = false;
                     }}
                 >
                     <i class="bi bi-share"></i>
