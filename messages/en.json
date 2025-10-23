@@ -39,6 +39,8 @@
     "deleteRow": "Delete row",
     "general": "General",
     "disable": "Disable",
+    "only": "only",
+    "ipv4AndIpv6": "IPv4 and IPv6",
     "resetForm": "Reset the form",
     "programVersions": "Program versions",
     "sourceCode": "Source code",

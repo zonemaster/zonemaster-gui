@@ -26,12 +26,16 @@
         <fieldset class="zm-domain-test__general">
             <legend>{m.general()}</legend>
             <label>
-                <input type="radio" name="disabledIpType" value="ipv4" />
-                {m.disable()} IPv4
+                <input type="radio" name="iptype" value="both" checked />
+                {m.ipv4AndIpv6()}
             </label>
             <label>
-                <input type="radio" name="disabledIpType" value="ipv6" />
-                {m.disable()} IPv6
+                <input type="radio" name="iptype" value="ipv4" />
+                IPv4 {m.only()}
+            </label>
+            <label>
+                <input type="radio" name="iptype" value="ipv6" />
+                IPv6 {m.only()}
             </label>
         </fieldset>
         {#if profiles.length > 1}

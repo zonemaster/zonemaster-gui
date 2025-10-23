@@ -1,4 +1,5 @@
 <svelte:options customElement={{ tag: 'zm-domain-test', shadow: 'none' }} />
+
 <script lang="ts">
     import Button from '../Button/Button.svelte';
     import Input from '../Input/Input.svelte';
@@ -38,11 +39,11 @@
             return;
         }
 
-        if (formData.disabledIpType) {
-            formData.ipv4 = formData.disabledIpType !== 'ipv4';
-            formData.ipv6 = formData.disabledIpType !== 'ipv6';
+        if (formData.iptype) {
+            formData.ipv4 = formData.iptype !== 'ipv6';
+            formData.ipv6 = formData.iptype !== 'ipv4';
 
-            delete formData.disabledIpType;
+            delete formData.iptype;
         }
 
         transition('START', formData);
@@ -55,10 +56,18 @@
         }
     });
 </script>
-<form id="zmDomainTestForm" novalidate onsubmit={startTest} class="zm-domain-test {currentState === 'testing' ? 'zm-is-testing' : ''}">
+
+<form
+    id="zmDomainTestForm"
+    novalidate
+    onsubmit={startTest}
+    class="zm-domain-test {currentState === 'testing' ? 'zm-is-testing' : ''}"
+>
     <Stack>
         <div class="zm-domain-test__progress">
-            <label class="zm-u-visually-hidden" for="domainInput">{m.domainName()}</label>
+            <label class="zm-u-visually-hidden" for="domainInput"
+                >{m.domainName()}</label
+            >
             <Input
                 required
                 name="domain"
@@ -67,23 +76,38 @@
                 bind:value={domain}
                 placeholder={m.domainName()}
                 disabled={currentState === 'testing'}
-                class={ currentState === 'finished' ? 'finished' : undefined }
-                error={getValidationErrorByPath(currentContext.error, '/domain')}
+                class={currentState === 'finished' ? 'finished' : undefined}
+                error={getValidationErrorByPath(
+                    currentContext.error,
+                    '/domain',
+                )}
             />
             {#if currentState === 'testing'}
                 {#key currentState}
-                    <span class="zm-domain-test__progress-bar" style="width: {currentContext.progress}%"></span>
+                    <span
+                        class="zm-domain-test__progress-bar"
+                        style="width: {currentContext.progress}%"
+                    ></span>
                 {/key}
             {/if}
         </div>
-        <Button type="submit" disabled={currentState === 'testing'} variant="primary">
+        <Button
+            type="submit"
+            disabled={currentState === 'testing'}
+            variant="primary"
+        >
             {currentState !== 'testing' ? m.startTestBtn() : m.runningTest()}
             {#if currentState === 'testing'}
                 {currentContext.progress}%
             {/if}
         </Button>
     </Stack>
-    <Switch id="advanced-toggle" controls="advanced-options" active={advanced} onClick={() => advanced = !advanced}>
+    <Switch
+        id="advanced-toggle"
+        controls="advanced-options"
+        active={advanced}
+        onClick={() => (advanced = !advanced)}
+    >
         {advanced ? m.hideOptions() : m.showOptions()}
     </Switch>
     <div id="advanced-options" hidden={!advanced}>
@@ -93,5 +117,5 @@
     </div>
 </form>
 <Route path="/result/:id">
-    <Result aboutLevels={aboutLevels} />
+    <Result {aboutLevels} />
 </Route>
