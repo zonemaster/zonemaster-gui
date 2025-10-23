@@ -1,14 +1,24 @@
 <script lang="ts">
     import * as m from '@/paraglide/messages';
-    import utils from '@/lib/utils.module.css';
     import Stack from '@/lib/components/Stack/Stack.svelte';
     import Grid from '@/lib/components/Grid/Grid.svelte';
     import Select from '@/lib/components/Select/Select.svelte';
+    import { profileNames } from '@/lib/client.ts';
 
-    const profiles = [
-        { value: '1', name: 'Profile 1' },
-        { value: '2', name: 'Profile 2' }
-    ];
+    const profiles = $state<Array<{ value: string; name: string }>>([]);
+
+    $effect(() => {
+        profileNames().then((names) => {
+            profiles.splice(
+                0,
+                profiles.length,
+                ...names.map((name) => ({
+                    value: name,
+                    name,
+                })),
+            );
+        });
+    });
 </script>
 
 <Stack gap="xs">
@@ -27,10 +37,10 @@
         <div>
             <Select
                 name="profile"
-                value="profile"
-                label="{m.profile()}"
+                value={profiles.length ? profiles[0].value : undefined}
+                label={m.profile()}
                 onSelect=""
-                options="{profiles}"
+                options={profiles}
             />
         </div>
     </Grid>
