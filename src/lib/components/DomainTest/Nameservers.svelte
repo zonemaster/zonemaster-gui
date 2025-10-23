@@ -8,13 +8,11 @@
     import { fetchFromParent } from '@/lib/client.ts';
     import { warn } from '@/lib/alert.svelte.ts';
     import { getValidationErrorByPath } from '@/lib/getValidationErrorByPath.ts';
-    import { machine } from '@/lib/machine.svelte.ts';
+    import { machine, transition } from '@/lib/machine.svelte.ts';
 
     let { currentContext } = $derived(machine);
     let fetchingZoneData = $state(false);
-    let nameservers = $state([
-        { ns: '', ip: '' }
-    ]);
+    let nameservers = $state([{ ns: '', ip: '' }]);
 
     // On input change, append a new empty nameserver
     function addNameserver() {
@@ -51,7 +49,13 @@
             return;
         }
 
-        const input = form.querySelector('input[name="domain"]') as HTMLInputElement;
+        if (form.reportValidity() === false) {
+            return;
+        }
+
+        const input = form.querySelector(
+            'input[name="domain"]',
+        ) as HTMLInputElement;
         const domain = input.value;
 
         fetchingZoneData = true;
@@ -69,6 +73,10 @@
                     ip: ns.ip || '',
                 }));
             })
+            .catch((error) => {
+                console.log(error.data);
+                transition('ERROR', error);
+            })
             .finally(() => {
                 fetchingZoneData = false;
             });
@@ -79,10 +87,14 @@
     }
 
     $effect(() => {
-        document.getElementById('zmDomainTestForm')?.addEventListener('reset', reset);
+        document
+            .getElementById('zmDomainTestForm')
+            ?.addEventListener('reset', reset);
 
         return () => {
-            document.getElementById('zmDomainTestForm')?.removeEventListener('reset', reset);
+            document
+                .getElementById('zmDomainTestForm')
+                ?.removeEventListener('reset', reset);
         };
     });
 </script>
@@ -91,7 +103,10 @@
     <legend>{m.nameServers()}</legend>
     <Stack vertical gap="s">
         {#each nameservers as ns, i}
-            <fieldset class="zm-domain-test__nameserver zm-fieldset" id="zmDomainTestNameserver-{ i + 1 }">
+            <fieldset
+                class="zm-domain-test__nameserver zm-fieldset"
+                id="zmDomainTestNameserver-{i + 1}"
+            >
                 <legend>{m.nameserver({ index: i + 1 })}</legend>
                 <Stack gap="xs" class={utils.expand}>
                     <Grid cols={2} gap="xs">
@@ -103,9 +118,17 @@
                                 value={ns.ns}
                                 placeholder="ns1.example.com"
                                 label={m.name()}
-                                onInput={(e) => updateNameserver(i, 'ns', e.currentTarget.value)}
+                                onInput={(e) =>
+                                    updateNameserver(
+                                        i,
+                                        'ns',
+                                        e.currentTarget.value,
+                                    )}
                                 required={!!ns.ip}
-                                error={getValidationErrorByPath(currentContext.error, `/nameservers/${i}/ns`)}
+                                error={getValidationErrorByPath(
+                                    currentContext.error,
+                                    `/nameservers/${i}/ns`,
+                                )}
                             />
                         </div>
                         <div>
@@ -116,17 +139,37 @@
                                 type="text"
                                 placeholder=""
                                 label={m.addressOptional()}
-                                onInput={(e) => updateNameserver(i, 'ip', e.currentTarget.value)}
-                                error={getValidationErrorByPath(currentContext.error, `/nameservers/${i}/ip`)}
+                                onInput={(e) =>
+                                    updateNameserver(
+                                        i,
+                                        'ip',
+                                        e.currentTarget.value,
+                                    )}
+                                error={getValidationErrorByPath(
+                                    currentContext.error,
+                                    `/nameservers/${i}/ip`,
+                                )}
                             />
                         </div>
                     </Grid>
                     {#if nameservers.length > 1}
                         <div>
-                            <span class="zm-label zm-label--hidden" role="presentation">–</span>
-                            <Button aria-controls="zmDomainTestNameserver-{ i + 1 }" variant="danger" type="button" onClick={() => removeNameserver(i)}>
+                            <span
+                                class="zm-label zm-label--hidden"
+                                role="presentation">–</span
+                            >
+                            <Button
+                                aria-controls="zmDomainTestNameserver-{i + 1}"
+                                variant="danger"
+                                type="button"
+                                onClick={() => removeNameserver(i)}
+                            >
                                 <i class="bi bi-trash"></i>
-                                <span class="zm-u-visually-hidden">{m.deleteNameserver({ index: i + 1 })}</span>
+                                <span class="zm-u-visually-hidden"
+                                    >{m.deleteNameserver({
+                                        index: i + 1,
+                                    })}</span
+                                >
                             </Button>
                         </div>
                     {/if}

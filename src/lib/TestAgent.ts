@@ -26,7 +26,7 @@ export function createTestAgent() {
         },
         states: {
             idle: {
-                on: { START: 'testing' },
+                on: { START: 'testing', ERROR: 'idle' },
                 actions: {
                     START: (context, data) => {
                         context.domain = data.domain;
