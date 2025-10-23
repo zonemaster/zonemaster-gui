@@ -34,14 +34,15 @@
                 {m.disable()} IPv6
             </label>
         </fieldset>
-        <div>
-            <Select
-                name="profile"
-                value={profiles.length ? profiles[0].value : undefined}
-                label={m.profile()}
-                onSelect=""
-                options={profiles}
-            />
-        </div>
+        {#if profiles.length > 1}
+            <div>
+                <Select
+                    name="profile"
+                    value="default"
+                    label={m.profile()}
+                    options={profiles}
+                />
+            </div>
+        {/if}
     </Grid>
 </Stack>
