@@ -55,7 +55,7 @@ export async function versionInfo(): Promise<any> {
     return rpc('version_info', {}, false);
 }
 
-export async function profileNames(): Promise<any> {
+export async function profileNames(): Promise<string[]> {
     return rpc('profile_names', {}, false);
 }
 
