@@ -211,19 +211,19 @@
                     >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportJson(data)}> {m.json()}</button
+                            onmousedown={() => exportJson(data)}> {m.exportJson()}</button
                         >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportHTML(data)}> {m.html()}</button
+                            onmousedown={() => exportHTML(data)}> {m.exportHtml()}</button
                         >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportCSV(data)}> {m.csv()}</button
+                            onmousedown={() => exportCSV(data)}> {m.exportCsv()}</button
                         >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportText(data)}> {m.text()}</button
+                            onmousedown={() => exportText(data)}> {m.exportText()}</button
                         >
                     </div>
                 </div>
