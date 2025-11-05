@@ -142,7 +142,7 @@
             >
         </div>
         <Stack middle gap="xs">
-            <div class="zm-popover">
+            <div class="zm-popover zm-u-hide">
                 <Button
                     variant="secondary"
                     size="small"
