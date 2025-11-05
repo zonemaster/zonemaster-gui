@@ -156,7 +156,7 @@
                     id="zmTLDURLButton"
                 >
                     <i class="bi bi-link-45deg"></i>
-                    TLD URL
+                    {m.tldURL()}
                 </Button>
                 <div
                     class="zm-popover__content"
@@ -196,7 +196,7 @@
                     id="zmExportButton"
                 >
                     <i class="bi bi-cloud-arrow-down"></i>
-                    Export
+                    {m.exportResult()}
                 </Button>
                 <div
                     class="zm-popover__content"
@@ -211,19 +211,19 @@
                     >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportJson(data)}>JSON</button
+                            onmousedown={() => exportJson(data)}> {m.json()}</button
                         >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportHTML(data)}>HTML</button
+                            onmousedown={() => exportHTML(data)}> {m.html()}</button
                         >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportCSV(data)}>CSV</button
+                            onmousedown={() => exportCSV(data)}> {m.csv()}</button
                         >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportText(data)}>TEXT</button
+                            onmousedown={() => exportText(data)}> {m.text()}</button
                         >
                     </div>
                 </div>
@@ -241,7 +241,7 @@
                     }}
                 >
                     <i class="bi bi-share"></i>
-                    Share
+                    {m.share()}
                 </Button>
                 <div
                     class="zm-popover__content"

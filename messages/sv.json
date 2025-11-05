@@ -74,5 +74,12 @@
     "testResultFor": "Testresultat för",
     "createdOn": "Skapad",
     "filterSeverityLevels": "Filtrera allvarlighetsnivå",
-    "profile": "Profil"
+    "profile": "Profil",
+    "tldURL": "TLD URL",
+    "exportResult": "Export",
+    "exportJson": "JSON",
+    "exportHtml": "HTML",
+    "exportCsv": "CSV",
+    "exportText": "Text",
+    "share": "Dela"
 }

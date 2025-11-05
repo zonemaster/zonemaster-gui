@@ -76,5 +76,12 @@
     "testResultFor": "Test result for",
     "createdOn": "Created on",
     "filterSeverityLevels": "Filter severity levels",
-    "profile": "Profile"
+    "profile": "Profile",
+    "tldURL": "TLD URL",
+    "exportResult": "Export",
+    "exportJson": "JSON",
+    "exportHtml": "HTML",
+    "exportCsv": "CSV",
+    "exportText": "Text",
+    "share": "Share"
 }
