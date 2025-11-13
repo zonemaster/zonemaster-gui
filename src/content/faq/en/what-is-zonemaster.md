@@ -13,4 +13,5 @@ Zonemaster consists of several modules or components:
 - CLI, a command-line interface to the Engine;
 - Backend, a server that allows you to run Zonemaster tests and save results using a JSON-RPC API and a database;
 - GUI, a web interface to the Backend.
-- The components will help different types of users to check domain servers for configuration errors and generate a report that will assist in fixing the errors.
+
+The components will help different types of users to check a domain's name servers for configuration errors and generate a report that will assist in fixing the errors.
