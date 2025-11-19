@@ -1,0 +1,75 @@
+---
+import { languageTag } from '@/paraglide/runtime';
+import * as m from '@/paraglide/messages';
+import config from '@/config';
+
+const currentLanguage = languageTag();
+const languages = {
+    en: 'English',
+    sv: 'Svenska',
+    es: 'Español',
+    da: 'Dansk',
+    fr: 'Français',
+    nb: 'Norsk Bokmål',
+    fi: 'Suomi',
+    sl: 'Slovenščina',
+};
+---
+
+<div class="zm-language-switcher">
+    <i class="bi bi-translate zm-language-switcher__icon"></i>
+    <label for="languageSwitcher" class="zm-u-visually-hidden"
+        >{m.langLabel()}</label
+    >
+    <select
+        class="zm-language-switcher__select"
+        id="languageSwitcher"
+        data-source-language={config.defaultLanguage}
+        data-current-language={currentLanguage}
+    >
+        {
+            Object.entries(languages).map(([code, label]) => (
+                <option
+                    lang={code}
+                    value={code}
+                    selected={currentLanguage === code}
+                >
+                    {label}
+                </option>
+            ))
+        }
+    </select>
+</div>
+<script>
+    const languageSwitcher = document.getElementById('languageSwitcher');
+    const sourceLanguage = languageSwitcher?.getAttribute(
+        'data-source-language',
+    );
+    function switchToLanguage(e: Event) {
+        const currentLanguage = languageSwitcher?.getAttribute(
+            'data-current-language',
+        );
+        const target = e.target as HTMLSelectElement;
+        const newLanguage = target.value;
+        let canonicalPath = document.location.pathname;
+
+        if (!canonicalPath.startsWith(`/${currentLanguage}`)) {
+            canonicalPath = `/${currentLanguage}${canonicalPath}`;
+        }
+
+        canonicalPath = canonicalPath.replace(
+            `/${currentLanguage}`,
+            `/${newLanguage}`,
+        );
+
+        if (newLanguage === sourceLanguage) {
+            canonicalPath = canonicalPath.replace(`/${newLanguage}`, '');
+        }
+
+        document.location.href = canonicalPath;
+    }
+
+    document
+        .getElementById('languageSwitcher')
+        ?.addEventListener('change', switchToLanguage);
+</script>

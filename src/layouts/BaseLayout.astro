@@ -1,0 +1,100 @@
+---
+import { languageTag } from '@/paraglide/runtime';
+import '@theme/styles/styles.css';
+import '@/assets/fonts/bootstrap-icons.min.css';
+import '@/lib/styles/style.css';
+
+interface Props {
+    title?: string;
+}
+
+const { title: defaultTitle } = Astro.props;
+const title = defaultTitle ? `${defaultTitle} – Zonemaster` : `Zonemaster`;
+---
+
+<!doctype html>
+<html lang={languageTag()} dir={Astro.locals.paraglide.dir} class="no-js">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="57x57"
+            href="../favicon/zonemaster_57x57.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="114x114"
+            href="../favicon/zonemaster_114x114.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="72x72"
+            href="../favicon/zonemaster_72x72.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="144x144"
+            href="../favicon/zonemaster_144x144.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="60x60"
+            href="../favicon/zonemaster_60x60.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="120x120"
+            href="../favicon/zonemaster_120x120.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="76x76"
+            href="../favicon/zonemaster_76x76.png"
+        />
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="152x152"
+            href="../favicon/zonemaster_152x152.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="../favicon/zonemaster_196x196.png"
+            sizes="196x196"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="../favicon/zonemaster_96x96.png"
+            sizes="96x96"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="../favicon/zonemaster_32x32.png"
+            sizes="32x32"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="../favicon/zonemaster_16x16.png"
+            sizes="16x16"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            href="../favicon/zonemaster_128x128.png"
+            sizes="128x128"
+        />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <script>
+            document.querySelector('html')!.classList.remove('no-js');
+            document.querySelector('html')!.classList.add('js');
+        </script>
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>

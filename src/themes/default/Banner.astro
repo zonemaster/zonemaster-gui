@@ -1,0 +1,33 @@
+<div class="zm-banner" id="zmBanner"></div>
+<script>
+    const banner = document.getElementById('zmBanner');
+    const currentLanguage = document.documentElement.lang;
+
+    function setBanner(msg?: string) {
+        if (banner) {
+            banner.innerHTML = msg ? `<p>${msg}</p>` : '';
+        }
+    }
+
+    fetch('/config.json')
+        .then(res => {
+            if (res.ok) {
+                return res;
+            }
+
+            throw new Error('Something went wrong');
+        })
+        .then(res => res.json())
+        .then(json => {
+            if ('msgBanner' in json && json.msgBanner) {
+                if (typeof json.msgBanner === 'object' && currentLanguage in json.msgBanner) {
+                    setBanner(json.msgBanner[currentLanguage]);
+                } else if (typeof json.msgBanner === 'string') {
+                    setBanner(json.msgBanner);
+                }
+            }
+        })
+        .catch((error) => {
+            // No config, that's fine
+        });
+</script>

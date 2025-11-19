@@ -64,7 +64,7 @@ v4.1.1 2023-09-08 (public fix version)
 
  [Fixes]
  - Corrects documentation links in FAQ for all languages
-   (#433) 
+   (#433)
 
 
 v4.1.0 2023-06-21 (public release version)
@@ -344,4 +344,3 @@ v2.0.0 2018-06-25
  - The old Zonemaster-GUI is deprecated, and can, for the time being,
    still be found in the old repository,
    https://github.com/dotse/zonemaster-gui
-

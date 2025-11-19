@@ -1,0 +1,18 @@
+{
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "startTestNav": "Lancer un test",
+    "faqNav": "FAQ",
+    "welcome": "Bienvenue chez Zonemaster",
+    "startTestTitle": "Lancer un test d'un domaine",
+    "runTestTitle": "Testez votre domaine",
+    "faqTitle": "Questions fréquentes",
+    "langLabel": "Changer de langue",
+    "startTestBtn": "Lancer un test",
+    "runningTest": "Test en cours...",
+    "menu": "Menu",
+    "close": "Fermer",
+    "domain": "Domaine",
+    "noticeHeading": "Plus d'information sur les tests non délégués",
+    "noticeLink": "/fr/faq/#undelegated",
+    "noticeText": "Qu'est-ce qu'un test sur un nom de domaine non délégué?"
+}

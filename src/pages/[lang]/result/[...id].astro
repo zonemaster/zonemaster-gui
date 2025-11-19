@@ -1,0 +1,16 @@
+---
+import * as m from '@/paraglide/messages.js';
+import Result from '@theme/Result.astro';
+import Layout from '@theme/Layout.astro';
+import config from '@/config';
+
+export function getStaticPaths() {
+    return config.enabledLanguages
+        .filter((lang) => lang !== config.defaultLanguage)
+        .map((lang) => ({ params: { lang, id: 'id' } }));
+}
+---
+
+<Layout title={m.resultTitle()}>
+    <Result />
+</Layout>

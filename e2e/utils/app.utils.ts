@@ -1,23 +1,25 @@
-export function goToHome(page) {
+import type { Page } from "@playwright/test";
+
+export function goToHome(page: Page) {
   return page.goto('/');
 }
 
-export function setLang(page, lang) {
+export function setLang(page: Page, lang: string) {
   return Promise.all([
-    page.waitForSelector('select#languageSelection'),
-    page.locator('select#languageSelection').selectOption(lang),
+    page.waitForSelector('select#languageSwitcher'),
+    page.locator('select#languageSwitcher').selectOption(lang),
   ]);
 }
 
-export async function showOptions(page) {
+export async function showOptions(page: Page) {
   const showOptionSwitch = page.locator('#advanced-toggle');
-  const advancedOption = page.locator('#advanced-options');
-  if ((await advancedOption.getAttribute('open')) === null ) {
+
+  if ((await showOptionSwitch.getAttribute('aria-expanded')) === 'false' ) {
     return showOptionSwitch.click();
   }
 }
 
-export function clearBrowserCache(page) {
+export function clearBrowserCache(page: Page) {
   return Promise.all([
     page.evaluate(() => window.localStorage.clear()),
     page.evaluate(() => window.sessionStorage.clear()),

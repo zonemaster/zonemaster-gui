@@ -1,30 +1,39 @@
-const fs = require('fs');
-const archiver = require('archiver');
+import fs from 'fs';
+import path from 'path';
+import archiver from 'archiver';
+import { readFileSync } from 'fs';
 
-const output = fs.createWriteStream('zonemaster_web_gui.zip');
-const archive = archiver('zip', {
-  zlib: { level: 9 } // Sets the compression level.
-});
+// Read package.json to get version
+const packageJson = JSON.parse(
+  readFileSync(new URL('../package.json', import.meta.url))
+);
 
-output.on('close', function () {
-  console.log(archive.pointer() + ' total bytes');
-  console.log('archiver has been finalized and the output file descriptor has closed.');
-});
+export async function zipDirectory(sourceDir, outPath) {
+    const output = fs.createWriteStream(outPath);
+    const archive = archiver('zip', {
+        zlib: { level: 9 }
+    });
 
-archive.on('error', function(err){
-  throw err;
-});
+    return new Promise((resolve, reject) => {
+        output.on('close', () => {
+            console.log(`Zipped ${archive.pointer()} total bytes`);
+            resolve();
+        });
 
-archive.pipe(output);
+        archive.on('error', err => reject(err));
 
-archive.file('zonemaster.conf-example', { name: 'zonemaster.conf-example' });
-archive.file('LICENSE', { name: 'LICENSE' });
+        archive.pipe(output);
+        archive.directory(sourceDir, false); // `false` keeps only folder contents
+        archive.finalize();
+    });
+}
 
-const localizedBundles = fs.readdirSync('dist', {withFileTypes: true})
-  .filter(entry => entry.isDirectory())
-  .map(entry => entry.name);
+// Example usage
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const inputDir = path.resolve(__dirname, '../public');
+const version = packageJson.version;
+const outputZip = path.resolve(__dirname, `../zonemaster_web_gui_${version}.zip`);
 
-archive.glob('dist/**', {ignore: '**/assets/**'});
-archive.directory(`dist/${localizedBundles[0]}/assets`, 'dist/assets');
-
-archive.finalize();
+zipDirectory(inputDir, outputZip)
+    .then(() => console.log('Zip complete'))
+    .catch(err => console.error('Error zipping:', err));

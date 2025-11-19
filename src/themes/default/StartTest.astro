@@ -1,0 +1,26 @@
+---
+import * as m from '@/paraglide/messages.js';
+import config from '@/config';
+import { getEntry } from 'astro:content';
+import DomainTest from '@/lib/components/DomainTest/DomainTest.svelte';
+import type { FaqItem } from '../../content.config';
+import Article from "./Article.astro";
+
+const { lang } = Astro.params;
+const locale = lang || config.defaultLanguage || 'en';
+const aboutLevels = await getEntry('faq', `${locale}/severity-levels`);
+
+const data: FaqItem | null = aboutLevels
+    ? {
+          question: aboutLevels.data.question,
+          answer: aboutLevels.rendered?.html || '',
+      }
+    : null;
+---
+
+<h1 class="container zm-u-align-center">{m.startTestTitle()}</h1>
+<section class="zm-run-test rhythm">
+    <h2 class="u-m-b-0" id="testInputHeading">{m.runTestTitle()}</h2>
+    <DomainTest aboutLevels={data} client:visible />
+</section>
+<Article />

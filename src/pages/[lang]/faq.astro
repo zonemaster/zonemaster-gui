@@ -1,0 +1,32 @@
+---
+import * as m from '@/paraglide/messages.js';
+import FAQ from '@theme/Faq.astro';
+import Layout from '@theme/Layout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import config from '@/config';
+
+export function getStaticPaths() {
+    return config.enabledLanguages
+        .filter((lang) => lang !== config.defaultLanguage)
+        .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const faq = await getCollection('faq', ({ id }) => {
+    return id.startsWith(`${lang}/`);
+});
+
+type FaqItem = CollectionEntry<'faq'>;
+// Object.groupBy returns a Partial<Record> which we convert to Record with a default empty array
+const groupedPartial = Object.groupBy(
+    faq,
+    (item: FaqItem) => item.data.category,
+);
+const grouped = groupedPartial as Record<string, FaqItem[]>;
+
+export const prerender = true;
+---
+
+<Layout title={m.faqNav()}>
+    <FAQ data={grouped} />
+</Layout>

@@ -1,0 +1,13 @@
+---
+import * as m from '@/paraglide/messages.js';
+import Layout from '@theme/Layout.astro';
+import Result from '@theme/Result.astro';
+
+export async function getStaticPaths() {
+    return [{ params: { id: 'id' } }];
+}
+---
+
+<Layout title={m.resultTitle()}>
+    <Result />
+</Layout>

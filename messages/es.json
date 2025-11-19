@@ -1,0 +1,15 @@
+{
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "startTestNav": "Ejecutar la prueba",
+    "faqNav": "FAQ",
+    "welcome": "Bienvenido a Zonemaster",
+    "startTestTitle": "Ejecutar prueba de dominio",
+    "runTestTitle": "Test your domain",
+    "faqTitle": "FAQ",
+    "langLabel": "Cambiar idioma",
+    "startTestBtn": "Ejecutar la prueba",
+    "runningTest": "Probando...",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "domain": "Dominio"
+}

@@ -1,0 +1,47 @@
+.zm-collapsible {
+    overflow: hidden;
+    border: 1px solid var(--color-palette-secondary-30);
+    border-radius: var(--border-radius);
+    background-color: var(--color-palette-secondary-10);
+    margin-top: calc(var(--rhythm) / 2);
+    margin-block-start: calc(var(--rhythm) / 2);
+
+    &:first-child {
+        margin-block-start: calc(var(--rhythm) / 2);
+    }
+;
+
+    header {
+        padding: var(--spacing-s);
+    }
+
+    h2 {
+        margin-bottom: 0;
+        font-size: var(--font-s);
+    }
+
+    p,
+    ul,
+    ol,
+    h2,
+    h3,
+    h4,
+    h6,
+    h6 {
+        max-width: 60ch;
+    }
+
+    [aria-hidden='true'] {
+        display: none;
+    }
+}
+
+.zm-collapsible + .zm-collapsible {
+    margin-top: var(--spacing-s);
+}
+
+.zm-collapsible-content {
+    padding: var(--spacing-s);
+    border-top: 1px solid var(--color-palette-secondary-30);
+    background-color: var(--color-palette-white);
+}

@@ -1,0 +1,19 @@
+---
+import * as m from '../../paraglide/messages';
+---
+
+<button
+    type="button"
+    class="zm-mobile-menu-btn"
+    aria-expanded="false"
+    aria-controls="mainMenu"
+    data-a11y-toggle="mainMenu"
+    data-toggle-text=`${m.menu()}|${m.close()}`
+    }
+    data-toggle-target="mobileMenuBtnText"
+    data-toggle-icon-target="mobileMenuBtnIcon"
+    data-toggle-icon="list|x-lg"
+>
+    <i class="bi bi-list" id="mobileMenuBtnIcon"></i>
+    <span id="mobileMenuBtnText">{m.menu()}</span>
+</button>

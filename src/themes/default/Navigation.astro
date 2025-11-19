@@ -1,0 +1,33 @@
+---
+import * as m from '../../paraglide/messages.js';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { languageTag } from '../../paraglide/runtime';
+
+const currentLanguage = languageTag();
+const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
+const faqUrl = getRelativeLocaleUrl(currentLanguage, '/faq');
+const { pathname } = Astro.url;
+---
+
+<nav class="zm-menu" aria-label="Main navigation">
+    <ul class="zm-menu__list">
+        <li>
+            <a
+                class:list={[
+                    'zm-menu__item',
+                    { ['is-active']: pathname === homeUrl },
+                ]}
+                href={homeUrl}>{m.startTestNav()}</a
+            >
+        </li>
+        <li>
+            <a
+                class:list={[
+                    'zm-menu__item',
+                    { ['is-active']: pathname === faqUrl },
+                ]}
+                href={faqUrl}>{m.faqNav()}</a
+            >
+        </li>
+    </ul>
+</nav>

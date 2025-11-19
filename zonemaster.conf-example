@@ -1,50 +1,29 @@
 <VirtualHost *:80>
-  DocumentRoot /var/www/html/zonemaster-web-gui/dist
-  DirectoryIndex index.html
-  ServerAdmin example@example.net
+    DocumentRoot /var/www/zonemaster/public
+    DirectoryIndex index.html
 
-  # Define base url for rewriting, needs a trailing slash.
-  Define BASE_URL "/"
+    # Define base url for rewriting, needs a trailing slash.
+    Define BASE_URL "/"
 
-  # Uncomment to use Zonemaster from a different base url
-  # Don't forget to also update the BASE_URL definition above and to also
-  # change the base href in the index.html files.
-  # Do not add a trailing slash here.
-  #Alias "/zonemaster" "/var/www/html/zonemaster-web-gui/dist"
+    <Directory /var/www/zonemaster/public>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
 
-  <Directory "/var/www/html/zonemaster-web-gui/dist">
-    Options MultiViews FollowSymlinks Includes
-    Require all granted
+        RewriteEngine On
 
-    RewriteEngine on
+        # Rewrite /result/{anything} to /result/id/index.html
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^result/[^/]+/?$ /result/id/index.html [L]
 
-    RewriteBase ${BASE_URL}
-    RewriteRule ^../index\.html$ - [L]
+        # Rewrite /{lang}/result/{anything} to /{lang}/result/id/index.html
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^([^/]+)/result/[^/]+/?$ /$1/result/id/index.html [L]
+    </Directory>
 
-    # Rewrite /<LANG>/assets/ to /assets to share the assets directory
-    RewriteRule ^(.+)/(assets/.+) $2 [L]
-
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule "^(da|en|es|fi|fr|nb|sl|sv)" $1/index.html [L]
-
-    # Rewrite path to new language scheme using preferred locale
-    RewriteCond $1 "!^(da|en|es|fi|fr|nb|sl|sv|assets)"
-    RewriteCond %{HTTP:Accept-Language} ^(da|en|es|fi|fr|nb|sl|sv) [NC]
-    RewriteRule ^(.+)$ %1/index.html [L]
-
-    # Redirect user based on prefered locale
-    RewriteCond %{HTTP:Accept-Language} ^(da|en|es|fi|fr|nb|sl|sv) [NC]
-    RewriteRule ^$ ${BASE_URL}%1/ [R,L]
-
-    # Default locale
-    RewriteRule ^$ ${BASE_URL}en/ [R,L]
-  </Directory>
-
-  ProxyPass ${BASE_URL}api http://localhost:5000/
-  ProxyPassReverse ${BASE_URL}api http://localhost:5000/
-  ProxyPreserveHost On
-
-  ErrorLog  /var/log/zonemaster/zonemaster-web-gui-error.log
-  CustomLog /var/log/zonemaster/zonemaster-web-gui-access_log common
+    ProxyPass ${BASE_URL}api http://localhost:5000/
+    ProxyPassReverse ${BASE_URL}api http://localhost:5000/
+    ProxyPreserveHost On
 </VirtualHost>

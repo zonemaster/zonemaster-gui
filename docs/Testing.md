@@ -1,5 +1,7 @@
 # Testing
 
+_This guide refers to v4.* and is to be rewritten for v5.0._
+
 ## Setup
 
 This part assumed that you have a working NodeJS environment on Ubuntu. See

@@ -1,21 +1,20 @@
 # Translation Guide
 
-This guide gives instructions for how to add a new language to
-Zonemaster-GUI. The language is assumed to exist in or to be added
-to Zonemaster-Engine and Zonemaster-Backend.
+This guide provides instructions for how to add a new language to Zonemaster-GUI or update translations for existing languages. The language is assumed to exist in or to be added to Zonemaster-Engine and Zonemaster-Backend.
 
-When updating a language in use, this document could also be used as
-a checklist for where the changes are done.
+## Overview of the Translation System
 
-You should usually read this document from develop branch to make
-sure you have the latest version.
+Zonemaster-GUI uses [Paraglide](https://paraglide.io/) for internationalization (i18n). The translation system works as follows:
 
-## Language code
+1. Translation strings are stored in JSON files in the `/messages` directory, one file per language
+2. The Paraglide compiler reads these files and generates JavaScript functions in the `src/paraglide` directory
+3. These functions are imported and used in the code to display translated text
+4. The current language is determined using the `languageTag()` function from the runtime
+5. The available languages and default language are configured in `config.ts`
 
-Zonemaster uses [ISO 639-1] two-letter language codes, normally in
-lower case, but in GUI sometimes with first letter in upper case
-to make the display nicer. GUI is currently available in the
-following languages with the attached language code:
+## Language Codes
+
+Zonemaster uses [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) two-letter language codes, in lower case. Zonemaster-GUI is currently available in the following languages:
 
 * `da` for Danish language
 * `en` for English language
@@ -25,201 +24,150 @@ following languages with the attached language code:
 * `nb` for Norwegian language
 * `sv` for Swedish language
 
+## Adding or Modifying Translations
 
-## Extracting translatable strings
+### Modifying Existing Translations
 
-When adding new translatable strings to the GUI, they need to be added to each
-`messages.<LANG>.xlf` file. This can be done with the following command:
+To update translations for an existing language:
 
-```
-npm run i18n:extract
-```
+1. Edit the corresponding JSON file in the `/messages` directory (e.g., `messages/fr.json` for French)
+2. Run `npm run build` to compile the translations
+3. Test your changes by running the application and switching to the language you modified
 
-This will update each file with the new strings; by default the target value
-of new strings is an empty string. All new strings are appended to the end of
-the files, obsolete strings are removed from the files.
+### Adding New Translations
 
+To add translations for a new string:
 
-## Submitting changes
+1. Add the string to the English file (`messages/en.json`) first
+2. Add translations for the string to all other language files
+3. Run `npm run build` to compile the translations
+4. Test your changes by running the application
 
-Below are instructions for how to add or modify files. Preferably, submit the
-new or updated file as a pull request to Github (see [translators guide] for
-Zonemaster-Engine, -CLI and -Backend). Contact the Zonemaster Group if that
-does not work.
+## Adding a New Language
 
-The translator must always create or update the `messages.<LANG>.xlf`. The
-other changes are only done when a language is added and will be completed
-by the Zonemaster Group.
+To add a new language to Zonemaster-GUI:
 
+1. Create a new JSON file in the `/messages` directory with the language code as the filename (e.g., `messages/de.json` for German)
+2. Copy the content from `messages/en.json` and translate all the strings
+3. Update the following files to include the new language code:
+   - `project.inlang/settings.json`: Add the language code to the `languageTags` array
+   - `config.ts`: Add the language code to the `enabledLanguages` array
 
-## messages.\<LANG\>.xlf
+4. Run `npm run build` to compile the translations
+5. Test your changes by running the application and switching to the new language
 
-The XLF files `messages.<LANG>.xlf` are XML files and contains the messages
-for GUI in respective language, where `<LANG>` is the language code,
-e.g. `messages.fr.xlf`.
+## Configuration
 
-The files are located in the [src/locale] folder, one file for each
-supported language.
+The language settings are configured in the following files:
 
-Each language file contains a list of `<trans-unit>` elements with a
-`<source>` element containing the message in English (the source locale),
-and a `<target>` element containing the translated message. Optionally a
-`<note>` element can contain context to help the translator.
+### config.ts
 
-```xml
-<trans-unit datatype="html" id="a434ae37bd56265a0693fbc28bd8338a38500871">
-  <source>About Zonemaster</source>
-  <target state="new">À propos de Zonemaster</target>
-</trans-unit>
-```
+This file contains the default language and the list of enabled languages:
 
-To help translating the locale files, tools like [Poedit] can be used.
-
-### Poedit
-
-In Poedit, the translator can see the new strings to translated in an accent
-color. Additional context for translation, if available, is shown in the
-bottom left corner of the window under "Notes for translators".
-
-## Adding a new language
-
-The new language must be added to the following source files:
-
-* [angular.json],
-* [src/environments/common.ts],
-* [src/assets/app.config.sample.json],
-* [zonemaster.conf-example].
-
-and the following documentation file:
-
-* [GUI Configuration].
-
-Then run `npm run i18n:extract` to create and populate the new
-translation file.
-
-### angular.json
-
-In `angular.json` locate and update the following sections
-* `/projects/zonemaster/i18n/locales`: add a new property named `<LANG>` with a value of object having the `translation` property containing the path to the `messages.<LANG>.xlf` file;
-* `/projects/architect/build/configurations`: add a new build configuration named `<LANG>`, with a `localize` property set to an array containing the language code and a `baseHref` property set a URL prefix in the form `/<LANG>/`;
-* `/projects/architect/serve/configurations`: add a new serve configuration baled `<LANG>`, with a `browserTarget` set to the name of the build configuration created in the previous step, `zonemaster:build:<LANG>`;
-* `/projects/zonemaster/extract-i18n/options/targetFiles`: add the name of the translation file (`messages.<LANG>.xlf`) to the array.
-
-```jsonc
-{
-  // ...
-  "projects": {
-    "zonemaster"
-      // ...
-      "i18n": {
-        "locales": {
-          // ...
-          "<LANG>": {
-            "translation": "src/locale/messages.<LANG>.xlf"
-          }
-        }
-      },
-      "architect": {
-        "build": {
-          // ...
-          "configurations": {
-            // ...
-            "<LANG>": {
-              "localize": ["<LANG>"],
-              "baseHref": "/<LANG>/"
-            }
-          }
-        },
-        "serve": {
-          // ...
-          "configurations": {
-            // ...
-            "<LANG>": {
-              "browserTarget": "zonemaster:build:<LANG>"
-            }
-          }
-        },
-        "extract-i18n": {
-          // ...
-          "options": {
-            // ...
-            "targetFiles": [
-              // ...
-              "messages.<LANG>.xlf"
-            ],
-          }
-        }
-      }
-    }
-  },
-  // ...
-}
+```typescript
+const config: Config = {
+    defaultLanguage: 'en',
+    enabledLanguages: ['da', 'en', 'es', 'fi', 'fr', 'nb', 'sv'],
+    // other configuration options...
+};
 ```
 
-### common.ts
+### project.inlang/settings.json
 
-In `common.ts` locate
-
-```js
-languages: {
-  'da': 'Dansk',
-  ...
-}
-```
-and append the new two-letter language code and the corresponding new
-language name.
-
-Also locate
-```js
-enabledLanguages: ['da', ...]
-```
-and append the new two-letter language code of the new language.
-
-### app.config.sample.json
-
-In  `app.config.sample.json` locate
+This file configures the Paraglide translation system:
 
 ```json
-"enabledLanguages": ["da", ...]
-```
-and append the new two-letter language code of the new language.
-
-### zonemaster.conf-example
-
-In the Apache example configuration, `zonemaster.conf-example`, update the rewrite
-rules and conditions to add the new language. 
-
-Identify the three places in `zonemaster.conf-example` where there is a list of
-language codes. Currently you will find `da|en|es|fi|fr|nb|sv`. Add the two-letter
-code of the new language following the same pattern. Preserve the alphabetical order
-of the language codes.
-
-### Configuration
-
-Add the new language's two-letter code to the list of default values for
-`"enabledLanguages"` in the [GUI Configuration] documentation file.
-
-## Add e2e test script for the language
-
-In `FR05.e2e-spec.ts` add a new test case in the `testSuite` array:
-
-```js
-const testSuite = [
-      ...
-      { language: 'New language name', code: 'two-letter code', expected: '`Domain name` translation in the new language' },
-      ...
-  ];
+{
+  "$schema": "https://inlang.com/schema/project-settings",
+  "sourceLanguageTag": "en",
+  "languageTags": [
+    "en",
+    "da",
+    "es",
+    "fi",
+    "fr",
+    "nb",
+    "sv"
+  ],
+  "modules": [
+    "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-empty-pattern@latest/dist/index.js",
+    "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-missing-translation@latest/dist/index.js"
+  ],
+  "plugin.inlang.messageFormat": {
+    "pathPattern": "./messages/{languageTag}.json"
+  }
+}
 ```
 
+## Using Translations in Code
 
-[ISO 639-1]:                                               https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-[e2e]:                                                     ../e2e
-[FR05-en.e2e-spec.ts]:                                     ../e2e/FR05-en.e2e-spec.ts
-[angular.json]:                                            ../angular.json
-[src/locale]:                                              ../src/locale
-[Translators guide]:                                       https://github.com/zonemaster/zonemaster/blob/master/docs/internal/maintenance/Instructions-for-translators.md
-[src/environments/common.ts]:                              ../src/environments/common.ts
-[src/assets/app.config.sample.json]:                       ../src/assets/app.config.sample.json
-[GUI Configuration]:                                       https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui.md
-[zonemaster.conf-example]:                                 ../zonemaster.conf-example
-[Poedit]:                                                  https://poedit.net
+Translations are used in the code by importing the message functions from the generated JavaScript files:
+
+```javascript
+import * as m from '../../paraglide/messages.js';
+import { languageTag } from '../../paraglide/runtime';
+
+// Get the current language
+const currentLanguage = languageTag();
+
+// Use a translation
+const translatedText = m.startTestNav();
+```
+
+## Using PoEdit for Translations
+
+[PoEdit](https://poedit.net/) is a powerful translation editor that can simplify the process of translating Zonemaster's JSON files. It provides a user-friendly interface for translators and includes features like translation memory and suggestions.
+
+### Setting Up PoEdit for JSON Files
+
+1. Download and install PoEdit from [poedit.net](https://poedit.net/)
+2. PoEdit works with various file formats, including JSON. To work with Zonemaster's JSON files:
+   - Open PoEdit
+   - Go to File > Preferences > Parsers
+   - Make sure the JSON parser is enabled
+
+### Creating a Translation Project
+
+1. In PoEdit, go to File > New
+2. Select "Create from existing file" and choose the English JSON file (`messages/en.json`) as your source
+3. Select the JSON format when prompted
+4. Save the project file (.po) in a convenient location
+
+### Translating with PoEdit
+
+1. PoEdit will display the English source text in the left column
+2. Enter your translations in the right column
+3. PoEdit highlights untranslated or fuzzy (needs review) entries
+4. Use the translation memory and suggestions features to maintain consistency
+
+### Exporting Translations
+
+1. After completing your translations, go to File > Save as
+2. Select JSON format
+3. Save the file with the appropriate language code in the `/messages` directory (e.g., `messages/de.json` for German)
+4. Verify that the exported JSON file maintains the same structure as the original English file
+
+### Tips for Using PoEdit
+
+- Use the "Validate" feature to check for any formatting issues
+- The "Translation Memory" feature helps maintain consistency across translations
+- You can add comments to translations for future reference
+- PoEdit can highlight potentially problematic translations (e.g., those with mismatched formatting tags)
+
+## Building and Testing
+
+After making changes to the translation files, you need to rebuild the application to compile the translations:
+
+```bash
+npm run build
+```
+
+To test your changes, run the application and switch to the language you modified:
+
+```bash
+npm run dev
+```
+
+## Submitting Changes
+
+Submit your changes as a pull request to the Zonemaster-GUI repository. Make sure to include all the necessary files and to test your changes thoroughly.
