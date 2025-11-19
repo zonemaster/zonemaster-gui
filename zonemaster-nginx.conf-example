@@ -1,7 +1,7 @@
 server {
     listen 80;
 
-    root /var/www/zonemaster/public;
+    root /var/www/html/zonemaster-web-gui/dist
     index index.html;
 
     location /api {
