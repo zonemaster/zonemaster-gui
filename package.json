@@ -1,6 +1,6 @@
 {
     "name": "zonemaster-gui",
-    "version": "5.0.0-alpha.3",
+    "version": "v5.0.0",
     "license": "BSD-2-Clause",
     "scripts": {
         "start": "npm run dev",
