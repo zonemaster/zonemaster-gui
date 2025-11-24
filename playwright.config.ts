@@ -26,6 +26,5 @@ const config: PlaywrightTestConfig = {
             ...devices['Desktop Chrome']
         },
     ],
-    snapshotPathTemplate: '{testDir}/{testFilePath}-snapshots/{arg}{ext}',
 };
 export default config;
