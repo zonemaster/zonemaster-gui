@@ -18,6 +18,7 @@ test.describe('Zonemaster test FR03 - [All appropriate fields should be writable
     await expect(domainInput).toHaveValue(testString);
 
     await showOptions(page);
+    await page.waitForTimeout(400);
 
     const nsInput = page.locator('input[name="nameservers[0][ns]"]').first();
 

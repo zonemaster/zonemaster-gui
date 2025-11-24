@@ -17,9 +17,9 @@ test.describe('Zonemaster test FR22 - [Provide the possibility to see more infor
         await page.keyboard.type('results.afNiC.Fr');
         await page.keyboard.press('Enter');
 
-        const basicHeader = page.locator('#zmModule-BASIC .zm-result__module__title');
-        const basicHeaderButton = page.locator('#zmModule-BASIC .zm-result__module__title button');
-        const basicContent = page.locator('#zmModule-BASIC-content');
+        const basicHeader = page.locator('#zmModule-Basic .zm-result__module__title');
+        const basicHeaderButton = page.locator('#zmModule-Basic .zm-result__module__title button');
+        const basicContent = page.locator('#zmModule-Basic-content');
 
         await expect(basicHeader).toBeVisible({ timeout: 10000 });
         await expect(basicHeader).toHaveText(/Basic/i);

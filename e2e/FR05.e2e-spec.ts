@@ -9,12 +9,12 @@ test.describe('Zonemaster test FR05 - [Supports internationalization]', () => {
 
   const testSuite = [
       { language: 'Danish', code: 'da', expected: 'Domæne' },
-      { language: 'English', code: 'en', expected: 'Domain' },
+      { language: 'English', code: 'en', expected: 'Domain name' },
       { language: 'Spanish', code: 'es', expected: 'Dominio' },
       { language: 'Finnish', code: 'fi', expected: 'Verkkotunnus' },
       { language: 'French', code: 'fr', expected: 'Domaine' },
       { language: 'Norwegian', code: 'nb', expected: 'Domene' },
-      { language: 'Swedish', code: 'sv', expected: 'Domän' },
+      { language: 'Swedish', code: 'sv', expected: 'Domänamn' },
   ];
 
   for (const { language, code, expected } of testSuite) {

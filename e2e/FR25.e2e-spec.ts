@@ -26,6 +26,6 @@ test.describe('Zonemaster test FR25 - [Should be able to export the result in mu
         await expect(page.locator('#zmExportDialog button:nth-child(1)')).toHaveText('JSON');
         await expect(page.locator('#zmExportDialog button:nth-child(2)')).toHaveText('HTML');
         await expect(page.locator('#zmExportDialog button:nth-child(3)')).toHaveText('CSV');
-        await expect(page.locator('#zmExportDialog button:nth-child(4)')).toHaveText('TEXT');
+        await expect(page.locator('#zmExportDialog button:nth-child(4)')).toHaveText('Text');
     });
 });

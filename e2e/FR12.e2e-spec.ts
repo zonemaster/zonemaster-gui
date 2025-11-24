@@ -12,9 +12,11 @@ test.describe('Zonemaster test FR12 - [The simple view should support an advance
         await expect(page.locator('#advanced-options')).toHaveAttribute('hidden');
     });
 
-    test('should have [Disable IPv4 checkbox] & [Disable IPv6 checkbox] visible', async ({page}) => {
+    test('should have [IPv4 and IPv6 radio] & [IPv4 only radio] & [IPv6 only radio] visible', async ({page}) => {
         await showOptions(page);
-        await expect(page.locator('input[name="disabledIpType"][value="ipv4"]')).toBeVisible();
-        await expect(page.locator('input[name="disabledIpType"][value="ipv6"]')).toBeVisible();
+        await page.waitForTimeout(400);
+        await expect(page.locator('input[name="iptype"][value="both"]')).toBeVisible();
+        await expect(page.locator('input[name="iptype"][value="ipv4"]')).toBeVisible();
+        await expect(page.locator('input[name="iptype"][value="ipv6"]')).toBeVisible();
     });
 });
