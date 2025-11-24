@@ -11,5 +11,6 @@
     "runningTest": "Testataan...",
     "menu": "Valikko",
     "close": "Sulje",
-    "domain": "Verkkotunnus"
+    "domain": "Verkkotunnus",
+    "domainName": "Verkkotunnus"
 }

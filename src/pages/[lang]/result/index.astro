@@ -5,9 +5,7 @@ import Layout from '@/themes/default/Layout.astro';
 import config from '@/config';
 
 export function getStaticPaths() {
-    return config.enabledLanguages
-        .filter((lang) => lang !== config.defaultLanguage)
-        .map((lang) => ({ params: { lang } }));
+    return config.enabledLanguages.map((lang) => ({ params: { lang } }));
 }
 
 export const prerender = true;

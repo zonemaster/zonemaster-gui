@@ -11,5 +11,6 @@
     "runningTest": "Probando...",
     "menu": "Menú",
     "close": "Cerrar",
-    "domain": "Dominio"
+    "domain": "Dominio",
+    "domainName": "Dominio"
 }

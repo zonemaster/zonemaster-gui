@@ -1,4 +1,4 @@
-import {test, expect} from '@playwright/test';
+import {test, expect} from './global-setup';
 
 import {goToHome, setLang, showOptions} from './utils/app.utils';
 
@@ -6,7 +6,9 @@ test.describe.serial('Zonemaster test FR17 - [Able to specify delegation paramet
     test.beforeEach(async ({page}) => {
         await goToHome(page);
         await setLang(page, 'en');
+        await page.waitForLoadState('networkidle');
         await showOptions(page);
+        await page.waitForTimeout(400);
     });
 
     test('should have one ns and digest form', async ({ page }) => {
@@ -41,7 +43,7 @@ test.describe.serial('Zonemaster test FR17 - [Able to specify delegation paramet
 
         await expect(page.locator('input[name="nameservers[1][ns]"]')).toHaveCount(1);
 
-        await page.locator('fieldset.zm-domain-test__nameservers > div > div > button').first().click();
+        await page.locator('fieldset.zm-domain-test__nameserver > div > div > button').first().click();
         await expect(page.locator('input[name="nameservers[1][ns]"]')).toHaveCount(0);
     });
 });
