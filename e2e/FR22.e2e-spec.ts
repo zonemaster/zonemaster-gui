@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './global-setup';
 
 import { goToHome, setLang } from './utils/app.utils';
 
@@ -8,6 +8,7 @@ test.describe('Zonemaster test FR22 - [Provide the possibility to see more infor
     test.beforeEach(async ({ page }) => {
         await goToHome(page);
         await setLang(page, 'en');
+        await page.waitForLoadState('networkidle');
     });
 
     test('can toggle modules', async ({ page }) => {

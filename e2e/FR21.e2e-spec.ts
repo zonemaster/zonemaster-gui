@@ -1,6 +1,6 @@
-import { test, expect, type Page } from '@playwright/test';
-
-import { goToHome, setLang } from './utils/app.utils';
+import { test, expect } from './global-setup';
+import { goToHome, setLang, setupApiMocks } from './utils/app.utils';
+import type { Page } from '@playwright/test';
 
 test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized result of the test being run ' +
     '(possibility in different colours for error, warning, success etc.)]', () => {
@@ -10,8 +10,10 @@ test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized resul
     // Keep the same page between tests
     test.beforeAll(async ({ browser }) => {
         page = await browser.newPage();
+        await setupApiMocks(page);
         await goToHome(page);
         await setLang(page, 'en');
+        await page.waitForLoadState('networkidle');
     });
 
     test('should display summary', async () => {

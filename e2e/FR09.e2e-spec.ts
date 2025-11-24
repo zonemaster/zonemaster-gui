@@ -1,4 +1,4 @@
-import {test, expect} from '@playwright/test';
+import {test, expect} from './global-setup';
 
 import {goToHome, setLang} from './utils/app.utils';
 

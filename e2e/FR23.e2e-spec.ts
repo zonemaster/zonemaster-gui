@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './global-setup';
 
 import { setLang } from './utils/app.utils';
 
@@ -7,6 +7,7 @@ test.describe('Zonemaster test FR23 - [Provide a list of previous runs for the d
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         await setLang(page, 'en');
+        await page.waitForLoadState('networkidle');
     });
 
     test('should display previous tests', async ({ page }) => {

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './global-setup';
 
 import { goToHome, setLang, showOptions } from './utils/app.utils';
 
@@ -6,6 +6,7 @@ test.describe('Zonemaster test FR03 - [All appropriate fields should be writable
   test.beforeEach(async ({ page }) => {
     await goToHome(page);
     await setLang(page, 'en');
+    await page.waitForLoadState('networkidle');
   });
 
   test('should be able to write in the main input', async ({ page }) => {

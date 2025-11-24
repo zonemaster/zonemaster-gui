@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './global-setup';
 
 import { goToHome, clearBrowserCache } from './utils/app.utils';
 

@@ -1,4 +1,4 @@
-import {test, expect} from '@playwright/test';
+import {test, expect} from './global-setup';
 
 import {goToHome, setLang, showOptions} from './utils/app.utils';
 
@@ -6,6 +6,7 @@ test.describe.serial('Zonemaster test FR17 - [Able to specify delegation paramet
     test.beforeEach(async ({page}) => {
         await goToHome(page);
         await setLang(page, 'en');
+        await page.waitForLoadState('networkidle');
         await showOptions(page);
         await page.waitForTimeout(400);
     });
