@@ -13,6 +13,7 @@
     import formToObj from '@/lib/formToObj.ts';
     import type { FaqItem } from '@/content.config.ts';
     import { getValidationErrorByPath } from '@/lib/getValidationErrorByPath.ts';
+    import { languageTag } from '@/paraglide/runtime';
 
     type Props = {
         aboutLevels: FaqItem | null;
@@ -51,7 +52,7 @@
 
     $effect(() => {
         if (currentState === 'complete' && previousState === 'testing') {
-            document.location.href = `/result/${currentContext.testId}`;
+            document.location.href = `/${languageTag()}/result/${currentContext.testId}`;
             transition('RESET');
         }
     });
