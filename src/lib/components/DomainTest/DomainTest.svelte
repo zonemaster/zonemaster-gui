@@ -14,6 +14,7 @@
     import type { FaqItem } from '@/content.config.ts';
     import { getValidationErrorByPath } from '@/lib/getValidationErrorByPath.ts';
     import { languageTag } from '@/paraglide/runtime';
+    import { onMount } from 'svelte';
 
     type Props = {
         aboutLevels: FaqItem | null;
@@ -55,6 +56,10 @@
             document.location.href = `/${languageTag()}/result/${currentContext.testId}`;
             transition('RESET');
         }
+    });
+
+    onMount(() => {
+        document.body.dataset.domainTestHydrated = 'true';
     });
 </script>
 
