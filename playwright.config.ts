@@ -24,7 +24,7 @@ const config: PlaywrightTestConfig = {
         {
             name: 'chromium',
             ...devices['Desktop Chrome']
-        }
-    ]
+        },
+    ],
 };
 export default config;

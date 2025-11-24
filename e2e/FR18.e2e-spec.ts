@@ -1,4 +1,4 @@
-import {test, expect} from '@playwright/test';
+import {test, expect} from './global-setup';
 
 import {goToHome, setLang} from './utils/app.utils';
 
@@ -9,6 +9,8 @@ test.describe('Zonemaster test FR18 - [The GUI should be able to run tests by ju
     });
 
     test('should display progress bar', async ({page}) => {
+        await page.waitForLoadState('networkidle');
+
         await expect(page.locator('.zm-domain-test__progress-bar')).toHaveCount(0);
         await page.locator('input[name="domain"]').first().focus();
 

@@ -11,5 +11,6 @@
     "runningTest": "Tester...",
     "menu": "Meny",
     "close": "Lukk",
-    "domain": "Domene"
+    "domain": "Domene",
+    "domainName": "Domene"
 }

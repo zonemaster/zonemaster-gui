@@ -13,6 +13,8 @@
     import formToObj from '@/lib/formToObj.ts';
     import type { FaqItem } from '@/content.config.ts';
     import { getValidationErrorByPath } from '@/lib/getValidationErrorByPath.ts';
+    import { languageTag } from '@/paraglide/runtime';
+    import { onMount } from 'svelte';
 
     type Props = {
         aboutLevels: FaqItem | null;
@@ -51,9 +53,13 @@
 
     $effect(() => {
         if (currentState === 'complete' && previousState === 'testing') {
-            document.location.href = `/result/${currentContext.testId}`;
+            document.location.href = `/${languageTag()}/result/${currentContext.testId}`;
             transition('RESET');
         }
+    });
+
+    onMount(() => {
+        document.body.dataset.domainTestHydrated = 'true';
     });
 </script>
 

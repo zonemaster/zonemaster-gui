@@ -20,6 +20,9 @@ export default defineConfig({
     i18n: {
         locales: config.enabledLanguages,
         defaultLocale: config.defaultLanguage,
+        routing: {
+            prefixDefaultLocale: true
+        },
     },
 
     markdown: {

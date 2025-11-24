@@ -1,4 +1,4 @@
-import {test, expect} from '@playwright/test';
+import {test, expect} from './global-setup';
 
 import {goToHome, setLang, showOptions} from './utils/app.utils';
 
@@ -6,6 +6,7 @@ test.describe('Zonemaster test FR19 - [The GUI should be able to run the test wi
     test.beforeEach(async ({page}) => {
         await goToHome(page);
         await setLang(page, 'en');
+        await page.waitForLoadState('networkidle');
         await showOptions(page);
     });
 
