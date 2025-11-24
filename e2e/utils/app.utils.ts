@@ -5,6 +5,10 @@ export function goToHome(page: Page) {
   return page.goto('/');
 }
 
+export async function mounted(page: Page) {
+    await expect(page.locator('body')).toHaveAttribute('data-domain-test-hydrated', 'true');
+}
+
 export async function setupApiMocks(page: Page) {
   // Match any URL ending with /api
   await page.route(/\/api$/, async (route) => {
