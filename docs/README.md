@@ -1,7 +1,7 @@
 Zonemaster-GUI documents
 
-* Information on code testing is found in [Testing Zomeaster-GUI]
-* Information on the Zonemaster GUI is found in [Zonemaster UI]
+* An overview of the Zonemaster GUI is found in [Zonemaster UI]
+* Information related to code testing is found in [Unit testing Zonemaster-GUI]
 * [Installation instructions]
 * [Configuration instructions]
 * [Translation instructions]
@@ -9,6 +9,6 @@ Zonemaster-GUI documents
 
 [Configuration instructions]:                     https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui/README.md
 [Installation instructions]:                      https://doc.zonemaster.net/latest/installation/zonemaster-gui.html
-[Testing Zomeaster-GUI]:                          Testing.md
+[Unit testing Zonemaster-GUI]:                    Testing.md
 [Translation instructions]:                       https://github.com/zonemaster/zonemaster/blob/master/docs/public/translation/Translating-GUI.md 
 [Zonemaster UI]:                                  UI.md
