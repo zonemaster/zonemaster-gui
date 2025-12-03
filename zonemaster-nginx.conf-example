@@ -1,7 +1,7 @@
 server {
     listen 80;
 
-    root /var/www/html/zonemaster-web-gui/dist
+    root /var/www/html/zonemaster-web-gui/dist;
     index index.html;
 
     location /api {
@@ -19,7 +19,7 @@ server {
     }
 
     # Rewrite /{lang}/result/{id} to /{lang}/result/id/index.html
-    location ~ ^/[^/]+/result/[^/]+/?$ {
+    location ~ ^/([^/]+)/result/[^/]+/?$ {
         set $lang $1;
         try_files /$lang/result/id/index.html =404;
     }
