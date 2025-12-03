@@ -14,7 +14,7 @@ import config from './src/config.js';
 export default defineConfig({
     output: process.env.NODE_ENV === 'production' ? 'static' : 'server',
 
-    outDir: './public',
+    outDir: './public/dist',
     publicDir: './static',
 
     i18n: {

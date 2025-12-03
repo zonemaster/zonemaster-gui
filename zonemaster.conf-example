@@ -1,11 +1,13 @@
 <VirtualHost *:80>
-    DocumentRoot /var/www/zonemaster/public
+    DocumentRoot /var/www/html/zonemaster-web-gui/dist
     DirectoryIndex index.html
 
     # Define base url for rewriting, needs a trailing slash.
     Define BASE_URL "/"
 
-    <Directory /var/www/zonemaster/public>
+    <Directory /var/www/html/zonemaster-web-gui/dist>
+
+
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
