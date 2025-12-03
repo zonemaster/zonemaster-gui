@@ -1,4 +1,4 @@
-# Testing
+# Unit testing of Zonemaster-GUI
 
 _This guide refers to v4.* and is to be rewritten for v5.0._
 
