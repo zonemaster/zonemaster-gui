@@ -7,5 +7,5 @@ För att kontrollera en reverse-zon med Zonemaster behöver du först veta vilke
 
 Exempel:
 
-* för IPv4-prefixet '198.51.100.0/24': 100.51.198.in-addr.arpa;
-* för IPv6-prefixet '2001:db8::/32': 8.b.d.0.1.0.0.2.ip6.arpa.
+* för IPv4-prefixet "198.51.100.0/24": 100.51.198.in-addr.arpa
+* för IPv6-prefixet "2001:db8::/32": 8.b.d.0.1.0.0.2.ip6.arpa

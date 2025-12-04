@@ -1,5 +1,5 @@
 ---
-question: How can I test a "reverse" zone with Zonemaster? 
+question: How can I test a "reverse" zone with Zonemaster?
 category: Using Zonemaster
 ---
 
@@ -7,5 +7,5 @@ To check a reverse zone with Zonemaster, one first needs to know what the revers
 
 Examples:
 
-* for IPv4 prefix '198.51.100.0/24': 100.51.198.in-addr.arpa;
-* for IPv6 prefix '2001:db8::/32': 8.b.d.0.1.0.0.2.ip6.arpa.
+* for IPv4 prefix "198.51.100.0/24": 100.51.198.in-addr.arpa
+* for IPv6 prefix "2001:db8::/32": 8.b.d.0.1.0.0.2.ip6.arpa

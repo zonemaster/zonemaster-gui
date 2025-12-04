@@ -3,8 +3,6 @@ question: Vad är testfallsidentifierare?
 category: Använda Zonemaster
 ---
 
-### Specifikation för testfallsidentifierare
-
 Alla testfall tillhör en specifik testnivå och deras namn baseras på
 namnet för den testnivån. Följande testnivåer är definierade och tillgängliga:
 
