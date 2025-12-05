@@ -1,9 +1,9 @@
 ---
-question: Hur kan jag testa en "reverse"-zon med Zonemaster?
+question: Hur kan jag testa en reverszon med Zonemaster?
 category: Använda Zonemaster
 ---
 
-För att kontrollera en reverse-zon med Zonemaster behöver du först veta vilken reverse-zon det gäller och ange den i det format som används i DNS. En reverse-zon fås genom att vända på en IP-adress och lägga till ett suffix. IPv4-adresser använder suffixet "in-addr.arpa" medan IPv6-adresser använder "ip6.arpa".
+För att kontrollera en reverszon med Zonemaster behöver du först veta vilken reverszon det gäller och ange den i det format som används i DNS. En reverszon fås genom att vända på en IP-adress och lägga till ett suffix. IPv4-adresser använder suffixet "in-addr.arpa" medan IPv6-adresser använder "ip6.arpa".
 
 Exempel:
 
