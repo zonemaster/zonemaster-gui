@@ -17,7 +17,7 @@
     "showOptions": "Show options",
     "hideOptions": "Hide options",
     "noticeHeading": "Notice! More info on undelegated test",
-    "noticeLink": "/faq/#undelegated",
+    "noticeLink": "/en/faq/#undelegated",
     "noticeText": "What is an undelegated domain test?",
     "nameServers": "Nameservers",
     "nameserver": "Nameserver {index}",
