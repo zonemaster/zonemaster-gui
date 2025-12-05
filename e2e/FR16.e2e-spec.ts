@@ -14,7 +14,7 @@ test.describe('Zonemaster test FR16 - [The advanced view should have a text desc
         await page.waitForTimeout(400);
         const alert = page.locator('#advanced-options div[role="alert"]');
         await expect(alert).toBeVisible();
-        await expect(alert.locator('a')).toHaveAttribute('href', '/faq/#undelegated');
+        await expect(alert.locator('a')).toHaveAttribute('href', '/en/faq/#undelegated');
     });
 
     test('should have a description text in multi languages', async ({page}) => {
