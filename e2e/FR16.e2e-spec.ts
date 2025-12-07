@@ -21,7 +21,7 @@ test.describe('Zonemaster test FR16 - [The advanced view should have a text desc
         const testSuite = [
             {lang: 'en', text: 'undelegated'},
             {lang: 'fr', text: 'non délégué'},
-            {lang: 'sv', text: 'odelegerat domäntest'},
+            {lang: 'sv', text: 'odelegerat'},
         ];
 
         for (const {lang, text} of testSuite) {
