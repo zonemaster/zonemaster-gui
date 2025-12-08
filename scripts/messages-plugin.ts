@@ -7,18 +7,14 @@ interface MessagesPluginConfig {
 }
 
 function validateConfig(config: any): asserts config is MessagesPluginConfig {
-    if (!config || typeof config !== 'object') {
-        throw new Error('messagesPlugin: config is required and must be an object');
-    }
-    if (!config.defaultLanguage || typeof config.defaultLanguage !== 'string') {
-        throw new Error('messagesPlugin: config.defaultLanguage is required and must be a string');
-    }
-    if (!Array.isArray(config.enabledLanguages) || config.enabledLanguages.length === 0) {
-        throw new Error('messagesPlugin: config.enabledLanguages is required and must be a non-empty array');
-    }
-    if (!config.enabledLanguages.every((lang: any) => typeof lang === 'string')) {
-        throw new Error('messagesPlugin: config.enabledLanguages must contain only strings');
-    }
+    const errors = [];
+    if (!config?.defaultLanguage) errors.push('defaultLanguage is required');
+    if (!Array.isArray(config?.enabledLanguages) || !config.enabledLanguages.length)
+        errors.push('enabledLanguages must be a non-empty array');
+    if (config?.enabledLanguages?.some((l: any) => typeof l !== 'string'))
+        errors.push('enabledLanguages must contain only strings');
+
+    if (errors.length) throw new Error(`messagesPlugin: ${errors.join(', ')}`);
 }
 
 export function messagesIntegration() {
@@ -45,13 +41,8 @@ export default function messagesPlugin(config: MessagesPluginConfig) {
     const outDir = path.resolve(process.cwd(), 'src/messages');
 
     const regenerate = () => {
-        try {
-            console.log('🔄 Generating message files...');
-            generateMessages(langDir, outDir, config);
-        } catch (error) {
-            console.error('❌ Failed to generate message files:', error);
-            throw error;
-        }
+        console.log('🔄 Generating message files...');
+        generateMessages(langDir, outDir, config);
     };
 
     return {
