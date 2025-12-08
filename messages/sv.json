@@ -39,6 +39,8 @@
     "deleteRow": "Ta bort raden",
     "general": "Allmänt",
     "disable": "Inaktivera",
+    "only": "",
+    "ipv4AndIpv6": "IPv4 och IPv6",
     "resetForm": "Återställ formuläret",
     "programVersions": "Programversioner",
     "sourceCode": "Källkod",
