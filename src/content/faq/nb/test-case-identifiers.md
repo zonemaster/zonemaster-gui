@@ -3,8 +3,6 @@ question: Hva er Test Case Identifiers?
 category: Bruk av Zonemaster
 ---
 
-### Test Case Identifier Specification
-
 Alle testtilfeller tilhører et spesifikt testnivå, og navnene deres er basert på
 navnet på dette testnivået. Følgende testnivåer er definert og tilgjengelige:
 
