@@ -24,7 +24,6 @@ const languages = {
     <select
         class="zm-language-switcher__select"
         id="languageSwitcher"
-        data-source-language={config.defaultLanguage}
         data-current-language={currentLanguage}
     >
         {
@@ -42,9 +41,7 @@ const languages = {
 </div>
 <script>
     const languageSwitcher = document.getElementById('languageSwitcher');
-    const sourceLanguage = languageSwitcher?.getAttribute(
-        'data-source-language',
-    );
+
     function switchToLanguage(e: Event) {
         const currentLanguage = languageSwitcher?.getAttribute(
             'data-current-language',
