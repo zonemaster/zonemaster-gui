@@ -62,10 +62,6 @@ const languages = {
             `/${newLanguage}`,
         );
 
-        if (newLanguage === sourceLanguage) {
-            canonicalPath = canonicalPath.replace(`/${newLanguage}`, '');
-        }
-
         document.location.href = canonicalPath;
     }
 
