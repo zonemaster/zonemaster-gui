@@ -166,8 +166,9 @@ export const enabledLanguages: readonly Language[] = ${JSON.stringify(config.ena
 let _locale: Language = defaultLanguage;
 
 export const getLocale = (): Language => _locale;
+export const isValidLocale = (locale: unknown): locale is Language => enabledLanguages.includes(locale as Language);
 export const setLocale = (locale: unknown): void => {
-    if (enabledLanguages.includes(locale)) {
+    if (isValidLocale(locale)) {
         _locale = locale as Language;
     }
 };
