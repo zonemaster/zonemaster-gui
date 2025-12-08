@@ -2,7 +2,7 @@
     import type { Snippet } from 'svelte';
     import type { Severity } from '@/lib/alert.svelte.ts';
     import Button from '../Button/Button.svelte';
-    import * as m from '@/paraglide/messages';
+    import * as m from '@/messages';
 
     type Props = {
         severity: Severity;

@@ -21,7 +21,7 @@
     } from '@/lib/export.ts';
     import Copy from '../Copy/Copy.svelte';
     import { resultIcon } from '@/lib/resultIcon.ts';
-    import * as m from '@/paraglide/messages';
+    import * as m from '@/messages';
     import { groupResult } from '@/lib/groupResult.ts';
     import type { ResultFilter } from '@/types.ts';
 

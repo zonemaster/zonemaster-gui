@@ -2,9 +2,9 @@
 import { Image } from 'astro:assets';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import logo from '../../assets/images/zonemaster_logo_2021_color.svg';
-import { languageTag } from '../../paraglide/runtime';
+import { getLocale } from '@/messages';
 
-const currentLanguage = languageTag();
+const currentLanguage = getLocale();
 const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
 ---
 

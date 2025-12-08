@@ -1,5 +1,5 @@
 ---
-import { languageTag } from '@/paraglide/runtime';
+import { getLocale } from '@/messages';
 import '@theme/styles/styles.css';
 import '@/assets/fonts/bootstrap-icons.min.css';
 import '@/lib/styles/style.css';
@@ -13,7 +13,7 @@ const title = defaultTitle ? `${defaultTitle} – Zonemaster` : `Zonemaster`;
 ---
 
 <!doctype html>
-<html lang={languageTag()} dir={Astro.locals.paraglide.dir} class="no-js">
+<html lang={getLocale()} dir="ltr" class="no-js">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />

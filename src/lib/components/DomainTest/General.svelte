@@ -1,5 +1,5 @@
 <script lang="ts">
-    import * as m from '@/paraglide/messages';
+    import * as m from '@/messages';
     import Stack from '@/lib/components/Stack/Stack.svelte';
     import Grid from '@/lib/components/Grid/Grid.svelte';
     import Select from '@/lib/components/Select/Select.svelte';

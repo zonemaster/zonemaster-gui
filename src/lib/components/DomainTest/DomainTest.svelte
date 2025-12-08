@@ -3,7 +3,8 @@
 <script lang="ts">
     import Button from '../Button/Button.svelte';
     import Input from '../Input/Input.svelte';
-    import * as m from '@/paraglide/messages';
+    import * as m from '@/messages';
+    import { getLocale } from '@/messages';
     import Switch from '@/lib/components/Switch/Switch.svelte';
     import Advanced from '@/lib/components/DomainTest/Advanced.svelte';
     import Stack from '@/lib/components/Stack/Stack.svelte';
@@ -13,7 +14,6 @@
     import formToObj from '@/lib/formToObj.ts';
     import type { FaqItem } from '@/content.config.ts';
     import { getValidationErrorByPath } from '@/lib/getValidationErrorByPath.ts';
-    import { languageTag } from '@/paraglide/runtime';
     import { onMount } from 'svelte';
 
     type Props = {
@@ -54,7 +54,7 @@
     $effect(() => {
         if (currentState === 'complete' && previousState === 'testing') {
             const base = import.meta.env.BASE_URL;
-            document.location.href = `${base}${languageTag()}/result/${currentContext.testId}`;
+            document.location.href = `${base}${getLocale()}/result/${currentContext.testId}`;
             transition('RESET');
         }
     });

@@ -5,13 +5,12 @@
     "scripts": {
         "start": "npm run dev",
         "dev": "astro dev",
-        "build": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide && astro build",
+        "build": "astro build",
         "release": "npm run build && node scripts/create_release.js",
         "preview": "astro preview",
         "astro": "astro",
         "lib:build": "cd src/lib && vite build -c ./vite.config.js --outDir ../../dist --emptyOutDir",
         "lib:demo": "vite serve demo -c src/lib/vite.config.js",
-        "postinstall": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide",
         "e2e": "playwright --version && playwright test",
         "e2e:update": "playwright --version && playwright test --update-snapshots",
         "e2e:install": "playwright install chromium",
@@ -22,7 +21,6 @@
     "dependencies": {
         "@astrojs/node": "^9.4.3",
         "@astrojs/svelte": "^7.1.1",
-        "@inlang/paraglide-astro": "^0.4.1",
         "astro": "^5.13.7",
         "punycode": "^2.3.1",
         "remark-definition-list": "^2.0.0",
@@ -30,7 +28,6 @@
         "svelte": "^5.38.9"
     },
     "devDependencies": {
-        "@inlang/paraglide-js": "1.11.8",
         "@playwright/test": "^1.55.0",
         "@sveltejs/vite-plugin-svelte": "^6.2.0",
         "@tsconfig/svelte": "^5.0.5",

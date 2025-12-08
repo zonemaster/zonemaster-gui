@@ -1,6 +1,6 @@
 <svelte:options customElement={{ tag: 'zm-program-versions', shadow: 'none' }} />
 <script lang="ts">
-  import * as m from '@/paraglide/messages';
+  import * as m from '@/messages';
   import {versionInfo} from "@/lib/client.ts";
   import {error} from "@/lib/alert.svelte.ts";
   import Switch from '@/lib/components/Switch/Switch.svelte';
