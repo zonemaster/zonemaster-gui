@@ -17,7 +17,7 @@
     "showOptions": "Vis indstillinger",
     "hideOptions": "Skjul indstillinger",
     "noticeHeading": "Bemærk! Mere info om ikke-delegeret test",
-    "noticeLink": "/faq/#undelegated",
+    "noticeLink": "/da/faq/#undelegated",
     "noticeText": "Hvad er en ikke-delegeret domænetest?",
     "nameServers": "Navneservere",
     "nameserver": "Navneserver {index}",

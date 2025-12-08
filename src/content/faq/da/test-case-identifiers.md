@@ -1,12 +1,9 @@
 ---
-question: What are Test Case Identifiers?
-category: Using Zonemaster
+question: Hvad er testtilfældeidentifikatorer?
+category: Brug af Zonemaster
 ---
 
-### Test Case Identifier Specification
-
-All test cases belong to one specific test level and their names are based on
-that test level’s name. The following test levels are defined and available:
+Alle testtilfælde tilhører et specifikt testniveau, og deres navne er baseret på navnet på dette testniveau. Følgende testniveauer er defineret og tilgængelige:
 
 - Address
 - Basic
@@ -18,22 +15,15 @@ that test level’s name. The following test levels are defined and available:
 - Syntax
 - Zone
 
-The test level name is not case-sensitive, but the forms defined above
-must be used when referring to the test levels, i.e. only the first letter
-uppercase, expect for acronyms for which all uppercase is used.
-For example "Address" and neither "ADDRESS" nor "address".
+Navnet på testniveauet er ikke skriftstørrelsesfølsomt, men de former, der er defineret ovenfor, skal bruges, når der henvises til testniveauerne, dvs. kun den første bogstav er stort, undtagen akronymer, hvor alle bogstaver er store. For eksempel "Address" og hverken "ADDRESS" eller "address".
 
-The test case identifier in the test case specification (both in the main
-headline and in the "Test case identifier" section) uses the test level name,
-as defined above, and has the format: `{Test level name} + {Index}`
+Testtilfældeidentifikatoren i testtilfældespecifikationen (både i hovedoverskriften og i afsnittet "Testtilfældeidentifikator") bruger navnet på testniveauet, som defineret ovenfor, og har formatet: `{Testniveau navn} + {Indeks}`
 
-When referencing to a test case, for readability, the letter case defined
-above must be used for the test level name.
+Når der henvises til et testtilfælde, skal bogstavstørrelsen, der er defineret ovenfor, bruges til navnet på testniveauet for læsbarhed.
 
-The `{Index}` is a two-digit suffix 01-99, and should be selected so that the
-test case identifier is unique. Normally the first free index is selected.
+`{Indeks}` er et to-cifret suffiks 01-99, og skal vælges, så testtilfældeidentifikatoren er unik. Normalt vælges det første ledige indeks.
 
-Example of test case identifiers:
+Eksempler på testtilfældeidentifikatorer:
 
 - Address03
 - Basic04
