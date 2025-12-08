@@ -17,7 +17,7 @@
     "showOptions": "Näytä vaihtoehdot",
     "hideOptions": "Piilota vaihtoehdot",
     "noticeHeading": "Huomio! Lisätietoja ei-delegoidusta testistä",
-    "noticeLink": "/faq/#undelegated",
+    "noticeLink": "/fi/faq/#undelegated",
     "noticeText": "Mikä on ei-delegoitu verkkotunnustesti?",
     "nameServers": "Nimipalvelimet",
     "nameserver": "Nimipalvelin {index}",

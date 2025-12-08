@@ -3,8 +3,6 @@ question: Mitä Test Case -tunnisteet ovat?
 category: Zonemasterin käyttö
 ---
 
-### Test Case -tunnisteen määrittely
-
 Kaikki testitapaukset kuuluvat yhteen tiettyyn testitasoon, ja niiden nimet perustuvat
 tämän testitasoon nimeen. Seuraavat testitasot on määritelty ja saatavilla:
 
