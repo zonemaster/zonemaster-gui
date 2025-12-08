@@ -3,8 +3,6 @@ question: ¿Qué son los Identificadores de Casos de Prueba?
 category: Usando Zonemaster
 ---
 
-### Especificación de Identificadores de Casos de Prueba
-
 Todos los casos de prueba pertenecen a un nivel de prueba específico y sus nombres se basan en el nombre de ese nivel de prueba. Los siguientes niveles de prueba están definidos y disponibles:
 
 - Address

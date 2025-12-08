@@ -17,7 +17,7 @@
     "showOptions": "Mostrar opciones",
     "hideOptions": "Ocultar opciones",
     "noticeHeading": "¡Atención! Más información sobre la prueba no delegada",
-    "noticeLink": "/faq/#undelegated",
+    "noticeLink": "/es/faq/#undelegated",
     "noticeText": "¿Qué es una prueba de dominio no delegado?",
     "nameServers": "Servidores de nombres",
     "nameserver": "Servidor de nombres {index}",
