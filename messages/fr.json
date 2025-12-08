@@ -17,7 +17,7 @@
     "showOptions": "Afficher les options",
     "hideOptions": "Masquer les options",
     "noticeHeading": "Info ! Plus d'infos sur le test non délégué",
-    "noticeLink": "/faq/#undelegated",
+    "noticeLink": "/fr/faq/#undelegated",
     "noticeText": "Qu'est-ce qu'un test de domaine non délégué ?",
     "nameServers": "Serveurs de noms",
     "nameserver": "Serveur de noms {index}",
