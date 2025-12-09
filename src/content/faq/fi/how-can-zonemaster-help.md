@@ -3,6 +3,6 @@ question: Zonemaster palauttaa "Virhe" tai "Varoitus" verkkotunnukselleni. Mitä
 category: Zonemasterin käyttö
 ---
 
-Se riippuu siitä, mikä testi epäonnistui verkkotunnuksellesi. Jokaisella testillä on yksi tai useampi viesti, joka kuvaa löydettyjä ongelmia.
+Tämä riippuu siitä, mikä tai mitkä testit verkkotunnuksellesi ovat epäonnistuneet. Jokaisella testillä on yksi tai useampi viesti, jotka kuvaavat testauksen aikana havaittuja puutteita tai ongelmia.
 
 Voit myös saada lisätietoja jokaisesta testistä [Test Case Specification -dokumenteista](https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications).

@@ -3,7 +3,7 @@ question: Kuinka Zonemaster voi erottaa oikean ja väärän?
 category: Yleistä tietoa
 ---
 
-Zonemasterin tuomio perustuu pääasiassa DNS-standardien määrittelyihin RFC-dokumenteissa. Se perustaa myös tuomiotaan DNS:n parhaaseen käytäntöön, joka voi olla määritelty vapaammin.
+Zonemasterin arviointi perustuu ensisijaisesti DNS-standardeihin, jotka on määritelty RFC-dokumenteissa. Lisäksi arvioinnissa hyödynnetään DNS:n parhaita käytäntöjä (best practices), jotka voivat joissain tapauksissa olla vapaammin määriteltyjä kuin varsinaiset standardit.
 
 Kaikki Zonemasterin testit on määritelty [Test Case Specification -dokumenteissa](https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications), joissa löytyvät viitteet standardidokumenteihin jokaiselle testitapaukselle.
 

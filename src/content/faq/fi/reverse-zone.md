@@ -3,7 +3,7 @@ question: Kuinka voin testata "käänteisvyöhykettä" Zonemasterilla?
 category: Zonemasterin käyttö
 ---
 
-Käänteisvyöhykkeen tarkistamiseksi Zonemasterilla on ensin tiedettävä, mikä käänteisvyöhyke on, ja syöttää se DNS:ssä olevaan muotoon. Käänteisvyöhyke saadaan kääntämällä IP-osoite ja lisäämällä pääte. IPv4-osoitteet käyttävät pääteä "in-addr.arpa", kun taas IPv6-osoitteet käyttävät "ip6.arpa".
+Käänteisvyöhykkeen tarkistamiseksi Zonemasterilla on ensin tiedettävä, mikä käänteisvyöhyke on, ja syöttää se DNS:ssä käytettävään muotoon. Käänteisvyöhyke muodostetaan kääntämällä IP-osoitteen numerot toisinpäin ja lisäämällä siihen oikea pääte. IPv4-osoitteet käyttävät päätettä "in-addr.arpa", IPv6-osoitteet käyttävät päätettä "ip6.arpa".
 
 Esimerkit:
 

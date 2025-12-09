@@ -4,16 +4,16 @@ category: Zonemasterin käyttö
 ---
 
 Info
-: Viesti on jotain, joka voi olla vyöhykkeen ylläpitäjän kiinnostuksen kohteena, mutta joka ei varmasti osoita ongelmaa.
+: Viesti on luonteeltaan informatiivinen. Se voi olla vyöhykkeen ylläpitäjän kannalta kiinnostava, mutta se ei viittaa ongelmaan.
 
 Huomio
-: Viesti tarkoittaa jotain, joka tulisi vyöhykkeen ylläpitäjän tietää, mutta joka ei välttämättä ole ongelma ollenkaan.
+: Viesti kertoo asiasta, joka vyöhykkeen ylläpitäjän on hyvä tietää, mutta joka ei välttämättä ole varsinainen ongelma.
 
 Varoitus
-: Viesti tarkoittaa jotain, joka joissain olosuhteissa on ongelma, mutta jota satunnaiskäyttäjä todennäköisesti ei huomaisi.
+: Viesti viittaa seikkaan, joka tietyissä tilanteissa voi muodostua ongelmaksi, mutta jota tavallinen käyttäjä ei todennäköisesti huomaa.
 
 Virhe
-: Viesti tarkoittaa ongelmaa, joka todennäköisesti (tai mahdollisesti varmasti) vaikuttaa negatiivisesti testattavan vyöhykkeen toimintaan, mutta ei ole niin vakava, että koko vyöhyke muuttuu ratkaisemattomaksi.
+: Viesti kertoo ongelmasta, joka todennäköisesti vaikuttaa kielteisesti testattavan vyöhykkeen (verkkotunnuksen) toimintaan, mutta ei ole niin vakava, että koko vyöhyke lakkaisi toimimasta.
 
 Kriittinen
-: Viesti tarkoittaa erittäin vakavaa virhettä.
+: Viesti kertoo erittäin vakavasta virheestä, joka estää verkkotunnuksen toiminnan olennaisilta osin.

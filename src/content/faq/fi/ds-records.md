@@ -3,4 +3,4 @@ question: Voinko testata DS-tietueita ennen niiden julkaisua?
 category: Zonemasterin käyttö
 ---
 
-Kyllä. Käytä "Näytä vaihtoehdot" -painiketta ja lisää siellä testattavat Delegation Signer (DS) -tietueet. Zonemaster käyttää niitä sitten samalla tavalla kuin jos ne olisivat jo lisätty vanhempaan vyöhykkeeseen.
+Kyllä, se on mahdollista. Valitse "Näytä vaihtoehdot" ja lisää testattavat Delegation Signer (DS) -tietueet sitä kautta. Zonemaster käyttää näitä tietueita testissä samalla tavalla kuin jos ne olisi jo julkaistu ylätason vyöhykkeessä.

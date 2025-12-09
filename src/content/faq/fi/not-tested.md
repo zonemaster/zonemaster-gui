@@ -1,12 +1,12 @@
 ---
-question: Miksi verkkotunnukseni ei voi testata?
+question: Miksi verkkotunnustani ei voi testata?
 category: Zonemasterin käyttö
 ---
 
-On useita mahdollisuuksia.
+Tähän voi olla useita syitä.
 
-* Verkkotunnuksesi ei ole vielä delegoitu.
-* Verkkotunnuksesi ei ole saavutettavissa julkisesta Internetistä.
-* Zonemaster voi testata vain sitä, mikä tunnetaan DNS-vyöhykkeeksi, esimerkiksi 'zonemaster.net', eikä isäntänimiä, kuten 'www.zonemaster.net'.
-* On 10 minuutin suoja peräkkäisten testien välillä annetulle verkkotunnukselle, samalla testiparametreilla. Testin suorittaminen tässä ikkunassa näyttää sen sijaan viimeisimmän saatavilla olevan testin kyseiselle verkkotunnukselle ja parametreille.
-* Olet kirjoittanut verkkotunnuksesi väärin.
+* Verkkotunnustasi ei ole vielä delegoitu nimipalvelimille.
+* Verkkotunnus ei ole saavutettavissa julkisesta internetistä.
+*Zonemaster voi testata vain DNS-vyöhykkeitä (verkkotunnuksia), kuten 'zonemaster.net', eikä yksittäisiä isäntänimiä, kuten 'www.zonemaster.net'.
+* Samoilla testiparametreilla tehtävien peräkkäisten testien välillä on 10 minuutin suoja-aika. Tänä aikana uusi testaus näyttää viimeisimmän kyseiselle verkkotunnukselle ja parametreille suoritetun testin tuloksen.
+* Verkkotunnus on voitu kirjoittaa väärin.
