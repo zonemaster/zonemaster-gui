@@ -1,31 +1,55 @@
 <VirtualHost *:80>
-    DocumentRoot /var/www/html/zonemaster-web-gui/dist
+
+    # BASE_URL can be set and DEFAULT_LANGUAGE can be updated.
+
+    # Uncomment the following line *only* if the GUI is served from a
+    # subdirectory. The setting here must match the setting in config.ts.
+    # Must start with a slash, but not end with a slash.
+    # Define BASE_URL "/subdirectory" # Undefined by default
+
+    # Default language must be updated if "defaultLanguage" in config.ts is
+    # changed. Both must match.
+    Define DEFAULT_LANGUAGE "en"
+
+
+    # Nothing to set or update below. #
+
     DirectoryIndex index.html
 
-    # Define base url for rewriting, needs a trailing slash.
-    Define BASE_URL "/"
+    <IfDefine BASE_URL>
+        Alias ${BASE_URL} /var/www/html/zonemaster-web-gui/dist
+        Define API_BASE_URL "${BASE_URL}/api"
+    </IfDefine>
+
+    <IfDefine !BASE_URL>
+        DocumentRoot /var/www/html/zonemaster-web-gui/dist
+        Define API_BASE_URL "/api"
+    </IfDefine>
 
     <Directory /var/www/html/zonemaster-web-gui/dist>
-
-
         Options Indexes FollowSymLinks
         AllowOverride None
         Require all granted
 
         RewriteEngine On
+        <IfDefine BASE_URL>
+            RewriteBase ${BASE_URL}/
+        </IfDefine>
 
-        # Rewrite /result/{anything} to /result/id/index.html
+        # Rewrite /result/{anything} to {default_language}/result/id/index.html
         RewriteCond %{REQUEST_FILENAME} !-f
         RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule ^result/[^/]+/?$ /result/id/index.html [L]
+        RewriteRule ^result/[^/]+/?$ ${DEFAULT_LANGUAGE}/result/id/index.html [L]
 
         # Rewrite /{lang}/result/{anything} to /{lang}/result/id/index.html
         RewriteCond %{REQUEST_FILENAME} !-f
         RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule ^([^/]+)/result/[^/]+/?$ /$1/result/id/index.html [L]
+        RewriteRule ^([^/]+)/result/[^/]+/?$ $1/result/id/index.html [L]
     </Directory>
 
-    ProxyPass ${BASE_URL}api http://localhost:5000/
-    ProxyPassReverse ${BASE_URL}api http://localhost:5000/
-    ProxyPreserveHost On
+    <Location "${API_BASE_URL}">
+        ProxyPass http://localhost:5000/
+        ProxyPassReverse http://localhost:5000/
+        ProxyPreserveHost On
+    </Location>
 </VirtualHost>

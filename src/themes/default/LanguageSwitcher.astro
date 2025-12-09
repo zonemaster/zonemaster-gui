@@ -43,6 +43,7 @@ const languages = {
     const languageSwitcher = document.getElementById('languageSwitcher');
 
     function switchToLanguage(e: Event) {
+        const base = import.meta.env.BASE_URL;
         const currentLanguage = languageSwitcher?.getAttribute(
             'data-current-language',
         );
@@ -50,13 +51,13 @@ const languages = {
         const newLanguage = target.value;
         let canonicalPath = document.location.pathname;
 
-        if (!canonicalPath.startsWith(`/${currentLanguage}`)) {
-            canonicalPath = `/${currentLanguage}${canonicalPath}`;
+        if (!canonicalPath.startsWith(`${base}${currentLanguage}`)) {
+            canonicalPath = canonicalPath.replace(`${base}`, `${base}${currentLanguage}`);
         }
 
         canonicalPath = canonicalPath.replace(
-            `/${currentLanguage}`,
-            `/${newLanguage}`,
+            `${base}${currentLanguage}`,
+            `${base}${newLanguage}`,
         );
 
         document.location.href = canonicalPath;
