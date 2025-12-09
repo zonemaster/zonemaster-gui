@@ -5,8 +5,8 @@ category: Yleistä tietoa
 
 Zonemasterin arviointi perustuu ensisijaisesti DNS-standardeihin, jotka on määritelty RFC-dokumenteissa. Lisäksi arvioinnissa hyödynnetään DNS:n parhaita käytäntöjä (best practices), jotka voivat joissain tapauksissa olla vapaammin määriteltyjä kuin varsinaiset standardit.
 
-Kaikki Zonemasterin testit on määritelty [Test Case Specification -dokumenteissa](https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications), joissa löytyvät viitteet standardidokumenteihin jokaiselle testitapaukselle.
+Kaikki Zonemasterin testit on määritelty [Test Case Specification -dokumenteissa](https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications), joissa on esitetty myös viittaukset kuhunkin testiin liittyviin standardidokumentteihin.
 
 Viestiä _HUOMIO_, _VAROITUS_ ja _VIRHE_ koskevat kuvaukset löytyvät [Severity Level Definitions](https://github.com/zonemaster/zonemaster/blob/master/docs/public/specifications/tests/SeverityLevelDefinitions.md) -dokumentista.
 
-Joskus standardien tulkinnat tai mielipiteet siitä, mikä on paras käytäntö, voivat vaihdella, ja Zonemaster-tiimi on aina avoin palautteelle. Jos luulet, että olemme tehneet virheen tuomiossamme, älä epäröi lähettää meille sähköpostia osoitteeseen [zonemaster-users@lists.iis.se](mailto:zonemaster-users@lists.iis.se) (moderattu postilista) linkin testitulokseesi ja selityksen siitä, miksi luulet, että se näyttää jotain, mitä pidät vääränä.
+Toisinaan standardien tulkinnat tai näkemykset parhaista käytännöistä voivat vaihdella, ja Zonemaster-tiimi ottaa aina mielellään vastaan palautetta. Jos epäilet, että analyysissa on tapahtunut virhe, voit lähettää meille sähköpostia osoitteeseen [zonemaster-users@lists.iis.se](mailto:zonemaster-users@lists.iis.se) (moderoitu postilista). Liitä viestiin linkki testitulokseesi sekä perustelu sille, miksi uskot tuloksen olevan virheellinen.
