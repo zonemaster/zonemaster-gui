@@ -24,7 +24,7 @@
     "deleteNameserver": "Supprimer le serveur de noms {index}",
     "name": "Nom",
     "addressOptional": "Adresse (facultatif)",
-    "fetchNameservers": "Récupérer les serveurs de noms à partir de la zone parent",
+    "fetchNameservers": "Récupérer les serveurs de noms à partir de la zone parente",
     "noNameservers": "Aucun serveur de noms trouvé dans la zone parent",
     "fetching": "Récupération en cours...",
     "DSRecords": "Enregistrements DS",
