@@ -47,7 +47,7 @@
     "documentation": "Dokumentasjon",
     "copyright": "Opphavsrett © AFNIC og The Swedish Internet Foundation. Alle rettigheter reservert",
     "infoHeading1": "Hva er Zonemaster?",
-    "infoPreamble": "Gi din domene et fullstendig helsesjekk! Zonemaster hjelper deg med å vurdere hvordan din domene fungerer.",
+    "infoPreamble": "Gi ditt domene et fullstendig helsesjekk! Zonemaster hjelper deg med å vurdere hvordan ditt domene fungerer.",
     "infoTextParagraph1": "Når en domene sendes til Zonemaster for testing, undersøker Zonemaster tilstanden til domenen fra toppen til bunnen av DNS-treet. Dette gjøres vanligvis ved å undersøke DNS-data fra roten, '.', til Top-Level Domain (TLD) for den domenen, som '.net', og deretter gjennom DNS-servere som inneholder autoritativ informasjon om den spesifiserte domenen.",
     "infoTextStrong": "Zonemaster utfører mange tester,",
     "infoTextParagraph2": "som å sjekke DNSSEC-signaturer, eller at ulike vertsmaskiner kan tilgangs og at IP-adresser er gyldige. Alt dette for å sikre at din domene fungerer så jevnt som mulig.",
