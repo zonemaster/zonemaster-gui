@@ -1,8 +1,8 @@
 ---
-question: Zonemaster returnerar "Error" eller "Warning" för mitt domännamn. Vad betyder det?
+question: Zonemaster rapporterar "Fel" eller "Varning" för mitt domännamn. Vad betyder det?
 category: Använda Zonemaster
 ---
 
-Det beror på vilket test som misslyckades för ditt domännamn. Varje test åtföljs av ett eller flera meddelanden som beskriver de problem som hittats.
+Det beror på vilket testfall som misslyckades för ditt domännamn. Varje testfall åtföljs av ett eller flera meddelanden som beskriver de problem som hittades.
 
-Du kan också få ytterligare insikt om varje test från [Test Case Specification documents](https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications).
+Du kan också få ytterligare information om varje testfall från [Test Case Specification documents](https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications).

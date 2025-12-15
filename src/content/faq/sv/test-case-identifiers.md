@@ -1,5 +1,5 @@
 ---
-question: Vad är testfallsidentifierare?
+question: Vad är en testfallsidentifierare?
 category: Använda Zonemaster
 ---
 
@@ -25,7 +25,7 @@ Testfallsidentifieraren i testfallspecifikationen (både i huvudrubriken och i a
 
 Vid referens till ett testfall ska, för läsbarhetens skull, skiftläget för testnivånamnet användas enligt definitionen ovan.
 
-`{Index}` är ett tvåsiffrigt suffix 01–99 och bör väljas så att testfallsidentifieraren är unik. Normalt väljs det första lediga indexet.
+`{Index}` är ett tvåsiffrigt suffix 01–99 och ska väljas så att testfallsidentifieraren är unik. Normalt väljs det första lediga indexet.
 
 Exempel på testfallsidentifierare:
 
