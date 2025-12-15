@@ -3,7 +3,7 @@ question: Kaj so Identifikatorji primerov testov?
 category: Uporaba Zonemasterja
 ---
 
-Vsi primeri testov spadajo v eno specifično ravno testov in njihova imena temeljijo na imenu te ravni testov. Definirane in dostopne so naslednje ravni testov:
+Testi so razporejeni v različne skupine. Njihova imena temeljijo na imenu skupine. Definirane so naslednje skupine testov:
 
 - Address
 - Basic
@@ -15,15 +15,15 @@ Vsi primeri testov spadajo v eno specifično ravno testov in njihova imena temel
 - Syntax
 - Zone
 
-Ime ravni testov ni občutljivo na velikost črk, vendar morajo biti uporabljene oblike, kot so definirane zgoraj, ko se sklicujete na ravni testov, to je samo prva črka velika, razen za akronime, za katere je uporabljena vsa velika črka. Na primer "Address" in niti "ADDRESS" niti "address".
+Ime skupine testov ni občutljivo na velikost črk, vendar morajo biti uporabljene oblike, kot so definirane zgoraj, ko se sklicujete na skupino testov, to je samo prva črka velika, razen za akronime, ki so pisani z velikimi črkami. 
 
-Identifikator primerov testov v specifikaciji primerov testov (tako v glavnem naslovu kot v "Identifikator primerov testov" sekciji) uporablja ime ravni testov, kot je definirano zgoraj, in ima format: `{Ime ravni testov} + {Indeks}`
+Identifikator testa v specifikaciji testov uporablja ime skupine testov (definirano zgoraj) in ima format: `{Ime skupine testov} + {Indeks}`
 
-Ko se sklicujete na primer testov, mora biti za razberljivost uporabljena velikost črk, kot je definirana zgoraj za ime ravni testov.
+Ko se sklicujete na test, mora biti za lažjo določitev uporabljena velikost črk, kot je definirana zgoraj za skupino testov.
 
-`{Indeks}` je dvomestni priponk 01-99 in mora biti izbran tako, da je identifikator primerov testov edinstven. Običajno je izbran prvi prost indeks.
+`{Indeks}` je dvomestno število 01-99 in mora biti izbrano tako, da je identifikator testa enoličen. Običajno je izbran prvi prost indeks.
 
-Primeri identifikatorjev primerov testov:
+Primeri identifikatorjev testov:
 
 - Address03
 - Basic04

@@ -1,10 +1,10 @@
 ---
-question: Kaj je test neposrednega domena?
+question: Kaj je test nedelegirane domena?
 category: Uporaba Zonemasterja
 ---
 
-Test neposrednega domena je test, ki ga izvajajo na imenu domene, ki je lahko, ali pa ni, popolnoma objavljeno v DNS.
+Test nedelegirane domene je test, ki ga izvedete na domeni, ki je lahko, ali pa ni, objavljena v starševski coni.
 
-To je zelo uporabno, če nameravate prestaviti svoje ime domene od enega registratorja k drugemu, na primer prestaviti cono 'example.com' od strežnika imen 'ns.example.com' na strežnik imen 'ns.example.org'. V tej scenariju lahko izvedete test neposrednega domena, kjer podate cono ('example.com') in strežnik imen, kamor se prestavljate ('ns.example.org'), preden prestavite svoje ime domene.
+To je uporabno, če nameravate prestaviti svojo domeno od enega DNS ponudnika k drugemu, na primer prestaviti cono 'example.com' iz domenskega strežnika 'ns.test.com' na domenski strežnik  'ns.example.org'. V tej primeru lahko izvedete test nedelegirane domene, kjer podate domeno ('example.com') in domenski strežnik , kamor prestavljate vašo domeno ('ns.example.org'), preden zares prestavite vašo domeno.
 
-Ko rezultati testa ne prikazujejo nobenih napak ali opozoril, lahko z veliko verjetnostjo sklepate, da deluje nova lokacija vašega domena. Vendar pa lahko še vedno obstajajo drugi problemi v podatkih zone samega, ki jih ta test ne pozna.
+Ko rezultati testov ne prikažejo nobenih napak ali opozoril, lahko z veliko verjetnostjo sklepate, da nova lokacija vaše domene deluje, kot je treba. Lahko pa še vedno obstajajo drugi problemi v podatkih cone, ki jih ta Zonemaster ne pozna.
