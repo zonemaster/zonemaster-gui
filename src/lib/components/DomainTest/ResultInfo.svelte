@@ -43,7 +43,7 @@
         query: '',
     });
     const rawData = $derived(data.results);
-    const result = $state(groupResult(data.results));
+    const result = $derived(groupResult(data.results));
     let showExport = $state(false);
     let showShare = $state(false);
     let showURL = $state(false);
@@ -149,10 +149,10 @@
                     type="button"
                     aria-controls="copyTLDURLDialog"
                     onclick={() => {
-                            showURL = !showURL;
-                            showExport = false;
-                            showShare = false;
-                        }}
+                        showURL = !showURL;
+                        showExport = false;
+                        showShare = false;
+                    }}
                     id="zmTLDURLButton"
                 >
                     <i class="bi bi-link-45deg"></i>
@@ -166,8 +166,8 @@
                 >
                     <div
                         class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack[
-                                'gap--s'
-                            ]}"
+                            'gap--s'
+                        ]}"
                     >
                         <Input
                             matchContentWidth
@@ -211,19 +211,27 @@
                     >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportJson(data)}> {m.exportJson()}</button
+                            onmousedown={() => exportJson(data)}
+                        >
+                            {m.exportJson()}</button
                         >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportHTML(data)}> {m.exportHtml()}</button
+                            onmousedown={() => exportHTML(data)}
+                        >
+                            {m.exportHtml()}</button
                         >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportCSV(data)}> {m.exportCsv()}</button
+                            onmousedown={() => exportCSV(data)}
+                        >
+                            {m.exportCsv()}</button
                         >
                         <button
                             class="zm-popover__plain-btn"
-                            onmousedown={() => exportText(data)}> {m.exportText()}</button
+                            onmousedown={() => exportText(data)}
+                        >
+                            {m.exportText()}</button
                         >
                     </div>
                 </div>
