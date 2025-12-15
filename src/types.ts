@@ -22,6 +22,7 @@ export type SiteInfo = {
 export type Config = {
     defaultLanguage: string;
     enabledLanguages: string[];
+    baseUrl: string;
     apiBaseUrl: string;
     pollingInterval: number;
     clientInfo: ClientInfo;

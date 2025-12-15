@@ -12,6 +12,8 @@ import config from './src/config.js';
 
 // https://astro.build/config
 export default defineConfig({
+    base: config.baseUrl,
+    trailingSlash: "always",
     output: process.env.NODE_ENV === 'production' ? 'static' : 'server',
 
     outDir: './public/dist',

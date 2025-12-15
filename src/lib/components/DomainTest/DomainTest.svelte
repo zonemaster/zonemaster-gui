@@ -53,7 +53,8 @@
 
     $effect(() => {
         if (currentState === 'complete' && previousState === 'testing') {
-            document.location.href = `/${languageTag()}/result/${currentContext.testId}`;
+            const base = import.meta.env.BASE_URL;
+            document.location.href = `${base}${languageTag()}/result/${currentContext.testId}`;
             transition('RESET');
         }
     });

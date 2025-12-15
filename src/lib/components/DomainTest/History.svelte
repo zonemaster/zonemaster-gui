@@ -1,5 +1,6 @@
 <script lang="ts">
     import * as m from '@/paraglide/messages';
+    import { languageTag } from '@/paraglide/runtime';
     import Button from '@/lib/components/Button/Button.svelte';
     import ButtonGroup from '@/lib/components/ButtonGroup/ButtonGroup.svelte';
     import { getTestHistory, type ResultData, type TestHistoryItem } from '@/lib/client.js';
@@ -91,7 +92,7 @@
     <ul>
         {#each paginatedHistory as item}
             <li class="{item.overall_result}">
-                <a href={`/result/${item.id}`} onclick={onClickLink}>
+                <a href={`${import.meta.env.BASE_URL}${languageTag()}/result/${item.id}`} onclick={onClickLink}>
                     {formatDate(item.created_at)}
                 </a>
                 {#if item.undelegated}
