@@ -1,5 +1,29 @@
 Release history for Zonemaster component Zonemaster-GUI
 
+v5.0.0 2025-12-17 (part of Zonemaster v2025.2 release)
+
+ [Release information]
+ - The GUI in this release has been completely rewritten. The changes are
+   not the look and feel, but under the hood. With start in this version
+   Zonemaster-GUI support complete customization of the GUI. You will
+   find the information how-to under configuration of GUI.
+
+ [Breaking changes]
+ - The GUI API has changed. It has no longer support for starting a
+   test directly from the URL. You will find more information in the
+   documentation on using the GUI.
+ - Configuration done in "app.config.json" for Zonemaster-GUI for
+   previous version where run-time configuration. Most of that
+   configuration has now become build-time configuration. See
+   information for configurating the GUI.
+
+ [Features]
+ - Rewritten GUI (#511, #523, #521, #520, #519, #517, #516, #514)
+
+ [Fixes]
+ - Ported and updated translation of messages and FAQ for the new GUI
+   (#518, #508, #507, #506, #505, #503, #502)
+
 
 v4.4.0 2025-03-04 (part of Zonemaster v2024.2.1 release)
 
