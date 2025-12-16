@@ -1,6 +1,6 @@
 <script lang="ts">
-    import * as m from '@/paraglide/messages';
-    import { languageTag } from '@/paraglide/runtime';
+    import * as m from '@/messages';
+    import { getLocale } from '@/messages';
     import Button from '@/lib/components/Button/Button.svelte';
     import ButtonGroup from '@/lib/components/ButtonGroup/ButtonGroup.svelte';
     import {
@@ -110,7 +110,7 @@
         {#each paginatedHistory as item}
             <li class={item.overall_result}>
                 <a
-                    href={`${import.meta.env.BASE_URL}${languageTag()}/result/${item.id}`}
+                    href={`${import.meta.env.BASE_URL}${getLocale()}/result/${item.id}`}
                     onclick={onClickLink}
                 >
                     {formatDate(item.created_at)}

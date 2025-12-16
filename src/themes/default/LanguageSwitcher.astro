@@ -1,9 +1,9 @@
 ---
-import { languageTag } from '@/paraglide/runtime';
-import * as m from '@/paraglide/messages';
+import { getLocale } from '@/messages';
+import * as m from '@/messages';
 import config from '@/config';
 
-const currentLanguage = languageTag();
+const currentLanguage = getLocale();
 const languages = {
     en: 'English',
     sv: 'Svenska',

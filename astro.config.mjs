@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import paraglide from '@inlang/paraglide-astro';
 import remarkGfm from 'remark-gfm';
 import {
     remarkDefinitionList,
@@ -9,6 +8,7 @@ import {
 import svelte from '@astrojs/svelte';
 import node from '@astrojs/node';
 import config from './src/config.js';
+import messagesPlugin, { messagesIntegration } from './scripts/messages-plugin.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -33,17 +33,20 @@ export default defineConfig({
     },
 
     integrations: [
-        paraglide({
-            // recommended settings
-            project: './project.inlang',
-            outdir: './src/paraglide'
-        }),
         svelte({
             compilerOptions: {
                 customElement: true
             }
-        })
+        }),
+        messagesIntegration()
     ],
+
+    vite: {
+        plugins: [messagesPlugin({
+            defaultLanguage: config.defaultLanguage,
+            enabledLanguages: config.enabledLanguages,
+        })],
+    },
 
     adapter: process.env.NODE_ENV === 'production' ? undefined : node({
         mode: 'standalone'

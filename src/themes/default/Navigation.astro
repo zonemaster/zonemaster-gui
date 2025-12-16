@@ -1,9 +1,9 @@
 ---
-import * as m from '../../paraglide/messages.js';
+import * as m from '@/messages';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { languageTag } from '../../paraglide/runtime';
+import { getLocale } from '@/messages';
 
-const currentLanguage = languageTag();
+const currentLanguage = getLocale();
 const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
 const faqUrl = getRelativeLocaleUrl(currentLanguage, '/faq');
 const { pathname } = Astro.url;

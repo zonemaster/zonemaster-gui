@@ -1,5 +1,5 @@
 <script lang="ts">
-    import * as m from '@/paraglide/messages';
+    import * as m from '@/messages';
     import Grid from '@/lib/components/Grid/Grid.svelte';
     import Input from '@/lib/components/Input/Input.svelte';
     import Button from '@/lib/components/Button/Button.svelte';

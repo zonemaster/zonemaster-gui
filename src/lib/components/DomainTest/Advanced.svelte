@@ -1,5 +1,5 @@
 <script>
-    import * as m from '@/paraglide/messages';
+    import * as m from '@/messages';
     import Records from '@/lib/components/DomainTest/Records.svelte';
     import Nameservers from '@/lib/components/DomainTest/Nameservers.svelte';
     import General from '@/lib/components/DomainTest/General.svelte';
