@@ -1,36 +1,41 @@
-const { test, expect } = require('@playwright/test');
+import {test, expect} from './global-setup';
 
-import { goToHome, setLang, showOptions } from './utils/app.utils';
+import {goToHome, setLang, showOptions} from './utils/app.utils';
 
 test.describe('Zonemaster test FR19 - [The GUI should be able to run the test with at least one name server as input]', () => {
-  test.beforeEach(async ({ page }) => {
-    await goToHome(page);
-    await setLang(page, 'en');
-    await showOptions(page);
-  });
+    test.beforeEach(async ({page}) => {
+        await goToHome(page);
+        await setLang(page, 'en');
+        await page.waitForLoadState('networkidle');
+        await showOptions(page);
+    });
 
-  test('should NOT display progress bar when we add a NS ip',  async ({ page }) => {
-    await expect(page.locator('.progress-bar')).toBeHidden();
-    await page.locator('#domain-input').type('progress.afNiC.Fr');
-    await page.locator('input[formControlName="ip"]').type('192.134.4.1');
-    await page.locator('div button.launch').click();
+    test('should NOT display progress bar when we add a NS ip', async ({page}) => {
+        await expect(page.locator('.zm-domain-test__progress-bar')).toHaveCount(0);
 
-    // Error message visible to the user
-    await expect(page.locator('input[formControlName="ns"] ~ .invalid-feedback')).toBeVisible();
-    await expect(page.locator('input[formControlName="ns"] ~ .invalid-feedback')).toContainText('required');
+        await page.locator('input[name="domain"]').first().focus();
+        await page.keyboard.type('progress.afNiC.Fr');
 
-    try {
-      await expect(page.locator('.progress-bar')).toBeVisible();
-    } catch {}
+        await page.locator('input[name="nameservers[0][ip]"]').first().focus();
+        await page.keyboard.type('192.134.4.1');
 
-    await expect(page.locator('.progress-bar')).toBeHidden();
-  });
+        await page.keyboard.press('Enter');
 
-  test('should display progress bar when we add a NS name',  async ({ page }) => {
-    await expect(page.locator('.progress-bar')).toBeHidden();
-    await page.locator('#domain-input').type('progress.afNiC.Fr');
-    await page.locator('input[formControlName="ns"]').type('ns1.nic.fr');
-    await page.locator('div button.launch').click();
-    await expect(page.locator('.progress-bar')).toBeVisible({ timeout: 10000 });
-  });
+        await expect(page.locator('input[name="nameservers[0][ns]"]:invalid')).toHaveCount(1);
+        await expect(page.locator('.zm-domain-test__progress-bar')).toHaveCount(0);
+    });
+
+    test('should display progress bar when we add a NS name', async ({page}) => {
+        await expect(page.locator('.zm-domain-test__progress-bar')).toHaveCount(0);
+
+        await page.locator('input[name="domain"]').first().focus();
+        await page.keyboard.type('progress.afNiC.Fr');
+
+        await page.locator('input[name="nameservers[0][ns]"]').first().focus();
+        await page.keyboard.type('ns1.nic.fr');
+
+        await page.keyboard.press('Enter');
+
+        await expect(page.locator('.zm-domain-test__progress-bar')).toHaveCount(1);
+    });
 });

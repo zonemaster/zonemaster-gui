@@ -1,0 +1,15 @@
+---
+import Welcome from '@theme/StartTest.astro';
+import Layout from '@theme/Layout.astro';
+import config from '@/config';
+
+export function getStaticPaths() {
+    return config.enabledLanguages.map((lang) => ({ params: { lang } }));
+}
+
+export const prerender = true;
+---
+
+<Layout>
+    <Welcome />
+</Layout>

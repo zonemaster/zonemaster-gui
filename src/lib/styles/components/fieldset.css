@@ -1,0 +1,9 @@
+.zm-fieldset {
+    border: 0;
+    margin-top: var(--spacing-s);
+
+    legend {
+        font-weight: 700;
+        margin-bottom: var(--spacing-xs);
+    }
+}

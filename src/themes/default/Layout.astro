@@ -1,0 +1,31 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Skip from './Skip.astro';
+import Header from './Header.astro';
+import Content from './Content.astro';
+import Alerts from '@/lib/components/Alert/Alerts.svelte';
+import Footer from './Footer.astro';
+import Banner from './Banner.astro';
+
+interface Props {
+    title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<BaseLayout title={title}>
+    <Skip />
+    <Header />
+    <Banner />
+    <Content>
+        <slot />
+    </Content>
+    <Footer />
+    <Alerts client:idle />
+
+    <script src="./scripts/tab-highlighting.js" />
+    <script src="./scripts/a11y-toggle.js" />
+    <script src="./scripts/icon-toggle.js" />
+    <script src="./scripts/text-toggle.js" />
+</BaseLayout>

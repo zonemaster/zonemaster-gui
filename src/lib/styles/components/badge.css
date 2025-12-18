@@ -1,0 +1,82 @@
+.zm-badge {
+    background: var(--color-muted);
+    color: var(--color-palette-white);
+    font-size: calc(var(--font-xs) * 1.2);
+    border-radius: var(--border-radius);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xxs);
+    justify-content: center;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1;
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    text-shadow: 0 0 5px var(--badge-color-dark);
+
+    &.zm-bg-default {
+        background: var(--color-palette-info-10);
+        color: var(--color-muted);
+
+        &.zm-badge--border {
+            border: 1px solid var(--color-palette-info-30);
+        }
+    }
+
+    &.zm-bg-info {
+        background: var(--color-palette-success-50);
+        --badge-color-dark: var(--color-palette-success-70);
+    }
+
+    &.zm-bg-notice {
+        background: var(--color-palette-info-50);
+        --badge-color-dark: var(--color-palette-info-70);
+    }
+
+    &.zm-bg-warning {
+        background: var(--color-palette-warning-50);
+        color: var(--color-palette-black);
+        --badge-color-dark: '';
+    }
+
+    &.zm-bg-error {
+        background: var(--color-palette-error-50);
+        --badge-color-dark: var(--color-palette-error-70);
+    }
+
+    &.zm-bg-critical {
+        background: var(--color-palette-error-70);
+        --badge-color-dark: '';
+    }
+
+    &.zm-badge--round {
+        border-radius: 9999px;
+        font-size: var(--font-xs);
+
+        &.zm-bg-info {
+            background: var(--color-palette-success-70);
+        }
+
+        &.zm-bg-notice {
+            background: var(--color-palette-info-70);
+        }
+
+        &.zm-bg-warning {
+            background: var(--color-palette-warning-70);
+            color: var(--color-palette-white);
+        }
+
+        &.zm-bg-error {
+            background: var(--color-palette-error-70);
+        }
+
+        &.zm-bg-critical {
+            background: var(--color-palette-error-90);
+        }
+    }
+
+    &.zm-badge--small {
+        font-size: var(--font-xs);
+        padding: var(--spacing-xxs) var(--spacing-xs);
+        border-radius: calc(var(--border-radius) / 2);
+    }
+}

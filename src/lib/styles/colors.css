@@ -1,0 +1,19 @@
+.zm-bg-info {
+    background: var(--color-palette-success-50);
+}
+
+.zm-bg-notice {
+    background: var(--color-palette-info-50);
+}
+
+.zm-bg-warning {
+    background: var(--color-palette-warning-50);
+}
+
+.zm-bg-error {
+    background: var(--color-palette-error-50);
+}
+
+.zm-bg-critical {
+    background: var(--color-palette-error-70);
+}

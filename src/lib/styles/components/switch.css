@@ -1,0 +1,7 @@
+.zm-switch {
+    cursor: pointer;
+
+    label {
+        cursor: pointer;
+    }
+}

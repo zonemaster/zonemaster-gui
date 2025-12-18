@@ -1,0 +1,13 @@
+---
+import { Image } from 'astro:assets';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import logo from '../../assets/images/zonemaster_logo_2021_color.svg';
+import { getLocale } from '@/messages';
+
+const currentLanguage = getLocale();
+const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
+---
+
+<a href={homeUrl} class="zm-logo">
+    <Image src={logo} alt="Zonemaster" height={48} loading="eager" />
+</a>
