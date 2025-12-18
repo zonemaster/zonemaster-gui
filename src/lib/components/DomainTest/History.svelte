@@ -110,7 +110,7 @@
         {#each paginatedHistory as item}
             <li class={item.overall_result}>
                 <a
-                    href={`${import.meta.env.BASE_URL}${getLocale()}/result/${item.id}`}
+                    href={`${import.meta.env.BASE_URL}${getLocale()}/result/${item.id}/`}
                     onclick={onClickLink}
                 >
                     {formatDate(item.created_at)}
