@@ -42,15 +42,10 @@
         },
         query: '',
     });
-    const rawData = $derived(data.results);
-    const result = $derived(groupResult(data.results));
-    let showExport = $state(false);
-    let showShare = $state(false);
-    let showURL = $state(false);
-
-    function filterResults() {
+    const result = $derived.by(() => {
+        const newResult = groupResult(data.results);
         const filtered = groupResult(
-            rawData.filter(
+            data.results.filter(
                 (r) =>
                     (filter.levels[r.level] || filter.levels['ALL']) &&
                     (!filter.query.length ||
@@ -60,9 +55,14 @@
             ),
         );
 
-        result.modules = filtered.modules;
-        result.modulesMap = filtered.modulesMap;
-    }
+        newResult.modules = filtered.modules;
+        newResult.modulesMap = filtered.modulesMap;
+
+        return newResult;
+    });
+    let showExport = $state(false);
+    let showShare = $state(false);
+    let showURL = $state(false);
 
     function onCheck({ target }: Event) {
         const { value, checked } = target as HTMLInputElement;
@@ -84,13 +84,10 @@
         if (Object.values(filter.levels).every((v) => !v)) {
             filter.levels['ALL'] = true;
         }
-
-        filterResults();
     }
 
     function onQueryChange({ target }: Event) {
         filter.query = (target as HTMLInputElement).value;
-        filterResults();
     }
 
     function expandAllModules() {
