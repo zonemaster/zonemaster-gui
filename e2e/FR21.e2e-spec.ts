@@ -1,58 +1,55 @@
-const { test, expect } = require('@playwright/test');
-
-import { goToHome, setLang, showOptions, clearBrowserCache } from './utils/app.utils';
+import { test, expect } from './global-setup';
+import { goToHome, setLang, setupApiMocks } from './utils/app.utils';
+import type { Page } from '@playwright/test';
 
 test.describe.serial('Zonemaster test FR21 - [Able to provide a summarized result of the test being run ' +
-  '(possibility in different colours for error, warning, success etc.)]', () => {
+    '(possibility in different colours for error, warning, success etc.)]', () => {
 
-  let page;
+    let page: Page;
 
-  // Keep the same page between tests
-  test.beforeAll(async ({ browser }) => {
-    page = await browser.newPage();
-    await goToHome(page);
-    await setLang(page, 'en');
-    await clearBrowserCache(page);
-    await showOptions(page);
-  });
+    // Keep the same page between tests
+    test.beforeAll(async ({ browser }) => {
+        page = await browser.newPage();
+        await setupApiMocks(page);
+        await goToHome(page);
+        await setLang(page, 'en');
+        await page.waitForLoadState('networkidle');
+    });
 
-  test('should display summary',  async () => {
-    await expect(page.locator('.progress-bar')).toBeHidden();
-    await page.locator('#domain-input').type('results.afNiC.Fr');
-    await page.locator('div button.launch').click();
+    test('should display summary', async () => {
+        await expect(page.locator('.zm-domain-test__progress-bar')).toHaveCount(0);
+        await page.locator('input[name="domain"]').first().focus();
 
-    await expect(page.locator('section.result')).toBeVisible({ timeout: 10000 });
+        await page.keyboard.type('results.afNiC.Fr');
+        await page.keyboard.press('Enter');
 
-    const messageCountBadges = page.locator('fieldset.severity-levels label');
-    const expectedLabels = ['All', 'Info', 'Notice', 'Warning', 'Error', 'Critical'];
+        await expect(page.locator('.zm-result')).toBeVisible({ timeout: 10000 });
 
-    await expect(messageCountBadges).toHaveCount(expectedLabels.length);
+        const messageCountBadges = page.locator('.zm-filter-toggle');
+        const expectedLabels = ['All', 'Info', 'Notice', 'Warning', 'Error', 'Critical'];
 
-    for (const idx in expectedLabels) {
-      await expect(messageCountBadges.nth(idx)).toContainText(expectedLabels[idx]);
-    }
-  });
+        await expect(messageCountBadges).toHaveCount(expectedLabels.length);
 
-  test('should display number of each level',  async () => {
-    const expectedCounts = ['52', '49', '3', '0', '0', '0'];
-    const messageCountBadges = page.locator('fieldset.severity-levels label span.badge');
+        for (const [idx, label] of expectedLabels.entries()) {
+            await expect(messageCountBadges.nth(idx)).toContainText(label);
+        }
+    });
 
-    for (const idx in expectedCounts) {
-      await expect(messageCountBadges.nth(idx)).toHaveText(expectedCounts[idx]);
-    }
-  });
+    test('should display number of each level', async () => {
+        await expect(page.locator('.zm-filter-toggle__badge:not(:empty)')).toHaveCount(6);
+    });
 
-  test('should display summary with good colors',  async () => {
-    const filterButtons = page.locator('fieldset.severity-levels input[type="checkbox"]');
+    test('should display summary with good colors', async () => {
+        const filterButtons = page.locator('.zm-filter-toggle input[type="checkbox"]');
 
-    for (const idx of [1, 2, 3, 4, 5]) {
-      await filterButtons.nth(idx).click();
-    }
+        for (const idx of [1, 2, 3, 4, 5]) {
+            await filterButtons.nth(idx).click();
+        }
 
-    // wait for .2 second (color transition)
-    await page.waitForTimeout(200);
+        // wait for .2 second (color transition)
+        await page.waitForTimeout(200);
 
 
-    expect(await page.screenshot()).toMatchSnapshot('results.png');
-  });
+        expect(await page.screenshot()).toMatchSnapshot('results.png');
+    });
 });

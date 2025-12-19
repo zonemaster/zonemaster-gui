@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Zonemaster Lib Demo</title>
+    <script>
+        window.zonemaster = {
+            apiEndpoint: 'http://127.0.0.1:8080/api',
+            pollingInterval: 1000,
+        };
+    </script>
+</head>
+<body>
+    <button id="headless">Start test</button>
+    <zm-domain-test></zm-domain-test>
+    <script type="module" src="./demo.ts"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+server {
+    listen 80;
+
+    root /var/www/html/zonemaster-web-gui/dist;
+    index index.html;
+
+    location /api {
+        proxy_pass http://localhost:5000;
+    }
+
+    # Serve exact files if they exist
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Rewrite /result/{id} to /result/id/index.html
+    location ~ ^/result/[^/]+/?$ {
+        try_files /result/id/index.html =404;
+    }
+
+    # Rewrite /{lang}/result/{id} to /{lang}/result/id/index.html
+    location ~ ^/([^/]+)/result/[^/]+/?$ {
+        set $lang $1;
+        try_files /$lang/result/id/index.html =404;
+    }
+}

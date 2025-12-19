@@ -1,0 +1,33 @@
+---
+import * as m from '@/messages';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLocale } from '@/messages';
+
+const currentLanguage = getLocale();
+const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
+const faqUrl = getRelativeLocaleUrl(currentLanguage, '/faq');
+const { pathname } = Astro.url;
+---
+
+<nav class="zm-menu" aria-label="Main navigation">
+    <ul class="zm-menu__list">
+        <li>
+            <a
+                class:list={[
+                    'zm-menu__item',
+                    { ['is-active']: pathname === homeUrl },
+                ]}
+                href={homeUrl}>{m.startTestNav()}</a
+            >
+        </li>
+        <li>
+            <a
+                class:list={[
+                    'zm-menu__item',
+                    { ['is-active']: pathname === faqUrl },
+                ]}
+                href={faqUrl}>{m.faqNav()}</a
+            >
+        </li>
+    </ul>
+</nav>

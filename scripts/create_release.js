@@ -1,30 +1,51 @@
-const fs = require('fs');
-const archiver = require('archiver');
+import fs from 'fs';
+import path from 'path';
+import archiver from 'archiver';
+import { readFileSync } from 'fs';
 
-const output = fs.createWriteStream('zonemaster_web_gui.zip');
-const archive = archiver('zip', {
-  zlib: { level: 9 } // Sets the compression level.
-});
+// Read package.json to get version
+const packageJson = JSON.parse(
+  readFileSync(new URL('../package.json', import.meta.url))
+);
 
-output.on('close', function () {
-  console.log(archive.pointer() + ' total bytes');
-  console.log('archiver has been finalized and the output file descriptor has closed.');
-});
+export async function zipDirectory(sourceDir, outPath) {
+    const output = fs.createWriteStream(outPath);
+    const archive = archiver('zip', {
+        zlib: { level: 9 }
+    });
 
-archive.on('error', function(err){
-  throw err;
-});
+    return new Promise((resolve, reject) => {
+        output.on('close', () => {
+            console.log(`Zipped ${archive.pointer()} total bytes`);
+            resolve();
+        });
 
-archive.pipe(output);
+        archive.on('error', err => reject(err));
 
-archive.file('zonemaster.conf-example', { name: 'zonemaster.conf-example' });
-archive.file('LICENSE', { name: 'LICENSE' });
+        archive.pipe(output);
+        archive.directory(sourceDir, false); // `false` keeps only folder contents
+        archive.finalize();
+    });
+}
 
-const localizedBundles = fs.readdirSync('dist', {withFileTypes: true})
-  .filter(entry => entry.isDirectory())
-  .map(entry => entry.name);
+// Example usage
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const inputDir = path.resolve(__dirname, '../public');
+const version = packageJson.version;
+const outputZip = path.resolve(__dirname, `../zonemaster_web_gui_${version}.zip`);
 
-archive.glob('dist/**', {ignore: '**/assets/**'});
-archive.directory(`dist/${localizedBundles[0]}/assets`, 'dist/assets');
+// Copy zonemaster.conf-example into public
+const file1Src = path.resolve(__dirname, '../zonemaster.conf-example');
+const file1Dest = path.resolve(inputDir, 'zonemaster.conf-example');
+fs.copyFileSync(file1Src, file1Dest);
+console.log('Include zonemaster.conf-example in distribution zip file');
 
-archive.finalize();
+// Copy LICENSE into public
+const file2Src = path.resolve(__dirname, '../LICENSE');
+const file2Dest = path.resolve(inputDir, 'LICENSE');
+fs.copyFileSync(file2Src, file2Dest);
+console.log('Include LICENSE in distribution zip file');
+
+zipDirectory(inputDir, outputZip)
+    .then(() => console.log('Zip complete'))
+    .catch(err => console.error('Error zipping:', err));

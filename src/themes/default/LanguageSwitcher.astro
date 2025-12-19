@@ -1,0 +1,69 @@
+---
+import { getLocale } from '@/messages';
+import * as m from '@/messages';
+import config from '@/config';
+
+const currentLanguage = getLocale();
+const languages = {
+    en: 'English',
+    sv: 'Svenska',
+    es: 'Español',
+    da: 'Dansk',
+    fr: 'Français',
+    nb: 'Norsk Bokmål',
+    fi: 'Suomi',
+    sl: 'Slovenščina',
+};
+---
+
+<div class="zm-language-switcher">
+    <i class="bi bi-translate zm-language-switcher__icon"></i>
+    <label for="languageSwitcher" class="zm-u-visually-hidden"
+        >{m.langLabel()}</label
+    >
+    <select
+        class="zm-language-switcher__select"
+        id="languageSwitcher"
+        data-current-language={currentLanguage}
+    >
+        {
+            Object.entries(languages).map(([code, label]) => (
+                <option
+                    lang={code}
+                    value={code}
+                    selected={currentLanguage === code}
+                >
+                    {label}
+                </option>
+            ))
+        }
+    </select>
+</div>
+<script>
+    const languageSwitcher = document.getElementById('languageSwitcher');
+
+    function switchToLanguage(e: Event) {
+        const base = import.meta.env.BASE_URL;
+        const currentLanguage = languageSwitcher?.getAttribute(
+            'data-current-language',
+        );
+        const target = e.target as HTMLSelectElement;
+        const newLanguage = target.value;
+        let canonicalPath = document.location.pathname;
+
+        if (!canonicalPath.startsWith(`${base}${currentLanguage}`)) {
+            canonicalPath = canonicalPath.replace(`${base}`, `${base}${currentLanguage}`);
+        }
+
+        canonicalPath = canonicalPath.replace(
+            `${base}${currentLanguage}`,
+            `${base}${newLanguage}`,
+        );
+
+        document.location.href = canonicalPath;
+    }
+
+    document
+        .getElementById('languageSwitcher')
+        ?.addEventListener('change', switchToLanguage);
+</script>

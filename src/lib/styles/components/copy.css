@@ -1,0 +1,17 @@
+.zm-copy {
+    background: var(--color-palette-main-70);
+    border: none;
+    cursor: pointer;
+    padding: 0 var(--button-padding);
+    border-radius: var(--border-radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-palette-white);
+    transition: background-color 0.2s ease;
+    font-size: var(--button-font-size);
+
+    &:hover {
+        background: var(--color-palette-main-90);
+    }
+}

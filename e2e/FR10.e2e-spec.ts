@@ -1,6 +1,6 @@
-const { test, expect } = require('@playwright/test');
+import { test, expect } from './global-setup';
 
-import { goToHome, clearBrowserCache, showOptions } from './utils/app.utils';
+import { goToHome, clearBrowserCache } from './utils/app.utils';
 
 test.describe('Zonemaster test FR10 - [On launching the URL opens with a default simple view]', () => {
   test.beforeEach(async ({ page }) => {
@@ -13,17 +13,12 @@ test.describe('Zonemaster test FR10 - [On launching the URL opens with a default
   });
 
   test('should have [Options] label visible and NOT selected', async ({ page }) => {
-    await expect(page.locator('#advanced-toggle', { hasText: 'Show options' })).toBeVisible();
-
-    await expect(page.locator('#advanced-options')).not.toHaveAttribute('open');
+    await expect(page.locator('#advanced-toggle-label', { hasText: 'Show options' })).toBeVisible();
+    await expect(page.locator('#advanced-toggle')).toHaveAttribute('aria-expanded', 'false');
   });
 
 
-  test('should have [Nameservers label] NOT visible', async ({ page }) => {
-    await expect(page.locator('legend', { hasText: 'Nameservers'})).toBeHidden();
-  });
-
-  test('should have [DS records label] NOT visible', async ({ page }) => {
-    await expect(page.locator('legend', { hasText: 'DS records'})).toBeHidden();
+  test('should have options NOT visible', async ({ page }) => {
+      await expect(page.locator('#advanced-options')).toHaveAttribute('hidden');
   });
 });
