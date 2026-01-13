@@ -1,4 +1,11 @@
 .zm-faq-section {
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 992px) {
+        max-width: 80%;
+    }
+
     .zm-faq-section__header {
         font-size: var(--font-m);
         font-family: var(--font-heading-family);
