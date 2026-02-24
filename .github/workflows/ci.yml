@@ -33,3 +33,38 @@ jobs:
 
       - name: Run e2e tests
         run: npm run e2e
+
+  build-artifact:
+    needs: tests_e2e
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 24.x
+          cache: npm
+
+      - name: apt install
+        run: sudo apt-get install -y git jq
+
+      - name: build
+        run: |
+          npm install
+          npm run release
+
+      - name: Get short SHA
+        id: short_sha
+        run: echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Get Zonemaster-GUI version
+        id: version
+        run: |
+          VERSION=`jq -r '.version | sub("^v"; "")' package.json`
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zonemaster_web_gui_v${{ steps.version.outputs.version }}-${{ steps.short_sha.outputs.short_sha }}
+          path: zonemaster_web_gui_v${{ steps.version.outputs.version }}.zip
