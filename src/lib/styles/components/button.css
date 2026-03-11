@@ -42,7 +42,7 @@
 
     &:hover,
     &:focus {
-        background: var(--button-secondary-color-hover);
+        background-color: var(--button-secondary-color-hover);
         border-color: var(--button-secondary-border-hover-color);
         color: var(--button-secondary-text-color-hover);
     }

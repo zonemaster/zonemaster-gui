@@ -115,10 +115,10 @@
                 >
                     {formatDate(item.created_at)}
                 </a>
+                <i class="bi bi-chevron-right"></i>
                 {#if item.undelegated}
                     <span>{m.undelegated()}</span>
                 {/if}
-                <i class="bi bi-chevron-right"></i>
             </li>
         {/each}
     </ul>

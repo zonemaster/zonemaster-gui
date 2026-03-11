@@ -1,8 +1,8 @@
 # Zonemaster UI
 
 Zonemaster UI (Zonemaster-GUI) is a static website built with [Astro], using
-[Svelte] for interactive components and [Paraglide] for internationalization
-(i18n) or translation.
+[Svelte] for interactive components and [Vite] for internationalization/translation
+(i18n).
 
 ## Standalone Components
 
@@ -49,6 +49,6 @@ TestAgent.transition('START', { domain: 'example.com' });
 ```
 
 
-[Astro]:                https://astro.build/
-[Svelte]:               https://svelte.dev/
-[Paraglide]:            https://paraglide.io/
+[Astro]:      https://astro.build/
+[Svelte]:     https://svelte.dev/
+[Vite]:       https://vite.dev/

@@ -8,15 +8,19 @@
     const profiles = $state<Array<{ value: string; name: string }>>([]);
 
     $effect(() => {
-        profileNames().then((names) => {
-            profiles.splice(
-                0,
-                profiles.length,
-                ...names.map((name) => ({
-                    value: name,
-                    name,
-                })),
-            );
+        profileNames().then((profile_names) => {
+            const items = profile_names
+                .map((name) => ({ value: name, name }))
+                .sort((a, b) => {
+                    if (a.name === 'default') return -1;
+                    if (b.name === 'default') return 1;
+
+                    if (a.name < b.name) return -1;
+                    if (a.name > b.name) return 1;
+                    return 0;
+            });
+
+            profiles.splice(0, profiles.length, ...items);
         });
     });
 </script>

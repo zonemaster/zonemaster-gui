@@ -36,6 +36,8 @@
             RewriteBase ${BASE_URL}/
         </IfDefine>
 
+        RewriteRule ^$ /${DEFAULT_LANGUAGE} [R]
+
         # Rewrite /result/{anything} to {default_language}/result/id/index.html
         RewriteCond %{REQUEST_FILENAME} !-f
         RewriteCond %{REQUEST_FILENAME} !-d

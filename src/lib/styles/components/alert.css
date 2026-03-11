@@ -17,6 +17,7 @@
     }
 
     a {
+        color: var(--color-text);
         font-weight: var(--font-heading-weight);
     }
 }

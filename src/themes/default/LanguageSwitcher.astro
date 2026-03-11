@@ -4,7 +4,7 @@ import * as m from '@/messages';
 import config from '@/config';
 
 const currentLanguage = getLocale();
-const languages = {
+const languageLabels = {
     en: 'English',
     sv: 'Svenska',
     es: 'Español',
@@ -14,6 +14,10 @@ const languages = {
     fi: 'Suomi',
     sl: 'Slovenščina',
 };
+const languages = config.enabledLanguages.map((lang) => ({
+    code: lang,
+    label: languageLabels[lang] ?? lang,
+}));
 ---
 
 <div class="zm-language-switcher">
@@ -27,13 +31,13 @@ const languages = {
         data-current-language={currentLanguage}
     >
         {
-            Object.entries(languages).map(([code, label]) => (
+            languages.map((lang) => (
                 <option
-                    lang={code}
-                    value={code}
-                    selected={currentLanguage === code}
+                    lang={lang.code}
+                    value={lang.code}
+                    selected={currentLanguage === lang.code}
                 >
-                    {label}
+                    {lang.label}
                 </option>
             ))
         }
@@ -51,8 +55,8 @@ const languages = {
         const newLanguage = target.value;
         let canonicalPath = document.location.pathname;
 
-        if (!canonicalPath.startsWith(`${base}${currentLanguage}`)) {
-            canonicalPath = canonicalPath.replace(`${base}`, `${base}${currentLanguage}`);
+        if (!canonicalPath.startsWith(`${base}${currentLanguage}/`)) {
+            canonicalPath = canonicalPath.replace(`${base}`, `${base}${currentLanguage}/`);
         }
 
         canonicalPath = canonicalPath.replace(

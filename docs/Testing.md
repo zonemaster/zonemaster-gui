@@ -1,7 +1,5 @@
 # Unit testing of Zonemaster-GUI
 
-_This guide refers to v4.* and is to be rewritten for v5.0._
-
 ## Setup
 
 This part assumed that you have a working NodeJS environment on Ubuntu. See
@@ -33,7 +31,7 @@ similar environment than the one the CI runs in is used (Ubuntu 22.04 and UTC
 time).
 
 ```sh
-docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.44.1-jammy /bin/bash
+docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.57.0-jammy /bin/bash
 npm run e2e:install
 npm run e2e:update
 exit
@@ -46,10 +44,3 @@ and preferably on a machine that uses a similar OS/environment as the CI.
 
 [build environment]: https://github.com/zonemaster/zonemaster/blob/master/docs/internal/distrib-testing/Ubuntu-Node.js-build-environment.md
 [playwright]: https://playwright.dev/docs/intro
-
-## Test server
-
-Angular development server does not provide a way to serve multiple locales.
-To test the fully localized application it is possible to use the command
-`npm run e2e:test-server`. This command builds the application in test mode and
-starts a basic web server to serve the generated files.

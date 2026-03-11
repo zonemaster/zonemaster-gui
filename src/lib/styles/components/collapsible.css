@@ -9,7 +9,6 @@
     &:first-child {
         margin-block-start: calc(var(--rhythm) / 2);
     }
-;
 
     header {
         padding: var(--spacing-s);

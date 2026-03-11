@@ -21,9 +21,9 @@ export interface FaqProps {
 const { data } = Astro.props as FaqProps;
 ---
 
-<h1 class="zm-u-align-center u-m-x-auto">{m.faqTitle()}</h1>
+<h1 class="zm-faq-title zm-u-align-center u-m-x-auto">{m.faqTitle()}</h1>
 <p class="preamble zm-u-align-center u-m-x-auto">{m.faqPreamble()}</p>
-<p class="zm-u-align-center u-m-x-auto">{m.faqTextParagraph1()} <a href="https://lists.iis.se/postorius/lists/zonemaster-users.lists.iis.se">{m.faqParagraph1Link()}</a></p>
+<p class="zm-faq-paragraph zm-u-align-center u-m-x-auto">{m.faqTextParagraph1()} <a href="https://lists.iis.se/postorius/lists/zonemaster-users.lists.iis.se">{m.faqParagraph1Link()}</a></p>
 {
     Object.keys(data).sort().map((category) => (
         <section class="rhythm zm-faq-section">
