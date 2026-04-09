@@ -6,7 +6,7 @@ case $1 in
     ;;
   
   *)
-	# pass 
+	# pass the argument to zonemaster_launch from zonemaster-backend Docker image
 	zonemaster_launch $@
     ;;
 esac;
