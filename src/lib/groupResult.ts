@@ -25,7 +25,7 @@ export function groupResult(results: ResultDataResult[]) {
 
     for (const entry of results) {
         const currentModule = entry.module;
-        const currentTestcase = entry.testcase;
+        const currentTestcase = entry.testcase || 'Unspecified';
         const currentLevel = entry.level;
         const numLevel = severityLevels[entry.level];
 
