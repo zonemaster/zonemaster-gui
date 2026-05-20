@@ -15,10 +15,9 @@ COPY ./zonemaster_web_gui_${version}.zip .
 
 RUN apk add apache2 apache2-proxy
 
-RUN install -vd /var/www/html/zonemaster-web-gui
-RUN install -vd /var/log/zonemaster
-RUN unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui_${version}.zip
-RUN rm -f zonemaster_web_gui_${version}.zip
+RUN install -vd /var/www/html/zonemaster-web-gui /var/log/zonemaster && \
+	unzip -d /var/www/html/zonemaster-web-gui zonemaster_web_gui_${version}.zip && \
+	rm -f zonemaster_web_gui_${version}.zip
 
 # Enable apache module
 RUN echo "LoadModule rewrite_module modules/mod_rewrite.so" >> /etc/apache2/httpd.conf
