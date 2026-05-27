@@ -40,7 +40,6 @@ const urls: MockEndpoint[] = [
     },
 
     // FR18 - Should display progress bar
-    // FR26 - Should display progress bar
     {
         url: 'http://localhost:4321/api',
         body: {'jsonrpc': '2.0', 'id': 1572254767685, 'method': 'start_domain_test', 'params':
@@ -113,7 +112,6 @@ const urls: MockEndpoint[] = [
     // FR18 - Should display progress bar
     // FR19 - Should display progress bar when we add a NS name
     // FR20 - should display progress bar when we add a DS entry and launch a test
-    // FR26 - Should display progress bar
     {
         url: 'http://localhost:4321/api',
         body: {'jsonrpc': '2.0', 'id': 1572254972236, 'method': 'test_progress', 'params': {'test_id': '2005cf23e9fb24b6'}},
@@ -880,6 +878,39 @@ const urls: MockEndpoint[] = [
                         "testcase": "ZONE10"
                     }
                 ]
+            }
+        }
+    },
+    // Result returned without a testcase.
+    {
+        url: 'http://localhost:4321/api',
+        body: {'jsonrpc': '2.0', 'id': 1, 'method': 'get_test_results', 'params': {'id': 'empty-testcase-response', 'language': 'en'}},
+        method: 'POST',
+        json: {'jsonrpc': '2.0', 'id': 1, 'result': {
+                'results': [
+                    {
+                        'level': 'CRITICAL',
+                        'testcase': '',
+                        'module': 'Backend',
+                        'message': 'The backend returned a result without a testcase.\n'
+                    }
+                ],
+                'params': {
+                    'profile': 'default',
+                    'ipv6': true,
+                    'ds_info': [],
+                    'language': 'en',
+                    'priority': 10,
+                    'queue': 0,
+                    'client_id': 'Zonemaster-GUI',
+                    'ipv4': true,
+                    'domain': 'empty-testcase.example',
+                    'nameservers': [],
+                    'client_version': 'v5.0.1'
+                },
+                'testcase_descriptions': {'': ''},
+                'created_at': '2026-04-02T11:15:15Z',
+                'hash_id': 'empty-testcase-response'
             }
         }
     },
