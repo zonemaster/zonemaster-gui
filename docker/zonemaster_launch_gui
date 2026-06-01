@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case $1 in
+  gui)
+	exec /init
+    ;;
+  
+  *)
+	# pass the argument to zonemaster_launch from zonemaster-backend Docker image
+	zonemaster_launch $@
+    ;;
+esac;
