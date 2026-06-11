@@ -48,7 +48,7 @@ To download it:
 1. Go to the [Actions tab](https://github.com/zonemaster/zonemaster-gui/actions) of the repository.
 2. Select a workflow run (e.g. for a specific PR or branch).
 3. Scroll to the bottom of the run summary to the **Artifacts** section.
-4. Download the artifact named `Zonemaster-LDNS-<version>-<short_sha>` `zonemaster_web_gui_<version>-<short_sha>`.
+4. Download the artifact named `zonemaster_web_gui_<version>-<short_sha>`.
 The artifact name includes the module version and the first 7 characters of the commit SHA.
 
 ## License
