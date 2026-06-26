@@ -1,5 +1,16 @@
 Release history for Zonemaster component Zonemaster-GUI
 
+
+v5.1.0 2026-06-29 (part of Zonemaster v2026.1 release)
+
+ [Features]
+ - Adds Dockerfile for an All-In-One Docker image (#542)
+
+ [Fixes]
+ - Update dependencies (#549)
+ - Corrects how GUI handles empty testcase values in results (#543)
+
+
 v5.0.1 2026-03-04 (part of Zonemaster v2025.2.1 release)
 
  [Fixes]
