@@ -15,6 +15,7 @@ jobs:
   tests_e2e:
     name: Run end-to-end tests
     runs-on: ubuntu-22.04
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v3
 
@@ -26,11 +27,52 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install e2e dependencies
-        run: npm run e2e:install-deps
-
-      - name: Run e2e browsers
-        run: npm run e2e:install
+      - name: Install e2e browser
+        timeout-minutes: 20
+        run: npx playwright install --with-deps --only-shell chromium
 
       - name: Run e2e tests
         run: npm run e2e
+
+  build-artifact:
+    needs: tests_e2e
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 24.x
+          cache: npm
+
+      - name: update
+        run: sudo apt update -y
+
+      - name: apt install
+        run: sudo apt-get install -y git jq
+
+      - name: build
+        run: |
+          npm install
+          npm run release
+
+      - name: Get short SHA
+        id: short_sha
+        run: |
+            if [ "${{ github.event_name }}" == "pull_request" ]; then
+                echo "SHORT_SHA=$(echo ${{ github.event.pull_request.head.sha }} | cut -c1-7)" >> $GITHUB_ENV
+            else
+                echo "SHORT_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
+            fi
+
+      - name: Get Zonemaster-GUI version
+        id: version
+        run: |
+          VERSION=`jq -r '.version | sub("^v"; "")' package.json`
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zonemaster_web_gui_v${{ steps.version.outputs.version }}-${{ env.SHORT_SHA }}
+          path: zonemaster_web_gui_v${{ steps.version.outputs.version }}.zip

@@ -1,6 +1,6 @@
 {
     "name": "zonemaster-gui",
-    "version": "v5.0.1",
+    "version": "v5.1.0",
     "license": "BSD-2-Clause",
     "scripts": {
         "start": "npm run dev",
@@ -28,7 +28,7 @@
         "svelte": "^5.45.6"
     },
     "devDependencies": {
-        "@playwright/test": "^1.57.0",
+        "@playwright/test": "^1.60.0",
         "@sveltejs/vite-plugin-svelte": "^6.2.1",
         "@tsconfig/svelte": "^5.0.6",
         "@types/node": "^24.10.1",
