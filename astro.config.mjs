@@ -33,11 +33,7 @@ export default defineConfig({
     },
 
     integrations: [
-        svelte({
-            compilerOptions: {
-                customElement: true
-            }
-        }),
+        svelte(),
         messagesIntegration()
     ],
 

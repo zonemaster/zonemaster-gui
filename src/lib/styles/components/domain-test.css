@@ -53,6 +53,14 @@
     border-radius: var(--border-radius);
 }
 
+textarea.zm-domain-test__batch-input {
+    height: auto;
+    min-height: 5lh;
+    overflow-y: hidden;
+    padding: var(--spacing-xs) var(--spacing-s);
+    resize: vertical;
+}
+
 .zm-domain-test__general {
     all: unset;
     display: block;
@@ -61,7 +69,6 @@
 
     legend {
         font-weight: 700;
-        font-size: var(--font-m);
     }
 
     label {

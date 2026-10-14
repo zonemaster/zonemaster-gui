@@ -24,7 +24,17 @@
 
     let domain = $state('');
     let advanced = $state(false);
+    let batchDomainInput = $state<HTMLTextAreaElement>();
     let { currentState, currentContext, previousState } = $derived(machine);
+
+    function growBatchInput() {
+        if (!batchDomainInput) {
+            return;
+        }
+
+        batchDomainInput.style.height = 'auto';
+        batchDomainInput.style.height = `${batchDomainInput.scrollHeight}px`;
+    }
 
     function startTest(e: Event) {
         e.preventDefault();
@@ -38,6 +48,14 @@
         const formData: Record<string, any> = formToObj(form);
 
         if (!formData.domain) {
+            return;
+        }
+
+        if (
+            document.getElementById('domain-test-input')?.dataset
+                .radioButtonSliderState === 'on'
+        ) {
+            document.dispatchEvent(new CustomEvent('zm:show-batch-test-mockup'));
             return;
         }
 
@@ -71,24 +89,49 @@
     class="zm-domain-test {currentState === 'testing' ? 'zm-is-testing' : ''}"
 >
     <Stack>
-        <div class="zm-domain-test__progress">
-            <label class="zm-u-visually-hidden" for="domainInput"
-                >{m.domainName()}</label
-            >
-            <Input
-                required
-                name="domain"
-                id="domainInput"
-                type="text"
-                bind:value={domain}
-                placeholder={m.domainName()}
-                disabled={currentState === 'testing'}
-                class={currentState === 'finished' ? 'finished' : undefined}
-                error={getValidationErrorByPath(
-                    currentContext.error,
-                    '/domain',
-                )}
-            />
+        <div
+            id="domain-test-input"
+            class="zm-domain-test__progress"
+            data-radio-button-slider-container="domain-test-input"
+        >
+            <div data-radio-button-slider-value="off">
+                <label class="zm-u-visually-hidden" for="domainInput"
+                    >{m.domainName()}</label
+                >
+                <Input
+                    required
+                    name="domain"
+                    id="domainInput"
+                    type="text"
+                    data-radio-button-slider-control
+                    bind:value={domain}
+                    placeholder={m.domainName()}
+                    disabled={currentState === 'testing'}
+                    class={currentState === 'finished' ? 'finished' : undefined}
+                    error={getValidationErrorByPath(
+                        currentContext.error,
+                        '/domain',
+                    )}
+                />
+            </div>
+            <div data-radio-button-slider-value="on" hidden>
+                <label class="zm-u-visually-hidden" for="batchDomainInput"
+                    >{m.domainName()}</label
+                >
+                <textarea
+                    bind:this={batchDomainInput}
+                    required
+                    disabled
+                    name="domain"
+                    id="batchDomainInput"
+                    class="zm-input zm-domain-test__batch-input"
+                    data-radio-button-slider-control
+                    rows="5"
+                    placeholder={m.batchDomainNamesPlaceholder()}
+                    aria-describedby="batch-testing-toggle-label"
+                    oninput={growBatchInput}
+                ></textarea>
+            </div>
             {#if currentState === 'testing'}
                 {#key currentState}
                     <span
