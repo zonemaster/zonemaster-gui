@@ -1,0 +1,127 @@
+.zm-batch-test {
+    margin-top: var(--spacing-default);
+    overflow-x: auto;
+
+    table {
+        border-collapse: collapse;
+        min-width: 22rem;
+        width: 100%;
+    }
+
+    caption {
+        font-size: var(--font-m);
+        font-weight: 700;
+        margin-bottom: var(--spacing-xs);
+        text-align: left;
+    }
+
+    th,
+    td {
+        border-bottom: 1px solid var(--color-palette-main-30);
+        padding: var(--spacing-xs) var(--spacing-s);
+        text-align: left;
+    }
+
+    tbody tr {
+        transition: background-color 150ms ease;
+    }
+
+    tbody tr:hover {
+        background-color: color-mix(
+            in srgb,
+            var(--color-palette-main-10) 35%,
+            transparent
+        );
+    }
+
+    tfoot {
+        font-size: var(--font-xs);
+    }
+
+    tfoot tr {
+        background-color: var(--color-palette-black-10);
+    }
+
+    thead th:last-child,
+    tbody td:last-child {
+        text-align: center;
+        width: 4rem;
+    }
+
+    thead th:first-child,
+    tbody td:first-child {
+        width: 100%;
+    }
+
+    thead th:nth-last-child(2),
+    tbody td:nth-last-child(2) {
+        text-align: left;
+        white-space: nowrap;
+        width: 1%;
+    }
+}
+
+.zm-batch-test__icon,
+.zm-batch-test__ongoing {
+    align-items: center;
+    display: inline-flex;
+    font-size: var(--font-m);
+    justify-content: center;
+}
+
+.zm-batch-test__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-s);
+
+    > span {
+        align-items: center;
+        display: inline-flex;
+        gap: var(--spacing-xxs);
+    }
+}
+
+.zm-batch-test__legend-heading {
+    font-size: var(--font-xs);
+    margin: 0 0 var(--spacing-xxs);
+}
+
+.zm-batch-test__result-link {
+    text-decoration: underline;
+}
+
+.zm-batch-test__no-result {
+    display: block;
+    text-align: center;
+}
+
+.zm-batch-test__row--finished .zm-batch-test__icon {
+    color: var(--color-palette-success-50);
+}
+
+.zm-batch-test__icon--finished {
+    color: var(--color-palette-success-50);
+}
+
+.zm-batch-test__row--failed .zm-batch-test__icon {
+    color: var(--color-palette-danger-50);
+}
+
+.zm-batch-test__icon--failed {
+    color: var(--color-palette-danger-50);
+}
+
+.zm-batch-test__ongoing {
+    animation: batch-test-spin 1s linear infinite;
+    color: var(--color-palette-main-70);
+}
+
+.zm-batch-test__icon--ongoing {
+    color: var(--color-palette-main-70);
+}
+
+@keyframes batch-test-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
