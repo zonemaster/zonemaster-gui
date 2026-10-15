@@ -77,6 +77,8 @@
     "filterSeverityLevels": "Filtrar niveles de gravedad",
     "profile": "Perfil",
     "tldURL": "URL del TLD",
+    "tldURLInfo": "Placeholder information about the TLD URL.",
+    "openTldURLInNewTab": "Abrir la URL del TLD en una pestaña nueva",
     "exportResult": "Exportar",
     "exportJson": "JSON",
     "exportHtml": "HTML",

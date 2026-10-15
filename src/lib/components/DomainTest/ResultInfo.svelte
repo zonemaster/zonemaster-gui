@@ -193,6 +193,7 @@
                         id="copyTLDURLDialog"
                         style:display={showURL ? 'block' : 'none'}
                     >
+                        <p class="u-m-b-1 u-font-size-medium">{m.tldURLInfo()}</p>
                         <div
                             class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack[
                                 'gap--s'
@@ -200,14 +201,28 @@
                         >
                             <Input
                                 matchContentWidth
+                                autoScroll
                                 size="small"
                                 type="text"
                                 readonly
                                 name="url"
                                 aria-label={m.tldURL()}
                                 value={tldUrl}
+                                title={tldUrl}
                             />
-                            <Copy value={tldUrl} />
+                            <div class="zm-tld-url-actions">
+                                <Copy value={tldUrl} />
+                                <a
+                                    class="zm-copy"
+                                    href={tldUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label={m.openTldURLInNewTab()}
+                                    title={m.openTldURLInNewTab()}
+                                >
+                                    <i class="bi bi-box-arrow-up-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -296,11 +311,13 @@
                     >
                         <Input
                             matchContentWidth
+                            autoScroll
                             size="small"
                             type="text"
                             readonly
                             name="url"
                             value={shareUrl}
+                            title={shareUrl}
                         />
                         <Copy value={shareUrl} />
                     </div>
@@ -415,3 +432,10 @@
         </Stack>
     </Stack>
 </div>
+
+<style>
+    .zm-tld-url-actions {
+        display: flex;
+        gap: calc(var(--spacing-s) * 0.5);
+    }
+</style>

@@ -52,9 +52,15 @@ test.describe('TLD URL on test results', () => {
             await expect(dialog).toBeHidden();
             await button.click();
             await expect(dialog).toBeVisible();
+            await expect(dialog.getByText('Placeholder information about the TLD URL.')).toBeVisible();
             await expect(dialog.locator('input[name="url"]')).toHaveValue(url);
-            await dialog.locator('.zm-copy').click();
-            await expect(dialog.locator('.zm-copy')).toHaveAttribute('aria-label', 'Copied');
+            const openLink = dialog.getByRole('link', { name: 'Open TLD URL in a new tab' });
+            await expect(openLink).toHaveAttribute('href', url);
+            await expect(openLink).toHaveAttribute('target', '_blank');
+            await expect(openLink).toHaveAttribute('rel', 'noopener noreferrer');
+            const copyButton = dialog.getByRole('button', { name: 'Copy to clipboard' });
+            await copyButton.click();
+            await expect(copyButton).toHaveAttribute('aria-label', 'Copied');
             expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(url);
         });
     }

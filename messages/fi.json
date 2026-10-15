@@ -77,6 +77,8 @@
     "filterSeverityLevels": "Suodata vakavuustasot",
     "profile": "Profiili",
     "tldURL": "TLD-URL",
+    "tldURLInfo": "Placeholder information about the TLD URL.",
+    "openTldURLInNewTab": "Avaa TLD-URL uudessa välilehdessä",
     "exportResult": "Vie",
     "exportJson": "JSON",
     "exportHtml": "HTML",
