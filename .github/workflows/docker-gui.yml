@@ -1,0 +1,54 @@
+name: Build GUI Docker image
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+  workflow_dispatch:
+
+jobs:
+  build-gui-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build release archive
+        run: npm run release
+
+      - name: Extract version from package.json
+        id: pkg
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build GUI Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: docker/Dockerfile-gui
+          build-args: |
+            version=${{ steps.pkg.outputs.version }}
+          tags: gui:${{ steps.pkg.outputs.version }}
+          push: false
+          load: true
+
+      - name: Verify image exists
+        run: docker images gui:${{ steps.pkg.outputs.version }}
+
+      - name: Test Apache configuration inside image
+        run: |
+          docker run --rm gui:${{ steps.pkg.outputs.version }} httpd -t
