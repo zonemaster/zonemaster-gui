@@ -1,9 +1,6 @@
-FROM httpd:2.4
+FROM httpd:2.4 AS build 
 
 ARG version
-
-EXPOSE 80
-
 
 RUN apt update
 RUN apt install -y unzip
@@ -16,3 +13,9 @@ COPY ./zonemaster_web_gui_${version}.zip /tmp
 WORKDIR /tmp
 RUN unzip zonemaster_web_gui_${version}.zip
 RUN mv dist/* /usr/local/apache2/htdocs/
+
+FROM httpd:2.4
+
+EXPOSE 80
+
+COPY --from=build /usr/local/apache2/ /usr/local/apache2
