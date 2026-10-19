@@ -1,0 +1,123 @@
+.zm-my-tests {
+    > table > thead th:nth-child(2),
+    > table > tbody > tr td:nth-child(2),
+    > table > thead th:nth-child(3),
+    > table > tbody > tr td:nth-child(3),
+    > table > thead th:nth-child(4),
+    > table > tbody > tr td:nth-child(4) {
+        white-space: nowrap;
+        width: 1%;
+    }
+
+    .zm-switch {
+        white-space: nowrap;
+    }
+}
+
+.zm-my-tests-wrapper {
+    position: relative;
+}
+
+.zm-my-tests__scroll-indicator {
+    align-items: center;
+    background-color: var(--color-palette-black-90);
+    border-radius: var(--border-radius);
+    color: var(--color-palette-white);
+    display: none;
+    font-size: var(--font-xs);
+    gap: var(--spacing-xxs);
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    pointer-events: none;
+    position: absolute;
+    right: var(--spacing-xxs);
+    top: calc(var(--font-m) + var(--spacing-s));
+    z-index: 3;
+
+    .bi {
+        animation: my-tests-scroll-arrow 2s infinite;
+    }
+}
+
+@keyframes my-tests-scroll-arrow {
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    50% {
+        opacity: 0.55;
+        transform: translateX(6px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .zm-my-tests__scroll-indicator .bi {
+        animation: none;
+    }
+}
+
+.zm-my-tests__batch-details {
+    tr {
+        background-color: var(--color-palette-black-10) !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .zm-my-tests__scroll-indicator {
+        display: inline-flex;
+    }
+
+    .zm-my-tests {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+
+        > table > thead th:last-child,
+        > table > tbody td:last-child {
+            padding-left: var(--spacing-xxs);
+            padding-right: var(--spacing-xxs);
+            white-space: nowrap;
+            width: 1% !important;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 100%;
+            width: max-content;
+        }
+
+        thead > tr > :first-child,
+        tbody > tr > :first-child {
+            background-color: var(--color-palette-white);
+            box-shadow: 6px 0 10px color-mix(in srgb, var(--color-palette-black) 6%, transparent);
+            box-sizing: border-box;
+            left: 0;
+            max-width: 12rem;
+            overflow: hidden;
+            position: sticky;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 1% !important;
+            z-index: 1;
+        }
+
+        thead > tr > :first-child {
+            z-index: 2;
+        }
+
+        tbody tr:hover > :first-child {
+            background-color: color-mix(
+                in srgb,
+                var(--color-palette-main-10) 35%,
+                var(--color-palette-white)
+            );
+        }
+
+        .zm-my-tests__batch-details tr > :first-child,
+        .zm-my-tests__batch-details tr:hover > :first-child {
+            background-color: var(--color-palette-black-10);
+        }
+    }
+}

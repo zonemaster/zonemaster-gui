@@ -61,6 +61,17 @@ textarea.zm-domain-test__batch-input {
     resize: vertical;
 }
 
+.zm-domain-test__batch-input-wrapper {
+    width: 100%;
+}
+
+.zm-domain-test__batch-domain-counter {
+    display: block;
+    font-size: var(--font-xs);
+    margin-top: var(--spacing-xxs);
+    text-align: right;
+}
+
 .zm-domain-test__general {
     all: unset;
     display: block;

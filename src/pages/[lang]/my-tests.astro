@@ -1,0 +1,16 @@
+---
+import * as m from '@/messages';
+import Layout from '@theme/Layout.astro';
+import MyTests from '@theme/MyTests.astro';
+import config from '@/config';
+
+export function getStaticPaths() {
+    return config.enabledLanguages.map((lang) => ({ params: { lang } }));
+}
+
+export const prerender = true;
+---
+
+<Layout title={m.myTestsTitle()}>
+    <MyTests />
+</Layout>

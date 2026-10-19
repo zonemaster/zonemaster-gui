@@ -6,6 +6,7 @@
     id: string;
     controls?: string;
     active: boolean;
+    size?: 'small' | 'large';
     onClick: () => void;
     children?: Snippet;
   };
@@ -14,15 +15,16 @@
     id,
     active,
     controls,
+    size = 'large',
     onClick,
     children,
   }: Props = $props();
 
   let icon = $derived(active ? 'caret-up-fill' : 'caret-down-fill');
 </script>
-<div class="zm-switch">
+<div class={['zm-switch', `zm-switch--${size}`]}>
   <label for="{id}" id="{id}-label">{@render children?.()}</label>
-  <Button type="button" id={id} aria-controls={controls || null} variant="transparent" class="switch-toggle" aria-expanded={active} aria-labelledby="{id}-label" onclick={onClick}>
+  <Button type="button" id={id} aria-controls={controls || null} variant="transparent" {size} class="switch-toggle" aria-expanded={active} aria-labelledby="{id}-label" onclick={onClick}>
     <i class="bi bi-{icon}"></i>
   </Button>
 </div>

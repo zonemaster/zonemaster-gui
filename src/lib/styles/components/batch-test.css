@@ -125,3 +125,16 @@
         transform: rotate(360deg);
     }
 }
+
+@media screen and (max-width: 767px) {
+    .zm-batch-test table {
+        font-size: var(--font-xs);
+    }
+
+    .zm-batch-test thead th:last-child,
+    .zm-batch-test tbody td:last-child {
+        padding-left: var(--spacing-xs);
+        padding-right: var(--spacing-xs);
+        width: 2rem;
+    }
+}

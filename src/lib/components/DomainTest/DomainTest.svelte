@@ -25,6 +25,9 @@
     let domain = $state('');
     let advanced = $state(false);
     let batchDomainInput = $state<HTMLTextAreaElement>();
+    let batchDomainCount = $state(0);
+    const maxBatchDomains = 10;
+    let batchDomainsRemaining = $derived(maxBatchDomains - batchDomainCount);
     let { currentState, currentContext, previousState } = $derived(machine);
 
     function growBatchInput() {
@@ -34,6 +37,21 @@
 
         batchDomainInput.style.height = 'auto';
         batchDomainInput.style.height = `${batchDomainInput.scrollHeight}px`;
+    }
+
+    function handleBatchInput(event: Event) {
+        const input = event.currentTarget as HTMLTextAreaElement;
+        const domains = input.value.split(/\r?\n/);
+
+        if (domains.length > maxBatchDomains) {
+            input.value = domains.slice(0, maxBatchDomains).join('\n');
+        }
+
+        batchDomainCount = input.value
+            .split(/\r?\n/)
+            .filter((domain) => domain.trim()).length;
+
+        growBatchInput();
     }
 
     function startTest(e: Event) {
@@ -118,19 +136,27 @@
                 <label class="zm-u-visually-hidden" for="batchDomainInput"
                     >{m.domainName()}</label
                 >
-                <textarea
-                    bind:this={batchDomainInput}
-                    required
-                    disabled
-                    name="domain"
-                    id="batchDomainInput"
-                    class="zm-input zm-domain-test__batch-input"
-                    data-radio-button-slider-control
-                    rows="5"
-                    placeholder={m.batchDomainNamesPlaceholder()}
-                    aria-describedby="batch-testing-toggle-label"
-                    oninput={growBatchInput}
-                ></textarea>
+                <div class="zm-domain-test__batch-input-wrapper">
+                    <textarea
+                        bind:this={batchDomainInput}
+                        required
+                        disabled
+                        name="domain"
+                        id="batchDomainInput"
+                        class="zm-input zm-domain-test__batch-input"
+                        data-radio-button-slider-control
+                        rows="5"
+                        placeholder={m.batchDomainNamesPlaceholder()}
+                        aria-describedby="batch-testing-toggle-label"
+                        oninput={handleBatchInput}
+                    ></textarea>
+                    <output class="zm-domain-test__batch-domain-counter" aria-live="polite">
+                        <span aria-hidden="true">{batchDomainCount}/{maxBatchDomains}</span>
+                        <span class="zm-u-visually-hidden">
+                            {m.batchDomainsRemaining({ count: batchDomainsRemaining })}
+                        </span>
+                    </output>
+                </div>
             </div>
             {#if currentState === 'testing'}
                 {#key currentState}

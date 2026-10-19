@@ -5,6 +5,7 @@ import { getLocale } from '@/messages';
 
 const currentLanguage = getLocale();
 const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
+const myTestsUrl = getRelativeLocaleUrl(currentLanguage, '/my-tests');
 const faqUrl = getRelativeLocaleUrl(currentLanguage, '/faq');
 const { pathname } = Astro.url;
 ---
@@ -18,6 +19,15 @@ const { pathname } = Astro.url;
                     { ['is-active']: pathname === homeUrl },
                 ]}
                 href={homeUrl}>{m.startTestNav()}</a
+            >
+        </li>
+        <li>
+            <a
+                class:list={[
+                    'zm-menu__item',
+                    { ['is-active']: pathname === myTestsUrl },
+                ]}
+                href={myTestsUrl}>{m.myTestsNav()}</a
             >
         </li>
         <li>
