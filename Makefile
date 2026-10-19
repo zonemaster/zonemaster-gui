@@ -6,7 +6,9 @@ docker-build:
 
 docker-tag-version:
 	docker tag zonemaster/all-in-one:local zonemaster/all-in-one:$(VERSION)
+	docker tag zonemaster/gui:local zonemaster/gui:$(VERSION)
 
 docker-tag-latest:
 	docker tag zonemaster/all-in-one:local zonemaster/all-in-one:latest
+	docker tag zonemaster/gui:local zonemaster/gui:latest
 
