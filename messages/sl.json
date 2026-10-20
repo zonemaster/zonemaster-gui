@@ -77,6 +77,8 @@
     "filterSeverityLevels": "Filter težavnosti",
     "profile": "Profil",
     "tldURL": "TLD URL",
+    "tldURLInfo": "Placeholder information about the TLD URL.",
+    "openTldURLInNewTab": "Odpri URL TLD v novem zavihku",
     "exportResult": "Izvozi",
     "exportJson": "JSON",
     "exportHtml": "HTML",

@@ -77,6 +77,8 @@
     "filterSeverityLevels": "Filtrera allvarlighetsnivå",
     "profile": "Profil",
     "tldURL": "TLD URL",
+    "tldURLInfo": "Placeholder information about the TLD URL.",
+    "openTldURLInNewTab": "Öppna TLD URL i en ny flik",
     "exportResult": "Exportera",
     "exportJson": "JSON",
     "exportHtml": "HTML",

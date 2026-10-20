@@ -120,6 +120,15 @@ export async function getTestResults(testId: string): Promise<ResultData> {
     return rpc('get_test_results', { id: testId, language: language() }, false);
 }
 
+export type TldUrlData = {
+    tld?: string;
+    url?: string;
+};
+
+export async function getTldUrl(domain: string): Promise<TldUrlData> {
+    return rpc('get_tld_url', { domain }, false);
+}
+
 export type ParentZoneData = {
     ds_list: DSInfo[];
     ns_list: Nameservers[];

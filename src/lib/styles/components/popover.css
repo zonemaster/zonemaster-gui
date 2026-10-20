@@ -49,3 +49,41 @@
         }
     }
 }
+
+/* Anchor URL popovers to the row so long URLs and wrapped buttons stay within it. */
+.zm-popover-row {
+    position: relative;
+}
+
+.zm-popover--start,
+.zm-popover--end {
+    position: static;
+
+    .zm-popover__content {
+        /* Directly below the button, while still anchored to the row */
+        top: auto;
+        /* Cover buttons that wrapped onto the next line */
+        z-index: 1;
+        box-sizing: border-box;
+        width: max-content;
+        max-width: 100%;
+    }
+}
+
+.zm-popover--start .zm-popover__content {
+    left: 0;
+    right: auto;
+
+    &:after,
+    &:before {
+        left: calc(var(--rhythm) * 1.75);
+    }
+}
+
+.zm-popover--end .zm-popover__content {
+    /* The button may wrap away from the right edge of the row. */
+    &:after,
+    &:before {
+        display: none;
+    }
+}

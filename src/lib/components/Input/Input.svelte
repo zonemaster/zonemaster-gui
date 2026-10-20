@@ -11,6 +11,7 @@
         onInput?: (event: Event & { currentTarget: EventTarget & HTMLInputElement }) => void;
         class?: string;
         matchContentWidth?: boolean;
+        autoScroll?: boolean;
         error?: string | null | false;
         [x: string]: unknown;
     };
@@ -27,16 +28,64 @@
         onInput: onInputCb,
         class: className = '',
         matchContentWidth = false,
+        autoScroll = false,
         error: defaultError = null,
         ...restProps
     }: Props = $props();
 
     let inputWidth = $state(0);
     let error = $state(defaultError);
+    let input: HTMLInputElement;
+    let animationFrame: number | undefined;
 
     function onInput(event: Event & { currentTarget: EventTarget & HTMLInputElement }) {
         error = false;
         onInputCb?.(event);
+    }
+
+    function stopAutoScroll() {
+        if (animationFrame !== undefined) {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = undefined;
+        }
+    }
+
+    function startAutoScroll() {
+        stopAutoScroll();
+
+        if (
+            !autoScroll ||
+            !input ||
+            input.scrollWidth <= input.clientWidth ||
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ) {
+            return;
+        }
+
+        const maxScroll = input.scrollWidth - input.clientWidth;
+        const pause = 1200;
+        const travel = (maxScroll / 20) * 1000;
+        const cycle = pause * 2 + travel * 2;
+        const startedAt = performance.now();
+
+        const animate = (now: number) => {
+            const elapsed = (now - startedAt) % cycle;
+            let scrollLeft = 0;
+
+            if (elapsed > pause && elapsed <= pause + travel) {
+                scrollLeft = ((elapsed - pause) / travel) * maxScroll;
+            } else if (elapsed > pause + travel && elapsed <= pause * 2 + travel) {
+                scrollLeft = maxScroll;
+            } else if (elapsed > pause * 2 + travel) {
+                scrollLeft =
+                    maxScroll - ((elapsed - pause * 2 - travel) / travel) * maxScroll;
+            }
+
+            input.scrollLeft = scrollLeft;
+            animationFrame = requestAnimationFrame(animate);
+        };
+
+        animationFrame = requestAnimationFrame(animate);
     }
 
     $effect(() => {
@@ -60,13 +109,30 @@
             }, 0);
         }
     });
+
+    $effect(() => {
+        if (!autoScroll || !input) {
+            return;
+        }
+
+        const observer = new ResizeObserver(startAutoScroll);
+        observer.observe(input);
+        startAutoScroll();
+
+        return () => {
+            observer.disconnect();
+            stopAutoScroll();
+        };
+    });
 </script>
 
 {#if label}
     <label for={id} class="zm-label">{label}</label>
 {/if}
-<input name={name} id={id} bind:value={value} type={type} class={['zm-input', `zm-input--${size}`, className]} disabled={disabled}
-       placeholder={placeholder} oninput={onInput} style="min-width: {inputWidth}px" {...restProps} />
+<input bind:this={input} name={name} id={id} bind:value={value} type={type} class={['zm-input', `zm-input--${size}`, className]} disabled={disabled}
+       placeholder={placeholder} oninput={onInput} onmouseenter={stopAutoScroll} onfocus={stopAutoScroll}
+       onmouseleave={() => input !== document.activeElement && startAutoScroll()} onblur={startAutoScroll}
+       style:min-width="0" style:width={matchContentWidth ? `${inputWidth}px` : undefined} {...restProps} />
 {#if error}
     <div class="zm-input-error">{error}</div>
 {/if}
