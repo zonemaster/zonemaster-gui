@@ -121,6 +121,7 @@ export async function getTestResults(testId: string): Promise<ResultData> {
 }
 
 export type TldUrlData = {
+    tld?: string;
     url?: string;
 };
 

@@ -128,6 +128,8 @@
     }
 
     let tldUrl = $state('');
+    let tld = $state('');
+    const shortTld = $derived(tld.length > 7 ? `${tld.slice(0, 7)}...` : tld);
     // Depend on the domain only, so a new result object for the same domain
     // doesn't refetch the URL.
     const domain = $derived(data.params.domain);
@@ -135,12 +137,14 @@
     $effect(() => {
         let active = true;
         tldUrl = '';
+        tld = '';
         showURL = false;
 
         getTldUrl(domain)
-            .then(({ url }) => {
+            .then(({ url, tld: resultTld }) => {
                 if (active) {
                     tldUrl = url ?? '';
+                    tld = resultTld ?? '';
                 }
             })
             .catch(() => {
@@ -176,6 +180,7 @@
                         type="button"
                         aria-controls="copyTLDURLDialog"
                         aria-expanded={showURL}
+                        title={tld ? `.${tld} ${m.info()}` : undefined}
                         onclick={() => {
                             showURL = !showURL;
                             showExport = false;
@@ -184,7 +189,11 @@
                         id="zmTLDURLButton"
                     >
                         <i class="bi bi-link-45deg"></i>
-                        {m.tldURL()}
+                        {#if tld}
+                            .{shortTld} {m.info()}
+                        {:else}
+                            {m.tldURL()}
+                        {/if}
                     </Button>
                     <div
                         class="zm-popover__content"
