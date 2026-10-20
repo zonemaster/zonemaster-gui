@@ -51,4 +51,7 @@ jobs:
 
       - name: Test Apache configuration inside image
         run: |
-          docker run --rm gui:${{ steps.pkg.outputs.version }} httpd -t
+          docker run --rm \
+             -e ZONEMASTER_BACKEND_HOST=zmhost \
+             -e ZONEMASTER_BACKEND_PORT=5000 \
+             gui:${{ steps.pkg.outputs.version }} httpd -t
