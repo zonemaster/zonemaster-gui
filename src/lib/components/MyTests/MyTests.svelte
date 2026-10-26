@@ -25,64 +25,65 @@
     const baseUrl = import.meta.env.BASE_URL;
     const locale = getLocale();
     const resultUrl = (id: string) => `${baseUrl}${locale}/result/${id}/`;
+    const dateTimeLabel = (date: string) => `${date} 10:00`;
 
     const tests: Test[] = [
         {
-            id: 'single-1',
+            id: '7294b2cfb1561823',
             domain: 'zonemaster.net',
             date: '2026-10-14',
             type: 'single',
             status: 'finished',
-            resultUrl: resultUrl('single-1'),
+            resultUrl: resultUrl('7294b2cfb1561823'),
         },
         {
-            id: 'batch-1',
+            id: 'e5a8d73f4c1290ba',
             domain: 'batch-test-01',
             date: '2026-10-13',
             type: 'batch',
             status: 'finished',
             tests: [
-                { id: 'batch-1-1', domain: 'example.com', date: '2026-10-13', resultUrl: resultUrl('batch-1-1'), status: 'finished' },
-                { id: 'batch-1-2', domain: 'example.net', date: '2026-10-13', resultUrl: resultUrl('batch-1-2'), status: 'finished' },
-                { id: 'batch-1-3', domain: 'example.org', date: '2026-10-13', resultUrl: resultUrl('batch-1-3'), status: 'finished' },
+                { id: 'c18e4a907db5623f', domain: 'example.com', date: '2026-10-13', resultUrl: resultUrl('c18e4a907db5623f'), status: 'finished' },
+                { id: '4f73bc8d1ea95062', domain: 'example.net', date: '2026-10-13', resultUrl: resultUrl('4f73bc8d1ea95062'), status: 'finished' },
+                { id: '9a62edc5b80147f3', domain: 'example.org', date: '2026-10-13', resultUrl: resultUrl('9a62edc5b80147f3'), status: 'finished' },
             ],
         },
         {
-            id: 'single-2',
+            id: 'd6c371f8a2049be5',
             domain: 'internetstiftelsen.se',
             date: '2026-10-12',
             type: 'single',
             status: 'finished',
-            resultUrl: resultUrl('single-2'),
+            resultUrl: resultUrl('d6c371f8a2049be5'),
         },
         {
-            id: 'batch-2',
+            id: '2b94ef6c7d1830a5',
             domain: 'batch-test-02',
             date: '2026-10-11',
             type: 'batch',
             status: 'finished',
             tests: [
-                { id: 'batch-2-1', domain: 'example.edu', date: '2026-10-11', resultUrl: resultUrl('batch-2-1'), status: 'finished' },
-                { id: 'batch-2-2', domain: 'example.info', date: '2026-10-11', resultUrl: resultUrl('batch-2-2'), status: 'finished' },
+                { id: '8de25b719c40fa63', domain: 'example.edu', date: '2026-10-11', resultUrl: resultUrl('8de25b719c40fa63'), status: 'finished' },
+                { id: '37a6c9e1d4528fb0', domain: 'example.info', date: '2026-10-11', resultUrl: resultUrl('37a6c9e1d4528fb0'), status: 'finished' },
             ],
         },
         {
-            id: 'single-3',
+            id: 'b04d8f3267ea159c',
             domain: 'failed-single.example',
             date: '2026-10-10',
             type: 'single',
             status: 'failed',
-            resultUrl: resultUrl('single-3'),
+            resultUrl: resultUrl('b04d8f3267ea159c'),
         },
         {
-            id: 'batch-3',
+            id: '6f19ab42cde78053',
             domain: 'batch-test-03',
             date: '2026-10-09',
             type: 'batch',
             status: 'failed',
             tests: [
-                { id: 'batch-3-1', domain: 'failed-batch.example', date: '2026-10-09', resultUrl: resultUrl('batch-3-1'), status: 'failed' },
-                { id: 'batch-3-2', domain: 'completed-batch.example', date: '2026-10-09', resultUrl: resultUrl('batch-3-2'), status: 'finished' },
+                { id: '1c8a5e7db2094f36', domain: 'failed-batch.example', date: '2026-10-09', resultUrl: resultUrl('1c8a5e7db2094f36'), status: 'failed' },
+                { id: 'f4372b8c6e1d950a', domain: 'completed-batch.example', date: '2026-10-09', resultUrl: resultUrl('f4372b8c6e1d950a'), status: 'finished' },
             ],
         },
     ];
@@ -156,14 +157,14 @@
     {/if}
     <div class="zm-batch-test zm-my-tests" bind:this={tableContainer}>
     <table bind:this={table}>
-        <caption>{m.myTestsTableCaption()}</caption>
+        <caption>{m.testHistory()}</caption>
         <thead>
             <tr>
                 <th scope="col">{m.batchTestDomain()}</th>
-                <th scope="col">{m.batchTestResult()}</th>
                 <th scope="col">{m.myTestsTestType()}</th>
                 <th scope="col">{m.myTestsTestId()}</th>
                 <th scope="col">{m.myTestsDate()}</th>
+                <th scope="col">{m.batchTestResult()}</th>
                 <th scope="col">{m.batchTestStatus()}</th>
             </tr>
         </thead>
@@ -171,7 +172,18 @@
             <tbody>
                 <tr class={`zm-batch-test__row zm-batch-test__row--${test.status}`}>
                     <td data-row-header="true" title={test.domain}>{test.domain}</td>
+                    <td>{test.type === 'single' ? m.myTestsSingle() : m.myTestsBatch()}</td>
+                    <td>{test.id}</td>
                     <td>
+                        <time
+                            datetime={`${test.date}T10:00:00+01:00`}
+                            title={dateTimeLabel(test.date)}
+                            aria-label={dateTimeLabel(test.date)}
+                        >
+                            {test.date}
+                        </time>
+                    </td>
+                    <td class:zm-my-tests__expand-cell={test.type === 'batch'}>
                         {#if test.type === 'single' && test.resultUrl}
                             <a class="zm-batch-test__result-link" href={test.resultUrl}>
                                 {m.batchTestGoToResult()}
@@ -190,9 +202,6 @@
                             </Switch>
                         {/if}
                     </td>
-                    <td>{test.type === 'single' ? m.myTestsSingle() : m.myTestsBatch()}</td>
-                    <td>{test.id}</td>
-                    <td><time datetime={test.date}>{test.date}</time></td>
                     {#if test.type === 'single'}
                         <td>
                             <i class={`bi bi-${test.status === 'finished' ? 'check-circle-fill' : 'x-circle-fill'} zm-batch-test__icon`} role="img" aria-label={statusLabel(test.status)} title={statusLabel(test.status)}></i>
@@ -211,14 +220,22 @@
                     {#each test.tests ?? [] as batchTest}
                         <tr class={`zm-batch-test__row zm-batch-test__row--${batchTest.status}`}>
                             <td data-row-header="true" title={batchTest.domain}>{batchTest.domain}</td>
+                            <td>{m.myTestsSingle()}</td>
+                            <td>{batchTest.id}</td>
+                            <td>
+                                <time
+                                    datetime={`${batchTest.date}T10:00:00+01:00`}
+                                    title={dateTimeLabel(batchTest.date)}
+                                    aria-label={dateTimeLabel(batchTest.date)}
+                                >
+                                    {batchTest.date}
+                                </time>
+                            </td>
                             <td>
                                 <a class="zm-batch-test__result-link" href={batchTest.resultUrl}>
                                     {m.batchTestGoToResult()}
                                 </a>
                             </td>
-                            <td>{m.myTestsSingle()}</td>
-                            <td>{batchTest.id}</td>
-                            <td><time datetime={batchTest.date}>{batchTest.date}</time></td>
                             <td>
                                 <i class={`bi bi-${batchTest.status === 'finished' ? 'check-circle-fill' : 'x-circle-fill'} zm-batch-test__icon zm-batch-test__icon--${batchTest.status}`} role="img" aria-label={statusLabel(batchTest.status)} title={statusLabel(batchTest.status)}></i>
                             </td>

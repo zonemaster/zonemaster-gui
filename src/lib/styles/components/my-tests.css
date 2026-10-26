@@ -12,6 +12,14 @@
     .zm-switch {
         white-space: nowrap;
     }
+
+    > table > tbody > tr > td.zm-my-tests__expand-cell {
+        text-align: right;
+
+        .zm-switch {
+            display: inline-flex;
+        }
+    }
 }
 
 .zm-my-tests-wrapper {

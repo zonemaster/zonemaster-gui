@@ -45,6 +45,7 @@
     thead th:last-child,
     tbody td:last-child {
         text-align: center;
+        vertical-align: middle;
         width: 4rem;
     }
 
@@ -67,6 +68,8 @@
     display: inline-flex;
     font-size: var(--font-m);
     justify-content: center;
+    line-height: 1;
+    vertical-align: middle;
 }
 
 .zm-batch-test__legend {
