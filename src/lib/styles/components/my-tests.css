@@ -13,13 +13,55 @@
         white-space: nowrap;
     }
 
-    > table > tbody > tr > td.zm-my-tests__expand-cell {
-        text-align: right;
-
-        .zm-switch {
-            display: inline-flex;
-        }
+    > table > thead th:nth-last-child(2),
+    > table > tbody > tr td:nth-last-child(2) {
+        text-align: center;
     }
+
+    .zm-batch-test__result-link--icon,
+    .zm-switch--icon-only .switch-toggle {
+        align-items: center;
+        aspect-ratio: 1;
+        background-color: transparent;
+        border-radius: 50%;
+        block-size: auto;
+        box-sizing: border-box;
+        color: var(--color-palette-main-70);
+        display: inline-flex;
+        font-size: 24px;
+        inline-size: 1em;
+        justify-content: center;
+        padding: 0;
+        vertical-align: middle;
+
+    }
+
+    .zm-batch-test__result-link--icon > .bi,
+    .zm-switch--icon-only .switch-toggle > .bi {
+        align-items: center;
+        display: inline-flex;
+        font-size: 20px;
+        justify-content: center;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    .zm-switch--icon-only .switch-toggle > .bi {
+        transform: translateY(2px);
+    }
+
+    .zm-switch--icon-only.zm-switch--active .switch-toggle > .bi {
+        transform: translateY(0);
+    }
+
+    .zm-batch-test__result-link--icon:hover,
+    .zm-batch-test__result-link--icon:focus,
+    .zm-switch--icon-only .switch-toggle:hover,
+    .zm-switch--icon-only .switch-toggle:focus {
+        background-color: var(--color-text-highlight);
+        color: var(--color-palette-white);
+    }
+
 }
 
 .zm-my-tests-wrapper {
@@ -68,6 +110,14 @@
 .zm-my-tests__batch-details {
     tr {
         background-color: var(--color-palette-black-10) !important;
+    }
+
+    tr:hover {
+        background-color: color-mix(
+            in srgb,
+            var(--color-palette-black-30) 40%,
+            var(--color-palette-black-10)
+        ) !important;
     }
 }
 
@@ -123,9 +173,16 @@
             );
         }
 
-        .zm-my-tests__batch-details tr > :first-child,
-        .zm-my-tests__batch-details tr:hover > :first-child {
+        .zm-my-tests__batch-details tr > :first-child {
             background-color: var(--color-palette-black-10);
+        }
+
+        .zm-my-tests__batch-details tr:hover > :first-child {
+            background-color: color-mix(
+                in srgb,
+                var(--color-palette-black-30) 40%,
+                var(--color-palette-black-10)
+            );
         }
     }
 }

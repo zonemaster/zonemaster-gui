@@ -164,8 +164,8 @@
                 <th scope="col">{m.myTestsTestType()}</th>
                 <th scope="col">{m.myTestsTestId()}</th>
                 <th scope="col">{m.myTestsDate()}</th>
-                <th scope="col">{m.batchTestResult()}</th>
                 <th scope="col">{m.batchTestStatus()}</th>
+                <th scope="col">{m.myTestsLink()}</th>
             </tr>
         </thead>
         {#each tests as test}
@@ -183,25 +183,6 @@
                             {test.date}
                         </time>
                     </td>
-                    <td class:zm-my-tests__expand-cell={test.type === 'batch'}>
-                        {#if test.type === 'single' && test.resultUrl}
-                            <a class="zm-batch-test__result-link" href={test.resultUrl}>
-                                {m.batchTestGoToResult()}
-                            </a>
-                        {:else}
-                            <Switch
-                                id={`batch-tests-toggle-${test.id}`}
-                                controls={`batch-tests-${test.id}`}
-                                active={isExpanded(test.id)}
-                                size="small"
-                                onClick={() => toggleBatch(test.id)}
-                            >
-                                {isExpanded(test.id)
-                                    ? m.myTestsHideBatchTests()
-                                    : m.myTestsShowBatchTests()}
-                            </Switch>
-                        {/if}
-                    </td>
                     {#if test.type === 'single'}
                         <td>
                             <i class={`bi bi-${test.status === 'finished' ? 'check-circle-fill' : 'x-circle-fill'} zm-batch-test__icon`} role="img" aria-label={statusLabel(test.status)} title={statusLabel(test.status)}></i>
@@ -209,6 +190,25 @@
                     {:else}
                         <td aria-hidden="true"></td>
                     {/if}
+                    <td>
+                        {#if test.type === 'single' && test.resultUrl}
+                            <a class="zm-batch-test__result-link zm-batch-test__result-link--icon" href={test.resultUrl} aria-label={m.batchTestGoToResult()} title={m.batchTestGoToResult()}>
+                                <i class="bi bi-link-45deg" aria-hidden="true"></i>
+                            </a>
+                        {:else}
+                            <Switch
+                                id={`batch-tests-toggle-${test.id}`}
+                                controls={`batch-tests-${test.id}`}
+                                active={isExpanded(test.id)}
+                                size="small"
+                                iconOnly={true}
+                                label={isExpanded(test.id)
+                                    ? m.myTestsHideBatchTests()
+                                    : m.myTestsShowBatchTests()}
+                                onClick={() => toggleBatch(test.id)}
+                            />
+                        {/if}
+                    </td>
                 </tr>
             </tbody>
             {#if test.type === 'batch'}
@@ -232,12 +232,12 @@
                                 </time>
                             </td>
                             <td>
-                                <a class="zm-batch-test__result-link" href={batchTest.resultUrl}>
-                                    {m.batchTestGoToResult()}
-                                </a>
+                                <i class={`bi bi-${batchTest.status === 'finished' ? 'check-circle-fill' : 'x-circle-fill'} zm-batch-test__icon zm-batch-test__icon--${batchTest.status}`} role="img" aria-label={statusLabel(batchTest.status)} title={statusLabel(batchTest.status)}></i>
                             </td>
                             <td>
-                                <i class={`bi bi-${batchTest.status === 'finished' ? 'check-circle-fill' : 'x-circle-fill'} zm-batch-test__icon zm-batch-test__icon--${batchTest.status}`} role="img" aria-label={statusLabel(batchTest.status)} title={statusLabel(batchTest.status)}></i>
+                                <a class="zm-batch-test__result-link zm-batch-test__result-link--icon" href={batchTest.resultUrl} aria-label={m.batchTestGoToResult()} title={m.batchTestGoToResult()}>
+                                    <i class="bi bi-link-45deg" aria-hidden="true"></i>
+                                </a>
                             </td>
                         </tr>
                     {/each}

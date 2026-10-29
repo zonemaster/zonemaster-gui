@@ -93,6 +93,14 @@
     text-decoration: underline;
 }
 
+.zm-batch-test__result-link--icon {
+    align-items: center;
+    display: inline-flex;
+    font-size: var(--font-m);
+    line-height: 1;
+    text-decoration: none;
+}
+
 .zm-batch-test__no-result {
     display: block;
     text-align: center;
