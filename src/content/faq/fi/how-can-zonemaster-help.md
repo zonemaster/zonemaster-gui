@@ -5,4 +5,4 @@ category: Zonemasterin käyttö
 
 Tämä riippuu siitä, mikä tai mitkä testit verkkotunnuksellesi ovat epäonnistuneet. Jokaisella testillä on yksi tai useampi viesti, jotka kuvaavat testauksen aikana havaittuja puutteita tai ongelmia.
 
-Voit myös saada lisätietoja jokaisesta testistä [Test Case Specification -dokumenteista](https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications).
+Voit myös saada lisätietoja jokaisesta testistä [Test Case Specification -dokumenteista](https://doc.zonemaster.net/latest/specifications/tests#zonemaster-test-case-specifications).

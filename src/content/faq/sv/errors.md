@@ -5,4 +5,4 @@ category: Använda Zonemaster
 
 Det beror på vilket testfall som misslyckades för ditt domännamn. Varje testfall åtföljs av ett eller flera meddelanden som beskriver de problem som hittades.
 
-Du kan också få ytterligare information om varje testfall från [Test Case Specification documents](https://github.com/zonemaster/zonemaster/tree/master/docs/public/specifications/tests#zonemaster-test-case-specifications).
+Du kan också få ytterligare information om varje testfall från [Test Case Specification documents](https://doc.zonemaster.net/latest/specifications/tests#zonemaster-test-case-specifications).
