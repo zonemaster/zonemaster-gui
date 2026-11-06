@@ -63,7 +63,7 @@ test.describe('TLD URL on test results', () => {
             const faqLink = dialog.getByRole('link', {
                 name: 'What is the TLD information link?',
             });
-            await expect(faqLink).toHaveAttribute('href', '/en/faq/');
+            await expect(faqLink).toHaveAttribute('href', '/en/faq/#tldurl');
             const openLink = dialog.getByRole('link', { name: 'Open TLD URL in a new tab' });
             await expect(openLink).toHaveAttribute('href', url);
             await expect(openLink).toHaveAttribute('target', '_blank');

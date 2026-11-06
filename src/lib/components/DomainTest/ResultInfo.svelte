@@ -134,7 +134,7 @@
     // Depend on the domain only, so a new result object for the same domain
     // doesn't refetch the URL.
     const domain = $derived(data.params.domain);
-    const faqUrl = `${import.meta.env.BASE_URL}${getLocale()}/faq/`;
+    const faqUrl = `${import.meta.env.BASE_URL}${getLocale()}/faq/#tldurl`;
 
     $effect(() => {
         let active = true;
