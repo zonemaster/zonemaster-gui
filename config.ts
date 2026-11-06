@@ -7,6 +7,7 @@ const config: Config = {
     baseUrl: import.meta.env.PUBLIC_BASE_URL || '/',
     apiBaseUrl: import.meta.env.PUBLIC_API_URL || '/api',
     pollingInterval: import.meta.env.PUBLIC_POLLING_INTERVAL || 5000,
+    maxBatchDomains: 10,
     clientInfo: {
         version: packageJson.version,
         id: 'Zonemaster-GUI',

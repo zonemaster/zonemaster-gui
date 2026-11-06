@@ -1,0 +1,23 @@
+---
+import Layout from '@theme/Layout.astro';
+import BatchTests from '@theme/BatchTests.astro';
+import config from '@/config';
+import { batchTests } from '@/lib/components/MyTests/testData.ts';
+
+export function getStaticPaths() {
+    return config.enabledLanguages.flatMap((lang) =>
+        batchTests.map((batch) => ({
+            params: { lang, id: batch.id },
+            props: { batch },
+        })),
+    );
+}
+
+export const prerender = true;
+
+const { batch } = Astro.props;
+---
+
+<Layout title={batch.domain}>
+    <BatchTests {batch} />
+</Layout>

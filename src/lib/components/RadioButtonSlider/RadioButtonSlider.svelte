@@ -10,6 +10,8 @@
         controls?: string;
         checked?: boolean;
         disabled?: boolean;
+        /** Optional session storage key used to restore the switch state. */
+        sessionStorageKey?: string;
         onChange?: (event: Event & { currentTarget: EventTarget & HTMLInputElement }) => void;
     };
 
@@ -20,8 +22,19 @@
         controls,
         checked = $bindable(false),
         disabled = false,
+        sessionStorageKey,
         onChange,
     }: Props = $props();
+
+    let restoringState = $state(Boolean(sessionStorageKey));
+
+    if (typeof window !== 'undefined' && sessionStorageKey) {
+        const storedState = sessionStorage.getItem(sessionStorageKey);
+
+        if (storedState !== null) {
+            checked = storedState === 'true';
+        }
+    }
 
     function getTargetContainer() {
         return Array.from(
@@ -64,14 +77,47 @@
     function handleChange(
         event: Event & { currentTarget: EventTarget & HTMLInputElement },
     ) {
+        if (sessionStorageKey) {
+            sessionStorage.setItem(sessionStorageKey, String(checked));
+        }
+
         syncTarget();
         onChange?.(event);
     }
 
-    onMount(syncTarget);
+    onMount(() => {
+        syncTarget();
+
+        document.addEventListener('zm:sync-radio-button-slider', syncTarget);
+
+        let followUpAnimationFrame: number | undefined;
+        const animationFrame = requestAnimationFrame(() => {
+            syncTarget();
+
+            followUpAnimationFrame = requestAnimationFrame(() => {
+                restoringState = false;
+            });
+        });
+
+        return () => {
+            document.removeEventListener(
+                'zm:sync-radio-button-slider',
+                syncTarget,
+            );
+            cancelAnimationFrame(animationFrame);
+
+            if (followUpAnimationFrame !== undefined) {
+                cancelAnimationFrame(followUpAnimationFrame);
+            }
+        };
+    });
 </script>
 
-<label class="zm-radio-button-slider" for={id}>
+<label
+    class:zm-radio-button-slider--restoring={restoringState}
+    class="zm-radio-button-slider"
+    for={id}
+>
     <span id="{id}-label">{label}</span>
     <input
         {id}

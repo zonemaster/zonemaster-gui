@@ -9,17 +9,12 @@
         width: 1%;
     }
 
-    .zm-switch {
-        white-space: nowrap;
-    }
-
     > table > thead th:nth-last-child(2),
     > table > tbody > tr td:nth-last-child(2) {
         text-align: center;
     }
 
-    .zm-batch-test__result-link--icon,
-    .zm-switch--icon-only .switch-toggle {
+    .zm-batch-test__result-link--icon {
         align-items: center;
         aspect-ratio: 1;
         background-color: transparent;
@@ -36,8 +31,7 @@
 
     }
 
-    .zm-batch-test__result-link--icon > .bi,
-    .zm-switch--icon-only .switch-toggle > .bi {
+    .zm-batch-test__result-link--icon > .bi {
         align-items: center;
         display: inline-flex;
         font-size: 20px;
@@ -46,18 +40,8 @@
         vertical-align: middle;
     }
 
-    .zm-switch--icon-only .switch-toggle > .bi {
-        transform: translateY(2px);
-    }
-
-    .zm-switch--icon-only.zm-switch--active .switch-toggle > .bi {
-        transform: translateY(0);
-    }
-
     .zm-batch-test__result-link--icon:hover,
-    .zm-batch-test__result-link--icon:focus,
-    .zm-switch--icon-only .switch-toggle:hover,
-    .zm-switch--icon-only .switch-toggle:focus {
+    .zm-batch-test__result-link--icon:focus {
         background-color: var(--color-text-highlight);
         color: var(--color-palette-white);
     }
@@ -66,6 +50,10 @@
 
 .zm-my-tests-wrapper {
     position: relative;
+}
+
+.zm-batch-tests__back {
+    margin-top: var(--rhythm);
 }
 
 .zm-my-tests__scroll-indicator {
@@ -104,20 +92,6 @@
 @media (prefers-reduced-motion: reduce) {
     .zm-my-tests__scroll-indicator .bi {
         animation: none;
-    }
-}
-
-.zm-my-tests__batch-details {
-    tr {
-        background-color: var(--color-palette-black-10) !important;
-    }
-
-    tr:hover {
-        background-color: color-mix(
-            in srgb,
-            var(--color-palette-black-30) 40%,
-            var(--color-palette-black-10)
-        ) !important;
     }
 }
 
@@ -173,16 +147,5 @@
             );
         }
 
-        .zm-my-tests__batch-details tr > :first-child {
-            background-color: var(--color-palette-black-10);
-        }
-
-        .zm-my-tests__batch-details tr:hover > :first-child {
-            background-color: color-mix(
-                in srgb,
-                var(--color-palette-black-30) 40%,
-                var(--color-palette-black-10)
-            );
-        }
     }
 }

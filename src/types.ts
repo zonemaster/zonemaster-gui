@@ -25,6 +25,7 @@ export type Config = {
     baseUrl: string;
     apiBaseUrl: string;
     pollingInterval: number;
+    maxBatchDomains: number;
     clientInfo: ClientInfo;
     siteInfo: SiteInfo;
     setTitle(title: string): string;

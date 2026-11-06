@@ -47,6 +47,11 @@
             opacity: 0.6;
         }
     }
+
+    &.zm-radio-button-slider--restoring input,
+    &.zm-radio-button-slider--restoring input::before {
+        transition: none;
+    }
 }
 
 .zm-test-input-heading {

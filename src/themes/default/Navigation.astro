@@ -8,6 +8,11 @@ const homeUrl = getRelativeLocaleUrl(currentLanguage, '/');
 const myTestsUrl = getRelativeLocaleUrl(currentLanguage, '/my-tests');
 const faqUrl = getRelativeLocaleUrl(currentLanguage, '/faq');
 const { pathname } = Astro.url;
+const normalizedMyTestsUrl = myTestsUrl.replace(/\/$/, '');
+const normalizedPathname = pathname.replace(/\/$/, '');
+const isMyTestsActive =
+    normalizedPathname === normalizedMyTestsUrl ||
+    normalizedPathname.startsWith(`${normalizedMyTestsUrl}/`);
 ---
 
 <nav class="zm-menu" aria-label="Main navigation">
@@ -25,7 +30,7 @@ const { pathname } = Astro.url;
             <a
                 class:list={[
                     'zm-menu__item',
-                    { ['is-active']: pathname === myTestsUrl },
+                    { ['is-active']: isMyTestsActive },
                 ]}
                 href={myTestsUrl}>{m.myTestsNav()}</a
             >

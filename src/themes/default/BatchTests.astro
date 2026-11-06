@@ -1,0 +1,26 @@
+---
+import BatchTestsTable from '@/lib/components/MyTests/BatchTests.svelte';
+import type { Test } from '@/lib/components/MyTests/testData.ts';
+import * as m from '@/messages';
+import { getLocale } from '@/messages';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+interface Props {
+    batch: Test;
+}
+
+const { batch } = Astro.props;
+const myTestsUrl = getRelativeLocaleUrl(getLocale(), '/my-tests');
+---
+
+<h1 class="zm-faq-title zm-u-align-center u-m-x-auto">{batch.domain}</h1>
+<p class="preamble zm-u-align-center u-m-x-auto">{batch.id}</p>
+<section class="rhythm zm-faq-section">
+    <BatchTestsTable batch={batch} client:load />
+    <div class="zm-batch-tests__back">
+        <a class="zm-button" href={myTestsUrl}>
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            {m.myTestsNav()}
+        </a>
+    </div>
+</section>

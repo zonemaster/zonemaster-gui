@@ -1,8 +1,10 @@
 <script lang="ts">
     import * as m from '@/messages';
+    import { onMount } from 'svelte';
 
     export type BatchTestEntry = {
         domain: string;
+        id: string;
         status: 'finished' | 'failed' | 'ongoing';
         resultUrl?: string;
     };
@@ -13,6 +15,11 @@
 
     const { tests }: Props = $props();
 
+    let tableContainer = $state<HTMLDivElement>();
+    let table = $state<HTMLTableElement>();
+    let canScrollTable = $state(false);
+    let isAtTableEnd = $state(false);
+
     function statusLabel(status: BatchTestEntry['status']) {
         if (status === 'finished') {
             return m.batchTestFinished();
@@ -20,15 +27,56 @@
 
         return status === 'failed' ? m.batchTestFailed() : m.batchTestOngoing();
     }
+
+    function updateScrollIndicator() {
+        if (!tableContainer) {
+            return;
+        }
+
+        canScrollTable = tableContainer.scrollWidth > tableContainer.clientWidth;
+        isAtTableEnd =
+            tableContainer.scrollLeft + tableContainer.clientWidth >=
+            tableContainer.scrollWidth - 1;
+    }
+
+    onMount(() => {
+        if (!tableContainer) {
+            return;
+        }
+
+        const resizeObserver = new ResizeObserver(updateScrollIndicator);
+        resizeObserver.observe(tableContainer);
+
+        if (table) {
+            resizeObserver.observe(table);
+        }
+
+        tableContainer.addEventListener('scroll', updateScrollIndicator, {
+            passive: true,
+        });
+        updateScrollIndicator();
+
+        return () => {
+            resizeObserver.disconnect();
+            tableContainer?.removeEventListener('scroll', updateScrollIndicator);
+        };
+    });
 </script>
 
-<div class="zm-batch-test">
-    <table>
+<div class="zm-batch-test-wrapper">
+    {#if canScrollTable && !isAtTableEnd}
+        <span class="zm-batch-test__scroll-indicator" aria-hidden="true">
+            Scroll <i class="bi bi-arrow-right"></i>
+        </span>
+    {/if}
+    <div class="zm-batch-test zm-batch-test--responsive" bind:this={tableContainer}>
+    <table bind:this={table}>
         <caption>{m.batchTestProgress()}</caption>
         <thead>
             <tr>
                 <th scope="col">{m.batchTestDomain()}</th>
-                <th scope="col">{m.batchTestResult()}</th>
+                <th class="zm-batch-test__id-cell" scope="col">{m.myTestsTestId()}</th>
+                <th class="zm-batch-test__view-cell" scope="col">{m.myTestsLink()}</th>
                 <th scope="col">{m.batchTestStatus()}</th>
             </tr>
         </thead>
@@ -38,10 +86,11 @@
                     <td>
                         {test.domain}
                     </td>
-                    <td>
+                    <td class="zm-batch-test__id-cell">{test.id}</td>
+                    <td class="zm-batch-test__view-cell">
                         {#if test.resultUrl}
-                            <a class="zm-batch-test__result-link" href={test.resultUrl}>
-                                {m.batchTestGoToResult()}
+                            <a class="zm-batch-test__result-link zm-batch-test__result-link--icon" href={test.resultUrl} aria-label={m.batchTestGoToResult()} title={m.batchTestGoToResult()}>
+                                <i class="bi bi-link-45deg" aria-hidden="true"></i>
                             </a>
                         {:else}
                             <span class="zm-batch-test__no-result" aria-hidden="true">—</span>
@@ -64,7 +113,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="3">
+                <td colspan="4">
                     <h3 class="zm-batch-test__legend-heading">
                         {m.batchTestIconLegendHeading()}
                     </h3>
@@ -86,4 +135,5 @@
             </tr>
         </tfoot>
     </table>
+    </div>
 </div>

@@ -7,6 +7,7 @@
     import { getLocale } from '@/messages';
     import Switch from '@/lib/components/Switch/Switch.svelte';
     import Advanced from '@/lib/components/DomainTest/Advanced.svelte';
+    import Grid from '@/lib/components/Grid/Grid.svelte';
     import Stack from '@/lib/components/Stack/Stack.svelte';
     import Result from '@/lib/components/DomainTest/Result.svelte';
     import { machine, transition } from '@/lib/machine.svelte.ts';
@@ -18,15 +19,16 @@
 
     type Props = {
         aboutLevels: FaqItem | null;
+        maxBatchDomains: number;
     };
 
-    const { aboutLevels }: Props = $props();
+    const { aboutLevels, maxBatchDomains }: Props = $props();
 
     let domain = $state('');
+    let batchTestName = $state('');
     let advanced = $state(false);
     let batchDomainInput = $state<HTMLTextAreaElement>();
     let batchDomainCount = $state(0);
-    const maxBatchDomains = 10;
     let batchDomainsRemaining = $derived(maxBatchDomains - batchDomainCount);
     let { currentState, currentContext, previousState } = $derived(machine);
 
@@ -97,6 +99,12 @@
 
     onMount(() => {
         document.body.dataset.domainTestHydrated = 'true';
+
+        const animationFrame = requestAnimationFrame(() => {
+            document.dispatchEvent(new Event('zm:sync-radio-button-slider'));
+        });
+
+        return () => cancelAnimationFrame(animationFrame);
     });
 </script>
 
@@ -106,7 +114,7 @@
     onsubmit={startTest}
     class="zm-domain-test {currentState === 'testing' ? 'zm-is-testing' : ''}"
 >
-    <Stack>
+    <Stack wrap class="zm-domain-test__controls">
         <div
             id="domain-test-input"
             class="zm-domain-test__progress"
@@ -133,8 +141,27 @@
                 />
             </div>
             <div data-radio-button-slider-value="on" hidden>
+                <div class="zm-domain-test__batch-name">
+                    <Grid cols={2} gap={false}>
+                        <div>
+                            <label class="zm-u-visually-hidden" for="batchTestName">
+                                {m.batchTestName()}
+                            </label>
+                            <Input
+                                required
+                                name="batchTestName"
+                                id="batchTestName"
+                                type="text"
+                                bind:value={batchTestName}
+                                placeholder={m.batchTestName()}
+                                disabled
+                                data-radio-button-slider-control
+                            />
+                        </div>
+                    </Grid>
+                </div>
                 <label class="zm-u-visually-hidden" for="batchDomainInput"
-                    >{m.domainName()}</label
+                    >{m.domainNames()}</label
                 >
                 <div class="zm-domain-test__batch-input-wrapper">
                     <textarea
@@ -146,7 +173,7 @@
                         class="zm-input zm-domain-test__batch-input"
                         data-radio-button-slider-control
                         rows="5"
-                        placeholder={m.batchDomainNamesPlaceholder()}
+                        placeholder={m.batchDomainNamesPlaceholder({ count: maxBatchDomains })}
                         aria-describedby="batch-testing-toggle-label"
                         oninput={handleBatchInput}
                     ></textarea>
@@ -167,6 +194,14 @@
                 {/key}
             {/if}
         </div>
+        <Switch
+            id="advanced-toggle"
+            controls="advanced-options"
+            active={advanced}
+            onClick={() => (advanced = !advanced)}
+        >
+            {advanced ? m.hideOptions() : m.showOptions()}
+        </Switch>
         <Button
             type="submit"
             disabled={currentState === 'testing'}
@@ -178,14 +213,6 @@
             {/if}
         </Button>
     </Stack>
-    <Switch
-        id="advanced-toggle"
-        controls="advanced-options"
-        active={advanced}
-        onClick={() => (advanced = !advanced)}
-    >
-        {advanced ? m.hideOptions() : m.showOptions()}
-    </Switch>
     <div id="advanced-options" hidden={!advanced}>
         {#if advanced}
             <Advanced />
