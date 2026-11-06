@@ -26,6 +26,7 @@
     import Copy from '../Copy/Copy.svelte';
     import { resultIcon } from '@/lib/resultIcon.ts';
     import * as m from '@/messages';
+    import { getLocale } from '@/messages';
     import { groupResult } from '@/lib/groupResult.ts';
     import type { ResultFilter } from '@/types.ts';
 
@@ -133,6 +134,7 @@
     // Depend on the domain only, so a new result object for the same domain
     // doesn't refetch the URL.
     const domain = $derived(data.params.domain);
+    const faqUrl = `${import.meta.env.BASE_URL}${getLocale()}/faq/`;
 
     $effect(() => {
         let active = true;
@@ -202,7 +204,9 @@
                         id="copyTLDURLDialog"
                         style:display={showURL ? 'block' : 'none'}
                     >
-                        <p class="u-m-b-1 u-font-size-medium">{m.tldURLInfo()}</p>
+                        <p class="u-m-b-1 u-font-size-medium">
+                            {m.tldURLInfo({ topdomain: tld })}
+                        </p>
                         <div
                             class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack[
                                 'gap--s'
@@ -220,7 +224,6 @@
                                 title={tldUrl}
                             />
                             <div class="zm-tld-url-actions">
-                                <Copy value={tldUrl} />
                                 <a
                                     class="zm-copy"
                                     href={tldUrl}
@@ -230,6 +233,14 @@
                                     title={m.openTldURLInNewTab()}
                                 >
                                     <i class="bi bi-box-arrow-up-right"></i>
+                                </a>
+                                <a
+                                    class="zm-copy"
+                                    href={faqUrl}
+                                    aria-label={m.readMoreAboutTopLevelDomains()}
+                                    title={m.readMoreAboutTopLevelDomains()}
+                                >
+                                    <i class="bi bi-question-circle"></i>
                                 </a>
                             </div>
                         </div>

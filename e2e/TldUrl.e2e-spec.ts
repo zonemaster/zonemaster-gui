@@ -36,8 +36,7 @@ async function expectResults(page: Page) {
 
 test.describe('TLD URL on test results', () => {
     for (const url of ['https://www.afnic.fr/', 'http://www.afnic.fr/']) {
-        test(`displays and copies ${url}`, async ({ page, context }) => {
-            await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+        test(`displays and links to ${url}`, async ({ page }) => {
             await mockTldUrl(page, (route) =>
                 fulfillRpc(route, { result: { tld: 'fr', url } }),
             );
@@ -57,16 +56,18 @@ test.describe('TLD URL on test results', () => {
             await expect(dialog).toBeHidden();
             await button.click();
             await expect(dialog).toBeVisible();
-            await expect(dialog.getByText('Placeholder information about the TLD URL.')).toBeVisible();
+            await expect(
+                dialog.getByText('Visit the registry to learn more about .fr.'),
+            ).toBeVisible();
             await expect(dialog.locator('input[name="url"]')).toHaveValue(url);
+            const faqLink = dialog.getByRole('link', {
+                name: 'What is the TLD information link?',
+            });
+            await expect(faqLink).toHaveAttribute('href', '/en/faq/');
             const openLink = dialog.getByRole('link', { name: 'Open TLD URL in a new tab' });
             await expect(openLink).toHaveAttribute('href', url);
             await expect(openLink).toHaveAttribute('target', '_blank');
             await expect(openLink).toHaveAttribute('rel', 'noopener noreferrer');
-            const copyButton = dialog.getByRole('button');
-            await copyButton.click();
-            await expect(copyButton).toHaveAttribute('aria-label', 'Copied');
-            expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(url);
         });
     }
 
