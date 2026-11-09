@@ -77,7 +77,7 @@
     "filterSeverityLevels": "Filtrar niveles de gravedad",
     "profile": "Perfil",
     "tldURL": "URL del TLD",
-    "tldURLInfo": "Visite el registro para obtener más información sobre .{topdomain}.",
+    "tldURLInfo": "Visite el Registro para obtener más información sobre .{topdomain}.",
     "readMoreAboutTopLevelDomains": "¿Qué es el enlace de información del TLD?",
     "openTldURLInNewTab": "Abrir la URL del TLD en una pestaña nueva",
     "exportResult": "Exportar",
