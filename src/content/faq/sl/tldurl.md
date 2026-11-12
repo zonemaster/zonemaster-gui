@@ -7,4 +7,4 @@ Ko je preizkus končan, Zonemaster običajno ponudi povezavo do spletnega mesta 
 
 Če prihajate iz registra TLD in želite svojim registrantom zagotoviti boljšo povezavo, lahko v [specifikaciji URL-ja za TLD](https://doc.zonemaster.net/latest/configuration/tld-url-specification.html#txt-record) preberete, kako z zapisom TXT določite želeni URL.
 
-Če povezave do spletnega mesta TLD ni, je to lahko posledica pravilnika TLD-ja ali pravilnika namestitve Zonemaster, ki preprečuje prikaz povezave. Če je preizkušeno domensko ime korensko območje ali TLD, na primer .net, povezava ni prikazana. Za več podrobnosti o funkciji preberite [specifikacijo URL-ja za TLD](https://doc.zonemaster.net/latest/configuration/tld-url-specification.html#txt-record).
+Če povezave do spletnega mesta TLD ni, je to lahko posledica politike TLD-ja ali politika namestitve Zonemaster, ki preprečuje prikaz povezave. Če je domena, ki jo testirate, korenska domena (.) ali TLD (npr. .net), povezava ni prikazana. Za več podrobnosti o storitvi preberite [specifikacijo URL-ja za TLD](https://doc.zonemaster.net/latest/configuration/tld-url-specification.html#txt-record).
