@@ -986,5 +986,12 @@ export function findMockResponse(url: string, method: string, body: any): any | 
             return element.json;
         }
     }
+
+    // Default for get_tld_url: no URL, so the TLD link stays hidden unless a
+    // table entry or a test-specific route provides one.
+    if (method === 'POST' && body?.method === 'get_tld_url') {
+        return { jsonrpc: '2.0', id: body.id, result: {} };
+    }
+
     return null;
 }
