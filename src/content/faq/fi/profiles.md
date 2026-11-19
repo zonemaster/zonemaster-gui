@@ -1,5 +1,5 @@
 ---
-question: Mitkä profiilit ovat saatavilla?
+question: Mikä on profiili?
 category: Zonemasterin käyttö
 ---
 

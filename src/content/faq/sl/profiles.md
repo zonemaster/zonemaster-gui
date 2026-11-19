@@ -1,5 +1,5 @@
 ---
-question: Kateri profili so na voljo?
+question: Kaj je profil?
 category: Uporaba Zonemasterja
 ---
 

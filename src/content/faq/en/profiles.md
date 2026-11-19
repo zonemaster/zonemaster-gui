@@ -1,5 +1,5 @@
 ---
-question: What are the available profiles?
+question: What is a profile?
 category: Using Zonemaster
 ---
 

@@ -1,5 +1,5 @@
 ---
-question: Quels sont les profils disponibles?
+question: Qu'est ce qu'un profil ?
 category: Utilisation de Zonemaster
 ---
 

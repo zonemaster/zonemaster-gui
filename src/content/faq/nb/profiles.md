@@ -1,5 +1,5 @@
 ---
-question: Hvilke profiler finnes det?
+question: Hva er en profil?
 category: Bruk av Zonemaster
 ---
 
