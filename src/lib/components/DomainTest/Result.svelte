@@ -1,6 +1,7 @@
 <script lang="ts">
     import { location } from '@/lib/router.svelte.js';
     import { getTestResults, type ResultData } from '@/lib/client.js';
+    import { decodeDomain } from '@/lib/decodeDomain.ts';
     import ResultInfo from '@/lib/components/DomainTest/ResultInfo.svelte';
     import type { FaqItem } from '@/content.config.ts';
     import config from '@/config.ts';
@@ -26,7 +27,9 @@
             .then((data) => {
                 result = data;
 
-                document.title = config.setTitle(data.params.domain);
+                document.title = config.setTitle(
+                    decodeDomain(data.params.domain),
+                );
             })
             .finally(() => {
                 loading = false;

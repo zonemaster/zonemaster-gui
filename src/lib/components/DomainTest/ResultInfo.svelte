@@ -28,6 +28,7 @@
     import * as m from '@/messages';
     import { getLocale } from '@/messages';
     import { groupResult } from '@/lib/groupResult.ts';
+    import { decodeDomain } from '@/lib/decodeDomain.ts';
     import type { ResultFilter } from '@/types.ts';
 
     type Props = {
@@ -130,10 +131,16 @@
 
     let tldUrl = $state('');
     let tld = $state('');
-    const shortTld = $derived(tld.length > 7 ? `${tld.slice(0, 7)}...` : tld);
+    const shortTld = $derived.by(() => {
+        const characters = Array.from(tld);
+        return characters.length > 7
+            ? `${characters.slice(0, 7).join('')}...`
+            : tld;
+    });
     // Depend on the domain only, so a new result object for the same domain
     // doesn't refetch the URL.
     const domain = $derived(data.params.domain);
+    const unicodeDomain = $derived(decodeDomain(domain));
     const faqUrl = `${import.meta.env.BASE_URL}${getLocale()}/faq/#tldurl`;
 
     $effect(() => {
@@ -146,7 +153,7 @@
             .then(({ url, tld: resultTld }) => {
                 if (active) {
                     tldUrl = url ?? '';
-                    tld = resultTld ?? '';
+                    tld = decodeDomain(resultTld ?? '');
                 }
             })
             .catch(() => {
@@ -162,7 +169,11 @@
 <svelte:document onclick={onDocumentClick} onkeydown={onDocumentKeydown} />
 
 <div class="zm-result">
-    <h2 class="zm-result__title">{m.testResultFor()} {data.params.domain}</h2>
+    <h2 class="zm-result__title">
+        {m.testResultFor()} <bdi>{unicodeDomain}</bdi>{#if unicodeDomain !== domain}
+            {' '}(<bdi>{domain}</bdi>)
+        {/if}
+    </h2>
     <Stack middle wrap spaceBetween>
         <div>
             {m.createdOn()}
@@ -204,9 +215,11 @@
                         id="copyTLDURLDialog"
                         style:display={showURL ? 'block' : 'none'}
                     >
-                        <p class="u-m-b-1 u-font-size-medium">
-                            {m.tldURLInfo({ topdomain: tld })}
-                        </p>
+                        {#if tld}
+                            <p class="u-m-b-1 u-font-size-medium">
+                                {m.tldURLInfo({ topdomain: tld })}
+                            </p>
+                        {/if}
                         <div
                             class="{stack.stack} {stack.stretch} {stack.spaceBetween} {stack[
                                 'gap--s'

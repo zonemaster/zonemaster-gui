@@ -32,6 +32,7 @@
         "@sveltejs/vite-plugin-svelte": "^6.2.1",
         "@tsconfig/svelte": "^5.0.6",
         "@types/node": "^24.10.1",
+        "@types/punycode": "^2.1.4",
         "archiver": "^7.0.1",
         "prettier": "3.7.4",
         "prettier-plugin-astro": "0.14.1",
