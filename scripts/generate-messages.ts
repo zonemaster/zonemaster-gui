@@ -156,6 +156,10 @@ export const setLocale = (locale: unknown): void => {
     }
 };
 
+if (import.meta.env.ZONEMASTER_SITE && typeof document !== 'undefined') {
+    setLocale(document.documentElement.lang);
+}
+
 // Message functions
 ${messageExports.join('\n\n')}
 `;

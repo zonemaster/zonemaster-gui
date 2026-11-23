@@ -13,6 +13,7 @@ const { lang } = Astro.params;
 const faq = await getCollection('faq', ({ id }) => {
     return id.startsWith(`${lang}/`);
 });
+faq.sort((first, second) => first.id.localeCompare(second.id, 'en'));
 
 type FaqItem = CollectionEntry<'faq'>;
 // Object.groupBy returns a Partial<Record> which we convert to Record with a default empty array
