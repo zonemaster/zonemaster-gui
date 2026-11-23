@@ -5,7 +5,7 @@ category: Yleistä tietoa
 
 Zonemasterin arviointi perustuu ensisijaisesti DNS-standardeihin, jotka on määritelty RFC-dokumenteissa. Lisäksi arvioinnissa hyödynnetään DNS:n parhaita käytäntöjä (best practices), jotka voivat joissain tapauksissa olla vapaammin määriteltyjä kuin varsinaiset standardit.
 
-Kaikki Zonemasterin testit on määritelty [Test Case Specification -dokumenteissa](https://doc.zonemaster.net/latest/specifications/tests#zonemaster-test-case-specifications), joissa on esitetty myös viittaukset kuhunkin testiin liittyviin standardidokumentteihin.
+Kaikki Zonemasterin testit on määritelty [Test Case Specification -dokumenteissa](https://doc.zonemaster.net/latest/specifications/tests/README.html), joissa on esitetty myös viittaukset kuhunkin testiin liittyviin standardidokumentteihin.
 
 Viestiä _HUOMIO_, _VAROITUS_ ja _VIRHE_ koskevat kuvaukset löytyvät [Severity Level Definitions](https://doc.zonemaster.net/latest/specifications/tests/SeverityLevelDefinitions.html) -dokumentista.
 

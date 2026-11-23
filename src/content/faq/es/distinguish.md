@@ -5,7 +5,7 @@ category: Información general
 
 El juicio de Zonemaster se basa principalmente en los estándares DNS definidos en los RFC. También basa su juicio en las mejores prácticas DNS, que pueden estar definidas de manera más flexible.
 
-Todas las pruebas de Zonemaster están definidas en los [documentos de Especificación de Casos de Prueba](https://doc.zonemaster.net/latest/specifications/tests#zonemaster-test-case-specifications) en los que se encuentran las referencias a los documentos estándar para cada caso de prueba.
+Todas las pruebas de Zonemaster están definidas en los [documentos de Especificación de Casos de Prueba](https://doc.zonemaster.net/latest/specifications/tests/README.html) en los que se encuentran las referencias a los documentos estándar para cada caso de prueba.
 
 Las descripciones de los niveles de mensaje como _AVISO_, _ADVERTENCIA_ y _ERROR_ se encuentran en [Definiciones de Niveles de Gravedad](https://doc.zonemaster.net/latest/specifications/tests/SeverityLevelDefinitions.html).
 

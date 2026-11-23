@@ -60,7 +60,7 @@ Images `src/assets/images/person_looking_at_computer.svg` and `src/assets/images
 Images `src/assets/images/person_looking_at_computer.svg` and `src/assets/images/world_connected.svg` are taken from <https://undraw.co>, [full license](https://undraw.co/license).
 
 [Backend Configuration]:            https://doc.zonemaster.net/latest/configuration/backend.html
-[GUI Configuration]:                https://doc.zonemaster.net/latest/configuration/gui.html
+[GUI Configuration]:                https://doc.zonemaster.net/latest/configuration/gui/README.html
 [Installation instructions]:        https://doc.zonemaster.net/latest/installation/zonemaster-gui.html
 [Public documentation]:             https://doc.zonemaster.net/latest/README.html
 [Zonemaster-Engine installation]:   https://doc.zonemaster.net/latest/installation/zonemaster-engine.html

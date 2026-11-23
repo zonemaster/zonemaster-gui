@@ -5,7 +5,7 @@ category: Allmän information
 
 Zonemasters bedömning baseras främst på DNS-standarderna som definieras i RFC-dokument. Den baserar även sin bedömning på vedertagen praxis inom DNS, vilket kan vara mindre strikt definierad.
 
-Alla testfall i Zonemaster är definierade i [Test Case Specification documents](https://doc.zonemaster.net/latest/specifications/tests#zonemaster-test-case-specifications), där det också finns referenser till relevanta standarddokument för varje testfall.
+Alla testfall i Zonemaster är definierade i [Test Case Specification documents](https://doc.zonemaster.net/latest/specifications/tests/README.html), där det också finns referenser till relevanta standarddokument för varje testfall.
 
 Beskrivningar av meddelandenivåer som _NOTERING_, _VARNING_ och _FEL_ finns i [Severity Level Definitions](https://doc.zonemaster.net/latest/specifications/tests/SeverityLevelDefinitions.html).
 

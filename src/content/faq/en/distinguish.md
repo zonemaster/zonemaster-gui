@@ -5,7 +5,7 @@ category: General information
 
 The judgement of Zonemaster is primarily based on the DNS standards as defined in RFCs. It also bases its judgement on DNS best practices, which can be more loosely defined.
 
-All Zonemaster tests are defined in the [Test Case Specification documents](https://doc.zonemaster.net/latest/specifications/tests#zonemaster-test-case-specifications) in which the references to the standard documents for each test case are found.
+All Zonemaster tests are defined in the [Test Case Specification documents](https://doc.zonemaster.net/latest/specifications/tests/README.html) in which the references to the standard documents for each test case are found.
 
 The descriptions of message levels such as _NOTICE_, _WARNING_ and _ERROR_ are found in [Severity Level Definitions](https://doc.zonemaster.net/latest/specifications/tests/SeverityLevelDefinitions.html).
 

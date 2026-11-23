@@ -5,7 +5,7 @@ category: Generell informasjon
 
 Zonemasters dømming baserer seg primært på DNS-standardene som er definert i RFC-er. Den baserer også sin dømming på DNS-best practices, som kan være mer løst definert.
 
-Alle Zonemaster-tester er definert i [Test Case Specification-dokumentene](https://doc.zonemaster.net/latest/specifications/tests#zonemaster-test-case-specifications), hvor referansene til standarddokumentene for hver testtilfelle finnes.
+Alle Zonemaster-tester er definert i [Test Case Specification-dokumentene](https://doc.zonemaster.net/latest/specifications/tests/README.html), hvor referansene til standarddokumentene for hver testtilfelle finnes.
 
 Beskrivelsene av meldingsnivåer som _NOTIS_, _ADVARSEL_ og _FEIL_ finnes i [Severity Level Definitions](https://doc.zonemaster.net/latest/specifications/tests/SeverityLevelDefinitions.html).
 

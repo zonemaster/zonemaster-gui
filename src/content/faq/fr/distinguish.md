@@ -5,7 +5,7 @@ category: Informations générales
 
 Le jugement de Zonemaster repose principalement sur les normes techniques du DNS telles qu'elles sont définies dans les RFC. Le jugement est également fondé sur les bonnes pratiques du DNS, dont la définition est plus souple.
 
-Tous les tests de Zonemaster sont définis dans les [documents de spécifications de cas de test (en anglais)](https://doc.zonemaster.net/latest/specifications/tests#zonemaster-test-case-specifications), dans lesquels se trouvent les références aux documents normatifs pour chaque cas de test.
+Tous les tests de Zonemaster sont définis dans les [documents de spécifications de cas de test (en anglais)](https://doc.zonemaster.net/latest/specifications/tests/README.html), dans lesquels se trouvent les références aux documents normatifs pour chaque cas de test.
 
 Les descriptions de niveaux de messages comme _NOTE_, _AVERTISSEMENT_ et _ERREUR_ se trouvent dans [le document de définition des niveaux de sévérités (en anglais)](https://doc.zonemaster.net/latest/specifications/tests/SeverityLevelDefinitions.html).
 

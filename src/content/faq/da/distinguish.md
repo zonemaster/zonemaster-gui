@@ -5,7 +5,7 @@ category: Generel information
 
 Zonemasters dom er primært baseret på DNS-standarderne, som er defineret i RFC'er. Den baserer også sin dom på DNS-bedste praksis, som kan være mere løst defineret.
 
-Alle Zonemaster-tests er defineret i [Test Case Specification-dokumenterne](https://doc.zonemaster.net/latest/specifications/tests#zonemaster-test-case-specifications), hvor henvisninger til standarddokumenterne for hvert testtilfælde findes.
+Alle Zonemaster-tests er defineret i [Test Case Specification-dokumenterne](https://doc.zonemaster.net/latest/specifications/tests/README.html), hvor henvisninger til standarddokumenterne for hvert testtilfælde findes.
 
 Beskrivelserne af meddelelsesniveauer som _MEDDELELSE_, _ADVARSEL_ og _FEJL_ findes i [Severity Level Definitions](https://doc.zonemaster.net/latest/specifications/tests/SeverityLevelDefinitions.html).
 
