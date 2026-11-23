@@ -1,11 +1,8 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
     import { getLocale } from '@/messages';
     import BatchTest, {
         type BatchTestEntry,
     } from '@/lib/components/BatchTest/BatchTest.svelte';
-
-    let active = $state(false);
 
     const mockTestIds = [
         'a3f7c91e5b2d8f64',
@@ -34,19 +31,8 @@
         };
     });
 
-    onMount(() => {
-        const showMockup = () => {
-            active = true;
-        };
-
-        document.addEventListener('zm:show-batch-test-mockup', showMockup);
-
-        return () => {
-            document.removeEventListener('zm:show-batch-test-mockup', showMockup);
-        };
-    });
 </script>
 
-{#if active}
+<div id="batch-test-mockup" hidden>
     <BatchTest {tests} />
-{/if}
+</div>

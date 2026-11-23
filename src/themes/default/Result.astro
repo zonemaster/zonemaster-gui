@@ -1,7 +1,7 @@
 ---
 import * as m from '@/messages';
 import { getEntry } from 'astro:content';
-import DomainTest from '../../lib/components/DomainTest/DomainTest.svelte';
+import DomainTestResult from '../../lib/components/DomainTest/Result.svelte';
 import config from '@/config';
 import type { FaqItem } from '../../content.config';
 
@@ -19,5 +19,5 @@ const data: FaqItem | null = aboutLevels
 
 <h1 class="container zm-u-align-center">{m.resultTitle()}</h1>
 <section class="zm-run-test rhythm">
-    <DomainTest aboutLevels={data} client:load />
+    <DomainTestResult aboutLevels={data} client:only="svelte" />
 </section>

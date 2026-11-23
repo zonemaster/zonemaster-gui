@@ -86,8 +86,6 @@
     }
 
     onMount(() => {
-        syncTarget();
-
         document.addEventListener('zm:sync-radio-button-slider', syncTarget);
 
         let followUpAnimationFrame: number | undefined;

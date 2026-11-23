@@ -1,7 +1,6 @@
 <script lang="ts">
     import * as m from '@/messages';
     import { getLocale } from '@/messages';
-    import { onMount } from 'svelte';
     import type { Test } from '@/lib/components/MyTests/testData.ts';
 
     type Props = {
@@ -14,58 +13,22 @@
     const resultUrl = (id: string) => `${baseUrl}${locale}/result/${id}/`;
     const dateTimeLabel = (date: string) => `${date} 10:00`;
 
-    let tableContainer = $state<HTMLDivElement>();
-    let table = $state<HTMLTableElement>();
-    let canScrollTable = $state(false);
-    let isAtTableEnd = $state(false);
-
     function statusLabel(status: 'finished' | 'failed') {
         return status === 'finished' ? m.batchTestFinished() : m.batchTestFailed();
     }
-
-    function updateScrollIndicator() {
-        if (!tableContainer) {
-            return;
-        }
-
-        canScrollTable = tableContainer.scrollWidth > tableContainer.clientWidth;
-        isAtTableEnd =
-            tableContainer.scrollLeft + tableContainer.clientWidth >=
-            tableContainer.scrollWidth - 1;
-    }
-
-    onMount(() => {
-        if (!tableContainer) {
-            return;
-        }
-
-        const resizeObserver = new ResizeObserver(updateScrollIndicator);
-        resizeObserver.observe(tableContainer);
-
-        if (table) {
-            resizeObserver.observe(table);
-        }
-
-        tableContainer.addEventListener('scroll', updateScrollIndicator, {
-            passive: true,
-        });
-        updateScrollIndicator();
-
-        return () => {
-            resizeObserver.disconnect();
-            tableContainer?.removeEventListener('scroll', updateScrollIndicator);
-        };
-    });
 </script>
 
-<div class="zm-my-tests-wrapper">
-    {#if canScrollTable && !isAtTableEnd}
-        <span class="zm-my-tests__scroll-indicator" aria-hidden="true">
-            Scroll <i class="bi bi-arrow-right"></i>
-        </span>
-    {/if}
-    <div class="zm-batch-test zm-my-tests" bind:this={tableContainer}>
-        <table bind:this={table}>
+<div class="zm-my-tests-wrapper" data-table-scroll>
+    <span
+        class="zm-my-tests__scroll-indicator"
+        aria-hidden="true"
+        data-table-scroll-indicator
+        hidden
+    >
+        Scroll <i class="bi bi-arrow-right"></i>
+    </span>
+    <div class="zm-batch-test zm-my-tests" data-table-scroll-container>
+        <table>
             <caption>{m.batchTestTests()}</caption>
             <thead>
                 <tr>

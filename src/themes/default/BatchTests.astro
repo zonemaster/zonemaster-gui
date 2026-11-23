@@ -13,10 +13,10 @@ const { batch } = Astro.props;
 const myTestsUrl = getRelativeLocaleUrl(getLocale(), '/my-tests');
 ---
 
-<h1 class="zm-faq-title zm-u-align-center u-m-x-auto">{batch.domain}</h1>
+<h1 class="zm-faq-title zm-u-align-center u-m-x-auto">{m.batchTestResult()}</h1>
 <p class="preamble zm-u-align-center u-m-x-auto">{batch.id}</p>
 <section class="rhythm zm-faq-section">
-    <BatchTestsTable batch={batch} client:load />
+    <BatchTestsTable {batch} />
     <div class="zm-batch-tests__back">
         <a class="zm-button" href={myTestsUrl}>
             <i class="bi bi-arrow-left" aria-hidden="true"></i>
@@ -24,3 +24,4 @@ const myTestsUrl = getRelativeLocaleUrl(getLocale(), '/my-tests');
         </a>
     </div>
 </section>
+<script src="./scripts/table-scroll-indicator.js"></script>

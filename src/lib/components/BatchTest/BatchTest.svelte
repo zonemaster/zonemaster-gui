@@ -1,6 +1,5 @@
 <script lang="ts">
     import * as m from '@/messages';
-    import { onMount } from 'svelte';
 
     export type BatchTestEntry = {
         domain: string;
@@ -15,11 +14,6 @@
 
     const { tests }: Props = $props();
 
-    let tableContainer = $state<HTMLDivElement>();
-    let table = $state<HTMLTableElement>();
-    let canScrollTable = $state(false);
-    let isAtTableEnd = $state(false);
-
     function statusLabel(status: BatchTestEntry['status']) {
         if (status === 'finished') {
             return m.batchTestFinished();
@@ -28,49 +22,22 @@
         return status === 'failed' ? m.batchTestFailed() : m.batchTestOngoing();
     }
 
-    function updateScrollIndicator() {
-        if (!tableContainer) {
-            return;
-        }
-
-        canScrollTable = tableContainer.scrollWidth > tableContainer.clientWidth;
-        isAtTableEnd =
-            tableContainer.scrollLeft + tableContainer.clientWidth >=
-            tableContainer.scrollWidth - 1;
-    }
-
-    onMount(() => {
-        if (!tableContainer) {
-            return;
-        }
-
-        const resizeObserver = new ResizeObserver(updateScrollIndicator);
-        resizeObserver.observe(tableContainer);
-
-        if (table) {
-            resizeObserver.observe(table);
-        }
-
-        tableContainer.addEventListener('scroll', updateScrollIndicator, {
-            passive: true,
-        });
-        updateScrollIndicator();
-
-        return () => {
-            resizeObserver.disconnect();
-            tableContainer?.removeEventListener('scroll', updateScrollIndicator);
-        };
-    });
 </script>
 
-<div class="zm-batch-test-wrapper">
-    {#if canScrollTable && !isAtTableEnd}
-        <span class="zm-batch-test__scroll-indicator" aria-hidden="true">
-            Scroll <i class="bi bi-arrow-right"></i>
-        </span>
-    {/if}
-    <div class="zm-batch-test zm-batch-test--responsive" bind:this={tableContainer}>
-    <table bind:this={table}>
+<div class="zm-batch-test-wrapper" data-table-scroll>
+    <span
+        class="zm-batch-test__scroll-indicator"
+        aria-hidden="true"
+        data-table-scroll-indicator
+        hidden
+    >
+        Scroll <i class="bi bi-arrow-right"></i>
+    </span>
+    <div
+        class="zm-batch-test zm-batch-test--responsive"
+        data-table-scroll-container
+    >
+    <table>
         <caption>{m.batchTestProgress()}</caption>
         <thead>
             <tr>

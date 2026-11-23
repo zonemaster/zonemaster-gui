@@ -3,6 +3,7 @@
     import Stack from '@/lib/components/Stack/Stack.svelte';
     import Button from '@/lib/components/Button/Button.svelte';
     import FilterToggle from '@/lib/components/FilterToggle/FilterToggle.svelte';
+    import RadioButtonSlider from '@/lib/components/RadioButtonSlider/RadioButtonSlider.svelte';
     import ResultModule from '@/lib/components/DomainTest/ResultModule.svelte';
     import stack from '@/lib/components/Stack/stack.module.css';
     import Input from '@/lib/components/Input/Input.svelte';
@@ -63,6 +64,7 @@
     let showExport = $state(false);
     let showShare = $state(false);
     let showURL = $state(false);
+    let allModulesExpanded = $state(false);
 
     function onCheck({ target }: Event) {
         const { value, checked } = target as HTMLInputElement;
@@ -90,12 +92,15 @@
         filter.query = (target as HTMLInputElement).value;
     }
 
-    function expandAllModules() {
-        expandAll(Object.keys(result.modulesMap));
-    }
+    function toggleAllModules() {
+        const modules = Object.keys(result.modulesMap);
 
-    function collapseAllModules() {
-        collapseAll(Object.keys(result.modulesMap));
+        if (allModulesExpanded) {
+            expandAll(modules);
+            return;
+        }
+
+        collapseAll(modules);
     }
 
     // Handle popover close on click outside
@@ -344,39 +349,42 @@
                 content={aboutLevels.answer}
             ></Collapsible>
         {/if}
-        <fieldset
-            class="zm-fieldset {stack.stack} {stack.wrap} {stack.bottom} {stack[
-                'gap--xs'
-            ]}"
-        >
-            <div class={stack.expand}>
-                <Input
-                    id="filterQuery"
-                    type="search"
-                    placeholder={m.search()}
-                    name="q"
-                    bind:value={filter.query}
-                    label={m.searchInText()}
-                    onInput={onQueryChange}
-                />
-            </div>
-            <Button onClick={expandAllModules} variant="secondary"
-                >{m.expandAll()}</Button
+        <fieldset class="zm-fieldset">
+            <label class="zm-u-visually-hidden" for="filterQuery"
+                >{m.searchInText()}</label
             >
-            <Button onClick={collapseAllModules} variant="secondary"
-                >{m.collapseAll()}</Button
-            >
-        </fieldset>
-        <Stack vertical gap="xs">
-            {#each result.modules as module}
-                {#key module}
-                    <ResultModule
-                        data={module}
-                        summary={result.moduleSummary[module.name]}
-                        descriptions={data.testcase_descriptions}
+            <Stack middle wrap gap="xs" class="zm-result__module-toggle-row">
+                <div class={stack.expand}>
+                    <Input
+                        id="filterQuery"
+                        type="search"
+                        placeholder={m.searchInText()}
+                        name="q"
+                        bind:value={filter.query}
+                        onInput={onQueryChange}
                     />
-                {/key}
-            {/each}
-        </Stack>
+                </div>
+                <RadioButtonSlider
+                    id="expand-all-modules-toggle"
+                    label={m.expandAll()}
+                    target="result-modules"
+                    bind:checked={allModulesExpanded}
+                    onChange={toggleAllModules}
+                />
+            </Stack>
+        </fieldset>
+        <div data-radio-button-slider-container="result-modules">
+            <Stack vertical gap="xs">
+                {#each result.modules as module}
+                    {#key module}
+                        <ResultModule
+                            data={module}
+                            summary={result.moduleSummary[module.name]}
+                            descriptions={data.testcase_descriptions}
+                        />
+                    {/key}
+                {/each}
+            </Stack>
+        </div>
     </Stack>
 </div>

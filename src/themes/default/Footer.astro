@@ -1,15 +1,35 @@
 ---
 import * as m from '@/messages';
-import ProgramVersions from '@/lib/components/ProgramVersions/ProgramVersions.svelte';
 import Grid from '@/lib/components/Grid/Grid.svelte';
 import config from '@/config';
 ---
 
 <footer class="zm-footer">
     <div class="container">
-        <Grid client:load cols={2} gap="xs">
+        <Grid cols={2} gap="xs">
             <div class="zm-footer-program-versions">
-                <ProgramVersions client:idle />
+                <div
+                    id="program-versions-widget"
+                    data-close-label={m.close()}
+                >
+                    <p id="program-versions-loading">Loading...</p>
+                    <div class="zm-switch zm-switch--large" hidden>
+                        <label for="program-versions-toggle" id="program-versions-toggle-label">
+                            {m.programVersions()}
+                        </label>
+                        <button
+                            type="button"
+                            class="zm-button zm-button--transparent zm-button--large switch-toggle"
+                            id="program-versions-toggle"
+                            aria-controls="program-versions"
+                            aria-expanded="false"
+                            aria-labelledby="program-versions-toggle-label"
+                        >
+                            <i class="bi bi-caret-down-fill" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <ul id="program-versions" hidden></ul>
+                </div>
             </div>
             <div class="zm-footer-nav-container">
                 <nav>
@@ -37,9 +57,91 @@ import config from '@/config';
             </div>
         </Grid>
     </div>
-    <Grid client:load cols={1}>
+    <Grid cols={1}>
         <div class="zm-footer-copyright">
             {m.copyright()}
         </div>
     </Grid>
 </footer>
+<script>
+    import config from '@/config';
+    import { versionInfo } from '@/lib/client.ts';
+
+    (() => {
+        const widget = document.getElementById('program-versions-widget');
+        const loading = document.getElementById('program-versions-loading');
+        const toggle = document.getElementById('program-versions-toggle');
+        const switchContainer = toggle?.closest('.zm-switch');
+        const list = document.getElementById('program-versions');
+
+        if (!(widget instanceof HTMLElement) || !(loading instanceof HTMLElement) ||
+            !(toggle instanceof HTMLButtonElement) || !(switchContainer instanceof HTMLElement) ||
+            !(list instanceof HTMLUListElement)) return;
+
+        const addGuiVersion = () => {
+            const item = document.createElement('li');
+            item.textContent = `Zonemaster-GUI: ${config.clientInfo.version}`;
+            list.append(item);
+        };
+
+        const showError = () => {
+            let container = document.getElementById('zm-alerts');
+
+            if (!(container instanceof HTMLElement)) {
+                container = document.createElement('div');
+                container.id = 'zm-alerts';
+                container.style.position = 'fixed';
+                container.style.top = 'var(--spacing-m)';
+                container.style.right = 'var(--spacing-m)';
+                container.style.left = 'var(--spacing-m)';
+                container.style.zIndex = '1000';
+                document.body.append(container);
+            }
+
+            const alert = document.createElement('div');
+            alert.setAttribute('role', 'alert');
+            alert.className = 'zm-alert zm-alert--error zm-alert--primary';
+
+            const message = document.createElement('p');
+            message.textContent = 'Failed to fetch version information';
+            alert.append(message);
+
+            const close = document.createElement('button');
+            close.type = 'button';
+            close.className = 'zm-button zm-button--transparent zm-button--large alert-close';
+            close.setAttribute('aria-label', widget.dataset.closeLabel || 'Close');
+            close.innerHTML = '<span aria-hidden="true"><i class="bi bi-x-lg"></i></span>';
+            close.addEventListener('click', () => alert.remove());
+            alert.append(close);
+            container.append(alert);
+        };
+
+        versionInfo()
+            .then((data) => {
+                Object.entries(data).forEach(([key, value]) => {
+                    const item = document.createElement('li');
+                    item.textContent = `${key}: ${value}`;
+                    list.append(item);
+                });
+            })
+            .catch(() => {
+                showError();
+            })
+            .finally(() => {
+                addGuiVersion();
+                loading.hidden = true;
+                switchContainer.hidden = false;
+            });
+
+        toggle.addEventListener('click', () => {
+            list.hidden = !list.hidden;
+            toggle.setAttribute('aria-expanded', String(!list.hidden));
+            switchContainer.classList.toggle('zm-switch--active', !list.hidden);
+            const icon = toggle.querySelector('i');
+            icon?.setAttribute(
+                'class',
+                `bi bi-caret-${list.hidden ? 'down' : 'up'}-fill`,
+            );
+        });
+    })();
+</script>

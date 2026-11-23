@@ -1,5 +1,3 @@
-<svelte:options customElement={{ tag: 'zm-domain-test', shadow: 'none' }} />
-
 <script lang="ts">
     import Button from '../Button/Button.svelte';
     import Input from '../Input/Input.svelte';
@@ -173,6 +171,7 @@
                         class="zm-input zm-domain-test__batch-input"
                         data-radio-button-slider-control
                         rows="5"
+                        data-max-domains={maxBatchDomains}
                         placeholder={m.batchDomainNamesPlaceholder({ count: maxBatchDomains })}
                         aria-describedby="batch-testing-toggle-label"
                         oninput={handleBatchInput}
@@ -214,9 +213,7 @@
         </Button>
     </Stack>
     <div id="advanced-options" hidden={!advanced}>
-        {#if advanced}
-            <Advanced />
-        {/if}
+        <Advanced />
     </div>
 </form>
 <Route path="/result/:id">

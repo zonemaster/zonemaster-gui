@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { location } from '@/lib/router.svelte.js';
+    import { onMount } from 'svelte';
     import { getTestResults, type ResultData } from '@/lib/client.js';
     import ResultInfo from '@/lib/components/DomainTest/ResultInfo.svelte';
     import type { FaqItem } from '@/content.config.ts';
@@ -11,16 +11,19 @@
 
     const { aboutLevels }: Props = $props();
 
-    let id = $derived.by(() => {
-        const match = location.pathname.match(/\/result\/([^/]+)/);
-        return match ? match[1] : null;
-    });
+    let id = $state<string | null>(null);
 
     let loading = $state(true);
     let result: ResultData | null = $state(null);
 
-    $effect(() => {
-        if (!id) return;
+    onMount(() => {
+        const match = window.location.pathname.match(/\/result\/([^/]+)/);
+        id = match ? match[1] : null;
+
+        if (!id) {
+            loading = false;
+            return;
+        }
 
         getTestResults(id)
             .then((data) => {
@@ -38,6 +41,6 @@
 {/if}
 {#if id && result}
     {#key id}
-        <ResultInfo aboutLevels={aboutLevels} data={result} />
+        <ResultInfo {aboutLevels} data={result} />
     {/key}
 {/if}

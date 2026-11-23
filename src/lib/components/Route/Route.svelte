@@ -1,5 +1,6 @@
 <script lang="ts">
   import type {Snippet} from "svelte";
+  import { location } from '@/lib/router.svelte.js';
 
   type Props = {
     path: string;
@@ -11,7 +12,7 @@
   let match = $derived.by(() => {
     const regex = new RegExp(path.replace(/:\w+/g, '([^/]+)'));
 
-    return regex.test(path);
+    return regex.test(location.pathname);
   });
 </script>
 

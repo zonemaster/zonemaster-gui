@@ -2,6 +2,12 @@
     margin-bottom: var(--spacing-m);
 }
 
+@media screen and (max-width: 568px) {
+    .zm-result__module-toggle-row .zm-radio-button-slider {
+        margin-left: auto;
+    }
+}
+
 .zm-result__group {
     & header + div {
         margin-top: var(--spacing-s);
@@ -29,7 +35,7 @@
 .zm-result__group__title {
     display: flex;
     align-items: center;
-    white-space: nowrap;
+    min-width: 0;
     margin-bottom: 0;
     gap: var(--spacing-xs);
 }
@@ -42,6 +48,7 @@
     gap: var(--spacing-s);
     font-size: calc(var(--font-xs) * 1.15);
     color: var(--color-palette-black);
+    min-width: 0;
 
     &:hover,
     &:focus {
@@ -57,6 +64,8 @@
         display: flex;
         align-items: center;
         gap: var(--spacing-xxs);
+        min-width: 0;
+        overflow-wrap: anywhere;
 
         i {
             font-size: var(--font-s-xs);
@@ -89,6 +98,12 @@
     align-items: center;
     gap: var(--spacing-xs);
     cursor: pointer;
+    min-width: 0;
+
+    > span {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
 }
 
 .zm-result__module {

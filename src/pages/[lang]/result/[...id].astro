@@ -1,16 +1,26 @@
 ---
 import * as m from '@/messages';
 import Result from '@theme/Result.astro';
+import BatchTests from '@theme/BatchTests.astro';
 import Layout from '@theme/Layout.astro';
 import config from '@/config';
+import { batchTests } from '@/lib/components/MyTests/testData.ts';
 
 export function getStaticPaths() {
-    return config.enabledLanguages.map((lang) => ({
-        params: { lang, id: 'id' },
-    }));
+    return config.enabledLanguages.flatMap((lang) => [
+        { params: { lang, id: 'id' } },
+        ...batchTests.map((batch) => ({
+            params: { lang, id: batch.id },
+            props: { batch },
+        })),
+    ]);
 }
+
+const batch =
+    Astro.props.batch ??
+    batchTests.find((test) => test.id === Astro.params.id);
 ---
 
-<Layout title={m.resultTitle()}>
-    <Result />
+<Layout title={batch ? batch.domain : m.resultTitle()}>
+    {batch ? <BatchTests {batch} /> : <Result />}
 </Layout>

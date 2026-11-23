@@ -164,6 +164,10 @@
     top: calc(var(--font-m) + var(--spacing-s));
     z-index: 3;
 
+    &[hidden] {
+        display: none;
+    }
+
     .bi {
         animation: batch-test-scroll-arrow 2s infinite;
     }
@@ -236,7 +240,7 @@
             border-collapse: separate;
             border-spacing: 0;
             min-width: 100%;
-            width: max-content;
+            width: fit-content;
         }
 
         thead > tr > :first-child,

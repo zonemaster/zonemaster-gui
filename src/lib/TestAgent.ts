@@ -69,11 +69,16 @@ export function createTestAgent() {
                                     context.testId &&
                                     TestAgent.getState() === 'testing'
                                 ) {
-                                    testProgress(context.testId).then((res) => {
-                                        TestAgent.transition('PROGRESS', {
-                                            progress: res,
+                                    testProgress(context.testId)
+                                        .then((res) => {
+                                            TestAgent.transition('PROGRESS', {
+                                                progress: res,
+                                            });
+                                        })
+                                        .catch((error) => {
+                                            context.error = error;
+                                            TestAgent.transition('ERROR', error);
                                         });
-                                    });
                                 }
                             }, config.pollingInterval);
                         }

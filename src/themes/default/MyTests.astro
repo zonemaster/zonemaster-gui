@@ -1,11 +1,13 @@
 ---
 import * as m from '@/messages';
 import MyTestsTable from '@/lib/components/MyTests/MyTests.svelte';
+import { tests } from '@/lib/components/MyTests/testData.ts';
 ---
 
 <h1 class="zm-faq-title zm-u-align-center u-m-x-auto">{m.myTestsTitle()}</h1>
 <p class="preamble zm-u-align-center u-m-x-auto">{m.myTestsPreamble()}</p>
 <p class="zm-faq-paragraph zm-u-align-center u-m-x-auto">{m.myTestsParagraph()}</p>
 <section class="rhythm zm-faq-section">
-    <MyTestsTable client:load />
+    <MyTestsTable {tests} />
 </section>
+<script src="./scripts/table-scroll-indicator.js"></script>

@@ -21,7 +21,12 @@ const data: FaqItem | null = aboutLevels
 ---
 
 <h1 class="container zm-u-align-center">{m.startTestTitle()}</h1>
-<section class="zm-run-test rhythm">
+<section
+    class="zm-run-test rhythm"
+    data-running-test={m.runningTest()}
+    data-show-options={m.showOptions()}
+    data-hide-options={m.hideOptions()}
+>
     <div class="zm-test-input-heading">
         <h2
             id="testInputHeading"
@@ -38,36 +43,191 @@ const data: FaqItem | null = aboutLevels
                     target="domain-test-input"
                     controls="domain-test-input"
                     sessionStorageKey="zm:batch-testing-toggle"
-                    client:visible
                 />
-                <script is:inline>
-                    const batchTestingToggle = document.getElementById('batch-testing-toggle');
-                    const testInputHeading = document.getElementById('testInputHeading');
-
-                    const syncTestInputHeading = () => {
-                        if (!(batchTestingToggle instanceof HTMLInputElement) || !testInputHeading) {
-                            return;
-                        }
-
-                        testInputHeading.textContent = batchTestingToggle.checked
-                            ? testInputHeading.dataset.batchTestHeading
-                            : testInputHeading.dataset.singleTestHeading;
-                    };
-
-                    if (
-                        batchTestingToggle instanceof HTMLInputElement &&
-                        sessionStorage.getItem('zm:batch-testing-toggle') === 'true'
-                    ) {
-                        batchTestingToggle.checked = true;
-                    }
-
-                    syncTestInputHeading();
-                    batchTestingToggle?.addEventListener('change', syncTestInputHeading);
-                </script>
             </>
         )}
     </div>
-    <DomainTest aboutLevels={data} maxBatchDomains={config.maxBatchDomains} client:visible />
-    {config.maxBatchDomains > 0 && <BatchTestMockup client:load />}
+    <DomainTest aboutLevels={data} maxBatchDomains={config.maxBatchDomains} />
+    {config.maxBatchDomains > 0 && <BatchTestMockup />}
 </section>
+<script src="./scripts/table-scroll-indicator.js"></script>
+<script>
+    import formToObj from '@/lib/formToObj.ts';
+    import { getValidationErrorByPath } from '@/lib/getValidationErrorByPath.ts';
+    import { createTestAgent } from '@/lib/TestAgent.ts';
+
+    const initializeStartTest = () => {
+        const batchTestingToggle = document.getElementById('batch-testing-toggle');
+        const toggle = batchTestingToggle instanceof HTMLInputElement
+            ? batchTestingToggle
+            : null;
+        const heading = document.getElementById('testInputHeading');
+        const form = document.getElementById('zmDomainTestForm');
+        const testSection = document.querySelector('.zm-run-test');
+        const batchMockup = document.getElementById('batch-test-mockup');
+        const batchInput = document.getElementById('batchDomainInput');
+        const batchCounter = document.querySelector('.zm-domain-test__batch-domain-counter span[aria-hidden="true"]');
+        const batchCounterLabel = document.querySelector('.zm-domain-test__batch-domain-counter .zm-u-visually-hidden');
+        const optionsToggle = document.getElementById('advanced-toggle');
+        const options = document.getElementById('advanced-options');
+        const testInput = document.getElementById('domain-test-input');
+
+        if (toggle) {
+            toggle.checked = sessionStorage.getItem('zm:batch-testing-toggle') === 'true';
+        }
+
+        const syncBatchMode = () => {
+            const batchMode = toggle?.checked ?? false;
+
+            if (testInput instanceof HTMLElement) {
+                testInput.dataset.radioButtonSliderState = batchMode ? 'on' : 'off';
+            }
+
+            if (heading) {
+                heading.textContent = batchMode
+                    ? heading.dataset.batchTestHeading || ''
+                    : heading.dataset.singleTestHeading || '';
+            }
+
+            document.querySelectorAll('[data-radio-button-slider-value]').forEach((element) => {
+                const active = element.getAttribute('data-radio-button-slider-value') === (batchMode ? 'on' : 'off');
+                element.hidden = !active;
+                element.querySelectorAll('input, textarea, select').forEach((control) => {
+                    if (control.hasAttribute('data-radio-button-slider-control')) {
+                        control.disabled = !active;
+                    }
+                });
+            });
+        };
+
+        const updateCounter = () => {
+            if (!(batchInput instanceof HTMLTextAreaElement) || !batchCounter) return;
+            const maxDomains = Number(batchInput.getAttribute('data-max-domains'));
+            const domainLines = batchInput.value.split(/\r?\n/);
+
+            if (domainLines.length > maxDomains) {
+                batchInput.value = domainLines.slice(0, maxDomains).join('\n');
+            }
+
+            const domainCount = batchInput.value.split(/\r?\n/).filter((domain) => domain.trim()).length;
+            batchCounter.textContent = `${domainCount}/${maxDomains}`;
+
+            if (batchCounterLabel) {
+                batchCounterLabel.textContent = batchCounterLabel.textContent?.replace(/\d+$/, String(maxDomains - domainCount)) || '';
+            }
+        };
+
+        toggle?.addEventListener('change', () => {
+            sessionStorage.setItem('zm:batch-testing-toggle', String(toggle.checked));
+            syncBatchMode();
+        });
+        batchInput?.addEventListener('input', updateCounter);
+        optionsToggle?.addEventListener('click', () => {
+            if (!(optionsToggle instanceof HTMLButtonElement) || !options) return;
+            options.hidden = !options.hidden;
+            optionsToggle.setAttribute('aria-expanded', String(!options.hidden));
+            const label = optionsToggle.closest('.zm-switch')?.querySelector('label');
+
+            if (label instanceof HTMLLabelElement && testSection instanceof HTMLElement) {
+                label.textContent = options.hidden
+                    ? testSection.dataset.showOptions || ''
+                    : testSection.dataset.hideOptions || '';
+            }
+        });
+        if (!(form instanceof HTMLFormElement) || !(testSection instanceof HTMLElement)) return;
+
+        const domainInput = form.elements.namedItem('domain');
+        const submitButton = form.querySelector('button[type="submit"]');
+        const submitLabel = submitButton?.textContent || '';
+        const testAgent = createTestAgent();
+        let progressBar: HTMLSpanElement | null = null;
+
+        const updateProgress = (progress: number) => {
+            if (!progressBar) {
+                progressBar = document.createElement('span');
+                progressBar.className = 'zm-domain-test__progress-bar';
+                testInput?.append(progressBar);
+            }
+
+            progressBar.style.width = `${progress}%`;
+
+            if (submitButton instanceof HTMLButtonElement) {
+                submitButton.textContent = `${testSection.dataset.runningTest || ''} ${progress}%`;
+            }
+        };
+
+        const resetForm = (message?: string) => {
+            form.classList.remove('zm-is-testing');
+            progressBar?.remove();
+            progressBar = null;
+
+            if (domainInput instanceof HTMLInputElement) domainInput.disabled = false;
+            if (submitButton instanceof HTMLButtonElement) {
+                submitButton.disabled = false;
+                submitButton.textContent = submitLabel;
+            }
+
+            if (message && domainInput instanceof HTMLInputElement) {
+                document.getElementById('domainInput-error')?.remove();
+                const error = document.createElement('div');
+                error.id = 'domainInput-error';
+                error.className = 'zm-input-error';
+                error.textContent = message;
+                domainInput.insertAdjacentElement('afterend', error);
+            }
+        };
+
+        testAgent.subscribe((state, context, previousState) => {
+            if (state === 'testing') {
+                form.classList.add('zm-is-testing');
+                if (domainInput instanceof HTMLInputElement) domainInput.disabled = true;
+                if (submitButton instanceof HTMLButtonElement) submitButton.disabled = true;
+                updateProgress(context.progress);
+                return;
+            }
+
+            if (state === 'complete' && previousState === 'testing' && context.testId) {
+                window.location.href = `${import.meta.env.BASE_URL}${document.documentElement.lang}/result/${context.testId}/`;
+                testAgent.transition('RESET');
+                return;
+            }
+
+            if (state === 'idle' && previousState === 'testing') {
+                resetForm(
+                    getValidationErrorByPath(context.error, '/domain') ||
+                        (context.error instanceof Error
+                            ? context.error.message
+                            : 'Unable to start the test.'),
+                );
+            }
+        });
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            if (!form.reportValidity()) return;
+
+            if (toggle?.checked) {
+                if (batchMockup) batchMockup.hidden = false;
+                return;
+            }
+
+            const formData = formToObj(form);
+
+            if (!formData.domain) return;
+
+            if (formData.iptype) {
+                formData.ipv4 = formData.iptype !== 'ipv6';
+                formData.ipv6 = formData.iptype !== 'ipv4';
+                delete formData.iptype;
+            }
+
+            testAgent.transition('START', formData);
+        });
+
+        syncBatchMode();
+        updateCounter();
+    };
+
+    initializeStartTest();
+</script>
 <Article />
