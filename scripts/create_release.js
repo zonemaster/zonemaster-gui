@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import archiver from 'archiver';
+import { ZipArchive } from '@archiver/archiver';
 import { readFileSync } from 'fs';
 
 // Read package.json to get version
@@ -10,7 +10,7 @@ const packageJson = JSON.parse(
 
 export async function zipDirectory(sourceDir, outPath) {
     const output = fs.createWriteStream(outPath);
-    const archive = archiver('zip', {
+    const archive = new ZipArchive({
         zlib: { level: 9 }
     });
 

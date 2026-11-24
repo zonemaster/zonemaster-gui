@@ -32,7 +32,7 @@
     ];
 
     const digestTypes = [
-        { value: '', label: '' },
+        { value: '', name: '' },
         { value: '1', name: '1 - SHA-1' },
         { value: '2', name: '2 - SHA-256' },
         { value: '3', name: '3 - GOST R 34.11-94' },
