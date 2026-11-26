@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import remarkGfm from 'remark-gfm';
+import { unified } from '@astrojs/markdown-remark';
 import {
     remarkDefinitionList,
     defListHastHandlers,
@@ -8,12 +8,13 @@ import {
 import svelte from '@astrojs/svelte';
 import node from '@astrojs/node';
 import config from './src/config.js';
-import messagesPlugin, { messagesIntegration } from './scripts/messages-plugin.ts';
+import messagesPlugin from './scripts/messages-plugin.ts';
 
 // https://astro.build/config
 export default defineConfig({
     base: config.baseUrl,
     trailingSlash: "always",
+    compressHTML: true,
     output: process.env.NODE_ENV === 'production' ? 'static' : 'server',
 
     outDir: './public/dist',
@@ -23,13 +24,16 @@ export default defineConfig({
         locales: config.enabledLanguages,
         defaultLocale: config.defaultLanguage,
         routing: {
-            prefixDefaultLocale: true
+            prefixDefaultLocale: true,
+            redirectToDefaultLocale: true,
         },
     },
 
     markdown: {
-        remarkPlugins: [remarkGfm, remarkDefinitionList],
-        remarkRehype: { handlers: defListHastHandlers },
+        processor: unified({
+            remarkPlugins: [remarkDefinitionList],
+            remarkRehype: { handlers: defListHastHandlers },
+        }),
     },
 
     integrations: [
@@ -38,10 +42,12 @@ export default defineConfig({
                 customElement: true
             }
         }),
-        messagesIntegration()
     ],
 
     vite: {
+        define: {
+            'import.meta.env.ZONEMASTER_SITE': true,
+        },
         plugins: [messagesPlugin({
             defaultLanguage: config.defaultLanguage,
             enabledLanguages: config.enabledLanguages,

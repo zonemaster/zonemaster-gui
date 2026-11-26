@@ -18,3 +18,12 @@ test.describe('Zonemaster test FR02 - [All menus should be clickable in latest v
     await expect(page).toHaveURL(baseURL + '/en/');
   });
 });
+
+test('should render the severity definitions at the FAQ permalink', async ({ page }) => {
+  await page.goto('/en/faq/#severity-levels');
+
+  const severityLevels = page.locator('#severity-levels');
+  await expect(severityLevels.locator('dl')).toBeVisible();
+  await expect(severityLevels.locator('dt')).toHaveText(['Info', 'Notice', 'Warning', 'Error', 'Critical']);
+  await expect(severityLevels.locator('dd')).toHaveCount(5);
+});

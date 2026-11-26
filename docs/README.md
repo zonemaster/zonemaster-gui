@@ -7,8 +7,8 @@ Zonemaster-GUI documents
 * [Translation instructions]
 
 
-[Configuration instructions]:                     https://github.com/zonemaster/zonemaster/blob/master/docs/public/configuration/gui/README.md
+[Configuration instructions]:                     https://doc.zonemaster.net/latest/configuration/gui/README.html
 [Installation instructions]:                      https://doc.zonemaster.net/latest/installation/zonemaster-gui.html
 [Unit testing Zonemaster-GUI]:                    Testing.md
-[Translation instructions]:                       https://github.com/zonemaster/zonemaster/blob/master/docs/public/translation/Translating-GUI.md 
+[Translation instructions]:                       https://doc.zonemaster.net/latest/translation/Translating-GUI.html
 [Zonemaster UI]:                                  UI.md

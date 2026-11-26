@@ -6,6 +6,7 @@ const config: PlaywrightTestConfig = {
     testMatch: 'e2e/*.e2e-spec.ts',
     webServer: {
         command: 'NODE_ENV=testing npm run build && NODE_ENV=testing npm run preview',
+        env: { ASTRO_PREVIEW_BACKGROUND: '0' },
         url: 'http://localhost:4321/',
         timeout: 120 * 1000,
         reuseExistingServer: !process.env.CI
