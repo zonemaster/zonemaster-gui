@@ -1,4 +1,5 @@
 import path from 'path';
+import type { Plugin } from 'vite';
 import { generateMessages } from './generate-messages.ts';
 
 interface MessagesPluginConfig {
@@ -17,24 +18,7 @@ function validateConfig(config: any): asserts config is MessagesPluginConfig {
     if (errors.length) throw new Error(`messagesPlugin: ${errors.join(', ')}`);
 }
 
-export function messagesIntegration() {
-    return {
-        name: 'messages-integration',
-        hooks: {
-            'astro:config:setup': ({ injectScript }: any) => {
-                injectScript(
-                    'before-hydration',
-                    `
-                    import { setLocale } from '@/messages';
-                    setLocale(document.documentElement.lang);
-                    `
-                );
-            },
-        },
-    };
-}
-
-export default function messagesPlugin(config: MessagesPluginConfig) {
+export default function messagesPlugin(config: MessagesPluginConfig): Plugin {
     validateConfig(config);
 
     const langDir = path.resolve(process.cwd(), 'messages');
@@ -52,16 +36,16 @@ export default function messagesPlugin(config: MessagesPluginConfig) {
             regenerate();
         },
 
-        configureServer(server: any) {
+        configureServer(server) {
             server.watcher.add(langDir);
         },
 
-        handleHotUpdate({ file, server }: { file: string; server: any }) {
-            if (file.startsWith(langDir) && file.endsWith('.json')) {
+        hotUpdate({ file }) {
+            if (this.environment.name === 'client' && file.startsWith(langDir + path.sep) && file.endsWith('.json')) {
                 console.log('♻️ Language file changed:', path.basename(file));
                 regenerate();
                 // Trigger a full reload to pick up the new messages
-                server.ws.send({ type: 'full-reload' });
+                this.environment.hot.send({ type: 'full-reload' });
                 return [];
             }
         },
