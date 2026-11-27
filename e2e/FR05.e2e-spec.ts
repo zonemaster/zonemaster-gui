@@ -16,6 +16,7 @@ test.describe('Zonemaster test FR05 - [Supports internationalization]', () => {
       { language: 'Norwegian', code: 'nb', expected: 'Domenenavn' },
       { language: 'Swedish', code: 'sv', expected: 'Domänamn' },
       { language: 'Slovenian', code: 'sl', expected: 'Ime domene' },
+      { language: 'Ukrainian', code: 'uk', expected: "Доменне ім'я" },
   ];
 
   for (const { language, code, expected } of testSuite) {
