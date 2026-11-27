@@ -47,9 +47,12 @@
                 <Select
                     name="profile"
                     value="default"
-                    label={m.profile()}
                     options={profiles}
-                />
+                >
+                    {#snippet labelContent()}
+                        <a href={m.profileLink()}>{m.profileText()}</a>
+                    {/snippet}
+                </Select>
             </div>
         {/if}
     </Grid>
