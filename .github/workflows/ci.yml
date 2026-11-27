@@ -17,9 +17,9 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v7
         with:
           node-version: 24.x
           cache: npm
@@ -38,9 +38,9 @@ jobs:
     needs: tests_e2e
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v7
         with:
           node-version: 24.x
           cache: npm
@@ -72,7 +72,7 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: zonemaster_web_gui_v${{ steps.version.outputs.version }}-${{ env.SHORT_SHA }}
           path: zonemaster_web_gui_v${{ steps.version.outputs.version }}.zip

@@ -11,7 +11,9 @@
     transition: background-color 0.2s ease;
     font-size: var(--button-font-size);
 
-    &:hover {
+    &:hover,
+    &:focus {
         background: var(--color-palette-main-90);
+        color: var(--color-palette-white);
     }
 }
